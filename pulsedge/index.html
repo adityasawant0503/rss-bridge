@@ -208,6 +208,7 @@ footer p{margin:0 0 8px}
       <p class="sub">Add your holdings once. PulsEdge reads exchange filings, regulator circulars and newswires, and gives every headline about your stocks a verdict: ignore, watch or act. Thirty seconds, not thirty minutes.</p>
       <form class="f" data-form="hero">
         <input id="email-hero" type="email" required placeholder="you@email.com" aria-label="Email address" autocomplete="email">
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" hidden>
         <button type="submit">Get early access</button>
       </form>
       <p class="note" data-note>no spam &middot; just your invite</p>
@@ -334,6 +335,7 @@ footer p{margin:0 0 8px}
       <p class="sub">Join the private beta. We are onboarding in small batches.</p>
       <form class="f" data-form="cta">
         <input id="email-cta" type="email" required placeholder="you@email.com" aria-label="Email address" autocomplete="email">
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" hidden>
         <button type="submit">Get early access</button>
       </form>
       <p class="note" data-note>private beta &middot; no spam, just your invite</p>
@@ -354,8 +356,10 @@ footer p{margin:0 0 8px}
 
 <script>
 (function(){
-  // Set this when hosting outside claude.ai (e.g. a Formspree or Google Apps Script URL that accepts a JSON POST).
-  var SIGNUP_ENDPOINT = "";
+  // Formspree form ID for signups when the page is hosted on its own domain.
+  // From https://formspree.io/f/abcdwxyz the ID is "abcdwxyz".
+  var FORMSPREE_ID = "";
+  var SIGNUP_ENDPOINT = FORMSPREE_ID ? "https://formspree.io/f/"+FORMSPREE_ID : "";
 
   function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
 
@@ -380,22 +384,27 @@ footer p{margin:0 0 8px}
   // ---------- waitlist signups ----------
   function setNote(n,msg,cls){n.textContent=msg;n.className="note"+(cls?" "+cls:"")}
   document.querySelectorAll("[data-form]").forEach(function(f){
-    var note=f.nextElementSibling,btn=f.querySelector("button"),input=f.querySelector("input");
+    var note=f.nextElementSibling,btn=f.querySelector("button"),input=f.querySelector("input[type=email]"),trap=f.querySelector("input[name=_gotcha]");
+    function done(email){setNote(note,"You're on the list. We'll email "+email+" when your invite is ready.","ok");input.value=""}
     f.addEventListener("submit",function(e){
       e.preventDefault();
       var email=input.value.trim().toLowerCase();
       if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){setNote(note,"Enter a full email address, like you@email.com.","err");return}
+      if(trap&&trap.value){done(email);return} // bot filled the hidden field
       btn.disabled=true;setNote(note,"Saving…");
       ready.then(function(){
         var rec={email:email,source:f.dataset.form,at:Date.now()};
         if(db&&uid)return db.doc("signups/"+uid).set(rec);
-        if(SIGNUP_ENDPOINT)return fetch(SIGNUP_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(rec)}).then(function(r){if(!r.ok)throw new Error("http")});
+        if(SIGNUP_ENDPOINT)return fetch(SIGNUP_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},
+          body:JSON.stringify({email:email,source:rec.source,_subject:"New PulsEdge waitlist signup"})})
+          .then(function(r){return r.json().catch(function(){return {}}).then(function(j){
+            if(!r.ok)throw {code:"form",msg:j.errors&&j.errors[0]&&j.errors[0].message};
+          })});
         throw {code:"no_backend"};
-      }).then(function(){
-        setNote(note,"You're on the list. We'll email "+email+" when your invite is ready.","ok");input.value="";
-      }).catch(function(err){
+      }).then(function(){done(email)}).catch(function(err){
         var c=err&&err.code;
-        setNote(note,c==="no_backend"||c==="invalid_argument"
+        setNote(note,c==="form"&&err.msg ? err.msg+"."
+          : c==="no_backend"||c==="invalid_argument"
           ? "Signup isn't open from this link yet. Ask the PulsEdge team for an invite link."
           : "Couldn't save your email. Check your connection and try again.","err");
       }).then(function(){btn.disabled=false});
