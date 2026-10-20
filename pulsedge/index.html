@@ -16,15 +16,16 @@
 :root{
   --bg:#fff;--fg:#16151a;--mute:#6b6875;--line:#e4e2ea;--pur:#7c4dff;--pur-soft:#efe9ff;
   --btn:#16151a;--btnfg:#fff;--fld:#eeedf2;--term:#0f0e13;--termfg:#f1f0f5;--termmute:#8c8999;--termline:#24222c;
+  --logo-lt:block;--logo-dk:none;--logo-bg:#fff;
   --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,"Courier New",monospace;
   box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#0f0e13;--fg:#f1f0f5;--mute:#9a97a6;--line:#2a2833;--pur:#a98bff;--pur-soft:#211b36;
-  --btn:#f1f0f5;--btnfg:#0f0e13;--fld:#1c1b23;--term:#16151c;--termfg:#f1f0f5;--termmute:#8c8999;--termline:#2a2833;color-scheme:dark}}
+  --btn:#f1f0f5;--btnfg:#0f0e13;--fld:#1c1b23;--term:#16151c;--termfg:#f1f0f5;--termmute:#8c8999;--termline:#2a2833;--logo-lt:none;--logo-dk:block;--logo-bg:#000;color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#0f0e13;--fg:#f1f0f5;--mute:#9a97a6;--line:#2a2833;--pur:#a98bff;--pur-soft:#211b36;
-  --btn:#f1f0f5;--btnfg:#0f0e13;--fld:#1c1b23;--term:#16151c;--termfg:#f1f0f5;--termmute:#8c8999;--termline:#2a2833;color-scheme:dark}
+  --btn:#f1f0f5;--btnfg:#0f0e13;--fld:#1c1b23;--term:#16151c;--termfg:#f1f0f5;--termmute:#8c8999;--termline:#2a2833;--logo-lt:none;--logo-dk:block;--logo-bg:#000;color-scheme:dark}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.6 var(--mono);-webkit-font-smoothing:antialiased}
@@ -38,7 +39,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
 .logo{display:flex;align-items:center;gap:9px;font-weight:600;letter-spacing:-.02em;font-size:17px;text-decoration:none}
-.logo img{width:30px;height:30px;border-radius:50%;display:block;background:#fff;box-shadow:0 0 0 1px var(--line)}
+.logo img{width:30px;height:30px;border-radius:50%;background:var(--logo-bg);box-shadow:0 0 0 1px var(--line)}
+.logo .lt,.orb .lt{display:var(--logo-lt)}.logo .dk,.orb .dk{display:var(--logo-dk)}
 nav{display:flex;align-items:center;gap:22px;font-size:13px}
 nav a{text-decoration:none;color:var(--mute)}
 nav a:hover{color:var(--fg)}
@@ -48,7 +50,7 @@ nav a:hover{color:var(--fg)}
 /* hero */
 .hero{display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center;padding-block:64px 44px}
 .hero>div{min-width:0}
-.orb{justify-self:center;width:100%;max-width:360px;aspect-ratio:1;border-radius:50%;overflow:hidden;background:#fff;
+.orb{justify-self:center;width:100%;max-width:360px;aspect-ratio:1;border-radius:50%;overflow:hidden;background:var(--logo-bg);
   box-shadow:0 0 0 1px var(--line),0 40px 90px -30px color-mix(in srgb,var(--pur) 70%,transparent);animation:float 7s ease-in-out infinite}
 .orb img{width:100%;height:100%;display:block;object-fit:cover}
 @keyframes float{50%{transform:translateY(-10px) rotate(2deg)}}
@@ -199,7 +201,7 @@ footer p{margin:0 0 8px}
 
 <header>
   <div class="w bar">
-    <a class="logo" href="#top" aria-label="PulsEdge home"><img src="assets/icon.png" alt="" width="30" height="30">PulsEdge</a>
+    <a class="logo" href="#top" aria-label="PulsEdge home"><img class="lt" src="assets/icon.png" alt="" width="30" height="30"><img class="dk" src="assets/icon-dark.png" alt="" width="30" height="30">PulsEdge</a>
     <nav>
       <a href="#feed">My watchlist</a>
       <a href="#verdicts">Verdicts</a>
@@ -223,9 +225,9 @@ footer p{margin:0 0 8px}
         <button type="submit">Get early access</button>
       </form>
       <p class="note" data-note>no spam &middot; just your invite</p>
-      <p class="social">Free daily digest on <a href="https://t.me/+nlCbernm1A1hMGI1" target="_blank" rel="noopener">Telegram</a> &middot; <a href="https://www.instagram.com/pulsedge.in/" target="_blank" rel="noopener">@pulsedge.in</a></p>
+      <p class="social">Free daily digest on <a href="https://t.me/pulsedgein" target="_blank" rel="noopener">Telegram</a> &middot; <a href="https://www.instagram.com/pulsedge.in/" target="_blank" rel="noopener">@pulsedge.in</a></p>
       </div>
-      <div class="orb"><img src="assets/logo.png" alt="PulsEdge logo" width="640" height="640"></div>
+      <div class="orb"><img class="lt" src="assets/logo.png" alt="PulsEdge logo" width="640" height="640"><img class="dk" src="assets/logo-dark.png" alt="PulsEdge logo" width="640" height="640"></div>
     </section>
 
     <div class="src" aria-label="Sources PulsEdge reads">
@@ -363,7 +365,7 @@ footer p{margin:0 0 8px}
 
     <footer>
       <p>Educational information only. Not SEBI-registered investment advice. Trading involves substantial risk of loss. Past performance is not indicative of future results.</p>
-      <p><a href="https://t.me/+nlCbernm1A1hMGI1" target="_blank" rel="noopener">Telegram</a> &middot; <a href="https://www.instagram.com/pulsedge.in/" target="_blank" rel="noopener">Instagram</a></p>
+      <p><a href="https://t.me/pulsedgein" target="_blank" rel="noopener">Telegram</a> &middot; <a href="https://www.instagram.com/pulsedge.in/" target="_blank" rel="noopener">Instagram</a></p>
       <p>&copy; 2026 PulsEdge &middot; private beta</p>
     </footer>
   </div>
