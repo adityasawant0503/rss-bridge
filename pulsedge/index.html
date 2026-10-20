@@ -104,6 +104,9 @@ h2{font-size:clamp(24px,3.4vw,34px);line-height:1.15;letter-spacing:-.035em;font
 .hold li button:hover{color:var(--fg);background:var(--fld)}
 .empty{font-size:13px;color:var(--mute);padding:14px 0 2px}
 .saved{font-size:11px;color:var(--mute);margin:12px 0 0}
+.imp-msg{font-size:12px;color:var(--mute);margin:10px 0 0}
+.imp-msg.ok{color:var(--pur)}
+.wl.drag{border-color:var(--pur);background:var(--pur-soft)}
 
 .term{background:var(--term);color:var(--termfg);border-radius:14px;border:1px solid var(--termline);overflow:hidden;box-shadow:0 30px 60px -30px color-mix(in srgb,var(--pur) 45%,transparent)}
 .thead{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;border-bottom:1px solid var(--termline);font-size:12px;color:var(--termmute)}
@@ -112,12 +115,27 @@ h2{font-size:clamp(24px,3.4vw,34px);line-height:1.15;letter-spacing:-.035em;font
 .tab{background:none;border:0;border-bottom:2px solid transparent;color:var(--termmute);padding:10px 10px 9px;font-size:12.5px;white-space:nowrap}
 .tab[aria-selected="true"]{color:var(--termfg);border-bottom-color:#a98bff}
 .tab .n{display:inline-block;min-width:18px;margin-left:6px;padding:0 5px;border-radius:999px;background:var(--termline);font-size:11px;text-align:center}
-.chips{display:flex;gap:6px;flex-wrap:wrap;padding:10px 16px;border-bottom:1px solid var(--termline)}
+.chips{display:flex;gap:6px;flex-wrap:wrap;align-items:center;padding:10px 16px;border-bottom:1px solid var(--termline)}
+.q{margin-left:auto;min-width:0;flex:0 1 210px;background:transparent;border:1px solid var(--termline);color:var(--termfg);border-radius:999px;padding:4px 12px;font:inherit;font-size:12px}
+.q::placeholder{color:var(--termmute)}
+.q:focus{outline:none;border-color:#a98bff}
+@media (max-width:640px){.q{flex-basis:100%;margin-left:0}}
 .chip{background:none;border:1px solid var(--termline);color:var(--termmute);border-radius:999px;padding:3px 11px;font-size:12px}
 .chip[aria-pressed="true"]{border-color:#a98bff;color:var(--termfg);background:#a98bff22}
 .feed{list-style:none;margin:0;padding:0;font-size:13px;min-height:300px}
-.row{display:grid;grid-template-columns:48px 70px 1fr auto;gap:14px;align-items:center;padding:12px 16px;border-bottom:1px solid var(--termline)}
-.row.new{animation:in .6s ease both}
+.feed.live{max-height:620px;overflow-y:auto}
+.row{border-bottom:1px solid var(--termline)}
+.rb{display:grid;grid-template-columns:48px 70px 1fr auto;gap:14px;align-items:center;padding:12px 16px;width:100%;background:none;border:0;color:inherit;text-align:left;font:inherit;cursor:pointer}
+.rb:hover{background:#ffffff08}
+.row.open .rb{background:#a98bff12}
+.det{padding:2px 16px 16px 148px;font-size:12.5px;color:var(--termmute);display:grid;gap:10px;background:#a98bff12}
+.det p{margin:0;color:var(--termfg);max-width:62ch}
+.det .meta{display:flex;flex-wrap:wrap;gap:6px 14px}
+.det a{color:#c9b6ff}
+.fb{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.fb button{background:none;border:1px solid var(--termline);color:var(--termmute);border-radius:999px;padding:3px 12px;font-size:12px}
+.fb button[aria-pressed="true"]{border-color:#a98bff;color:var(--termfg);background:#a98bff22}
+.row.new .rb{animation:in .6s ease both}
 @keyframes in{from{background:#a98bff26}to{background:transparent}}
 .t{color:var(--termmute);font-variant-numeric:tabular-nums}
 .v{font-size:11px;font-weight:600;letter-spacing:.08em;text-align:center;border-radius:6px;padding:3px 0}
@@ -133,7 +151,7 @@ h2{font-size:clamp(24px,3.4vw,34px);line-height:1.15;letter-spacing:-.035em;font
 .fempty{padding:48px 20px;text-align:center;color:var(--termmute);font-size:13px}
 .fempty b{display:block;color:var(--termfg);font-weight:500;margin-bottom:6px}
 .tfoot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;padding:12px 16px;border-top:1px solid var(--termline);font-size:12px;color:var(--termmute)}
-@media (max-width:640px){.row{grid-template-columns:64px 1fr;gap:6px 12px}.row .t{display:none}.row .v{grid-row:1;grid-column:1}.row .hz{grid-row:1;grid-column:2;justify-self:end}.row .h{grid-column:1/-1}}
+@media (max-width:640px){.rb{grid-template-columns:64px 1fr;gap:6px 12px}.rb .t{display:none}.rb .v{grid-row:1;grid-column:1}.rb .hz{grid-row:1;grid-column:2;justify-self:end}.rb .h{grid-column:1/-1}.det{padding-left:16px}}
 
 /* verdicts */
 .verdicts{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:14px;overflow:hidden}
@@ -194,7 +212,7 @@ h2{font-size:clamp(24px,3.4vw,34px);line-height:1.15;letter-spacing:-.035em;font
 footer{padding-block:40px 32px;font-size:12px;color:var(--mute);text-align:center;max-width:70ch;margin:0 auto}
 footer p{margin:0 0 8px}
 
-@media (prefers-reduced-motion:reduce){.dot,.row.new,.orb{animation:none}html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){.dot,.row.new .rb,.orb{animation:none}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
@@ -242,13 +260,16 @@ footer p{margin:0 0 8px}
       <div class="desk">
         <div class="wl">
           <h3>Holdings</h3>
-          <p class="hint">One stock per line, NSE symbol and quantity. Commas work too.</p>
+          <p class="hint">One stock per line, NSE symbol and quantity. Or drop your broker's holdings CSV here.</p>
           <label for="hold-in">Paste holdings</label>
           <textarea id="hold-in" spellcheck="false" placeholder="TCS 40&#10;HDFCBANK 120&#10;SUNPHARMA 35"></textarea>
           <div class="acts">
             <button class="b1" id="hold-add" type="button">Add to watchlist</button>
+            <button class="b2" id="hold-imp" type="button">Import CSV</button>
             <button class="b2" id="hold-ex" type="button">Try an example</button>
+            <input id="hold-file" type="file" accept=".csv,text/csv" hidden>
           </div>
+          <p class="imp-msg" id="imp-msg">Works with holdings exports from Zerodha Kite or Console, or any CSV with symbol and quantity columns.</p>
           <ul class="hold" id="hold-list"></ul>
           <p class="saved" id="hold-saved">Saved in this browser.</p>
         </div>
@@ -256,7 +277,7 @@ footer p{margin:0 0 8px}
         <div class="term">
           <div class="thead">
             <div class="lights"><i></i><i></i><i></i></div>
-            <span>pulse://feed &middot; sample headlines</span>
+            <span id="mode">pulse://feed &middot; sample headlines</span>
           </div>
           <div class="tabs" role="tablist" aria-label="Feed sections">
             <button class="tab" role="tab" data-s="mine" aria-selected="true">My stocks<span class="n" id="n-mine">0</span></button>
@@ -270,11 +291,12 @@ footer p{margin:0 0 8px}
             <button class="chip" data-f="act" aria-pressed="false">act</button>
             <button class="chip" data-f="watch" aria-pressed="false">watch</button>
             <button class="chip" data-f="ignore" aria-pressed="false">ignore</button>
+            <input class="q" id="q" type="search" placeholder="search symbol or word" aria-label="Search the feed" autocomplete="off">
           </div>
           <ul class="feed" id="feedlist" aria-live="polite"></ul>
           <div class="tfoot">
             <span id="stat"></span>
-            <span>headlines shown are samples, not live market news</span>
+            <span id="srcnote">headlines shown are samples, not live market news &middot; tap one for details</span>
           </div>
         </div>
       </div>
@@ -330,13 +352,13 @@ footer p{margin:0 0 8px}
           </ul>
         </div>
         <div class="card" aria-label="Sample digest">
-          <div class="top"><b>Digest &middot; Tue, 20 Oct</b><span>sample</span></div>
+          <div class="top"><b id="dg-date">Digest &middot; Tue, 20 Oct</b><span id="dg-tag">sample</span></div>
           <div class="tally">
-            <div class="pa"><strong>3</strong><small>act</small></div>
-            <div><strong>7</strong><small>watch</small></div>
-            <div><strong>214</strong><small>ignored</small></div>
+            <div class="pa"><strong id="dg-act">3</strong><small>act</small></div>
+            <div><strong id="dg-watch">7</strong><small>watch</small></div>
+            <div><strong id="dg-ign">214</strong><small>ignored</small></div>
           </div>
-          <ul class="why">
+          <ul class="why" id="dg-why">
             <li><span>Duplicate wire stories</span><span>96</span></li>
             <li><span>Routine compliance filings</span><span>71</span></li>
             <li><span>No exposure to your holdings</span><span>47</span></li>
@@ -490,6 +512,56 @@ footer p{margin:0 0 8px}
   document.getElementById("hold-ex").onclick=function(){
     merge(parse("TCS 40\nHDFCBANK 120\nSUNPHARMA 35\nLT 15"));save();renderHold();rebuild();select("mine");
   };
+  // broker CSV import (Kite: Instrument, Qty. / Console: Symbol, Quantity Available / generic)
+  var impMsg=document.getElementById("imp-msg"),fileIn=document.getElementById("hold-file"),wl=document.querySelector(".wl");
+  function csvRows(text){
+    var rows=[],row=[],cell="",q=false;
+    for(var i=0;i<text.length;i++){
+      var ch=text[i];
+      if(q){if(ch==='"'){if(text[i+1]==='"'){cell+='"';i++}else q=false}else cell+=ch}
+      else if(ch==='"')q=true;
+      else if(ch===","||ch==="\t"){row.push(cell);cell=""}
+      else if(ch==="\n"||ch==="\r"){if(ch==="\r"&&text[i+1]==="\n")i++;row.push(cell);rows.push(row);row=[];cell=""}
+      else cell+=ch;
+    }
+    if(cell||row.length){row.push(cell);rows.push(row)}
+    return rows;
+  }
+  function fromCsv(text){
+    var rows=csvRows(text.replace(/^﻿/,"")),symRe=/^(instrument|symbol|trading ?symbol|stock symbol|scrip|ticker|nse symbol)$/,qtyRe=/^(qty\.?|quantity|quantity available|net qty|shares|holdings?)$/;
+    for(var r=0;r<Math.min(rows.length,25);r++){
+      var hdr=rows[r].map(function(c){return c.trim().toLowerCase()});
+      var si=hdr.findIndex(function(c){return symRe.test(c)}),qi=hdr.findIndex(function(c){return qtyRe.test(c)});
+      if(si<0)continue;
+      var out=[];
+      rows.slice(r+1).forEach(function(cells){
+        var sym=(cells[si]||"").trim().toUpperCase().replace(/\.(NS|BO)$|-(EQ|BE)$/,"");
+        if(!/^[A-Z][A-Z0-9&\-]{0,19}$/.test(sym))return;
+        var q=qi>=0?parseFloat(String(cells[qi]||"").replace(/,/g,"")):NaN;
+        out.push({s:sym,q:isFinite(q)&&q>0?Math.round(q):null});
+      });
+      return out;
+    }
+    return null;
+  }
+  function importFile(f){
+    if(!f)return;
+    if(!/\.csv$/i.test(f.name)&&f.type!=="text/csv"){impMsg.textContent="That file isn't a CSV. In your broker app, download holdings as CSV and try again.";impMsg.className="imp-msg";return}
+    var rd=new FileReader();
+    rd.onload=function(){
+      var got=fromCsv(String(rd.result||""));
+      if(!got||!got.length){impMsg.textContent="Couldn't find a symbol column in "+f.name+". The file needs a header like Symbol or Instrument.";impMsg.className="imp-msg";return}
+      merge(got);save();renderHold();rebuild();select("mine");
+      impMsg.textContent="Imported "+got.length+" stock"+(got.length===1?"":"s")+" from "+f.name+".";impMsg.className="imp-msg ok";
+    };
+    rd.readAsText(f);
+  }
+  document.getElementById("hold-imp").onclick=function(){fileIn.click()};
+  fileIn.onchange=function(){importFile(fileIn.files[0]);fileIn.value=""};
+  ["dragenter","dragover"].forEach(function(t){wl.addEventListener(t,function(e){if(e.dataTransfer&&Array.prototype.indexOf.call(e.dataTransfer.types,"Files")>=0){e.preventDefault();wl.classList.add("drag")}})});
+  wl.addEventListener("dragleave",function(e){if(!wl.contains(e.relatedTarget))wl.classList.remove("drag")});
+  wl.addEventListener("drop",function(e){wl.classList.remove("drag");if(e.dataTransfer&&e.dataTransfer.files.length){e.preventDefault();importFile(e.dataTransfer.files[0])}});
+
   try{holdings=JSON.parse(store("pe_hold")||"[]")||[]}catch(e){holdings=[]}
   ready.then(function(){
     if(!db||!uid)return;
@@ -498,8 +570,9 @@ footer p{margin:0 0 8px}
     });
   }).catch(function(){});
 
-  // ---------- sample feed ----------
-  // [section, verdict, headline, detail, horizon]
+  // ---------- feed ----------
+  // Live mode: data/feed.json (format in data/README.md). Sample mode: generated headlines below.
+  // Sample rows: [section, verdict, headline, detail, horizon]
   var general=[
     ["news","act","Q2 results: IT services major cuts FY revenue guidance to 3–5%","Earnings · IT services","weeks"],
     ["news","ignore","Regulation 74(5) certificate filed for quarter ended September","Compliance · routine","skip"],
@@ -527,58 +600,156 @@ footer p{margin:0 0 8px}
     ["news","act","{T} wins order worth about 6% of trailing revenue","Order win · your holding","months"],
     ["news","watch","Rating agency places {T} on watch with developing implications","Credit · your holding","quarter"]
   ];
-  var buffer=[],gi=0,ti=0,tick=0,section="mine",verdict="all",clock=new Date();clock.setHours(9,15,0,0);
+  var SAMPLE_REASON="Sample headline. In the live feed this shows why Pulse chose the verdict and links to the source filing.";
+  var live=false,buffer=[],gi=0,ti=0,tick=0,seq=0,section="mine",verdict="all",query="",openId=null,timer=null;
+  var clock=new Date();clock.setHours(9,15,0,0);
   function pad(n){return (n<10?"0":"")+n}
   function nextItem(){
     tick++;
     var useT=holdings.length&&tick%2===0,it;
     if(useT){
       var tpl=templates[ti++%templates.length],h=holdings[(ti+Math.floor(ti/templates.length))%holdings.length];
-      it={sec:tpl[0],v:tpl[1],head:tpl[2].replace("{T}",h.s),d:tpl[3],hz:tpl[4],tk:h.s};
+      it={sec:tpl[0],v:tpl[1],head:tpl[2].replace("{T}",h.s),d:tpl[3],hz:tpl[4],tk:[h.s]};
     }else{
-      var g=general[gi++%general.length];it={sec:g[0],v:g[1],head:g[2],d:g[3],hz:g[4],tk:null};
+      var g=general[gi++%general.length];it={sec:g[0],v:g[1],head:g[2],d:g[3],hz:g[4],tk:[]};
     }
     clock=new Date(clock.getTime()+(2+Math.floor(Math.random()*5))*60000);
     if(clock.getHours()>=15&&clock.getMinutes()>30)clock.setHours(9,15,0,0);
     it.time=pad(clock.getHours())+":"+pad(clock.getMinutes());
+    it.id="s"+(++seq);it.reason=SAMPLE_REASON;it.src="";it.url="";
     return it;
   }
-  function owned(it){return it.tk&&holdings.some(function(h){return h.s===it.tk})}
+
+  // live items -> the same shape as sample items
+  var SECS={trading:1,news:1,macro:1},VS={act:1,watch:1,ignore:1};
+  function istTime(iso){
+    var t=new Date(iso);if(isNaN(t))return "";
+    return t.toLocaleTimeString("en-IN",{timeZone:"Asia/Kolkata",hour:"2-digit",minute:"2-digit",hour12:false});
+  }
+  function fromLive(x,i){
+    var v=String(x.verdict||"").toLowerCase(),sec=String(x.section||"").toLowerCase();
+    return {
+      id:String(x.id||("l"+i)),time:istTime(x.time),ts:Date.parse(x.time)||0,
+      sec:SECS[sec]?sec:"news",v:VS[v]?v:"ignore",
+      head:String(x.headline||""),d:[x.category,x.affected].filter(Boolean).join(" · "),
+      hz:String(x.horizon||(v==="ignore"?"skip":"")),
+      tk:(Array.isArray(x.tickers)?x.tickers:[]).map(function(t){return String(t).toUpperCase()}),
+      reason:String(x.reason||""),src:String(x.source||""),
+      url:/^https?:\/\//.test(x.url||"")?x.url:""
+    };
+  }
+  function loadLive(){
+    return fetch("data/feed.json",{cache:"no-store"}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(j){
+      var items=(j&&Array.isArray(j.items)?j.items:[]).filter(function(x){return x&&x.headline}).map(fromLive);
+      if(!items.length)throw 0;
+      items.sort(function(a,b){return b.ts-a.ts});
+      live=true;buffer=items.slice(0,300);
+      if(timer){clearInterval(timer);timer=null}
+      var upd=j.updated?new Date(j.updated):null;
+      document.getElementById("mode").textContent="pulse://feed · live"+(upd&&!isNaN(upd)?" · updated "+upd.toLocaleString("en-IN",{timeZone:"Asia/Kolkata",day:"numeric",month:"short",hour:"2-digit",minute:"2-digit",hour12:false})+" IST":"");
+      document.getElementById("srcnote").textContent="tap a headline for the reason and source";
+      list.classList.add("live");
+      if(j.digest)renderDigest(j.digest);
+      render();
+    });
+  }
+  function renderDigest(dg){
+    function num(n){return typeof n==="number"&&isFinite(n)?n.toLocaleString("en-IN"):"–"}
+    var dt=dg.date?new Date(dg.date+"T12:00:00+05:30"):null;
+    document.getElementById("dg-date").textContent="Digest · "+(dt&&!isNaN(dt)?dt.toLocaleDateString("en-IN",{weekday:"short",day:"numeric",month:"short"}):"latest");
+    document.getElementById("dg-tag").textContent="live";
+    document.getElementById("dg-act").textContent=num(dg.act);
+    document.getElementById("dg-watch").textContent=num(dg.watch);
+    document.getElementById("dg-ign").textContent=num(dg.ignored);
+    var ul=document.getElementById("dg-why");
+    if(Array.isArray(dg.reasons)&&dg.reasons.length){
+      ul.textContent="";
+      dg.reasons.slice(0,6).forEach(function(r){
+        var li=document.createElement("li"),a=document.createElement("span"),b=document.createElement("span");
+        a.textContent=String(r.label||"");b.textContent=num(r.count);li.append(a,b);ul.appendChild(li);
+      });
+    }
+  }
+
+  // agree / disagree feedback, per viewer
+  var fb={};try{fb=JSON.parse(store("pe_fb")||"{}")||{}}catch(e){fb={}}
+  function setFb(id,val){
+    if(fb[id]===val)delete fb[id];else fb[id]=val;
+    store("pe_fb",JSON.stringify(fb));
+    ready.then(function(){if(db&&uid)return db.collection("data/users/"+uid).doc("feedback").set({votes:fb,at:Date.now()})}).catch(function(){});
+    render();
+  }
+  ready.then(function(){
+    if(!db||!uid)return;
+    return db.collection("data/users/"+uid).doc("feedback").get().then(function(d){
+      if(d.exists&&d.data().votes&&typeof d.data().votes==="object"){fb=Object.assign({},d.data().votes,fb);render()}
+    });
+  }).catch(function(){});
+
+  function owned(it){return it.tk.some(function(t){return holdings.some(function(h){return h.s===t})})}
   function visible(it){
     if(section==="mine"&&!owned(it))return false;
     if(section!=="mine"&&section!=="all"&&it.sec!==section)return false;
-    return verdict==="all"||it.v===verdict;
+    if(verdict!=="all"&&it.v!==verdict)return false;
+    if(query){
+      var hay=(it.head+" "+it.d+" "+it.tk.join(" ")+" "+it.reason).toUpperCase();
+      return query.split(/\s+/).every(function(w){return hay.indexOf(w)>=0});
+    }
+    return true;
   }
   var list=document.getElementById("feedlist");
+  function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e}
   function render(fresh){
     list.textContent="";
-    var shown=buffer.filter(visible).slice(0,8);
+    var shown=buffer.filter(visible).slice(0,live?60:8);
     if(!shown.length){
-      var e=document.createElement("li");e.className="fempty";
-      var b=document.createElement("b"),s=document.createElement("span");
+      var e=el("li","fempty"),b=el("b"),s=el("span");
       if(section==="mine"&&!holdings.length){b.textContent="Your feed is empty";s.textContent="Add your holdings on the left and headlines for those stocks appear here."}
-      else{b.textContent="Nothing here yet";s.textContent="New headlines arrive every few seconds."}
+      else if(query){b.textContent="No headlines match “"+query.toLowerCase()+"”";s.textContent="Try a stock symbol like TCS, or clear the search."}
+      else{b.textContent="Nothing here yet";s.textContent=live?"No headlines in this section today.":"New headlines arrive every few seconds."}
       e.append(b,s);list.appendChild(e);
     }
     shown.forEach(function(it){
-      var li=document.createElement("li");li.className="row"+(it.v==="ignore"?" ig":"")+(it===fresh?" new":"");
-      var t=document.createElement("span");t.className="t";t.textContent=it.time;
-      var v=document.createElement("span");v.className="v "+it.v;v.textContent=it.v.toUpperCase();
-      var h=document.createElement("span");h.className="h";
-      var hb=document.createElement("b");hb.textContent=it.head;
-      var hs=document.createElement("span");
-      if(it.tk&&owned(it)){var k=document.createElement("span");k.className="tk";k.textContent=it.tk;hs.appendChild(k)}
+      var open=it.id===openId;
+      var li=el("li","row"+(it.v==="ignore"?" ig":"")+(it===fresh?" new":"")+(open?" open":""));
+      var rb=el("button","rb");rb.type="button";rb.setAttribute("aria-expanded",open?"true":"false");
+      var h=el("span","h"),hs=el("span");
+      it.tk.forEach(function(t){if(holdings.some(function(x){return x.s===t}))hs.appendChild(el("span","tk",t))});
       hs.appendChild(document.createTextNode(it.d));
-      h.append(hb,hs);
-      var z=document.createElement("span");z.className="hz";z.textContent=it.hz;
-      li.append(t,v,h,z);list.appendChild(li);
+      h.append(el("b",null,it.head),hs);
+      rb.append(el("span","t",it.time),el("span","v "+it.v,it.v.toUpperCase()),h,el("span","hz",it.hz||"–"));
+      rb.onclick=function(){openId=open?null:it.id;render()};
+      li.appendChild(rb);
+      if(open){
+        var det=el("div","det");
+        det.appendChild(el("p",null,it.reason||"No reason recorded for this headline."));
+        var meta=el("div","meta");
+        if(it.src)meta.appendChild(el("span",null,"Source: "+it.src));
+        if(it.tk.length)meta.appendChild(el("span",null,"Stocks: "+it.tk.join(", ")));
+        if(it.url){var a=el("a",null,"Open source filing ↗");a.href=it.url;a.target="_blank";a.rel="noopener";meta.appendChild(a)}
+        if(meta.childNodes.length)det.appendChild(meta);
+        var f=el("div","fb");f.appendChild(el("span",null,"Was this verdict right?"));
+        [["agree","Yes"],["disagree","No, wrong call"]].forEach(function(o){
+          var bt=el("button",null,o[1]);bt.type="button";bt.setAttribute("aria-pressed",fb[it.id]===o[0]?"true":"false");
+          bt.onclick=function(){setFb(it.id,o[0])};f.appendChild(bt);
+        });
+        if(fb[it.id])f.appendChild(el("span",null,"Thanks, noted."));
+        det.appendChild(f);li.appendChild(det);
+      }
+      list.appendChild(li);
     });
     var mine=buffer.filter(owned),c={act:0,watch:0,ignore:0};
     buffer.forEach(function(it){c[it.v]++});
     document.getElementById("stat").textContent=buffer.length+" read · "+c.act+" act · "+c.watch+" watch · "+c.ignore+" ignored"+(holdings.length?" · "+mine.length+" about your stocks":"");
   }
-  function push(){var it=nextItem();buffer.unshift(it);if(buffer.length>60)buffer.pop();render(it)}
-  function rebuild(){buffer=[];tick=0;for(var k=0;k<24;k++)buffer.unshift(nextItem());render()}
+  function push(){
+    if(live||openId)return; // don't shuffle rows while someone is reading one
+    var it=nextItem();buffer.unshift(it);if(buffer.length>60)buffer.pop();render(it);
+  }
+  function rebuild(){
+    if(live){render();return}
+    buffer=[];tick=0;for(var k=0;k<24;k++)buffer.unshift(nextItem());render();
+  }
 
   function select(s){
     section=s;
@@ -593,10 +764,13 @@ footer p{margin:0 0 8px}
       render();
     };
   });
+  document.getElementById("q").addEventListener("input",function(e){query=e.target.value.trim().toUpperCase();render()});
 
   renderHold();rebuild();
   if(!holdings.length)select("all");
-  if(!matchMedia("(prefers-reduced-motion:reduce)").matches)setInterval(push,3200);
+  if(!matchMedia("(prefers-reduced-motion:reduce)").matches)timer=setInterval(push,3200);
+  loadLive().catch(function(){}); // stays on samples until data/feed.json exists
+  setInterval(function(){if(live&&!openId)loadLive().catch(function(){})},120000);
 })();
 </script>
 </body>
