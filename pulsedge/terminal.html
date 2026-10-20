@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PulsEdge Terminal</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Pre-market checklist and live news signals for Indian stocks.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+/* Layout: PULSE design. Status bar on top; pre-market panel then signal feed in one column on phones,
+   side by side on desktop (pre-market sticky on the left). Single dark theme by design. */
+:root{
+  --bg:#0b0b10;--panel:#121219;--panel2:#171720;--line:#262532;--fg:#ecebf3;--mute:#8e8a9e;--dim:#5f5c6d;
+  --pur:#8b5cf6;--pur-l:#a78bfa;--pur-soft:#8b5cf61f;--pur-box:#1a1630;--pur-edge:#4c3d8f;
+  --green:#22c55e;--green-l:#4ade80;--green-soft:#22c55e1f;
+  --red:#ef4444;--red-l:#f87171;--red-soft:#ef44441f;
+  --amber:#f59e0b;--amber-l:#fbbf24;--amber-soft:#f59e0b1f;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.45 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--pur-l);outline-offset:2px}
+.mono{font-family:var(--mono)}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.up{color:var(--green-l)}.down{color:var(--red-l)}.flat{color:var(--mute)}
+
+/* status bar */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.14em;font-size:17px;text-decoration:none;margin-right:6px}
+.brand i{width:12px;height:12px;border-radius:50%;background:var(--pur);box-shadow:0 0 0 4px var(--pur-soft),0 0 18px var(--pur)}
+.pill{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:6px;padding:3px 9px;font:500 13px/1.4 var(--mono);white-space:nowrap}
+.pill.mkt-open{color:var(--green-l);border-color:#22c55e55;background:var(--green-soft)}
+.pill.mkt-pre{color:var(--amber-l);border-color:#f59e0b55;background:var(--amber-soft)}
+.pill.mkt-closed{color:var(--mute)}
+.pill.eng b{font-weight:500}
+.pill.eng.live{border-color:#22c55e55}
+.pill.eng.live b{color:var(--green-l)}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--dim)}
+.live .dot{background:var(--green);animation:blink 1.6s ease-in-out infinite}
+@keyframes blink{50%{opacity:.35}}
+.pill.demo{color:var(--pur-l);border-color:var(--pur)}
+.back{margin-left:auto;font-size:13px;color:var(--mute);text-decoration:none}
+.back:hover{color:var(--fg)}
+
+/* layout */
+.main{display:grid;grid-template-columns:420px minmax(0,1fr);gap:20px;align-items:start;padding-block:18px 8px}
+.main>*{min-width:0}
+.pm{position:sticky;top:76px;max-height:calc(100vh - 92px);overflow-y:auto;scrollbar-width:thin}
+@media (max-width:920px){.main{grid-template-columns:1fr}.pm{position:static;max-height:none;overflow:visible}}
+
+/* pre-market */
+.pm{background:var(--panel);border:1px solid var(--line);border-radius:12px}
+.pmh{padding:16px 16px 12px;display:grid;gap:10px}
+.pmr{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px}
+.pmt{font-weight:700;letter-spacing:.12em;color:var(--pur-l);font-size:15px}
+.sent{font:700 12.5px/1.4 var(--mono);letter-spacing:.06em;border-radius:4px;padding:2px 8px;text-transform:uppercase}
+.sent.bear{background:#7f1d1d66;color:var(--red-l)}
+.sent.bull{background:#14532d66;color:var(--green-l)}
+.sent.neutral{background:#3f3f4666;color:var(--fg)}
+.breadth{font:500 12.5px/1.4 var(--mono);border:1px solid #22c55e55;border-radius:4px;padding:2px 7px}
+.prog{font:500 12.5px/1.4 var(--mono);border:1px solid var(--line);border-radius:4px;padding:2px 7px}
+.date{color:var(--mute);font-size:14px}
+.caret{margin-left:auto;background:none;border:0;color:var(--mute);font-size:13px;padding:4px 6px;border-radius:4px}
+.caret:hover{color:var(--fg);background:var(--panel2)}
+.pmb{border-top:1px solid var(--line)}
+.cl{list-style:none;margin:0;padding:0}
+.cl li{display:grid;grid-template-columns:22px 14px 1fr;gap:12px;align-items:start;padding:14px 16px;border-bottom:1px solid var(--line)}
+.cl input{appearance:none;-webkit-appearance:none;width:20px;height:20px;margin:1px 0 0;border:1.5px solid #c9c7d3;border-radius:4px;background:#fff;display:grid;place-content:center;cursor:pointer}
+.cl input:checked{background:var(--pur);border-color:var(--pur)}
+.cl input:checked::after{content:"";width:6px;height:11px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.ind{font-size:12px;line-height:22px;text-align:center}
+.ind.flat{color:var(--dim);font-size:15px}
+.ct{font-size:13px;color:var(--mute)}
+.cl li.done .ct{text-decoration:line-through}
+.cv{font-weight:600;font-size:16px;margin-top:1px}
+.cv.flat{color:var(--fg)}
+.cd{font:12.5px/1.5 var(--mono);color:var(--mute);margin-top:4px}
+.cd div{overflow-wrap:anywhere}
+.notes{padding:16px;display:grid;gap:14px}
+.summary{margin:0;font-size:15.5px;line-height:1.5}
+.lbl{font:600 11.5px/1 var(--sans);letter-spacing:.12em;color:var(--mute);text-transform:uppercase;margin:4px 0 8px}
+.bul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.bul li{display:grid;grid-template-columns:12px 1fr;gap:8px}
+.bul li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--pur-l);margin-top:8px}
+.focus{display:grid;gap:6px}
+.focus div{display:flex;align-items:center;gap:8px;flex-wrap:wrap;color:var(--mute)}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font:500 12.5px/1.4 var(--sans);border:1px solid;border-radius:4px;padding:2px 7px}
+.tag.positive{color:var(--green-l);border-color:#22c55e55}
+.tag.negative{color:var(--red-l);border-color:#ef444455}
+.tag.watch{color:var(--amber-l);border-color:#f59e0b55}
+.risk{background:var(--amber-soft);border-left:3px solid var(--amber);border-radius:6px;padding:10px 12px;font-size:14.5px}
+.risk b{color:var(--amber-l)}
+.also{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.tile{border:1px solid var(--line);border-radius:8px;padding:8px 10px;background:var(--panel2);font-family:var(--mono)}
+.tile small{display:block;color:var(--mute);font-size:11.5px}
+.tile b{display:block;font-weight:500;font-size:16px;font-variant-numeric:tabular-nums}
+.tile span{font-size:12.5px}
+
+/* tabs */
+.tabs{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;margin-bottom:12px}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;background:none;border:1px solid var(--line);border-radius:8px;padding:7px 14px;color:var(--mute);font-size:14.5px}
+.tab:hover{color:var(--fg)}
+.tab[aria-selected="true"]{background:var(--pur);border-color:var(--pur);color:#fff}
+.tab .n{font:500 11.5px/1 var(--mono);margin-left:6px;opacity:.8}
+
+/* signal cards */
+.feed{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.sig{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--dim);border-radius:12px;padding:14px 16px;display:grid;gap:9px}
+.sig.buy{border-left-color:var(--green)}
+.sig.sell{border-left-color:var(--red)}
+.sig.watch{border-left-color:var(--amber)}
+.sig.fresh{animation:fresh 1.2s ease}
+@keyframes fresh{from{background:var(--pur-box)}to{background:var(--panel)}}
+.sh{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;font-size:14px}
+.sh .tm{font:500 14px/1.4 var(--mono);color:var(--mute)}
+.srcb{font:500 13px/1.4 var(--mono);color:var(--pur-l);border:1px solid var(--pur-edge);background:var(--pur-soft);border-radius:4px;padding:1px 7px}
+.call{font:700 12.5px/1.4 var(--mono);letter-spacing:.04em;border-radius:4px;padding:1px 7px}
+.call.buy{background:#14532d99;color:var(--green-l)}
+.call.sell{background:#7f1d1d99;color:var(--red-l)}
+.call.watch{background:#78350f99;color:var(--amber-l)}
+.call.ignore{background:#3f3f4699;color:var(--mute)}
+.hz{color:var(--mute)}
+.dir{font-weight:500}
+.dir.mixed{color:var(--mute)}
+.lat{font:13px/1.4 var(--mono);color:var(--mute)}
+.more{margin-left:auto;background:none;border:0;color:var(--mute);font-size:14px;padding:0 2px}
+.more:hover{color:var(--fg)}
+.sig h3{margin:0;font-size:17px;font-weight:600;line-height:1.35;text-wrap:pretty}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.tk{font:500 13.5px/1.4 var(--mono);color:var(--pur-l);border:1px solid var(--pur-edge);background:var(--pur-soft);border-radius:4px;padding:1px 8px}
+.tk.down{color:var(--red-l);border-color:#ef444466;background:var(--red-soft)}
+.tk.mine{box-shadow:0 0 0 1px var(--pur-l)}
+.sec{font-size:13.5px;color:var(--mute);border:1px dashed var(--line);border-radius:4px;padding:1px 8px}
+.meters{display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px;font:13.5px/1.4 var(--mono);color:var(--mute)}
+.meter{display:inline-flex;align-items:center;gap:8px}
+.meter b{color:var(--fg);font-weight:500;font-variant-numeric:tabular-nums}
+.meter i{display:block;width:64px;height:5px;border-radius:3px;background:#2a2935;overflow:hidden}
+.meter i span{display:block;height:100%;background:var(--pur)}
+.act{background:var(--pur-box);border:1px solid var(--pur-edge);border-radius:8px;padding:9px 12px;font-size:15px}
+.perf{font:13.5px/1.6 var(--mono);color:var(--mute);display:flex;flex-wrap:wrap;gap:2px 14px}
+.perf b{color:var(--fg);font-weight:500}
+.perf .ok{color:var(--green-l)}
+.exp{border-top:1px dashed var(--line);padding-top:10px;display:grid;gap:6px}
+.exp .lbl{margin:6px 0 2px}
+.exp ul{margin:0;padding-left:20px;display:grid;gap:2px}
+.orig{color:var(--mute);margin:0}
+.empty{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:36px 20px;text-align:center;color:var(--mute)}
+.empty b{display:block;color:var(--fg);margin-bottom:4px}
+.empty a{color:var(--pur-l)}
+footer{padding-block:24px 32px;text-align:center;color:var(--dim);font-size:13.5px}
+@media (prefers-reduced-motion:reduce){.live .dot,.sig.fresh{animation:none}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="index.html" aria-label="PulsEdge home"><i></i>PULSE</a>
+    <span class="pill mono" id="clock">--:--:-- IST</span>
+    <span class="pill mkt-closed" id="mkt">MARKET CLOSED</span>
+    <span class="pill eng" id="eng"><span>Engine</span><span class="dot"></span><b id="eng-t">idle</b></span>
+    <span class="pill demo" id="demo" hidden>DEMO</span>
+    <a class="back" href="index.html">← pulsedge</a>
+  </div>
+</header>
+
+<main class="wrap main">
+  <section class="pm" aria-labelledby="pm-t">
+    <div class="pmh">
+      <div class="pmr">
+        <span class="pmt" id="pm-t">PRE-MARKET</span>
+        <span class="sent neutral" id="pm-sent">–</span>
+        <span class="breadth" id="pm-br" hidden></span>
+      </div>
+      <div class="pmr">
+        <span class="prog" id="pm-prog" hidden>0/0 ✓</span>
+        <span class="date" id="pm-date"></span>
+        <button class="caret" id="pm-tog" type="button" aria-expanded="true" aria-controls="pm-body" aria-label="Collapse pre-market">▲</button>
+      </div>
+    </div>
+    <div class="pmb" id="pm-body">
+      <ul class="cl" id="pm-cl"></ul>
+      <div class="notes" id="pm-notes"></div>
+    </div>
+  </section>
+
+  <section aria-label="Signals">
+    <div class="tabs" role="tablist" aria-label="Filter signals">
+      <button class="tab" role="tab" data-t="all" aria-selected="true">All</button>
+      <button class="tab" role="tab" data-t="ideas" aria-selected="false">Trade ideas</button>
+      <button class="tab" role="tab" data-t="watch" aria-selected="false">Watch</button>
+      <button class="tab" role="tab" data-t="redbox" aria-selected="false">RedBox</button>
+      <button class="tab" role="tab" data-t="filings" aria-selected="false">Filings</button>
+      <button class="tab" role="tab" data-t="mine" aria-selected="false">My stocks<span class="n" id="mine-n"></span></button>
+    </div>
+    <ul class="feed" id="feed" aria-live="polite"></ul>
+  </section>
+</main>
+
+<footer class="wrap">Not investment advice. AI analysis can be wrong — confirm on the chart.</footer>
+
+<script>
+(function(){
+  function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+  function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e}
+  function getJson(u){return fetch(u,{cache:"no-store"}).then(function(r){if(!r.ok)throw new Error(u);return r.json()})}
+  var ARROW={up:"▲",down:"▼",mixed:"◆",flat:"●"},HZ={intraday:"⚡ Intraday",swing:"📈 Swing",positional:"🗓 Positional"};
+
+  var hold=[];try{hold=JSON.parse(store("pe_hold")||"[]")||[]}catch(e){hold=[]}
+  function mine(sym){return hold.some(function(h){return h.s===sym})}
+
+  // ---------- status bar ----------
+  function ist(){return new Date(Date.now()+(330+new Date().getTimezoneOffset())*60000)}
+  function pad(n){return ("0"+n).slice(-2)}
+  function tick(){
+    var d=ist(),m=d.getHours()*60+d.getMinutes(),wd=d.getDay()>=1&&d.getDay()<=5,st="MARKET CLOSED",cls="mkt-closed";
+    if(wd&&m>=555&&m<930){st="MARKET OPEN";cls="mkt-open"}else if(wd&&m>=540&&m<555){st="PRE-OPEN";cls="mkt-pre"}
+    document.getElementById("clock").textContent=pad(d.getHours())+":"+pad(d.getMinutes())+":"+pad(d.getSeconds())+" IST";
+    var k=document.getElementById("mkt");k.textContent=st;k.className="pill "+cls;
+    k.title="NSE hours 09:15–15:30 IST, Monday to Friday. Exchange holidays not included.";
+  }
+  tick();setInterval(tick,1000);
+
+  // ---------- pre-market ----------
+  var pm=null,pmKey="";
+  function pmDone(){try{return JSON.parse(store(pmKey)||"[]")||[]}catch(e){return []}}
+  function renderPM(){
+    if(!pm)return;
+    var s=String(pm.sentiment||"Neutral"),sc=/bear/i.test(s)?"bear":/bull/i.test(s)?"bull":"neutral";
+    var se=document.getElementById("pm-sent");se.textContent=s.toUpperCase();se.className="sent "+sc;
+    var cl=Array.isArray(pm.checklist)?pm.checklist:[];
+    var br=pm.breadth||{up:cl.filter(function(c){return c.dir==="up"}).length,down:cl.filter(function(c){return c.dir==="down"}).length};
+    var be=document.getElementById("pm-br");be.hidden=false;be.textContent="";
+    be.append(el("span","up",(br.up||0)+"▲")," ",el("span","down",(br.down||0)+"▼"));
+    var u=pm.updated?new Date(pm.updated):null;
+    var dt=u&&!isNaN(u)?u.toLocaleDateString("en-IN",{timeZone:"Asia/Kolkata",weekday:"short",day:"numeric",month:"short",year:"numeric"})+" · "+u.toLocaleTimeString("en-IN",{timeZone:"Asia/Kolkata",hour:"2-digit",minute:"2-digit",hour12:false})+" IST":"";
+    var open=document.getElementById("pm-tog").getAttribute("aria-expanded")==="true";
+    document.getElementById("pm-date").textContent=open?dt:(dt?"updated "+dt.split(" · ").pop():"");
+    var done=pmDone(),prog=document.getElementById("pm-prog");
+    prog.hidden=!open||!cl.length;prog.textContent=done.length+"/"+cl.length+" ✓";
+
+    var ul=document.getElementById("pm-cl");ul.textContent="";
+    cl.forEach(function(c,i){
+      var d=c.dir==="up"||c.dir==="down"?c.dir:"flat",li=el("li",done.indexOf(i)>=0?"done":"");
+      var cb=el("input");cb.type="checkbox";cb.id="pm-c"+i;cb.checked=done.indexOf(i)>=0;
+      cb.setAttribute("aria-label","Checked: "+c.title);
+      cb.onchange=function(){var dn=pmDone().filter(function(x){return x!==i});if(cb.checked)dn.push(i);store(pmKey,JSON.stringify(dn));renderPM()};
+      var body=el("div");
+      body.append(el("div","ct",(i+1)+". "+c.title),el("div","cv "+d,c.value||""));
+      if(Array.isArray(c.detail)&&c.detail.length){var cd=el("div","cd");c.detail.forEach(function(t){cd.appendChild(el("div",null,t))});body.appendChild(cd)}
+      li.append(cb,el("span","ind "+d,ARROW[d]),body);ul.appendChild(li);
+    });
+
+    var n=document.getElementById("pm-notes");n.textContent="";
+    if(pm.summary)n.appendChild(el("p","summary",pm.summary));
+    function bullets(label,arr){
+      if(!Array.isArray(arr)||!arr.length)return;
+      var w=el("div");w.appendChild(el("div","lbl",label));var b=el("ul","bul");
+      arr.forEach(function(t){b.appendChild(el("li",null,t))});w.appendChild(b);n.appendChild(w);
+    }
+    bullets("Global cues",pm.global_cues);
+    bullets("India triggers",pm.india_triggers);
+    if((pm.focus&&pm.focus.length)||(pm.sector_tags&&pm.sector_tags.length)){
+      var w=el("div");w.appendChild(el("div","lbl","Stocks in focus"));
+      var f=el("div","focus");
+      (pm.focus||[]).forEach(function(x){var r=el("div");r.append(el("span","tk"+(mine(String(x.symbol).toUpperCase())?" mine":""),String(x.symbol).toUpperCase()),el("span",null,x.note||""));f.appendChild(r)});
+      var tg=el("div","tags");
+      (pm.sector_tags||[]).forEach(function(t){var tone=/^(positive|negative|watch)$/.test(t.tone)?t.tone:"watch";tg.appendChild(el("span","tag "+tone,t.label+" · "+tone.toUpperCase()))});
+      if(tg.childNodes.length)f.appendChild(tg);
+      w.appendChild(f);n.appendChild(w);
+    }
+    if(pm.key_risk){var r=el("div","risk");r.append(el("b",null,"Key risk: "),document.createTextNode(pm.key_risk));n.appendChild(r)}
+    if(Array.isArray(pm.also)&&pm.also.length){
+      var w2=el("div");w2.appendChild(el("div","lbl","Also"));var g=el("div","also");
+      pm.also.forEach(function(a){
+        var t=el("div","tile"),ch=typeof a.change==="number"?a.change:null;
+        t.append(el("small",null,a.name),el("b",null,a.value),el("span",ch==null?"flat":ch>=0?"up":"down",ch==null?"":(ch>=0?"+":"")+ch.toFixed(2)+"%"));
+        g.appendChild(t);
+      });
+      w2.appendChild(g);n.appendChild(w2);
+    }
+  }
+  document.getElementById("pm-tog").onclick=function(){
+    var b=this,open=b.getAttribute("aria-expanded")!=="true";
+    b.setAttribute("aria-expanded",open?"true":"false");b.textContent=open?"▲":"▼";b.setAttribute("aria-label",open?"Collapse pre-market":"Expand pre-market");
+    document.getElementById("pm-body").hidden=!open;store("pe_pm_open",open?"1":"0");renderPM();
+  };
+  if(store("pe_pm_open")==="0")document.getElementById("pm-tog").click();
+
+  // ---------- signals ----------
+  var sigs=[],tab="all",openIds={},seen={},firstLoad=true;
+  function normCall(x){
+    var c=String(x.call||"").toLowerCase();if(/^(buy|sell|watch|ignore)$/.test(c))return c;
+    var v=String(x.verdict||"").toLowerCase(),d=String(x.direction||"");
+    if(v==="act")return d==="down"?"sell":"buy";if(v==="ignore")return "ignore";return "watch";
+  }
+  function normalize(x,i){
+    var t=new Date(x.time);t=isNaN(t)?null:t;
+    var tk=(Array.isArray(x.tickers)&&x.tickers.length?x.tickers:Array.isArray(x.impacts)?x.impacts:[]).map(function(m){
+      return typeof m==="string"?{symbol:m.toUpperCase(),direction:"up"}:{symbol:String(m.symbol||"").toUpperCase(),direction:m.direction==="down"?"down":"up"};
+    }).filter(function(m){return m.symbol});
+    var dirs=tk.map(function(m){return m.direction});
+    var dir=/^(up|down|mixed)$/.test(x.direction)?x.direction:dirs.indexOf("up")>=0&&dirs.indexOf("down")>=0?"mixed":dirs[0]||"mixed";
+    function list(v){return Array.isArray(v)?v.map(String):v?[String(v)]:[]}
+    return {id:String(x.id||("s"+i)),t:t,ts:t?t.getTime():0,source:String(x.source||""),call:normCall(x),
+      horizon:String(x.horizon||"").toLowerCase(),dir:dir,latency:typeof x.latency==="number"?x.latency:null,
+      headline:String(x.headline||""),tickers:tk,sectors:list(x.sectors||x.affected),
+      impact:typeof x.impact==="number"?Math.max(0,Math.min(100,x.impact)):null,conf:typeof x.confidence==="number"?Math.max(0,Math.min(100,x.confidence)):null,
+      category:String(x.category||x.theme||""),action:String(x.action||""),reason:list(x.reason),risks:list(x.risks),original:String(x.original||""),
+      url:/^https?:\/\//.test(x.url||"")?x.url:"",after:x.after&&typeof x.after==="object"?x.after:null};
+  }
+  function inTab(s,t){
+    if(t==="ideas")return s.call==="buy"||s.call==="sell";
+    if(t==="watch")return s.call==="watch";
+    if(t==="redbox")return /redbox/i.test(s.source);
+    if(t==="filings")return /announcement|filing|nse|bse/i.test(s.source)||/filing|compliance/i.test(s.category);
+    if(t==="mine")return s.tickers.some(function(m){return mine(m.symbol)});
+    return true;
+  }
+  function pct(v){return (v>=0?"+":"")+Number(v).toFixed(2)+"%"}
+  function meter(label,v){var m=el("span","meter");var i=el("i"),f=el("span");f.style.width=v+"%";i.appendChild(f);m.append(document.createTextNode(label+" "),el("b",null,String(Math.round(v))),i);return m}
+  function card(s){
+    var li=el("li","sig "+s.call+(!firstLoad&&!seen[s.id]?" fresh":""));seen[s.id]=1;
+    var open=!!openIds[s.id];
+    var h=el("div","sh");
+    h.appendChild(el("span","tm",s.t?s.t.toLocaleTimeString("en-IN",{timeZone:"Asia/Kolkata",hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false}):""));
+    if(s.source)h.appendChild(el("span","srcb",s.source));
+    h.appendChild(el("span","call "+s.call,s.call.toUpperCase()));
+    if(s.horizon)h.appendChild(el("span","hz",HZ[s.horizon]||s.horizon));
+    h.appendChild(el("span","dir "+(s.dir==="mixed"?"mixed":s.dir),ARROW[s.dir]+" "+s.dir.toUpperCase()));
+    if(s.latency!=null)h.appendChild(el("span","lat",s.latency.toFixed(1)+"s"));
+    var hasMore=s.reason.length||s.risks.length||s.original||s.url;
+    if(hasMore){var mb=el("button","more",open?"less":"more");mb.type="button";mb.setAttribute("aria-expanded",open?"true":"false");
+      mb.onclick=function(){if(openIds[s.id])delete openIds[s.id];else openIds[s.id]=1;render()};h.appendChild(mb)}
+    li.append(h,el("h3",null,s.headline));
+    var ch=el("div","chips");
+    s.tickers.forEach(function(m){ch.appendChild(el("span","tk"+(m.direction==="down"?" down":"")+(mine(m.symbol)?" mine":""),(m.direction==="down"?"▼ ":"")+m.symbol))});
+    s.sectors.forEach(function(x){ch.appendChild(el("span","sec",x))});
+    if(ch.childNodes.length)li.appendChild(ch);
+    var mt=el("div","meters");
+    if(s.impact!=null)mt.appendChild(meter("Impact",s.impact));
+    if(s.conf!=null)mt.appendChild(meter("Conf",s.conf));
+    if(s.category)mt.appendChild(el("span",null,s.category));
+    if(mt.childNodes.length)li.appendChild(mt);
+    if(s.action)li.appendChild(el("div","act","🎯 "+s.action));
+    if(s.after&&s.after.from!=null){
+      var a=s.after,p=el("div","perf");
+      p.append(el("span",null,"After news · "+(a.symbol||(s.tickers[0]&&s.tickers[0].symbol)||"")+" from ₹"+a.from));
+      [["15m",a.m15],["1h",a.h1],["Close",a.close]].forEach(function(k){if(typeof k[1]==="number"){var w=el("span");w.append(el("b",null,k[0]+" "),el("span",k[1]>=0?"up":"down",pct(k[1])));p.appendChild(w)}});
+      if(a.status)p.appendChild(el("span",/played/i.test(a.status)?"ok":"",(/played/i.test(a.status)?"✓ ":"")+a.status));
+      li.appendChild(p);
+    }
+    if(open){
+      var ex=el("div","exp");
+      [["Reason",s.reason],["Risks",s.risks]].forEach(function(r){if(!r[1].length)return;ex.appendChild(el("div","lbl",r[0]));var u=el("ul");r[1].forEach(function(t){u.appendChild(el("li",null,t))});ex.appendChild(u)});
+      if(s.original){ex.appendChild(el("div","lbl","Original"));ex.appendChild(el("p","orig",s.original))}
+      if(s.url){var l=el("a",null,"Open source ↗");l.href=s.url;l.target="_blank";l.rel="noopener";l.style.color="var(--pur-l)";ex.appendChild(l)}
+      li.appendChild(ex);
+    }
+    return li;
+  }
+  function render(){
+    var ul=document.getElementById("feed");ul.textContent="";
+    var vis=sigs.filter(function(s){return inTab(s,tab)});
+    var mn=sigs.filter(function(s){return inTab(s,"mine")}).length;
+    document.getElementById("mine-n").textContent=hold.length?String(mn):"";
+    if(!vis.length){
+      var e=el("li","empty");
+      if(tab==="mine"&&!hold.length){e.appendChild(el("b",null,"No watchlist yet"));var a=el("a",null,"Add your holdings on the PulsEdge site");a.href="index.html#feed";e.append(a,document.createTextNode(" and their signals show up here."))}
+      else{e.appendChild(el("b",null,"No signals here yet"));e.appendChild(document.createTextNode(tab==="mine"?"None of your stocks are in today's news.":"New signals appear as the engine reads the news."))}
+      ul.appendChild(e);
+    }
+    vis.forEach(function(s){ul.appendChild(card(s))});
+    firstLoad=false;
+  }
+  document.querySelectorAll(".tab").forEach(function(b){b.onclick=function(){tab=b.dataset.t;document.querySelectorAll(".tab").forEach(function(x){x.setAttribute("aria-selected",x===b?"true":"false")});render()}});
+  window.addEventListener("storage",function(e){if(e.key==="pe_hold"){try{hold=JSON.parse(e.newValue||"[]")||[]}catch(x){hold=[]}render();renderPM()}});
+
+  // ---------- data ----------
+  var live=false;
+  function load(){
+    var feed=getJson("data/feed.json").then(function(j){j._live=!j.sample;return j}).catch(function(){return getJson("data/feed.sample.json")});
+    var pre=getJson("data/premarket.json").then(function(j){j._live=!j.sample;return j}).catch(function(){return getJson("data/premarket.sample.json")}).catch(function(){return null});
+    return Promise.all([feed,pre]).then(function(r){
+      var j=r[0];live=!!j._live;
+      sigs=(Array.isArray(j.items)?j.items:[]).filter(function(x){return x&&x.headline}).map(normalize).sort(function(a,b){return b.ts-a.ts});
+      pm=r[1];if(pm){pmKey="pe_pm_"+(pm.date||"today")}
+      document.getElementById("demo").hidden=live&&!!(pm&&pm._live);
+      var eng=document.getElementById("eng");eng.className="pill eng"+(live?" live":"");document.getElementById("eng-t").textContent=live?"live":"demo";
+      renderPM();render();
+    });
+  }
+  load().catch(function(){var ul=document.getElementById("feed");ul.textContent="";var e=el("li","empty");e.append(el("b",null,"Couldn't load signals"),document.createTextNode("Refresh the page to try again."));ul.appendChild(e)});
+  setInterval(function(){if(live)load().catch(function(){})},60000);
+})();
+</script>
+</body>
+</html>

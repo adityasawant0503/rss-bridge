@@ -1,0 +1,7 @@
+JetBrains Mono, bundled for the Telegram card renderer.
+
+Copyright 2020 JetBrains s.r.o.
+Source: https://github.com/JetBrains/JetBrainsMono
+These font files were taken from Debian's fonts-jetbrains-mono package, which
+distributes them under the Apache License, Version 2.0:
+https://www.apache.org/licenses/LICENSE-2.0

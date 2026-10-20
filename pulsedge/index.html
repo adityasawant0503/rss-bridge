@@ -45,7 +45,8 @@ nav{display:flex;align-items:center;gap:22px;font-size:13px}
 nav a{text-decoration:none;color:var(--mute)}
 nav a:hover{color:var(--fg)}
 .tg{background:none;border:1px solid var(--line);color:var(--fg);border-radius:8px;padding:5px 10px;font-size:13px}
-@media (max-width:680px){nav a{display:none}}
+@media (max-width:680px){nav a:not(.keep){display:none}}
+nav a.keep{color:var(--pur)}
 
 /* hero */
 .hero{display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center;padding-block:64px 44px}
@@ -221,6 +222,7 @@ footer p{margin:0 0 8px}
   <div class="w bar">
     <a class="logo" href="#top" aria-label="PulsEdge home"><img class="lt" src="assets/icon.png" alt="" width="30" height="30"><img class="dk" src="assets/icon-dark.png" alt="" width="30" height="30">PulsEdge</a>
     <nav>
+      <a class="keep" href="terminal.html">Terminal</a>
       <a href="#feed">My watchlist</a>
       <a href="#verdicts">Verdicts</a>
       <a href="#digest">Digest</a>
@@ -627,14 +629,14 @@ footer p{margin:0 0 8px}
     return t.toLocaleTimeString("en-IN",{timeZone:"Asia/Kolkata",hour:"2-digit",minute:"2-digit",hour12:false});
   }
   function fromLive(x,i){
-    var v=String(x.verdict||"").toLowerCase(),sec=String(x.section||"").toLowerCase();
+    var c=String(x.call||"").toLowerCase(),v=String(x.verdict||(c==="buy"||c==="sell"?"act":c)).toLowerCase(),sec=String(x.section||(/announcement|filing/i.test(x.source||"")?"news":/global|commodity|policy|macro/i.test(x.category||"")?"macro":"trading")).toLowerCase();
     return {
       id:String(x.id||("l"+i)),time:istTime(x.time),ts:Date.parse(x.time)||0,
       sec:SECS[sec]?sec:"news",v:VS[v]?v:"ignore",
-      head:String(x.headline||""),d:[x.category,x.affected].filter(Boolean).join(" · "),
+      head:String(x.headline||""),d:[x.category||x.theme,x.affected].filter(Boolean).join(" · "),
       hz:String(x.horizon||(v==="ignore"?"skip":"")),
-      tk:(Array.isArray(x.tickers)?x.tickers:[]).map(function(t){return String(t).toUpperCase()}),
-      reason:String(x.reason||""),src:String(x.source||""),
+      tk:(Array.isArray(x.tickers)?x.tickers:Array.isArray(x.impacts)?x.impacts:[]).map(function(t){return String(t&&typeof t==="object"?t.symbol||"":t).toUpperCase()}).filter(Boolean),
+      reason:Array.isArray(x.reason)?x.reason.join(" "):String(x.reason||x.action||""),src:String(x.source||""),
       url:/^https?:\/\//.test(x.url||"")?x.url:""
     };
   }
