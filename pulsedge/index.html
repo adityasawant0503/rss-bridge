@@ -196,6 +196,27 @@ h2{font-size:clamp(24px,3.4vw,34px);line-height:1.15;letter-spacing:-.035em;font
 .bul span{color:var(--mute)}
 @media (max-width:820px){.dg{grid-template-columns:1fr}}
 
+/* pricing */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch}
+.plan{border:1px solid var(--line);border-radius:16px;padding:24px 22px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.plan.hi{border-color:var(--pur);box-shadow:0 24px 60px -36px color-mix(in srgb,var(--pur) 70%,transparent)}
+.plan .pn{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.plan .badge{font-size:11px;letter-spacing:.06em;color:var(--pur);border:1px solid var(--pur);border-radius:999px;padding:2px 9px}
+.plan .pr{font-size:38px;font-weight:500;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+.plan .pr small{font-size:14px;color:var(--mute);letter-spacing:0;font-weight:400}
+.plan .ps{font-size:13px;color:var(--mute);margin:-6px 0 0}
+.plan ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:13.5px;flex:1;align-content:start}
+.plan li{display:grid;grid-template-columns:16px 1fr;gap:8px}
+.plan li::before{content:"";width:7px;height:7px;margin-top:7px;background:var(--pur);transform:rotate(45deg)}
+.plan .go{display:block;text-align:center;text-decoration:none;border-radius:999px;padding:12px 18px;font-size:14px;font-weight:500;border:1px solid var(--fg);color:var(--fg);background:none}
+.plan.hi .go{background:var(--btn);color:var(--btnfg);border-color:var(--btn)}
+.plan .go:hover{transform:translateY(-1px)}
+.plan .f{max-width:none}
+.plan .note{margin-top:-4px}
+.seats{font-size:12px;color:var(--mute)}
+.paynote{font-size:12px;color:var(--mute);margin:16px 0 0;max-width:70ch}
+@media (max-width:900px){.plans{grid-template-columns:1fr}}
+
 /* cta */
 .cta{margin-block:80px 0;border-radius:18px;padding:52px max(20px,4vw);text-align:center;background:var(--pur-soft)}
 .cta h2{margin-bottom:10px}
@@ -222,10 +243,10 @@ footer p{margin:0 0 8px}
   <div class="w bar">
     <a class="logo" href="#top" aria-label="PulsEdge home"><img class="lt" src="assets/icon.png" alt="" width="30" height="30"><img class="dk" src="assets/icon-dark.png" alt="" width="30" height="30">PulsEdge</a>
     <nav>
-      <a class="keep" href="terminal.html">Terminal</a>
       <a href="#feed">My watchlist</a>
       <a href="#verdicts">Verdicts</a>
       <a href="#digest">Digest</a>
+      <a class="keep" href="#pricing">Pricing</a>
       <a href="#join">Early access</a>
       <button class="tg" id="t" aria-label="Toggle dark mode">dark</button>
     </nav>
@@ -369,6 +390,54 @@ footer p{margin:0 0 8px}
       </div>
     </section>
 
+    <section class="s" id="pricing">
+      <p class="kick">Pricing</p>
+      <h2>Free on Telegram. The full terminal for members.</h2>
+      <p class="lede">The daily digest stays free on Telegram. Membership opens the PULSE terminal: the pre-market checklist, every signal with its impact and reasoning, and a feed filtered to your own stocks.</p>
+      <div class="plans">
+        <div class="plan">
+          <div class="pn"><span>Founding member</span><span class="badge">15 seats</span></div>
+          <div class="pr">₹0 <small>for 60 days</small></div>
+          <p class="ps">Then ₹299/month, locked for as long as you stay.</p>
+          <ul>
+            <li><span>Full terminal access during the private beta</span></li>
+            <li><span>Direct line to the founder for feedback</span></li>
+            <li><span>Founding price kept after launch</span></li>
+          </ul>
+          <form class="f" data-form="founding">
+            <input id="email-founding" type="email" required placeholder="you@email.com" aria-label="Email address" autocomplete="email">
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" hidden>
+            <button type="submit">Apply</button>
+          </form>
+          <p class="note" data-note>We review every application and email the 15 we pick.</p>
+        </div>
+        <div class="plan hi">
+          <div class="pn"><span>Pro monthly</span><span class="badge">at launch</span></div>
+          <div class="pr">₹499 <small>/ month</small></div>
+          <p class="ps">Cancel any time.</p>
+          <ul>
+            <li><span>PULSE terminal with live signals</span></li>
+            <li><span>Pre-market checklist by 8:45 am IST</span></li>
+            <li><span>Impact, confidence and reasoning on every signal</span></li>
+            <li><span>My stocks: signals for your holdings only</span></li>
+            <li><span>Telegram alerts for trade ideas</span></li>
+          </ul>
+          <a class="go" data-plan="monthly" href="#join">Get Pro monthly</a>
+        </div>
+        <div class="plan">
+          <div class="pn"><span>Pro yearly</span><span class="badge">save 33%</span></div>
+          <div class="pr">₹3,999 <small>/ year</small></div>
+          <p class="ps">Works out to ₹333 a month.</p>
+          <ul>
+            <li><span>Everything in Pro monthly</span></li>
+            <li><span>Twelve months for the price of eight</span></li>
+          </ul>
+          <a class="go" data-plan="yearly" href="#join">Get Pro yearly</a>
+        </div>
+      </div>
+      <p class="paynote" id="paynote">Payments are handled by Razorpay (UPI, cards, netbanking). Paid plans open at launch; join the waitlist to hear first. Prices in Indian rupees.</p>
+    </section>
+
     <section class="cta" id="join">
       <p class="kick">Early access</p>
       <h2>Spend 30 seconds on the news, not 30 minutes.</h2>
@@ -401,6 +470,17 @@ footer p{margin:0 0 8px}
   // From https://formspree.io/f/abcdwxyz the ID is "abcdwxyz".
   var FORMSPREE_ID = "mkjoaaga";
   var SIGNUP_ENDPOINT = FORMSPREE_ID ? "https://formspree.io/f/"+FORMSPREE_ID : "";
+
+  // Razorpay checkout links (a Payment Page or Subscription link from the Razorpay dashboard).
+  // Leave empty until payments open; the buttons then point to the waitlist.
+  var PAY_LINKS = { monthly: "", yearly: "" };
+  var anyPay=false;
+  document.querySelectorAll("[data-plan]").forEach(function(a){
+    var url=PAY_LINKS[a.dataset.plan];
+    if(/^https:\/\/(rzp\.io|razorpay\.me|pages\.razorpay\.com|[a-z0-9-]+\.razorpay\.com)\//.test(url||"")){a.href=url;a.target="_blank";a.rel="noopener";anyPay=true}
+    else a.textContent="Join the waitlist";
+  });
+  if(anyPay)document.getElementById("paynote").textContent="Payments are handled by Razorpay (UPI, cards, netbanking). After paying you'll get an email with your terminal login. Prices in Indian rupees.";
 
   function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
 
