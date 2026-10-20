@@ -1,167 +1,102 @@
 {
-  "updated": "2026-10-20T15:40:00+05:30",
+  "updated": "2026-10-20T10:37:30+05:30",
   "sample": true,
   "items": [
     {
-      "id": "smp-crude-1",
-      "time": "2026-10-20T09:22:00+05:30",
-      "headline": "Brent crude jumps 4% after OPEC+ extends output cuts into the first quarter",
-      "section": "macro",
-      "theme": "Crude oil",
-      "verdict": "act",
-      "source": "Sample · Newswire",
-      "reason": "Higher crude squeezes fuel retailers' marketing margins and lifts input costs for paints, tyres and airlines, while upstream producers realise more per barrel.",
-      "impacts": [
-        {"symbol": "BPCL", "direction": "down", "strength": 3, "verdict": "act", "horizon": "weeks", "reason": "Marketing margins compress while pump prices stay frozen."},
-        {"symbol": "HINDPETRO", "direction": "down", "strength": 3, "verdict": "act", "horizon": "weeks", "reason": "Highest marketing mix of the three oil marketers."},
-        {"symbol": "IOC", "direction": "down", "strength": 2, "verdict": "act", "horizon": "weeks", "reason": "Refining cushions part of the marketing loss."},
-        {"symbol": "ONGC", "direction": "up", "strength": 2, "verdict": "watch", "horizon": "months", "reason": "Higher realisation per barrel, capped if windfall tax returns."},
-        {"symbol": "OIL", "direction": "up", "strength": 2, "verdict": "watch", "horizon": "months", "reason": "Pure upstream exposure."},
-        {"symbol": "ASIANPAINT", "direction": "down", "strength": 2, "verdict": "watch", "horizon": "quarter", "reason": "Crude derivatives are a large share of raw material cost."},
-        {"symbol": "BERGEPAINT", "direction": "down", "strength": 2, "verdict": "watch", "horizon": "quarter", "reason": "Same raw material exposure as Asian Paints."},
-        {"symbol": "INDIGO", "direction": "down", "strength": 2, "verdict": "watch", "horizon": "weeks", "reason": "Jet fuel is the largest operating cost."},
-        {"symbol": "APOLLOTYRE", "direction": "down", "strength": 1, "verdict": "watch", "horizon": "quarter", "reason": "Synthetic rubber and carbon black track crude."},
-        {"symbol": "RELIANCE", "direction": "mixed", "strength": 1, "verdict": "ignore", "horizon": "quarter", "reason": "Refining gains offset by petrochemical margin pressure."}
-      ]
+      "id": "demo-rbi-liquidity",
+      "time": "2026-10-20T10:37:30+05:30",
+      "source": "RedBox India",
+      "call": "buy",
+      "horizon": "intraday",
+      "direction": "up",
+      "latency": 2.9,
+      "headline": "RBI announces bank liquidity measures (demo)",
+      "tickers": [{"symbol": "SBIN", "direction": "up"}, {"symbol": "HDFCBANK", "direction": "up"}],
+      "sectors": ["Banks"],
+      "impact": 66,
+      "confidence": 58,
+      "category": "Government Policy",
+      "action": "Banks likely firm at open; prefer PSU banks above opening range",
+      "reason": ["Liquidity support lowers short-term funding costs", "PSU banks carry the most rate-sensitive deposit base"],
+      "risks": ["Size and tenor of the measures not yet detailed"],
+      "original": "RBI announces measures to ease liquidity in the banking system (demo item)."
     },
     {
-      "id": "smp-rbi-1",
-      "time": "2026-10-20T10:05:00+05:30",
-      "headline": "RBI keeps repo rate unchanged, signals room for a cut in December",
-      "section": "macro",
-      "theme": "Interest rates",
-      "verdict": "watch",
-      "source": "Sample · RBI",
-      "reason": "A pause with a dovish signal supports lenders' loan growth and lowers funding costs for NBFCs over the next two quarters.",
-      "impacts": [
-        {"symbol": "BAJFINANCE", "direction": "up", "strength": 2, "verdict": "watch", "horizon": "months", "reason": "NBFC borrowing costs fall faster than lending rates."},
-        {"symbol": "HDFCBANK", "direction": "up", "strength": 1, "verdict": "watch", "horizon": "months", "reason": "Supports credit growth; margins dip slightly on repricing."},
-        {"symbol": "ICICIBANK", "direction": "up", "strength": 1, "verdict": "watch", "horizon": "months", "reason": "Supports credit growth."},
-        {"symbol": "SBIN", "direction": "mixed", "strength": 1, "verdict": "ignore", "horizon": "months", "reason": "Treasury gains offset by faster loan repricing."}
-      ]
+      "id": "demo-crude-brent",
+      "time": "2026-10-20T10:23:18+05:30",
+      "source": "RedBox India",
+      "call": "watch",
+      "horizon": "intraday",
+      "direction": "mixed",
+      "latency": 3.2,
+      "headline": "Crude settles sharply higher; Brent at $106.65",
+      "tickers": [{"symbol": "ONGC", "direction": "up"}, {"symbol": "OIL", "direction": "up"}, {"symbol": "BPCL", "direction": "down"}, {"symbol": "HINDPETRO", "direction": "down"}],
+      "sectors": ["Upstream oil", "OMCs", "Paints"],
+      "impact": 62,
+      "confidence": 55,
+      "category": "Commodity",
+      "action": "Upstream may open firm and OMCs weak; trade only after the first 15-min range is set",
+      "reason": ["Higher crude lifts upstream realisations", "OMC marketing margins compress while pump prices are unchanged", "Paints and aviation carry crude-linked input costs"],
+      "risks": ["Crude can reverse quickly on supply headlines", "Government may step in on fuel pricing"],
+      "original": "Crude oil settles sharply higher; Brent crude at $106.65 per barrel."
     },
     {
-      "id": "smp-inr-1",
-      "time": "2026-10-20T11:12:00+05:30",
-      "headline": "Rupee slips to a record low against the US dollar on importer demand",
-      "section": "macro",
-      "theme": "Currency",
-      "verdict": "watch",
-      "source": "Sample · Newswire",
-      "reason": "A weaker rupee lifts dollar earners' rupee revenue and raises costs for importers of crude and components.",
-      "impacts": [
-        {"symbol": "TCS", "direction": "up", "strength": 1, "verdict": "watch", "horizon": "quarter", "reason": "Most revenue billed in dollars."},
-        {"symbol": "INFY", "direction": "up", "strength": 1, "verdict": "watch", "horizon": "quarter", "reason": "Most revenue billed in dollars."},
-        {"symbol": "HCLTECH", "direction": "up", "strength": 1, "verdict": "watch", "horizon": "quarter", "reason": "Most revenue billed in dollars."},
-        {"symbol": "BPCL", "direction": "down", "strength": 1, "verdict": "watch", "horizon": "weeks", "reason": "Crude is bought in dollars."}
-      ]
+      "id": "demo-powermech-order",
+      "time": "2026-10-20T09:57:18+05:30",
+      "source": "NSE Announcements",
+      "call": "buy",
+      "horizon": "swing",
+      "direction": "up",
+      "latency": 2.4,
+      "headline": "Power Mech Projects discloses new order win",
+      "tickers": [{"symbol": "POWERMECH", "direction": "up"}],
+      "sectors": ["Capital goods"],
+      "impact": 64,
+      "confidence": 61,
+      "category": "Order Win",
+      "action": "Buy only above the first 15-min high; avoid if it gaps up too far",
+      "reason": ["Fresh order disclosed via exchange filing", "Supports order book visibility"],
+      "risks": ["Order size not disclosed"],
+      "original": "Power Mech Projects Limited: Bagging/Receiving of orders/contracts",
+      "after": {"symbol": "POWERMECH", "from": 2710.5, "m15": 1.20, "h1": 2.10, "close": 2.80, "status": "played out"}
     },
     {
-      "id": "smp-steel-1",
-      "time": "2026-10-20T12:30:00+05:30",
-      "headline": "Government extends safeguard duty on flat steel imports for two more years",
-      "section": "macro",
-      "theme": "Trade policy",
-      "verdict": "act",
-      "source": "Sample · Ministry notification",
-      "reason": "Keeps cheap imports out and supports domestic steel prices; steel users carry slightly higher costs.",
-      "impacts": [
-        {"symbol": "TATASTEEL", "direction": "up", "strength": 2, "verdict": "act", "horizon": "months", "reason": "Domestic flat steel prices hold up."},
-        {"symbol": "JSWSTEEL", "direction": "up", "strength": 2, "verdict": "act", "horizon": "months", "reason": "Largest flat steel exposure."},
-        {"symbol": "MARUTI", "direction": "down", "strength": 1, "verdict": "ignore", "horizon": "quarter", "reason": "Steel is a modest share of vehicle cost."}
-      ]
+      "id": "demo-nomura-china",
+      "time": "2026-10-20T09:27:18+05:30",
+      "source": "FinancialJuice",
+      "call": "watch",
+      "horizon": "swing",
+      "direction": "up",
+      "latency": 3.6,
+      "headline": "Nomura sees China Q4 GDP at 4.8%",
+      "tickers": [{"symbol": "TATASTEEL", "direction": "up"}, {"symbol": "HINDALCO", "direction": "up"}],
+      "sectors": ["Metals"],
+      "impact": 56,
+      "confidence": 45,
+      "category": "Global",
+      "action": "Watch metals for follow-through if China data confirms",
+      "reason": ["China demand sets global metal prices"],
+      "risks": ["Broker forecast, not official data"],
+      "original": "Nomura sees China Q4 GDP at 4.8%."
     },
     {
-      "id": "smp-lt-1",
-      "time": "2026-10-20T13:02:00+05:30",
-      "headline": "L&T announces a large order win in the Middle East power transmission segment",
-      "section": "news",
-      "theme": "Order win",
-      "verdict": "watch",
-      "source": "Sample · NSE filing",
-      "reason": "Adds to an already large order book; meaningful for execution visibility, small relative to annual revenue.",
-      "impacts": [
-        {"symbol": "LT", "direction": "up", "strength": 1, "verdict": "watch", "horizon": "months", "reason": "Order book visibility improves."}
-      ]
-    },
-    {
-      "id": "smp-monsoon-1",
-      "time": "2026-10-20T13:40:00+05:30",
-      "headline": "IMD: southwest monsoon ends the season above normal",
-      "section": "macro",
-      "theme": "Monsoon",
-      "verdict": "watch",
-      "source": "Sample · IMD",
-      "reason": "Good rainfall supports rural incomes, tractor demand and consumer staples volumes in the coming quarters.",
-      "impacts": [
-        {"symbol": "M&M", "direction": "up", "strength": 2, "verdict": "watch", "horizon": "quarter", "reason": "Tractor demand tracks rural incomes."},
-        {"symbol": "HINDUNILVR", "direction": "up", "strength": 1, "verdict": "watch", "horizon": "quarter", "reason": "Rural volume recovery."},
-        {"symbol": "ITC", "direction": "up", "strength": 1, "verdict": "watch", "horizon": "quarter", "reason": "Agri business and rural FMCG demand."},
-        {"symbol": "UPL", "direction": "up", "strength": 1, "verdict": "watch", "horizon": "quarter", "reason": "Crop protection demand."}
-      ]
-    },
-    {
-      "id": "smp-telecom-1",
-      "time": "2026-10-20T14:15:00+05:30",
-      "headline": "Reports say telecom operators plan another round of tariff increases",
-      "section": "news",
-      "theme": "Telecom tariffs",
-      "verdict": "watch",
-      "source": "Sample · Newswire",
-      "reason": "Unconfirmed report. A tariff increase lifts revenue per user directly; wait for an operator announcement.",
-      "impacts": [
-        {"symbol": "BHARTIARTL", "direction": "up", "strength": 2, "verdict": "watch", "horizon": "months", "reason": "Revenue per user rises with tariffs."}
-      ]
-    },
-    {
-      "id": "smp-gold-1",
-      "time": "2026-10-20T14:48:00+05:30",
-      "headline": "Gold hits a record high in domestic markets ahead of the festive season",
-      "section": "trading",
-      "theme": "Gold",
-      "verdict": "ignore",
-      "source": "Sample · Newswire",
-      "reason": "Higher prices lift inventory value but can slow volumes; no clear net effect for jewellers.",
-      "impacts": [
-        {"symbol": "TITAN", "direction": "mixed", "strength": 1, "verdict": "ignore", "horizon": "quarter", "reason": "Value growth offsets volume pressure."}
-      ]
-    },
-    {
-      "id": "smp-routine-1",
-      "time": "2026-10-20T15:05:00+05:30",
+      "id": "demo-hdfc-filing",
+      "time": "2026-10-20T09:12:05+05:30",
+      "source": "BSE Announcements",
+      "call": "ignore",
+      "horizon": "intraday",
+      "direction": "mixed",
+      "latency": 1.8,
       "headline": "HDFC Bank files Regulation 74(5) certificate for the quarter",
-      "section": "news",
-      "theme": "Compliance",
-      "verdict": "ignore",
-      "source": "Sample · BSE filing",
-      "reason": "Routine depository compliance filing with no new information.",
-      "impacts": [
-        {"symbol": "HDFCBANK", "direction": "mixed", "strength": 1, "verdict": "ignore", "horizon": "skip", "reason": "Routine filing."}
-      ]
-    },
-    {
-      "id": "smp-coal-1",
-      "time": "2026-10-20T15:30:00+05:30",
-      "headline": "Coal India e-auction premiums fall for a third straight month",
-      "section": "trading",
-      "theme": "Coal",
-      "verdict": "watch",
-      "source": "Sample · Newswire",
-      "reason": "E-auction volumes earn a premium over fixed contract prices; lower premiums trim realisations.",
-      "impacts": [
-        {"symbol": "COALINDIA", "direction": "down", "strength": 1, "verdict": "watch", "horizon": "quarter", "reason": "Lower blended realisation."},
-        {"symbol": "NTPC", "direction": "up", "strength": 1, "verdict": "ignore", "horizon": "quarter", "reason": "Fuel cost is mostly passed through."}
-      ]
+      "tickers": [{"symbol": "HDFCBANK", "direction": "mixed"}],
+      "sectors": ["Banks"],
+      "impact": 8,
+      "confidence": 90,
+      "category": "Compliance",
+      "action": "No action; routine depository filing",
+      "reason": ["Routine compliance filing with no new information"],
+      "risks": [],
+      "original": "Certificate under Regulation 74(5) of SEBI (Depositories and Participants) Regulations, 2018."
     }
-  ],
-  "digest": {
-    "date": "2026-10-20",
-    "act": 2,
-    "watch": 6,
-    "ignored": 2,
-    "reasons": [
-      {"label": "Routine compliance filings", "count": 1},
-      {"label": "No clear net effect", "count": 1}
-    ]
-  }
+  ]
 }

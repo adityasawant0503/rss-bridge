@@ -1,0 +1,80 @@
+{
+  "date": "2026-10-20",
+  "updated": "2026-10-20T08:45:00+05:30",
+  "sample": true,
+  "sentiment": "Mildly bearish",
+  "breadth": {"up": 2, "down": 3},
+  "checklist": [
+    {
+      "title": "GIFT Nifty vs prev close (gap up/down %)",
+      "dir": "down",
+      "value": "Gap-down -0.42% (-105 pts)",
+      "detail": ["GIFT Nifty 25,015.00 (-0.30% on its own session)", "Nifty prev close 25,120.40", "Note: GIFT is a future — usually trades at a small premium to spot"]
+    },
+    {
+      "title": "US close - Dow/S&P/Nasdaq direction",
+      "dir": "flat",
+      "value": "Mixed — 1/3 higher",
+      "detail": ["Dow 46,120.80 +0.37%", "S&P 6,610.20 -0.40%", "Nasdaq 22,180.50 -0.43%", "Nasdaq futures now +0.22%"]
+    },
+    {
+      "title": "Asian markets live - Nikkei, Hang Seng",
+      "dir": "flat",
+      "value": "Asia mixed",
+      "detail": ["Nikkei 47,320.00 +0.80%", "Hang Seng 25,870.00 -0.60%"]
+    },
+    {
+      "title": "DXY + USDINR move",
+      "dir": "flat",
+      "value": "No major currency pressure",
+      "detail": ["DXY 98.40 +0.10%", "USD/INR 88.420 +0.08%"]
+    },
+    {
+      "title": "Brent crude level",
+      "dir": "down",
+      "value": "$106.65 +1.84%",
+      "detail": ["Rising crude hurts India (OMCs, paints, aviation); helps upstream"]
+    },
+    {
+      "title": "India VIX",
+      "dir": "flat",
+      "value": "13.40 (+3.10%) — normal",
+      "detail": []
+    },
+    {
+      "title": "FII/DII cash data (prev session)",
+      "dir": "down",
+      "value": "FIIs sold more than DIIs bought",
+      "detail": ["FII/FPI net ₹-2,340 cr", "DII net ₹+1,910 cr", "Session: 17-Oct-2026"]
+    }
+  ],
+  "summary": "Crude has jumped overnight and US tech closed weaker, so expect a soft, cautious open. Oil-sensitive sectors are in focus.",
+  "global_cues": [
+    "Brent up 1.84% — pressure on OMCs, paints and aviation",
+    "NASDAQ closed 0.43% lower; IT may open soft",
+    "Asia mixed: Nikkei up, Hang Seng down"
+  ],
+  "india_triggers": [
+    "Order wins and results from filings overnight",
+    "India VIX up 3.1% — expect wider ranges"
+  ],
+  "focus": [
+    {"symbol": "POWERMECH", "note": "New order disclosed"},
+    {"symbol": "ONGC", "note": "Higher crude realisations"}
+  ],
+  "sector_tags": [
+    {"label": "Upstream oil", "tone": "positive"},
+    {"label": "OMCs", "tone": "negative"},
+    {"label": "IT", "tone": "watch"}
+  ],
+  "key_risk": "A further crude spike would hit OMCs and widen the INR move",
+  "also": [
+    {"name": "BANK NIFTY", "value": "56,210.1", "change": 0.12},
+    {"name": "S&P FUT", "value": "6,640", "change": 0.15},
+    {"name": "NASDAQ FUT", "value": "24,410", "change": 0.22},
+    {"name": "KOSPI", "value": "3,610", "change": 0.40},
+    {"name": "WTI", "value": "93.74", "change": 2.06},
+    {"name": "GOLD", "value": "4,120", "change": -0.30},
+    {"name": "US 10Y", "value": "4.31", "change": 0.50}
+  ]
+}

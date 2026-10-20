@@ -1,87 +1,76 @@
-# PulsEdge feed data
+# PulsEdge data
 
-The website reads `data/feed.json`. When that file is missing or has no items,
-the feed shows sample headlines instead. Add the file, push to `master`, and the
-site switches to your data within a couple of minutes. Open pages re-check it
-every two minutes.
+Three files drive the site. Each has a filled-in `*.sample.json` next to it,
+which is used until the real file exists. Push a real file to `master` and the
+site, the terminal and the Telegram bot switch to it within a couple of minutes.
 
-`feed.example.json` in this folder is a filled-in example. Copy it to
-`feed.json` to try it out.
+| File             | Used by                                   | Sample                    |
+|------------------|-------------------------------------------|---------------------------|
+| `feed.json`      | Terminal signal feed, landing page feed, Telegram bot | `feed.sample.json` |
+| `premarket.json` | Terminal pre-market panel                 | `premarket.sample.json`   |
+| `universe.json`  | Stock list with names and sectors         | `universe.sample.json`    |
 
-## Format
+## `feed.json`: signals
 
 ```json
-{
-  "updated": "2026-10-20T16:30:00+05:30",
-  "items": [ ... ],
-  "digest": { ... }
-}
+{ "updated": "2026-10-20T10:37:30+05:30", "items": [ { ... }, { ... } ] }
 ```
 
-| Field     | Required | Meaning                                                   |
-|-----------|----------|-----------------------------------------------------------|
-| `updated` | no       | When the file was generated (ISO 8601). Shown in the feed header in IST. |
-| `items`   | yes      | One entry per headline, any order. The site sorts newest first and keeps the latest 300. |
-| `digest`  | no       | Numbers for the "Daily digest" card. Without it the card shows the sample. |
+Each item is one news signal. Only `headline` and `time` are required.
 
-### Each item
+| Field        | Example / values                                          |
+|--------------|-----------------------------------------------------------|
+| `id`         | `"powermech-2026-10-20-order"`, stable and unique. Stops the bot posting twice. |
+| `time`       | `"2026-10-20T09:57:18+05:30"`                              |
+| `headline`   | `"Power Mech Projects discloses new order win"`            |
+| `source`     | `"NSE Announcements"`, `"RedBox India"`, `"FinancialJuice"` |
+| `call`       | `buy`, `sell`, `watch` or `ignore`                         |
+| `horizon`    | `intraday`, `swing` or `positional`                        |
+| `direction`  | `up`, `down` or `mixed` (worked out from tickers if left out) |
+| `latency`    | Seconds from news to analysis, `2.9`                       |
+| `tickers`    | `[{"symbol": "BPCL", "direction": "down"}]`, or just `["TCS"]` |
+| `sectors`    | `["OMCs", "Paints"]`                                       |
+| `impact`     | 0–100                                                      |
+| `confidence` | 0–100                                                      |
+| `category`   | `"Order Win"`, `"Commodity"`, `"Government Policy"`        |
+| `action`     | The 🎯 line: `"Buy only above the first 15-min high"`      |
+| `reason`     | List of bullet points                                      |
+| `risks`      | List of bullet points                                      |
+| `original`   | The source text as published                               |
+| `url`        | Link to the filing or article                              |
+| `after`      | `{"symbol": "POWERMECH", "from": 2710.5, "m15": 1.2, "h1": 2.1, "close": 2.8, "status": "played out"}` |
 
-| Field      | Required | Values / example                                   |
-|------------|----------|----------------------------------------------------|
-| `headline` | yes      | `"TCS: board approves Q2 results"`                 |
-| `time`     | yes      | ISO 8601 with offset, `"2026-10-20T10:42:00+05:30"` |
-| `verdict`  | yes      | `act`, `watch` or `ignore`                         |
-| `section`  | yes      | `trading`, `news` or `macro`                       |
-| `tickers`  | no       | NSE symbols it affects, `["TCS"]`. This is what matches a visitor's holdings. Leave empty for market-wide items. |
-| `category` | no       | Short label, `"Earnings"`                          |
-| `affected` | no       | Who it touches when there's no single stock, `"Banks, NBFCs"` |
-| `horizon`  | no       | `days`, `weeks`, `months`, `quarter`, `multi-quarter`. Defaults to `skip` for ignored items. |
-| `reason`   | no       | One sentence on why this verdict. Shown when a visitor taps the headline. |
-| `source`   | no       | `"NSE"`, `"BSE"`, `"SEBI"`, `"RBI"`, a newswire name |
-| `url`      | no       | Link to the original filing or article (`http`/`https` only) |
-| `id`       | no       | Stable unique id. Keeps visitors' agree/disagree votes attached to the right headline across updates. |
+Tabs in the terminal: **Trade ideas** = `buy`/`sell`, **Watch** = `watch`,
+**RedBox** = source contains "RedBox", **Filings** = NSE/BSE announcements,
+**My stocks** = tickers in the visitor's watchlist.
 
-Unknown `verdict` values are shown as `ignore`; unknown `section` values as `news`.
+The Telegram bot posts every new `buy` or `sell` signal once.
 
-### Stock impacts (used by the terminal and the Telegram bot)
+Older items in the `verdict` / `impacts` format still work: `act` becomes
+`buy` (or `sell` when the direction is down).
 
-An item can list each stock the news moves, with its own impact and call.
-When `impacts` is present, `tickers` can be left out.
+## `premarket.json`: pre-market panel
 
-| Field       | Values / example                                      |
-|-------------|-------------------------------------------------------|
-| `theme`     | Short topic shown as the yellow tag, `"Crude oil"`     |
-| `impacts`   | List of `{symbol, direction, strength, verdict, horizon, reason}` |
-| `direction` | `up`, `down` or `mixed`                               |
-| `strength`  | `1` mild, `2` moderate, `3` strong                    |
-| `verdict`   | `act`, `watch` or `ignore`, per stock                 |
+See `premarket.sample.json` for every field. In short:
 
-`feed.sample.json` shows a full example (the crude oil item has ten impacts).
+- `updated`, `sentiment` ("Mildly bearish"), `breadth` (`{"up": 2, "down": 3}`)
+- `checklist`: items with `title`, `dir` (`up`/`down`/`flat`), `value`, `detail` (lines)
+- `summary`, `global_cues`, `india_triggers` (bullets)
+- `focus` (`[{symbol, note}]`), `sector_tags` (`[{label, tone: positive|negative|watch}]`)
+- `key_risk`, `also` (`[{name, value, change}]`, change in %)
 
-## Universe (`universe.json`)
+Visitors' checklist ticks are saved per day in their own browser.
 
-The list of stocks the terminal scans, with company name and sector. Until
-`universe.json` exists the terminal uses `universe.sample.json` (45 stocks).
-To load the full Nifty 500, download `ind_nifty500list.csv` from
-niftyindices.com and run:
+## `universe.json`: stock list
+
+Download `ind_nifty500list.csv` from niftyindices.com and run:
 
 ```
 python pulsedge-bot/universe_from_nse.py ind_nifty500list.csv
 ```
 
-### Digest
-
-| Field     | Meaning                                         |
-|-----------|-------------------------------------------------|
-| `date`    | Trading day, `"2026-10-20"`                      |
-| `act`, `watch`, `ignored` | Counts for the day                 |
-| `reasons` | Up to 6 `{ "label": "...", "count": 0 }` rows explaining what was ignored |
-
 ## Sending data by hand
 
-If you are collecting headlines in a spreadsheet for now, use these columns and
-send the sheet as CSV; it converts straight into this format:
-
-`time, headline, verdict, section, tickers, category, horizon, reason, source, url`
-
-Put multiple tickers in one cell separated by spaces, e.g. `HDFCBANK ICICIBANK`.
+A spreadsheet works. Use the field names above as column headers, put
+multiple tickers in one cell like `ONGC OIL -BPCL -HINDPETRO` (a leading `-`
+means negative), and send it as CSV.
