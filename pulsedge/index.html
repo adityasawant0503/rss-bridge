@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>PulsEdge</title>
 <meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Indian market news, triaged. Ignore, watch or act in 30 seconds.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap">
@@ -35,7 +38,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
 .logo{display:flex;align-items:center;gap:9px;font-weight:600;letter-spacing:-.02em;font-size:17px;text-decoration:none}
-.logo img{height:26px;width:auto;display:block}
+.logo img{width:30px;height:30px;border-radius:50%;display:block;background:#fff;box-shadow:0 0 0 1px var(--line)}
 nav{display:flex;align-items:center;gap:22px;font-size:13px}
 nav a{text-decoration:none;color:var(--mute)}
 nav a:hover{color:var(--fg)}
@@ -43,7 +46,13 @@ nav a:hover{color:var(--fg)}
 @media (max-width:680px){nav a{display:none}}
 
 /* hero */
-.hero{padding-block:72px 44px;max-width:780px}
+.hero{display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center;padding-block:64px 44px}
+.hero>div{min-width:0}
+.orb{justify-self:center;width:100%;max-width:360px;aspect-ratio:1;border-radius:50%;overflow:hidden;background:#fff;
+  box-shadow:0 0 0 1px var(--line),0 40px 90px -30px color-mix(in srgb,var(--pur) 70%,transparent);animation:float 7s ease-in-out infinite}
+.orb img{width:100%;height:100%;display:block;object-fit:cover}
+@keyframes float{50%{transform:translateY(-10px) rotate(2deg)}}
+@media (max-width:820px){.hero{grid-template-columns:1fr;padding-block:36px 32px}.orb{max-width:220px;order:-1}}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--pur);border:1px solid var(--line);border-radius:999px;padding:4px 12px 4px 10px}
 .dot{width:7px;height:7px;border-radius:50%;background:var(--pur);animation:ping 2s ease-out infinite}
 @keyframes ping{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--pur) 60%,transparent)}100%{box-shadow:0 0 0 9px transparent}}
@@ -59,6 +68,8 @@ h1 em{font-style:normal;color:var(--pur)}
 .note{font-size:12px;color:var(--mute);margin:12px 0 0}
 .note.ok{color:var(--pur)}
 .note.err{color:var(--fg)}
+.social{font-size:13px;color:var(--mute);margin:22px 0 0}
+.social a{color:var(--pur);text-decoration:none;border-bottom:1px solid currentColor}
 
 /* sources strip */
 .src{display:flex;flex-wrap:wrap;gap:10px 28px;align-items:center;border-block:1px solid var(--line);padding-block:16px;font-size:12px;color:var(--mute);letter-spacing:.04em}
@@ -181,15 +192,14 @@ h2{font-size:clamp(24px,3.4vw,34px);line-height:1.15;letter-spacing:-.035em;font
 footer{padding-block:40px 32px;font-size:12px;color:var(--mute);text-align:center;max-width:70ch;margin:0 auto}
 footer p{margin:0 0 8px}
 
-@media (prefers-reduced-motion:reduce){.dot,.row.new{animation:none}html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){.dot,.row.new,.orb{animation:none}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
 
 <header>
   <div class="w bar">
-    <!-- Wordmark placeholder: swap the text for <img src="logo.svg" alt="PulsEdge"> once the logo file is added -->
-    <a class="logo" href="#top" aria-label="PulsEdge home">PulsEdge</a>
+    <a class="logo" href="#top" aria-label="PulsEdge home"><img src="assets/icon.png" alt="" width="30" height="30">PulsEdge</a>
     <nav>
       <a href="#feed">My watchlist</a>
       <a href="#verdicts">Verdicts</a>
@@ -203,6 +213,7 @@ footer p{margin:0 0 8px}
 <main id="top">
   <div class="w">
     <section class="hero">
+      <div>
       <span class="eyebrow"><span class="dot"></span>private beta &middot; launching soon</span>
       <h1>Indian market news, <em>triaged</em> for your portfolio.</h1>
       <p class="sub">Add your holdings once. PulsEdge reads exchange filings, regulator circulars and newswires, and gives every headline about your stocks a verdict: ignore, watch or act. Thirty seconds, not thirty minutes.</p>
@@ -212,6 +223,9 @@ footer p{margin:0 0 8px}
         <button type="submit">Get early access</button>
       </form>
       <p class="note" data-note>no spam &middot; just your invite</p>
+      <p class="social">Free daily digest on <a href="https://t.me/+nlCbernm1A1hMGI1" target="_blank" rel="noopener">Telegram</a> &middot; <a href="https://www.instagram.com/pulsedge.in/" target="_blank" rel="noopener">@pulsedge.in</a></p>
+      </div>
+      <div class="orb"><img src="assets/logo.png" alt="PulsEdge logo" width="640" height="640"></div>
     </section>
 
     <div class="src" aria-label="Sources PulsEdge reads">
@@ -349,6 +363,7 @@ footer p{margin:0 0 8px}
 
     <footer>
       <p>Educational information only. Not SEBI-registered investment advice. Trading involves substantial risk of loss. Past performance is not indicative of future results.</p>
+      <p><a href="https://t.me/+nlCbernm1A1hMGI1" target="_blank" rel="noopener">Telegram</a> &middot; <a href="https://www.instagram.com/pulsedge.in/" target="_blank" rel="noopener">Instagram</a></p>
       <p>&copy; 2026 PulsEdge &middot; private beta</p>
     </footer>
   </div>
@@ -358,7 +373,7 @@ footer p{margin:0 0 8px}
 (function(){
   // Formspree form ID for signups when the page is hosted on its own domain.
   // From https://formspree.io/f/abcdwxyz the ID is "abcdwxyz".
-  var FORMSPREE_ID = "";
+  var FORMSPREE_ID = "mkjoaaga";
   var SIGNUP_ENDPOINT = FORMSPREE_ID ? "https://formspree.io/f/"+FORMSPREE_ID : "";
 
   function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
