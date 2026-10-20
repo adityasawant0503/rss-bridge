@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Welcome to PulsEdge Pro</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: single centred column; same tokens as the landing page */
+:root{--bg:#fff;--fg:#16151a;--mute:#6b6875;--line:#e4e2ea;--pur:#7c4dff;--pur-soft:#efe9ff;--logo-bg:#fff;
+  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f0e13;--fg:#f1f0f5;--mute:#9a97a6;--line:#2a2833;--pur:#a98bff;--pur-soft:#211b36;--logo-bg:#000;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f0e13;--fg:#f1f0f5;--mute:#9a97a6;--line:#2a2833;--pur:#a98bff;--pur-soft:#211b36;--logo-bg:#000;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.6 var(--mono)}
+.w{max-width:620px;margin:0 auto;padding-block:72px 48px;padding-left:max(22px,env(safe-area-inset-left,0px));padding-right:max(22px,env(safe-area-inset-right,0px))}
+.logo{width:64px;height:64px;border-radius:50%;background:var(--logo-bg);box-shadow:0 0 0 1px var(--line)}
+.kick{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--pur);margin:28px 0 8px}
+h1{font-size:clamp(28px,6vw,40px);line-height:1.1;letter-spacing:-.04em;font-weight:500;margin:0 0 14px;text-wrap:balance}
+p{margin:0 0 14px;color:var(--mute)}
+ol{margin:24px 0;padding:0;list-style:none;border-top:1px solid var(--line);counter-reset:s}
+li{display:grid;grid-template-columns:36px 1fr;gap:8px;padding-block:14px;border-bottom:1px solid var(--line);counter-increment:s}
+li::before{content:counter(s,decimal-leading-zero);color:var(--pur);font-size:13px;padding-top:2px}
+li b{display:block;font-weight:500;grid-column:2}
+li span{color:var(--mute);font-size:14px;grid-column:2}
+a{color:var(--pur)}
+.box{background:var(--pur-soft);border-radius:12px;padding:16px 18px;font-size:14px}
+.box p{margin:0;color:var(--fg)}
+footer{margin-top:40px;font-size:12px;color:var(--mute)}
+@media (max-width:600px){
+  body{font-size:13px}
+  .w{padding-block:36px 32px}
+  .logo{width:48px;height:48px}
+  .kick{font-size:11px;margin-top:20px}
+  h1{font-size:26px}
+  ol{margin:16px 0}
+  li{grid-template-columns:28px 1fr;gap:0 6px;padding-block:10px}
+  li::before{font-size:12px}
+  li span{font-size:12.5px}
+  .box{padding:12px 14px;font-size:12.5px}
+}
+</style>
+</head>
+<body>
+<main class="w">
+  <img class="logo" src="assets/icon.png" alt="PulsEdge" width="64" height="64">
+  <p class="kick">Payment received</p>
+  <h1>Welcome to PulsEdge Pro.</h1>
+  <p>Thank you for subscribing. Razorpay has emailed your payment receipt.</p>
+  <ol>
+    <li><b>We set up your access</b><span>Within 24 hours, on the email you paid with.</span></li>
+    <li><b>You get a login email</b><span>It contains your link to the PULSE terminal. Check spam if it hasn't arrived.</span></li>
+    <li><b>Add your holdings</b><span>Open the terminal's My stocks tab and add your watchlist so signals are filtered to you.</span></li>
+  </ol>
+  <div class="box"><p>Didn't get an email within a day? Message us on <a href="https://t.me/pulsedgein" target="_blank" rel="noopener">Telegram</a> with your payment ID from the Razorpay receipt.</p></div>
+  <footer>Educational information only. Not investment advice. <a href="index.html">Back to PulsEdge</a></footer>
+</main>
+</body>
+</html>
