@@ -25,12 +25,24 @@ p{margin:0 0 14px;color:var(--mute)}
 ol{margin:24px 0;padding:0;list-style:none;border-top:1px solid var(--line);counter-reset:s}
 li{display:grid;grid-template-columns:36px 1fr;gap:8px;padding-block:14px;border-bottom:1px solid var(--line);counter-increment:s}
 li::before{content:counter(s,decimal-leading-zero);color:var(--pur);font-size:13px;padding-top:2px}
-li b{display:block;font-weight:500}
-li span{color:var(--mute);font-size:14px}
+li b{display:block;font-weight:500;grid-column:2}
+li span{color:var(--mute);font-size:14px;grid-column:2}
 a{color:var(--pur)}
 .box{background:var(--pur-soft);border-radius:12px;padding:16px 18px;font-size:14px}
 .box p{margin:0;color:var(--fg)}
 footer{margin-top:40px;font-size:12px;color:var(--mute)}
+@media (max-width:600px){
+  body{font-size:13px}
+  .w{padding-block:36px 32px}
+  .logo{width:48px;height:48px}
+  .kick{font-size:11px;margin-top:20px}
+  h1{font-size:26px}
+  ol{margin:16px 0}
+  li{grid-template-columns:28px 1fr;gap:0 6px;padding-block:10px}
+  li::before{font-size:12px}
+  li span{font-size:12.5px}
+  .box{padding:12px 14px;font-size:12.5px}
+}
 </style>
 </head>
 <body>
