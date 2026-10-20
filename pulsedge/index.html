@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>try{var t=localStorage.getItem("th");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>PulsEdge</title>
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -273,6 +274,13 @@ footer p{margin:0 0 8px}
   footer{padding-block:28px 24px;font-size:11px}
 }
 @media (prefers-reduced-motion:reduce){.dot,.row.new .rb,.orb{animation:none}html{scroll-behavior:auto}}
+
+/* sun / moon theme button */
+.thm{display:inline-grid;place-items:center;width:34px;height:34px;padding:0;border:1px solid var(--line);border-radius:50%;background:none;color:var(--fg);cursor:pointer;flex:none}
+.thm:hover{border-color:var(--pur)}
+.thm svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.thm [hidden]{display:none}
+@media (max-width:600px){.thm{width:30px;height:30px}.thm svg{width:15px;height:15px}}
 </style>
 </head>
 <body>
@@ -286,7 +294,7 @@ footer p{margin:0 0 8px}
       <a href="#digest">Digest</a>
       <a class="keep" href="#pricing">Pricing</a>
       <a href="#join">Early access</a>
-      <button class="tg" id="t" aria-label="Toggle dark mode">dark</button>
+      <button class="thm" id="thm" type="button" aria-label="Switch to dark mode"><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true" hidden><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg></button>
     </nav>
   </div>
 </header>
@@ -522,13 +530,6 @@ footer p{margin:0 0 8px}
 
   function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
 
-  // theme toggle
-  var tbtn=document.getElementById("t"),root=document.documentElement;
-  function dark(){var t=root.getAttribute("data-theme");return t==="dark"||(!t&&matchMedia("(prefers-color-scheme:dark)").matches)}
-  function lab(){tbtn.textContent=dark()?"light":"dark"}
-  var th=store("th");if(th)root.setAttribute("data-theme",th);
-  lab();
-  tbtn.onclick=function(){var n=dark()?"light":"dark";root.setAttribute("data-theme",n);store("th",n);lab()};
 
   // claude.ai runtime (absent when the page is hosted elsewhere)
   var db=null,uid=null;
@@ -891,6 +892,30 @@ footer p{margin:0 0 8px}
   if(!matchMedia("(prefers-reduced-motion:reduce)").matches)timer=setInterval(push,3200);
   loadLive().catch(function(){}); // stays on samples until data/feed.json exists
   setInterval(function(){if(live&&!openId)loadLive().catch(function(){})},120000);
+})();
+</script>
+<script>
+// Theme: follows the phone/computer setting; the sun/moon button overrides it and the choice is shared by all PulsEdge pages.
+// Switching back to the system's own theme returns to following the system.
+(function(){
+  var d=document.documentElement,b=document.getElementById("thm"),mq=matchMedia("(prefers-color-scheme: dark)");
+  function sys(){return mq.matches?"dark":"light"}
+  function cur(){return d.getAttribute("data-theme")||sys()}
+  function save(v){try{v?localStorage.setItem("th",v):localStorage.removeItem("th")}catch(e){}}
+  function sync(){
+    var k=cur()==="dark",l=k?"Switch to light mode":"Switch to dark mode";
+    b.querySelector(".i-sun").toggleAttribute("hidden",!k);b.querySelector(".i-moon").toggleAttribute("hidden",k);
+    b.setAttribute("aria-label",l);b.title=l;
+  }
+  b.addEventListener("click",function(){
+    var n=cur()==="dark"?"light":"dark";
+    if(n===sys()){d.removeAttribute("data-theme");save(null)}else{d.setAttribute("data-theme",n);save(n)}
+    sync();
+  });
+  function onSys(){if(d.getAttribute("data-theme")===sys()){d.removeAttribute("data-theme");save(null)}sync()}
+  if(mq.addEventListener)mq.addEventListener("change",onSys);else mq.addListener(onSys);
+  window.addEventListener("storage",function(e){if(e.key!=="th")return;if(e.newValue)d.setAttribute("data-theme",e.newValue);else d.removeAttribute("data-theme");sync()});
+  sync();
 })();
 </script>
 </body>
