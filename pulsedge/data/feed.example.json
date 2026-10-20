@@ -1,0 +1,51 @@
+{
+  "updated": "2026-10-20T16:30:00+05:30",
+  "items": [
+    {
+      "id": "ex-1",
+      "time": "2026-10-20T10:42:00+05:30",
+      "headline": "Example: IT services company cuts full-year revenue guidance",
+      "verdict": "act",
+      "section": "news",
+      "tickers": ["TCS"],
+      "category": "Earnings",
+      "horizon": "weeks",
+      "reason": "Example item. Guidance cut changes the growth estimate the stock is priced on.",
+      "source": "NSE",
+      "url": "https://www.nseindia.com/companies-listing/corporate-filings-announcements"
+    },
+    {
+      "id": "ex-2",
+      "time": "2026-10-20T11:05:00+05:30",
+      "headline": "Example: Regulation 74(5) certificate for the quarter",
+      "verdict": "ignore",
+      "section": "news",
+      "tickers": ["HDFCBANK"],
+      "category": "Compliance",
+      "reason": "Example item. Routine depository filing with no new information.",
+      "source": "BSE"
+    },
+    {
+      "id": "ex-3",
+      "time": "2026-10-20T12:00:00+05:30",
+      "headline": "Example: RBI releases draft norms on expected credit loss provisioning",
+      "verdict": "watch",
+      "section": "macro",
+      "tickers": [],
+      "category": "Regulator",
+      "affected": "Banks, NBFCs",
+      "horizon": "multi-quarter",
+      "reason": "Example item. Draft only; final norms and timelines decide the impact on bank earnings.",
+      "source": "RBI"
+    }
+  ],
+  "digest": {
+    "date": "2026-10-20",
+    "act": 1,
+    "watch": 1,
+    "ignored": 1,
+    "reasons": [
+      { "label": "Routine compliance filings", "count": 1 }
+    ]
+  }
+}

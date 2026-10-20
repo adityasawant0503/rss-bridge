@@ -249,3 +249,6 @@ favicon.ico
 
 #Crawler
 robots.txt
+
+# PulsEdge site data is published, unlike RSS-Bridge runtime data
+!pulsedge/data/
