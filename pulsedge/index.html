@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PulsEdge</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: one narrow mono column that widens for the hero and the live triage terminal, hairline rules between sections */
+:root{
+  --bg:#fff;--fg:#16151a;--mute:#6b6875;--line:#e4e2ea;--pur:#7c4dff;--pur-soft:#efe9ff;
+  --btn:#16151a;--btnfg:#fff;--fld:#eeedf2;--term:#0f0e13;--termfg:#f1f0f5;--termmute:#8c8999;--termline:#24222c;
+  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,"Courier New",monospace;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f0e13;--fg:#f1f0f5;--mute:#9a97a6;--line:#2a2833;--pur:#a98bff;--pur-soft:#211b36;
+  --btn:#f1f0f5;--btnfg:#0f0e13;--fld:#1c1b23;--term:#16151c;--termfg:#f1f0f5;--termmute:#8c8999;--termline:#2a2833;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f0e13;--fg:#f1f0f5;--mute:#9a97a6;--line:#2a2833;--pur:#a98bff;--pur-soft:#211b36;
+  --btn:#f1f0f5;--btnfg:#0f0e13;--fld:#1c1b23;--term:#16151c;--termfg:#f1f0f5;--termmute:#8c8999;--termline:#2a2833;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.6 var(--mono);-webkit-font-smoothing:antialiased}
+.w{max-width:1040px;margin:0 auto;padding-left:max(22px,env(safe-area-inset-left,0px));padding-right:max(22px,env(safe-area-inset-right,0px))}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--pur);outline-offset:2px}
+
+/* header */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.logo{display:flex;align-items:center;gap:9px;font-weight:600;letter-spacing:-.02em;font-size:17px;text-decoration:none}
+.logo svg{width:22px;height:22px}
+nav{display:flex;align-items:center;gap:22px;font-size:13px}
+nav a{text-decoration:none;color:var(--mute)}
+nav a:hover{color:var(--fg)}
+.tg{background:none;border:1px solid var(--line);color:var(--fg);border-radius:8px;padding:5px 10px;font-size:13px}
+@media (max-width:640px){nav a{display:none}}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding-block:64px 40px}
+.hero>div{min-width:0}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--pur);border:1px solid var(--line);border-radius:999px;padding:4px 12px 4px 10px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--pur);box-shadow:0 0 0 0 var(--pur);animation:ping 2s ease-out infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--pur) 60%,transparent)}100%{box-shadow:0 0 0 9px transparent}}
+h1{font-size:clamp(32px,5.4vw,54px);line-height:1.08;letter-spacing:-.045em;font-weight:500;margin:22px 0 18px;text-wrap:balance}
+h1 em{font-style:normal;color:var(--pur)}
+.sub{color:var(--mute);margin:0 0 28px;max-width:46ch;font-size:15px}
+.f{display:flex;gap:8px;max-width:440px}
+.f input{flex:1;min-width:0;background:var(--fld);color:var(--fg);border:1px solid transparent;border-radius:999px;padding:12px 18px;font:inherit;font-size:14px}
+.f input:focus{border-color:var(--pur);outline:none}
+.f button{background:var(--btn);color:var(--btnfg);border:0;border-radius:999px;padding:12px 20px;white-space:nowrap;font-size:14px;font-weight:500;transition:transform .15s}
+.f button:hover{transform:translateY(-1px)}
+.note{font-size:12px;color:var(--mute);margin:12px 0 0}
+.note.ok{color:var(--pur)}
+.markwrap{position:relative;aspect-ratio:1;max-width:400px;width:100%;justify-self:center}
+.markwrap::before{content:"";position:absolute;inset:12%;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--pur) 28%,transparent),transparent 68%);filter:blur(20px)}
+.mark{position:relative;width:100%;height:100%;display:block}
+.mark .spin{transform-origin:110px 110px;animation:sp 40s linear infinite}
+.mark .ring{fill:none;stroke:var(--pur);stroke-width:.6;opacity:.35}
+.mark .pulse{fill:none;stroke:var(--pur);stroke-width:.8;transform-origin:110px 110px;animation:pr 3.2s ease-out infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+@keyframes pr{0%{transform:scale(.55);opacity:.7}100%{transform:scale(1.05);opacity:0}}
+@media (max-width:820px){.hero{grid-template-columns:1fr;padding-block:40px 24px}.markwrap{max-width:260px;order:-1}}
+
+/* sources strip */
+.src{display:flex;flex-wrap:wrap;gap:10px 28px;align-items:center;border-block:1px solid var(--line);padding-block:16px;font-size:12px;color:var(--mute);letter-spacing:.04em}
+.src b{color:var(--fg);font-weight:500;text-transform:uppercase;letter-spacing:.08em}
+
+/* section heads */
+section.s{padding-block:72px 8px}
+.kick{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--pur);margin:0 0 10px}
+h2{font-size:clamp(24px,3.4vw,34px);line-height:1.15;letter-spacing:-.035em;font-weight:500;margin:0 0 12px;text-wrap:balance}
+.lede{color:var(--mute);max-width:58ch;margin:0 0 30px}
+
+/* terminal */
+.term{background:var(--term);color:var(--termfg);border-radius:14px;border:1px solid var(--termline);overflow:hidden;box-shadow:0 30px 60px -30px color-mix(in srgb,var(--pur) 45%,transparent)}
+.thead{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;border-bottom:1px solid var(--termline);font-size:12px;color:var(--termmute)}
+.lights{display:flex;gap:6px}.lights i{width:10px;height:10px;border-radius:50%;background:var(--termline)}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{background:none;border:1px solid var(--termline);color:var(--termmute);border-radius:999px;padding:3px 11px;font-size:12px}
+.chip[aria-pressed="true"]{border-color:#a98bff;color:var(--termfg);background:#a98bff22}
+.feed{list-style:none;margin:0;padding:0;font-size:13px}
+.row{display:grid;grid-template-columns:62px 74px 1fr auto;gap:14px;align-items:center;padding:12px 16px;border-bottom:1px solid var(--termline);animation:in .5s ease both}
+.row:last-child{border-bottom:0}
+@keyframes in{from{background:#a98bff1f}to{background:transparent}}
+.t{color:var(--termmute);font-variant-numeric:tabular-nums}
+.v{font-size:11px;font-weight:600;letter-spacing:.08em;text-align:center;border-radius:6px;padding:3px 0}
+.v.act{background:#a98bff;color:#0f0e13}
+.v.watch{border:1px solid #a98bff;color:#c9b6ff}
+.v.ignore{border:1px solid var(--termline);color:var(--termmute)}
+.h{min-width:0}
+.h b{display:block;font-weight:500}
+.row.ig .h b{color:var(--termmute)}
+.h span{display:block;color:var(--termmute);font-size:12px;margin-top:2px}
+.hz{font-size:11px;color:var(--termmute);border:1px solid var(--termline);border-radius:999px;padding:2px 9px;white-space:nowrap}
+.tfoot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;padding:12px 16px;border-top:1px solid var(--termline);font-size:12px;color:var(--termmute)}
+.split{display:flex;height:6px;border-radius:999px;overflow:hidden;width:180px;max-width:100%;background:var(--termline);align-self:center}
+.split i{display:block;height:100%;transition:width .6s}
+@media (max-width:640px){.row{grid-template-columns:56px 1fr;gap:6px 12px}.row .t{grid-row:1}.row .h{grid-column:1/-1}.row .hz{grid-column:2;justify-self:end;grid-row:1}.row .v{grid-row:1;grid-column:1}.row .t{display:none}}
+
+/* verdicts */
+.verdicts{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.vd{padding:26px 24px;border-right:1px solid var(--line);min-width:0}
+.vd:last-child{border-right:0}
+.vd .tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.1em;border-radius:6px;padding:3px 10px;margin-bottom:16px}
+.vd.a .tag{background:var(--pur);color:var(--bg)}
+.vd.w .tag{border:1px solid var(--pur);color:var(--pur)}
+.vd.i .tag{border:1px solid var(--line);color:var(--mute)}
+.vd h3{font-size:17px;font-weight:500;margin:0 0 8px;letter-spacing:-.02em}
+.vd p{margin:0;color:var(--mute);font-size:13.5px}
+.vd .ex{margin-top:14px;padding-top:14px;border-top:1px dashed var(--line);font-size:12px;color:var(--mute)}
+@media (max-width:760px){.verdicts{grid-template-columns:1fr}.vd{border-right:0;border-bottom:1px solid var(--line)}.vd:last-child{border-bottom:0}}
+
+/* steps */
+.steps{list-style:none;margin:0;padding:0;border-top:1px solid var(--line);counter-reset:s}
+.steps li{display:grid;grid-template-columns:56px 1fr 1.2fr;gap:20px;padding-block:22px;border-bottom:1px solid var(--line);counter-increment:s;align-items:baseline}
+.steps li::before{content:counter(s,decimal-leading-zero);color:var(--pur);font-size:13px}
+.steps b{font-weight:500;font-size:16px;letter-spacing:-.01em}
+.steps span{color:var(--mute);font-size:14px}
+@media (max-width:640px){.steps li{grid-template-columns:40px 1fr;gap:4px 12px}.steps span{grid-column:2}}
+
+/* digest */
+.dg{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:start}
+.dg>div{min-width:0}
+.card{border:1px solid var(--line);border-radius:14px;padding:22px;background:var(--bg)}
+.card .top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:12px;color:var(--mute);margin-bottom:16px}
+.card .top b{color:var(--fg);font-weight:500;font-size:14px}
+.tally{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:18px}
+.tally div{background:var(--fld);border-radius:10px;padding:12px}
+.tally strong{display:block;font-size:24px;font-weight:500;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.tally small{font-size:11px;color:var(--mute);letter-spacing:.06em;text-transform:uppercase}
+.tally .pa strong{color:var(--pur)}
+.why{list-style:none;margin:0;padding:0;font-size:13px}
+.why li{display:flex;justify-content:space-between;gap:14px;padding-block:9px;border-top:1px solid var(--line)}
+.why li span:last-child{color:var(--mute);text-align:right}
+.bul{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.bul li{display:grid;grid-template-columns:18px 1fr;gap:10px;font-size:14px}
+.bul li::before{content:"";width:8px;height:8px;margin-top:7px;background:var(--pur);transform:rotate(45deg)}
+.bul b{font-weight:500}
+.bul span{color:var(--mute)}
+@media (max-width:820px){.dg{grid-template-columns:1fr}}
+
+/* cta */
+.cta{margin-block:80px 0;border-radius:18px;padding:52px 28px;text-align:center;background:var(--pur-soft);position:relative;overflow:hidden}
+.cta h2{margin-bottom:10px}
+.cta .sub{margin:0 auto 24px}
+.cta .f{margin:0 auto}
+footer{padding-block:40px 32px;font-size:12px;color:var(--mute);text-align:center;max-width:70ch;margin:0 auto}
+footer p{margin:0 0 8px}
+
+@media (prefers-reduced-motion:reduce){.mark .spin,.mark .pulse,.dot,.row{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="w bar">
+    <a class="logo" href="#top" aria-label="PulsEdge home">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 13h5l2.5-6 4 11 2.5-5H22" fill="none" stroke="var(--pur)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      PulsEdge
+    </a>
+    <nav>
+      <a href="#feed">Live feed</a>
+      <a href="#verdicts">Verdicts</a>
+      <a href="#digest">Digest</a>
+      <a href="#join">Early access</a>
+      <button class="tg" id="t" aria-label="Toggle dark mode">dark</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="w">
+    <section class="hero">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>private beta &middot; launching soon</span>
+        <h1>Indian market news, <em>triaged.</em></h1>
+        <p class="sub">Ignore, watch or act in 30 seconds. PulsEdge reads exchange filings, regulator circulars and newswires, then shows you only the headlines that touch your holdings.</p>
+        <form class="f" data-form>
+          <input id="email-hero" type="email" required placeholder="you@email.com" aria-label="Email address">
+          <button type="submit">Get early access</button>
+        </form>
+        <p class="note" data-note>no spam &middot; just your invite</p>
+      </div>
+      <div class="markwrap">
+        <svg class="mark" viewBox="0 0 220 220" aria-hidden="true">
+          <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c9b6ff"/><stop offset="1" stop-color="#6a35e8"/></linearGradient></defs>
+          <circle class="ring" cx="110" cy="110" r="104"/>
+          <circle class="ring" cx="110" cy="110" r="80" stroke-dasharray="2 5"/>
+          <circle class="pulse" cx="110" cy="110" r="100"/>
+          <g class="spin" id="m"></g>
+        </svg>
+      </div>
+    </section>
+
+    <div class="src" aria-label="Sources PulsEdge reads">
+      <b>Reads</b><span>NSE filings</span><span>BSE announcements</span><span>SEBI circulars</span><span>RBI releases</span><span>Newswires</span><span>Earnings calls</span>
+    </div>
+
+    <section class="s" id="feed">
+      <p class="kick">The live feed</p>
+      <h2>Every headline gets a verdict.</h2>
+      <p class="lede">Pulse classifies each event by category, the listed companies it touches and how long it matters. Most of the noise lands in Ignore, so your attention goes where the money is.</p>
+
+      <div class="term">
+        <div class="thead">
+          <div class="lights"><i></i><i></i><i></i></div>
+          <span>pulse://feed &middot; sample data</span>
+          <div class="chips" role="group" aria-label="Filter by verdict">
+            <button class="chip" data-f="all" aria-pressed="true">all</button>
+            <button class="chip" data-f="act" aria-pressed="false">act</button>
+            <button class="chip" data-f="watch" aria-pressed="false">watch</button>
+            <button class="chip" data-f="ignore" aria-pressed="false">ignore</button>
+          </div>
+        </div>
+        <ul class="feed" id="feedlist" aria-live="polite"></ul>
+        <div class="tfoot">
+          <span id="stat">0 read &middot; 0 act &middot; 0 watch &middot; 0 ignored</span>
+          <div class="split" aria-hidden="true"><i id="sa" style="background:#a98bff"></i><i id="sw" style="background:#6a35e8"></i><i id="si" style="background:#3a3744"></i></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="s" id="verdicts">
+      <p class="kick">Three verdicts</p>
+      <h2>One word tells you what to do.</h2>
+      <p class="lede">No sentiment scores, no star ratings. Each verdict carries the reason and a time horizon, so you can disagree with it quickly.</p>
+      <div class="verdicts">
+        <div class="vd a">
+          <span class="tag">ACT</span>
+          <h3>Material to your position</h3>
+          <p>Results, guidance changes, regulatory orders or deals that change the case for a stock you hold or track.</p>
+          <p class="ex">e.g. a pharma holding receives a USFDA warning letter for its main plant</p>
+        </div>
+        <div class="vd w">
+          <span class="tag">WATCH</span>
+          <h3>Could become material</h3>
+          <p>Early signals that need a second data point: a pledge change, a management exit, a draft circular.</p>
+          <p class="ex">e.g. promoter pledge rises by 4 percentage points in a quarter</p>
+        </div>
+        <div class="vd i">
+          <span class="tag">IGNORE</span>
+          <h3>Noise for your portfolio</h3>
+          <p>Routine compliance filings, recycled stories and broad market chatter with no new information.</p>
+          <p class="ex">e.g. Regulation 74(5) certificate, trading window closure notice</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="s" id="how">
+      <p class="kick">How it works</p>
+      <h2>From raw feed to a decision.</h2>
+      <ol class="steps">
+        <li><b>Pulse reads the feed</b><span>Exchange filings, regulators and wires arrive in one stream, deduplicated across sources.</span></li>
+        <li><b>It classifies the event</b><span>Category, affected listed companies, and a time horizon from intraday to multi-quarter.</span></li>
+        <li><b>It checks your watchlist</b><span>Verdicts are ranked against what you hold, so a sector-wide story reaches you once.</span></li>
+        <li><b>You decide in 30 seconds</b><span>Read the one-line reason, open the source filing if you want proof, and move on.</span></li>
+      </ol>
+    </section>
+
+    <section class="s" id="digest">
+      <div class="dg">
+        <div>
+          <p class="kick">The daily digest</p>
+          <h2>See what was ignored, and why.</h2>
+          <p class="lede">Filtering only works if you can audit it. Every evening the digest lists what Pulse set aside with the reason, so nothing disappears quietly.</p>
+          <ul class="bul">
+            <li><b>Sent after market close</b><span>A short summary at 4:30 pm IST, Monday to Friday.</span></li>
+            <li><b>Reasons on every item</b><span>Duplicate, routine filing, no listed exposure, or already priced in.</span></li>
+            <li><b>Overrule in one tap</b><span>Mark a call wrong and Pulse learns your threshold.</span></li>
+          </ul>
+        </div>
+        <div class="card" aria-label="Sample digest">
+          <div class="top"><b>Digest &middot; Tue, 20 Oct</b><span>sample</span></div>
+          <div class="tally">
+            <div class="pa"><strong>3</strong><small>act</small></div>
+            <div><strong>7</strong><small>watch</small></div>
+            <div><strong>214</strong><small>ignored</small></div>
+          </div>
+          <ul class="why">
+            <li><span>Duplicate wire stories</span><span>96</span></li>
+            <li><span>Routine compliance filings</span><span>71</span></li>
+            <li><span>No listed company exposure</span><span>29</span></li>
+            <li><span>Outside your watchlist</span><span>18</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="join">
+      <p class="kick">Early access</p>
+      <h2>Spend 30 seconds on the news, not 30 minutes.</h2>
+      <p class="sub">Join the private beta. We are onboarding in small batches.</p>
+      <form class="f" data-form>
+        <input id="email-cta" type="email" required placeholder="you@email.com" aria-label="Email address">
+        <button type="submit">Get early access</button>
+      </form>
+      <p class="note" data-note>private beta &middot; no spam, just your invite</p>
+    </section>
+
+    <footer>
+      <p>Educational information only. Not SEBI-registered investment advice. Trading involves substantial risk of loss. Past performance is not indicative of future results.</p>
+      <p>&copy; 2026 PulsEdge &middot; private beta</p>
+    </footer>
+  </div>
+</main>
+
+<script>
+(function(){
+  // rotating hex mark, same construction as the waitlist draft
+  var ns="http://www.w3.org/2000/svg",m=document.getElementById("m"),s=12;
+  for(var a=0;a<6;a++){
+    var g=document.createElementNS(ns,"g");g.setAttribute("transform","rotate("+(a*60)+" 110 110)");
+    for(var i=0;i<6;i++){
+      var r=document.createElementNS(ns,"rect"),off=(i%2)*s*0.5*(a%2?-1:1);
+      r.setAttribute("x",110-s/2+off);r.setAttribute("y",110-s*(i+1.2));
+      r.setAttribute("width",s);r.setAttribute("height",s);r.setAttribute("rx",1.5);
+      r.setAttribute("fill","url(#g)");r.setAttribute("opacity",1-i*0.08);
+      g.appendChild(r);
+    }
+    m.appendChild(g);
+  }
+
+  // theme toggle
+  var b=document.getElementById("t"),d=document.documentElement;
+  function dark(){var t=d.getAttribute("data-theme");return t==="dark"||(!t&&matchMedia("(prefers-color-scheme:dark)").matches)}
+  function lab(){b.textContent=dark()?"light":"dark"}
+  try{var v=localStorage.getItem("th");if(v)d.setAttribute("data-theme",v)}catch(e){}
+  lab();
+  b.onclick=function(){var n=dark()?"light":"dark";d.setAttribute("data-theme",n);try{localStorage.setItem("th",n)}catch(e){}lab()};
+
+  // waitlist forms: not wired to a backend yet
+  document.querySelectorAll("[data-form]").forEach(function(f){
+    f.addEventListener("submit",function(e){
+      e.preventDefault();
+      var n=f.nextElementSibling;n.textContent="Noted. Signups open with the beta launch.";n.classList.add("ok");
+    });
+  });
+
+  // sample feed
+  var pool=[
+    ["act","Q2 results: IT services major cuts FY guidance to 3–5%","Earnings · IT services · 1 holding","weeks"],
+    ["ignore","Regulation 74(5) certificate filed for quarter ended September","Compliance · routine","—"],
+    ["watch","Promoter pledge rises to 18% of holding at mid-cap chemicals maker","Governance · Specialty chem","quarter"],
+    ["ignore","Markets open flat; Nifty trades near previous close","Market colour · no new information","—"],
+    ["act","USFDA issues warning letter for pharma company's oral solids unit","Regulatory · Pharma · 1 holding","months"],
+    ["watch","SEBI floats consultation paper on F&O position limits","Regulator · Brokers, exchanges","quarter"],
+    ["ignore","Trading window closure notice ahead of board meeting","Compliance · routine","—"],
+    ["act","Private bank board approves ₹4,000 cr QIP at discount to market","Capital raise · Banking · watchlist","days"],
+    ["ignore","Same block-deal story syndicated across 6 outlets","Duplicate · 5 merged","—"],
+    ["watch","CFO resigns at auto ancillary company, interim CFO named","Management · Auto components","quarter"],
+    ["ignore","Analyst meet intimation, no agenda attached","Compliance · routine","—"],
+    ["watch","RBI releases draft norms on expected credit loss provisioning","Regulator · NBFCs, banks","multi-quarter"],
+    ["ignore","Global cues mixed; crude steady in early trade","Market colour · no listed exposure","—"],
+    ["act","Cement maker wins ₹1,200 cr order; capacity expansion cleared","Order win · Cement · 1 holding","months"]
+  ];
+  var list=document.getElementById("feedlist"),rows=[],idx=0,filter="all",cnt={act:0,watch:0,ignore:0};
+  var clock=new Date();clock.setHours(9,15,0,0);
+  function pad(n){return (n<10?"0":"")+n}
+  function make(item){
+    clock=new Date(clock.getTime()+(2+Math.floor(Math.random()*6))*60000);
+    var li=document.createElement("li");li.className="row"+(item[0]==="ignore"?" ig":"");li.dataset.v=item[0];
+    li.innerHTML='<span class="t">'+pad(clock.getHours())+":"+pad(clock.getMinutes())+'</span><span class="v '+item[0]+'">'+item[0].toUpperCase()+'</span><span class="h"><b></b><span></span></span><span class="hz"></span>';
+    li.querySelector(".h b").textContent=item[1];
+    li.querySelector(".h span").textContent=item[2];
+    li.querySelector(".hz").textContent=item[3]==="—"?"skip":item[3];
+    li.hidden=filter!=="all"&&filter!==item[0];
+    cnt[item[0]]++;return li;
+  }
+  function stats(){
+    var t=cnt.act+cnt.watch+cnt.ignore;
+    document.getElementById("stat").textContent=t+" read · "+cnt.act+" act · "+cnt.watch+" watch · "+cnt.ignore+" ignored";
+    document.getElementById("sa").style.width=(cnt.act/t*100)+"%";
+    document.getElementById("sw").style.width=(cnt.watch/t*100)+"%";
+    document.getElementById("si").style.width=(cnt.ignore/t*100)+"%";
+  }
+  function push(){
+    var li=make(pool[idx++%pool.length]);
+    list.insertBefore(li,list.firstChild);rows.unshift(li);
+    if(rows.length>7){list.removeChild(rows.pop())}
+    stats();
+  }
+  for(var k=0;k<7;k++){var li=make(pool[idx++]);list.insertBefore(li,list.firstChild);rows.unshift(li);li.style.animation="none"}
+  stats();
+  var reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+  if(!reduce)setInterval(push,2600);
+
+  document.querySelectorAll(".chip").forEach(function(c){
+    c.addEventListener("click",function(){
+      filter=c.dataset.f;
+      document.querySelectorAll(".chip").forEach(function(x){x.setAttribute("aria-pressed",x===c?"true":"false")});
+      rows.forEach(function(r){r.hidden=filter!=="all"&&filter!==r.dataset.v});
+    });
+  });
+})();
+</script>
+</body>
+</html>
