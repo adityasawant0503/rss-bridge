@@ -13,9 +13,10 @@
 <style>
 /* Layout: single centred column; same tokens as the landing page */
 :root{--bg:#fff;--fg:#16151a;--mute:#6b6875;--line:#e4e2ea;--pur:#7c4dff;--pur-soft:#efe9ff;--logo-bg:#fff;--logo-lt:block;--logo-dk:none;
+  --elev:0 1px 2px rgba(22,21,26,.04),0 10px 28px -14px rgba(22,21,26,.14),inset 0 1px 0 rgba(255,255,255,.7);
   --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f0e13;--fg:#f1f0f5;--mute:#9a97a6;--line:#2a2833;--pur:#a98bff;--pur-soft:#211b36;--logo-bg:#000;--logo-lt:none;--logo-dk:block;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#0f0e13;--fg:#f1f0f5;--mute:#9a97a6;--line:#2a2833;--pur:#a98bff;--pur-soft:#211b36;--logo-bg:#000;--logo-lt:none;--logo-dk:block;color-scheme:dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f0e13;--fg:#f1f0f5;--mute:#9a97a6;--line:#2a2833;--pur:#a98bff;--pur-soft:#211b36;--logo-bg:#000;--logo-lt:none;--logo-dk:block;--elev:0 1px 2px rgba(0,0,0,.35),0 14px 34px -18px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.05);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f0e13;--fg:#f1f0f5;--mute:#9a97a6;--line:#2a2833;--pur:#a98bff;--pur-soft:#211b36;--logo-bg:#000;--logo-lt:none;--logo-dk:block;--elev:0 1px 2px rgba(0,0,0,.35),0 14px 34px -18px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.05);color-scheme:dark}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.6 var(--mono)}
 .w{max-width:620px;margin:0 auto;padding-block:72px 48px;padding-left:max(22px,env(safe-area-inset-left,0px));padding-right:max(22px,env(safe-area-inset-right,0px))}
@@ -31,7 +32,7 @@ li::before{content:counter(s,decimal-leading-zero);color:var(--pur);font-size:13
 li b{display:block;font-weight:500;grid-column:2}
 li span{color:var(--mute);font-size:14px;grid-column:2}
 a{color:var(--pur)}
-.box{background:var(--pur-soft);border-radius:12px;padding:16px 18px;font-size:14px}
+.box{background:var(--pur-soft);border-radius:12px;padding:16px 18px;font-size:14px;box-shadow:var(--elev)}
 .box p{margin:0;color:var(--fg)}
 footer{margin-top:40px;font-size:12px;color:var(--mute)}
 @media (max-width:600px){
@@ -49,10 +50,17 @@ footer{margin-top:40px;font-size:12px;color:var(--mute)}
 
 /* sun / moon theme button */
 .thm{display:inline-grid;place-items:center;width:34px;height:34px;padding:0;border:1px solid var(--line);border-radius:50%;background:none;color:var(--fg);cursor:pointer;flex:none}
-.thm:hover{border-color:var(--pur)}
 .thm svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .thm [hidden]{display:none}
 @media (max-width:600px){.thm{width:30px;height:30px}.thm svg{width:15px;height:15px}}
+
+/* ---- interaction polish ---- */
+html{-webkit-tap-highlight-color:transparent}
+.thm,.head a,a{transition:transform 160ms cubic-bezier(.2,.8,.2,1),border-color 160ms ease,color 160ms ease}
+.thm{will-change:transform}
+.head a{display:inline-block}
+@media (hover:hover){.thm:hover{border-color:var(--pur)}}
+.thm:active,.head a:active{transform:scale(.97)}
 </style>
 </head>
 <body>
