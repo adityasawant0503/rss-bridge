@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PulsEdge Terminal</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="News first, then the Nifty 500 stocks it moves: impact, call and horizon for each.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: terminal grid. Watchlist + sectors | news -> impact stream | event detail + Telegram card; impact tracker full width below.
+   Deliberately single dark theme: black ground, amber for news, green/red for impact, PulsEdge purple only for "mixed" and the brand. */
+:root{
+  --bg:#060608;--panel:#0d0d11;--panel2:#121218;--line:#202029;--fg:#ecebf2;--mute:#8b8898;--dim:#5d5a69;
+  --amber:#ffc533;--amber-soft:#ffc5331a;--up:#33d17a;--up-soft:#33d17a1f;--down:#ff5f57;--down-soft:#ff5f571f;--mix:#b9a4ff;--mix-soft:#b9a4ff1f;
+  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:13px/1.5 var(--mono);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* top bar */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:14px;padding-block:10px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:8px;font-weight:600;letter-spacing:-.01em;text-decoration:none;font-size:14px}
+.brand img{width:24px;height:24px;border-radius:50%;background:#000;box-shadow:0 0 0 1px var(--line)}
+.brand span{color:var(--amber);font-weight:500}
+.pill{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:6px;padding:2px 8px;font-size:11.5px;color:var(--mute);white-space:nowrap}
+.pill b{color:var(--fg);font-weight:500}
+.pill.sample{border-color:var(--amber);color:var(--amber)}
+.led{width:7px;height:7px;border-radius:50%;background:var(--dim)}
+.led.on{background:var(--up);box-shadow:0 0 0 3px var(--up-soft)}
+.led.pre{background:var(--amber)}
+.search{margin-left:auto;display:flex;min-width:0;flex:0 1 300px}
+.search input{width:100%;min-width:0;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:6px 10px;font-size:12.5px}
+.search input:focus{outline:none;border-color:var(--amber)}
+.back{font-size:12px;color:var(--mute);text-decoration:none}
+.back:hover{color:var(--fg)}
+@media (max-width:760px){.search{flex-basis:100%;margin-left:0;order:9}.hide-sm{display:none}}
+
+/* tape */
+.tape{overflow:hidden;border-bottom:1px solid var(--line);background:var(--panel)}
+.tape-in{display:flex;gap:26px;width:max-content;padding:7px 0;animation:tape 60s linear infinite;font-size:12px}
+.tape:hover .tape-in{animation-play-state:paused}
+.tape button{background:none;border:0;padding:0;display:inline-flex;gap:6px;white-space:nowrap}
+@keyframes tape{to{transform:translateX(-50%)}}
+.up{color:var(--up)}.down{color:var(--down)}.mixed{color:var(--mix)}
+
+/* grid */
+.grid{display:grid;grid-template-columns:250px minmax(0,1fr) 400px;gap:12px;padding-block:12px}
+.grid>*{min-width:0}
+@media (max-width:1180px){.grid{grid-template-columns:230px minmax(0,1fr)}.detail{grid-column:1/-1}}
+@media (max-width:760px){.grid{grid-template-columns:1fr}.stream-panel{order:-1}.stream{max-height:none}}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.ph{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 12px;border-bottom:1px solid var(--line);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--mute)}
+.ph b{color:var(--amber);font-weight:500}
+.side{display:grid;gap:12px;align-content:start}
+
+/* watchlist */
+.wadd{display:flex;gap:6px;padding:10px 12px;border-bottom:1px solid var(--line)}
+.wadd input{flex:1;min-width:0;background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:5px 8px;font-size:12px;text-transform:uppercase}
+.wadd input:focus{outline:none;border-color:var(--amber)}
+.wadd button{background:var(--amber);color:#000;border:0;border-radius:6px;padding:5px 10px;font-weight:600;font-size:12px}
+.wl{list-style:none;margin:0;padding:0;max-height:300px;overflow-y:auto}
+.wl li{display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;padding:7px 12px;border-bottom:1px solid var(--line)}
+.wl li:last-child{border-bottom:0}
+.wl .sym{background:none;border:0;padding:0;text-align:left;min-width:0}
+.wl .sym b{display:block;font-weight:500}
+.wl .sym small{display:block;color:var(--dim);font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wl .x{background:none;border:0;color:var(--dim);padding:0 4px;font-size:14px}
+.wl .x:hover{color:var(--fg)}
+.note{padding:10px 12px;color:var(--dim);font-size:11.5px;margin:0}
+.net{font-variant-numeric:tabular-nums;font-size:12px;min-width:26px;text-align:right}
+
+/* sectors */
+.secs{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:10px}
+.sec{border:1px solid var(--line);border-radius:6px;padding:7px 8px;text-align:left;background:var(--panel2);min-width:0}
+.sec small{display:block;color:var(--mute);font-size:10.5px;line-height:1.3;min-height:2.6em;overflow-wrap:anywhere}
+.sec b{font-weight:500;font-variant-numeric:tabular-nums}
+.sec[aria-pressed="true"]{border-color:var(--amber)}
+
+/* stream */
+.fbar{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:9px 12px;border-bottom:1px solid var(--line)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.seg button{background:none;border:0;padding:4px 10px;font-size:12px;color:var(--mute)}
+.seg button[aria-pressed="true"]{background:var(--amber-soft);color:var(--amber)}
+.chipx{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--amber);color:var(--amber);border-radius:999px;padding:2px 4px 2px 10px;font-size:11.5px;background:none}
+.chipx span{font-size:13px;padding:0 4px}
+.count{margin-left:auto;color:var(--dim);font-size:11.5px}
+.stream{list-style:none;margin:0;padding:0;max-height:760px;overflow-y:auto}
+.ev{border-bottom:1px solid var(--line)}
+.ev>button{display:block;width:100%;text-align:left;background:none;border:0;padding:12px 14px}
+.ev>button:hover{background:#ffffff06}
+.ev.sel>button{background:var(--amber-soft);box-shadow:inset 3px 0 0 var(--amber)}
+.meta{display:flex;flex-wrap:wrap;gap:4px 10px;color:var(--dim);font-size:11px;margin-bottom:4px}
+.meta .th{color:var(--amber);text-transform:uppercase;letter-spacing:.06em}
+.ev h3{margin:0 0 8px;font-size:14px;font-weight:500;line-height:1.4;text-wrap:pretty}
+.imps{display:flex;flex-wrap:wrap;gap:5px}
+.imp{display:inline-flex;align-items:center;gap:5px;border-radius:5px;padding:1px 7px;font-size:11.5px;border:1px solid transparent}
+.imp.up{background:var(--up-soft);border-color:#33d17a40}
+.imp.down{background:var(--down-soft);border-color:#ff5f5740}
+.imp.mixed{background:var(--mix-soft);border-color:#b9a4ff40}
+.imp.mine{box-shadow:0 0 0 1px var(--amber)}
+.imp i{font-style:normal;font-size:10px;opacity:.8}
+.vb{font-size:10px;font-weight:600;letter-spacing:.08em;border-radius:4px;padding:1px 6px}
+.vb.act{background:var(--amber);color:#000}
+.vb.watch{border:1px solid var(--amber);color:var(--amber)}
+.vb.ignore{border:1px solid var(--line);color:var(--dim)}
+.empty{padding:40px 16px;text-align:center;color:var(--mute)}
+.empty b{display:block;color:var(--fg);font-weight:500;margin-bottom:4px}
+
+/* detail */
+.dbody{padding:14px;display:grid;gap:12px}
+.dbody h2{margin:0;font-size:16px;font-weight:500;line-height:1.35;color:var(--amber);text-wrap:balance}
+.why{margin:0;color:var(--fg);opacity:.9}
+.src{font-size:11.5px;color:var(--dim)}
+.src a{color:var(--amber)}
+.itbl{width:100%;border-collapse:collapse;font-size:12px}
+.itbl th{text-align:left;font-weight:400;color:var(--dim);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;padding:0 6px 6px 0;border-bottom:1px solid var(--line)}
+.itbl td{padding:7px 6px 7px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.itbl tr.mine td:first-child b{color:var(--amber)}
+.itbl td small{display:block;color:var(--dim);font-size:11px;line-height:1.4;margin-top:2px}
+.itbl .sbtn{background:none;border:0;padding:0;text-align:left}
+.bars{display:inline-flex;gap:2px;vertical-align:middle}
+.bars i{width:5px;height:11px;border-radius:1px;background:var(--line)}
+.up .bars i.f{background:var(--up)}.down .bars i.f{background:var(--down)}.mixed .bars i.f{background:var(--mix)}
+
+/* telegram card */
+.tgwrap{border-top:1px dashed var(--line);padding-top:12px;display:grid;gap:8px}
+.tgh{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--mute)}
+.tg{background:#000;border:1px solid #2a2a2a;border-radius:10px;padding:14px;font-size:12px;line-height:1.45}
+.tg .r1{display:flex;justify-content:space-between;gap:8px;color:var(--amber);font-weight:600;letter-spacing:.06em;font-size:10.5px}
+.tg .r1 span:last-child{color:var(--mute);font-weight:400}
+.tg .th{margin-top:10px;color:#000;background:var(--amber);display:inline-block;padding:1px 7px;border-radius:3px;font-size:10.5px;font-weight:600;letter-spacing:.06em}
+.tg .hd{margin:6px 0 10px;font-size:14px;font-weight:600;color:#fff;line-height:1.35}
+.tg .lb{color:var(--amber);font-size:10.5px;letter-spacing:.08em;border-top:1px solid #222;padding-top:8px}
+.tg ul{list-style:none;margin:6px 0 10px;padding:0;display:grid;gap:3px}
+.tg li{display:grid;grid-template-columns:14px 92px 1fr auto;gap:6px}
+.tg li .l{color:#bbb}
+.tg .wy{color:#ddd;border-top:1px solid #222;padding-top:8px}
+.tg .ft{margin-top:10px;color:#777;font-size:10.5px;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.btns{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.btn{background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:5px 10px;font-size:12px}
+.btn:hover{border-color:var(--amber)}
+.btn.pri{background:var(--amber);color:#000;border-color:var(--amber);font-weight:600}
+.ok{color:var(--up);font-size:12px}
+.tgnote{font-size:11.5px;color:var(--dim);margin:0}
+.tgnote a{color:var(--amber)}
+
+/* tracker */
+.tracker{margin-bottom:24px}
+.tscroll{overflow-x:auto}
+.ttbl{width:100%;border-collapse:collapse;font-size:12px;min-width:760px}
+.ttbl th{text-align:left;font-weight:400;color:var(--dim);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;padding:8px 12px;border-bottom:1px solid var(--line)}
+.ttbl td{padding:8px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+.ttbl tbody tr{cursor:pointer}
+.ttbl tbody tr:hover td{background:#ffffff05}
+.ttbl tr.mine td:first-child b{color:var(--amber)}
+.ttbl td.hl{white-space:normal;color:var(--mute);max-width:360px}
+.ttbl small{color:var(--dim);margin-left:6px}
+.num{font-variant-numeric:tabular-nums;text-align:right}
+.div{position:relative;width:140px;height:10px;background:var(--panel2);border-radius:2px}
+.div::before{content:"";position:absolute;left:50%;top:-2px;bottom:-2px;width:1px;background:var(--dim)}
+.div i{position:absolute;top:0;bottom:0;border-radius:2px}
+footer{padding-block:6px 28px;color:var(--dim);font-size:11.5px;display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:space-between}
+footer a{color:var(--mute)}
+@media (prefers-reduced-motion:reduce){.tape-in{animation:none}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="index.html" aria-label="PulsEdge home"><img src="assets/icon-dark.png" alt="" width="24" height="24">PulsEdge <span>Terminal</span></a>
+    <span class="pill"><span class="led" id="led"></span><b id="mkt">–</b><span id="clock" class="hide-sm"></span></span>
+    <span class="pill hide-sm">Universe <b id="uni">NIFTY 500</b></span>
+    <span class="pill sample" id="sample" hidden>SAMPLE DATA</span>
+    <form class="search" id="sform" role="search">
+      <input id="q" type="search" list="syms" placeholder="Search stock, symbol or theme" aria-label="Search" autocomplete="off">
+      <datalist id="syms"></datalist>
+    </form>
+    <a class="back hide-sm" href="index.html">← Site</a>
+  </div>
+  <div class="tape" aria-label="Most affected stocks today"><div class="tape-in" id="tape"></div></div>
+</header>
+
+<main class="wrap grid">
+  <aside class="side">
+    <section class="panel" aria-labelledby="wl-h">
+      <div class="ph" id="wl-h"><span>Watchlist</span><b id="wl-n">0</b></div>
+      <form class="wadd" id="wadd">
+        <input id="wadd-in" list="syms" placeholder="Add symbol" aria-label="Add a stock to your watchlist" autocomplete="off">
+        <button type="submit">Add</button>
+      </form>
+      <ul class="wl" id="wl"></ul>
+      <p class="note" id="wl-note">Shared with your watchlist on the PulsEdge site.</p>
+    </section>
+    <section class="panel" aria-labelledby="sec-h">
+      <div class="ph" id="sec-h"><span>Sector impact today</span></div>
+      <div class="secs" id="secs"></div>
+    </section>
+  </aside>
+
+  <section class="panel stream-panel" aria-labelledby="st-h">
+    <div class="ph" id="st-h"><span>News → impact</span><span id="upd"></span></div>
+    <div class="fbar">
+      <div class="seg" role="group" aria-label="Scope">
+        <button data-scope="all" aria-pressed="true">All</button>
+        <button data-scope="watch" aria-pressed="false">My watchlist</button>
+      </div>
+      <div class="seg" role="group" aria-label="Call">
+        <button data-v="all" aria-pressed="true">Any call</button>
+        <button data-v="act" aria-pressed="false">Act</button>
+        <button data-v="watch" aria-pressed="false">Watch</button>
+      </div>
+      <span id="active"></span>
+      <span class="count" id="count"></span>
+    </div>
+    <ul class="stream" id="stream" aria-live="polite"></ul>
+  </section>
+
+  <section class="panel detail" aria-labelledby="dt-h">
+    <div class="ph" id="dt-h"><span>Impact detail</span><span id="dt-time"></span></div>
+    <div class="dbody" id="detail"></div>
+  </section>
+</main>
+
+<section class="wrap tracker">
+  <div class="panel">
+    <div class="ph"><span>Impact tracker · stocks in today's news</span>
+      <div class="seg" role="group" aria-label="Sort tracker">
+        <button data-sort="net" aria-pressed="true">Net impact</button>
+        <button data-sort="n" aria-pressed="false">Most news</button>
+      </div>
+    </div>
+    <div class="tscroll">
+      <table class="ttbl">
+        <thead><tr><th>Stock</th><th>Sector</th><th class="num">News</th><th>Net impact</th><th class="num">Score</th><th>Latest call</th><th>Latest headline</th></tr></thead>
+        <tbody id="trk"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <span>Educational information only. Not SEBI-registered investment advice. Calls describe how a headline may affect a stock, not a recommendation to trade.</span>
+  <span><a href="https://t.me/pulsedgein" target="_blank" rel="noopener">Telegram</a> · <a href="index.html">pulsedge</a></span>
+</footer>
+
+<script>
+(function(){
+  function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+  function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e}
+  function getJson(u){return fetch(u,{cache:"no-store"}).then(function(r){if(!r.ok)throw new Error(u);return r.json()})}
+  var DIR={up:1,down:-1,mixed:0},ARROW={up:"▲",down:"▼",mixed:"◆"},STR={1:"Mild",2:"Moderate",3:"Strong"},VORD={act:3,watch:2,ignore:1};
+
+  var U={},events=[],stocks={},sectors={},isSample=true,updated=null;
+  var f={scope:"all",v:"all",sector:null,stock:null,q:""},sel=null,sortBy="net";
+  var hold=[];try{hold=JSON.parse(store("pe_hold")||"[]")||[]}catch(e){hold=[]}
+  function mine(sym){return hold.some(function(h){return h.s===sym})}
+  function saveHold(){store("pe_hold",JSON.stringify(hold))}
+
+  // ---------- clock / market status (IST, weekdays 09:15–15:30; exchange holidays not included) ----------
+  function ist(){var d=new Date(Date.now()+(330+new Date().getTimezoneOffset())*60000);return d}
+  function tickClock(){
+    var d=ist(),m=d.getHours()*60+d.getMinutes(),wd=d.getDay()>=1&&d.getDay()<=5,st="Closed",cls="";
+    if(wd&&m>=555&&m<930){st="Market open";cls="on"}else if(wd&&m>=540&&m<555){st="Pre-open";cls="pre"}
+    document.getElementById("mkt").textContent=st;
+    document.getElementById("led").className="led "+cls;
+    document.getElementById("clock").textContent=("0"+d.getHours()).slice(-2)+":"+("0"+d.getMinutes()).slice(-2)+" IST";
+  }
+  tickClock();setInterval(tickClock,30000);
+
+  // ---------- data ----------
+  function fmtTime(t){return t?t.toLocaleTimeString("en-IN",{timeZone:"Asia/Kolkata",hour:"2-digit",minute:"2-digit",hour12:false}):""}
+  function fmtDay(t){return t?t.toLocaleDateString("en-IN",{timeZone:"Asia/Kolkata",day:"numeric",month:"short"}).toUpperCase():""}
+  function normalize(j){
+    var out=[];
+    (Array.isArray(j.items)?j.items:[]).forEach(function(x,i){
+      if(!x||!x.headline)return;
+      var t=new Date(x.time);t=isNaN(t)?null:t;
+      var imps=Array.isArray(x.impacts)&&x.impacts.length?x.impacts:(Array.isArray(x.tickers)?x.tickers:[]).map(function(s){return {symbol:s,direction:"mixed",strength:1,verdict:x.verdict}});
+      var v=String(x.verdict||"").toLowerCase();
+      var ev={id:String(x.id||("e"+i)),t:t,ts:t?t.getTime():0,headline:String(x.headline),section:String(x.section||"news").toLowerCase(),
+        theme:String(x.theme||x.category||""),source:String(x.source||""),url:/^https?:\/\//.test(x.url||"")?x.url:"",reason:String(x.reason||""),
+        impacts:imps.map(function(m){
+          var sym=String(m.symbol||"").toUpperCase(),d=DIR.hasOwnProperty(m.direction)?m.direction:"mixed",s=Math.max(1,Math.min(3,parseInt(m.strength,10)||1)),mv=String(m.verdict||"").toLowerCase();
+          var u=U[sym]||{};
+          return {symbol:sym,name:u.name||"",sector:u.sector||"Other",dir:d,str:s,score:DIR[d]*s,verdict:VORD[mv]?mv:"watch",horizon:String(m.horizon||""),reason:String(m.reason||"")};
+        }).filter(function(m){return m.symbol})};
+      ev.verdict=VORD[v]?v:ev.impacts.reduce(function(a,m){return VORD[m.verdict]>VORD[a]?m.verdict:a},"ignore");
+      ev.impacts.sort(function(a,b){return VORD[b.verdict]-VORD[a.verdict]||Math.abs(b.score)-Math.abs(a.score)});
+      out.push(ev);
+    });
+    out.sort(function(a,b){return b.ts-a.ts});
+    return out;
+  }
+  function aggregate(){
+    stocks={};sectors={};
+    events.slice().reverse().forEach(function(ev){ // oldest first so "latest" ends up last
+      ev.impacts.forEach(function(m){
+        var s=stocks[m.symbol]||(stocks[m.symbol]={symbol:m.symbol,name:m.name,sector:m.sector,n:0,net:0,last:null});
+        s.n++;s.net+=m.score;s.last={ev:ev,imp:m};
+        var c=sectors[m.sector]||(sectors[m.sector]={name:m.sector,net:0,n:0});c.net+=m.score;c.n++;
+      });
+    });
+  }
+  function load(){
+    var uni=getJson("data/universe.json").catch(function(){return getJson("data/universe.sample.json")}).catch(function(){return {stocks:[]}});
+    var feed=getJson("data/feed.json").then(function(j){j._live=true;return j}).catch(function(){return getJson("data/feed.sample.json")}).catch(function(){return {items:[],sample:true}});
+    return Promise.all([uni,feed]).then(function(r){
+      U={};(r[0].stocks||[]).forEach(function(s){if(s&&s.symbol)U[String(s.symbol).toUpperCase()]=s});
+      var j=r[1];isSample=!j._live||!!j.sample;updated=j.updated?new Date(j.updated):null;
+      events=normalize(j);aggregate();
+      document.getElementById("uni").textContent=(r[0].name||"NIFTY 500")+" · "+Object.keys(U).length;
+      document.getElementById("sample").hidden=!isSample;
+      var dl=document.getElementById("syms");dl.textContent="";
+      Object.keys(U).sort().forEach(function(k){var o=el("option");o.value=k;o.label=U[k].name||k;dl.appendChild(o)});
+      if(!sel||!events.some(function(e){return e.id===sel}))sel=events[0]&&events[0].id;
+      renderAll();
+    });
+  }
+
+  // ---------- filters ----------
+  function visible(ev){
+    if(f.scope==="watch"&&!ev.impacts.some(function(m){return mine(m.symbol)}))return false;
+    if(f.v!=="all"&&!ev.impacts.some(function(m){return m.verdict===f.v})&&ev.verdict!==f.v)return false;
+    if(f.sector&&!ev.impacts.some(function(m){return m.sector===f.sector}))return false;
+    if(f.stock&&!ev.impacts.some(function(m){return m.symbol===f.stock}))return false;
+    if(f.q){
+      var hay=(ev.headline+" "+ev.theme+" "+ev.reason+" "+ev.impacts.map(function(m){return m.symbol+" "+m.name}).join(" ")).toUpperCase();
+      if(!f.q.split(/\s+/).every(function(w){return hay.indexOf(w)>=0}))return false;
+    }
+    return true;
+  }
+  function setStock(sym){f.stock=sym;f.sector=null;var first=events.filter(visible)[0];if(first)sel=first.id;renderAll()}
+
+  // ---------- render ----------
+  function impChip(m){
+    var c=el("span","imp "+m.dir+(mine(m.symbol)?" mine":""));
+    c.append(el("span",null,ARROW[m.dir]),el("b",null,m.symbol),el("i",null,m.verdict.toUpperCase()));
+    c.title=(STR[m.str]+" "+(m.dir==="mixed"?"mixed":m.dir==="up"?"positive":"negative"))+" · "+m.reason;
+    return c;
+  }
+  function renderTape(){
+    var t=document.getElementById("tape");t.textContent="";
+    var list=Object.values(stocks).filter(function(s){return s.net!==0}).sort(function(a,b){return Math.abs(b.net)-Math.abs(a.net)}).slice(0,16);
+    if(!list.length)return;
+    for(var k=0;k<2;k++)list.forEach(function(s){
+      var d=s.net>0?"up":"down",b=el("button",d);b.type="button";
+      b.append(el("b",null,s.symbol),el("span",null,(s.net>0?"▲ +":"▼ ")+s.net));
+      b.onclick=function(){setStock(s.symbol)};if(k)b.setAttribute("aria-hidden","true"),b.tabIndex=-1;
+      t.appendChild(b);
+    });
+  }
+  function renderWatch(){
+    var ul=document.getElementById("wl");ul.textContent="";
+    document.getElementById("wl-n").textContent=hold.length;
+    if(!hold.length){var li=el("li");li.appendChild(el("span",null,"No stocks yet. Add a symbol above."));li.style.gridTemplateColumns="1fr";ul.appendChild(li)}
+    hold.forEach(function(h,i){
+      var s=stocks[h.s],li=el("li"),b=el("button","sym");b.type="button";
+      b.append(el("b",null,h.s),el("small",null,(U[h.s]&&U[h.s].name)||"Not in the loaded universe"));
+      b.onclick=function(){setStock(h.s)};
+      var n=el("span","net "+(s?(s.net>0?"up":s.net<0?"down":"mixed"):""),s?(s.net>0?"+":"")+s.net:"–");n.title=s?s.n+" headline"+(s.n>1?"s":"")+" today":"No news today";
+      var x=el("button","x","×");x.type="button";x.setAttribute("aria-label","Remove "+h.s);
+      x.onclick=function(){hold.splice(i,1);saveHold();renderAll()};
+      li.append(b,n,x);ul.appendChild(li);
+    });
+  }
+  function renderSectors(){
+    var g=document.getElementById("secs");g.textContent="";
+    var list=Object.values(sectors).sort(function(a,b){return Math.abs(b.net)-Math.abs(a.net)});
+    var max=Math.max(1,Math.max.apply(null,list.map(function(s){return Math.abs(s.net)})));
+    list.forEach(function(s){
+      var b=el("button","sec");b.type="button";b.setAttribute("aria-pressed",f.sector===s.name?"true":"false");
+      var a=Math.abs(s.net)/max,col=s.net>0?"51,209,122":s.net<0?"255,95,87":"185,164,255";
+      b.style.background="rgba("+col+","+(0.06+a*0.28).toFixed(2)+")";
+      b.append(el("small",null,s.name),el("b",s.net>0?"up":s.net<0?"down":"mixed",(s.net>0?"+":"")+s.net));
+      b.title=s.n+" impact"+(s.n>1?"s":"")+" today";
+      b.onclick=function(){f.sector=f.sector===s.name?null:s.name;f.stock=null;renderAll()};
+      g.appendChild(b);
+    });
+    if(!list.length)g.appendChild(el("p","note","No sector impact yet today."));
+  }
+  function renderActive(){
+    var a=document.getElementById("active");a.textContent="";
+    [["stock","Stock"],["sector","Sector"]].forEach(function(p){
+      if(!f[p[0]])return;
+      var c=el("button","chipx");c.type="button";c.append(document.createTextNode(p[1]+": "+f[p[0]]),el("span",null,"×"));
+      c.setAttribute("aria-label","Clear "+p[1].toLowerCase()+" filter");
+      c.onclick=function(){f[p[0]]=null;renderAll()};a.appendChild(c);
+    });
+  }
+  function renderStream(){
+    var ul=document.getElementById("stream");ul.textContent="";
+    var vis=events.filter(visible);
+    document.getElementById("count").textContent=vis.length+" of "+events.length+" headlines";
+    document.getElementById("upd").textContent=updated&&!isNaN(updated)?"updated "+fmtTime(updated)+" IST":"";
+    if(!vis.length){
+      var e=el("li","empty");
+      if(f.scope==="watch"&&!hold.length){e.append(el("b",null,"Your watchlist is empty"),el("span",null,"Add symbols on the left to see only the news that moves them."))}
+      else e.append(el("b",null,"No headlines match"),el("span",null,"Clear a filter or search for another stock."));
+      ul.appendChild(e);return;
+    }
+    vis.forEach(function(ev){
+      var li=el("li","ev"+(ev.id===sel?" sel":"")),b=el("button");b.type="button";b.setAttribute("aria-pressed",ev.id===sel?"true":"false");
+      var meta=el("div","meta");
+      meta.append(el("span",null,fmtTime(ev.t)),el("span","th",ev.theme||ev.section),el("span",null,ev.section),el("span",null,ev.source));
+      var imps=el("div","imps");ev.impacts.slice(0,8).forEach(function(m){imps.appendChild(impChip(m))});
+      if(ev.impacts.length>8)imps.appendChild(el("span","imp mixed","+"+(ev.impacts.length-8)));
+      b.append(meta,el("h3",null,ev.headline),imps);
+      b.onclick=function(){sel=ev.id;renderStream();renderDetail();if(matchMedia("(max-width:1180px)").matches)document.querySelector(".detail").scrollIntoView({behavior:"smooth",block:"start"})};
+      li.appendChild(b);ul.appendChild(li);
+    });
+  }
+  function bars(n){var w=el("span","bars");for(var i=1;i<=3;i++)w.appendChild(el("i",i<=n?"f":null));return w}
+  function tgImpacts(ev){return ev.impacts.filter(function(m){return m.verdict!=="ignore"||ev.impacts.length<=3}).slice(0,6)}
+  function tgText(ev){
+    var L=["PULSEDGE · MARKET PULSE · "+fmtDay(ev.t)+" "+fmtTime(ev.t)+" IST","",(ev.theme?"["+ev.theme.toUpperCase()+"] ":"")+ev.headline,"","Impact on Nifty 500:"];
+    tgImpacts(ev).forEach(function(m){L.push(ARROW[m.dir]+" "+m.symbol+" — "+STR[m.str].toLowerCase()+" "+(m.dir==="mixed"?"mixed":m.dir==="up"?"positive":"negative")+" · "+m.verdict.toUpperCase())});
+    if(ev.reason)L.push("","Why: "+ev.reason);
+    L.push("","Educational only. Not investment advice.","t.me/pulsedgein");
+    return L.join("\n");
+  }
+  function renderDetail(){
+    var d=document.getElementById("detail");d.textContent="";
+    var ev=events.filter(function(e){return e.id===sel})[0];
+    document.getElementById("dt-time").textContent=ev?fmtDay(ev.t)+" · "+fmtTime(ev.t):"";
+    if(!ev){d.appendChild(el("p","note","Select a headline to see its impact on each stock."));return}
+    var meta=el("div","meta");meta.append(el("span","th",ev.theme||ev.section),el("span",null,ev.section),el("span",null,"call: "+ev.verdict.toUpperCase()));
+    d.append(meta,el("h2",null,ev.headline));
+    if(ev.reason)d.appendChild(el("p","why",ev.reason));
+    var src=el("div","src",ev.source?"Source: "+ev.source+" ":"");
+    if(ev.url){var a=el("a",null,"Open source ↗");a.href=ev.url;a.target="_blank";a.rel="noopener";src.appendChild(a)}
+    if(src.childNodes.length)d.appendChild(src);
+
+    var t=el("table","itbl"),th=el("thead"),hr=el("tr");
+    ["Stock","Impact","Call","Horizon"].forEach(function(h){hr.appendChild(el("th",null,h))});th.appendChild(hr);t.appendChild(th);
+    var tb=el("tbody");
+    ev.impacts.forEach(function(m){
+      var tr=el("tr",mine(m.symbol)?"mine":"");
+      var c1=el("td"),sb=el("button","sbtn");sb.type="button";sb.append(el("b",null,m.symbol),el("small",null,m.reason||m.name));sb.onclick=function(){setStock(m.symbol)};c1.appendChild(sb);
+      var c2=el("td",m.dir);c2.append(el("span",null,ARROW[m.dir]+" "),bars(m.str));c2.title=STR[m.str]+" "+(m.dir==="mixed"?"mixed":m.dir==="up"?"positive":"negative");
+      var c3=el("td");c3.appendChild(el("span","vb "+m.verdict,m.verdict.toUpperCase()));
+      tr.append(c1,c2,c3,el("td",null,m.horizon||"–"));tb.appendChild(tr);
+    });
+    t.appendChild(tb);d.appendChild(t);
+
+    // Telegram card (same layout the bot renders as an image)
+    var w=el("div","tgwrap"),h=el("div","tgh");h.append(el("span",null,"Telegram post"),el("span",null,"t.me/pulsedgein"));
+    var c=el("div","tg");
+    var r1=el("div","r1");r1.append(el("span",null,"PULSEDGE · MARKET PULSE"),el("span",null,fmtDay(ev.t)+" · "+fmtTime(ev.t)+" IST"));
+    c.append(r1,el("span","th",(ev.theme||ev.section).toUpperCase()),el("div","hd",ev.headline),el("div","lb","IMPACT ON NIFTY 500"));
+    var ul=el("ul");
+    tgImpacts(ev).forEach(function(m){
+      var li=el("li");li.append(el("span",m.dir,ARROW[m.dir]),el("b",null,m.symbol),el("span","l",STR[m.str]+" "+(m.dir==="mixed"?"mixed":m.dir==="up"?"positive":"negative")),el("span","vb "+m.verdict,m.verdict.toUpperCase()));
+      ul.appendChild(li);
+    });
+    c.appendChild(ul);
+    if(ev.reason)c.appendChild(el("div","wy","Why: "+ev.reason));
+    var ft=el("div","ft");ft.append(el("span",null,"Educational only. Not investment advice."),el("span",null,"t.me/pulsedgein"));c.appendChild(ft);
+    var bt=el("div","btns"),cp=el("button","btn pri","Copy post text");cp.type="button";
+    var ok=el("span","ok");
+    cp.onclick=function(){
+      var txt=tgText(ev);
+      var done=function(){ok.textContent="Copied";setTimeout(function(){ok.textContent=""},2000)};
+      if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(txt).then(done,function(){fallback(txt);done()});else{fallback(txt);done()}
+    };
+    bt.append(cp,ok);
+    var note=el("p","tgnote");
+    note.append(document.createTextNode("The PulsEdge bot posts this card as an image to "),Object.assign(el("a",null,"t.me/pulsedgein"),{href:"https://t.me/pulsedgein",target:"_blank",rel:"noopener"}),document.createTextNode(" for every ACT headline once it's connected."));
+    w.append(h,c,bt,note);d.appendChild(w);
+  }
+  function fallback(txt){var ta=el("textarea");ta.value=txt;ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.select();try{document.execCommand("copy")}catch(e){}ta.remove()}
+  function renderTracker(){
+    var tb=document.getElementById("trk");tb.textContent="";
+    var list=Object.values(stocks);
+    list.sort(sortBy==="n"?function(a,b){return b.n-a.n||Math.abs(b.net)-Math.abs(a.net)}:function(a,b){return Math.abs(b.net)-Math.abs(a.net)||b.n-a.n});
+    var max=Math.max(1,Math.max.apply(null,list.map(function(s){return Math.abs(s.net)})));
+    list.forEach(function(s){
+      var tr=el("tr",mine(s.symbol)?"mine":"");tr.tabIndex=0;
+      var c1=el("td");c1.append(el("b",null,s.symbol),el("small",null,s.name));
+      var bar=el("div","div"),i=el("i"),pct=Math.abs(s.net)/max*50;
+      i.style.width=pct+"%";i.style.left=s.net>=0?"50%":(50-pct)+"%";i.style.background=s.net>0?"var(--up)":s.net<0?"var(--down)":"var(--mix)";
+      if(s.net===0){i.style.width="2px";i.style.left="calc(50% - 1px)"}
+      bar.appendChild(i);var c4=el("td");c4.appendChild(bar);
+      var c6=el("td");c6.appendChild(el("span","vb "+s.last.imp.verdict,s.last.imp.verdict.toUpperCase()));
+      tr.append(c1,el("td",null,s.sector),el("td","num",String(s.n)),c4,el("td","num "+(s.net>0?"up":s.net<0?"down":"mixed"),(s.net>0?"+":"")+s.net),c6,el("td","hl",s.last.ev.headline));
+      tr.onclick=function(){setStock(s.symbol);window.scrollTo({top:0,behavior:"smooth"})};
+      tr.onkeydown=function(e){if(e.key==="Enter")tr.onclick()};
+      tb.appendChild(tr);
+    });
+    if(!list.length){var tr=el("tr"),td=el("td","hl","No stocks in the news yet today.");td.colSpan=7;tr.appendChild(td);tb.appendChild(tr)}
+  }
+  function renderAll(){
+    if(sel&&!events.filter(visible).some(function(e){return e.id===sel})){var first=events.filter(visible)[0];if(first)sel=first.id}
+    renderTape();renderWatch();renderSectors();renderActive();renderStream();renderDetail();renderTracker();
+  }
+
+  // ---------- controls ----------
+  document.querySelectorAll("[data-scope]").forEach(function(b){b.onclick=function(){f.scope=b.dataset.scope;document.querySelectorAll("[data-scope]").forEach(function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});renderAll()}});
+  document.querySelectorAll("[data-v]").forEach(function(b){b.onclick=function(){f.v=b.dataset.v;document.querySelectorAll("[data-v]").forEach(function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});renderAll()}});
+  document.querySelectorAll("[data-sort]").forEach(function(b){b.onclick=function(){sortBy=b.dataset.sort;document.querySelectorAll("[data-sort]").forEach(function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});renderTracker()}});
+  var q=document.getElementById("q");
+  q.addEventListener("input",function(){
+    var v=q.value.trim().toUpperCase();
+    if(U[v]&&stocks[v]){f.q="";setStock(v);return}
+    f.q=v;renderAll();
+  });
+  document.getElementById("sform").onsubmit=function(e){e.preventDefault()};
+  document.getElementById("wadd").onsubmit=function(e){
+    e.preventDefault();
+    var inp=document.getElementById("wadd-in"),v=inp.value.trim().toUpperCase().replace(/\.(NS|BO)$/,"");
+    if(!/^[A-Z][A-Z0-9&\-]{0,19}$/.test(v)){inp.focus();return}
+    if(!mine(v)){hold.push({s:v,q:null});saveHold()}
+    inp.value="";
+    document.getElementById("wl-note").textContent=U[v]?"Added "+v+". Shared with your watchlist on the PulsEdge site.":v+" isn't in the loaded universe, so no news will match it yet.";
+    renderAll();
+  };
+  window.addEventListener("storage",function(e){if(e.key==="pe_hold"){try{hold=JSON.parse(e.newValue||"[]")||[]}catch(x){hold=[]}renderAll()}});
+
+  load().catch(function(){document.getElementById("stream").appendChild(el("li","empty","Couldn't load the news data. Refresh to try again."))});
+  setInterval(function(){if(!isSample)load().catch(function(){})},120000);
+})();
+</script>
+</body>
+</html>

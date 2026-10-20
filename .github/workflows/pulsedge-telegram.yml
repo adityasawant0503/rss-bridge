@@ -1,0 +1,45 @@
+name: PulsEdge Telegram
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'pulsedge/data/feed.json'
+  workflow_dispatch:
+    inputs:
+      event:
+        description: 'Post only this event id (optional)'
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pulsedge-telegram
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-24.04
+    steps:
+    - uses: actions/checkout@v5
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+    - run: pip install pillow==10.4.0
+    - name: Post new ACT events
+      env:
+        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        TELEGRAM_CHAT_ID: ${{ vars.TELEGRAM_CHAT_ID }}
+        EVENT: ${{ github.event.inputs.event }}
+      run: python pulsedge-bot/pulse_bot.py post ${EVENT:+--event "$EVENT"}
+    - name: Remember what was posted
+      run: |
+        if [ -n "$(git status --porcelain pulsedge-bot/posted.json)" ]; then
+          git config user.name "pulsedge-bot"
+          git config user.email "pulsedge-bot@users.noreply.github.com"
+          git add pulsedge-bot/posted.json
+          git commit -m "PulsEdge bot: record posted events"
+          git push
+        fi

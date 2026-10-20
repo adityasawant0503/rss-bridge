@@ -43,6 +43,32 @@ every two minutes.
 
 Unknown `verdict` values are shown as `ignore`; unknown `section` values as `news`.
 
+### Stock impacts (used by the terminal and the Telegram bot)
+
+An item can list each stock the news moves, with its own impact and call.
+When `impacts` is present, `tickers` can be left out.
+
+| Field       | Values / example                                      |
+|-------------|-------------------------------------------------------|
+| `theme`     | Short topic shown as the yellow tag, `"Crude oil"`     |
+| `impacts`   | List of `{symbol, direction, strength, verdict, horizon, reason}` |
+| `direction` | `up`, `down` or `mixed`                               |
+| `strength`  | `1` mild, `2` moderate, `3` strong                    |
+| `verdict`   | `act`, `watch` or `ignore`, per stock                 |
+
+`feed.sample.json` shows a full example (the crude oil item has ten impacts).
+
+## Universe (`universe.json`)
+
+The list of stocks the terminal scans, with company name and sector. Until
+`universe.json` exists the terminal uses `universe.sample.json` (45 stocks).
+To load the full Nifty 500, download `ind_nifty500list.csv` from
+niftyindices.com and run:
+
+```
+python pulsedge-bot/universe_from_nse.py ind_nifty500list.csv
+```
+
 ### Digest
 
 | Field     | Meaning                                         |
