@@ -275,6 +275,9 @@ footer p{margin:0 0 8px}
 }
 @media (prefers-reduced-motion:reduce){.dot,.row.new .rb,.orb{animation:none}html{scroll-behavior:auto}}
 
+/* scroll-driven background scene (assets/pulse-scene.js) */
+#pulse-bg{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+
 /* sun / moon theme button */
 .thm{display:inline-grid;place-items:center;width:34px;height:34px;padding:0;border:1px solid var(--line);border-radius:50%;background:none;color:var(--fg);cursor:pointer;flex:none}
 .thm:hover{border-color:var(--pur)}
@@ -284,6 +287,7 @@ footer p{margin:0 0 8px}
 </style>
 </head>
 <body>
+<canvas id="pulse-bg" aria-hidden="true"></canvas>
 
 <header>
   <div class="w bar">
@@ -918,5 +922,6 @@ footer p{margin:0 0 8px}
   sync();
 })();
 </script>
+<script src="assets/pulse-scene.js" defer></script>
 </body>
 </html>
