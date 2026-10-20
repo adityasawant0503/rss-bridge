@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>try{var t=localStorage.getItem("th");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>PulsEdge Terminal</title>
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -13,17 +14,32 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
 <style>
 /* Layout: PULSE design. Status bar on top; pre-market panel then signal feed in one column on phones,
-   side by side on desktop (pre-market sticky on the left). Single dark theme by design. */
+   side by side on desktop (pre-market sticky on the left). Dark-first; the light theme follows the system or the sun/moon button. */
 :root{
   --bg:#0b0b10;--panel:#121219;--panel2:#171720;--line:#262532;--fg:#ecebf3;--mute:#8e8a9e;--dim:#5f5c6d;
   --pur:#8b5cf6;--pur-l:#a78bfa;--pur-soft:#8b5cf61f;--pur-box:#1a1630;--pur-edge:#4c3d8f;
   --green:#22c55e;--green-l:#4ade80;--green-soft:#22c55e1f;
   --red:#ef4444;--red-l:#f87171;--red-soft:#ef44441f;
   --amber:#f59e0b;--amber-l:#fbbf24;--amber-soft:#f59e0b1f;
+  --bear-bg:#7f1d1d66;--bull-bg:#14532d66;--neu-bg:#3f3f4666;--buy-bg:#14532d99;--sell-bg:#7f1d1d99;--watch-bg:#78350f99;--ign-bg:#3f3f4699;--track:#2a2935;--cb-border:#c9c7d3;
   --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   --mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
   color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)
 }
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){
+  --bg:#f6f5fa;--panel:#ffffff;--panel2:#f3f2f8;--line:#e2e0ea;--fg:#17161c;--mute:#6b6878;--dim:#9b98a8;
+  --pur:#7c4dff;--pur-l:#6a3df0;--pur-soft:#7c4dff14;--pur-box:#f4efff;--pur-edge:#cbbcff;
+  --green:#16a34a;--green-l:#15803d;--green-soft:#16a34a14;--red:#dc2626;--red-l:#c02626;--red-soft:#dc262612;
+  --amber:#d97706;--amber-l:#b45309;--amber-soft:#d9770614;
+  --bear-bg:#fde2e2;--bull-bg:#dcfce7;--neu-bg:#ececf1;--buy-bg:#dcfce7;--sell-bg:#fee2e2;--watch-bg:#fef3c7;--ign-bg:#ececf1;--track:#e6e4ee;--cb-border:#b9b6c6;
+  color-scheme:light}}
+:root[data-theme="light"]{
+  --bg:#f6f5fa;--panel:#ffffff;--panel2:#f3f2f8;--line:#e2e0ea;--fg:#17161c;--mute:#6b6878;--dim:#9b98a8;
+  --pur:#7c4dff;--pur-l:#6a3df0;--pur-soft:#7c4dff14;--pur-box:#f4efff;--pur-edge:#cbbcff;
+  --green:#16a34a;--green-l:#15803d;--green-soft:#16a34a14;--red:#dc2626;--red-l:#c02626;--red-soft:#dc262612;
+  --amber:#d97706;--amber-l:#b45309;--amber-soft:#d9770614;
+  --bear-bg:#fde2e2;--bull-bg:#dcfce7;--neu-bg:#ececf1;--buy-bg:#dcfce7;--sell-bg:#fee2e2;--watch-bg:#fef3c7;--ign-bg:#ececf1;--track:#e6e4ee;--cb-border:#b9b6c6;
+  color-scheme:light}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.45 var(--sans);-webkit-font-smoothing:antialiased}
 a{color:inherit}
@@ -66,9 +82,9 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .pmr{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px}
 .pmt{font-weight:700;letter-spacing:.12em;color:var(--pur-l);font-size:15px}
 .sent{font:700 12.5px/1.4 var(--mono);letter-spacing:.06em;border-radius:4px;padding:2px 8px;text-transform:uppercase}
-.sent.bear{background:#7f1d1d66;color:var(--red-l)}
-.sent.bull{background:#14532d66;color:var(--green-l)}
-.sent.neutral{background:#3f3f4666;color:var(--fg)}
+.sent.bear{background:var(--bear-bg);color:var(--red-l)}
+.sent.bull{background:var(--bull-bg);color:var(--green-l)}
+.sent.neutral{background:var(--neu-bg);color:var(--fg)}
 .breadth{font:500 12.5px/1.4 var(--mono);border:1px solid #22c55e55;border-radius:4px;padding:2px 7px}
 .prog{font:500 12.5px/1.4 var(--mono);border:1px solid var(--line);border-radius:4px;padding:2px 7px}
 .date{color:var(--mute);font-size:14px}
@@ -77,7 +93,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .pmb{border-top:1px solid var(--line)}
 .cl{list-style:none;margin:0;padding:0}
 .cl li{display:grid;grid-template-columns:22px 14px 1fr;gap:12px;align-items:start;padding:14px 16px;border-bottom:1px solid var(--line)}
-.cl input{appearance:none;-webkit-appearance:none;width:20px;height:20px;margin:1px 0 0;border:1.5px solid #c9c7d3;border-radius:4px;background:#fff;display:grid;place-content:center;cursor:pointer}
+.cl input{appearance:none;-webkit-appearance:none;width:20px;height:20px;margin:1px 0 0;border:1.5px solid var(--cb-border);border-radius:4px;background:#fff;display:grid;place-content:center;cursor:pointer}
 .cl input:checked{background:var(--pur);border-color:var(--pur)}
 .cl input:checked::after{content:"";width:6px;height:11px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg) translate(-1px,-1px)}
 .ind{font-size:12px;line-height:22px;text-align:center}
@@ -129,10 +145,10 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .sh .tm{font:500 14px/1.4 var(--mono);color:var(--mute)}
 .srcb{font:500 13px/1.4 var(--mono);color:var(--pur-l);border:1px solid var(--pur-edge);background:var(--pur-soft);border-radius:4px;padding:1px 7px}
 .call{font:700 12.5px/1.4 var(--mono);letter-spacing:.04em;border-radius:4px;padding:1px 7px}
-.call.buy{background:#14532d99;color:var(--green-l)}
-.call.sell{background:#7f1d1d99;color:var(--red-l)}
-.call.watch{background:#78350f99;color:var(--amber-l)}
-.call.ignore{background:#3f3f4699;color:var(--mute)}
+.call.buy{background:var(--buy-bg);color:var(--green-l)}
+.call.sell{background:var(--sell-bg);color:var(--red-l)}
+.call.watch{background:var(--watch-bg);color:var(--amber-l)}
+.call.ignore{background:var(--ign-bg);color:var(--mute)}
 .hz{color:var(--mute)}
 .dir{font-weight:500}
 .dir.mixed{color:var(--mute)}
@@ -148,7 +164,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .meters{display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px;font:13.5px/1.4 var(--mono);color:var(--mute)}
 .meter{display:inline-flex;align-items:center;gap:8px}
 .meter b{color:var(--fg);font-weight:500;font-variant-numeric:tabular-nums}
-.meter i{display:block;width:64px;height:5px;border-radius:3px;background:#2a2935;overflow:hidden}
+.meter i{display:block;width:64px;height:5px;border-radius:3px;background:var(--track);overflow:hidden}
 .meter i span{display:block;height:100%;background:var(--pur)}
 .act{background:var(--pur-box);border:1px solid var(--pur-edge);border-radius:8px;padding:9px 12px;font-size:15px}
 .perf{font:13.5px/1.6 var(--mono);color:var(--mute);display:flex;flex-wrap:wrap;gap:2px 14px}
@@ -198,6 +214,13 @@ footer{padding-block:24px 32px;text-align:center;color:var(--dim);font-size:13.5
   footer{font-size:11px;padding-block:16px 24px}
 }
 @media (prefers-reduced-motion:reduce){.live .dot,.sig.fresh{animation:none}}
+
+/* sun / moon theme button */
+.thm{display:inline-grid;place-items:center;width:34px;height:34px;padding:0;border:1px solid var(--line);border-radius:50%;background:none;color:var(--fg);cursor:pointer;flex:none}
+.thm:hover{border-color:var(--pur)}
+.thm svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.thm [hidden]{display:none}
+@media (max-width:600px){.thm{width:30px;height:30px}.thm svg{width:15px;height:15px}}
 </style>
 </head>
 <body>
@@ -210,6 +233,7 @@ footer{padding-block:24px 32px;text-align:center;color:var(--dim);font-size:13.5
     <span class="pill eng" id="eng"><span>Engine</span><span class="dot"></span><b id="eng-t">idle</b></span>
     <span class="pill demo" id="demo" hidden>DEMO</span>
     <a class="back" href="index.html">← pulsedge</a>
+    <button class="thm" id="thm" type="button" aria-label="Switch to dark mode"><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true" hidden><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg></button>
   </div>
 </header>
 
@@ -441,6 +465,30 @@ footer{padding-block:24px 32px;text-align:center;color:var(--dim);font-size:13.5
   }
   load().catch(function(){var ul=document.getElementById("feed");ul.textContent="";var e=el("li","empty");e.append(el("b",null,"Couldn't load signals"),document.createTextNode("Refresh the page to try again."));ul.appendChild(e)});
   setInterval(function(){if(live)load().catch(function(){})},60000);
+})();
+</script>
+<script>
+// Theme: follows the phone/computer setting; the sun/moon button overrides it and the choice is shared by all PulsEdge pages.
+// Switching back to the system's own theme returns to following the system.
+(function(){
+  var d=document.documentElement,b=document.getElementById("thm"),mq=matchMedia("(prefers-color-scheme: dark)");
+  function sys(){return mq.matches?"dark":"light"}
+  function cur(){return d.getAttribute("data-theme")||sys()}
+  function save(v){try{v?localStorage.setItem("th",v):localStorage.removeItem("th")}catch(e){}}
+  function sync(){
+    var k=cur()==="dark",l=k?"Switch to light mode":"Switch to dark mode";
+    b.querySelector(".i-sun").toggleAttribute("hidden",!k);b.querySelector(".i-moon").toggleAttribute("hidden",k);
+    b.setAttribute("aria-label",l);b.title=l;
+  }
+  b.addEventListener("click",function(){
+    var n=cur()==="dark"?"light":"dark";
+    if(n===sys()){d.removeAttribute("data-theme");save(null)}else{d.setAttribute("data-theme",n);save(n)}
+    sync();
+  });
+  function onSys(){if(d.getAttribute("data-theme")===sys()){d.removeAttribute("data-theme");save(null)}sync()}
+  if(mq.addEventListener)mq.addEventListener("change",onSys);else mq.addListener(onSys);
+  window.addEventListener("storage",function(e){if(e.key!=="th")return;if(e.newValue)d.setAttribute("data-theme",e.newValue);else d.removeAttribute("data-theme");sync()});
+  sync();
 })();
 </script>
 </body>

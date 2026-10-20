@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>try{var t=localStorage.getItem("th");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Welcome to PulsEdge Pro</title>
 <meta name="robots" content="noindex">
@@ -11,14 +12,16 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <style>
 /* Layout: single centred column; same tokens as the landing page */
-:root{--bg:#fff;--fg:#16151a;--mute:#6b6875;--line:#e4e2ea;--pur:#7c4dff;--pur-soft:#efe9ff;--logo-bg:#fff;
+:root{--bg:#fff;--fg:#16151a;--mute:#6b6875;--line:#e4e2ea;--pur:#7c4dff;--pur-soft:#efe9ff;--logo-bg:#fff;--logo-lt:block;--logo-dk:none;
   --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f0e13;--fg:#f1f0f5;--mute:#9a97a6;--line:#2a2833;--pur:#a98bff;--pur-soft:#211b36;--logo-bg:#000;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#0f0e13;--fg:#f1f0f5;--mute:#9a97a6;--line:#2a2833;--pur:#a98bff;--pur-soft:#211b36;--logo-bg:#000;color-scheme:dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f0e13;--fg:#f1f0f5;--mute:#9a97a6;--line:#2a2833;--pur:#a98bff;--pur-soft:#211b36;--logo-bg:#000;--logo-lt:none;--logo-dk:block;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f0e13;--fg:#f1f0f5;--mute:#9a97a6;--line:#2a2833;--pur:#a98bff;--pur-soft:#211b36;--logo-bg:#000;--logo-lt:none;--logo-dk:block;color-scheme:dark}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.6 var(--mono)}
 .w{max-width:620px;margin:0 auto;padding-block:72px 48px;padding-left:max(22px,env(safe-area-inset-left,0px));padding-right:max(22px,env(safe-area-inset-right,0px))}
+.head{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .logo{width:64px;height:64px;border-radius:50%;background:var(--logo-bg);box-shadow:0 0 0 1px var(--line)}
+.logo.lt{display:var(--logo-lt)}.logo.dk{display:var(--logo-dk)}
 .kick{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--pur);margin:28px 0 8px}
 h1{font-size:clamp(28px,6vw,40px);line-height:1.1;letter-spacing:-.04em;font-weight:500;margin:0 0 14px;text-wrap:balance}
 p{margin:0 0 14px;color:var(--mute)}
@@ -43,11 +46,18 @@ footer{margin-top:40px;font-size:12px;color:var(--mute)}
   li span{font-size:12.5px}
   .box{padding:12px 14px;font-size:12.5px}
 }
+
+/* sun / moon theme button */
+.thm{display:inline-grid;place-items:center;width:34px;height:34px;padding:0;border:1px solid var(--line);border-radius:50%;background:none;color:var(--fg);cursor:pointer;flex:none}
+.thm:hover{border-color:var(--pur)}
+.thm svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.thm [hidden]{display:none}
+@media (max-width:600px){.thm{width:30px;height:30px}.thm svg{width:15px;height:15px}}
 </style>
 </head>
 <body>
 <main class="w">
-  <img class="logo" src="assets/icon.png" alt="PulsEdge" width="64" height="64">
+  <div class="head"><a href="index.html" aria-label="PulsEdge home"><img class="logo lt" src="assets/icon.png" alt="PulsEdge" width="64" height="64"><img class="logo dk" src="assets/icon-dark.png" alt="PulsEdge" width="64" height="64"></a><button class="thm" id="thm" type="button" aria-label="Switch to dark mode"><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true" hidden><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg></button></div>
   <p class="kick">Payment received</p>
   <h1>Welcome to PulsEdge Pro.</h1>
   <p>Thank you for subscribing. Razorpay has emailed your payment receipt.</p>
@@ -59,5 +69,29 @@ footer{margin-top:40px;font-size:12px;color:var(--mute)}
   <div class="box"><p>Didn't get an email within a day? Message us on <a href="https://t.me/pulsedgein" target="_blank" rel="noopener">Telegram</a> with your payment ID from the Razorpay receipt.</p></div>
   <footer>Educational information only. Not investment advice. <a href="index.html">Back to PulsEdge</a></footer>
 </main>
+<script>
+// Theme: follows the phone/computer setting; the sun/moon button overrides it and the choice is shared by all PulsEdge pages.
+// Switching back to the system's own theme returns to following the system.
+(function(){
+  var d=document.documentElement,b=document.getElementById("thm"),mq=matchMedia("(prefers-color-scheme: dark)");
+  function sys(){return mq.matches?"dark":"light"}
+  function cur(){return d.getAttribute("data-theme")||sys()}
+  function save(v){try{v?localStorage.setItem("th",v):localStorage.removeItem("th")}catch(e){}}
+  function sync(){
+    var k=cur()==="dark",l=k?"Switch to light mode":"Switch to dark mode";
+    b.querySelector(".i-sun").toggleAttribute("hidden",!k);b.querySelector(".i-moon").toggleAttribute("hidden",k);
+    b.setAttribute("aria-label",l);b.title=l;
+  }
+  b.addEventListener("click",function(){
+    var n=cur()==="dark"?"light":"dark";
+    if(n===sys()){d.removeAttribute("data-theme");save(null)}else{d.setAttribute("data-theme",n);save(n)}
+    sync();
+  });
+  function onSys(){if(d.getAttribute("data-theme")===sys()){d.removeAttribute("data-theme");save(null)}sync()}
+  if(mq.addEventListener)mq.addEventListener("change",onSys);else mq.addListener(onSys);
+  window.addEventListener("storage",function(e){if(e.key!=="th")return;if(e.newValue)d.setAttribute("data-theme",e.newValue);else d.removeAttribute("data-theme");sync()});
+  sync();
+})();
+</script>
 </body>
 </html>
