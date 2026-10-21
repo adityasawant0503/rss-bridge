@@ -51,9 +51,10 @@ jobs:
         DRY: ${{ github.ref != 'refs/heads/master' && '--dry-run' || '' }}
       run: python pulsedge-bot/news_pipeline.py $DRY
     - name: Pre-market panel
+      timeout-minutes: 4
       env:
         DRY: ${{ github.ref != 'refs/heads/master' && '--dry-run' || '' }}
-      run: python pulsedge-bot/premarket.py $DRY | head -c 1500
+      run: python pulsedge-bot/premarket.py $DRY | head -c 4000
     - name: Commit new headlines
       id: commit
       if: github.ref == 'refs/heads/master'

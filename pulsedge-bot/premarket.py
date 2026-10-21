@@ -4,8 +4,8 @@
   python pulsedge-bot/premarket.py            # write premarket.json
   python pulsedge-bot/premarket.py --dry-run  # print it instead
 
-Quotes come from Yahoo Finance's public chart endpoint (unofficial, personal use; swap
-for a licensed feed before charging for access). Stocks in focus come from today's feed.json.
+Quotes come from CNBC's public quote service, with Yahoo Finance's chart endpoint for anything
+CNBC misses (both unofficial, personal use; swap for a licensed feed before charging for access). Stocks in focus come from today's feed.json.
 Any quote that can't be fetched is left out rather than guessed.
 """
 import argparse
@@ -37,6 +37,38 @@ def log(*a):
     print(*a, file=sys.stderr, flush=True)
 
 
+# Same instruments on CNBC; anything missing or unparseable falls back to Yahoo.
+CNBC = {
+    "nifty": ".NSEI", "banknifty": ".NSEBANK", "vix": ".INVIXN",
+    "dow": ".DJI", "spx": ".SPX", "nasdaq": ".IXIC", "nqf": "@ND.1", "esf": "@SP.1",
+    "nikkei": ".N225", "hangseng": ".HSI", "kospi": ".KS11",
+    "dxy": ".DXY", "usdinr": "INR=", "brent": "@LCO.1", "wti": "@CL.1", "gold": "@GC.1", "us10y": "US10Y",
+}
+
+
+def num(v):
+    try:
+        return float(str(v).replace(",", "").replace("%", "").strip())
+    except (TypeError, ValueError):
+        return None
+
+
+def cnbc_quotes():
+    url = ("https://quote.cnbc.com/quote-html-webservice/restQuote/symbolType/symbol?symbols="
+           + urllib.parse.quote("|".join(CNBC.values())) + "&requestMethod=itv&noform=1&partnerId=2&fund=1&exthrs=1&output=json")
+    req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json"})
+    with urllib.request.urlopen(req, timeout=20) as r:
+        rows = json.load(r)["FormattedQuoteResult"]["FormattedQuote"]
+    by_sym = {row.get("symbol"): row for row in rows}
+    out = {}
+    for k, sym in CNBC.items():
+        row = by_sym.get(sym) or {}
+        price, prev = num(row.get("last")), num(row.get("previous_day_closing"))
+        if price and prev:
+            out[k] = {"price": price, "prev": prev, "chg": (price / prev - 1) * 100}
+    return out
+
+
 _SESSION = {}
 
 
@@ -47,11 +79,11 @@ def session():
         op = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
         op.addheaders = [("User-Agent", UA), ("Accept", "*/*")]
         try:
-            op.open("https://fc.yahoo.com", timeout=15).read()
+            op.open("https://fc.yahoo.com", timeout=8).read()
         except Exception:
             pass  # fc.yahoo.com answers 404 but still sets the cookie
         try:
-            _SESSION["crumb"] = op.open("https://query2.finance.yahoo.com/v1/test/getcrumb", timeout=15).read().decode().strip()
+            _SESSION["crumb"] = op.open("https://query2.finance.yahoo.com/v1/test/getcrumb", timeout=8).read().decode().strip()
         except Exception as e:
             log(f"  crumb: none ({type(e).__name__}: {e})")
             _SESSION["crumb"] = ""
@@ -65,7 +97,7 @@ def quote(sym):
     err = None
     for host in ("https://query2.finance.yahoo.com", "https://query1.finance.yahoo.com"):
         try:
-            with op.open(host + path, timeout=20) as r:
+            with op.open(host + path, timeout=8) as r:
                 res = json.load(r)["chart"]["result"][0]
             break
         except urllib.error.HTTPError as e:
@@ -96,11 +128,24 @@ def main():
     dry = ap.parse_args().dry_run
 
     q = {}
+    try:
+        q = cnbc_quotes()
+        log(f"  CNBC: {len(q)}/{len(QUOTES)}")
+    except Exception as e:
+        log(f"  CNBC: failed ({type(e).__name__}: {e})")
+    misses = 0
     for k, sym in QUOTES.items():
+        if k in q:
+            continue
+        if misses >= 3:
+            log(f"  {sym}: skipped (Yahoo keeps failing)")
+            continue
         try:
             q[k] = quote(sym)
+            misses = 0
             time.sleep(0.3)
         except Exception as e:
+            misses += 1
             log(f"  {sym}: skipped ({type(e).__name__}: {e})")
     log(f"quotes: {len(q)}/{len(QUOTES)}")
     if len(q) < 5:
@@ -214,7 +259,7 @@ def main():
                        + ([{"label": "IT", "tone": "watch"}] if "nasdaq" in q and abs(q["nasdaq"]["chg"]) > 0.3 else []),
         "key_risk": risks[0] if risks else "",
         "also": [{"name": n, "value": fmt(q[k]["price"], d), "change": round(q[k]["chg"], 2)} for n, k, d in also_keys if k in q],
-        "source": "Yahoo Finance (unofficial, delayed)",
+        "source": "CNBC / Yahoo Finance (unofficial, delayed)",
     }
     if dry:
         print(json.dumps(out, indent=1, ensure_ascii=False))
