@@ -1,0 +1,3620 @@
+{
+ "updated": "2026-10-21T11:22:41+05:30",
+ "items": [
+  {
+   "id": "646ebd0c6247d082",
+   "time": "2026-10-21T11:22:41+05:30",
+   "headline": "Completion of Recovery Certificate No. 6665 of 2023 dated June 13, 2023 issued to Shubhang Exports Ltd. [Defaulter] (PAN: AAJCS1526R) in the matter of Sulabh Engineers & Services Limited.",
+   "source": "SEBI",
+   "url": "https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/completion-of-recovery-certificate-no-6665-of-2023-dated-june-13-2023-issued-to-shubhang-exports-ltd-defaulter-pan-aajcs1526r-in-the-matter-of-sulabh-engineers-and-services-limited-_105335.html",
+   "section": "macro",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "ENGINERSIN",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Completion of Recovery Certificate No. 6665 of 2023 dated June 13, 2023 issued to Shubhang Exports Ltd. [Defaulter] (PAN: AAJCS1526R) in the matter of Sulabh Engineers & Services Limited."
+  },
+  {
+   "id": "45e2e248e0b7753f",
+   "time": "2026-10-21T11:22:41+05:30",
+   "headline": "Notice of Demand dated October 16, 2026 under Recovery Certificate No 9305 of 2026 issued against Amesh Surajlal Jaiswal (AFZPJ0067Q), Arvind Shukla (ISZPS7481G) and Jalaj Agrawal (AUDPA0226H) Jointly and severally in the matter of Akash Infra Projects Limited",
+   "source": "SEBI",
+   "url": "https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/notice-of-demand-dated-october-16-2026-under-recovery-certificate-no-9305-of-2026-issued-against-amesh-surajlal-jaiswal-afzpj0067q-arvind-shukla-iszps7481g-and-jalaj-agrawal-audpa0226h-jointly-_105333.html",
+   "section": "macro",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Notice of Demand dated October 16, 2026 under Recovery Certificate No 9305 of 2026 issued against Amesh Surajlal Jaiswal (AFZPJ0067Q), Arvind Shukla (ISZPS7481G) and Jalaj Agrawal (AUDPA0226H) Jointly and severally in the matter of Akash Infra Projects Limited"
+  },
+  {
+   "id": "5cc7b515e3b8b875",
+   "time": "2026-10-21T11:22:41+05:30",
+   "headline": "Appeal No. 7107 of 2026 filed by Deepali Singhal",
+   "source": "SEBI",
+   "url": "https://www.sebi.gov.in/enforcement/orders/oct-2026/appeal-no-7107-of-2026-filed-by-deepali-singhal_105321.html",
+   "section": "macro",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Appeal No. 7107 of 2026 filed by Deepali Singhal"
+  },
+  {
+   "id": "b82a0eaa56530379",
+   "time": "2026-10-21T11:22:41+05:30",
+   "headline": "Appeal No. 7114 of 2026 filed by A. Balamurugan",
+   "source": "SEBI",
+   "url": "https://www.sebi.gov.in/enforcement/orders/oct-2026/appeal-no-7114-of-2026-filed-by-a-balamurugan_105319.html",
+   "section": "macro",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Appeal No. 7114 of 2026 filed by A. Balamurugan"
+  },
+  {
+   "id": "7a68bd5aedb8c53d",
+   "time": "2026-10-21T11:22:41+05:30",
+   "headline": "Appeal No. 7112 of 2026 filed by Ranjeet Kumar Swain",
+   "source": "SEBI",
+   "url": "https://www.sebi.gov.in/enforcement/orders/oct-2026/appeal-no-7112-of-2026-filed-by-ranjeet-kumar-swain_105317.html",
+   "section": "macro",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Appeal No. 7112 of 2026 filed by Ranjeet Kumar Swain"
+  },
+  {
+   "id": "b887c0843a421b5c",
+   "time": "2026-10-21T11:22:41+05:30",
+   "headline": "Appeal No. 7113 of 2026 filed by S Srinivas",
+   "source": "SEBI",
+   "url": "https://www.sebi.gov.in/enforcement/orders/oct-2026/appeal-no-7113-of-2026-filed-by-s-srinivas_105312.html",
+   "section": "macro",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Appeal No. 7113 of 2026 filed by S Srinivas"
+  },
+  {
+   "id": "724627a4a79d5083",
+   "time": "2026-10-21T11:22:41+05:30",
+   "headline": "Appeal No. 7115 of 2026 filed by Prem Kumar Gurusamy",
+   "source": "SEBI",
+   "url": "https://www.sebi.gov.in/enforcement/orders/oct-2026/appeal-no-7115-of-2026-filed-by-prem-kumar-gurusamy_105311.html",
+   "section": "macro",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Appeal No. 7115 of 2026 filed by Prem Kumar Gurusamy"
+  },
+  {
+   "id": "a10bd741a79dafde",
+   "time": "2026-10-21T11:22:41+05:30",
+   "headline": "Appeal No. 7110 of 2026 filed by Vikram Aggarwal",
+   "source": "SEBI",
+   "url": "https://www.sebi.gov.in/enforcement/orders/oct-2026/appeal-no-7110-of-2026-filed-by-vikram-aggarwal_105309.html",
+   "section": "macro",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Appeal No. 7110 of 2026 filed by Vikram Aggarwal"
+  },
+  {
+   "id": "27db287a3b62637b",
+   "time": "2026-10-21T11:22:41+05:30",
+   "headline": "Appeal No. 7111 of 2026 filed by BIDISH DAS",
+   "source": "SEBI",
+   "url": "https://www.sebi.gov.in/enforcement/orders/oct-2026/appeal-no-7111-of-2026-filed-by-bidish-das_105307.html",
+   "section": "macro",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Appeal No. 7111 of 2026 filed by BIDISH DAS"
+  },
+  {
+   "id": "412b9447ae2923ab",
+   "time": "2026-10-21T11:22:41+05:30",
+   "headline": "Appeal No. 7105 of 2026 filed by Bharat Bhushan Singh",
+   "source": "SEBI",
+   "url": "https://www.sebi.gov.in/enforcement/orders/oct-2026/appeal-no-7105-of-2026-filed-by-bharat-bhushan-singh_105306.html",
+   "section": "macro",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Appeal No. 7105 of 2026 filed by Bharat Bhushan Singh"
+  },
+  {
+   "id": "a2fae1386d63193f",
+   "time": "2026-10-21T11:22:41+05:30",
+   "headline": "Appeal No. 7104 of 2026 filed by Sunil Kumar",
+   "source": "SEBI",
+   "url": "https://www.sebi.gov.in/enforcement/orders/oct-2026/appeal-no-7104-of-2026-filed-by-sunil-kumar_105304.html",
+   "section": "macro",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Appeal No. 7104 of 2026 filed by Sunil Kumar"
+  },
+  {
+   "id": "929c10e155287f39",
+   "time": "2026-10-21T11:22:41+05:30",
+   "headline": "Appeal No. 7099 of 2026 filed by Vikram Aggarwal",
+   "source": "SEBI",
+   "url": "https://www.sebi.gov.in/enforcement/orders/oct-2026/appeal-no-7099-of-2026-filed-by-vikram-aggarwal_105303.html",
+   "section": "macro",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Appeal No. 7099 of 2026 filed by Vikram Aggarwal"
+  },
+  {
+   "id": "111ff1026636add5",
+   "time": "2026-10-21T11:22:41+05:30",
+   "headline": "Appeal No. 7097 of 2026 filed by Surendra Champalaji Jain",
+   "source": "SEBI",
+   "url": "https://www.sebi.gov.in/enforcement/orders/oct-2026/appeal-no-7097-of-2026-filed-by-surendra-champalaji-jain_105301.html",
+   "section": "macro",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Appeal No. 7097 of 2026 filed by Surendra Champalaji Jain"
+  },
+  {
+   "id": "f3c597bdb8d5a891",
+   "time": "2026-10-21T11:22:41+05:30",
+   "headline": "Securities and Exchange Board of India (Alternative Investment Funds) (Third Amendment) Regulations, 2026",
+   "source": "SEBI",
+   "url": "https://www.sebi.gov.in/legal/regulations/oct-2026/securities-and-exchange-board-of-india-alternative-investment-funds-third-amendment-regulations-2026_105331.html",
+   "section": "macro",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Securities and Exchange Board of India (Alternative Investment Funds) (Third Amendment) Regulations, 2026"
+  },
+  {
+   "id": "eb2273c2d54372dc",
+   "time": "2026-10-21T11:22:41+05:30",
+   "headline": "Securities and Exchange Board of India (Listing Obligations and Disclosure Requirements) (Third Amendment) Regulations, 2026",
+   "source": "SEBI",
+   "url": "https://www.sebi.gov.in/legal/regulations/oct-2026/securities-and-exchange-board-of-india-listing-obligations-and-disclosure-requirements-third-amendment-regulations-2026_105330.html",
+   "section": "macro",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Securities and Exchange Board of India (Listing Obligations and Disclosure Requirements) (Third Amendment) Regulations, 2026"
+  },
+  {
+   "id": "b8ce1a289da874cb",
+   "time": "2026-10-21T11:22:41+05:30",
+   "headline": "Securities and Exchange Board of India (Real Estate Investment Trusts) (Second Amendment) Regulations, 2026",
+   "source": "SEBI",
+   "url": "https://www.sebi.gov.in/legal/regulations/oct-2026/securities-and-exchange-board-of-india-real-estate-investment-trusts-second-amendment-regulations-2026_105329.html",
+   "section": "macro",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Securities and Exchange Board of India (Real Estate Investment Trusts) (Second Amendment) Regulations, 2026"
+  },
+  {
+   "id": "2ce18391ef772343",
+   "time": "2026-10-21T11:22:41+05:30",
+   "headline": "Securities and Exchange Board of India (Infrastructure Investment Trusts) (Second Amendment) Regulations, 2026",
+   "source": "SEBI",
+   "url": "https://www.sebi.gov.in/legal/regulations/oct-2026/securities-and-exchange-board-of-india-infrastructure-investment-trusts-second-amendment-regulations-2026_105323.html",
+   "section": "macro",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Securities and Exchange Board of India (Infrastructure Investment Trusts) (Second Amendment) Regulations, 2026"
+  },
+  {
+   "id": "660396c376fc11b4",
+   "time": "2026-10-21T11:22:41+05:30",
+   "headline": "Review of certain aspects of the Closing Auction Session, market timings and settlement methodology for derivatives contracts",
+   "source": "SEBI",
+   "url": "https://www.sebi.gov.in/legal/circulars/oct-2026/review-of-certain-aspects-of-the-closing-auction-session-market-timings-and-settlement-methodology-for-derivatives-contracts_105293.html",
+   "section": "macro",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "Macro",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Review of certain aspects of the Closing Auction Session, market timings and settlement methodology for derivatives contracts"
+  },
+  {
+   "id": "59450d2dea0d0c86",
+   "time": "2026-10-21T11:22:41+05:30",
+   "headline": "Prohibitory Order no. 1575/2026 issued against Venkatachari Suresh in the matter of Securekloud Technologies Ltd under RC No. 8710 of 2025",
+   "source": "SEBI",
+   "url": "https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/prohibitory-order-no-1575-2026-issued-against-venkatachari-suresh-in-the-matter-of-securekloud-technologies-ltd-under-rc-no-8710-of-2025_105292.html",
+   "section": "macro",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Prohibitory Order no. 1575/2026 issued against Venkatachari Suresh in the matter of Securekloud Technologies Ltd under RC No. 8710 of 2025"
+  },
+  {
+   "id": "2ae9e7aa59dbc6d5",
+   "time": "2026-10-21T11:22:41+05:30",
+   "headline": "Prohibitory Order no. 1576/2026 issued against R S Ramani in the matter of Securekloud Technologies Ltd under RC No. 8709 of 2025",
+   "source": "SEBI",
+   "url": "https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/prohibitory-order-no-1576-2026-issued-against-r-s-ramani-in-the-matter-of-securekloud-technologies-ltd-under-rc-no-8709-of-2025_105290.html",
+   "section": "macro",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Prohibitory Order no. 1576/2026 issued against R S Ramani in the matter of Securekloud Technologies Ltd under RC No. 8709 of 2025"
+  },
+  {
+   "id": "c4867d81f179efe2",
+   "time": "2026-10-21T11:22:41+05:30",
+   "headline": "Release Order dated October 15, 2026 for RC 8924 of 2025 issued against Yuvika Tradewing LLP (PAN - AABFY4620R) in the matter of Cressanda Solutions Limited",
+   "source": "SEBI",
+   "url": "https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/release-order-dated-october-15-2026-for-rc-8924-of-2025-issued-against-yuvika-tradewing-llp-pan-aabfy4620r-in-the-matter-of-cressanda-solutions-limited_105289.html",
+   "section": "macro",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Release Order dated October 15, 2026 for RC 8924 of 2025 issued against Yuvika Tradewing LLP (PAN - AABFY4620R) in the matter of Cressanda Solutions Limited"
+  },
+  {
+   "id": "13ad25ba3b6813e2",
+   "time": "2026-10-21T11:22:41+05:30",
+   "headline": "Completion of RC No. 8924 of 2025 issued against Yuvika Tradewing LLP (PAN - AABFY4620R) in the matter of Cressanda Solutions Limited",
+   "source": "SEBI",
+   "url": "https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/completion-of-rc-no-8924-of-2025-issued-against-yuvika-tradewing-llp-pan-aabfy4620r-in-the-matter-of-cressanda-solutions-limited_105287.html",
+   "section": "macro",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Completion of RC No. 8924 of 2025 issued against Yuvika Tradewing LLP (PAN - AABFY4620R) in the matter of Cressanda Solutions Limited"
+  },
+  {
+   "id": "c9876ed74947b445",
+   "time": "2026-10-21T11:22:41+05:30",
+   "headline": "Order in the matter of Capital Stroke Investment Services Pvt. Ltd.",
+   "source": "SEBI",
+   "url": "https://www.sebi.gov.in/enforcement/orders/oct-2026/order-in-the-matter-of-capital-stroke-investment-services-pvt-ltd-_105285.html",
+   "section": "macro",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Order in the matter of Capital Stroke Investment Services Pvt. Ltd."
+  },
+  {
+   "id": "7bcebe19a8c178b7",
+   "time": "2026-10-21T11:22:41+05:30",
+   "headline": "Release of attachment on immovable property under RC No. 3965 of 2021-Ram Kishore Taparia (PAN – ABJPT1453C) in the matter of Cosboard Industries Ltd",
+   "source": "SEBI",
+   "url": "https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/release-of-attachment-on-immovable-property-under-rc-no-3965-of-2021-ram-kishore-taparia-pan-abjpt1453c-in-the-matter-of-cosboard-industries-ltd_105270.html",
+   "section": "macro",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Release of attachment on immovable property under RC No. 3965 of 2021-Ram Kishore Taparia (PAN – ABJPT1453C) in the matter of Cosboard Industries Ltd"
+  },
+  {
+   "id": "1a2494f1757b399a",
+   "time": "2026-10-21T11:22:41+05:30",
+   "headline": "SEBI Teams win at IOSCO TechSprint 2026 on Investor Education in the Age of Artificial Intelligence (AI)",
+   "source": "SEBI",
+   "url": "https://www.sebi.gov.in/media-and-notifications/press-releases/oct-2026/sebi-teams-win-at-iosco-techsprint-2026-on-investor-education-in-the-age-of-artificial-intelligence-ai-_105266.html",
+   "section": "macro",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "SEBI Teams win at IOSCO TechSprint 2026 on Investor Education in the Age of Artificial Intelligence (AI)"
+  },
+  {
+   "id": "6462819887d21cb1",
+   "time": "2026-10-21T11:22:41+05:30",
+   "headline": "SEBI’s PolicyTwin Prototype Wins First Place at the C:>DIR Global ‘Agentic Regulator’ Hackathon",
+   "source": "SEBI",
+   "url": "https://www.sebi.gov.in/media-and-notifications/press-releases/oct-2026/sebi-s-policytwin-prototype-wins-first-place-at-the-c-dir-global-agentic-regulator-hackathon_105265.html",
+   "section": "macro",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "SEBI’s PolicyTwin Prototype Wins First Place at the C:>DIR Global ‘Agentic Regulator’ Hackathon"
+  },
+  {
+   "id": "b4d4ded8df3883c4",
+   "time": "2026-10-21T11:22:41+05:30",
+   "headline": "Release Order for RC No.3965 of 2021-Ram Kishore Taparia (PAN – ABJPT1453C) in the matter of Cosboard Industries Ltd",
+   "source": "SEBI",
+   "url": "https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/release-order-for-rc-no-3965-of-2021-ram-kishore-taparia-pan-abjpt1453c-in-the-matter-of-cosboard-industries-ltd_105263.html",
+   "section": "macro",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Release Order for RC No.3965 of 2021-Ram Kishore Taparia (PAN – ABJPT1453C) in the matter of Cosboard Industries Ltd"
+  },
+  {
+   "id": "2d036078dfd374ba",
+   "time": "2026-10-21T11:22:41+05:30",
+   "headline": "Confirmatory order in the matter of Rajesh Exports Limited",
+   "source": "SEBI",
+   "url": "https://www.sebi.gov.in/enforcement/orders/oct-2026/confirmatory-order-in-the-matter-of-rajesh-exports-limited_105261.html",
+   "section": "macro",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Confirmatory order in the matter of Rajesh Exports Limited"
+  },
+  {
+   "id": "ff0d3611a59caf62",
+   "time": "2026-10-21T11:22:41+05:30",
+   "headline": "Completion of Recovery Certificate No. 3965 of 2021-Ram Kishore Taparia (PAN – ABJPT1453C) in the matter of Cosboard Industries Ltd",
+   "source": "SEBI",
+   "url": "https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/completion-of-recovery-certificate-no-3965-of-2021-ram-kishore-taparia-pan-abjpt1453c-in-the-matter-of-cosboard-industries-ltd_105259.html",
+   "section": "macro",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Completion of Recovery Certificate No. 3965 of 2021-Ram Kishore Taparia (PAN – ABJPT1453C) in the matter of Cosboard Industries Ltd"
+  },
+  {
+   "id": "04c2f48d56e63fd9",
+   "time": "2026-10-21T11:22:41+05:30",
+   "headline": "Notice of Demand dated October 14, 2026 issued against Jalaj Agrawal (PAN:AUDPA0226H) in the matter of market manipulation using social media in the scrip of Moksh Ornaments Limited - RC No. 9304 of 2026",
+   "source": "SEBI",
+   "url": "https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/notice-of-demand-dated-october-14-2026-issued-against-jalaj-agrawal-pan-audpa0226h-in-the-matter-of-market-manipulation-using-social-media-in-the-scrip-of-moksh-ornaments-limited-rc-no-9304-of-2-_105253.html",
+   "section": "macro",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Notice of Demand dated October 14, 2026 issued against Jalaj Agrawal (PAN:AUDPA0226H) in the matter of market manipulation using social media in the scrip of Moksh Ornaments Limited - RC No. 9304 of 2026"
+  },
+  {
+   "id": "97f15d7ec9f29f4a",
+   "time": "2026-10-21T11:21:08+05:30",
+   "headline": "Compuage Infocom Limited",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/xbrl/CIRP_13983_WebXMLFile_20261021_112107833.xml",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "COMPUAGE INFOCOM LIMITED has informed the Exchange about Corporate Insolvency Resolution Process for the event related to Prior or Post-facto intimation of the meetings of Committee of Creditors |SUBJECT: Corporate Insolvency Resolution Process-XBRL"
+  },
+  {
+   "id": "87df77cce3f24924",
+   "time": "2026-10-21T11:21:06+05:30",
+   "headline": "Container Corporation of India Limited",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/CONCOR_21102026112031_CONCOR_SE_19102026.pdf",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Container Corporation Of India Limited has informed the Exchange about Physical Volumes for September 2026 |SUBJECT: General Updates"
+  },
+  {
+   "id": "fea428647a9f3be6",
+   "time": "2026-10-21T11:18:00+05:30",
+   "headline": "Zerodha Fund House - Zerodha Nifty Midcap 150 ETF",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Zerodha Asset Management Private Limited has informed the Exchange that the Net Asset Value (per unit) of Zerodha Fund House - Zerodha Nifty Midcap 150 ETF as on October 19, 2026 is Rs. 10.8322. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "23d4b9646565fd1e",
+   "time": "2026-10-21T11:18:00+05:30",
+   "headline": "Zerodha Fund House - Zerodha Nifty 1D Rate Liquid ETF",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Zerodha Asset Management Private Limited has informed the Exchange that the Net Asset Value (per unit) of Zerodha Fund House - Zerodha Nifty 1D Rate Liquid ETF as on October 19, 2026 is Rs. 116.4573. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "d5c84b92e74c4d63",
+   "time": "2026-10-21T11:18:00+05:30",
+   "headline": "Zerodha Fund House - Zerodha Silver ETF",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Zerodha Asset Management Private Limited has informed the Exchange that the Net Asset Value (per unit) of Zerodha Fund House - Zerodha Silver ETF as on October 19, 2026 is Rs. 20.9205. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "431da12fb3cd1038",
+   "time": "2026-10-21T11:18:00+05:30",
+   "headline": "Zerodha Fund House - Zerodha Nifty 50 ETF",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "NIFTYCASE : Zerodha Asset Management Private Limited has informed the Exchange that the Net Asset Value (per unit) of Zerodha Fund House - Zerodha Nifty 50 ETF as on October 19, 2026 is Rs. 9.2065. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "fdfd15e75aeb3d63",
+   "time": "2026-10-21T11:18:00+05:30",
+   "headline": "Zerodha Fund House - Zerodha Nifty 100 ETF",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Zerodha Asset Management Private Limited has informed the Exchange that the Net Asset Value (per unit) of Zerodha Fund House - Zerodha Nifty 100 ETF as on October 19, 2026 is Rs. 10.0553. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "e7f3e890b39544f5",
+   "time": "2026-10-21T11:18:00+05:30",
+   "headline": "Zerodha Fund House - Zerodha Nifty Next 100 ETF",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Zerodha Asset Management Private Limited has informed the Exchange that the Net Asset Value (per unit) of Zerodha Fund House - Zerodha Nifty Next 100 ETF as on October 19, 2026 is Rs. 10.1279. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "5803cc1f45ee6ba8",
+   "time": "2026-10-21T11:18:00+05:30",
+   "headline": "Zerodha Fund House - Zerodha Nifty Smallcap 100 ETF",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Zerodha Asset Management Private Limited has informed the Exchange that the Net Asset Value (per unit) of Zerodha Fund House - Zerodha Nifty Smallcap 100 ETF as on October 19, 2026 is Rs. 10.7401. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "aff14084f12f1f00",
+   "time": "2026-10-21T11:18:00+05:30",
+   "headline": "Zerodha Fund House - Zerodha Nifty 8-13 Yr G-Sec ETF",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Zerodha Asset Management Private Limited has informed the Exchange that the Net Asset Value (per unit) of Zerodha Fund House - Zerodha Nifty 8-13 Yr G-Sec ETF as on October 19, 2026 is Rs. 29.775. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "54b3366f7364ab65",
+   "time": "2026-10-21T11:18:00+05:30",
+   "headline": "Zerodha Fund House - Zerodha Gold ETF",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "GOLDCASE : Zerodha Asset Management Private Limited has informed the Exchange that the Net Asset Value (per unit) of Zerodha Fund House - Zerodha Gold ETF as on October 19, 2026 is Rs. 22.7645. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "43dd6ee9799bfef6",
+   "time": "2026-10-21T11:14:28+05:30",
+   "headline": "Shree Rama Multi-Tech Limited",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/SHREERAMA_21102026111333_Reply_to_NSE_Clarification.pdf",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Significant movement in price has been observed in Shree Rama Multi-Tech Limited. The Exchange, in order to ensure that investors have latest relevant information about the company and to inform the market place so that the interest of the investors is safeguarded, had written to the company. Shree "
+  },
+  {
+   "id": "d01a312a17d54564",
+   "time": "2026-10-21T11:12:01+05:30",
+   "headline": "Allcargo Logistics Limited",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/ALLCARGO_21102026111145_SE_Upload.pdf",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Allcargo Logistics Limited has informed the Exchange regarding a press release dated October 21, 2026, titled \"Submission of Press Release - Allcargo Logistics Transforms Financial Processes with Oracle Fusion Cloud Applications\". |SUBJECT: Press Release"
+  },
+  {
+   "id": "6a800b2e06c029f7",
+   "time": "2026-10-21T11:11:51+05:30",
+   "headline": "Goldiam International Limited",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/xbrl/PRIOR_INTIMATION_2316_WebXMLFile_20261021_111150868.xml",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Goldiam International Limited has informed the Exchange about Board Meeting to be held on 07-Nov-2026 to consider and approve the Quarterly Unaudited Financial results of the Company for the period ended September 2026 and Dividend. |SUBJECT: Board Meeting Intimation"
+  },
+  {
+   "id": "ebecec15ef3b3f43",
+   "time": "2026-10-21T11:09:32+05:30",
+   "headline": "Teja Engineering Industries Limited",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/xbrl/REG30_PARA_B_25838_WebXMLFile_20261021_110931744.xml",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "TEJA ENGINEERING INDUSTRIES LIMITED has informed the Exchange about Agreements (Sub-para 5-Para B) |SUBJECT: Agreements (Sub-para 5-Para B)"
+  },
+  {
+   "id": "5cde660e8854946d",
+   "time": "2026-10-21T11:09:22+05:30",
+   "headline": "Zydus Lifesciences Limited",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/Cadilahc_21102026110803_PressRelease21102026.pdf",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "ZYDUSLIFE",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Zydus Lifesciences Limited has informed the Exchange regarding a press release dated October 21, 2026, titled \"Zydus receives USFDA approval for Estradiol and Levonorgestrel Transdermal System, eligible for 180-day CGT exclusivity\". |SUBJECT: Press Release"
+  },
+  {
+   "id": "d5c9ddf12dd30b99",
+   "time": "2026-10-21T11:08:45+05:30",
+   "headline": "Bajaj Consumer Care Limited",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/BAJAJCON_21102026110839_Exchanges_Transcript.pdf",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Bajaj Consumer Care Limited has informed the Exchange about Transcript |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates"
+  },
+  {
+   "id": "56de86975e08ecbf",
+   "time": "2026-10-21T11:07:27+05:30",
+   "headline": "Embassy Office Parks REIT",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/EMBASSY_21102026110716_EmbassyREITCorporateGovernanceReportQ2FY27Signed.pdf",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "EMBASSY",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Embassy Office Parks REIT has informed regarding Submission of the Compliance Report on Corporate Governance for the quarter ended September 30, 2026. |SUBJECT: Quarterly Compliance Report on Corporate governance - within 21 days from the end of the quarter"
+  },
+  {
+   "id": "2607f32529faa1f4",
+   "time": "2026-10-21T11:06:15+05:30",
+   "headline": "IT stocks on fire, rally up to 15% today; check performance of TCS, L&T Technology, Wipro, Infosys | Jefferies bullish",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/stock-market-news/it-stocks-on-fire-rally-up-to-15-today-check-performance-of-tcs-l-t-technology-wipro-infosys-jefferies-bulli-11792559488325.html",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "INFY",
+     "direction": "up"
+    },
+    {
+     "symbol": "TCS",
+     "direction": "up"
+    },
+    {
+     "symbol": "WIPRO",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "The Nifty IT index rose as investors welcomed strong results from L&amp;T Technology Services and renewed hopes for traditional technology spending. Jefferies sees re-rating potential for Infosys, TCS, but warned that a recovery is not assured given AI-related risks and wider market pressures."
+  },
+  {
+   "id": "f3cd813ebf05141d",
+   "time": "2026-10-21T11:02:10+05:30",
+   "headline": "Repco Home Finance Limited",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/REPCOHOME_21102026110159_Intimation.pdf",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Repco Home Finance Limited has informed the Exchange about General Updates |SUBJECT: General Updates"
+  },
+  {
+   "id": "e3b438854aa8ddbf",
+   "time": "2026-10-21T11:00:02+05:30",
+   "headline": "Missed reversal in IT stocks? Jefferies gives 3 ideas with up to 50% re-rating potential",
+   "source": "ET Markets",
+   "url": "https://economictimes.indiatimes.com/markets/stocks/news/missed-reversal-in-it-stocks-jefferies-gives-3-ideas-with-up-to-50-re-rating-potential/articleshow/135083074.cms",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "INFY",
+     "direction": "up"
+    },
+    {
+     "symbol": "SAGILITY",
+     "direction": "up"
+    },
+    {
+     "symbol": "TCS",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Jefferies sees further valuation upside in Indian IT stocks despite a muted sector growth outlook. Infosys and TCS offer over 20% rerating potential, while Sagility could deliver more than 50% in a best-case scenario. The brokerage raised target prices for Infosys and TCS, citing scope for growth ex"
+  },
+  {
+   "id": "88b287ab56530ba4",
+   "time": "2026-10-21T10:58:05+05:30",
+   "headline": "Bio Medica Laboratories Limited",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/BIOMEDICA_21102026105753_SDD_merged.pdf",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "SDD Certificate as per Regulation3(5) and 3(6) of Securities and Exchange Board of India (Prohibition of Insider Trading) Regulations, 2015 |SUBJECT: Structural Digital Database"
+  },
+  {
+   "id": "0d8e566fa3ea32cc",
+   "time": "2026-10-21T10:57:41+05:30",
+   "headline": "eMudhra Limited",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/EMUDHRA2008_21102026105726_Press_Release_21102026.pdf",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "eMudhra Limited has informed the Exchange regarding a press release dated October 21, 2026, titled \"eMudhra Statement on distrust of select Global TLS Intermediate and one Root CA\". |SUBJECT: Press Release"
+  },
+  {
+   "id": "c3b35df0df18cd7c",
+   "time": "2026-10-21T10:57:21+05:30",
+   "headline": "UltraTech up 3% post Q2; Jefferies says cement price recovery key catalyst",
+   "source": "Business Standard",
+   "url": "https://www.business-standard.com/markets/news/ultratech-up-3-post-q2-jefferies-says-cement-price-recovery-key-catalyst-126102100281_1.html",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "ULTRACEMCO",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "UltraTech Cement's consolidated net profit attributable to owners of the parent rose 21.3 per cent year-on-year to ₹1,493.77 crore in the quarter ended September 30, 2026, from ₹1,231.58 crore."
+  },
+  {
+   "id": "a2e2417b3f3792f5",
+   "time": "2026-10-21T10:54:20+05:30",
+   "headline": "Yasho Industries Limited",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/xbrl/PRIOR_INTIMATION_22010_WebXMLFile_20261021_105419488.xml",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "YASHO INDUSTRIES LIMITED has informed the Exchange about Board Meeting to be held on 28-Oct-2026 to inter-alia consider and approve the Unaudited Financial results of the Company for the Half Yearly ended September 2026 . |SUBJECT: Board Meeting Intimation"
+  },
+  {
+   "id": "103cd09d8a15d89d",
+   "time": "2026-10-21T10:53:42+05:30",
+   "headline": "Pavna Industries Limited",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/PAVNA_21102026105330_SDDdisclosureSD.pdf",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "COMPLIANCE CERTIFICATE FOR THE QUARTER ENDED ON SEPTEMBER 30, 2026 |SUBJECT: Structural Digital Database"
+  },
+  {
+   "id": "ad1a56929893a8af",
+   "time": "2026-10-21T10:52:04+05:30",
+   "headline": "Transrail Lighting Limited",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/xbrl/REG30_PARA_B_23448_WebXMLFile_20261021_105203424.xml",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "TRANSRAIL LIGHTING LIMITED has informed the Exchange about Bagging/Receiving of orders/contracts (Sub-para 4-Para B) |SUBJECT: Bagging/Receiving of orders/contracts (Sub-para 4-Para B)"
+  },
+  {
+   "id": "fac2b6af0a3c9bf8",
+   "time": "2026-10-21T10:51:11+05:30",
+   "headline": "Multibagger stock: PC Jeweller shares jump 5% after surging 40% in 2 weeks | Q2 beat, bulk deal in focus | Key levels",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/stock-market-news/multibagger-stock-pc-jeweller-shares-jump-5-after-surging-40-in-2-weeks-q2-beat-bulk-deal-in-focus-key-levels-11792558318108.html",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "PC Jeweller shares rose nearly 5% on Wednesday, extending a sharp rally driven by strong Q2 FY27 revenue growth, debt repayment and investor interest following a reported bulk deal. Analysts warn the stock is overbought, identifying support near ₹17 and resistance around ₹19– ₹20."
+  },
+  {
+   "id": "0875e6194b1ed743",
+   "time": "2026-10-21T10:48:49+05:30",
+   "headline": "CREDITACCESS GRAMEEN LIMITED",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/xbrl/ALTERATION_OF_CAPITAL_AND_FUND_RAISING_16550_WebXMLFile_20261021_104848707.xml",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "CREDITACC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "CreditAccess Grameen Limited has informed the Exchange regarding Allotment of Securities |SUBJECT: Alteration Of Capital and Fund Raising-XBRL"
+  },
+  {
+   "id": "05852d03fe398572",
+   "time": "2026-10-21T10:48:00+05:30",
+   "headline": "Jio BlackRock Mutual Fund - JioBlackRock Nifty 50 ETF",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "NIFTYJBLK : Jio BlackRock Asset Management Private Limited has informed the Exchange that the Net Asset Value (per unit) of Jio BlackRock Mutual Fund - JioBlackRock Nifty 50 ETF as on October 19, 2026 is Rs. 11.7398. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "52f03b2e9c9e553f",
+   "time": "2026-10-21T10:47:15+05:30",
+   "headline": "LTM Limited",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/LTI_21102026104657_StockexchangeSigned.pdf",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "LTM",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "LTM Limited has informed the Exchange regarding a press release dated October 21, 2026, titled \"LTM Launches BlueVerse ValueMesh to Help Enterprises Scale AI Across Oracle Transformations\". |SUBJECT: Press Release"
+  },
+  {
+   "id": "ace2378aeef9774f",
+   "time": "2026-10-21T10:47:04+05:30",
+   "headline": "Bajaj Finance shares fall 3% after Q2 results. What Jefferies, Nomura, other brokerages now expect?",
+   "source": "ET Markets",
+   "url": "https://economictimes.indiatimes.com/markets/stocks/news/bajaj-finance-shares-fall-3-after-q2-results-what-jefferies-nomura-other-brokerages-now-expect/articleshow/135082829.cms",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "360ONE",
+     "direction": "up"
+    },
+    {
+     "symbol": "BAJFINANCE",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Bajaj Finance shares dropped on Wednesday after the NBFC reported a 29% year-on-year rise in Q2FY27 net profit to Rs 6,367 crore. Nomura and Jefferies retained Buy ratings, with Jefferies cutting its target price, while 360 One WAM upgraded the stock to Buy, citing improving risk-reward and strong g"
+  },
+  {
+   "id": "d3230b346acf26a0",
+   "time": "2026-10-21T10:45:00+05:30",
+   "headline": "Money Market Operations as on October 20, 2026",
+   "source": "RBI",
+   "url": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63836",
+   "section": "macro",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "(Amount in ₹ crore, Rate in Per cent) MONEY MARKETS @ --> Money Markets @ Volume (One Leg) Weighted Average Rate Range A. Overnight Segment (I+II+III+IV) 0.00 - - I. Call Money 0.00 - - II. Triparty Repo 0.00 - - III. Market Repo 0.00 - - IV. Repo in Corporate Bond 0.00 - - B. Term Segment I. Notice"
+  },
+  {
+   "id": "518792a07ae8b53d",
+   "time": "2026-10-21T10:44:31+05:30",
+   "headline": "Hindustan Zinc share jumps 4% after strong Q2 results 2026 | Should you buy Vedanta Group stock? Target, stop loss",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/stock-market-news/hindustan-zinc-share-jumps-4-after-strong-q2-results-2026-check-target-price-stop-loss-11792556202644.html",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "HINDZINC",
+     "direction": "up"
+    },
+    {
+     "symbol": "VEDL",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Hindustan Zinc share price opened at the day's high of ₹559.85, as compared to previous close of ₹538.40 on Monday."
+  },
+  {
+   "id": "18762d47cffd09cc",
+   "time": "2026-10-21T10:44:15+05:30",
+   "headline": "Transrail Lighting shares rally 9% after bagging orders worth Rs 927 crore",
+   "source": "ET Markets",
+   "url": "https://economictimes.indiatimes.com/markets/stocks/news/transrail-lighting-shares-rally-9-after-bagging-orders-worth-rs-927-crore/articleshow/135082787.cms",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Transrail Lighting shares rose nearly 9% after the company secured fresh orders worth Rs 927 crore, taking its financial year order intake to Rs 3,356 crore. However, foreign institutional investors trimmed their stake in the company during the September 2026 quarter."
+  },
+  {
+   "id": "c12421a44d30b83f",
+   "time": "2026-10-21T10:42:34+05:30",
+   "headline": "Export Import Bank of India",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/content/debt/WDM/export_21102026104219_Letter_to_NSE_Regulation_7_1_.pdf",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "BANKINDIA",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Disclosure under Regulation 7(1) |SUBJECT: Disclosure under Regulation 7(1)"
+  },
+  {
+   "id": "11070ae37aab4d62",
+   "time": "2026-10-21T10:41:56+05:30",
+   "headline": "THDC INDIA LIMITED",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/content/debt/WDM/TIL671_21102026104144_R27CGR30092026.pdf",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Disclosure Under Regulation 51 |SUBJECT: Disclosure Under Regulation 51"
+  },
+  {
+   "id": "23eb1452ec144e07",
+   "time": "2026-10-21T10:41:48+05:30",
+   "headline": "Hero FinCorp Limited",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/content/debt/WDM/HEROFINCORP_21102026103928_Intimation.pdf",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Confirmation of Redemption/Payment of Interest and Principal |SUBJECT: Confirmation of Redemption/Payment of Interest and Principal"
+  },
+  {
+   "id": "17c76b669aaea48b",
+   "time": "2026-10-21T10:40:25+05:30",
+   "headline": "Jio IPO opens with a bang, issue gets fully booked as QIBs drive demand. Check GMP",
+   "source": "ET Markets",
+   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/jio-ipo-opens-with-a-bang-issue-booked-over-90-as-qibs-drive-demand-check-gmp/articleshow/135082741.cms",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Mukesh Ambani-led Jio Platforms’ IPO saw strong demand on Day 1. The IPO commanded a grey market premium (GMP) of around 25%, while brokerages remained optimistic, citing Jio’s telecom leadership, improving profitability and growth opportunities in broadband and artificial intelligence (AI)."
+  },
+  {
+   "id": "30e7a870a09cc795",
+   "time": "2026-10-21T10:40:06+05:30",
+   "headline": "Global Market | Safe-haven assets under pressure: Dollar, Swiss franc, German bonds and gold in focus",
+   "source": "ET Markets",
+   "url": "https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/global-market-safe-haven-assets-under-pressure-dollar-swiss-franc-german-bonds-and-gold-in-focus/articleshow/135082673.cms",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Safe-haven demand is shifting amid AI-driven market volatility, geopolitical tensions, rising energy prices and mounting government debt. The US dollar, Swiss franc, German Bunds, short-term government bonds and gold offer potential protection, but differing risks and volatile returns highlight the "
+  },
+  {
+   "id": "325f6cca88e9e647",
+   "time": "2026-10-21T10:37:39+05:30",
+   "headline": "Systematix Corporate Services Limited",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/SYSTMTXC_21102026103729_SCSLSubmissionofnewspaperpublication21102026.pdf",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "We hereby enclose copies of newspaper advertisement published today i.e. on October 21, 2026 regarding opening of special window for transfer of physical securities held in the Company. |SUBJECT: Copy of Newspaper Publication"
+  },
+  {
+   "id": "ab716d7ab0863313",
+   "time": "2026-10-21T10:36:23+05:30",
+   "headline": "SIGMA ADVANCED SYSTEMS LIMITED",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/xbrl/REG30_PARA_B_2627_WebXMLFile_20261021_103622903.xml",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "SIGMA ADVANCED SYSTEMS LIMITED has informed the Exchange about Bagging/Receiving of orders/contracts (Sub-para 4-Para B) |SUBJECT: Bagging/Receiving of orders/contracts (Sub-para 4-Para B)"
+  },
+  {
+   "id": "9d04c863839a527a",
+   "time": "2026-10-21T10:34:32+05:30",
+   "headline": "Global Market: Japanese government bond yields fall as safe-haven demand returns",
+   "source": "ET Markets",
+   "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/global-market-japanese-government-bond-yields-fall-as-safe-haven-demand-returns/articleshow/135082602.cms",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "BANKINDIA",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Japanese government bond prices rose for a third session as attractive yields and safe-haven demand boosted investor interest. Record demand at a 20-year bond auction supported the recovery, while global yields declined. Economists expect the Bank of Japan to raise interest rates to 1.50% in Decembe"
+  },
+  {
+   "id": "4c0b104e8588dbc0",
+   "time": "2026-10-21T10:33:32+05:30",
+   "headline": "How Reliance Jio IPO is acting as shot in the arm for RIL shares — Will Mukesh Ambani company stock fly more? Buy now?",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/stock-market-news/how-reliance-jio-ipo-is-acting-as-shot-in-the-arm-for-ril-shares-will-mukesh-ambani-company-stock-fly-more-buy-now-11792557480938.html",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "RELIANCE",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Reliance Industries share price today opened with an upside gap at ₹1,212 and touched an intraday high of ₹1,234.30 per share within a few minutes of the Opening Bell"
+  },
+  {
+   "id": "dff6a41e13e3cb5d",
+   "time": "2026-10-21T10:33:21+05:30",
+   "headline": "Hindustan Zinc’s Q2 earnings glow on lower costs, higher metal prices",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/mark-to-market/hindustan-zinc-q2-earnings-share-price-silver-zinc-prices-profit-growth-11792555389675.html",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "HINDZINC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Hindustan Zinc’s earnings are benefiting from higher silver and zinc prices, lower production costs and stronger volumes. But easing metal prices could temper the momentum in Q3FY27."
+  },
+  {
+   "id": "99205977ce9d2750",
+   "time": "2026-10-21T10:31:35+05:30",
+   "headline": "Why are markets rising today? Sensex up 800 pts intraday, Nifty tops 23,100",
+   "source": "Business Standard",
+   "url": "https://www.business-standard.com/markets/news/why-are-markets-rising-today-sensex-up-800-pts-intraday-nifty-tops-23-100-126102100246_1.html",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "VK Vijayakumar of Geojit Investments, said that the improving earnings growth, fair valuations of large-caps, and strong domestic liquidity are likely supporting the market on declines."
+  },
+  {
+   "id": "93211ce10fa3a472",
+   "time": "2026-10-21T10:31:00+05:30",
+   "headline": "UTI Mutual Fund - UTI Gold Exchange Traded Fund",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "UTIAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "GOLDBETA : UTI Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of UTI Mutual Fund - UTI Gold Exchange Traded Fund as on October 19, 2026 is Rs. 121.6815. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "1a1e96441559feb1",
+   "time": "2026-10-21T10:31:00+05:30",
+   "headline": "UTI BSE Sensex Next 50 ETF",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "BSE",
+     "direction": "up"
+    },
+    {
+     "symbol": "UTIAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "UTI Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of UTI S&P BSE Sensex Next 50 ETF as on October 19, 2026 is Rs. 88.9481. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "f416f64d719195d3",
+   "time": "2026-10-21T10:31:00+05:30",
+   "headline": "UTI Nifty Bank ETF",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "UTIAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "BANKBETA : UTI Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of UTI Mutual Fund - UTI Bank Exchange Traded Fund as on October 19, 2026 is Rs. 57.4675. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "7ef9a74a0eca31fc",
+   "time": "2026-10-21T10:31:00+05:30",
+   "headline": "UTI Nifty 50 ETF",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "UTIAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "NIFTYBETA : UTI Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of UTI Mutual Fund - UTI-Nifty Exchange Traded Fund as on October 19, 2026 is Rs. 254.1148. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "3392491e908c56a8",
+   "time": "2026-10-21T10:31:00+05:30",
+   "headline": "UTI BSE Sensex ETF",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "BSE",
+     "direction": "up"
+    },
+    {
+     "symbol": "UTIAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "UTI Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of UTI Mutual Fund - UTI-Sensex Exchange Traded Fund as on October 19, 2026 is Rs. 819.3489. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "b2cd0fcf9e5a5d68",
+   "time": "2026-10-21T10:31:00+05:30",
+   "headline": "UTI Mutual Fund - UTI NIfty Next 50 Exchange Traded Fund - UTI NIFTY N",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "UTIAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "UTI Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of UTI Mutual Fund - UTI NIfty Next 50 Exchange Traded Fund - UTI NIFTY N as on October 19, 2026 is Rs. 74.2916. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "64a75eea167e301f",
+   "time": "2026-10-21T10:31:00+05:30",
+   "headline": "UTI Mutual Fund - UTI Nifty 10 yr Benchmark G-Sec ETF",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "UTIAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "UTI Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of UTI Mutual Fund - UTI Nifty 10 yr Benchmark G-Sec ETF as on October 19, 2026 is Rs. 25.9576. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "d349db19b8033cbc",
+   "time": "2026-10-21T10:31:00+05:30",
+   "headline": "UTI Mutual Fund - UTI BSE India Sector Leaders Exchange Traded Fund",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "BSE",
+     "direction": "up"
+    },
+    {
+     "symbol": "UTIAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "UTI Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of UTI Mutual Fund - UTI BSE India Sector Leaders Exchange Traded Fund as on October 19, 2026 is Rs. 13.9902. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "b3c2448f51d1173e",
+   "time": "2026-10-21T10:31:00+05:30",
+   "headline": "UTI Mutual Fund - UTI Nifty 500 Exchange Traded Fund",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "UTIAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "UTI Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of UTI Mutual Fund - UTI Nifty 500 Exchange Traded Fund as on October 19, 2026 is Rs. 35.4679. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "80cb9e3044c0c8e1",
+   "time": "2026-10-21T10:31:00+05:30",
+   "headline": "UTI Mutual Fund - UTI Nifty Midcap 150 Exchange Traded Fund (ETF)",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "UTIAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "UTI Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of UTI Mutual Fund - UTI Nifty Midcap 150 Exchange Traded Fund (ETF) as on October 19, 2026 is Rs. 217.4237. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "f63cc832eac35b5e",
+   "time": "2026-10-21T10:31:00+05:30",
+   "headline": "UTI Mutual Fund - UTI Silver Exchange Traded Fund (UTI Silver ETF)",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "UTIAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "UTI Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of UTI Mutual Fund - UTI Silver Exchange Traded Fund (UTI Silver ETF) as on October 19, 2026 is Rs. 199.5718. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "ad950504bc8f72fe",
+   "time": "2026-10-21T10:31:00+05:30",
+   "headline": "UTI Mutual Fund - UTI Nifty IT ETF",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "UTIAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "ITBETA : UTI Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of UTI Mutual Fund - UTI Nifty IT ETF as on October 19, 2026 is Rs. 332.3191. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "bde25c2f4f03bac3",
+   "time": "2026-10-21T10:31:00+05:30",
+   "headline": "UTI Mutual Fund - UTI Nifty 1D Rate Liquid ETF - Growth",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "UTIAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "UTI Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of UTI Mutual Fund - UTI Nifty 1D Rate Liquid ETF - Growth as on October 19, 2026 is Rs. 1012.728. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "15fecf9bdf3c33a9",
+   "time": "2026-10-21T10:31:00+05:30",
+   "headline": "UTI Annual Interval Fund - I",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "UTIAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "UTI Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of UTI Mutual Fund - UTI FIIF-AIP-1-DPG as on October 19, 2026 is Rs. 37.1682. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "7ef1465cbb9265f8",
+   "time": "2026-10-21T10:31:00+05:30",
+   "headline": "UTI Mutual Fund - UTI FTIF - Sr XXXVI - I (1574 D) - DP-IDCWPO",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "UTIAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "UTI Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of UTI Mutual Fund - UTI FTIF - Sr XXXVI - I (1574 D) - DP-IDCWPO as on October 19, 2026 is Rs. 12.5139. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "80610180ff90c15c",
+   "time": "2026-10-21T10:31:00+05:30",
+   "headline": "UTI Mutual Fund - UTI FTIF - Sr XXXVI - I (1574 D) - RP-IDCWPO",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "UTIAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "UTI Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of UTI Mutual Fund - UTI FTIF - Sr XXXVI - I (1574 D) - RP-IDCWPO as on October 19, 2026 is Rs. 12.3329. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "9322d98daa380334",
+   "time": "2026-10-21T10:31:00+05:30",
+   "headline": "UTI Mutual Fund - UTI FTIF - Sr XXXVI - I (1574 D) - DP-GO",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "UTIAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "UTI Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of UTI Mutual Fund - UTI FTIF - Sr XXXVI - I (1574 D) - DP-GO as on October 19, 2026 is Rs. 13.0849. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "fa0e71caf9414b9a",
+   "time": "2026-10-21T10:31:00+05:30",
+   "headline": "UTI Mutual Fund - UTI FTIF - Sr XXXVI - I (1574 D) - RP-GO",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "UTIAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "UTI Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of UTI Mutual Fund - UTI FTIF - Sr XXXVI - I (1574 D) - RP-GO as on October 19, 2026 is Rs. 12.8981. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "ab38ec9cf285c94e",
+   "time": "2026-10-21T10:31:00+05:30",
+   "headline": "Jio BlackRock MF - Prism Hybrid Long-Short Fund - Regular Plan Growth",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "PSIFHLSRG : Jio BlackRock Asset Management Private Limited has informed the Exchange that the Net Asset Value (per unit) of Jio BlackRock MF - Prism Hybrid Long-Short Fund - Regular Plan Growth as on October 19, 2026 is Rs. 10.2266. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "bad3fa891166a70a",
+   "time": "2026-10-21T10:31:00+05:30",
+   "headline": "Jio BlackRock MF - Prism Hybrid Long-Short Fund - Direct Plan Growth",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "PSIFHLSDG : Jio BlackRock Asset Management Private Limited has informed the Exchange that the Net Asset Value (per unit) of Jio BlackRock MF - Prism Hybrid Long-Short Fund - Direct Plan Growth as on October 19, 2026 is Rs. 10.2575. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "87dad0bd6b1bb8b8",
+   "time": "2026-10-21T10:26:24+05:30",
+   "headline": "Axis Securities Limited",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/content/debt/WDM/ASLCP_21102026102549_Payment_Intimation_letter_21_Oct.pdf",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Confirmation of Redemption/Payment of Interest and Principal |SUBJECT: Confirmation of Redemption/Payment of Interest and Principal"
+  },
+  {
+   "id": "1da4cf98f684135c",
+   "time": "2026-10-21T10:26:18+05:30",
+   "headline": "Nifty IT index hits 8-month high; LTTS zooms 15% on Wednesday; here's why",
+   "source": "Business Standard",
+   "url": "https://www.business-standard.com/markets/news/nifty-it-index-hits-8-month-high-ltts-zooms-15-on-wednesday-here-s-why-126102100228_1.html",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "INFY",
+     "direction": "up"
+    },
+    {
+     "symbol": "LTTS",
+     "direction": "up"
+    },
+    {
+     "symbol": "MPHASIS",
+     "direction": "up"
+    },
+    {
+     "symbol": "TCS",
+     "direction": "up"
+    },
+    {
+     "symbol": "TECHM",
+     "direction": "up"
+    },
+    {
+     "symbol": "WIPRO",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Thus far in October, the Nifty IT index has rallied 16% as TCS, Tech Mahindra, Wipro, Infosys and Mphasis surged in the range of 18-23% amid Q2 earnings cheer."
+  },
+  {
+   "id": "bdcbcd560d3b2016",
+   "time": "2026-10-21T10:25:00+05:30",
+   "headline": "Result of the Overnight Variable Rate Repo (VRR) auction held on October 21, 2026",
+   "source": "RBI",
+   "url": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63835",
+   "section": "macro",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "Macro",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Tenor 1-day Notified Amount (in ₹ crore) 50,000 Total amount of bids received (in ₹ crore) 93,241 Amount allotted (in ₹ crore) 50,007 Cut off Rate (%) 5.52 Weighted Average Rate (%) 5.52 Partial Allotment Percentage of bids received at cut off rate (%) 87.99 Ajit Prasad Deputy General Manager (Commu"
+  },
+  {
+   "id": "dd739c5d2d31d415",
+   "time": "2026-10-21T10:22:54+05:30",
+   "headline": "Dilip Buildcon Limited",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/DBL_21102026102238_Intimation.pdf",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Dilip Buildcon Limited has informed the Exchange about Certificate under SEBI (Depositories and Participants) Regulations, 2018 |SUBJECT: Certificate under SEBI (Depositories and Participants) Regulations, 2018"
+  },
+  {
+   "id": "9a8ac9379904bad8",
+   "time": "2026-10-21T10:21:41+05:30",
+   "headline": "Global Market: China's yuan hits four-year high on export strength, weak dollar",
+   "source": "ET Markets",
+   "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/global-market-chinas-yuan-hits-four-year-high-on-export-strength-weak-dollar/articleshow/135082502.cms",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "China’s onshore yuan touched a more than four-year high against the US dollar, supported by robust exports, resilient economic growth, foreign exchange inflows and a weaker greenback. The currency has gained 4.7% against the dollar so far in 2026."
+  },
+  {
+   "id": "24765b343a16c0ee",
+   "time": "2026-10-21T10:20:36+05:30",
+   "headline": "Gold, silver fall as higher crude oil prices revive rate-hike concerns",
+   "source": "Business Standard",
+   "url": "https://www.business-standard.com/markets/commodities/gold-silver-fall-as-higher-crude-oil-prices-revive-rate-hike-concerns-126102100241_1.html",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "OIL",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "In the global market, gold futures on Comex were trading near $4,140 per ounce, while silver was trading near $57.60 per ounce"
+  },
+  {
+   "id": "f8e7ac07a835fd19",
+   "time": "2026-10-21T10:16:00+05:30",
+   "headline": "LIC MF Gold EXCHANGE TRADED FUND",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "LICMFGOLD : LIC Mutual Fund Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of LIC MF Gold EXCHANGE TRADED FUND as on October 19, 2026 is Rs. 130.3508. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "7c4da597de1d82de",
+   "time": "2026-10-21T10:16:00+05:30",
+   "headline": "LIC MF - LIC MF G-sec LT ETF - GO",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "LIC Mutual Fund Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of LIC MF - LIC MF G-sec LT ETF - GO as on October 19, 2026 is Rs. 28.7732. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "c3e1ae7cc1cdc8a5",
+   "time": "2026-10-21T10:16:00+05:30",
+   "headline": "LIC MF - LIC MF ETF - Nifty 100",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "LICNFNHGP : LIC Mutual Fund Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of LIC MF - LIC MF ETF - Nifty 100 as on October 19, 2026 is Rs. 262.2306. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "24a73d09cb5da5fe",
+   "time": "2026-10-21T10:16:00+05:30",
+   "headline": "LIC Mutual Fund - LIC MF EXCHANGE TRADED FUND - SENSEX",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "LIC Mutual Fund Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of LIC Mutual Fund - LIC MF EXCHANGE TRADED FUND - SENSEX as on October 19, 2026 is Rs. 835.1423. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "114b671d8be04c4d",
+   "time": "2026-10-21T10:16:00+05:30",
+   "headline": "LIC MF - LIC MF EXCHANGE TRADED FUND - NIFTY 50",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "LIC Mutual Fund Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of LIC MF - LIC MF EXCHANGE TRADED FUND - NIFTY 50 as on October 19, 2026 is Rs. 257.1601. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "51ab2ab0ce2bda41",
+   "time": "2026-10-21T10:16:00+05:30",
+   "headline": "LIC Mutual Fund - LIC MF Nifty Midcap 100 ETF",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "LIC Mutual Fund Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of LIC Mutual Fund - LIC MF Nifty Midcap 100 ETF as on October 19, 2026 is Rs. 58.7146. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "727149b25fe75724",
+   "time": "2026-10-21T10:11:16+05:30",
+   "headline": "Indian bonds sell off on oil shock ahead of RBI policy minutes",
+   "source": "ET Markets",
+   "url": "https://economictimes.indiatimes.com/markets/bonds/indian-bonds-sell-off-on-oil-shock-ahead-of-rbi-policy-minutes/articleshow/135082397.cms",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "OIL",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Indian government bonds experienced a significant decline due to rising oil prices, raising concerns about inflation among investors. The benchmark bond yield has reached its highest point since March, leading to a more cautious trading environment. Additionally, consumer inflation in India rose to "
+  },
+  {
+   "id": "df09d7654e8776ca",
+   "time": "2026-10-21T10:10:36+05:30",
+   "headline": "Why is stock market up today? Sensex rises 829 points, Nifty surges 1% | Top 4 reasons behind D-Street soar explained",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/stock-market-news/why-is-stock-market-rising-today-sensex-surges-829-points-nifty-rises-1-key-factors-driving-dalal-street-explained-11792556026632.html",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "OIL",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "The Sensex and Nifty 50 climbed about 1% in early Wednesday trading amid optimism over a possible India-US trade deal. IT stocks led sectoral gains. Investors also watched rising oil prices, US bond yields, the Jio Platforms IPO and earnings."
+  },
+  {
+   "id": "45c062d4bbd14a1e",
+   "time": "2026-10-21T10:07:43+05:30",
+   "headline": "Epigral Limited",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/MFL_21102026100708_PlantVisit22102026.pdf",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Epigral Limited has informed the Exchange about Investor / Analyst Plant Visit on Thursday, 22.10.2026 |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates"
+  },
+  {
+   "id": "4544de52999aed00",
+   "time": "2026-10-21T10:06:58+05:30",
+   "headline": "Larsen & Toubro Limited",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/xbrl/REG30_PARA_B_2203_WebXMLFile_20261021_100657244.xml",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "LT",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "LARSEN & TOUBRO LIMITED has informed the Exchange about Bagging/Receiving of orders/contracts (Sub-para 4-Para B) |SUBJECT: Bagging/Receiving of orders/contracts (Sub-para 4-Para B)"
+  },
+  {
+   "id": "9278e8ac669e133d",
+   "time": "2026-10-21T10:03:27+05:30",
+   "headline": "L&T Tech Services shares surge 15% after Q2 2026 results - Should investors buy, sell, or hold stock? Experts suggestion",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/stock-market-news/lt-tech-services-shares-surge-15-after-q2-results-should-investors-buy-sell-or-hold-the-stock-experts-suggest-11792556660824.html",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "L&amp;T Technology Services share price opened at ₹3,848 against its previous close of ₹3,609.80 and jumped 14.70% to an intraday high of ₹4,140.50."
+  },
+  {
+   "id": "c0d02ceda8a6acef",
+   "time": "2026-10-21T10:02:31+05:30",
+   "headline": "The great bull-market in India is over; prefer bonds, cash: Marc Faber",
+   "source": "Business Standard",
+   "url": "https://www.business-standard.com/markets/news/the-great-bull-market-in-india-is-over-prefer-bonds-cash-marc-faber-126102100216_1.html",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Foreign investors, Faber said, will reduce their exposure to markets around the world. \"That is one reason I am reasonably positive about the US dollar,\" he added."
+  },
+  {
+   "id": "8049f54a98608687",
+   "time": "2026-10-21T10:02:23+05:30",
+   "headline": "Transrail Lighting shares skyrocket 10% | ₹927 cr order wins, 990 MW solar deal in focus - what investors should know",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/stock-market-news/transrail-lighting-shares-jump-10-rs-927-crore-order-wins-990-mw-solar-deal-in-focus-what-investors-should-know-11792551483283.html",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "SOLARINDS",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Transrail Lighting shares rose nearly 10% after it announced ₹927 crore in new orders, taking annual order intake to ₹3,356 crore. The company also approved a ₹20 crore investment for a 49% stake in a Maharashtra solar project and recently expanded tower manufacturing capacity."
+  },
+  {
+   "id": "de54ba2c1333d442",
+   "time": "2026-10-21T10:01:41+05:30",
+   "headline": "HD Fire Protect lists at 24% premium over IPO price after 132x subscription",
+   "source": "Business Standard",
+   "url": "https://www.business-standard.com/markets/news/hd-fire-protect-lists-at-24-premium-over-ipo-price-after-132x-subscription-126102100213_1.html",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "BSE",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "On the BSE, the stock listed at ₹334, a premium of 23.39 per cent, while on the NSE, the stock made its debut at ₹335, a premium of 23.62 per cent."
+  },
+  {
+   "id": "15caed98c6041898",
+   "time": "2026-10-21T10:01:00+05:30",
+   "headline": "HSBC MF - RedHex Hybrid Long-Short Fund - Regular Growth Option",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "RHEXHDRG : HSBC Asset Management (India) Private Limited has informed the Exchange that the Net Asset Value (per unit) of HSBC MF - RedHex Hybrid Long-Short Fund - Regular Growth Option as on October 19, 2026 is Rs. 10.2345. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "cbf66b29debab700",
+   "time": "2026-10-21T10:01:00+05:30",
+   "headline": "HSBC MF - RedHex Hybrid Long-Short Fund - Direct Growth Option",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "RHEXHDDG : HSBC Asset Management (India) Private Limited has informed the Exchange that the Net Asset Value (per unit) of HSBC MF - RedHex Hybrid Long-Short Fund - Direct Growth Option as on October 19, 2026 is Rs. 10.2564. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "51a35f400d1eb49d",
+   "time": "2026-10-21T10:01:00+05:30",
+   "headline": "HSBC MF - RedHex Hybrid Long-Short Fund - Direct IDCW Reinvest Option",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "RHEXHDDIR : HSBC Asset Management (India) Private Limited has informed the Exchange that the Net Asset Value (per unit) of HSBC MF - RedHex Hybrid Long-Short Fund - Direct IDCW Reinvest Option as on October 19, 2026 is Rs. 10.2572. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "611c4074a854ce8e",
+   "time": "2026-10-21T10:01:00+05:30",
+   "headline": "Bandhan Nifty 50 ETF",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Bandhan AMC Limited has informed the Exchange that the Net Asset Value (per unit) of IDFC Mutual Fund - IDFC Nifty ETF as on October 19, 2026 is Rs. 253.2879. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "4388e651c51d9667",
+   "time": "2026-10-21T10:01:00+05:30",
+   "headline": "Bandhan Mutual Fund - Bandhan Silver ETF",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "SILVERBND : Bandhan AMC Limited has informed the Exchange that the Net Asset Value (per unit) of Bandhan Mutual Fund - Bandhan Silver ETF as on October 19, 2026 is Rs. 207.6954. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "de931bbc2b5f89d9",
+   "time": "2026-10-21T10:01:00+05:30",
+   "headline": "Bandhan Mutual Fund - Bandhan Gold ETF",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "GOLDBND : Bandhan AMC Limited has informed the Exchange that the Net Asset Value (per unit) of Bandhan Mutual Fund - Bandhan Gold ETF as on October 19, 2026 is Rs. 144.5334. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "49c4d962516880f8",
+   "time": "2026-10-21T10:01:00+05:30",
+   "headline": "Bandhan Mutual Fund -Arudha Hybrid Long-Short Fund - Regular Plan - G",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "ARSIFHRG : Bandhan AMC Limited has informed the Exchange that the Net Asset Value (per unit) of Bandhan Mutual Fund -Arudha Hybrid Long-Short Fund - Regular Plan - G as on October 19, 2026 is Rs. 10.397. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "1ee01cb0b176acd0",
+   "time": "2026-10-21T10:01:00+05:30",
+   "headline": "Bandhan Mutual Fund -Arudha Hybrid Long-Short Fund-Regular Plan-M-IDCW",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "ARSIFHRMD : Bandhan AMC Limited has informed the Exchange that the Net Asset Value (per unit) of Bandhan Mutual Fund -Arudha Hybrid Long-Short Fund-Regular Plan-M-IDCW as on October 19, 2026 is Rs. 10.397. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "799459c9723503b8",
+   "time": "2026-10-21T10:01:00+05:30",
+   "headline": "Bandhan Mutual Fund -Arudha Hybrid Long-Short Fund - Direct Plan - G",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "ARSIFHDG : Bandhan AMC Limited has informed the Exchange that the Net Asset Value (per unit) of Bandhan Mutual Fund -Arudha Hybrid Long-Short Fund - Direct Plan - G as on October 19, 2026 is Rs. 10.432. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "47c9cf1cc5a2a713",
+   "time": "2026-10-21T10:01:00+05:30",
+   "headline": "Bandhan Mutual Fund -Arudha Hybrid Long-Short Fund-Direct Plan-HY-IDCW",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "ARSIFHRHD : Bandhan AMC Limited has informed the Exchange that the Net Asset Value (per unit) of Bandhan Mutual Fund -Arudha Hybrid Long-Short Fund-Direct Plan-HY-IDCW as on October 19, 2026 is Rs. 10.429. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "954289bc475e33f1",
+   "time": "2026-10-21T10:01:00+05:30",
+   "headline": "Bandhan MF-Arudha Hybrid Long-Short Fund Plan Direct Plan-A IDCW",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "ARSIFHDAD : Bandhan AMC Limited has informed the Exchange that the Net Asset Value (per unit) of Bandhan MF-Arudha Hybrid Long-Short Fund Plan Direct Plan-A IDCW as on October 19, 2026 is Rs. 10.335. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "9acc2ce262290c34",
+   "time": "2026-10-21T10:01:00+05:30",
+   "headline": "Bajaj Finserv Nifty 1D Rate Liquid ETF-Growth",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "BAJAJFINSV",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "BAJAJ ASSET MANAGEMENT LIMITED has informed the Exchange that the Net Asset Value (per unit) of Bajaj Finserv Mutual Fund - Bajaj Finserv Nifty 1D Rate Liquid ETF as on October 19, 2026 is Rs. 1103.6799. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "82a83d958a61eca9",
+   "time": "2026-10-21T10:01:00+05:30",
+   "headline": "BAJAJ FINSERV MUTUAL FUND - Bajaj Finserv BSE Top 10 Banks ETF",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "BSE",
+     "direction": "up"
+    },
+    {
+     "symbol": "BAJAJFINSV",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "BAJAJ ASSET MANAGEMENT LIMITED has informed the Exchange that the Net Asset Value (per unit) of BAJAJ FINSERV MUTUAL FUND - Bajaj Finserv BSE Top 10 Banks ETF as on October 19, 2026 is Rs. 20.3144. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "55799eede5822cf2",
+   "time": "2026-10-21T10:01:00+05:30",
+   "headline": "Bajaj Finserv Mutual Fund - Bajaj Finserv Nifty 50 ETF",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "BAJAJFINSV",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "NIFTYBETF : BAJAJ ASSET MANAGEMENT LIMITED has informed the Exchange that the Net Asset Value (per unit) of Bajaj Finserv Mutual Fund - Bajaj Finserv Nifty 50 ETF as on October 19, 2026 is Rs. 235.9075. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "1aa504bc352f4e7d",
+   "time": "2026-10-21T10:01:00+05:30",
+   "headline": "Bajaj Finserv Mutual Fund - Bajaj Finserv Nifty Bank ETF",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "BAJAJFINSV",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "BANKBETF : BAJAJ ASSET MANAGEMENT LIMITED has informed the Exchange that the Net Asset Value (per unit) of Bajaj Finserv Mutual Fund - Bajaj Finserv Nifty Bank ETF as on October 19, 2026 is Rs. 56.4922. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "a4a51b115d1c85ef",
+   "time": "2026-10-21T09:54:45+05:30",
+   "headline": "Jay Bharat Maruti Limited",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/JAYBARMARUT_21102026094859_Submission.pdf",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "MARUTI",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Jay Bharat Maruti Limited has informed the Exchange regarding Clarification on Volume Movements. |SUBJECT: General Updates"
+  },
+  {
+   "id": "026778486979c69b",
+   "time": "2026-10-21T09:52:53+05:30",
+   "headline": "Why L&T Technology shares jumped 11% to hit the Rs 4,000 level afterQ2 results",
+   "source": "ET Markets",
+   "url": "https://economictimes.indiatimes.com/markets/stocks/news/why-lt-technology-shares-jumped-11-to-hit-the-rs-4000-level-afterq2-results/articleshow/135082035.cms",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "LTTS",
+     "direction": "up"
+    },
+    {
+     "symbol": "NUVAMA",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "L&T Technology Services shares rose sharply past Rs 4,000 after Q2 results beat expectations, driven by margin expansion, AI-led deal wins and strong sustainability business growth. Management expects a stronger second half of FY27, while Motilal Oswal, Nuvama and Nomura raised their target prices b"
+  },
+  {
+   "id": "1188daf184890e1c",
+   "time": "2026-10-21T09:52:20+05:30",
+   "headline": "Hind Zinc up 4% post Q2; analysts see silver prices key to earnings growth",
+   "source": "Business Standard",
+   "url": "https://www.business-standard.com/markets/news/hindustan-zinc-up-4-post-q2-analysts-see-silver-prices-key-to-earnings-growth-126102100208_1.html",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "HINDZINC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Jefferies said that Hindustan Zinc trades below the long-term average EV/Ebitda and that recovery in silver price would be key for stock performance."
+  },
+  {
+   "id": "0a283187039f5db8",
+   "time": "2026-10-21T09:48:06+05:30",
+   "headline": "Jio IPO or RIL shares? Where should investors bet as Ambani's Rs 30,213 crore issue opens",
+   "source": "ET Markets",
+   "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/jio-ipo-or-ril-shares-where-should-investors-bet-as-ambanis-rs-30213-crore-issue-opens/articleshow/135081917.cms",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "RELIANCE",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Jio Platforms is eyeing a staggering valuation of Rs 10 lakh crore for its upcoming IPO, sparking heated debates among analysts on whether to pursue Jio or Reliance Industries shares. The IPO holds the potential for investors to capitalize on India's booming digital economy, focusing specifically on"
+  },
+  {
+   "id": "40c5ec4636c5ade0",
+   "time": "2026-10-21T09:47:32+05:30",
+   "headline": "Ritco Logistics Limited",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/RITCO_21102026094722_RITCO_SDD_CERTIFICATE_30092026.pdf",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "COMPLIANCE CERTIFICATE FOR THE QUARTER ENDED SEPTEMBER 30, 2026 |SUBJECT: Structural Digital Database"
+  },
+  {
+   "id": "ef144078c8186aab",
+   "time": "2026-10-21T09:46:06+05:30",
+   "headline": "Japan’s Nikkei jumps over 1% as AI optimism lifts chip stocks; exports rise 16.7%",
+   "source": "ET Markets",
+   "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/japans-nikkei-jumps-over-1-as-ai-optimism-lifts-chip-stocks-exports-rise-16-7/articleshow/135081946.cms",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Japan’s Nikkei 225 rose 1.56% as renewed optimism over AI demand and gains on Wall Street lifted investor sentiment. Strong export growth and reports of major Chinese technology firms ordering Nvidia chips also supported the rally."
+  },
+  {
+   "id": "527ca8d1bd21ef80",
+   "time": "2026-10-21T09:46:00+05:30",
+   "headline": "Motilal Oswal Mutual Fund - Motilal Oswal Midcap 100 ETF",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "MOM100 : Motilal Oswal Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of Motilal Oswal Mutual Fund - Motilal Oswal MOSt Shares M100 ETF GO as on October 19, 2026 is Rs. 63.16. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "e3a161fd3f1446b0",
+   "time": "2026-10-21T09:46:00+05:30",
+   "headline": "Motilal Oswal Mutual Fund - Motilal Oswal M50 ETF",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "MOM50 : Motilal Oswal Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of Motilal Oswal Mutual Fund - Motilal Oswal MOSt Shares M50 ETF as on October 19, 2026 is Rs. 239.96. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "6722c318ed1b0419",
+   "time": "2026-10-21T09:46:00+05:30",
+   "headline": "Motilal Oswal Mutual Fund - Motilal Oswal NASDAQ 100 ETF",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "MON100 : Motilal Oswal Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of Motilal Oswal Mutual Fund-Motilal Oswal MOSt Shares NASDAQ 100 ETF -GO as on October 19, 2026 is Rs. 273.93. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "bf618096f2f7f133",
+   "time": "2026-10-21T09:46:00+05:30",
+   "headline": "Motilal Oswal Mutual Fund - Motilal Oswal Gold ETF",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "MOGOLD : Motilal Oswal Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of Motilal Oswal Mutual Fund - Motilal Oswal Gold ETF as on October 19, 2026 is Rs. 143.06. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "0f6ad9c45a1566ec",
+   "time": "2026-10-21T09:46:00+05:30",
+   "headline": "Motilal Oswal Mutual Fund - Motilal Oswal Nasdaq Q 50 ETF",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "MONQ50 : Motilal Oswal Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of Motilal Oswal Mutual Fund - Motilal Oswal Nasdaq Q 50 ETF as on October 19, 2026 is Rs. 117.07. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "9b4ca8ec56917461",
+   "time": "2026-10-21T09:46:00+05:30",
+   "headline": "Motilal Oswal Mutual Fund - Motilal Oswal Nifty Capital Market ETF",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "MOCAPITAL : Motilal Oswal Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of Motilal Oswal Mutual Fund - Motilal Oswal Nifty Capital Market ETF as on October 19, 2026 is Rs. 52.14. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "9534ea30c6a9d007",
+   "time": "2026-10-21T09:46:00+05:30",
+   "headline": "Motilal Oswal Mutual Fund - Motilal Oswal Nifty Smallcap 250 ETF",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Motilal Oswal Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of Motilal Oswal Mutual Fund - Motilal Oswal Nifty Smallcap 250 ETF as on October 19, 2026 is Rs. 17.51. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "bcd942dfe3ae6b38",
+   "time": "2026-10-21T09:46:00+05:30",
+   "headline": "Motilal Oswal Mutual Fund-Motilal Oswal Nifty India Manufacturing ETF",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "MOMGF : Motilal Oswal Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of Motilal Oswal Mutual Fund-Motilal Oswal Nifty India Manufacturing ETF as on October 19, 2026 is Rs. 150.48. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "1dcc3b5d7d8276d4",
+   "time": "2026-10-21T09:46:00+05:30",
+   "headline": "Motilal Oswal Mutual Fund - Motilal Oswal Nifty 500 ETF",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Motilal Oswal Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of Motilal Oswal Mutual Fund - Motilal Oswal Nifty 500 ETF as on October 19, 2026 is Rs. 22.56. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "5d6d95ab6ba78a13",
+   "time": "2026-10-21T09:46:00+05:30",
+   "headline": "Motilal Oswal Mutual Fund - Motilal Oswal Nifty India Tourism ETF",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "MOTOUR : Motilal Oswal Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of Motilal Oswal Mutual Fund - Motilal Oswal Nifty India Tourism ETF as on October 19, 2026 is Rs. 74.46. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "fb6c669a122875d2",
+   "time": "2026-10-21T09:46:00+05:30",
+   "headline": "Motilal Oswal Mutual Fund - Motilal Oswal 5 Year G Sec ETF - Growth",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "MOGSEC : Motilal Oswal Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of Motilal Oswal Mutual Fund - Motilal Oswal 5 Year G Sec ETF - Growth as on October 19, 2026 is Rs. 64.35. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "86769252ba4a13ed",
+   "time": "2026-10-21T09:46:00+05:30",
+   "headline": "Motilal Oswal Mutual Fund - Motilal Oswal Nifty Next 50 ETF",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "MONEXT50 : Motilal Oswal Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of Motilal Oswal Mutual Fund - Motilal Oswal Nifty Next 50 ETF as on October 19, 2026 is Rs. 68.67. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "c9c6d23772571cd1",
+   "time": "2026-10-21T09:46:00+05:30",
+   "headline": "Motilal Oswal Mutual Fund - Motilal Oswal Nifty Realty ETF",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "MOREALTY : Motilal Oswal Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of Motilal Oswal Mutual Fund - Motilal Oswal Nifty Realty ETF as on October 19, 2026 is Rs. 81.95. |SUBJECT: Declaration of NAV"
+  }
+ ],
+ "digest": {
+  "date": "2026-10-21",
+  "act": 0,
+  "watch": 58,
+  "ignored": 92,
+  "reasons": [
+   {
+    "label": "No listed-stock impact",
+    "count": 64
+   },
+   {
+    "label": "Routine filing",
+    "count": 28
+   }
+  ]
+ }
+}
