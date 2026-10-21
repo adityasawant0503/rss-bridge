@@ -18,6 +18,7 @@ import os
 import re
 import sys
 import time
+import urllib.error
 import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
@@ -122,6 +123,9 @@ def collect(sources):
             got = (fetch_bse if src["kind"] == "bse" else fetch_rss)(src)
             for g in got:
                 g["source"], g["section_hint"] = src["name"], src.get("section", "news")
+                if src.get("title_is_company") and g["summary"]:
+                    # NSE's feed titles are just the company name; the news is in the description
+                    g["headline"], g["summary"] = f"{g['headline']}: {g['summary'][:220]}", ""
             items += got
             log(f"  {src['name']}: {len(got)} items")
         except Exception as e:                       # one bad source never stops the run
@@ -272,11 +276,77 @@ def classify_claude(batch, universe):
 
 ROUTINE = re.compile(r"74\s*\(5\)|trading window|closure of trading|investor meet|analyst meet|appeal no|"
                      r"recovery certificate|notice of demand|prohibitory order|attachment order|settlement order|"
-                     r"adjudication order|summons|in the matter of|"
+                     r"adjudication order|summons|in the matter of|board meeting to be held|postal ballot|"
+                     r"shareholders? meeting|record date|redemption|payment of interest|mutual fund|\bisif\b|"
+                     r"credit rating|change in (registrar|auditor)|"
                      r"loss of share|duplicate share|newspaper (publication|advertisement)|compliance certificate|"
                      r"intimation of (board meeting|record date)|copy of newspaper", re.I)
 SIGNAL = re.compile(r"order|contract|acquisition|merger|results?|profit|guidance|usfda|warning letter|"
                     r"downgrade|upgrade|pledge|resign|fraud|penalty|block deal|bulk deal|stake", re.I)
+
+
+GH_MODELS_URL = "https://models.github.ai/inference/chat/completions"
+GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions"
+GH_FIELDS = "i, section, call, horizon, direction, tickers[{symbol,direction}], sectors[], impact, confidence, category, action, reason[], risks[]"
+
+
+def classify_compat(batch, universe, url, key, model):
+    """Classification through any OpenAI-compatible chat API with a free tier
+    (Google Gemini by default, or GitHub Models). Free tiers cap request size, so
+    instead of the whole Nifty 500 list each headline carries only the stocks
+    whose names it mentions.
+    """
+    rows = []
+    for n, b in enumerate(batch):
+        text = b["headline"] + " " + b["summary"]
+        cands = match_tickers(text, universe)
+        rows.append(f"{n}. [{b['source']}] {b['headline']}" + (f" — {b['summary'][:160]}" if b["summary"] else "")
+                    + (f"  (candidate NSE symbols: {', '.join(cands)})" if cands else "  (no listed company named)"))
+    guide = GUIDE.split("NSE universe")[0] + (
+        "Only use the candidate symbols given for a headline; if none fit, return an empty tickers list.\n"
+        f'Reply with JSON only: {{"items": [{{{GH_FIELDS}}}, ...]}} using exactly these field names. '
+        'section is trading|news|macro; call buy|sell|watch|ignore; horizon intraday|swing|positional; direction up|down|mixed.')
+    payload = {
+        "model": model, "temperature": 0.2, "max_tokens": 3800,
+        "response_format": {"type": "json_object"},
+        "messages": [{"role": "system", "content": guide}, {"role": "user", "content": "Headlines:\n" + "\n".join(rows)}],
+    }
+    req = urllib.request.Request(url, data=json.dumps(payload).encode(), headers={
+        "Authorization": "Bearer " + key, "Content-Type": "application/json", "Accept": "application/json"})
+    try:
+        with urllib.request.urlopen(req, timeout=90) as r:
+            raw = r.read().decode("utf-8", "replace")
+    except urllib.error.HTTPError as e:
+        raise RuntimeError(f"HTTP {e.code} {e.read()[:200]!r}")
+    try:
+        data = json.loads(raw)
+        content = data["choices"][0]["message"]["content"] or ""
+        content = re.sub(r"^\s*```(?:json)?\s*|\s*```\s*$", "", content)      # some models fence their JSON
+        parsed = json.loads(content[content.find("{"):content.rfind("}") + 1])
+    except (ValueError, KeyError, IndexError, TypeError):
+        raise RuntimeError(f"unreadable reply {raw[:160]!r}")
+    out = {}
+    for x in parsed.get("items", []):
+        try:
+            n = int(x["i"])
+            tk = [{"symbol": str(t["symbol"]).upper(), "direction": "down" if t.get("direction") == "down" else "up"}
+                  for t in x.get("tickers") or [] if isinstance(t, dict) and t.get("symbol")]
+            out[n] = {
+                "i": n,
+                "section": x.get("section") if x.get("section") in ("trading", "news", "macro") else batch[n]["section_hint"],
+                "call": x.get("call") if x.get("call") in ("buy", "sell", "watch", "ignore") else "watch",
+                "horizon": x.get("horizon") if x.get("horizon") in ("intraday", "swing", "positional") else "swing",
+                "direction": x.get("direction") if x.get("direction") in ("up", "down", "mixed") else "mixed",
+                "tickers": tk, "sectors": [str(v) for v in x.get("sectors") or []],
+                "impact": int(x.get("impact") or 0), "confidence": int(x.get("confidence") or 0),
+                "category": str(x.get("category") or ""), "action": str(x.get("action") or ""),
+                "reason": [str(v) for v in x.get("reason") or []], "risks": [str(v) for v in x.get("risks") or []],
+            }
+        except (KeyError, ValueError, TypeError, IndexError):
+            continue
+    u = data.get("usage", {})
+    log(f"  {url.split('/')[2]} {model}: in={u.get('prompt_tokens')} out={u.get('completion_tokens')} items={len(out)}/{len(batch)}")
+    return out
 
 
 def classify_rules(batch, universe):
@@ -325,13 +395,33 @@ def main():
     fresh = fresh[:150]                                   # cap per run to bound cost
     log(f"{len(raw)} collected, {len(fresh)} new")
 
-    use_ai = bool(os.environ.get("ANTHROPIC_API_KEY"))
+    # AI provider: Claude if a key is set, else free GitHub Models inside Actions, else keyword rules
+    if os.environ.get("ANTHROPIC_API_KEY"):
+        provider = "claude"
+    elif os.environ.get("AI_API_KEY"):                        # free tier, e.g. a Google Gemini key
+        provider = "compat"
+        compat = (os.environ.get("AI_BASE_URL") or GEMINI_URL, os.environ["AI_API_KEY"], os.environ.get("AI_MODEL") or "gemini-2.5-flash")
+    elif os.environ.get("GH_MODELS_TOKEN") and os.environ.get("PULSEDGE_USE_GITHUB_MODELS"):
+        provider = "compat"
+        compat = (GH_MODELS_URL, os.environ["GH_MODELS_TOKEN"], os.environ.get("PULSEDGE_GH_MODEL") or "openai/gpt-4o-mini")
+    else:
+        provider = None
+    use_ai = provider is not None
+    batch_size = BATCH if provider == "claude" else 12
+    gh_failures = 0
+    log(f"classifier: {provider or 'keyword rules'}")
     classified = []
-    for start in range(0, len(fresh), BATCH):
-        chunk = fresh[start:start + BATCH]
+    for start in range(0, len(fresh), batch_size):
+        chunk = fresh[start:start + batch_size]
         try:
-            res = classify_claude(chunk, universe) if use_ai else classify_rules(chunk, universe)
+            if provider == "claude":
+                res = classify_claude(chunk, universe)
+            elif provider == "compat" and gh_failures < 2:
+                res = classify_compat(chunk, universe, *compat)
+            else:
+                res = classify_rules(chunk, universe)
         except Exception as e:
+            gh_failures += provider == "compat"
             log(f"  AI classification failed ({type(e).__name__}: {e}); using keyword rules for this batch")
             res = classify_rules(chunk, universe)
         known = {s["symbol"] for s in universe}
