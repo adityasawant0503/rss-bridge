@@ -37,9 +37,9 @@ def log(*a):
     print(*a, file=sys.stderr, flush=True)
 
 
-# Same instruments on CNBC; anything missing or unparseable falls back to Yahoo.
+# Same instruments on CNBC (a tuple lists candidate symbols, first that parses wins); anything missing or unparseable falls back to Yahoo.
 CNBC = {
-    "nifty": ".NSEI", "banknifty": ".NSEBANK", "vix": ".INVIXN",
+    "nifty": ".NSEI", "banknifty": ".NSEBANK", "vix": (".NIFVIX", ".INVIXN", ".INDIAVIX", "INDIAVIX"),
     "dow": ".DJI", "spx": ".SPX", "nasdaq": ".IXIC", "nqf": "@ND.1", "esf": "@SP.1",
     "nikkei": ".N225", "hangseng": ".HSI", "kospi": ".KS11",
     "dxy": ".DXY", "usdinr": "INR=", "brent": "@LCO.1", "wti": "@CL.1", "gold": "@GC.1", "us10y": "US10Y",
@@ -55,17 +55,19 @@ def num(v):
 
 def cnbc_quotes():
     url = ("https://quote.cnbc.com/quote-html-webservice/restQuote/symbolType/symbol?symbols="
-           + urllib.parse.quote("|".join(CNBC.values())) + "&requestMethod=itv&noform=1&partnerId=2&fund=1&exthrs=1&output=json")
+           + urllib.parse.quote("|".join(x for v in CNBC.values() for x in (v if isinstance(v, tuple) else (v,)))) + "&requestMethod=itv&noform=1&partnerId=2&fund=1&exthrs=1&output=json")
     req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json"})
     with urllib.request.urlopen(req, timeout=20) as r:
         rows = json.load(r)["FormattedQuoteResult"]["FormattedQuote"]
     by_sym = {row.get("symbol"): row for row in rows}
     out = {}
-    for k, sym in CNBC.items():
-        row = by_sym.get(sym) or {}
-        price, prev = num(row.get("last")), num(row.get("previous_day_closing"))
-        if price and prev:
-            out[k] = {"price": price, "prev": prev, "chg": (price / prev - 1) * 100}
+    for k, syms in CNBC.items():
+        for sym in syms if isinstance(syms, tuple) else (syms,):
+            row = by_sym.get(sym) or {}
+            price, prev = num(row.get("last")), num(row.get("previous_day_closing"))
+            if price and prev:
+                out[k] = {"price": price, "prev": prev, "chg": (price / prev - 1) * 100}
+                break
     return out
 
 
