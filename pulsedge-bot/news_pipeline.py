@@ -122,6 +122,9 @@ def collect(sources):
             got = (fetch_bse if src["kind"] == "bse" else fetch_rss)(src)
             for g in got:
                 g["source"], g["section_hint"] = src["name"], src.get("section", "news")
+                if src.get("title_is_company") and g["summary"]:
+                    # NSE's feed titles are just the company name; the news is in the description
+                    g["headline"], g["summary"] = f"{g['headline']}: {g['summary'][:220]}", ""
             items += got
             log(f"  {src['name']}: {len(got)} items")
         except Exception as e:                       # one bad source never stops the run
@@ -309,9 +312,16 @@ def classify_github(batch, universe):
         "Authorization": "Bearer " + os.environ["GH_MODELS_TOKEN"], "Content-Type": "application/json",
         "Accept": "application/vnd.github+json"})
     with urllib.request.urlopen(req, timeout=90) as r:
-        data = json.load(r)
+        raw = r.read().decode("utf-8", "replace")
+    try:
+        data = json.loads(raw)
+        content = data["choices"][0]["message"]["content"] or ""
+        content = re.sub(r"^\s*```(?:json)?\s*|\s*```\s*$", "", content)      # some models fence their JSON
+        parsed = json.loads(content[content.find("{"):content.rfind("}") + 1])
+    except (ValueError, KeyError, IndexError, TypeError):
+        raise RuntimeError("unreadable reply: " + raw[:300].replace("\n", " "))
     out = {}
-    for x in json.loads(data["choices"][0]["message"]["content"]).get("items", []):
+    for x in parsed.get("items", []):
         try:
             n = int(x["i"])
             tk = [{"symbol": str(t["symbol"]).upper(), "direction": "down" if t.get("direction") == "down" else "up"}
