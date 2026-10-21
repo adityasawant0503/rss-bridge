@@ -4,7 +4,7 @@
     {"name": "SEBI", "kind": "rss", "url": "https://www.sebi.gov.in/sebirss.xml", "section": "macro"},
     {"name": "RBI", "kind": "rss", "url": "https://www.rbi.org.in/pressreleases_rss.xml", "section": "macro"},
     {"name": "NSE Announcements", "kind": "rss", "url": "https://nsearchives.nseindia.com/content/RSS/Online_announcements.xml", "section": "news"},
-    {"name": "BSE Announcements", "kind": "bse", "url": "https://api.bseindia.com/BseIndiaAPI/api/AnnSubCategoryGetData/w?pageno=1&strCat=-1&strPrevDate={date}&strScrip=&strSearch=P&strToDate={date}&strType=C&subcategory=-1", "section": "news"},
+    {"name": "BSE Announcements", "enabled": false, "_why": "BSE returns 403 to GitHub Actions", "kind": "bse", "url": "https://api.bseindia.com/BseIndiaAPI/api/AnnSubCategoryGetData/w?pageno=1&strCat=-1&strPrevDate={date}&strScrip=&strSearch=P&strToDate={date}&strType=C&subcategory=-1", "section": "news"},
     {"name": "ET Markets", "kind": "rss", "url": "https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms", "section": "trading"},
     {"name": "Mint Markets", "kind": "rss", "url": "https://www.livemint.com/rss/markets", "section": "trading"},
     {"name": "Business Standard", "kind": "rss", "url": "https://www.business-standard.com/rss/markets-106.rss", "section": "trading"},

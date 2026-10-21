@@ -145,6 +145,29 @@ def load_json(path, default):
 
 
 # ---------------------------------------------------------------- universe / tickers
+NIFTY500_CSV = "https://www.niftyindices.com/IndexConstituent/ind_nifty500list.csv"
+
+
+def refresh_universe(dry):
+    """Download the official Nifty 500 list weekly into data/universe.json."""
+    path = os.path.join(DATA, "universe.json")
+    if os.path.exists(path) and time.time() - os.path.getmtime(path) < 6 * 86400:
+        return
+    try:
+        import csv, io
+        rows = list(csv.DictReader(io.StringIO(get(NIFTY500_CSV, "text/csv").decode("utf-8-sig"))))
+        stocks = [{"symbol": r["Symbol"].strip().upper(), "name": r["Company Name"].strip(), "sector": r["Industry"].strip()}
+                  for r in rows if r.get("Symbol")]
+        if len(stocks) < 400:
+            raise ValueError(f"only {len(stocks)} rows")
+        log(f"  Nifty 500 list: {len(stocks)} stocks")
+        if not dry:
+            with open(path, "w", encoding="utf-8") as fh:
+                json.dump({"name": "NIFTY 500", "updated": NOW.strftime("%Y-%m-%d"), "stocks": stocks}, fh, ensure_ascii=False, indent=1)
+    except Exception as e:
+        log(f"  Nifty 500 list: not refreshed ({type(e).__name__}: {e})")
+
+
 def load_universe():
     for name in ("universe.json", "universe.sample.json"):
         u = load_json(os.path.join(DATA, name), None)
@@ -237,7 +260,9 @@ def classify_claude(batch, universe):
     return {r["i"]: r for r in json.loads(text)["items"]}
 
 
-ROUTINE = re.compile(r"74\s*\(5\)|trading window|closure of trading|investor meet|analyst meet|"
+ROUTINE = re.compile(r"74\s*\(5\)|trading window|closure of trading|investor meet|analyst meet|appeal no|"
+                     r"recovery certificate|notice of demand|prohibitory order|attachment order|settlement order|"
+                     r"adjudication order|summons|in the matter of|"
                      r"loss of share|duplicate share|newspaper (publication|advertisement)|compliance certificate|"
                      r"intimation of (board meeting|record date)|copy of newspaper", re.I)
 SIGNAL = re.compile(r"order|contract|acquisition|merger|results?|profit|guidance|usfda|warning letter|"
@@ -250,12 +275,15 @@ def classify_rules(batch, universe):
         text = b["headline"] + " " + b["summary"]
         tk = [{"symbol": s, "direction": "up"} for s in match_tickers(text, universe)]
         routine = bool(ROUTINE.search(text))
+        signal = bool(SIGNAL.search(text))
+        # without AI, only stock-specific news or clear signals are worth a look
+        noteworthy = not routine and (tk or signal)
         out[n] = {
-            "i": n, "section": b["section_hint"], "call": "ignore" if routine else "watch",
+            "i": n, "section": b["section_hint"], "call": "watch" if noteworthy else "ignore",
             "horizon": "swing", "direction": "mixed", "tickers": tk, "sectors": [],
-            "impact": 10 if routine else (45 if SIGNAL.search(text) else 25), "confidence": 30,
-            "category": "Filing" if routine else b["section_hint"].title(),
-            "action": "No action; routine filing" if routine else "Read the source before acting",
+            "impact": 45 if noteworthy and signal else 25 if noteworthy else 8, "confidence": 30,
+            "category": "Routine filing" if routine else b["section_hint"].title() if noteworthy else "No listed-stock impact",
+            "action": "Read the source before acting" if noteworthy else "No action",
             "reason": ["Keyword rules (AI classification is off)"], "risks": [],
         }
     return out
@@ -268,6 +296,7 @@ def main():
     a = ap.parse_args()
 
     sources = load_json(os.environ.get("PULSEDGE_SOURCES") or os.path.join(HERE, "sources.json"), {}).get("sources", [])
+    refresh_universe(a.dry_run)
     universe = load_universe()
     seen = load_json(STATE, {})
     log(f"Collecting from {len(sources)} sources at {NOW:%Y-%m-%d %H:%M} IST")

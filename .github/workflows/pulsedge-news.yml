@@ -46,10 +46,10 @@ jobs:
       id: commit
       if: github.ref == 'refs/heads/master'
       run: |
-        if [ -n "$(git status --porcelain pulsedge/data/feed.json pulsedge-bot/state)" ]; then
+        if [ -n "$(git status --porcelain pulsedge/data/feed.json pulsedge/data/universe.json pulsedge-bot/state)" ]; then
           git config user.name "pulsedge-bot"
           git config user.email "pulsedge-bot@users.noreply.github.com"
-          git add pulsedge/data/feed.json pulsedge-bot/state
+          git add pulsedge/data/feed.json pulsedge/data/universe.json pulsedge-bot/state
           git commit -q -m "PulsEdge news: $(date -u +%Y-%m-%dT%H:%MZ)"
           git push
           echo "changed=true" >> "$GITHUB_OUTPUT"
