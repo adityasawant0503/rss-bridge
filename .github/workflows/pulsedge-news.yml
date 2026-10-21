@@ -19,6 +19,7 @@ permissions:
   contents: write
   pages: write
   id-token: write
+  models: read
 
 concurrency:
   group: pulsedge-news-${{ github.ref }}
@@ -40,6 +41,8 @@ jobs:
       env:
         ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         PULSEDGE_MODEL: ${{ vars.PULSEDGE_MODEL }}
+        GH_MODELS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        PULSEDGE_GH_MODEL: ${{ vars.PULSEDGE_GH_MODEL }}
         DRY: ${{ github.ref != 'refs/heads/master' && '--dry-run' || '' }}
       run: python pulsedge-bot/news_pipeline.py $DRY
     - name: Commit new headlines

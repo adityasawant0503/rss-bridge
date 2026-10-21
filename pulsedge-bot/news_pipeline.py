@@ -279,6 +279,61 @@ SIGNAL = re.compile(r"order|contract|acquisition|merger|results?|profit|guidance
                     r"downgrade|upgrade|pledge|resign|fraud|penalty|block deal|bulk deal|stake", re.I)
 
 
+GH_MODELS_URL = "https://models.github.ai/inference/chat/completions"
+GH_FIELDS = "i, section, call, horizon, direction, tickers[{symbol,direction}], sectors[], impact, confidence, category, action, reason[], risks[]"
+
+
+def classify_github(batch, universe):
+    """Free classification through GitHub Models, using the workflow's own GITHUB_TOKEN.
+
+    The free tier caps request size, so instead of the whole Nifty 500 list each
+    headline carries only the stocks whose names it mentions.
+    """
+    model = os.environ.get("PULSEDGE_GH_MODEL") or "openai/gpt-4o-mini"
+    rows = []
+    for n, b in enumerate(batch):
+        text = b["headline"] + " " + b["summary"]
+        cands = match_tickers(text, universe)
+        rows.append(f"{n}. [{b['source']}] {b['headline']}" + (f" — {b['summary'][:160]}" if b["summary"] else "")
+                    + (f"  (candidate NSE symbols: {', '.join(cands)})" if cands else "  (no listed company named)"))
+    guide = GUIDE.split("NSE universe")[0] + (
+        "Only use the candidate symbols given for a headline; if none fit, return an empty tickers list.\n"
+        f'Reply with JSON only: {{"items": [{{{GH_FIELDS}}}, ...]}} using exactly these field names. '
+        'section is trading|news|macro; call buy|sell|watch|ignore; horizon intraday|swing|positional; direction up|down|mixed.')
+    body = json.dumps({
+        "model": model, "temperature": 0.2, "max_tokens": 3800,
+        "response_format": {"type": "json_object"},
+        "messages": [{"role": "system", "content": guide}, {"role": "user", "content": "Headlines:\n" + "\n".join(rows)}],
+    }).encode()
+    req = urllib.request.Request(GH_MODELS_URL, data=body, headers={
+        "Authorization": "Bearer " + os.environ["GH_MODELS_TOKEN"], "Content-Type": "application/json",
+        "Accept": "application/vnd.github+json"})
+    with urllib.request.urlopen(req, timeout=90) as r:
+        data = json.load(r)
+    out = {}
+    for x in json.loads(data["choices"][0]["message"]["content"]).get("items", []):
+        try:
+            n = int(x["i"])
+            tk = [{"symbol": str(t["symbol"]).upper(), "direction": "down" if t.get("direction") == "down" else "up"}
+                  for t in x.get("tickers") or [] if isinstance(t, dict) and t.get("symbol")]
+            out[n] = {
+                "i": n,
+                "section": x.get("section") if x.get("section") in ("trading", "news", "macro") else batch[n]["section_hint"],
+                "call": x.get("call") if x.get("call") in ("buy", "sell", "watch", "ignore") else "watch",
+                "horizon": x.get("horizon") if x.get("horizon") in ("intraday", "swing", "positional") else "swing",
+                "direction": x.get("direction") if x.get("direction") in ("up", "down", "mixed") else "mixed",
+                "tickers": tk, "sectors": [str(v) for v in x.get("sectors") or []],
+                "impact": int(x.get("impact") or 0), "confidence": int(x.get("confidence") or 0),
+                "category": str(x.get("category") or ""), "action": str(x.get("action") or ""),
+                "reason": [str(v) for v in x.get("reason") or []], "risks": [str(v) for v in x.get("risks") or []],
+            }
+        except (KeyError, ValueError, TypeError, IndexError):
+            continue
+    u = data.get("usage", {})
+    log(f"  github models {model}: in={u.get('prompt_tokens')} out={u.get('completion_tokens')} items={len(out)}/{len(batch)}")
+    return out
+
+
 def classify_rules(batch, universe):
     out = {}
     for n, b in enumerate(batch):
@@ -325,13 +380,24 @@ def main():
     fresh = fresh[:150]                                   # cap per run to bound cost
     log(f"{len(raw)} collected, {len(fresh)} new")
 
-    use_ai = bool(os.environ.get("ANTHROPIC_API_KEY"))
+    # AI provider: Claude if a key is set, else free GitHub Models inside Actions, else keyword rules
+    provider = "claude" if os.environ.get("ANTHROPIC_API_KEY") else "github" if os.environ.get("GH_MODELS_TOKEN") else None
+    use_ai = provider is not None
+    batch_size = BATCH if provider == "claude" else 12
+    gh_failures = 0
+    log(f"classifier: {provider or 'keyword rules'}")
     classified = []
-    for start in range(0, len(fresh), BATCH):
-        chunk = fresh[start:start + BATCH]
+    for start in range(0, len(fresh), batch_size):
+        chunk = fresh[start:start + batch_size]
         try:
-            res = classify_claude(chunk, universe) if use_ai else classify_rules(chunk, universe)
+            if provider == "claude":
+                res = classify_claude(chunk, universe)
+            elif provider == "github" and gh_failures < 2:
+                res = classify_github(chunk, universe)
+            else:
+                res = classify_rules(chunk, universe)
         except Exception as e:
+            gh_failures += provider == "github"
             log(f"  AI classification failed ({type(e).__name__}: {e}); using keyword rules for this batch")
             res = classify_rules(chunk, universe)
         known = {s["symbol"] for s in universe}
