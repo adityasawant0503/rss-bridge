@@ -18,6 +18,7 @@ import os
 import re
 import sys
 import time
+import urllib.error
 import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
@@ -282,7 +283,8 @@ SIGNAL = re.compile(r"order|contract|acquisition|merger|results?|profit|guidance
                     r"downgrade|upgrade|pledge|resign|fraud|penalty|block deal|bulk deal|stake", re.I)
 
 
-GH_MODELS_URL = "https://models.github.ai/inference/chat/completions"
+GH_MODELS_URLS = ["https://models.github.ai/inference/chat/completions",
+                  "https://models.inference.ai.azure.com/chat/completions"]   # older GitHub Models endpoint
 GH_FIELDS = "i, section, call, horizon, direction, tickers[{symbol,direction}], sectors[], impact, confidence, category, action, reason[], risks[]"
 
 
@@ -303,23 +305,32 @@ def classify_github(batch, universe):
         "Only use the candidate symbols given for a headline; if none fit, return an empty tickers list.\n"
         f'Reply with JSON only: {{"items": [{{{GH_FIELDS}}}, ...]}} using exactly these field names. '
         'section is trading|news|macro; call buy|sell|watch|ignore; horizon intraday|swing|positional; direction up|down|mixed.')
-    body = json.dumps({
+    payload = {
         "model": model, "temperature": 0.2, "max_tokens": 3800,
         "response_format": {"type": "json_object"},
         "messages": [{"role": "system", "content": guide}, {"role": "user", "content": "Headlines:\n" + "\n".join(rows)}],
-    }).encode()
-    req = urllib.request.Request(GH_MODELS_URL, data=body, headers={
-        "Authorization": "Bearer " + os.environ["GH_MODELS_TOKEN"], "Content-Type": "application/json",
-        "Accept": "application/vnd.github+json"})
-    with urllib.request.urlopen(req, timeout=90) as r:
-        raw = r.read().decode("utf-8", "replace")
-    try:
-        data = json.loads(raw)
-        content = data["choices"][0]["message"]["content"] or ""
-        content = re.sub(r"^\s*```(?:json)?\s*|\s*```\s*$", "", content)      # some models fence their JSON
-        parsed = json.loads(content[content.find("{"):content.rfind("}") + 1])
-    except (ValueError, KeyError, IndexError, TypeError):
-        raise RuntimeError("unreadable reply: " + raw[:300].replace("\n", " "))
+    }
+    errors = []
+    for url in GH_MODELS_URLS:
+        # the older endpoint names models without the publisher prefix
+        body = dict(payload, model=model if "github.ai" in url else model.split("/")[-1])
+        req = urllib.request.Request(url, data=json.dumps(body).encode(), headers={
+            "Authorization": "Bearer " + os.environ["GH_MODELS_TOKEN"], "Content-Type": "application/json",
+            "Accept": "application/json"})
+        try:
+            with urllib.request.urlopen(req, timeout=90) as r:
+                raw = r.read().decode("utf-8", "replace")
+            data = json.loads(raw)
+            content = data["choices"][0]["message"]["content"] or ""
+            content = re.sub(r"^\s*```(?:json)?\s*|\s*```\s*$", "", content)      # some models fence their JSON
+            parsed = json.loads(content[content.find("{"):content.rfind("}") + 1])
+            break
+        except urllib.error.HTTPError as e:
+            errors.append(f"{url.split('/')[2]}: HTTP {e.code} {e.read()[:200]!r}")
+        except (ValueError, KeyError, IndexError, TypeError):
+            errors.append(f"{url.split('/')[2]}: unreadable reply {raw[:120]!r}")
+    else:
+        raise RuntimeError("; ".join(errors))
     out = {}
     for x in parsed.get("items", []):
         try:
