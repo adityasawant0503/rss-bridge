@@ -9,9 +9,12 @@ for a licensed feed before charging for access). Stocks in focus come from today
 Any quote that can't be fetched is left out rather than guessed.
 """
 import argparse
+import http.cookiejar
 import json
 import os
 import sys
+import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from datetime import datetime, timedelta, timezone
@@ -34,11 +37,42 @@ def log(*a):
     print(*a, file=sys.stderr, flush=True)
 
 
+_SESSION = {}
+
+
+def session():
+    # Yahoo rate-limits cookieless requests (HTTP 429), so pick up its consent cookie and crumb once.
+    if "opener" not in _SESSION:
+        jar = http.cookiejar.CookieJar()
+        op = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
+        op.addheaders = [("User-Agent", UA), ("Accept", "*/*")]
+        try:
+            op.open("https://fc.yahoo.com", timeout=15).read()
+        except Exception:
+            pass  # fc.yahoo.com answers 404 but still sets the cookie
+        try:
+            _SESSION["crumb"] = op.open("https://query2.finance.yahoo.com/v1/test/getcrumb", timeout=15).read().decode().strip()
+        except Exception as e:
+            log(f"  crumb: none ({type(e).__name__}: {e})")
+            _SESSION["crumb"] = ""
+        _SESSION["opener"] = op
+    return _SESSION["opener"], _SESSION["crumb"]
+
+
 def quote(sym):
-    url = "https://query1.finance.yahoo.com/v8/finance/chart/" + urllib.parse.quote(sym) + "?range=5d&interval=1d"
-    req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json"})
-    with urllib.request.urlopen(req, timeout=20) as r:
-        res = json.load(r)["chart"]["result"][0]
+    op, crumb = session()
+    path = "/v8/finance/chart/" + urllib.parse.quote(sym) + "?range=5d&interval=1d" + ("&crumb=" + urllib.parse.quote(crumb) if crumb else "")
+    err = None
+    for host in ("https://query2.finance.yahoo.com", "https://query1.finance.yahoo.com"):
+        try:
+            with op.open(host + path, timeout=20) as r:
+                res = json.load(r)["chart"]["result"][0]
+            break
+        except urllib.error.HTTPError as e:
+            err = e
+            time.sleep(1)
+    else:
+        raise err
     meta = res["meta"]
     price = meta.get("regularMarketPrice")
     closes = [c for c in (res.get("indicators", {}).get("quote", [{}])[0].get("close") or []) if c is not None]
@@ -65,6 +99,7 @@ def main():
     for k, sym in QUOTES.items():
         try:
             q[k] = quote(sym)
+            time.sleep(0.3)
         except Exception as e:
             log(f"  {sym}: skipped ({type(e).__name__}: {e})")
     log(f"quotes: {len(q)}/{len(QUOTES)}")
