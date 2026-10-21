@@ -145,21 +145,31 @@ def load_json(path, default):
 
 
 # ---------------------------------------------------------------- universe / tickers
-NIFTY500_CSV = "https://www.niftyindices.com/IndexConstituent/ind_nifty500list.csv"
+NIFTY500_CSV = ["https://nsearchives.nseindia.com/content/indices/ind_nifty500list.csv",
+                "https://archives.nseindia.com/content/indices/ind_nifty500list.csv",
+                "https://www.niftyindices.com/IndexConstituent/ind_nifty500list.csv"]
 
 
 def refresh_universe(dry):
     """Download the official Nifty 500 list weekly into data/universe.json."""
     path = os.path.join(DATA, "universe.json")
-    if os.path.exists(path) and time.time() - os.path.getmtime(path) < 6 * 86400:
+    upd = (load_json(path, {}) or {}).get("updated", "")
+    if upd and upd > (NOW - timedelta(days=6)).strftime("%Y-%m-%d"):
+        return
+    import csv, io
+    for url in NIFTY500_CSV:
+        try:
+            rows = list(csv.DictReader(io.StringIO(get(url, "text/csv,*/*", referer="https://www.nseindia.com/").decode("utf-8-sig"))))
+            stocks = [{"symbol": r["Symbol"].strip().upper(), "name": r["Company Name"].strip(), "sector": r["Industry"].strip()}
+                      for r in rows if r.get("Symbol")]
+            if len(stocks) < 400:
+                raise ValueError(f"only {len(stocks)} rows")
+            break
+        except Exception as e:
+            log(f"  Nifty 500 list: {url.split('/')[2]} failed ({type(e).__name__}: {e})")
+    else:
         return
     try:
-        import csv, io
-        rows = list(csv.DictReader(io.StringIO(get(NIFTY500_CSV, "text/csv").decode("utf-8-sig"))))
-        stocks = [{"symbol": r["Symbol"].strip().upper(), "name": r["Company Name"].strip(), "sector": r["Industry"].strip()}
-                  for r in rows if r.get("Symbol")]
-        if len(stocks) < 400:
-            raise ValueError(f"only {len(stocks)} rows")
         log(f"  Nifty 500 list: {len(stocks)} stocks")
         if not dry:
             with open(path, "w", encoding="utf-8") as fh:
