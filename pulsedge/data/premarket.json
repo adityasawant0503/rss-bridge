@@ -1,0 +1,128 @@
+{
+ "date": "2026-10-21",
+ "updated": "2026-10-21T19:08:14+05:30",
+ "sentiment": "Mildly bearish",
+ "breadth": {
+  "up": 0,
+  "down": 2
+ },
+ "checklist": [
+  {
+   "title": "Nifty 50 last close (GIFT Nifty not available from free sources)",
+   "dir": "down",
+   "value": "22,811.35 (-0.34%)",
+   "detail": [
+    "Previous close 22,888.95"
+   ]
+  },
+  {
+   "title": "US close - Dow/S&P/Nasdaq direction",
+   "dir": "flat",
+   "value": "Higher",
+   "detail": [
+    "Dow 52,505.02 +0.02%",
+    "S&P 7,728.47 +0.21%",
+    "Nasdaq 26,556.22 +0.50%",
+    "Nasdaq futures now +0.65%"
+   ]
+  },
+  {
+   "title": "Asian markets live - Nikkei, Hang Seng",
+   "dir": "flat",
+   "value": "Asia mixed",
+   "detail": [
+    "Nikkei 64,621.24 +0.85%",
+    "Hang Seng 23,651.87 -0.90%"
+   ]
+  },
+  {
+   "title": "DXY + USDINR move",
+   "dir": "flat",
+   "value": "No major currency pressure",
+   "detail": [
+    "DXY 101.70 -0.00%",
+    "USD/INR 94.460 -0.34%"
+   ]
+  },
+  {
+   "title": "Brent crude level",
+   "dir": "flat",
+   "value": "$108.31 -0.44%",
+   "detail": []
+  },
+  {
+   "title": "India VIX",
+   "dir": "down",
+   "value": "15.68 (+6.11%) — normal",
+   "detail": []
+  }
+ ],
+ "summary": "Mildly bearish setup. NASDAQ closed 0.50% higher; supportive for IT; Nikkei up, Hang Seng down.",
+ "global_cues": [
+  "NASDAQ closed 0.50% higher; supportive for IT",
+  "Nikkei up, Hang Seng down"
+ ],
+ "india_triggers": [
+  "73 filings and headlines worth a look so far today",
+  "India VIX up 6.1% — expect wider ranges"
+ ],
+ "focus": [
+  {
+   "symbol": "ADANIPOWER",
+   "note": "Adani Power vs Adani Total Gas vs Adani Energy: Best Adani stock to bu"
+  },
+  {
+   "symbol": "IGIL",
+   "note": "IGI Q2 Results: Consolidated PAT surges 43% to Rs 185 crore"
+  },
+  {
+   "symbol": "BEL",
+   "note": "Bharat Electronics Limited: Bharat Electronics Limited has informed th"
+  }
+ ],
+ "sector_tags": [
+  {
+   "label": "IT",
+   "tone": "watch"
+  }
+ ],
+ "key_risk": "",
+ "also": [
+  {
+   "name": "BANK NIFTY",
+   "value": "54,976.9",
+   "change": -0.92
+  },
+  {
+   "name": "S&P FUT",
+   "value": "7,780",
+   "change": 0.32
+  },
+  {
+   "name": "NASDAQ FUT",
+   "value": "29,867",
+   "change": 0.65
+  },
+  {
+   "name": "KOSPI",
+   "value": "5,736",
+   "change": 3.29
+  },
+  {
+   "name": "WTI",
+   "value": "97.31",
+   "change": -0.52
+  },
+  {
+   "name": "GOLD",
+   "value": "4,156",
+   "change": 0.33
+  },
+  {
+   "name": "US 10Y",
+   "value": "5.09",
+   "change": -0.53
+  }
+ ],
+ "source": "CNBC / Yahoo Finance (unofficial, delayed)"
+}
