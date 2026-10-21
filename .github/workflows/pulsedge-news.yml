@@ -1,0 +1,105 @@
+name: PulsEdge news
+
+# Every 15 minutes during Indian market hours (08:15–16:15 IST, Mon–Fri), plus manual runs.
+# On master: collect -> classify -> commit pulsedge/data/feed.json -> deploy the site -> post to Telegram.
+# On any other branch (push): a dry run that fetches and classifies but changes nothing.
+on:
+  schedule:
+    - cron: '45,0,15,30 2-10 * * 1-5'
+  workflow_dispatch:
+  push:
+    branches-ignore:
+      - master
+    paths:
+      - 'pulsedge-bot/news_pipeline.py'
+      - 'pulsedge-bot/sources.json'
+      - '.github/workflows/pulsedge-news.yml'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pulsedge-news-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
+    steps:
+    - uses: actions/checkout@v5
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+    - run: pip install --quiet "anthropic>=0.70"
+    - name: Collect and classify
+      env:
+        ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        PULSEDGE_MODEL: ${{ vars.PULSEDGE_MODEL }}
+        DRY: ${{ github.ref != 'refs/heads/master' && '--dry-run' || '' }}
+      run: python pulsedge-bot/news_pipeline.py $DRY
+    - name: Commit new headlines
+      id: commit
+      if: github.ref == 'refs/heads/master'
+      run: |
+        if [ -n "$(git status --porcelain pulsedge/data/feed.json pulsedge/data/universe.json pulsedge-bot/state)" ]; then
+          git config user.name "pulsedge-bot"
+          git config user.email "pulsedge-bot@users.noreply.github.com"
+          git add pulsedge/data/feed.json pulsedge/data/universe.json pulsedge-bot/state
+          git commit -q -m "PulsEdge news: $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+        fi
+
+  deploy:
+    needs: update
+    if: needs.update.outputs.changed == 'true'
+    runs-on: ubuntu-24.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: pulsedge-pages
+      cancel-in-progress: true
+    steps:
+    - uses: actions/checkout@v5
+      with:
+        ref: master
+        persist-credentials: false
+    - uses: actions/configure-pages@v5
+    - uses: actions/upload-pages-artifact@v3
+      with:
+        path: pulsedge
+    - id: deployment
+      uses: actions/deploy-pages@v4
+
+  telegram:
+    needs: update
+    if: needs.update.outputs.changed == 'true'
+    runs-on: ubuntu-24.04
+    steps:
+    - uses: actions/checkout@v5
+      with:
+        ref: master
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+    - run: pip install --quiet pillow==10.4.0
+    - name: Post new BUY/SELL signals
+      env:
+        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        TELEGRAM_CHAT_ID: ${{ vars.TELEGRAM_CHAT_ID }}
+      run: python pulsedge-bot/pulse_bot.py post
+    - name: Remember what was posted
+      run: |
+        if [ -n "$(git status --porcelain pulsedge-bot/posted.json)" ]; then
+          git config user.name "pulsedge-bot"
+          git config user.email "pulsedge-bot@users.noreply.github.com"
+          git add pulsedge-bot/posted.json
+          git commit -q -m "PulsEdge bot: record posted events"
+          git pull --rebase -q && git push
+        fi
