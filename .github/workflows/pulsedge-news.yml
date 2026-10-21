@@ -42,6 +42,10 @@ jobs:
         ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         PULSEDGE_MODEL: ${{ vars.PULSEDGE_MODEL }}
         GH_MODELS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        PULSEDGE_USE_GITHUB_MODELS: ${{ vars.PULSEDGE_USE_GITHUB_MODELS }}
+        AI_API_KEY: ${{ secrets.AI_API_KEY }}
+        AI_BASE_URL: ${{ vars.AI_BASE_URL }}
+        AI_MODEL: ${{ vars.AI_MODEL }}
         PULSEDGE_GH_MODEL: ${{ vars.PULSEDGE_GH_MODEL }}
         DRY: ${{ github.ref != 'refs/heads/master' && '--dry-run' || '' }}
       run: python pulsedge-bot/news_pipeline.py $DRY

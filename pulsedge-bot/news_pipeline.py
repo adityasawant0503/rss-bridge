@@ -276,25 +276,26 @@ def classify_claude(batch, universe):
 
 ROUTINE = re.compile(r"74\s*\(5\)|trading window|closure of trading|investor meet|analyst meet|appeal no|"
                      r"recovery certificate|notice of demand|prohibitory order|attachment order|settlement order|"
-                     r"adjudication order|summons|in the matter of|"
+                     r"adjudication order|summons|in the matter of|board meeting to be held|postal ballot|"
+                     r"shareholders? meeting|record date|redemption|payment of interest|mutual fund|\bisif\b|"
+                     r"credit rating|change in (registrar|auditor)|"
                      r"loss of share|duplicate share|newspaper (publication|advertisement)|compliance certificate|"
                      r"intimation of (board meeting|record date)|copy of newspaper", re.I)
 SIGNAL = re.compile(r"order|contract|acquisition|merger|results?|profit|guidance|usfda|warning letter|"
                     r"downgrade|upgrade|pledge|resign|fraud|penalty|block deal|bulk deal|stake", re.I)
 
 
-GH_MODELS_URLS = ["https://models.github.ai/inference/chat/completions",
-                  "https://models.inference.ai.azure.com/chat/completions"]   # older GitHub Models endpoint
+GH_MODELS_URL = "https://models.github.ai/inference/chat/completions"
+GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions"
 GH_FIELDS = "i, section, call, horizon, direction, tickers[{symbol,direction}], sectors[], impact, confidence, category, action, reason[], risks[]"
 
 
-def classify_github(batch, universe):
-    """Free classification through GitHub Models, using the workflow's own GITHUB_TOKEN.
-
-    The free tier caps request size, so instead of the whole Nifty 500 list each
-    headline carries only the stocks whose names it mentions.
+def classify_compat(batch, universe, url, key, model):
+    """Classification through any OpenAI-compatible chat API with a free tier
+    (Google Gemini by default, or GitHub Models). Free tiers cap request size, so
+    instead of the whole Nifty 500 list each headline carries only the stocks
+    whose names it mentions.
     """
-    model = os.environ.get("PULSEDGE_GH_MODEL") or "openai/gpt-4o-mini"
     rows = []
     for n, b in enumerate(batch):
         text = b["headline"] + " " + b["summary"]
@@ -310,27 +311,20 @@ def classify_github(batch, universe):
         "response_format": {"type": "json_object"},
         "messages": [{"role": "system", "content": guide}, {"role": "user", "content": "Headlines:\n" + "\n".join(rows)}],
     }
-    errors = []
-    for url in GH_MODELS_URLS:
-        # the older endpoint names models without the publisher prefix
-        body = dict(payload, model=model if "github.ai" in url else model.split("/")[-1])
-        req = urllib.request.Request(url, data=json.dumps(body).encode(), headers={
-            "Authorization": "Bearer " + os.environ["GH_MODELS_TOKEN"], "Content-Type": "application/json",
-            "Accept": "application/json"})
-        try:
-            with urllib.request.urlopen(req, timeout=90) as r:
-                raw = r.read().decode("utf-8", "replace")
-            data = json.loads(raw)
-            content = data["choices"][0]["message"]["content"] or ""
-            content = re.sub(r"^\s*```(?:json)?\s*|\s*```\s*$", "", content)      # some models fence their JSON
-            parsed = json.loads(content[content.find("{"):content.rfind("}") + 1])
-            break
-        except urllib.error.HTTPError as e:
-            errors.append(f"{url.split('/')[2]}: HTTP {e.code} {e.read()[:200]!r}")
-        except (ValueError, KeyError, IndexError, TypeError):
-            errors.append(f"{url.split('/')[2]}: unreadable reply {raw[:120]!r}")
-    else:
-        raise RuntimeError("; ".join(errors))
+    req = urllib.request.Request(url, data=json.dumps(payload).encode(), headers={
+        "Authorization": "Bearer " + key, "Content-Type": "application/json", "Accept": "application/json"})
+    try:
+        with urllib.request.urlopen(req, timeout=90) as r:
+            raw = r.read().decode("utf-8", "replace")
+    except urllib.error.HTTPError as e:
+        raise RuntimeError(f"HTTP {e.code} {e.read()[:200]!r}")
+    try:
+        data = json.loads(raw)
+        content = data["choices"][0]["message"]["content"] or ""
+        content = re.sub(r"^\s*```(?:json)?\s*|\s*```\s*$", "", content)      # some models fence their JSON
+        parsed = json.loads(content[content.find("{"):content.rfind("}") + 1])
+    except (ValueError, KeyError, IndexError, TypeError):
+        raise RuntimeError(f"unreadable reply {raw[:160]!r}")
     out = {}
     for x in parsed.get("items", []):
         try:
@@ -351,7 +345,7 @@ def classify_github(batch, universe):
         except (KeyError, ValueError, TypeError, IndexError):
             continue
     u = data.get("usage", {})
-    log(f"  github models {model}: in={u.get('prompt_tokens')} out={u.get('completion_tokens')} items={len(out)}/{len(batch)}")
+    log(f"  {url.split('/')[2]} {model}: in={u.get('prompt_tokens')} out={u.get('completion_tokens')} items={len(out)}/{len(batch)}")
     return out
 
 
@@ -402,7 +396,16 @@ def main():
     log(f"{len(raw)} collected, {len(fresh)} new")
 
     # AI provider: Claude if a key is set, else free GitHub Models inside Actions, else keyword rules
-    provider = "claude" if os.environ.get("ANTHROPIC_API_KEY") else "github" if os.environ.get("GH_MODELS_TOKEN") else None
+    if os.environ.get("ANTHROPIC_API_KEY"):
+        provider = "claude"
+    elif os.environ.get("AI_API_KEY"):                        # free tier, e.g. a Google Gemini key
+        provider = "compat"
+        compat = (os.environ.get("AI_BASE_URL") or GEMINI_URL, os.environ["AI_API_KEY"], os.environ.get("AI_MODEL") or "gemini-2.5-flash")
+    elif os.environ.get("GH_MODELS_TOKEN") and os.environ.get("PULSEDGE_USE_GITHUB_MODELS"):
+        provider = "compat"
+        compat = (GH_MODELS_URL, os.environ["GH_MODELS_TOKEN"], os.environ.get("PULSEDGE_GH_MODEL") or "openai/gpt-4o-mini")
+    else:
+        provider = None
     use_ai = provider is not None
     batch_size = BATCH if provider == "claude" else 12
     gh_failures = 0
@@ -413,12 +416,12 @@ def main():
         try:
             if provider == "claude":
                 res = classify_claude(chunk, universe)
-            elif provider == "github" and gh_failures < 2:
-                res = classify_github(chunk, universe)
+            elif provider == "compat" and gh_failures < 2:
+                res = classify_compat(chunk, universe, *compat)
             else:
                 res = classify_rules(chunk, universe)
         except Exception as e:
-            gh_failures += provider == "github"
+            gh_failures += provider == "compat"
             log(f"  AI classification failed ({type(e).__name__}: {e}); using keyword rules for this batch")
             res = classify_rules(chunk, universe)
         known = {s["symbol"] for s in universe}
