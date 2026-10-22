@@ -1,127 +1,133 @@
 {
- "date": "2026-10-21",
- "updated": "2026-10-21T19:08:14+05:30",
- "sentiment": "Mildly bearish",
+ "date": "2026-10-22",
+ "updated": "2026-10-22T12:54:48+05:30",
+ "sentiment": "Bearish",
  "breadth": {
   "up": 0,
-  "down": 2
+  "down": 4
  },
  "checklist": [
   {
    "title": "Nifty 50 last close (GIFT Nifty not available from free sources)",
    "dir": "down",
-   "value": "22,811.35 (-0.34%)",
+   "value": "22,637.95 (-0.76%)",
    "detail": [
-    "Previous close 22,888.95"
+    "Previous close 22,811.35"
    ]
   },
   {
    "title": "US close - Dow/S&P/Nasdaq direction",
    "dir": "flat",
-   "value": "Higher",
+   "value": "Lower",
    "detail": [
-    "Dow 52,505.02 +0.02%",
-    "S&P 7,728.47 +0.21%",
-    "Nasdaq 26,556.22 +0.50%",
-    "Nasdaq futures now +0.65%"
+    "Dow 52,856.09 +0.00%",
+    "S&P 7,757.17 +0.00%",
+    "Nasdaq 26,702.86 +0.00%",
+    "Nasdaq futures now -1.70%"
    ]
   },
   {
    "title": "Asian markets live - Nikkei, Hang Seng",
-   "dir": "flat",
-   "value": "Asia mixed",
+   "dir": "down",
+   "value": "Asia lower",
    "detail": [
-    "Nikkei 64,621.24 +0.85%",
-    "Hang Seng 23,651.87 -0.90%"
+    "Nikkei 62,907.84 -2.65%",
+    "Hang Seng 22,905.17 -3.16%"
    ]
   },
   {
    "title": "DXY + USDINR move",
-   "dir": "flat",
-   "value": "No major currency pressure",
+   "dir": "down",
+   "value": "Rupee under pressure",
    "detail": [
-    "DXY 101.70 -0.00%",
-    "USD/INR 94.460 -0.34%"
+    "DXY 101.49 -0.29%",
+    "USD/INR 94.778 +0.34%"
    ]
   },
   {
    "title": "Brent crude level",
-   "dir": "flat",
-   "value": "$108.31 -0.44%",
-   "detail": []
+   "dir": "down",
+   "value": "$111.58 +2.54%",
+   "detail": [
+    "Rising crude hurts India (OMCs, paints, aviation); helps upstream"
+   ]
   },
   {
    "title": "India VIX",
-   "dir": "down",
-   "value": "15.68 (+6.11%) — normal",
+   "dir": "flat",
+   "value": "16.11 (+2.74%) — normal",
    "detail": []
   }
  ],
- "summary": "Mildly bearish setup. NASDAQ closed 0.50% higher; supportive for IT; Nikkei up, Hang Seng down.",
+ "summary": "Bearish setup. Brent up 2.54% — pressure on OMCs, paints and aviation; NASDAQ closed 0.00% lower.",
  "global_cues": [
-  "NASDAQ closed 0.50% higher; supportive for IT",
-  "Nikkei up, Hang Seng down"
+  "Brent up 2.54% — pressure on OMCs, paints and aviation",
+  "NASDAQ closed 0.00% lower",
+  "Nikkei down, Hang Seng down"
  ],
  "india_triggers": [
-  "73 filings and headlines worth a look so far today",
-  "India VIX up 6.1% — expect wider ranges"
+  "52 filings and headlines worth a look so far today"
  ],
  "focus": [
   {
    "symbol": "ADANIPOWER",
-   "note": "Adani Power vs Adani Total Gas vs Adani Energy: Best Adani stock to bu"
+   "note": "Jaiprakash Power Ventures shares crash 30% in 6 months; will associate"
+  },
+  {
+   "symbol": "ADANIGREEN",
+   "note": "Adani Green Energy shares fall 4% after Q2 results. What are Jefferies"
   },
   {
    "symbol": "IGIL",
-   "note": "IGI Q2 Results: Consolidated PAT surges 43% to Rs 185 crore"
-  },
-  {
-   "symbol": "BEL",
-   "note": "Bharat Electronics Limited: Bharat Electronics Limited has informed th"
+   "note": "IGI shares hit 10% upper circuit as Q2 profit jumps 43%, revenue rises"
   }
  ],
  "sector_tags": [
   {
-   "label": "IT",
-   "tone": "watch"
+   "label": "Upstream oil",
+   "tone": "positive"
+  },
+  {
+   "label": "OMCs",
+   "tone": "negative"
   }
  ],
- "key_risk": "",
+ "key_risk": "A further crude spike would hit OMCs and widen the INR move",
  "also": [
   {
    "name": "BANK NIFTY",
-   "value": "54,976.9",
-   "change": -0.92
+   "value": "54,757.2",
+   "change": -0.4
   },
   {
    "name": "S&P FUT",
-   "value": "7,780",
-   "change": 0.32
+   "value": "7,725",
+   "change": -0.96
   },
   {
    "name": "NASDAQ FUT",
-   "value": "29,867",
-   "change": 0.65
+   "value": "29,496",
+   "change": -1.7
   },
   {
    "name": "KOSPI",
-   "value": "5,736",
-   "change": 3.29
+   "value": "5,534",
+   "change": -3.52
   },
   {
    "name": "WTI",
-   "value": "97.31",
-   "change": -0.52
+   "value": "99.51",
+   "change": 2.43
   },
   {
    "name": "GOLD",
-   "value": "4,156",
-   "change": 0.33
+   "value": "4,115",
+   "change": -0.85
   },
   {
    "name": "US 10Y",
-   "value": "5.09",
-   "change": -0.53
+   "value": "5.08",
+   "change": -1.34
   }
  ],
  "source": "CNBC / Yahoo Finance (unofficial, delayed)"
