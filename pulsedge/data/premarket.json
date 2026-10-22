@@ -1,6 +1,6 @@
 {
  "date": "2026-10-22",
- "updated": "2026-10-22T12:54:48+05:30",
+ "updated": "2026-10-22T18:38:32+05:30",
  "sentiment": "Bearish",
  "breadth": {
   "up": 0,
@@ -10,7 +10,7 @@
   {
    "title": "Nifty 50 last close (GIFT Nifty not available from free sources)",
    "dir": "down",
-   "value": "22,637.95 (-0.76%)",
+   "value": "22,687.65 (-0.54%)",
    "detail": [
     "Previous close 22,811.35"
    ]
@@ -23,7 +23,7 @@
     "Dow 52,856.09 +0.00%",
     "S&P 7,757.17 +0.00%",
     "Nasdaq 26,702.86 +0.00%",
-    "Nasdaq futures now -1.70%"
+    "Nasdaq futures now -1.69%"
    ]
   },
   {
@@ -32,7 +32,7 @@
    "value": "Asia lower",
    "detail": [
     "Nikkei 62,907.84 -2.65%",
-    "Hang Seng 22,905.17 -3.16%"
+    "Hang Seng 22,934.68 -3.03%"
    ]
   },
   {
@@ -40,14 +40,14 @@
    "dir": "down",
    "value": "Rupee under pressure",
    "detail": [
-    "DXY 101.49 -0.29%",
-    "USD/INR 94.778 +0.34%"
+    "DXY 101.76 -0.02%",
+    "USD/INR 94.817 +0.38%"
    ]
   },
   {
    "title": "Brent crude level",
    "dir": "down",
-   "value": "$111.58 +2.54%",
+   "value": "$112.13 +3.04%",
    "detail": [
     "Rising crude hurts India (OMCs, paints, aviation); helps upstream"
    ]
@@ -55,31 +55,31 @@
   {
    "title": "India VIX",
    "dir": "flat",
-   "value": "16.11 (+2.74%) — normal",
+   "value": "15.76 (+0.56%) — normal",
    "detail": []
   }
  ],
- "summary": "Bearish setup. Brent up 2.54% — pressure on OMCs, paints and aviation; NASDAQ closed 0.00% lower.",
+ "summary": "Bearish setup. Brent up 3.04% — pressure on OMCs, paints and aviation; NASDAQ closed 0.00% lower.",
  "global_cues": [
-  "Brent up 2.54% — pressure on OMCs, paints and aviation",
+  "Brent up 3.04% — pressure on OMCs, paints and aviation",
   "NASDAQ closed 0.00% lower",
   "Nikkei down, Hang Seng down"
  ],
  "india_triggers": [
-  "52 filings and headlines worth a look so far today"
+  "104 filings and headlines worth a look so far today"
  ],
  "focus": [
   {
-   "symbol": "ADANIPOWER",
-   "note": "Jaiprakash Power Ventures shares crash 30% in 6 months; will associate"
+   "symbol": "PETRONET",
+   "note": "Petronet LNG Limited: PETRONET LNG LIMITED has informed the Exchange r"
   },
   {
-   "symbol": "ADANIGREEN",
-   "note": "Adani Green Energy shares fall 4% after Q2 results. What are Jefferies"
+   "symbol": "ABDL",
+   "note": "Allied Blenders and Distillers Limited: Allied Blenders and Distillers"
   },
   {
-   "symbol": "IGIL",
-   "note": "IGI shares hit 10% upper circuit as Q2 profit jumps 43%, revenue rises"
+   "symbol": "JMFINANCIL",
+   "note": "JM Financial Products Limited: Financial Results Updates |SUBJECT: Fin"
   }
  ],
  "sector_tags": [
@@ -96,8 +96,8 @@
  "also": [
   {
    "name": "BANK NIFTY",
-   "value": "54,757.2",
-   "change": -0.4
+   "value": "54,925.7",
+   "change": -0.09
   },
   {
    "name": "S&P FUT",
@@ -106,8 +106,8 @@
   },
   {
    "name": "NASDAQ FUT",
-   "value": "29,496",
-   "change": -1.7
+   "value": "29,499",
+   "change": -1.69
   },
   {
    "name": "KOSPI",
@@ -116,18 +116,18 @@
   },
   {
    "name": "WTI",
-   "value": "99.51",
-   "change": 2.43
+   "value": "99.71",
+   "change": 2.64
   },
   {
    "name": "GOLD",
-   "value": "4,115",
-   "change": -0.85
+   "value": "4,099",
+   "change": -1.22
   },
   {
    "name": "US 10Y",
-   "value": "5.08",
-   "change": -1.34
+   "value": "5.03",
+   "change": -2.22
   }
  ],
  "source": "CNBC / Yahoo Finance (unofficial, delayed)"
