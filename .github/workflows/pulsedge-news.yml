@@ -14,6 +14,7 @@ on:
       - 'pulsedge-bot/news_pipeline.py'
       - 'pulsedge-bot/sources.json'
       - 'pulsedge-bot/premarket.py'
+      - 'pulsedge-bot/track_record.py'
       - '.github/workflows/pulsedge-news.yml'
 
 permissions:
@@ -55,14 +56,19 @@ jobs:
       env:
         DRY: ${{ github.ref != 'refs/heads/master' && '--dry-run' || '' }}
       run: python pulsedge-bot/premarket.py $DRY | head -c 4000
+    - name: Track record
+      timeout-minutes: 4
+      env:
+        DRY: ${{ github.ref != 'refs/heads/master' && '--dry-run' || '' }}
+      run: python pulsedge-bot/track_record.py $DRY
     - name: Commit new headlines
       id: commit
       if: github.ref == 'refs/heads/master'
       run: |
-        if [ -n "$(git status --porcelain pulsedge/data/feed.json pulsedge/data/universe.json pulsedge/data/premarket.json pulsedge-bot/state)" ]; then
+        if [ -n "$(git status --porcelain pulsedge/data/feed.json pulsedge/data/universe.json pulsedge/data/premarket.json pulsedge/data/track.json pulsedge-bot/state)" ]; then
           git config user.name "pulsedge-bot"
           git config user.email "pulsedge-bot@users.noreply.github.com"
-          git add pulsedge/data/feed.json pulsedge/data/universe.json pulsedge/data/premarket.json pulsedge-bot/state
+          git add pulsedge/data/feed.json pulsedge/data/universe.json pulsedge/data/premarket.json pulsedge/data/track.json pulsedge-bot/state
           git commit -q -m "PulsEdge news: $(date -u +%Y-%m-%dT%H:%MZ)"
           git push
           echo "changed=true" >> "$GITHUB_OUTPUT"

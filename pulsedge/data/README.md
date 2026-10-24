@@ -9,6 +9,7 @@ site, the terminal and the Telegram bot switch to it within a couple of minutes.
 | `feed.json`      | Terminal signal feed, landing page feed, Telegram bot | `feed.sample.json` |
 | `premarket.json` | Terminal pre-market panel                 | `premarket.sample.json`   |
 | `universe.json`  | Stock list with names and sectors         | `universe.sample.json`    |
+| `track.json`     | Track record page (`track.html`), written by `pulsedge-bot/track_record.py` | none: the page shows an empty state |
 
 ## `feed.json`: signals
 

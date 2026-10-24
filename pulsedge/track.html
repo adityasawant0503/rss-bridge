@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>try{var t=localStorage.getItem("th");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PulsEdge Track Record</title>
+<meta name="description" content="Every PulsEdge call on a named stock, with the NSE closing price 1 and 5 sessions later.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Same tokens as the landing and welcome pages */
+:root{--bg:#fff;--fg:#16151a;--mute:#6b6875;--line:#e4e2ea;--pur:#7c4dff;--pur-soft:#efe9ff;--card:#fff;--up:#0f8a4b;--dn:#c8323c;--logo-bg:#fff;--logo-lt:block;--logo-dk:none;
+  --elev:0 1px 2px rgba(22,21,26,.04),0 10px 28px -14px rgba(22,21,26,.14),inset 0 1px 0 rgba(255,255,255,.7);
+  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f0e13;--fg:#f1f0f5;--mute:#9a97a6;--line:#2a2833;--pur:#a98bff;--pur-soft:#211b36;--card:#16151c;--up:#3ddc84;--dn:#ff6b74;--logo-bg:#000;--logo-lt:none;--logo-dk:block;--elev:0 1px 2px rgba(0,0,0,.35),0 14px 34px -18px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.05);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f0e13;--fg:#f1f0f5;--mute:#9a97a6;--line:#2a2833;--pur:#a98bff;--pur-soft:#211b36;--card:#16151c;--up:#3ddc84;--dn:#ff6b74;--logo-bg:#000;--logo-lt:none;--logo-dk:block;--elev:0 1px 2px rgba(0,0,0,.35),0 14px 34px -18px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.05);color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.55 var(--mono)}
+.w{max-width:1040px;margin:0 auto;padding-block:max(40px,env(safe-area-inset-top,0px)) max(48px,env(safe-area-inset-bottom,0px));padding-left:max(22px,env(safe-area-inset-left,0px));padding-right:max(22px,env(safe-area-inset-right,0px))}
+.head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.head .r{display:flex;align-items:center;gap:14px;font-size:13px}
+.logo{width:44px;height:44px;border-radius:50%;background:var(--logo-bg);box-shadow:0 0 0 1px var(--line)}
+.logo.lt{display:var(--logo-lt)}.logo.dk{display:var(--logo-dk)}
+a{color:var(--pur)}
+.kick{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--pur);margin:32px 0 8px}
+h1{font-size:clamp(26px,5vw,38px);line-height:1.1;letter-spacing:-.04em;font-weight:500;margin:0 0 12px;text-wrap:balance}
+.lede{color:var(--mute);margin:0 0 24px;max-width:680px}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:14px}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:var(--elev)}
+.tile b{display:block;font-size:26px;font-weight:500;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.tile span{font-size:12px;color:var(--mute)}
+.note{font-size:12.5px;color:var(--mute);background:var(--pur-soft);border-radius:10px;padding:10px 14px;margin:0 0 22px}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px;flex-wrap:wrap}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px}
+.seg button{font:inherit;font-size:12.5px;border:0;background:none;color:var(--mute);padding:6px 14px;border-radius:999px;cursor:pointer;transition:background-color 160ms ease,color 160ms ease,transform 160ms cubic-bezier(.2,.8,.2,1)}
+.seg button[aria-pressed="true"]{background:var(--pur-soft);color:var(--fg)}
+.seg button:active{transform:scale(.97)}
+.upd{font-size:12px;color:var(--mute)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{font-weight:500;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.sym{font-weight:600}
+.hl{color:var(--mute);font-size:12.5px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;max-width:420px}
+.hl a{color:inherit;text-decoration:none}
+@media (hover:hover){.hl a:hover{color:var(--pur)}}
+.pos{color:var(--up)}.neg{color:var(--dn)}.dim{color:var(--mute)}
+.tag{display:inline-block;font-size:11px;padding:1px 8px;border-radius:999px;border:1px solid var(--line);text-transform:uppercase;letter-spacing:.04em;white-space:nowrap}
+.tag.hit{border-color:var(--up);color:var(--up)}.tag.miss{border-color:var(--dn);color:var(--dn)}
+.empty{padding:36px 10px;text-align:center;color:var(--mute)}
+footer{margin-top:36px;font-size:12px;color:var(--mute)}
+.thm{display:inline-grid;place-items:center;width:34px;height:34px;padding:0;border:1px solid var(--line);border-radius:50%;background:none;color:var(--fg);cursor:pointer;flex:none;will-change:transform;transition:transform 160ms cubic-bezier(.2,.8,.2,1),border-color 160ms ease}
+.thm svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.thm [hidden]{display:none}
+@media (hover:hover){.thm:hover{border-color:var(--pur)}}
+.thm:active{transform:scale(.97)}
+@media (max-width:720px){
+  body{font-size:13px}
+  .w{padding-top:24px}
+  .kick{margin-top:22px}
+  .tiles{grid-template-columns:repeat(2,1fr);gap:8px}
+  .tile{padding:10px 12px}.tile b{font-size:21px}
+  thead{display:none}
+  table,tbody,tr,td{display:block}
+  tr{display:grid;grid-template-columns:auto auto 1fr;grid-template-areas:"date date res" "sym call call" "r1 r5 r5" "hl hl hl";gap:4px 14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+  td{border:0;padding:0}
+  td.c-date{grid-area:date;font-size:11.5px;color:var(--mute)}
+  td.c-res{grid-area:res;justify-self:end}
+  td.sym{grid-area:sym;font-size:15px}
+  td.c-call{grid-area:call}
+  td.c-r1{grid-area:r1;text-align:left}td.c-r5{grid-area:r5;text-align:left}
+  td.c-hl{grid-area:hl}
+  td.empty{grid-column:1/-1}
+  tr:has(td.empty){display:block}
+  .hl{max-width:none}
+  td.c-entry{display:none}
+  td.n::before{content:attr(data-l) " ";color:var(--mute);font-size:11px}
+}
+</style>
+</head>
+<body>
+<main class="w">
+  <div class="head">
+    <a href="index.html" aria-label="PulsEdge home"><img class="logo lt" src="assets/icon.png" alt="PulsEdge" width="44" height="44"><img class="logo dk" src="assets/icon-dark.png" alt="PulsEdge" width="44" height="44"></a>
+    <div class="r"><a href="terminal.html">Terminal</a><a href="index.html">Home</a>
+      <button class="thm" id="thm" type="button" aria-label="Switch to dark mode"><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true" hidden><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg></button></div>
+  </div>
+
+  <p class="kick">Track record</p>
+  <h1>How our calls did.</h1>
+  <p class="lede">Every Watch and Act call on a named stock is logged the moment it's made, then checked against NSE's official closing price one and five trading sessions later. Nothing is removed.</p>
+
+  <div class="tiles">
+    <div class="tile"><b id="t-calls">–</b><span>calls tracked</span></div>
+    <div class="tile"><b id="t-h1">–</b><span id="t-h1s">1-day hit rate</span></div>
+    <div class="tile"><b id="t-h5">–</b><span id="t-h5s">5-day hit rate</span></div>
+    <div class="tile"><b id="t-mv">–</b><span>avg 1-day move after news</span></div>
+  </div>
+  <p class="note" id="note">A call counts as a hit when the stock moved the way the AI said it would. Calls made by keyword rules (while AI is off) carry no direction, so they show the price move but are never counted.</p>
+
+  <div class="bar">
+    <div class="seg" role="group" aria-label="Filter calls">
+      <button type="button" data-f="all" aria-pressed="true">All</button>
+      <button type="button" data-f="scored" aria-pressed="false">Scored</button>
+      <button type="button" data-f="act" aria-pressed="false">Act</button>
+    </div>
+    <span class="upd" id="upd"></span>
+  </div>
+  <table>
+    <thead><tr><th>Date</th><th>Stock</th><th>Call</th><th class="n c-entry">Entry ₹</th><th class="n">1D</th><th class="n">5D</th><th>Result</th><th>News</th></tr></thead>
+    <tbody id="rows"><tr><td class="empty" colspan="8">Loading…</td></tr></tbody>
+  </table>
+
+  <footer>Prices: NSE end-of-day bhavcopy. Entry is the close of the last session that had ended when the news came out. Past results don't predict future ones. Educational information only, not investment advice.</footer>
+</main>
+<script>
+(function(){
+  var data=null,filter="all",$=function(id){return document.getElementById(id)};
+  function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+  function pct(v){if(v==null)return '<span class="dim">pending</span>';return '<span class="'+(v>0?"pos":v<0?"neg":"dim")+'">'+(v>0?"+":"")+v.toFixed(2)+'%</span>'}
+  function day(t){var d=new Date(t);return d.toLocaleDateString("en-IN",{day:"numeric",month:"short",timeZone:"Asia/Kolkata"})+" "+d.toLocaleTimeString("en-IN",{hour:"2-digit",minute:"2-digit",hour12:false,timeZone:"Asia/Kolkata"})}
+  function result(c){
+    if(!c.scored)return '<span class="tag">not scored</span>';
+    var h=c.hit5!=null?c.hit5:c.hit1;if(h==null)return '<span class="tag">open</span>';
+    return '<span class="tag '+(h?"hit":"miss")+'">'+(h?"hit":"miss")+(c.hit5!=null?" · 5D":" · 1D")+'</span>';
+  }
+  function render(){
+    var calls=(data&&data.calls||[]).filter(function(c){return filter==="all"||(filter==="scored"?c.scored:c.call==="act"||c.call==="buy"||c.call==="sell")});
+    if(!calls.length){$("rows").innerHTML='<tr><td class="empty" colspan="8">'+(data&&data.calls&&data.calls.length?"No calls match this filter yet.":"Tracking has started. Calls appear here as they're made, and prices fill in after each NSE close.")+'</td></tr>';return}
+    $("rows").innerHTML=calls.slice(0,400).map(function(c){
+      var dir=c.dir?(c.dir==="up"?" ↑":" ↓"):"";
+      return '<tr><td class="c-date">'+day(c.time)+'</td><td class="sym">'+esc(c.symbol)+'</td><td><span class="tag">'+esc(c.call)+dir+'</span></td>'+
+        '<td class="n c-entry">'+(c.entry?c.entry.toLocaleString("en-IN",{maximumFractionDigits:2}):'<span class="dim">–</span>')+'</td>'+
+        '<td class="n c-r1" data-l="1D">'+pct(c.r1)+'</td><td class="n c-r5" data-l="5D">'+pct(c.r5)+'</td><td class="c-res">'+result(c)+'</td>'+
+        '<td class="c-hl"><span class="hl">'+(c.url?'<a href="'+esc(c.url)+'" target="_blank" rel="noopener">'+esc(c.headline)+'</a>':esc(c.headline))+'</span></td></tr>';
+    }).join("");
+  }
+  function tiles(){
+    var s=data.summary||{};
+    $("t-calls").textContent=s.calls!=null?s.calls:"0";
+    [["1","d1"],["5","d5"]].forEach(function(p){var r=s[p[1]]||{};
+      $("t-h"+p[0]).textContent=r.hit_rate!=null?r.hit_rate+"%":"–";
+      $("t-h"+p[0]+"s").textContent=p[0]+"-day hit rate"+(r.scored?" ("+r.hits+"/"+r.scored+")":" · none scored yet")});
+    $("t-mv").textContent=s.avg_abs_move_1d!=null?s.avg_abs_move_1d.toFixed(2)+"%":"–";
+    if(data.updated)$("upd").textContent="Updated "+day(data.updated)+" IST"+(s.since?" · since "+s.since:"");
+  }
+  document.querySelectorAll(".seg button").forEach(function(b){b.addEventListener("click",function(){
+    filter=b.dataset.f;document.querySelectorAll(".seg button").forEach(function(x){x.setAttribute("aria-pressed",x===b)});render()})});
+  fetch("data/track.json",{cache:"no-store"}).then(function(r){if(!r.ok)throw 0;return r.json()})
+    .then(function(d){data=d;tiles();render()})
+    .catch(function(){data={calls:[],summary:{}};tiles();render()});
+})();
+// Theme: follows the device; the sun/moon button overrides it and the choice is shared by all PulsEdge pages.
+(function(){
+  var d=document.documentElement,b=document.getElementById("thm"),mq=matchMedia("(prefers-color-scheme: dark)");
+  function sys(){return mq.matches?"dark":"light"}
+  function cur(){return d.getAttribute("data-theme")||sys()}
+  function save(v){try{v?localStorage.setItem("th",v):localStorage.removeItem("th")}catch(e){}}
+  function sync(){var k=cur()==="dark",l=k?"Switch to light mode":"Switch to dark mode";
+    b.querySelector(".i-sun").toggleAttribute("hidden",!k);b.querySelector(".i-moon").toggleAttribute("hidden",k);b.setAttribute("aria-label",l);b.title=l}
+  b.addEventListener("click",function(){var n=cur()==="dark"?"light":"dark";if(n===sys()){d.removeAttribute("data-theme");save(null)}else{d.setAttribute("data-theme",n);save(n)}sync()});
+  function onSys(){if(d.getAttribute("data-theme")===sys()){d.removeAttribute("data-theme");save(null)}sync()}
+  if(mq.addEventListener)mq.addEventListener("change",onSys);else mq.addListener(onSys);
+  window.addEventListener("storage",function(e){if(e.key!=="th")return;if(e.newValue)d.setAttribute("data-theme",e.newValue);else d.removeAttribute("data-theme");sync()});
+  sync();
+})();
+</script>
+</body>
+</html>
