@@ -64,7 +64,13 @@ def cnbc_quotes():
     for k, syms in CNBC.items():
         for sym in syms if isinstance(syms, tuple) else (syms,):
             row = by_sym.get(sym) or {}
-            price, prev = num(row.get("last")), num(row.get("previous_day_closing"))
+            price, chg = num(row.get("last")), num(row.get("change_pct"))
+            # change_pct is the last session's move; previous_day_closing rolls over to the latest close
+            # once a session ends, which would make every closed market read 0.00%.
+            if price and chg is not None and chg > -100:
+                out[k] = {"price": price, "prev": price / (1 + chg / 100), "chg": chg}
+                break
+            prev = num(row.get("previous_day_closing"))
             if price and prev:
                 out[k] = {"price": price, "prev": prev, "chg": (price / prev - 1) * 100}
                 break
@@ -219,7 +225,7 @@ def main():
                     + (" — pressure on OMCs, paints and aviation" if q["brent"]["chg"] > 0 else " — relief for OMCs and paints"))
     if "nasdaq" in q:
         c = q["nasdaq"]["chg"]
-        cues.append(f"NASDAQ closed {abs(c):.2f}% {'higher' if c > 0 else 'lower'}" + ("; IT may open soft" if c < -0.3 else "; supportive for IT" if c > 0.3 else ""))
+        cues.append(("NASDAQ closed flat" if abs(c) < 0.01 else f"NASDAQ closed {abs(c):.2f}% {'higher' if c > 0 else 'lower'}") + ("; IT may open soft" if c < -0.3 else "; supportive for IT" if c > 0.3 else ""))
     if asia:
         cues.append(", ".join(f"{ {'nikkei': 'Nikkei', 'hangseng': 'Hang Seng'}[k]} {'up' if q[k]['chg'] > 0 else 'down'}" for k in asia))
 

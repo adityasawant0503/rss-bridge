@@ -71,6 +71,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 @keyframes blink{50%{opacity:.35}}
 .pill.demo{color:var(--pur-l);border-color:var(--pur)}
 .back{margin-left:auto;font-size:13px;color:var(--mute);text-decoration:none}
+.back+.back{margin-left:0}
 
 /* layout */
 .main{display:grid;grid-template-columns:420px minmax(0,1fr);gap:20px;align-items:start;padding-block:18px 8px}
@@ -241,6 +242,7 @@ html{-webkit-tap-highlight-color:transparent}
     <span class="pill mkt-closed" id="mkt">MARKET CLOSED</span>
     <span class="pill eng" id="eng"><span>Engine</span><span class="dot"></span><b id="eng-t">idle</b></span>
     <span class="pill demo" id="demo" hidden>DEMO</span>
+    <a class="back" href="track.html">track record</a>
     <a class="back" href="index.html">← pulsedge</a>
     <button class="thm" id="thm" type="button" aria-label="Switch to dark mode"><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true" hidden><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg></button>
   </div>
