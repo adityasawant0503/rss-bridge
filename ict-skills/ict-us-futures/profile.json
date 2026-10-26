@@ -1,0 +1,35 @@
+{
+ "market": "us-futures",
+ "title": "US index futures (CME)",
+ "tz": "America/New_York",
+ "currency": "USD",
+ "_day_start": "CME Globex day: 18:00 ET the evening before to 17:00 ET. PDH/PDL use this day.",
+ "day_start": "18:00",
+ "_range_start": "The dealing range and the 'true day' start at NY midnight (notes: 'The algorithm works from NY midnight').",
+ "range_start": "00:00",
+ "anchor": "00:00",
+ "sessions": {
+  "asia": ["19:00", "21:00"],
+  "london": ["02:00", "05:00"],
+  "ny_am": ["08:30", "11:00"],
+  "lunch": ["12:00", "13:30"],
+  "ny_pm": ["13:30", "15:00"],
+  "chop": ["15:00", "16:00"]
+ },
+ "killzones": ["ny_am", "ny_pm"],
+ "liquidity_sessions": ["asia", "london", "ny_am", "lunch"],
+ "opens": {"midnight": "00:00", "8:30 news": "08:30", "9:30 equities": "09:30"},
+ "flat_by": "15:55",
+ "default_symbol": "NQ",
+ "instruments": {
+  "ES":  {"name": "E-mini S&P 500",   "yahoo": "ES=F", "point_value": 50,  "tick": 0.25, "buffer": 0.5, "slippage": 0.25, "micro": "MES"},
+  "MES": {"name": "Micro E-mini S&P", "yahoo": "ES=F", "point_value": 5,   "tick": 0.25, "buffer": 0.5, "slippage": 0.25},
+  "NQ":  {"name": "E-mini Nasdaq-100", "yahoo": "NQ=F", "point_value": 20, "tick": 0.25, "buffer": 2,   "slippage": 0.5, "micro": "MNQ"},
+  "MNQ": {"name": "Micro E-mini Nasdaq", "yahoo": "NQ=F", "point_value": 2, "tick": 0.25, "buffer": 2,   "slippage": 0.5},
+  "YM":  {"name": "E-mini Dow",       "yahoo": "YM=F", "point_value": 5,   "tick": 1,    "buffer": 5,   "slippage": 1, "micro": "MYM"},
+  "MYM": {"name": "Micro E-mini Dow", "yahoo": "YM=F", "point_value": 0.5, "tick": 1,    "buffer": 5,   "slippage": 1}
+ },
+ "smt_pairs": [["ES", "NQ"], ["ES", "YM"]],
+ "config_defaults": {"instrument": "MNQ"},
+ "data_note": "Yahoo's continuous futures (ES=F, NQ=F, YM=F) are unofficial and delayed about 10 minutes. Fine for backtests and planning; use your broker's chart to enter."
+}

@@ -1,0 +1,9 @@
+{
+ "name": "ict-mmxm-skills",
+ "description": "ICT 2022 Mentorship (MMXM) model as two Claude skills: Indian indices (Nifty, Bank Nifty, Sensex) and US index futures (ES, NQ, YM). Levels, written bias, setup check, backtest, sizing, rule gate and live journal.",
+ "version": "1.0.0",
+ "author": {"name": "Aditya Sawant"},
+ "license": "UNLICENSED",
+ "keywords": ["claude-skills", "ict", "mmxm", "day-trading", "nifty", "banknifty", "es", "nq"],
+ "skills": "./"
+}
