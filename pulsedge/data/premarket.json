@@ -1,18 +1,18 @@
 {
  "date": "2026-10-26",
- "updated": "2026-10-26T12:27:48+05:30",
- "sentiment": "Neutral",
+ "updated": "2026-10-26T16:11:27+05:30",
+ "sentiment": "Mildly bullish",
  "breadth": {
-  "up": 1,
+  "up": 2,
   "down": 1
  },
  "checklist": [
   {
    "title": "Nifty 50 last close (GIFT Nifty not available from free sources)",
-   "dir": "flat",
-   "value": "22,607.10 (+0.03%)",
+   "dir": "up",
+   "value": "22,753.20 (+0.68%)",
    "detail": [
-    "Previous close 22,600.32"
+    "Previous close 22,599.52"
    ]
   },
   {
@@ -23,7 +23,7 @@
     "Dow 52,215.16 -1.23%",
     "S&P 7,623.68 -0.52%",
     "Nasdaq 25,955.34 -0.21%",
-    "Nasdaq futures now -0.15%"
+    "Nasdaq futures now +0.09%"
    ]
   },
   {
@@ -32,7 +32,7 @@
    "value": "Asia mixed",
    "detail": [
     "Nikkei 62,189.65 -0.80%",
-    "Hang Seng 23,215.14 +0.53%"
+    "Hang Seng 23,211.81 +0.51%"
    ]
   },
   {
@@ -40,45 +40,44 @@
    "dir": "flat",
    "value": "No major currency pressure",
    "detail": [
-    "DXY 101.69 -0.11%",
-    "USD/INR 95.155 +0.23%"
+    "DXY 101.83 +0.02%",
+    "USD/INR 95.185 +0.26%"
    ]
   },
   {
    "title": "Brent crude level",
    "dir": "up",
-   "value": "$114.94 -1.53%",
+   "value": "$114.99 -1.48%",
    "detail": []
   },
   {
    "title": "India VIX",
    "dir": "flat",
-   "value": "17.64 (+4.63%) — normal",
+   "value": "17.16 (+1.78%) — normal",
    "detail": []
   }
  ],
- "summary": "Neutral setup. Brent down 1.53% — relief for OMCs and paints; NASDAQ closed 0.21% lower.",
+ "summary": "Mildly bullish setup. Brent down 1.48% — relief for OMCs and paints; NASDAQ closed 0.21% lower.",
  "global_cues": [
-  "Brent down 1.53% — relief for OMCs and paints",
+  "Brent down 1.48% — relief for OMCs and paints",
   "NASDAQ closed 0.21% lower",
   "Nikkei down, Hang Seng up"
  ],
  "india_triggers": [
-  "36 filings and headlines worth a look so far today",
-  "India VIX up 4.6% — expect wider ranges"
+  "85 filings and headlines worth a look so far today"
  ],
  "focus": [
   {
-   "symbol": "APLAPOLLO",
-   "note": "APL Apollo Tubes Limited: APL Apollo Tubes Limited has submitted to th"
+   "symbol": "DALBHARAT",
+   "note": "Dalmia Bharat Limited: Dalmia Bharat Limited has informed the Exchange"
   },
   {
-   "symbol": "KOTAKBANK",
-   "note": "Kotak Mahindra Bank shares rise 2% as top Nifty gainer | Is it right t"
+   "symbol": "DALBHARAT",
+   "note": "Dalmia Bharat Limited: Dalmia Bharat Limited has submitted to the Exch"
   },
   {
-   "symbol": "ASHOKLEY",
-   "note": "Ashok Leyland Limited: Ashok Leyland Limited has informed the Exchange"
+   "symbol": "SUMICHEM",
+   "note": "Sumitomo Chemical India Limited: Sumitomo Chemical India Limited has s"
   }
  ],
  "sector_tags": [],
@@ -86,18 +85,18 @@
  "also": [
   {
    "name": "BANK NIFTY",
-   "value": "54,078.8",
-   "change": -0.38
+   "value": "54,366.7",
+   "change": 0.15
   },
   {
    "name": "S&P FUT",
-   "value": "7,666",
-   "change": 0.08
+   "value": "7,673",
+   "change": 0.17
   },
   {
    "name": "NASDAQ FUT",
-   "value": "29,073",
-   "change": -0.15
+   "value": "29,143",
+   "change": 0.09
   },
   {
    "name": "KOSPI",
@@ -106,18 +105,18 @@
   },
   {
    "name": "WTI",
-   "value": "101.28",
-   "change": -1.93
+   "value": "101.10",
+   "change": -2.1
   },
   {
    "name": "GOLD",
-   "value": "4,022",
-   "change": 0.35
+   "value": "4,030",
+   "change": 0.55
   },
   {
    "name": "US 10Y",
-   "value": "4.97",
-   "change": -0.32
+   "value": "4.99",
+   "change": 0.08
   }
  ],
  "source": "CNBC / Yahoo Finance (unofficial, delayed)"
