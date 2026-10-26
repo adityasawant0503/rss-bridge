@@ -10,6 +10,9 @@ site, the terminal and the Telegram bot switch to it within a couple of minutes.
 | `premarket.json` | Terminal pre-market panel                 | `premarket.sample.json`   |
 | `universe.json`  | Stock list with names and sectors         | `universe.sample.json`    |
 | `track.json`     | Track record page (`track.html`), written by `pulsedge-bot/track_record.py` | none: the page shows an empty state |
+| `calendar.json`  | NSE trading holidays; trials count trading sessions with it | built into `assets/member.js` |
+| `keys.json`      | Public keys allowed to sign access links (one per PulsEdge HQ device) | none |
+| `revoked.json`   | Access-link ids that no longer work         | none |
 
 ## `feed.json`: signals
 
@@ -75,3 +78,18 @@ python pulsedge-bot/universe_from_nse.py ind_nifty500list.csv
 A spreadsheet works. Use the field names above as column headers, put
 multiple tickers in one cell like `ONGC OIL -BPCL -HINDPETRO` (a leading `-`
 means negative), and send it as CSV.
+
+## Trials and access links
+
+The terminal (`terminal.html`) opens for people with a free trial or an access link; everyone else sees
+the sample data and a sign-up card. The logic is in `assets/member.js`.
+
+- **Free trial:** a visitor enters their email and gets 5 NSE trading sessions (about a week) in that
+  browser. The email goes to Formspree with `source: "trial"`.
+- **Access links:** `terminal.html#pass=…`, made in PulsEdge HQ (or `pulsedge-bot/issue_pass.js`) and
+  signed with a private key that never leaves the device that made it. Plans: `trial7` and `trial14`
+  (5 or 10 trading sessions from a start date), `monthly`, `yearly`, `founding` and `comp` (valid until
+  a date). A link only opens if its key's public half is in `keys.json` and its id isn't in `revoked.json`.
+- Weekends and the holidays in `calendar.json` don't count. A trial ends when trading opens on the day
+  after its last session. Update `calendar.json` every December from NSE's holiday circular.
+- This is a front-end gate for the beta: the data files themselves are public. Real logins come later.

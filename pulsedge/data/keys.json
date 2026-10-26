@@ -1,0 +1,4 @@
+{
+ "_note": "Public keys allowed to sign access links, one per PulsEdge HQ device. Only public halves belong here.",
+ "keys": []
+}
