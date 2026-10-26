@@ -44,6 +44,7 @@
   --elev:0 1px 2px rgba(22,21,26,.04),0 10px 28px -14px rgba(22,21,26,.14),inset 0 1px 0 rgba(255,255,255,.7);
   color-scheme:light}
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.45 var(--sans);-webkit-font-smoothing:antialiased}
 a{color:inherit}
 button,input{font:inherit;color:inherit}
@@ -178,6 +179,9 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .empty b{display:block;color:var(--fg);margin-bottom:4px}
 .empty a{color:var(--pur-l)}
 footer{padding-block:24px 32px;text-align:center;color:var(--dim);font-size:13.5px}
+.foot{display:flex;flex-direction:column;gap:6px;align-items:center}
+.foot a{color:var(--mute)}
+.fb{background:none;border:0;padding:0;color:var(--pur-l);text-decoration:underline;text-underline-offset:3px;font-size:inherit}
 /* phones: smaller, denser type so more signals fit on screen */
 @media (max-width:600px){
   body{font-size:13px}
@@ -281,9 +285,14 @@ html{-webkit-tap-highlight-color:transparent}
   </section>
 </main>
 
-<footer class="wrap">Not investment advice. AI analysis can be wrong — confirm on the chart.</footer>
+<footer class="wrap foot">
+  <span>Not investment advice. AI analysis can be wrong — confirm on the chart.</span>
+  <span><button type="button" class="fb" id="fb">Send feedback</button> · <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a> · <a href="contact.html">Contact</a></span>
+</footer>
 
+<script src="assets/member.js"></script>
 <script>
+document.getElementById("fb").onclick=function(){if(window.PulseAccess)PulseAccess.feedback()};
 (function(){
   function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
   function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e}
@@ -461,10 +470,11 @@ html{-webkit-tap-highlight-color:transparent}
   window.addEventListener("storage",function(e){if(e.key==="pe_hold"){try{hold=JSON.parse(e.newValue||"[]")||[]}catch(x){hold=[]}render();renderPM()}});
 
   // ---------- data ----------
-  var live=false;
+  // mode "sample" (no trial or membership yet) shows the sample files; see assets/member.js
+  var live=false,mode="live";
   function load(){
-    var feed=getJson("data/feed.json").then(function(j){j._live=!j.sample;return j}).catch(function(){return getJson("data/feed.sample.json")});
-    var pre=getJson("data/premarket.json").then(function(j){j._live=!j.sample;return j}).catch(function(){return getJson("data/premarket.sample.json")}).catch(function(){return null});
+    var feed=mode==="sample"?getJson("data/feed.sample.json"):getJson("data/feed.json").then(function(j){j._live=!j.sample;return j}).catch(function(){return getJson("data/feed.sample.json")});
+    var pre=(mode==="sample"?getJson("data/premarket.sample.json"):getJson("data/premarket.json").then(function(j){j._live=!j.sample;return j}).catch(function(){return getJson("data/premarket.sample.json")})).catch(function(){return null});
     return Promise.all([feed,pre]).then(function(r){
       var j=r[0];live=!!j._live;
       sigs=(Array.isArray(j.items)?j.items:[]).filter(function(x){return x&&x.headline}).map(normalize).sort(function(a,b){return b.ts-a.ts});
@@ -474,7 +484,7 @@ html{-webkit-tap-highlight-color:transparent}
       renderPM();render();
     });
   }
-  load().catch(function(){var ul=document.getElementById("feed");ul.textContent="";var e=el("li","empty");e.append(el("b",null,"Couldn't load signals"),document.createTextNode("Refresh the page to try again."));ul.appendChild(e)});
+  (window.PulseAccess?PulseAccess.guard():Promise.resolve({mode:"live"})).then(function(g){mode=g.mode;return load()}).catch(function(){var ul=document.getElementById("feed");ul.textContent="";var e=el("li","empty");e.append(el("b",null,"Couldn't load signals"),document.createTextNode("Refresh the page to try again."));ul.appendChild(e)});
   setInterval(function(){if(live)load().catch(function(){})},60000);
 })();
 </script>

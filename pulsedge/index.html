@@ -212,6 +212,10 @@ h2{font-size:clamp(24px,3.4vw,34px);line-height:1.15;letter-spacing:-.035em;font
 .plan .note{margin-top:-4px}
 .seats{font-size:12px;color:var(--mute)}
 .paynote{font-size:12px;color:var(--mute);margin:16px 0 0;max-width:70ch}
+.trial{display:flex;align-items:center;justify-content:space-between;gap:12px 20px;flex-wrap:wrap;border:1px dashed var(--pur);border-radius:16px;padding:16px 20px;margin-bottom:16px;background:var(--pur-soft,transparent)}
+.trial b{display:block;font-weight:500;font-size:15px}
+.trial span{font-size:13px;color:var(--mute)}
+.trial .go{text-decoration:none;border-radius:999px;padding:11px 20px;font-size:14px;font-weight:500;background:var(--btn);color:var(--btnfg);border:1px solid var(--btn);white-space:nowrap;display:inline-block;will-change:transform;transition:transform 160ms cubic-bezier(.2,.8,.2,1),background-color 160ms ease}
 @media (max-width:900px){.plans{grid-template-columns:1fr}}
 
 /* cta */
@@ -311,6 +315,7 @@ nav a,.social a,footer a{transition:color 160ms ease,transform 160ms cubic-bezie
       <a href="#digest">Digest</a>
       <a href="track.html">Track record</a>
       <a class="keep" href="#pricing">Pricing</a>
+      <a class="keep" href="terminal.html#trial">Free trial</a>
       <a href="#join">Early access</a>
       <button class="thm" id="thm" type="button" aria-label="Switch to dark mode"><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true" hidden><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg></button>
     </nav>
@@ -458,6 +463,10 @@ nav a,.social a,footer a{transition:color 160ms ease,transform 160ms cubic-bezie
       <p class="kick">Pricing</p>
       <h2>Free on Telegram. The full terminal for members.</h2>
       <p class="lede">The daily digest stays free on Telegram. Membership opens the PULSE terminal: the pre-market checklist, every signal with its impact and reasoning, and a feed filtered to your own stocks.</p>
+      <div class="trial">
+        <div><b>Try the full terminal free first</b><span>5 trading sessions, about a week. No card, nothing charged when it ends.</span></div>
+        <a class="go" href="terminal.html#trial">Start free trial</a>
+      </div>
       <div class="plans">
         <div class="plan">
           <div class="pn"><span>Founding member</span><span class="badge">15 seats</span></div>
@@ -499,7 +508,7 @@ nav a,.social a,footer a{transition:color 160ms ease,transform 160ms cubic-bezie
           <a class="go" data-plan="yearly" href="#join">Get Pro yearly</a>
         </div>
       </div>
-      <p class="paynote" id="paynote">Payments are handled by Razorpay (UPI, cards, netbanking). Paid plans open at launch; join the waitlist to hear first. Prices in Indian rupees.</p>
+      <p class="paynote" id="paynote">Every plan starts with the free trial. Payments are handled by Razorpay (UPI, cards, netbanking). Paid plans open at launch; join the waitlist to hear first. Prices in Indian rupees. See the <a href="refund.html">refund policy</a>.</p>
     </section>
 
     <section class="cta" id="join">
@@ -522,7 +531,8 @@ nav a,.social a,footer a{transition:color 160ms ease,transform 160ms cubic-bezie
 
     <footer>
       <p>Educational information only. Not SEBI-registered investment advice. Trading involves substantial risk of loss. Past performance is not indicative of future results.</p>
-      <p><a href="https://t.me/pulsedgein" target="_blank" rel="noopener">Telegram</a> &middot; <a href="https://www.instagram.com/pulsedge.in/" target="_blank" rel="noopener">Instagram</a></p>
+      <p><a href="https://t.me/pulsedgein" target="_blank" rel="noopener">Telegram</a> &middot; <a href="https://www.instagram.com/pulsedge.in/" target="_blank" rel="noopener">Instagram</a> &middot; <a href="track.html">Track record</a></p>
+      <p><a href="terms.html">Terms</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="refund.html">Refunds &amp; delivery</a> &middot; <a href="contact.html">Contact</a></p>
       <p>&copy; 2026 PulsEdge &middot; private beta</p>
     </footer>
   </div>
@@ -544,7 +554,7 @@ nav a,.social a,footer a{transition:color 160ms ease,transform 160ms cubic-bezie
     if(/^https:\/\/(rzp\.io|razorpay\.me|pages\.razorpay\.com|[a-z0-9-]+\.razorpay\.com)\//.test(url||"")){a.href=url;a.target="_blank";a.rel="noopener";anyPay=true}
     else a.textContent="Join the waitlist";
   });
-  if(anyPay)document.getElementById("paynote").textContent="Payments are handled by Razorpay (UPI, cards, netbanking). After paying you'll get an email with your terminal login. Prices in Indian rupees.";
+  if(anyPay)document.getElementById("paynote").textContent="Every plan starts with the free trial. Payments are handled by Razorpay (UPI, cards, netbanking). After paying you'll get an email with your terminal access link. Prices in Indian rupees; 7-day refund on your first payment.";
 
   function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
 
