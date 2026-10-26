@@ -6,521 +6,651 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>PulsEdge</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Indian market news, triaged. Ignore, watch or act in 30 seconds.">
+<meta name="description" content="Indian market news, triaged for the stocks you own. Every NSE filing, SEBI and RBI release and market headline gets a verdict: ignore, watch or act.">
+<meta property="og:title" content="PulsEdge: Indian market news, triaged">
+<meta property="og:description" content="Every filing and headline about your stocks, with a verdict and the reason. Free trial, no card.">
+<meta property="og:image" content="assets/logo.png">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
 <style>
-/* Layout: one mono column; the watchlist editor sits beside the live triage terminal, hairline rules between sections */
+/* Layout: a product page. Sticky header; hero copy over a wide, tilted live product shot that flattens as you scroll;
+   proof numbers; a sticky scroll story (steps left, one product view right); the interactive demo; track record;
+   pricing; FAQ. The product surfaces are always dark, the page follows the viewer's theme. */
 :root{
-  --bg:#fff;--fg:#16151a;--mute:#6b6875;--line:#e4e2ea;--pur:#7c4dff;--pur-soft:#efe9ff;
-  --btn:#16151a;--btnfg:#fff;--fld:#eeedf2;--term:#0f0e13;--termfg:#f1f0f5;--termmute:#8c8999;--termline:#24222c;
-  --logo-lt:block;--logo-dk:none;--logo-bg:#fff;
-  --elev:0 1px 2px rgba(22,21,26,.04),0 10px 28px -14px rgba(22,21,26,.14),inset 0 1px 0 rgba(255,255,255,.7);
-  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,"Courier New",monospace;
+  --bg:#fbfaff;--bg2:#f3f1fa;--panel:#ffffff;--ink:#14121b;--ink2:#3b3846;--mute:#6b6779;--faint:#9d99ab;--line:#e7e4ef;--line2:#d8d4e3;
+  --acc:#6c43f0;--acc-hi:#8b67ff;--acc-soft:#efe9ff;--acc-ink:#ffffff;
+  --btn:#14121b;--btnfg:#ffffff;--fld:#f1eff7;
+  --act:#0e8a5d;--watch:#a86500;
+  --term:#0d0c13;--term2:#15141d;--termline:#272534;--termfg:#ecebf3;--termmute:#8d8a9c;--t-acc:#a58bff;--t-act:#3ecf8e;--t-watch:#f2b24c;--t-bad:#ff7a7a;
+  --logo-lt:block;--logo-dk:none;--logo-bg:#ffffff;
+  --elev:0 1px 2px rgba(20,18,27,.04),0 12px 32px -16px rgba(20,18,27,.16),inset 0 1px 0 rgba(255,255,255,.7);
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
   box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#0f0e13;--fg:#f1f0f5;--mute:#9a97a6;--line:#2a2833;--pur:#a98bff;--pur-soft:#211b36;
-  --btn:#f1f0f5;--btnfg:#0f0e13;--fld:#1c1b23;--term:#16151c;--termfg:#f1f0f5;--termmute:#8c8999;--termline:#2a2833;--logo-lt:none;--logo-dk:block;--logo-bg:#000;--elev:0 1px 2px rgba(0,0,0,.35),0 14px 34px -18px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.05);color-scheme:dark}}
+  --bg:#0a090f;--bg2:#100f17;--panel:#13121a;--ink:#f1f0f6;--ink2:#cbc8d6;--mute:#9a96a8;--faint:#6f6b7e;--line:#22202c;--line2:#2d2a39;
+  --acc:#a58bff;--acc-hi:#c0aeff;--acc-soft:#1d1834;--acc-ink:#120f1d;--btn:#f1f0f6;--btnfg:#0a090f;--fld:#1a1922;--act:#3ecf8e;--watch:#f2b24c;
+  --term:#111018;--term2:#17161f;--termline:#2a2836;--logo-lt:none;--logo-dk:block;--logo-bg:#000000;
+  --elev:0 1px 2px rgba(0,0,0,.35),0 14px 34px -18px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.05);color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#0f0e13;--fg:#f1f0f5;--mute:#9a97a6;--line:#2a2833;--pur:#a98bff;--pur-soft:#211b36;
-  --btn:#f1f0f5;--btnfg:#0f0e13;--fld:#1c1b23;--term:#16151c;--termfg:#f1f0f5;--termmute:#8c8999;--termline:#2a2833;--logo-lt:none;--logo-dk:block;--logo-bg:#000;--elev:0 1px 2px rgba(0,0,0,.35),0 14px 34px -18px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.05);color-scheme:dark}
+  --bg:#0a090f;--bg2:#100f17;--panel:#13121a;--ink:#f1f0f6;--ink2:#cbc8d6;--mute:#9a96a8;--faint:#6f6b7e;--line:#22202c;--line2:#2d2a39;
+  --acc:#a58bff;--acc-hi:#c0aeff;--acc-soft:#1d1834;--acc-ink:#120f1d;--btn:#f1f0f6;--btnfg:#0a090f;--fld:#1a1922;--act:#3ecf8e;--watch:#f2b24c;
+  --term:#111018;--term2:#17161f;--termline:#2a2836;--logo-lt:none;--logo-dk:block;--logo-bg:#000000;
+  --elev:0 1px 2px rgba(0,0,0,.35),0 14px 34px -18px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.05);color-scheme:dark}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.6 var(--mono);-webkit-font-smoothing:antialiased}
-.w{max-width:1080px;margin:0 auto;padding-left:max(22px,env(safe-area-inset-left,0px));padding-right:max(22px,env(safe-area-inset-right,0px))}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.w{max-width:1160px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
 a{color:inherit}
-button{font:inherit;cursor:pointer}
-:focus-visible{outline:2px solid var(--pur);outline-offset:2px}
+button,input,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.mono{font-family:var(--mono)}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:11px 20px;font-weight:500;font-size:15px;text-decoration:none;border:1px solid transparent;white-space:nowrap;
+  transition:transform 160ms cubic-bezier(.2,.8,.2,1),background-color 160ms ease,border-color 160ms ease,color 160ms ease;will-change:transform}
+.btn.pri{background:var(--btn);color:var(--btnfg)}
+.btn.acc{background:var(--acc);color:var(--acc-ink)}
+.btn.ghost{border-color:var(--line2);color:var(--ink);background:color-mix(in srgb,var(--panel) 70%,transparent)}
+.btn.sm{padding:8px 14px;font-size:14px}
+.btn.lg{padding:14px 24px;font-size:16px}
+.btn:active{transform:scale(.97)}
+.btn .arr{transition:transform 160ms cubic-bezier(.2,.8,.2,1)}
 
 /* header */
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
-.logo{display:flex;align-items:center;gap:9px;font-weight:600;letter-spacing:-.02em;font-size:17px;text-decoration:none}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid transparent;transition:border-color 200ms ease}
+header.scrolled{border-bottom-color:var(--line)}
+.bar{display:flex;align-items:center;gap:24px;padding-block:14px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.02em;font-size:18px;text-decoration:none;flex:none}
 .logo img{width:30px;height:30px;border-radius:50%;background:var(--logo-bg);box-shadow:0 0 0 1px var(--line)}
-.logo .lt,.orb .lt{display:var(--logo-lt)}.logo .dk,.orb .dk{display:var(--logo-dk)}
-nav{display:flex;align-items:center;gap:22px;font-size:13px}
-nav a{text-decoration:none;color:var(--mute)}
-.tg{background:none;border:1px solid var(--line);color:var(--fg);border-radius:8px;padding:5px 10px;font-size:13px}
-@media (max-width:680px){nav a:not(.keep){display:none}}
-nav a.keep{color:var(--pur)}
+.logo .lt{display:var(--logo-lt)}.logo .dk{display:var(--logo-dk)}
+.links{display:flex;gap:26px;font-size:14.5px;margin-left:12px}
+.links a{text-decoration:none;color:var(--mute);transition:color 150ms ease}
+.right{display:flex;align-items:center;gap:10px;margin-left:auto}
+.thm{display:inline-grid;place-items:center;width:36px;height:36px;padding:0;border:1px solid var(--line);border-radius:50%;background:none;color:var(--ink);flex:none;transition:transform 160ms cubic-bezier(.2,.8,.2,1),border-color 160ms ease;will-change:transform}
+.thm svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.thm:active{transform:scale(.97)}
+.menu{display:none;width:36px;height:36px;border:1px solid var(--line);border-radius:50%;background:none;place-items:center;padding:0}
+.menu i,.menu i::before,.menu i::after{display:block;width:14px;height:1.5px;background:var(--ink);border-radius:1px;position:relative;transition:transform 200ms cubic-bezier(.2,.8,.2,1),opacity 150ms ease}
+.menu i::before,.menu i::after{content:"";position:absolute;left:0}
+.menu i::before{top:-5px}.menu i::after{top:5px}
+.menu[aria-expanded="true"] i{background:transparent}
+.menu[aria-expanded="true"] i::before{transform:translateY(5px) rotate(45deg)}
+.menu[aria-expanded="true"] i::after{transform:translateY(-5px) rotate(-45deg)}
+@media (max-width:900px){
+  .links{position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;margin:0;padding:6px max(20px,env(safe-area-inset-right,0px)) 14px max(20px,env(safe-area-inset-left,0px));background:var(--bg);border-bottom:1px solid var(--line);
+    opacity:0;transform:translateY(-6px);pointer-events:none;transition:opacity 180ms ease-out,transform 200ms cubic-bezier(.2,.8,.2,1)}
+  .links.open{opacity:1;transform:none;pointer-events:auto}
+  .links a{padding:12px 0;border-bottom:1px solid var(--line);font-size:16px;color:var(--ink)}
+  .links a:last-child{border-bottom:0}
+  .menu{display:inline-grid}
+}
+@media (max-width:420px){.right .btn.sm{padding:7px 12px;font-size:13px}.logo{font-size:16px}.logo img{width:26px;height:26px}}
 
 /* hero */
-.hero{display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center;padding-block:64px 44px}
-.hero>div{min-width:0}
-.orb{justify-self:center;width:100%;max-width:360px;aspect-ratio:1;border-radius:50%;overflow:hidden;background:var(--logo-bg);
-  box-shadow:0 0 0 1px var(--line),0 40px 90px -30px color-mix(in srgb,var(--pur) 70%,transparent);animation:float 7s ease-in-out infinite}
-.orb img{width:100%;height:100%;display:block;object-fit:cover}
-@keyframes float{50%{transform:translateY(-10px) rotate(2deg)}}
-@media (max-width:820px){.hero{grid-template-columns:1fr;padding-block:36px 32px}.orb{max-width:220px;order:-1}}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--pur);border:1px solid var(--line);border-radius:999px;padding:4px 12px 4px 10px}
-.dot{width:7px;height:7px;border-radius:50%;background:var(--pur);animation:ping 2s ease-out infinite}
-@keyframes ping{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--pur) 60%,transparent)}100%{box-shadow:0 0 0 9px transparent}}
-h1{font-size:clamp(34px,6vw,62px);line-height:1.05;letter-spacing:-.05em;font-weight:500;margin:22px 0 18px;text-wrap:balance}
-h1 em{font-style:normal;color:var(--pur)}
-.sub{color:var(--mute);margin:0 0 28px;max-width:52ch;font-size:15px}
-.f{display:flex;gap:8px;max-width:460px}
-.f input{flex:1;min-width:0;background:var(--fld);color:var(--fg);border:1px solid transparent;border-radius:999px;padding:12px 18px;font:inherit;font-size:16px;transition:border-color 160ms ease,box-shadow 160ms ease}
-.f input:focus{border-color:var(--pur);outline:none;box-shadow:0 0 0 3px color-mix(in srgb,var(--pur) 18%,transparent)}
-.f button{background:var(--btn);color:var(--btnfg);border:0;border-radius:999px;padding:12px 20px;white-space:nowrap;font-size:14px;font-weight:500}
-.f button:disabled{opacity:.6;transform:none;cursor:default}
-.note{font-size:12px;color:var(--mute);margin:12px 0 0}
-.note.ok{color:var(--pur)}
-.note.err{color:var(--fg)}
-.social{font-size:13px;color:var(--mute);margin:22px 0 0}
-.social a{color:var(--pur);text-decoration:none;border-bottom:1px solid currentColor}
+.hero{position:relative;padding-top:76px}
+.hero::before{content:"";position:absolute;inset:-80px 0 0;pointer-events:none;z-index:-1;
+  background:radial-gradient(55% 45% at 72% 8%,color-mix(in srgb,var(--acc) 17%,transparent),transparent 72%),
+    radial-gradient(40% 35% at 10% 30%,color-mix(in srgb,var(--acc) 8%,transparent),transparent 70%)}
+.hero::after{content:"";position:absolute;inset:-80px 0 30%;pointer-events:none;z-index:-1;opacity:.6;
+  background:linear-gradient(var(--line) 1px,transparent 1px) 0 0/56px 56px,linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/56px 56px;
+  -webkit-mask-image:radial-gradient(70% 60% at 50% 0%,#000 30%,transparent 80%);mask-image:radial-gradient(70% 60% at 50% 0%,#000 30%,transparent 80%)}
+.pill{display:inline-flex;align-items:center;gap:10px;font:500 13px/1 var(--mono);color:var(--ink2);text-decoration:none;border:1px solid var(--line2);background:color-mix(in srgb,var(--panel) 80%,transparent);border-radius:999px;padding:7px 14px 7px 10px;transition:border-color 160ms ease}
+.pill b{color:var(--ink);font-weight:600}
+.livedot{width:8px;height:8px;border-radius:50%;background:var(--act);box-shadow:0 0 0 0 color-mix(in srgb,var(--act) 55%,transparent);animation:ping 2.2s ease-out infinite;flex:none}
+@keyframes ping{to{box-shadow:0 0 0 8px transparent}}
+h1{font-size:clamp(40px,6.4vw,74px);line-height:1.02;letter-spacing:-.04em;font-weight:600;margin:22px 0 20px;max-width:16ch;text-wrap:balance}
+h1 .hl{color:var(--acc)}
+.sub{font-size:clamp(17px,1.6vw,19px);color:var(--mute);max-width:58ch;margin:0 0 30px}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.micro{font:13px/1.4 var(--mono);color:var(--faint);margin:16px 0 0}
 
-/* sources strip */
-.src{display:flex;flex-wrap:wrap;gap:10px 28px;align-items:center;border-block:1px solid var(--line);padding-block:16px;font-size:12px;color:var(--mute);letter-spacing:.04em}
-.src b{color:var(--fg);font-weight:500;text-transform:uppercase;letter-spacing:.08em}
+/* product shot */
+.stage{perspective:1700px;margin:64px auto 0;max-width:1220px;padding-inline:max(20px,env(safe-area-inset-left,0px)) max(20px,env(safe-area-inset-right,0px))}
+.tilt{transform-origin:50% 0;will-change:transform}
+.device{background:var(--term);color:var(--termfg);border:1px solid var(--termline);border-radius:18px;overflow:hidden;
+  box-shadow:0 60px 120px -50px color-mix(in srgb,var(--acc) 55%,transparent),0 30px 70px -35px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.06)}
+.dv-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:12px 16px;border-bottom:1px solid var(--termline);font:500 12.5px/1 var(--mono)}
+.dv-brand{display:flex;align-items:center;gap:8px;font-weight:600;letter-spacing:.14em;font-size:13px;margin-right:4px}
+.dv-brand i{width:9px;height:9px;border-radius:50%;background:var(--t-acc);box-shadow:0 0 0 3px #a58bff26,0 0 14px var(--t-acc)}
+.tp{border:1px solid var(--termline);border-radius:6px;padding:4px 8px;color:var(--termmute);white-space:nowrap}
+.tp.ok{color:var(--t-act);border-color:#3ecf8e55}
+.tp.pre{color:var(--t-watch);border-color:#f2b24c55}
+.dv-bar .sp{margin-left:auto}
+.dv-body{display:grid;grid-template-columns:minmax(0,330px) minmax(0,1fr)}
+.dv-pm{border-right:1px solid var(--termline);padding:14px 16px;display:grid;gap:10px;align-content:start}
+.dv-h{display:flex;justify-content:space-between;align-items:center;gap:8px;font:600 12px/1 var(--mono);letter-spacing:.12em;color:var(--t-acc)}
+.sent{font:600 11px/1 var(--mono);letter-spacing:.06em;border-radius:5px;padding:4px 7px;background:#3f3f4699;color:var(--termfg)}
+.sent.bull{background:#14532d99;color:#86efac}.sent.bear{background:#7f1d1d99;color:#fca5a5}
+.ck{display:grid;grid-template-columns:14px minmax(0,1fr);gap:2px 8px;font-size:12.5px;padding-block:8px;border-top:1px solid var(--termline)}
+.ck .ar{font-size:9px;margin-top:4px;color:var(--termmute)}
+.ck .ar.up{color:var(--t-act)}.ck .ar.down{color:var(--t-bad)}
+.ck span{color:var(--termmute);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ck b{grid-column:2;font:500 13px/1.3 var(--mono);color:var(--termfg)}
+.ck b.up{color:var(--t-act)}.ck b.down{color:var(--t-bad)}
+.dv-sig{padding:6px 0;min-width:0}
+.sg{display:grid;grid-template-columns:52px 64px minmax(0,1fr);gap:12px;align-items:start;padding:11px 16px;border-bottom:1px solid var(--termline);font-size:13.5px}
+.sg:last-child{border-bottom:0}
+.sg .t{font:12px/1.6 var(--mono);color:var(--termmute)}
+.vb{font:600 10.5px/1 var(--mono);letter-spacing:.08em;text-align:center;border-radius:5px;padding:5px 0;margin-top:1px}
+.vb.act{background:var(--t-act);color:#06140e}.vb.watch{border:1px solid #f2b24c88;color:var(--t-watch)}.vb.ignore{border:1px solid var(--termline);color:var(--termmute)}
+.sg .hd{min-width:0}
+.sg .hd b{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-weight:500;line-height:1.4}
+.sg.ig .hd b{color:var(--termmute)}
+.sg .hd small{display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center;color:var(--termmute);font-size:12px;margin-top:4px}
+.tk{font:500 11px/1.5 var(--mono);color:#c9b6ff;border:1px solid #a58bff55;border-radius:4px;padding:0 5px}
+@media (max-width:820px){.dv-body{grid-template-columns:1fr}.dv-pm{display:none}.dv-bar .hide-s{display:none}.sg{grid-template-columns:58px minmax(0,1fr);gap:4px 10px}.sg .t{display:none}.stage{margin-top:44px}}
+
+/* proof */
+.proof{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:72px;border:1px solid var(--line);border-radius:18px;background:var(--panel);box-shadow:var(--elev);overflow:hidden}
+.proof div{padding:22px 24px;border-right:1px solid var(--line);min-width:0}
+.proof div:last-child{border-right:0}
+.proof b{display:block;font:500 clamp(26px,3vw,34px)/1.1 var(--mono);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.proof span{display:block;color:var(--mute);font-size:14px;margin-top:6px}
+.proof .act b{color:var(--act)}.proof .watch b{color:var(--watch)}
+.pnote{font:12.5px/1.5 var(--mono);color:var(--faint);margin:12px 4px 0}
+@media (max-width:760px){.proof{grid-template-columns:repeat(2,minmax(0,1fr))}.proof div:nth-child(2){border-right:0}.proof div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+.srcs{display:flex;flex-wrap:wrap;align-items:center;gap:10px 26px;margin-top:40px;color:var(--mute);font-size:14px}
+.srcs b{font:500 12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
 
 /* section heads */
-section.s{padding-block:72px 8px}
-.kick{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--pur);margin:0 0 10px}
-h2{font-size:clamp(24px,3.4vw,34px);line-height:1.15;letter-spacing:-.035em;font-weight:500;margin:0 0 12px;text-wrap:balance}
-.lede{color:var(--mute);max-width:60ch;margin:0 0 30px}
+.s{padding-top:120px}
+.kick{font:500 12.5px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--acc);margin:0 0 14px}
+h2{font-size:clamp(30px,3.8vw,46px);line-height:1.08;letter-spacing:-.035em;font-weight:600;margin:0 0 16px;max-width:20ch;text-wrap:balance}
+.lede{color:var(--mute);font-size:18px;max-width:60ch;margin:0 0 40px}
 
-/* watchlist + terminal */
-.desk{display:grid;grid-template-columns:320px 1fr;gap:20px;align-items:start}
+/* scroll story */
+.story{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:64px;align-items:start}
+.steps{list-style:none;margin:0;padding:0}
+.step{min-height:62vh;display:flex;flex-direction:column;justify-content:center;padding-block:24px;opacity:.38;transition:opacity 220ms ease-out}
+.step:first-child{min-height:48vh;justify-content:flex-start;padding-top:40px}
+.step:last-child{min-height:56vh}
+.step.on{opacity:1}
+.step .n{font:500 13px/1 var(--mono);color:var(--acc);margin-bottom:14px}
+.step h3{font-size:clamp(22px,2.2vw,28px);letter-spacing:-.025em;line-height:1.2;margin:0 0 10px;font-weight:600}
+.step p{color:var(--mute);margin:0;max-width:44ch;font-size:17px}
+.step .inline{display:none}
+.viz{position:sticky;top:calc(env(safe-area-inset-top,0px) + 110px)}
+.vframe{position:relative;background:var(--term);color:var(--termfg);border:1px solid var(--termline);border-radius:18px;overflow:hidden;height:500px;
+  box-shadow:0 50px 100px -50px color-mix(in srgb,var(--acc) 50%,transparent),0 24px 60px -34px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.06)}
+/* the outgoing view leaves fast (ease-in), the incoming one arrives a beat later (ease-out), so text never overlaps */
+.pane{position:absolute;inset:0;opacity:0;transform:translateY(-6px);transition:opacity 120ms ease-in,transform 120ms ease-in;pointer-events:none}
+.pane.on{opacity:1;transform:none;pointer-events:auto;transition:opacity 220ms ease-out 100ms,transform 260ms cubic-bezier(.2,.8,.2,1) 100ms}
+.ph{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 18px;border-bottom:1px solid var(--termline);font:500 12.5px/1.3 var(--mono);color:var(--termmute)}
+.ph b{color:var(--termfg);font-weight:500}
+.raw{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 14px;padding:12px 18px;border-bottom:1px solid var(--termline);font-size:13.5px}
+.raw b{font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.raw span{font:11.5px/1.6 var(--mono);color:var(--termmute);white-space:nowrap}
+.why2{grid-column:1/-1;color:var(--termmute);font-size:12.5px}
+.chipset{display:flex;flex-wrap:wrap;gap:6px;padding:12px 18px;border-bottom:1px solid var(--termline)}
+.chipset .tk{font-size:12px;padding:2px 8px}
+.pmsum{align-items:center}.pmsum>span:last-child{font-size:13.5px;color:var(--termmute);flex:1 1 220px}
+.foot2{position:absolute;left:0;right:0;bottom:0;padding:12px 18px;border-top:1px solid var(--termline);background:var(--term2);font:12px/1.5 var(--mono);color:var(--termmute)}
+@media (max-width:900px){
+  .story{grid-template-columns:1fr;gap:0}
+  .viz{display:none}
+  .step,.step:first-child,.step:last-child{min-height:0;opacity:1;padding-block:22px 34px}
+  .step .inline{display:block;margin-top:20px}
+  .step .inline .vframe{height:auto}
+  .step .inline .pane{position:static;opacity:1;transform:none}
+  .step .inline .foot2{position:static}
+}
+
+/* verdict cards */
+.vgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.vc{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:26px 24px;box-shadow:var(--elev);min-width:0}
+.tag{display:inline-block;font:600 11.5px/1 var(--mono);letter-spacing:.1em;border-radius:6px;padding:6px 10px;margin-bottom:18px}
+.vc.a .tag{background:var(--act);color:var(--bg)}.vc.w .tag{border:1px solid var(--watch);color:var(--watch)}.vc.i .tag{border:1px solid var(--line2);color:var(--mute)}
+.vc h3{font-size:19px;letter-spacing:-.02em;margin:0 0 8px;font-weight:600}
+.vc p{margin:0;color:var(--mute);font-size:15px}
+.vc .ex{margin-top:16px;padding-top:16px;border-top:1px dashed var(--line2);font:13px/1.5 var(--mono);color:var(--ink2)}
+@media (max-width:820px){.vgrid{grid-template-columns:1fr}}
+
+/* demo: watchlist + terminal */
+.desk{display:grid;grid-template-columns:330px minmax(0,1fr);gap:20px;align-items:start}
 .desk>*{min-width:0}
-@media (max-width:900px){.desk{grid-template-columns:1fr}}
-.wl{border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:var(--elev)}
-.wl h3{font-size:15px;font-weight:500;margin:0 0 4px;letter-spacing:-.01em}
-.wl .hint{font-size:12px;color:var(--mute);margin:0 0 14px}
-.wl label{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:6px}
-.wl textarea{width:100%;min-height:96px;resize:vertical;background:var(--fld);color:var(--fg);border:1px solid transparent;border-radius:10px;padding:10px 12px;font:inherit;font-size:16px;line-height:1.45;transition:border-color 160ms ease,box-shadow 160ms ease}
-.wl textarea:focus{border-color:var(--pur);outline:none;box-shadow:0 0 0 3px color-mix(in srgb,var(--pur) 18%,transparent)}
-.wl .acts{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
-.b1{background:var(--btn);color:var(--btnfg);border:0;border-radius:999px;padding:8px 16px;font-size:13px;font-weight:500}
-.b2{background:none;border:1px solid var(--line);color:var(--fg);border-radius:999px;padding:8px 14px;font-size:13px}
+@media (max-width:920px){.desk{grid-template-columns:1fr}}
+.wl{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:var(--elev);transition:border-color 160ms ease,background-color 160ms ease}
+.wl h3{font-size:17px;font-weight:600;margin:0 0 4px;letter-spacing:-.01em}
+.wl .hint{font-size:14px;color:var(--mute);margin:0 0 14px}
+.wl label{display:block;font:500 11.5px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:8px}
+.wl textarea{width:100%;min-height:100px;resize:vertical;background:var(--fld);border:1px solid transparent;border-radius:10px;padding:10px 12px;font:16px/1.45 var(--mono);transition:border-color 160ms ease,box-shadow 160ms ease}
+.wl textarea:focus{border-color:var(--acc);outline:none;box-shadow:0 0 0 3px color-mix(in srgb,var(--acc) 18%,transparent)}
+.acts{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.b1{background:var(--btn);color:var(--btnfg);border:0;border-radius:999px;padding:8px 16px;font-size:14px;font-weight:500}
+.b2{background:none;border:1px solid var(--line2);border-radius:999px;padding:8px 14px;font-size:14px}
 .hold{list-style:none;margin:18px 0 0;padding:0;border-top:1px solid var(--line)}
-.hold li{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-block:9px;border-bottom:1px solid var(--line);font-size:13px}
-.hold li b{font-weight:500;letter-spacing:.02em}
-.hold li span{color:var(--mute);font-variant-numeric:tabular-nums;margin-left:auto}
-.hold li button{background:none;border:0;color:var(--mute);padding:2px 6px;border-radius:6px;font-size:14px;line-height:1}
-.empty{font-size:13px;color:var(--mute);padding:14px 0 2px}
-.saved{font-size:11px;color:var(--mute);margin:12px 0 0}
-.imp-msg{font-size:12px;color:var(--mute);margin:10px 0 0}
-.imp-msg.ok{color:var(--pur)}
-.wl.drag{border-color:var(--pur);background:var(--pur-soft)}
-
-.term{background:var(--term);color:var(--termfg);border-radius:14px;border:1px solid var(--termline);overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 30px 60px -30px color-mix(in srgb,var(--pur) 45%,transparent)}
-.thead{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;border-bottom:1px solid var(--termline);font-size:12px;color:var(--termmute)}
+.hold li{display:flex;align-items:center;gap:10px;padding-block:9px;border-bottom:1px solid var(--line);font:13.5px/1.4 var(--mono)}
+.hold li b{font-weight:500}
+.hold li span{color:var(--mute);margin-left:auto}
+.hold li button{background:none;border:0;color:var(--mute);padding:2px 6px;border-radius:6px;font-size:15px;line-height:1}
+.hold .empty{font-family:var(--sans);font-size:14px;color:var(--mute);padding:14px 0 2px;border:0}
+.saved,.imp-msg{font-size:13px;color:var(--mute);margin:10px 0 0}
+.imp-msg.ok{color:var(--acc)}
+.wl.drag{border-color:var(--acc);background:var(--acc-soft)}
+.term{background:var(--term);color:var(--termfg);border-radius:16px;border:1px solid var(--termline);overflow:hidden;box-shadow:0 40px 80px -40px color-mix(in srgb,var(--acc) 45%,transparent),inset 0 1px 0 rgba(255,255,255,.06);font-size:14px}
+.thead{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;border-bottom:1px solid var(--termline);font:12px/1.4 var(--mono);color:var(--termmute)}
 .lights{display:flex;gap:6px}.lights i{width:10px;height:10px;border-radius:50%;background:var(--termline)}
 .tabs{display:flex;gap:2px;padding:0 10px;border-bottom:1px solid var(--termline);overflow-x:auto;scrollbar-width:none}
-.tab{background:none;border:0;border-bottom:2px solid transparent;color:var(--termmute);padding:10px 10px 9px;font-size:12.5px;white-space:nowrap}
-.tab[aria-selected="true"]{color:var(--termfg);border-bottom-color:#a98bff}
-.tab .n{display:inline-block;min-width:18px;margin-left:6px;padding:0 5px;border-radius:999px;background:var(--termline);font-size:11px;text-align:center}
+.tab{background:none;border:0;border-bottom:2px solid transparent;color:var(--termmute);padding:11px 10px 10px;font-size:13.5px;white-space:nowrap;transition:color 150ms ease,border-color 150ms ease}
+.tab[aria-selected="true"]{color:var(--termfg);border-bottom-color:var(--t-acc)}
+.tab .n{display:inline-block;min-width:18px;margin-left:6px;padding:0 5px;border-radius:999px;background:var(--termline);font:11px/1.6 var(--mono);text-align:center}
 .chips{display:flex;gap:6px;flex-wrap:wrap;align-items:center;padding:10px 16px;border-bottom:1px solid var(--termline)}
-.q{margin-left:auto;min-width:0;flex:0 1 210px;background:transparent;border:1px solid var(--termline);color:var(--termfg);border-radius:999px;padding:3px 12px;font:inherit;font-size:16px}
+.chip{background:none;border:1px solid var(--termline);color:var(--termmute);border-radius:999px;padding:3px 11px;font:12px/1.6 var(--mono);transition:color 150ms ease,border-color 150ms ease,background-color 150ms ease}
+.chip[aria-pressed="true"]{border-color:var(--t-acc);color:var(--termfg);background:#a58bff22}
+.q{margin-left:auto;min-width:0;flex:0 1 220px;background:transparent;border:1px solid var(--termline);color:var(--termfg);border-radius:999px;padding:4px 12px;font-size:16px}
 .q::placeholder{color:var(--termmute)}
-.q:focus{outline:none;border-color:#a98bff}
+.q:focus{outline:none;border-color:var(--t-acc)}
 @media (max-width:640px){.q{flex-basis:100%;margin-left:0}}
-.chip{background:none;border:1px solid var(--termline);color:var(--termmute);border-radius:999px;padding:3px 11px;font-size:12px}
-.chip[aria-pressed="true"]{border-color:#a98bff;color:var(--termfg);background:#a98bff22}
-.feed{list-style:none;margin:0;padding:0;font-size:13px;min-height:300px}
+.feed{list-style:none;margin:0;padding:0;min-height:320px}
 .feed.live{max-height:620px;overflow-y:auto}
 .row{border-bottom:1px solid var(--termline)}
-.rb{display:grid;grid-template-columns:48px 70px 1fr auto;gap:14px;align-items:center;padding:12px 16px;width:100%;background:none;border:0;color:inherit;text-align:left;font:inherit;cursor:pointer}
-.row.open .rb{background:#a98bff12}
-.det{padding:2px 16px 16px 148px;font-size:12.5px;color:var(--termmute);display:grid;gap:10px;background:#a98bff12}
+.rb{display:grid;grid-template-columns:48px 64px minmax(0,1fr) auto;gap:14px;align-items:center;padding:12px 16px;width:100%;background:none;border:0;text-align:left;transition:background-color 150ms ease}
+.row.open .rb{background:#a58bff12}
+.det{padding:2px 16px 16px 142px;font-size:13.5px;color:var(--termmute);display:grid;gap:10px;background:#a58bff12}
 .det p{margin:0;color:var(--termfg);max-width:62ch}
-.det .meta{display:flex;flex-wrap:wrap;gap:6px 14px}
+.det .meta{display:flex;flex-wrap:wrap;gap:6px 14px;font:12px/1.5 var(--mono)}
 .det a{color:#c9b6ff}
-.fb{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
-.fb button{background:none;border:1px solid var(--termline);color:var(--termmute);border-radius:999px;padding:3px 12px;font-size:12px}
-.fb button[aria-pressed="true"]{border-color:#a98bff;color:var(--termfg);background:#a98bff22}
-.row.new .rb{animation:in 200ms cubic-bezier(.2,.8,.2,1) both}
-@keyframes in{from{opacity:0;transform:scale(.98)}}
-.t{color:var(--termmute);font-variant-numeric:tabular-nums}
-.v{font-size:11px;font-weight:600;letter-spacing:.08em;text-align:center;border-radius:6px;padding:3px 0}
-.v.act{background:#a98bff;color:#0f0e13}
-.v.watch{border:1px solid #a98bff;color:#c9b6ff}
-.v.ignore{border:1px solid var(--termline);color:var(--termmute)}
+.fb{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:13px}
+.fb button{background:none;border:1px solid var(--termline);color:var(--termmute);border-radius:999px;padding:3px 12px;font-size:12.5px}
+.fb button[aria-pressed="true"]{border-color:var(--t-acc);color:var(--termfg);background:#a58bff22}
+.row.new .rb{animation:in 220ms cubic-bezier(.2,.8,.2,1) both}
+@keyframes in{from{opacity:0;transform:translateY(-4px)}}
+.t{font:12px/1 var(--mono);color:var(--termmute)}
+.v{font:600 10.5px/1 var(--mono);letter-spacing:.08em;text-align:center;border-radius:5px;padding:5px 0}
+.v.act{background:var(--t-act);color:#06140e}.v.watch{border:1px solid #f2b24c88;color:var(--t-watch)}.v.ignore{border:1px solid var(--termline);color:var(--termmute)}
 .h{min-width:0}
 .h b{display:block;font-weight:500}
 .row.ig .h b{color:var(--termmute)}
-.h span{display:block;color:var(--termmute);font-size:12px;margin-top:2px}
-.h .tk{display:inline-block;color:#c9b6ff;border:1px solid #a98bff55;border-radius:4px;padding:0 5px;margin-right:6px;font-size:11px}
-.hz{font-size:11px;color:var(--termmute);border:1px solid var(--termline);border-radius:999px;padding:2px 9px;white-space:nowrap}
-.fempty{padding:48px 20px;text-align:center;color:var(--termmute);font-size:13px}
+.h span{display:block;color:var(--termmute);font-size:12.5px;margin-top:2px}
+.h .tk{margin-right:6px}
+.hz{font:11px/1 var(--mono);color:var(--termmute);border:1px solid var(--termline);border-radius:999px;padding:4px 9px;white-space:nowrap}
+.fempty{padding:48px 20px;text-align:center;color:var(--termmute)}
 .fempty b{display:block;color:var(--termfg);font-weight:500;margin-bottom:6px}
-.tfoot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;padding:12px 16px;border-top:1px solid var(--termline);font-size:12px;color:var(--termmute)}
-@media (max-width:640px){.rb{grid-template-columns:64px 1fr;gap:6px 12px}.rb .t{display:none}.rb .v{grid-row:1;grid-column:1}.rb .hz{grid-row:1;grid-column:2;justify-self:end}.rb .h{grid-column:1/-1}.det{padding-left:16px}}
+.tfoot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;padding:12px 16px;border-top:1px solid var(--termline);font:12px/1.5 var(--mono);color:var(--termmute)}
+@media (max-width:640px){.rb{grid-template-columns:64px minmax(0,1fr);gap:6px 12px}.rb .t{display:none}.rb .v{grid-row:1;grid-column:1}.rb .hz{grid-row:1;grid-column:2;justify-self:end}.rb .h{grid-column:1/-1}.det{padding-left:16px}}
 
-/* verdicts */
-.verdicts{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--elev)}
-.vd{padding:26px 24px;border-right:1px solid var(--line);min-width:0}
-.vd:last-child{border-right:0}
-.vd .tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.1em;border-radius:6px;padding:3px 10px;margin-bottom:16px}
-.vd.a .tag{background:var(--pur);color:var(--bg)}
-.vd.w .tag{border:1px solid var(--pur);color:var(--pur)}
-.vd.i .tag{border:1px solid var(--line);color:var(--mute)}
-.vd h3{font-size:17px;font-weight:500;margin:0 0 8px;letter-spacing:-.02em}
-.vd p{margin:0;color:var(--mute);font-size:13.5px}
-.vd .ex{margin-top:14px;padding-top:14px;border-top:1px dashed var(--line);font-size:12px}
-@media (max-width:760px){.verdicts{grid-template-columns:1fr}.vd{border-right:0;border-bottom:1px solid var(--line)}.vd:last-child{border-bottom:0}}
-
-/* steps */
-.steps{list-style:none;margin:0;padding:0;border-top:1px solid var(--line);counter-reset:s}
-.steps li{display:grid;grid-template-columns:56px 1fr 1.2fr;gap:20px;padding-block:22px;border-bottom:1px solid var(--line);counter-increment:s;align-items:baseline}
-.steps li::before{content:counter(s,decimal-leading-zero);color:var(--pur);font-size:13px}
-.steps b{font-weight:500;font-size:16px;letter-spacing:-.01em}
-.steps span{color:var(--mute);font-size:14px}
-@media (max-width:640px){.steps li{grid-template-columns:40px 1fr;gap:4px 12px}.steps span{grid-column:2}}
-
-/* digest */
-.dg{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:start}
-.dg>div{min-width:0}
-.card{border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:var(--elev)}
-.card .top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:12px;color:var(--mute);margin-bottom:16px}
-.card .top b{color:var(--fg);font-weight:500;font-size:14px}
-.tally{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:18px}
-.tally div{background:var(--fld);border-radius:10px;padding:12px}
-.tally strong{display:block;font-size:24px;font-weight:500;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
-.tally small{font-size:11px;color:var(--mute);letter-spacing:.06em;text-transform:uppercase}
-.tally .pa strong{color:var(--pur)}
-.why{list-style:none;margin:0;padding:0;font-size:13px}
-.why li{display:flex;justify-content:space-between;gap:14px;padding-block:9px;border-top:1px solid var(--line)}
-.why li span:last-child{color:var(--mute);text-align:right;font-variant-numeric:tabular-nums}
-.bul{list-style:none;margin:0;padding:0;display:grid;gap:14px}
-.bul li{display:grid;grid-template-columns:18px 1fr;gap:2px 10px;font-size:14px}
-.bul li::before{content:"";width:8px;height:8px;margin-top:7px;background:var(--pur);transform:rotate(45deg)}
-.bul b{font-weight:500}
-.bul span{color:var(--mute);grid-column:2}
-@media (max-width:820px){.dg{grid-template-columns:1fr}}
+/* audit + track record */
+.split{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:center}
+@media (max-width:900px){.split{grid-template-columns:1fr;gap:28px}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:var(--elev);min-width:0}
+.card .top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:18px;font:12.5px/1.4 var(--mono);color:var(--mute)}
+.card .top b{font:600 15px/1.3 var(--sans);color:var(--ink)}
+.tally{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:18px}
+.tally div{background:var(--fld);border-radius:12px;padding:14px}
+.tally strong{display:block;font:500 26px/1.1 var(--mono);letter-spacing:-.03em}
+.tally small{font:11.5px/1.4 var(--mono);color:var(--mute);letter-spacing:.06em;text-transform:uppercase}
+.tally .a strong{color:var(--act)}.tally .wt strong{color:var(--watch)}
+.why{list-style:none;margin:0;padding:0;font-size:14.5px}
+.why li{display:flex;justify-content:space-between;gap:14px;padding-block:10px;border-top:1px solid var(--line)}
+.why li span:last-child{font-family:var(--mono);color:var(--mute)}
+.bul{list-style:none;margin:0 0 28px;padding:0;display:grid;gap:16px}
+.bul li{display:grid;grid-template-columns:20px minmax(0,1fr);gap:2px 10px;font-size:16px}
+.bul li::before{content:"";width:8px;height:8px;margin-top:9px;background:var(--acc);transform:rotate(45deg)}
+.bul b{font-weight:600}
+.bul span{grid-column:2;color:var(--mute);font-size:15px}
+.trk{list-style:none;margin:0;padding:0}
+.trk li{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:12px;align-items:center;padding-block:11px;border-top:1px solid var(--line);font-size:14.5px}
+.trk li b{font-family:var(--mono);font-weight:500}
+.trk li small{display:block;color:var(--mute);font-size:12.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.trk .mv{font-family:var(--mono)}
+.trk .mv.up{color:var(--act)}.trk .mv.down{color:#c8323c}
+:root[data-theme="dark"] .trk .mv.down{color:#ff7a7a}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .trk .mv.down{color:#ff7a7a}}
+.vt{font:600 10.5px/1 var(--mono);letter-spacing:.08em;border-radius:5px;padding:5px 7px;border:1px solid var(--line2);color:var(--mute)}
+.vt.watch{border-color:var(--watch);color:var(--watch)}.vt.act{background:var(--act);border-color:var(--act);color:var(--bg)}
 
 /* pricing */
-.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch}
-.plan{border:1px solid var(--line);border-radius:16px;padding:24px 22px;box-shadow:var(--elev);display:flex;flex-direction:column;gap:14px;min-width:0}
-.plan.hi{border-color:var(--pur);box-shadow:var(--elev),0 24px 60px -36px color-mix(in srgb,var(--pur) 70%,transparent)}
-.plan .pn{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
-.plan .badge{font-size:11px;letter-spacing:.06em;color:var(--pur);border:1px solid var(--pur);border-radius:999px;padding:2px 9px}
-.plan .pr{font-size:38px;font-weight:500;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
-.plan .pr small{font-size:14px;color:var(--mute);letter-spacing:0;font-weight:400}
-.plan .ps{font-size:13px;color:var(--mute);margin:-6px 0 0}
-.plan ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:13.5px;flex:1;align-content:start}
-.plan li{display:grid;grid-template-columns:16px 1fr;gap:8px}
-.plan li::before{content:"";width:7px;height:7px;margin-top:7px;background:var(--pur);transform:rotate(45deg)}
-.plan .go{display:block;text-align:center;text-decoration:none;border-radius:999px;padding:12px 18px;font-size:14px;font-weight:500;border:1px solid var(--fg);color:var(--fg);background:none}
+.trial{display:flex;align-items:center;justify-content:space-between;gap:14px 24px;flex-wrap:wrap;border:1px solid color-mix(in srgb,var(--acc) 40%,var(--line));border-radius:18px;padding:22px 24px;margin-bottom:18px;background:var(--acc-soft)}
+.trial b{display:block;font-weight:600;font-size:18px;letter-spacing:-.01em}
+.trial span{font-size:15px;color:var(--mute)}
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:stretch}
+.plan{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:26px 24px;box-shadow:var(--elev);display:flex;flex-direction:column;gap:14px;min-width:0}
+.plan.hi{border-color:var(--acc);box-shadow:var(--elev),0 30px 70px -40px color-mix(in srgb,var(--acc) 70%,transparent)}
+.pn{display:flex;justify-content:space-between;align-items:center;gap:8px;font:500 12.5px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.badge{font:500 11px/1 var(--mono);letter-spacing:.06em;color:var(--acc);border:1px solid var(--acc);border-radius:999px;padding:4px 9px}
+.pr{font:500 42px/1 var(--mono);letter-spacing:-.04em}
+.pr small{font:400 15px/1 var(--sans);color:var(--mute);letter-spacing:0}
+.ps{font-size:14.5px;color:var(--mute);margin:-4px 0 0}
+.plan ul{list-style:none;margin:0;padding:0;display:grid;gap:9px;font-size:15px;flex:1;align-content:start}
+.plan li{display:grid;grid-template-columns:16px minmax(0,1fr);gap:8px}
+.plan li::before{content:"";width:7px;height:7px;margin-top:9px;background:var(--acc);transform:rotate(45deg)}
+.plan .go{display:block;text-align:center;text-decoration:none;border-radius:999px;padding:12px 18px;font-size:15px;font-weight:500;border:1px solid var(--line2);transition:transform 160ms cubic-bezier(.2,.8,.2,1),border-color 160ms ease,background-color 160ms ease;will-change:transform}
 .plan.hi .go{background:var(--btn);color:var(--btnfg);border-color:var(--btn)}
-.plan .f{max-width:none}
-.plan .note{margin-top:-4px}
-.seats{font-size:12px;color:var(--mute)}
-.paynote{font-size:12px;color:var(--mute);margin:16px 0 0;max-width:70ch}
-.trial{display:flex;align-items:center;justify-content:space-between;gap:12px 20px;flex-wrap:wrap;border:1px dashed var(--pur);border-radius:16px;padding:16px 20px;margin-bottom:16px;background:var(--pur-soft,transparent)}
-.trial b{display:block;font-weight:500;font-size:15px}
-.trial span{font-size:13px;color:var(--mute)}
-.trial .go{text-decoration:none;border-radius:999px;padding:11px 20px;font-size:14px;font-weight:500;background:var(--btn);color:var(--btnfg);border:1px solid var(--btn);white-space:nowrap;display:inline-block;will-change:transform;transition:transform 160ms cubic-bezier(.2,.8,.2,1),background-color 160ms ease}
-@media (max-width:900px){.plans{grid-template-columns:1fr}}
+.plan .go:active{transform:scale(.97)}
+.paynote{font-size:14px;color:var(--mute);margin:18px 0 0;max-width:80ch}
+@media (max-width:920px){.plans{grid-template-columns:1fr}}
 
-/* cta */
-.cta{margin-block:80px 0;border-radius:18px;padding:52px max(20px,4vw);text-align:center;background:var(--pur-soft)}
-.cta h2{margin-bottom:10px}
-.cta .sub{margin:0 auto 24px}
-.cta .f{margin:0 auto}
+/* forms */
+.f{display:flex;gap:8px;max-width:460px}
+.f input{flex:1;min-width:0;background:var(--fld);border:1px solid transparent;border-radius:999px;padding:12px 18px;font-size:16px;transition:border-color 160ms ease,box-shadow 160ms ease}
+.f input:focus{border-color:var(--acc);outline:none;box-shadow:0 0 0 3px color-mix(in srgb,var(--acc) 18%,transparent)}
+.f button{background:var(--btn);color:var(--btnfg);border:0;border-radius:999px;padding:12px 20px;white-space:nowrap;font-size:15px;font-weight:500;transition:transform 160ms cubic-bezier(.2,.8,.2,1);will-change:transform}
+.f button:active{transform:scale(.97)}
+.f button:disabled{opacity:.6}
+.note{font-size:13.5px;color:var(--mute);margin:10px 0 0}
+.note.ok{color:var(--acc)}
 
-/* owner-only signup list */
-.admin{margin-top:28px;border:1px dashed var(--pur);border-radius:14px;padding:18px 20px;font-size:13px}
-.admin h3{margin:0 0 4px;font-size:14px;font-weight:500}
-.admin p{margin:0 0 12px;color:var(--mute);font-size:12px}
-.admin ol{margin:0;padding-left:22px;display:grid;gap:4px}
-.admin li span{color:var(--mute);margin-left:8px;font-size:12px}
-.admin .tw{overflow-x:auto}
+/* faq */
+.faq{max-width:820px}
+.faq details{border-bottom:1px solid var(--line)}
+.faq details:first-of-type{border-top:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:20px;font-size:18px;font-weight:500;letter-spacing:-.01em}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";width:10px;height:10px;border-right:1.5px solid var(--mute);border-bottom:1.5px solid var(--mute);transform:rotate(45deg) translate(-2px,-2px);transition:transform 200ms cubic-bezier(.2,.8,.2,1);flex:none}
+.faq details[open] summary::after{transform:rotate(225deg) translate(-2px,-2px)}
+.faq details p{margin:0 0 20px;color:var(--mute);font-size:16px;max-width:68ch}
 
-footer{padding-block:40px 32px;font-size:12px;color:var(--mute);text-align:center;max-width:70ch;margin:0 auto}
-footer p{margin:0 0 8px}
+/* final cta */
+.final{margin-top:120px;border-radius:24px;padding:64px max(20px,5vw);text-align:center;position:relative;overflow:hidden;background:var(--term);color:var(--termfg)}
+.final::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 80% at 50% 0%,#a58bff38,transparent 70%);pointer-events:none}
+.final>*{position:relative}
+.final h2{margin:0 auto 14px;max-width:18ch}
+.final p{color:var(--termmute);font-size:18px;margin:0 auto 28px;max-width:52ch}
+.final .btn.pri{background:#f1f0f6;color:#0a090f}
+.final .btn.ghost{border-color:var(--termline);color:var(--termfg);background:transparent}
+.final .ctas{justify-content:center}
+.final .f{margin:28px auto 0}
+.final .f input{background:#1d1c26;color:var(--termfg)}
+.final .f button{background:var(--t-acc);color:#120f1d}
+.final .note{color:var(--termmute)}
+.final .note.ok{color:var(--t-acc)}
 
-/* phones: smaller, denser type so more fits on screen */
-@media (max-width:600px){
-  body{font-size:13px;line-height:1.5}
-  .bar{padding-block:10px}
-  .logo{font-size:15px}.logo img{width:26px;height:26px}
-  .tg{padding:4px 8px;font-size:12px}
-  .hero{gap:20px;padding-block:24px 22px}
-  .orb{max-width:150px}
-  .eyebrow{font-size:10.5px;padding:3px 10px 3px 8px}
-  h1{font-size:28px;margin:14px 0 12px}
-  .sub{font-size:13px;margin-bottom:18px}
-  .f input{padding:10px 14px;font-size:16px}.f button{padding:10px 14px;font-size:13px}
-  .note{font-size:11px;margin-top:8px}
-  .social{font-size:12px;margin-top:14px}
-  .src{font-size:11px;gap:6px 16px;padding-block:12px}
-  section.s{padding-block:40px 4px}
-  .kick{font-size:11px;margin-bottom:6px}
-  h2{font-size:21px;margin-bottom:8px}
-  .lede{font-size:13px;margin-bottom:18px}
-  .desk{gap:12px}
-  .wl{padding:14px}.wl h3{font-size:14px}.wl textarea{min-height:72px;font-size:16px}
-  .b1,.b2{padding:7px 12px;font-size:12px}
-  .hold li{padding-block:7px;font-size:12.5px}
-  .tab{padding:8px 8px 7px;font-size:12px}
-  .chips{padding:8px 12px}.chip{font-size:11.5px;padding:2px 9px}
-  .rb{padding:9px 12px;gap:4px 10px}
-  .feed{font-size:12px;min-height:220px}
-  .h span{font-size:11px}
-  .det{padding:2px 12px 12px;font-size:12px}
-  .vd{padding:16px}.vd h3{font-size:15px}.vd p{font-size:12.5px}.vd .tag{margin-bottom:10px}
-  .steps li{padding-block:12px;gap:2px 10px}.steps b{font-size:14px}.steps span{font-size:12.5px}
-  .dg{gap:20px}.card{padding:16px}.tally strong{font-size:20px}.tally div{padding:9px}.why{font-size:12px}
-  .bul{gap:10px}.bul li{font-size:12.5px}
-  .plans{gap:12px}.plan{padding:18px 16px;gap:10px}.plan .pr{font-size:30px}.plan .pr small{font-size:12.5px}.plan ul{font-size:12.5px;gap:6px}.plan .go{padding:10px 14px;font-size:13px}
-  .paynote{font-size:11px}
-  .cta{margin-block:44px 0;padding:32px 16px}
-  footer{padding-block:28px 24px;font-size:11px}
-}
-@media (prefers-reduced-motion:reduce){.dot,.row.new .rb,.orb{animation:none}html{scroll-behavior:auto}}
+/* owner-only list in the claude.ai preview */
+.admin{margin-top:28px;border:1px dashed var(--acc);border-radius:14px;padding:18px 20px;font-size:14px}
+.admin h3{margin:0 0 4px;font-size:15px}.admin p{margin:0 0 12px;color:var(--mute);font-size:13px}
+.admin ol{margin:0;padding-left:22px;display:grid;gap:4px}.admin li span{color:var(--mute);margin-left:8px;font-size:12px}.admin .tw{overflow-x:auto}
 
-/* scroll-driven background scene (assets/pulse-scene.js) */
-#pulse-bg{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+/* footer */
+footer{margin-top:96px;border-top:1px solid var(--line);padding-block:48px 40px;font-size:14.5px}
+.fgrid{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:32px}
+.fgrid h4{font:500 12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin:6px 0 14px}
+.fgrid ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.fgrid a{color:var(--mute);text-decoration:none;transition:color 150ms ease}
+.fgrid p{color:var(--mute);margin:12px 0 0;max-width:36ch}
+.legal{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);color:var(--faint);font-size:13px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px}
+.legal p{margin:0;max-width:90ch}
+@media (max-width:760px){.fgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.fgrid>div:first-child{grid-column:1/-1}}
 
-/* sun / moon theme button */
-.thm{display:inline-grid;place-items:center;width:34px;height:34px;padding:0;border:1px solid var(--line);border-radius:50%;background:none;color:var(--fg);cursor:pointer;flex:none}
-.thm svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.thm [hidden]{display:none}
-@media (max-width:600px){.thm{width:30px;height:30px}.thm svg{width:15px;height:15px}}
-
-/* ---- interaction polish ---- */
-html{-webkit-tap-highlight-color:transparent}
-nav a{display:inline-block}
-nav a,.social a,footer a{transition:color 160ms ease,transform 160ms cubic-bezier(.2,.8,.2,1)}
-.f button,.b1,.b2,.go,.thm,.tg,.chip,.tab,.hold li button,.fb button,.rb{
-  transition:transform 160ms cubic-bezier(.2,.8,.2,1),background-color 160ms ease,border-color 160ms ease,color 160ms ease;will-change:transform}
 @media (hover:hover){
-  nav a:hover{color:var(--fg)}
-  .f button:hover,.b1:hover,.plan.hi .go:hover{background-color:color-mix(in srgb,var(--btn) 86%,var(--pur))}
-  .b2:hover,.plan .go:hover,.thm:hover,.tg:hover{border-color:var(--pur)}
-  .hold li button:hover{color:var(--fg);background:var(--fld)}
+  .links a:hover,.fgrid a:hover{color:var(--ink)}
+  .btn.pri:hover{background:color-mix(in srgb,var(--btn) 86%,var(--acc))}
+  .btn.ghost:hover,.thm:hover,.menu:hover,.b2:hover,.plan .go:hover,.pill:hover{border-color:var(--acc)}
+  .btn:hover .arr{transform:translateX(3px)}
+  .plan.hi .go:hover,.b1:hover,.f button:hover{background-color:color-mix(in srgb,var(--btn) 86%,var(--acc))}
+  .final .btn.pri:hover{background:#ffffff}
+  .final .f button:hover{background:#c0aeff}
   .chip:hover,.tab:hover{color:var(--termfg)}
   .rb:hover{background:#ffffff08}
+  .hold li button:hover{color:var(--ink);background:var(--fld)}
 }
-/* press: a small downward scale on everything clickable */
-.f button:active,.b1:active,.b2:active,.go:active,.thm:active,.tg:active,.chip:active,.tab:active,.hold li button:active,.fb button:active,nav a:active{transform:scale(.97)}
-.rb:active{transform:scale(.98)}
+
+/* phones */
+@media (max-width:600px){
+  body{font-size:15px}
+  .hero{padding-top:40px}
+  h1{margin:18px 0 14px}
+  .sub{margin-bottom:22px}
+  .ctas .btn.lg{padding:13px 18px;font-size:15px;flex:1 1 auto}
+  .proof{margin-top:48px}.proof div{padding:16px}
+  .s{padding-top:80px}
+  .lede{font-size:16px;margin-bottom:28px}
+  .sg{padding:10px 12px;font-size:13px}
+  .wl{padding:16px}
+  .final{margin-top:80px;padding:44px 18px;border-radius:20px}
+  .faq summary{font-size:16px;padding-block:16px}
+  footer{margin-top:64px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}.tilt{transform:none!important}}
 </style>
 </head>
 <body>
-<canvas id="pulse-bg" aria-hidden="true"></canvas>
 
-<header>
+<header id="hdr">
   <div class="w bar">
     <a class="logo" href="#top" aria-label="PulsEdge home"><img class="lt" src="assets/icon.png" alt="" width="30" height="30"><img class="dk" src="assets/icon-dark.png" alt="" width="30" height="30">PulsEdge</a>
-    <nav>
-      <a href="#feed">My watchlist</a>
-      <a href="#verdicts">Verdicts</a>
-      <a href="#digest">Digest</a>
+    <nav class="links" id="links" aria-label="Main">
+      <a href="#how">How it works</a>
+      <a href="#demo">Try it</a>
       <a href="track.html">Track record</a>
-      <a class="keep" href="#pricing">Pricing</a>
-      <a class="keep" href="terminal.html#trial">Free trial</a>
-      <a href="#join">Early access</a>
-      <button class="thm" id="thm" type="button" aria-label="Switch to dark mode"><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true" hidden><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg></button>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
     </nav>
+    <div class="right">
+      <button class="thm" id="thm" type="button" aria-label="Switch to dark mode"><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true" hidden><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg></button>
+      <a class="btn pri sm" href="terminal.html#trial">Start free trial</a>
+      <button class="menu" id="menu" type="button" aria-expanded="false" aria-controls="links" aria-label="Open menu"><i></i></button>
+    </div>
   </div>
 </header>
 
 <main id="top">
-  <div class="w">
-    <section class="hero">
-      <div>
-      <span class="eyebrow"><span class="dot"></span>private beta &middot; launching soon</span>
-      <h1>Indian market news, <em>triaged</em> for your portfolio.</h1>
-      <p class="sub">Add your holdings once. PulsEdge reads exchange filings, regulator circulars and newswires, and gives every headline about your stocks a verdict: ignore, watch or act. Thirty seconds, not thirty minutes.</p>
-      <form class="f" data-form="hero">
-        <input id="email-hero" type="email" required placeholder="you@email.com" aria-label="Email address" autocomplete="email">
-        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" hidden>
-        <button type="submit">Get early access</button>
-      </form>
-      <p class="note" data-note>no spam &middot; just your invite</p>
-      <p class="social">Free daily digest on <a href="https://t.me/pulsedgein" target="_blank" rel="noopener">Telegram</a> &middot; <a href="https://www.instagram.com/pulsedge.in/" target="_blank" rel="noopener">@pulsedge.in</a></p>
+  <section class="hero">
+    <div class="w">
+      <a class="pill" href="#proof"><span class="livedot"></span><span id="h-pill">Live beta · reading today's market news</span></a>
+      <h1>Indian market news, <span class="hl">triaged</span> for the stocks you own.</h1>
+      <p class="sub">PulsEdge reads NSE filings, SEBI and RBI releases and market headlines as they land, and gives each one a verdict: ignore, watch or act. Every verdict comes with the reason and a link to the source.</p>
+      <div class="ctas">
+        <a class="btn pri lg" href="terminal.html#trial">Start free trial <span class="arr" aria-hidden="true">→</span></a>
+        <a class="btn ghost lg" href="#demo">Try it with your stocks</a>
       </div>
-      <div class="orb"><img class="lt" src="assets/logo.png" alt="PulsEdge logo" width="640" height="640"><img class="dk" src="assets/logo-dark.png" alt="PulsEdge logo" width="640" height="640"></div>
-    </section>
-
-    <div class="src" aria-label="Sources PulsEdge reads">
-      <b>Reads</b><span>NSE filings</span><span>BSE announcements</span><span>SEBI circulars</span><span>RBI releases</span><span>Newswires</span><span>Earnings calls</span>
+      <p class="micro">5 trading sessions free · no card · nothing to cancel</p>
     </div>
-
-    <section class="s" id="feed">
-      <p class="kick">Your personal watchlist</p>
-      <h2>Your stocks. Your feed. Nothing else.</h2>
-      <p class="lede">Paste your holdings summary and the feed narrows to the companies you own, split into trading, company news and macro. Everything a stock you don't hold triggers stays out of your way.</p>
-
-      <div class="desk">
-        <div class="wl">
-          <h3>Holdings</h3>
-          <p class="hint">One stock per line, NSE symbol and quantity. Or drop your broker's holdings CSV here.</p>
-          <label for="hold-in">Paste holdings</label>
-          <textarea id="hold-in" spellcheck="false" placeholder="TCS 40&#10;HDFCBANK 120&#10;SUNPHARMA 35"></textarea>
-          <div class="acts">
-            <button class="b1" id="hold-add" type="button">Add to watchlist</button>
-            <button class="b2" id="hold-imp" type="button">Import CSV</button>
-            <button class="b2" id="hold-ex" type="button">Try an example</button>
-            <input id="hold-file" type="file" accept=".csv,text/csv" hidden>
+    <div class="stage" id="stage">
+      <div class="tilt" id="tilt">
+        <div class="device" aria-label="PulsEdge terminal preview">
+          <div class="dv-bar">
+            <span class="dv-brand"><i></i>PULSE</span>
+            <span class="tp" id="dv-clock">--:-- IST</span>
+            <span class="tp" id="dv-mkt">MARKET CLOSED</span>
+            <span class="tp ok hide-s">Engine · live</span>
+            <span class="tp sp hide-s" id="dv-upd">updated –</span>
           </div>
-          <p class="imp-msg" id="imp-msg">Works with holdings exports from Zerodha Kite or Console, or any CSV with symbol and quantity columns.</p>
-          <ul class="hold" id="hold-list"></ul>
-          <p class="saved" id="hold-saved">Saved in this browser.</p>
-        </div>
-
-        <div class="term">
-          <div class="thead">
-            <div class="lights"><i></i><i></i><i></i></div>
-            <span id="mode">pulse://feed &middot; sample headlines</span>
-          </div>
-          <div class="tabs" role="tablist" aria-label="Feed sections">
-            <button class="tab" role="tab" data-s="mine" aria-selected="true">My stocks<span class="n" id="n-mine">0</span></button>
-            <button class="tab" role="tab" data-s="trading" aria-selected="false">Trading</button>
-            <button class="tab" role="tab" data-s="news" aria-selected="false">Company news</button>
-            <button class="tab" role="tab" data-s="macro" aria-selected="false">Macro</button>
-            <button class="tab" role="tab" data-s="all" aria-selected="false">Everything</button>
-          </div>
-          <div class="chips" role="group" aria-label="Filter by verdict">
-            <button class="chip" data-f="all" aria-pressed="true">all</button>
-            <button class="chip" data-f="act" aria-pressed="false">act</button>
-            <button class="chip" data-f="watch" aria-pressed="false">watch</button>
-            <button class="chip" data-f="ignore" aria-pressed="false">ignore</button>
-            <input class="q" id="q" type="search" placeholder="search symbol or word" aria-label="Search the feed" autocomplete="off">
-          </div>
-          <ul class="feed" id="feedlist" aria-live="polite"></ul>
-          <div class="tfoot">
-            <span id="stat"></span>
-            <span id="srcnote">headlines shown are samples, not live market news &middot; tap one for details</span>
+          <div class="dv-body">
+            <div class="dv-pm">
+              <div class="dv-h">PRE-MARKET <span class="sent" id="dv-sent">–</span></div>
+              <div id="dv-ck"></div>
+            </div>
+            <div class="dv-sig" id="dv-sig"></div>
           </div>
         </div>
       </div>
-    </section>
-
-    <section class="s" id="verdicts">
-      <p class="kick">Three verdicts</p>
-      <h2>One word tells you what to do.</h2>
-      <p class="lede">No sentiment scores, no star ratings. Each verdict carries the reason and a time horizon, so you can disagree with it quickly.</p>
-      <div class="verdicts">
-        <div class="vd a">
-          <span class="tag">ACT</span>
-          <h3>Material to your position</h3>
-          <p>Results, guidance changes, regulatory orders or deals that change the case for a stock you hold.</p>
-          <p class="ex">e.g. a pharma holding receives a USFDA warning letter for its main plant</p>
-        </div>
-        <div class="vd w">
-          <span class="tag">WATCH</span>
-          <h3>Could become material</h3>
-          <p>Early signals that need a second data point: a pledge change, a management exit, a draft circular.</p>
-          <p class="ex">e.g. promoter pledge rises by 4 percentage points in a quarter</p>
-        </div>
-        <div class="vd i">
-          <span class="tag">IGNORE</span>
-          <h3>Noise for your portfolio</h3>
-          <p>Routine compliance filings, recycled stories and broad market chatter with no new information.</p>
-          <p class="ex">e.g. Regulation 74(5) certificate, trading window closure notice</p>
-        </div>
+    </div>
+    <div class="w">
+      <div class="proof" id="proof">
+        <div><b class="num" id="p-read">–</b><span>headlines read <span id="p-day">today</span></span></div>
+        <div class="act"><b class="num" id="p-act">–</b><span>marked act</span></div>
+        <div class="watch"><b class="num" id="p-watch">–</b><span>marked watch</span></div>
+        <div><b class="num" id="p-ign">–</b><span>set aside, with a reason</span></div>
       </div>
-    </section>
+      <p class="pnote" id="p-note">Live numbers from the PulsEdge pipeline.</p>
+      <div class="srcs" aria-label="Sources PulsEdge reads"><b>Reads</b><span>NSE announcements</span><span>SEBI</span><span>RBI</span><span>Economic Times Markets</span><span>Mint</span><span>Business Standard</span><span>Moneycontrol</span></div>
+    </div>
+  </section>
 
-    <section class="s" id="how">
-      <p class="kick">How it works</p>
-      <h2>From raw feed to a decision.</h2>
-      <ol class="steps">
-        <li><b>You add your holdings</b><span>Paste a summary from your broker. Symbols and quantities are all PulsEdge needs.</span></li>
-        <li><b>Pulse reads the feed</b><span>Exchange filings, regulators and wires arrive in one stream, deduplicated across sources.</span></li>
-        <li><b>It classifies each event</b><span>Section, affected listed companies, and a time horizon from intraday to multi-quarter.</span></li>
-        <li><b>You decide in 30 seconds</b><span>Read the one-line reason, open the source filing if you want proof, and move on.</span></li>
+  <section class="s w" id="how">
+    <p class="kick">How it works</p>
+    <h2>From a wall of headlines to the few that matter.</h2>
+    <div class="story">
+      <ol class="steps" id="steps">
+        <li class="step on" data-i="0"><div class="n">01</div><h3>It reads everything, as it lands</h3><p>Corporate announcements from NSE, circulars from SEBI and RBI, and market coverage from four newsrooms, checked through the trading day and de-duplicated across sources.</p><div class="inline"></div></li>
+        <li class="step" data-i="1"><div class="n">02</div><h3>Each headline gets a verdict</h3><p>Ignore, watch or act, with the companies it touches, a time horizon and a one-line reason. Routine filings are set aside, and you can see why.</p><div class="inline"></div></li>
+        <li class="step" data-i="2"><div class="n">03</div><h3>It narrows to the stocks you own</h3><p>Paste your holdings or import your broker's CSV. The My stocks view shows only news about those companies. Your holdings stay in your browser.</p><div class="inline"></div></li>
+        <li class="step" data-i="3"><div class="n">04</div><h3>You're prepared before 9:15</h3><p>The pre-market checklist sums up the overnight moves that set the tone for Indian stocks: US close, Asia, the dollar and rupee, crude and India VIX.</p><div class="inline"></div></li>
       </ol>
-    </section>
+      <div class="viz" aria-hidden="true"><div class="vframe" id="viz"></div></div>
+    </div>
+  </section>
 
-    <section class="s" id="digest">
-      <div class="dg">
-        <div>
-          <p class="kick">The daily digest</p>
-          <h2>See what was ignored, and why.</h2>
-          <p class="lede">Filtering only works if you can audit it. Every evening the digest lists what Pulse set aside for your watchlist with the reason, so nothing disappears quietly.</p>
-          <ul class="bul">
-            <li><b>Sent after market close</b><span>A short summary at 4:30 pm IST, Monday to Friday.</span></li>
-            <li><b>Reasons on every item</b><span>Duplicate, routine filing, no exposure to your holdings, or already priced in.</span></li>
-            <li><b>Overrule in one tap</b><span>Mark a call wrong and Pulse learns your threshold.</span></li>
-          </ul>
-        </div>
-        <div class="card" aria-label="Sample digest">
-          <div class="top"><b id="dg-date">Digest &middot; Tue, 20 Oct</b><span id="dg-tag">sample</span></div>
-          <div class="tally">
-            <div class="pa"><strong id="dg-act">3</strong><small>act</small></div>
-            <div><strong id="dg-watch">7</strong><small>watch</small></div>
-            <div><strong id="dg-ign">214</strong><small>ignored</small></div>
-          </div>
-          <ul class="why" id="dg-why">
-            <li><span>Duplicate wire stories</span><span>96</span></li>
-            <li><span>Routine compliance filings</span><span>71</span></li>
-            <li><span>No exposure to your holdings</span><span>47</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <section class="s w" id="verdicts">
+    <p class="kick">Three verdicts</p>
+    <h2>One word tells you what to read.</h2>
+    <p class="lede">No sentiment scores and no star ratings. Each verdict carries its reason and horizon, so you can check it and disagree quickly.</p>
+    <div class="vgrid">
+      <div class="vc a"><span class="tag">ACT</span><h3>Material to a holding</h3><p>Results, guidance changes, regulatory orders or deals that change the picture for a company.</p><p class="ex">e.g. a pharma company receives a USFDA warning letter for its main plant</p></div>
+      <div class="vc w"><span class="tag">WATCH</span><h3>Could become material</h3><p>Early signals that need a second data point: a pledge change, a management exit, a draft circular.</p><p class="ex">e.g. promoter pledge rises sharply in a quarter</p></div>
+      <div class="vc i"><span class="tag">IGNORE</span><h3>Noise for your portfolio</h3><p>Routine compliance filings, recycled stories and market chatter with no new information.</p><p class="ex">e.g. Regulation 74(5) certificate, trading window closure</p></div>
+    </div>
+  </section>
 
-    <section class="s" id="pricing">
-      <p class="kick">Pricing</p>
-      <h2>Free on Telegram. The full terminal for members.</h2>
-      <p class="lede">The daily digest stays free on Telegram. Membership opens the PULSE terminal: the pre-market checklist, every signal with its impact and reasoning, and a feed filtered to your own stocks.</p>
-      <div class="trial">
-        <div><b>Try the full terminal free first</b><span>5 trading sessions, about a week. No card, nothing charged when it ends.</span></div>
-        <a class="go" href="terminal.html#trial">Start free trial</a>
+  <section class="s w" id="demo">
+    <p class="kick">Try it now</p>
+    <h2>Your stocks. Your feed. Nothing else.</h2>
+    <p class="lede">Add a few holdings and the feed below narrows to the companies you own. This is today's real feed.</p>
+    <div class="desk">
+      <div class="wl">
+        <h3>Your holdings</h3>
+        <p class="hint">One stock per line, NSE symbol and quantity. Or drop your broker's holdings CSV here.</p>
+        <label for="hold-in">Paste holdings</label>
+        <textarea id="hold-in" spellcheck="false" placeholder="TCS 40&#10;HDFCBANK 120&#10;SUNPHARMA 35"></textarea>
+        <div class="acts">
+          <button class="b1" id="hold-add" type="button">Add to watchlist</button>
+          <button class="b2" id="hold-imp" type="button">Import CSV</button>
+          <button class="b2" id="hold-ex" type="button">Try an example</button>
+          <input id="hold-file" type="file" accept=".csv,text/csv" hidden>
+        </div>
+        <p class="imp-msg" id="imp-msg">Works with holdings exports from Zerodha Kite or Console, or any CSV with symbol and quantity columns.</p>
+        <ul class="hold" id="hold-list"></ul>
+        <p class="saved" id="hold-saved">Saved in this browser only.</p>
       </div>
-      <div class="plans">
-        <div class="plan">
-          <div class="pn"><span>Founding member</span><span class="badge">15 seats</span></div>
-          <div class="pr">₹0 <small>for 60 days</small></div>
-          <p class="ps">Then ₹299/month, locked for as long as you stay.</p>
-          <ul>
-            <li><span>Full terminal access during the private beta</span></li>
-            <li><span>Direct line to the founder for feedback</span></li>
-            <li><span>Founding price kept after launch</span></li>
-          </ul>
-          <form class="f" data-form="founding">
-            <input id="email-founding" type="email" required placeholder="you@email.com" aria-label="Email address" autocomplete="email">
-            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" hidden>
-            <button type="submit">Apply</button>
-          </form>
-          <p class="note" data-note>We review every application and email the 15 we pick.</p>
+      <div class="term">
+        <div class="thead"><div class="lights"><i></i><i></i><i></i></div><span id="mode">pulse://feed · sample headlines</span></div>
+        <div class="tabs" role="tablist" aria-label="Feed sections">
+          <button class="tab" role="tab" data-s="mine" aria-selected="true">My stocks<span class="n" id="n-mine">0</span></button>
+          <button class="tab" role="tab" data-s="trading" aria-selected="false">Trading</button>
+          <button class="tab" role="tab" data-s="news" aria-selected="false">Company news</button>
+          <button class="tab" role="tab" data-s="macro" aria-selected="false">Macro</button>
+          <button class="tab" role="tab" data-s="all" aria-selected="false">Everything</button>
         </div>
-        <div class="plan hi">
-          <div class="pn"><span>Pro monthly</span><span class="badge">at launch</span></div>
-          <div class="pr">₹499 <small>/ month</small></div>
-          <p class="ps">Cancel any time.</p>
-          <ul>
-            <li><span>PULSE terminal with live signals</span></li>
-            <li><span>Pre-market checklist by 8:45 am IST</span></li>
-            <li><span>Impact, confidence and reasoning on every signal</span></li>
-            <li><span>My stocks: signals for your holdings only</span></li>
-            <li><span>Telegram alerts for trade ideas</span></li>
-          </ul>
-          <a class="go" data-plan="monthly" href="#join">Get Pro monthly</a>
+        <div class="chips" role="group" aria-label="Filter by verdict">
+          <button class="chip" data-f="all" aria-pressed="true">all</button>
+          <button class="chip" data-f="act" aria-pressed="false">act</button>
+          <button class="chip" data-f="watch" aria-pressed="false">watch</button>
+          <button class="chip" data-f="ignore" aria-pressed="false">ignore</button>
+          <input class="q" id="q" type="search" placeholder="search symbol or word" aria-label="Search the feed" autocomplete="off">
         </div>
-        <div class="plan">
-          <div class="pn"><span>Pro yearly</span><span class="badge">save 33%</span></div>
-          <div class="pr">₹3,999 <small>/ year</small></div>
-          <p class="ps">Works out to ₹333 a month.</p>
-          <ul>
-            <li><span>Everything in Pro monthly</span></li>
-            <li><span>Twelve months for the price of eight</span></li>
-          </ul>
-          <a class="go" data-plan="yearly" href="#join">Get Pro yearly</a>
-        </div>
+        <ul class="feed" id="feedlist" aria-live="polite"></ul>
+        <div class="tfoot"><span id="stat"></span><span id="srcnote">sample headlines until the live feed loads · tap one for details</span></div>
       </div>
-      <p class="paynote" id="paynote">Every plan starts with the free trial. Payments are handled by Razorpay (UPI, cards, netbanking). Paid plans open at launch; join the waitlist to hear first. Prices in Indian rupees. See the <a href="refund.html">refund policy</a>.</p>
-    </section>
+    </div>
+  </section>
 
-    <section class="cta" id="join">
-      <p class="kick">Early access</p>
+  <section class="s w">
+    <div class="split">
+      <div>
+        <p class="kick">Audit trail</p>
+        <h2>See what was set aside, and why.</h2>
+        <p class="lede">Filtering only works if you can check it. Nothing disappears quietly: every ignored headline keeps its reason, and every verdict links to the original filing or article.</p>
+        <ul class="bul">
+          <li><b>Reasons on everything</b><span>Routine filing, no listed company affected, duplicate story.</span></li>
+          <li><b>One tap to the source</b><span>Open the exchange filing or article behind any verdict.</span></li>
+          <li><b>Tell us when it's wrong</b><span>Mark a verdict right or wrong straight from the feed.</span></li>
+        </ul>
+      </div>
+      <div class="card" aria-label="Today's triage">
+        <div class="top"><b id="dg-date">Today's triage</b><span id="dg-tag">sample</span></div>
+        <div class="tally">
+          <div class="a"><strong id="dg-act">3</strong><small>act</small></div>
+          <div class="wt"><strong id="dg-watch">7</strong><small>watch</small></div>
+          <div><strong id="dg-ign">214</strong><small>ignored</small></div>
+        </div>
+        <ul class="why" id="dg-why">
+          <li><span>Routine compliance filing</span><span>71</span></li>
+          <li><span>No listed company affected</span><span>47</span></li>
+          <li><span>Duplicate story</span><span>96</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="s w" id="track">
+    <div class="split">
+      <div class="card" aria-label="Latest tracked calls">
+        <div class="top"><b>Latest tracked calls</b><span id="tr-since">from NSE closing prices</span></div>
+        <ul class="trk" id="tr-list"><li><span><b>Loading…</b><small>Fetching the track record</small></span></li></ul>
+      </div>
+      <div>
+        <p class="kick">Track record</p>
+        <h2>Every call, checked against the closing price.</h2>
+        <p class="lede">Each Watch and Act call on a named stock is logged the moment it's made, then checked against NSE's official close one and five trading sessions later. Nothing is removed.</p>
+        <a class="btn ghost" href="track.html">See the full track record <span class="arr" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="s w" id="pricing">
+    <p class="kick">Pricing</p>
+    <h2>Try it free. Pay only if it earns its place.</h2>
+    <p class="lede">Membership opens the PULSE terminal: the pre-market checklist, every verdict with its reason and source, and a feed filtered to your own stocks.</p>
+    <div class="trial">
+      <div><b>Start with the full terminal, free</b><span>5 trading sessions, about a week. No card, nothing charged when it ends.</span></div>
+      <a class="btn pri" href="terminal.html#trial">Start free trial <span class="arr" aria-hidden="true">→</span></a>
+    </div>
+    <div class="plans">
+      <div class="plan">
+        <div class="pn"><span>Founding member</span><span class="badge">15 seats</span></div>
+        <div class="pr">₹0 <small>for 60 days</small></div>
+        <p class="ps">Then ₹299 a month, locked in for as long as you stay.</p>
+        <ul><li><span>Full terminal access during the beta</span></li><li><span>Direct line to the founder</span></li><li><span>Founding price kept after launch</span></li></ul>
+        <form class="f" data-form="founding">
+          <input id="email-founding" type="email" required placeholder="you@email.com" aria-label="Email address" autocomplete="email">
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" hidden>
+          <button type="submit">Apply</button>
+        </form>
+        <p class="note" data-note>We review every application and email the 15 we pick.</p>
+      </div>
+      <div class="plan hi">
+        <div class="pn"><span>Pro monthly</span><span class="badge">at launch</span></div>
+        <div class="pr">₹499 <small>/ month</small></div>
+        <p class="ps">Cancel any time.</p>
+        <ul><li><span>PULSE terminal with live verdicts</span></li><li><span>Pre-market checklist before the open</span></li><li><span>Reason and source on every verdict</span></li><li><span>My stocks: news for your holdings only</span></li><li><span>Telegram alerts for Act signals</span></li></ul>
+        <a class="go" data-plan="monthly" href="#join">Get Pro monthly</a>
+      </div>
+      <div class="plan">
+        <div class="pn"><span>Pro yearly</span><span class="badge">save 33%</span></div>
+        <div class="pr">₹3,999 <small>/ year</small></div>
+        <p class="ps">Works out to ₹333 a month.</p>
+        <ul><li><span>Everything in Pro monthly</span></li><li><span>Twelve months for the price of eight</span></li></ul>
+        <a class="go" data-plan="yearly" href="#join">Get Pro yearly</a>
+      </div>
+    </div>
+    <p class="paynote" id="paynote">Every plan starts with the free trial. Payments are handled by Razorpay (UPI, cards, netbanking). Paid plans open at launch. Prices in Indian rupees. Full refund on a first payment within 7 days: see the <a href="refund.html">refund policy</a>.</p>
+  </section>
+
+  <section class="s w" id="faq">
+    <p class="kick">Questions</p>
+    <h2>Before you start.</h2>
+    <div class="faq">
+      <details><summary>Is PulsEdge investment advice?</summary><p>No. PulsEdge is not registered with SEBI as an investment adviser or research analyst. Verdicts are automated triage of public news that tell you what to read, not what to buy or sell. Always check the source and make your own decision.</p></details>
+      <details><summary>Where does the news come from?</summary><p>Public sources: NSE corporate announcements, SEBI and RBI releases, and markets coverage from Economic Times, Mint, Business Standard and Moneycontrol. Every item links back to where it was published.</p></details>
+      <details><summary>How are verdicts made?</summary><p>Each headline is matched to Nifty 500 companies and classified as ignore, watch or act, with a horizon and a one-line reason. During the beta some verdicts come from rules and some from an AI model, and each verdict says which. The <a href="track.html">track record</a> shows how they've done.</p></details>
+      <details><summary>How does the free trial work?</summary><p>Enter your email in the terminal and you get 5 NSE trading sessions, usually one calendar week. Weekends and market holidays don't count. No card is needed and nothing is charged when it ends.</p></details>
+      <details><summary>Do you see my holdings?</summary><p>No. Holdings you add, typed or imported from a CSV, are saved in your own browser and never uploaded to us.</p></details>
+      <details><summary>Which stocks are covered?</summary><p>The Nifty 500, refreshed weekly from NSE's official list. That covers most of the market's value and the stocks most portfolios hold.</p></details>
+      <details><summary>Can I cancel or get a refund?</summary><p>Yes. Cancel any time and keep access until the end of the period you paid for. If a paid plan isn't right for you, ask within 7 days of your first payment for a full refund. Details are in the <a href="refund.html">refund policy</a>.</p></details>
+    </div>
+  </section>
+
+  <div class="w">
+    <section class="final" id="join">
+      <p class="kick" style="color:var(--t-acc)">Free for 5 trading sessions</p>
       <h2>Spend 30 seconds on the news, not 30 minutes.</h2>
-      <p class="sub">Join the private beta. We are onboarding in small batches.</p>
+      <p>Open the terminal, add your stocks, and see what today's news means for them.</p>
+      <div class="ctas"><a class="btn pri lg" href="terminal.html#trial">Start free trial <span class="arr" aria-hidden="true">→</span></a><a class="btn ghost lg" href="https://t.me/pulsedgein" target="_blank" rel="noopener">Follow on Telegram</a></div>
       <form class="f" data-form="cta">
-        <input id="email-cta" type="email" required placeholder="you@email.com" aria-label="Email address" autocomplete="email">
+        <input id="email-cta" type="email" required placeholder="Or get launch updates by email" aria-label="Email address" autocomplete="email">
         <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" hidden>
-        <button type="submit">Get early access</button>
+        <button type="submit">Notify me</button>
       </form>
-      <p class="note" data-note>private beta &middot; no spam, just your invite</p>
+      <p class="note" data-note>No spam. One email when paid plans open.</p>
     </section>
 
     <section class="admin" id="admin" hidden>
@@ -530,34 +660,222 @@ nav a,.social a,footer a{transition:color 160ms ease,transform 160ms cubic-bezie
     </section>
 
     <footer>
-      <p>Educational information only. Not SEBI-registered investment advice. Trading involves substantial risk of loss. Past performance is not indicative of future results.</p>
-      <p><a href="https://t.me/pulsedgein" target="_blank" rel="noopener">Telegram</a> &middot; <a href="https://www.instagram.com/pulsedge.in/" target="_blank" rel="noopener">Instagram</a> &middot; <a href="track.html">Track record</a></p>
-      <p><a href="terms.html">Terms</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="refund.html">Refunds &amp; delivery</a> &middot; <a href="contact.html">Contact</a></p>
-      <p>&copy; 2026 PulsEdge &middot; private beta</p>
+      <div class="fgrid">
+        <div>
+          <a class="logo" href="#top"><img class="lt" src="assets/icon.png" alt="" width="30" height="30"><img class="dk" src="assets/icon-dark.png" alt="" width="30" height="30">PulsEdge</a>
+          <p>Indian market news, triaged for the stocks you own.</p>
+        </div>
+        <div><h4>Product</h4><ul><li><a href="terminal.html">Terminal</a></li><li><a href="track.html">Track record</a></li><li><a href="#pricing">Pricing</a></li><li><a href="terminal.html#trial">Free trial</a></li></ul></div>
+        <div><h4>Company</h4><ul><li><a href="contact.html">Contact</a></li><li><a href="https://t.me/pulsedgein" target="_blank" rel="noopener">Telegram</a></li><li><a href="https://www.instagram.com/pulsedge.in/" target="_blank" rel="noopener">Instagram</a></li></ul></div>
+        <div><h4>Legal</h4><ul><li><a href="terms.html">Terms</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="refund.html">Refunds &amp; delivery</a></li></ul></div>
+      </div>
+      <div class="legal"><p>Educational information only. PulsEdge is not registered with SEBI as an investment adviser or research analyst. Trading involves substantial risk of loss. Past performance doesn't predict future results.</p><p>&copy; 2026 PulsEdge</p></div>
     </footer>
   </div>
 </main>
 
 <script>
 (function(){
-  // Formspree form ID for signups when the page is hosted on its own domain.
-  // From https://formspree.io/f/abcdwxyz the ID is "abcdwxyz".
-  var FORMSPREE_ID = "mkjoaaga";
-  var SIGNUP_ENDPOINT = FORMSPREE_ID ? "https://formspree.io/f/"+FORMSPREE_ID : "";
+  // Formspree form ID for signups. From https://formspree.io/f/abcdwxyz the ID is "abcdwxyz".
+  var FORMSPREE_ID="mkjoaaga";
+  var SIGNUP_ENDPOINT=FORMSPREE_ID?"https://formspree.io/f/"+FORMSPREE_ID:"";
+  // Razorpay checkout links (a Payment Page or Subscription link). Empty until payments open; the buttons then point to the email form.
+  var PAY_LINKS={monthly:"",yearly:""};
 
-  // Razorpay checkout links (a Payment Page or Subscription link from the Razorpay dashboard).
-  // Leave empty until payments open; the buttons then point to the waitlist.
-  var PAY_LINKS = { monthly: "", yearly: "" };
+  function $(id){return document.getElementById(id)}
+  function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e}
+  function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+  function getJson(u){return fetch(u,{cache:"no-store"}).then(function(r){if(!r.ok)throw new Error(u);return r.json()})}
+  var reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+
+  // ---------- header ----------
+  var hdr=$("hdr"),menu=$("menu"),links=$("links");
+  function onScroll(){hdr.classList.toggle("scrolled",scrollY>8)}
+  addEventListener("scroll",onScroll,{passive:true});onScroll();
+  menu.addEventListener("click",function(){var o=menu.getAttribute("aria-expanded")!=="true";menu.setAttribute("aria-expanded",String(o));menu.setAttribute("aria-label",o?"Close menu":"Open menu");links.classList.toggle("open",o)});
+  links.addEventListener("click",function(e){if(e.target.tagName==="A"){menu.setAttribute("aria-expanded","false");links.classList.remove("open")}});
+
+  // ---------- payment links ----------
   var anyPay=false;
   document.querySelectorAll("[data-plan]").forEach(function(a){
     var url=PAY_LINKS[a.dataset.plan];
     if(/^https:\/\/(rzp\.io|razorpay\.me|pages\.razorpay\.com|[a-z0-9-]+\.razorpay\.com)\//.test(url||"")){a.href=url;a.target="_blank";a.rel="noopener";anyPay=true}
-    else a.textContent="Join the waitlist";
+    else a.textContent="Get notified at launch";
   });
-  if(anyPay)document.getElementById("paynote").textContent="Every plan starts with the free trial. Payments are handled by Razorpay (UPI, cards, netbanking). After paying you'll get an email with your terminal access link. Prices in Indian rupees; 7-day refund on your first payment.";
+  if(anyPay)$("paynote").textContent="Every plan starts with the free trial. Payments are handled by Razorpay (UPI, cards, netbanking). After paying you'll get an email with your terminal access link. Prices in Indian rupees; full refund on a first payment within 7 days.";
 
-  function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+  // ---------- product shot: tilt that flattens as you scroll ----------
+  var tilt=$("tilt"),stage=$("stage"),ticking=false;
+  function setTilt(){
+    ticking=false;
+    var r=stage.getBoundingClientRect(),vh=innerHeight||800,p=Math.min(1,Math.max(0,(vh*0.92-r.top)/(vh*0.62)));
+    var max=innerWidth<820?9:17,rx=(1-p)*max,sc=0.955+0.045*p;
+    tilt.style.transform="rotateX("+rx.toFixed(2)+"deg) scale("+sc.toFixed(3)+")";
+  }
+  if(!reduce){setTilt();addEventListener("scroll",function(){if(!ticking){ticking=true;requestAnimationFrame(setTilt)}},{passive:true});addEventListener("resize",setTilt)}
 
+  // ---------- clock + market state in the product shot ----------
+  function ist(){return new Date(Date.now()+(330+new Date().getTimezoneOffset())*60000)}
+  function pad(n){return (n<10?"0":"")+n}
+  function clock(){
+    var d=ist(),m=d.getHours()*60+d.getMinutes(),wd=d.getDay()>0&&d.getDay()<6,mk=$("dv-mkt");
+    $("dv-clock").textContent=pad(d.getHours())+":"+pad(d.getMinutes())+" IST";
+    var st=!wd?["MARKET CLOSED",""]:m>=555&&m<930?["MARKET OPEN","ok"]:m>=480&&m<555?["PRE-MARKET","pre"]:["MARKET CLOSED",""];
+    mk.textContent=st[0];mk.className="tp"+(st[1]?" "+st[1]:"");
+  }
+  clock();setInterval(clock,20000);
+
+  // ---------- live data for the hero, proof numbers, story and track record ----------
+  function vOf(x){var c=String(x.call||"").toLowerCase();return c==="buy"||c==="sell"?"act":(c==="act"||c==="watch"?c:"ignore")}
+  function clean(h){
+    h=String(h||"").split(" |SUBJECT")[0];
+    var m=h.match(/^(.+?):\s+(.+)$/);
+    if(m){var co=m[1],rest=m[2].replace(new RegExp("^"+co.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"\\s+has\\s+(informed the Exchange|submitted to the Exchange)\\s*(about|regarding|,)?\\s*","i"),"");h=co+": "+rest.charAt(0).toUpperCase()+rest.slice(1)}
+    return h;
+  }
+  function tickers(x){return (Array.isArray(x.tickers)?x.tickers:[]).map(function(t){return String(t&&typeof t==="object"?t.symbol||"":t).toUpperCase()}).filter(Boolean)}
+  function hhmm(iso){var t=new Date(iso);return isNaN(t)?"":t.toLocaleTimeString("en-IN",{timeZone:"Asia/Kolkata",hour:"2-digit",minute:"2-digit",hour12:false})}
+  function realReason(x){var r=Array.isArray(x.reason)?x.reason.join(" "):String(x.reason||"");return /keyword rules/i.test(r)?"":r}
+  function why(x){return realReason(x)||x.category||""}
+  var SAMPLE=[
+    {time:"",headline:"Q2 results: IT services major cuts FY revenue guidance to 3–5%",source:"NSE Announcements",call:"act",tickers:["TCS"],category:"Earnings"},
+    {time:"",headline:"Promoter pledge rises to 18% of holding at mid-cap chemicals maker",source:"NSE Announcements",call:"watch",tickers:[],category:"Governance"},
+    {time:"",headline:"Regulation 74(5) certificate filed for quarter ended September",source:"NSE Announcements",call:"ignore",tickers:[],category:"Routine filing"},
+    {time:"",headline:"SEBI floats consultation paper on F&O position limits",source:"SEBI",call:"watch",tickers:[],category:"Regulator"},
+    {time:"",headline:"Markets open flat; Nifty trades near previous close",source:"ET Markets",call:"ignore",tickers:[],category:"Market colour"},
+    {time:"",headline:"RBI keeps repo rate unchanged; stance stays neutral",source:"RBI",call:"watch",tickers:[],category:"Policy"}
+  ];
+  var ITEMS=SAMPLE,PM=null;
+
+  function sigRow(x){
+    var v=vOf(x),r=el("div","sg"+(v==="ignore"?" ig":"")),hd=el("div","hd"),sm=el("small");
+    hd.appendChild(el("b",null,clean(x.headline)));
+    tickers(x).slice(0,3).forEach(function(t){sm.appendChild(el("span","tk",t))});
+    sm.appendChild(el("span",null,[x.source,v==="ignore"?why(x):""].filter(Boolean).join(" · ")));
+    hd.appendChild(sm);
+    r.append(el("span","t",hhmm(x.time)||"--:--"),el("span","vb "+v,v.toUpperCase()),hd);
+    return r;
+  }
+  function pick(items,n){
+    // the most useful mix for a preview: newest watch/act items about named companies, plus one routine filing set aside
+    var good=items.filter(function(x){return vOf(x)!=="ignore"&&tickers(x).length}),rest=items.filter(function(x){return vOf(x)!=="ignore"&&!tickers(x).length}),ign=items.filter(function(x){return vOf(x)==="ignore"});
+    var out=good.slice(0,n-1).concat(rest).slice(0,n-1);
+    if(ign.length)out.splice(Math.min(2,out.length),0,ign[0]);
+    return out.slice(0,n);
+  }
+  function short(t){return String(t||"").replace(/\s*\(.*?\)\s*/g," ").replace(/\s+-\s+.*$/,"").trim()}
+  function ckRows(pm,n){
+    var box=document.createDocumentFragment();
+    (pm&&pm.checklist||[]).slice(0,n).forEach(function(c){
+      var d=c.dir==="up"?"up":c.dir==="down"?"down":"flat",r=el("div","ck");
+      // dir says whether the move helps or hurts Indian stocks (falling crude is "up"), so show a coloured dot, not a price arrow
+      r.append(el("span","ar "+d,"●"),el("span",null,short(c.title)),el("b",null,c.value||""));
+      box.appendChild(r);
+    });
+    return box;
+  }
+  function sentCls(s){s=String(s||"").toLowerCase();return s.indexOf("bull")>=0?"bull":s.indexOf("bear")>=0?"bear":""}
+  function renderHero(){
+    var box=$("dv-sig");box.textContent="";pick(ITEMS,6).forEach(function(x){box.appendChild(sigRow(x))});
+    var ck=$("dv-ck");ck.textContent="";
+    if(PM){ck.appendChild(ckRows(PM,6));var s=$("dv-sent");s.textContent=String(PM.sentiment||"–").toUpperCase();s.className="sent "+sentCls(PM.sentiment)}
+  }
+
+  // ---------- scroll story ----------
+  var HOLD_EX=null;
+  function frame(head,right){var p=el("div","pane"),h=el("div","ph");h.append(el("b",null,head),el("span",null,right||""));p.appendChild(h);return p}
+  function panes(){
+    var items=ITEMS.slice(0),sample=pick(items,6),out=[];
+    // 1: raw headlines
+    var p0=frame("Incoming",items.length+" headlines");
+    mixSources(items,7).forEach(function(x){var r=el("div","raw");r.append(el("b",null,clean(x.headline)),el("span",null,(x.source||"").replace(" Announcements","")));p0.appendChild(r)});
+    p0.appendChild(el("div","foot2","sources: NSE · SEBI · RBI · ET · Mint · BS · Moneycontrol"));out.push(p0);
+    // 2: verdicts with reasons
+    var p1=frame("Triaged","ignore · watch · act");
+    sample.slice(0,4).forEach(function(x){var r=sigRow(x),w=realReason(x);if(w&&vOf(x)!=="ignore")r.querySelector(".hd").appendChild(el("div","why2",w));p1.appendChild(r)});
+    var c={act:0,watch:0,ignore:0};items.forEach(function(x){c[vOf(x)]++});
+    p1.appendChild(el("div","foot2",c.act+" act · "+c.watch+" watch · "+c.ignore+" set aside with a reason"));out.push(p1);
+    // 3: narrowed to holdings
+    var named=items.filter(function(x){return vOf(x)!=="ignore"&&tickers(x).length}),hold=[];
+    named.forEach(function(x){tickers(x).forEach(function(t){if(hold.indexOf(t)<0&&hold.length<4)hold.push(t)})});
+    if(!hold.length)hold=["TCS","HDFCBANK","SUNPHARMA"];
+    HOLD_EX=hold;
+    var p2=frame("My stocks",hold.length+" holdings"),cs=el("div","chipset");
+    hold.forEach(function(t){cs.appendChild(el("span","tk",t))});p2.appendChild(cs);
+    var mine=items.filter(function(x){return tickers(x).some(function(t){return hold.indexOf(t)>=0})});
+    (mine.length?mine:sample).slice(0,4).forEach(function(x){p2.appendChild(sigRow(x))});
+    p2.appendChild(el("div","foot2",mine.length+" of "+items.length+" headlines are about these stocks"));out.push(p2);
+    // 4: pre-market
+    var p3=frame("Pre-market",PM&&PM.date?new Date(PM.date+"T12:00:00+05:30").toLocaleDateString("en-IN",{weekday:"short",day:"numeric",month:"short"}):"before 9:15");
+    var sb=el("div","chipset pmsum");sb.appendChild(el("span","sent "+sentCls(PM&&PM.sentiment),String(PM&&PM.sentiment||"Neutral").toUpperCase()));
+    if(PM&&PM.summary)sb.appendChild(el("span",null,PM.summary));
+    p3.appendChild(sb);
+    var ckb=el("div");ckb.style.padding="0 18px 56px";ckb.appendChild(ckRows(PM,6));p3.appendChild(ckb);
+    p3.appendChild(el("div","foot2","US close · Asia · DXY and USD/INR · Brent · India VIX"));out.push(p3);
+    return out;
+  }
+  function mixSources(items,n){
+    var by={},order=[],out=[];
+    items.forEach(function(x){var k=x.source||"";if(!by[k]){by[k]=[];order.push(k)}by[k].push(x)});
+    for(var i=0;out.length<n&&i<n;i++)order.forEach(function(k){if(out.length<n&&by[k][i])out.push(by[k][i])});
+    return out;
+  }
+  var active=0;
+  function renderStory(){
+    var viz=$("viz");viz.textContent="";
+    panes().forEach(function(p,i){p.dataset.i=i;if(i===active)p.classList.add("on");viz.appendChild(p)});
+    var steps=document.querySelectorAll(".step");
+    panes().forEach(function(p,i){var box=steps[i]&&steps[i].querySelector(".inline");if(!box)return;box.textContent="";var f=el("div","vframe");p.classList.add("on");f.appendChild(p);box.appendChild(f)});
+  }
+  function setStep(i){
+    if(i===active)return;active=i;
+    document.querySelectorAll(".step").forEach(function(s){s.classList.toggle("on",+s.dataset.i===i)});
+    document.querySelectorAll("#viz .pane").forEach(function(p){p.classList.toggle("on",+p.dataset.i===i)});
+  }
+  if("IntersectionObserver" in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)setStep(+e.target.dataset.i)})},{rootMargin:"-45% 0px -50% 0px"});
+    document.querySelectorAll(".step").forEach(function(s){io.observe(s)});
+  }else document.querySelectorAll(".step").forEach(function(s){s.classList.add("on")});
+
+  // ---------- proof numbers ----------
+  function num(n){return typeof n==="number"&&isFinite(n)?n.toLocaleString("en-IN"):"–"}
+  function renderProof(j){
+    var dg=j&&j.digest;if(!dg)return;
+    var read=(dg.act||0)+(dg.watch||0)+(dg.ignored||0),day=new Date((dg.date||new Date().toISOString().slice(0,10))+"T12:00:00+05:30"),now=ist();
+    var isToday=dg.date===now.getFullYear()+"-"+pad(now.getMonth()+1)+"-"+pad(now.getDate());
+    $("p-read").textContent=num(read);$("p-act").textContent=num(dg.act);$("p-watch").textContent=num(dg.watch);$("p-ign").textContent=num(dg.ignored);
+    $("p-day").textContent=isToday?"today":"on "+day.toLocaleDateString("en-IN",{weekday:"short",day:"numeric",month:"short"});
+    var upd=j.updated?new Date(j.updated):null;
+    $("p-note").textContent="Live numbers from the PulsEdge pipeline"+(upd&&!isNaN(upd)?", last updated "+upd.toLocaleString("en-IN",{timeZone:"Asia/Kolkata",day:"numeric",month:"short",hour:"2-digit",minute:"2-digit",hour12:false})+" IST.":".");
+    $("dv-upd").textContent="updated "+(upd&&!isNaN(upd)?hhmm(j.updated):"–");
+    $("h-pill").textContent="";$("h-pill").append("Live · ",el("b",null,num(read))," headlines "+(isToday?"today":"on "+day.toLocaleDateString("en-IN",{day:"numeric",month:"short"})));
+  }
+
+  // ---------- track record teaser ----------
+  function renderTrack(t){
+    var ul=$("tr-list");ul.textContent="";
+    var calls=(t&&t.calls||[]).slice(0,5);
+    if(!calls.length){var li=el("li");li.appendChild(el("span",null,"Tracking starts with the first calls of the day."));ul.appendChild(li);return}
+    var s=t.summary||{};
+    $("tr-since").textContent=(s.calls||calls.length)+" calls since "+new Date((s.since||calls[calls.length-1].time.slice(0,10))+"T12:00:00+05:30").toLocaleDateString("en-IN",{day:"numeric",month:"short"});
+    calls.forEach(function(c){
+      var li=el("li"),a=el("span");a.append(el("b",null,c.symbol),el("small",null,clean(c.headline)));
+      var mv=c.r1!=null?el("span","mv "+(c.r1>0?"up":c.r1<0?"down":""),(c.r1>0?"+":"")+c.r1.toFixed(2)+"% 1D"):el("span","mv","1D pending");
+      li.append(a,el("span","vt "+c.call,String(c.call).toUpperCase()),mv);ul.appendChild(li);
+    });
+  }
+
+  Promise.all([
+    getJson("data/feed.json").catch(function(){return getJson("data/feed.sample.json")}).catch(function(){return null}),
+    getJson("data/premarket.json").catch(function(){return getJson("data/premarket.sample.json")}).catch(function(){return null}),
+    getJson("data/track.json").catch(function(){return null})
+  ]).then(function(r){
+    var f=r[0];
+    if(f&&Array.isArray(f.items)&&f.items.length){ITEMS=f.items.filter(function(x){return x&&x.headline}).sort(function(a,b){return (Date.parse(b.time)||0)-(Date.parse(a.time)||0)})}
+    PM=r[1];
+    renderHero();renderStory();if(f)renderProof(f);renderTrack(r[2]);
+  });
+  renderHero();renderStory();
 
   // claude.ai runtime (absent when the page is hosted elsewhere)
   var db=null,uid=null;
@@ -569,55 +887,42 @@ nav a,.social a,footer a{transition:color 160ms ease,transform 160ms cubic-bezie
       }).catch(function(){})
     : Promise.resolve();
 
-  // ---------- waitlist signups ----------
+  // ---------- email signups ----------
   function setNote(n,msg,cls){n.textContent=msg;n.className="note"+(cls?" "+cls:"")}
   document.querySelectorAll("[data-form]").forEach(function(f){
     var note=f.nextElementSibling,btn=f.querySelector("button"),input=f.querySelector("input[type=email]"),trap=f.querySelector("input[name=_gotcha]");
-    function done(email){setNote(note,"You're on the list. We'll email "+email+" when your invite is ready.","ok");input.value=""}
+    function done(email){setNote(note,f.dataset.form==="founding"?"Application received. We'll email "+email+".":"You're on the list. We'll email "+email+" when paid plans open.","ok");input.value=""}
     f.addEventListener("submit",function(e){
       e.preventDefault();
       var email=input.value.trim().toLowerCase();
       if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){setNote(note,"Enter a full email address, like you@email.com.","err");return}
-      if(trap&&trap.value){done(email);return} // bot filled the hidden field
+      if(trap&&trap.value){done(email);return}
       btn.disabled=true;setNote(note,"Saving…");
       ready.then(function(){
         var rec={email:email,source:f.dataset.form,at:Date.now()};
         if(db&&uid)return db.doc("signups/"+uid).set(rec);
         if(SIGNUP_ENDPOINT)return fetch(SIGNUP_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},
-          body:JSON.stringify({email:email,source:rec.source,_subject:"New PulsEdge waitlist signup"})})
-          .then(function(r){return r.json().catch(function(){return {}}).then(function(j){
-            if(!r.ok)throw {code:"form",msg:j.errors&&j.errors[0]&&j.errors[0].message};
-          })});
+          body:JSON.stringify({email:email,source:rec.source,_subject:f.dataset.form==="founding"?"PulsEdge founding application":"New PulsEdge waitlist signup"})})
+          .then(function(r){return r.json().catch(function(){return {}}).then(function(j){if(!r.ok)throw {code:"form",msg:j.errors&&j.errors[0]&&j.errors[0].message}})});
         throw {code:"no_backend"};
       }).then(function(){done(email)}).catch(function(err){
         var c=err&&err.code;
-        setNote(note,c==="form"&&err.msg ? err.msg+"."
-          : c==="no_backend"||c==="invalid_argument"
-          ? "Signup isn't open from this link yet. Ask the PulsEdge team for an invite link."
-          : "Couldn't save your email. Check your connection and try again.","err");
+        setNote(note,c==="form"&&err.msg?err.msg+".":c==="no_backend"||c==="invalid_argument"?"Signup isn't open from this link yet.":"Couldn't save your email. Check your connection and try again.","err");
       }).then(function(){btn.disabled=false});
     });
   });
-
   function showAdmin(){
-    var box=document.getElementById("admin"),list=document.getElementById("admin-list"),n=document.getElementById("admin-n");
-    box.hidden=false;
+    var box=$("admin"),list=$("admin-list"),n=$("admin-n");box.hidden=false;
     db.collection("signups").orderBy("at","desc").onSnapshot(function(snap){
-      n.textContent="("+snap.size+")";
-      list.textContent="";
-      if(snap.empty){var p=document.createElement("li");p.textContent="No signups yet.";list.appendChild(p);return}
-      snap.docs.forEach(function(d){
-        var v=d.data()||{},li=document.createElement("li"),s=document.createElement("span");
-        li.textContent=String(v.email||"");
-        s.textContent=(v.at?new Date(v.at).toLocaleString("en-IN",{dateStyle:"medium",timeStyle:"short"}):"")+(v.source?" · "+v.source:"");
-        li.appendChild(s);list.appendChild(li);
-      });
+      n.textContent="("+snap.size+")";list.textContent="";
+      if(snap.empty){list.appendChild(el("li",null,"No signups yet."));return}
+      snap.docs.forEach(function(d){var v=d.data()||{},li=el("li",null,String(v.email||""));li.appendChild(el("span",null,(v.at?new Date(v.at).toLocaleString("en-IN",{dateStyle:"medium",timeStyle:"short"}):"")+(v.source?" · "+v.source:"")));list.appendChild(li)});
     },function(){n.textContent="(couldn't load)"});
   }
 
   // ---------- holdings / watchlist ----------
   var holdings=[];
-  var holdIn=document.getElementById("hold-in"),holdList=document.getElementById("hold-list"),holdSaved=document.getElementById("hold-saved");
+  var holdIn=$("hold-in"),holdList=$("hold-list"),holdSaved=$("hold-saved");
   function parse(text){
     var out=[];
     text.split(/[\n;]+|,(?=\s*[A-Za-z])/).forEach(function(line){
@@ -626,43 +931,27 @@ nav a,.social a,footer a{transition:color 160ms ease,transform 160ms cubic-bezie
     });
     return out;
   }
-  function merge(list){
-    list.forEach(function(h){
-      var ex=holdings.find(function(x){return x.s===h.s});
-      if(ex){if(h.q)ex.q=h.q}else holdings.push(h);
-    });
-  }
+  function merge(list){list.forEach(function(h){var ex=holdings.find(function(x){return x.s===h.s});if(ex){if(h.q)ex.q=h.q}else holdings.push(h)})}
   function save(){
-    var payload=JSON.stringify(holdings);
-    store("pe_hold",payload);
+    store("pe_hold",JSON.stringify(holdings));
     ready.then(function(){
-      if(!db||!uid){holdSaved.textContent="Saved in this browser.";return}
-      return db.collection("data/users/"+uid).doc("watchlist").set({holdings:holdings,at:Date.now()})
-        .then(function(){holdSaved.textContent="Saved to your account."})
-        .catch(function(){holdSaved.textContent="Saved in this browser."});
+      if(!db||!uid){holdSaved.textContent="Saved in this browser only.";return}
+      return db.collection("data/users/"+uid).doc("watchlist").set({holdings:holdings,at:Date.now()}).then(function(){holdSaved.textContent="Saved to your account."}).catch(function(){holdSaved.textContent="Saved in this browser only."});
     });
   }
   function renderHold(){
     holdList.textContent="";
-    if(!holdings.length){var e=document.createElement("li");e.className="empty";e.textContent="No stocks yet. Paste your holdings above to build your feed.";holdList.appendChild(e)}
+    if(!holdings.length)holdList.appendChild(el("li","empty","No stocks yet. Paste your holdings above to build your feed."));
     holdings.forEach(function(h,i){
-      var li=document.createElement("li"),b=document.createElement("b"),q=document.createElement("span"),x=document.createElement("button");
-      b.textContent=h.s;q.textContent=h.q?h.q.toLocaleString("en-IN")+" sh":"watching";
-      x.textContent="×";x.setAttribute("aria-label","Remove "+h.s);
+      var li=el("li"),x=el("button",null,"×");x.type="button";x.setAttribute("aria-label","Remove "+h.s);
       x.onclick=function(){holdings.splice(i,1);save();renderHold();rebuild()};
-      li.append(b,q,x);holdList.appendChild(li);
+      li.append(el("b",null,h.s),el("span",null,h.q?h.q.toLocaleString("en-IN")+" sh":"watching"),x);holdList.appendChild(li);
     });
-    document.getElementById("n-mine").textContent=holdings.length;
+    $("n-mine").textContent=holdings.length;
   }
-  document.getElementById("hold-add").onclick=function(){
-    var p=parse(holdIn.value);if(!p.length){holdIn.focus();return}
-    merge(p);holdIn.value="";save();renderHold();rebuild();select("mine");
-  };
-  document.getElementById("hold-ex").onclick=function(){
-    merge(parse("TCS 40\nHDFCBANK 120\nSUNPHARMA 35\nLT 15"));save();renderHold();rebuild();select("mine");
-  };
-  // broker CSV import (Kite: Instrument, Qty. / Console: Symbol, Quantity Available / generic)
-  var impMsg=document.getElementById("imp-msg"),fileIn=document.getElementById("hold-file"),wl=document.querySelector(".wl");
+  $("hold-add").onclick=function(){var p=parse(holdIn.value);if(!p.length){holdIn.focus();return}merge(p);holdIn.value="";save();renderHold();rebuild();select("mine")};
+  $("hold-ex").onclick=function(){merge(parse((HOLD_EX&&HOLD_EX.length?HOLD_EX:["TCS","HDFCBANK","SUNPHARMA","LT"]).map(function(s,i){return s+" "+[40,120,35,15][i%4]}).join("\n")));save();renderHold();rebuild();select("mine")};
+  var impMsg=$("imp-msg"),fileIn=$("hold-file"),wl=document.querySelector(".wl");
   function csvRows(text){
     var rows=[],row=[],cell="",q=false;
     for(var i=0;i<text.length;i++){
@@ -705,23 +994,19 @@ nav a,.social a,footer a{transition:color 160ms ease,transform 160ms cubic-bezie
     };
     rd.readAsText(f);
   }
-  document.getElementById("hold-imp").onclick=function(){fileIn.click()};
+  $("hold-imp").onclick=function(){fileIn.click()};
   fileIn.onchange=function(){importFile(fileIn.files[0]);fileIn.value=""};
   ["dragenter","dragover"].forEach(function(t){wl.addEventListener(t,function(e){if(e.dataTransfer&&Array.prototype.indexOf.call(e.dataTransfer.types,"Files")>=0){e.preventDefault();wl.classList.add("drag")}})});
   wl.addEventListener("dragleave",function(e){if(!wl.contains(e.relatedTarget))wl.classList.remove("drag")});
   wl.addEventListener("drop",function(e){wl.classList.remove("drag");if(e.dataTransfer&&e.dataTransfer.files.length){e.preventDefault();importFile(e.dataTransfer.files[0])}});
-
   try{holdings=JSON.parse(store("pe_hold")||"[]")||[]}catch(e){holdings=[]}
   ready.then(function(){
     if(!db||!uid)return;
-    return db.collection("data/users/"+uid).doc("watchlist").get().then(function(d){
-      if(d.exists&&Array.isArray(d.data().holdings)){holdings=d.data().holdings.slice();holdSaved.textContent="Saved to your account.";renderHold();rebuild()}
-    });
+    return db.collection("data/users/"+uid).doc("watchlist").get().then(function(d){if(d.exists&&Array.isArray(d.data().holdings)){holdings=d.data().holdings.slice();holdSaved.textContent="Saved to your account.";renderHold();rebuild()}});
   }).catch(function(){});
 
-  // ---------- feed ----------
-  // Live mode: data/feed.json (format in data/README.md). Sample mode: generated headlines below.
-  // Sample rows: [section, verdict, headline, detail, horizon]
+  // ---------- demo feed ----------
+  // Live: data/feed.json (format in data/README.md). Until it loads: rotating sample headlines.
   var general=[
     ["news","act","Q2 results: IT services major cuts FY revenue guidance to 3–5%","Earnings · IT services","weeks"],
     ["news","ignore","Regulation 74(5) certificate filed for quarter ended September","Compliance · routine","skip"],
@@ -730,97 +1015,60 @@ nav a,.social a,footer a{transition:color 160ms ease,transform 160ms cubic-bezie
     ["news","act","USFDA issues warning letter for pharma company's oral solids unit","Regulatory · Pharma","months"],
     ["macro","watch","SEBI floats consultation paper on F&O position limits","Regulator · Brokers, exchanges","quarter"],
     ["trading","ignore","Same block-deal story syndicated across 6 outlets","Duplicate · 5 merged","skip"],
-    ["macro","act","RBI MPC cuts repo rate by 25 bps; stance moved to accommodative","Policy · Banks, NBFCs, rate-sensitives","months"],
-    ["news","watch","CFO resigns at auto ancillary company, interim CFO named","Management · Auto components","quarter"],
-    ["macro","ignore","Global cues mixed; crude steady in early trade","Market colour · no listed exposure","skip"],
-    ["trading","watch","FPIs net sellers for 6th straight session in cash segment","Flows · broad market","days"],
-    ["macro","watch","CPI inflation for September prints at 4.1%, above consensus","Data · rate outlook","weeks"],
-    ["trading","act","Index rebalancing: two stocks to enter Nifty Next 50 from November","Index change · passive flows","days"],
-    ["macro","ignore","GST collections article recycled from last month's release","Duplicate · stale","skip"]
+    ["macro","watch","CPI inflation for September prints above consensus","Data · rate outlook","weeks"]
   ];
   var templates=[
     ["news","act","{T}: board approves quarterly results; management revises margin guidance","Earnings · your holding","weeks"],
     ["news","watch","{T}: change in promoter shareholding disclosed under SAST regulations","Governance · your holding","quarter"],
     ["news","ignore","{T}: Regulation 74(5) certificate for the quarter","Compliance · routine","skip"],
-    ["news","ignore","{T}: trading window closure ahead of board meeting","Compliance · routine","skip"],
     ["trading","watch","{T} enters F&O ban list; open interest above 95% of limit","F&O · your holding","days"],
-    ["trading","act","Bulk deal in {T}: 0.8% of equity changes hands at a discount","Bulk deal · your holding","days"],
-    ["trading","ignore","{T} touches 52-week high in early trade","Price move · no new information","skip"],
-    ["news","act","{T} wins order worth about 6% of trailing revenue","Order win · your holding","months"],
-    ["news","watch","Rating agency places {T} on watch with developing implications","Credit · your holding","quarter"]
+    ["news","act","{T} wins order worth about 6% of trailing revenue","Order win · your holding","months"]
   ];
-  var SAMPLE_REASON="Sample headline. In the live feed this shows why Pulse chose the verdict and links to the source filing.";
+  var SAMPLE_REASON="Sample headline. In the live feed this shows why the verdict was given and links to the source.";
   var live=false,buffer=[],gi=0,ti=0,tick=0,seq=0,section="mine",verdict="all",query="",openId=null,timer=null;
-  var clock=new Date();clock.setHours(9,15,0,0);
-  function pad(n){return (n<10?"0":"")+n}
+  var clk=new Date();clk.setHours(9,15,0,0);
   function nextItem(){
     tick++;
     var useT=holdings.length&&tick%2===0,it;
-    if(useT){
-      var tpl=templates[ti++%templates.length],h=holdings[(ti+Math.floor(ti/templates.length))%holdings.length];
-      it={sec:tpl[0],v:tpl[1],head:tpl[2].replace("{T}",h.s),d:tpl[3],hz:tpl[4],tk:[h.s]};
-    }else{
-      var g=general[gi++%general.length];it={sec:g[0],v:g[1],head:g[2],d:g[3],hz:g[4],tk:[]};
-    }
-    clock=new Date(clock.getTime()+(2+Math.floor(Math.random()*5))*60000);
-    if(clock.getHours()>=15&&clock.getMinutes()>30)clock.setHours(9,15,0,0);
-    it.time=pad(clock.getHours())+":"+pad(clock.getMinutes());
-    it.id="s"+(++seq);it.reason=SAMPLE_REASON;it.src="";it.url="";
+    if(useT){var tpl=templates[ti++%templates.length],hh=holdings[(ti+Math.floor(ti/templates.length))%holdings.length];it={sec:tpl[0],v:tpl[1],head:tpl[2].replace("{T}",hh.s),d:tpl[3],hz:tpl[4],tk:[hh.s]}}
+    else{var g=general[gi++%general.length];it={sec:g[0],v:g[1],head:g[2],d:g[3],hz:g[4],tk:[]}}
+    clk=new Date(clk.getTime()+(2+Math.floor(Math.random()*5))*60000);
+    if(clk.getHours()>=15&&clk.getMinutes()>30)clk.setHours(9,15,0,0);
+    it.time=pad(clk.getHours())+":"+pad(clk.getMinutes());it.id="s"+(++seq);it.reason=SAMPLE_REASON;it.src="";it.url="";
     return it;
   }
-
-  // live items -> the same shape as sample items
-  var SECS={trading:1,news:1,macro:1},VS={act:1,watch:1,ignore:1};
-  function istTime(iso){
-    var t=new Date(iso);if(isNaN(t))return "";
-    return t.toLocaleTimeString("en-IN",{timeZone:"Asia/Kolkata",hour:"2-digit",minute:"2-digit",hour12:false});
-  }
+  var SECS={trading:1,news:1,macro:1};
   function fromLive(x,i){
-    var c=String(x.call||"").toLowerCase(),v=String(x.verdict||(c==="buy"||c==="sell"?"act":c)).toLowerCase(),sec=String(x.section||(/announcement|filing/i.test(x.source||"")?"news":/global|commodity|policy|macro/i.test(x.category||"")?"macro":"trading")).toLowerCase();
-    return {
-      id:String(x.id||("l"+i)),time:istTime(x.time),ts:Date.parse(x.time)||0,
-      sec:SECS[sec]?sec:"news",v:VS[v]?v:"ignore",
-      head:String(x.headline||""),d:[x.category||x.theme,x.affected].filter(Boolean).join(" · "),
-      hz:String(x.horizon||(v==="ignore"?"skip":"")),
-      tk:(Array.isArray(x.tickers)?x.tickers:Array.isArray(x.impacts)?x.impacts:[]).map(function(t){return String(t&&typeof t==="object"?t.symbol||"":t).toUpperCase()}).filter(Boolean),
-      reason:Array.isArray(x.reason)?x.reason.join(" "):String(x.reason||x.action||""),src:String(x.source||""),
-      url:/^https?:\/\//.test(x.url||"")?x.url:""
-    };
+    var v=vOf(x),sec=String(x.section||(/announcement|filing/i.test(x.source||"")?"news":/global|commodity|policy|macro/i.test(x.category||"")?"macro":"trading")).toLowerCase();
+    var reason=Array.isArray(x.reason)?x.reason.join(" "):String(x.reason||"");
+    if(/keyword rules/i.test(reason))reason="Sorted by keyword rules"+(x.category?" as "+String(x.category).toLowerCase():"")+". "+(x.action||"");
+    return {id:String(x.id||("l"+i)),time:hhmm(x.time),ts:Date.parse(x.time)||0,sec:SECS[sec]?sec:"news",v:v,head:clean(x.headline),
+      d:[x.category,x.source].filter(Boolean).join(" · "),hz:String(x.horizon||(v==="ignore"?"skip":"")),tk:tickers(x),
+      reason:reason||String(x.action||""),src:String(x.source||""),url:/^https?:\/\//.test(x.url||"")?x.url:""};
   }
   function loadLive(){
-    return fetch("data/feed.json",{cache:"no-store"}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(j){
+    return getJson("data/feed.json").then(function(j){
       var items=(j&&Array.isArray(j.items)?j.items:[]).filter(function(x){return x&&x.headline}).map(fromLive);
       if(!items.length)throw 0;
       items.sort(function(a,b){return b.ts-a.ts});
       live=true;buffer=items.slice(0,300);
       if(timer){clearInterval(timer);timer=null}
       var upd=j.updated?new Date(j.updated):null;
-      document.getElementById("mode").textContent="pulse://feed · live"+(upd&&!isNaN(upd)?" · updated "+upd.toLocaleString("en-IN",{timeZone:"Asia/Kolkata",day:"numeric",month:"short",hour:"2-digit",minute:"2-digit",hour12:false})+" IST":"");
-      document.getElementById("srcnote").textContent="tap a headline for the reason and source";
+      $("mode").textContent="pulse://feed · live"+(upd&&!isNaN(upd)?" · updated "+upd.toLocaleString("en-IN",{timeZone:"Asia/Kolkata",day:"numeric",month:"short",hour:"2-digit",minute:"2-digit",hour12:false})+" IST":"");
+      $("srcnote").textContent="tap a headline for the reason and source";
       list.classList.add("live");
       if(j.digest)renderDigest(j.digest);
       render();
     });
   }
   function renderDigest(dg){
-    function num(n){return typeof n==="number"&&isFinite(n)?n.toLocaleString("en-IN"):"–"}
     var dt=dg.date?new Date(dg.date+"T12:00:00+05:30"):null;
-    document.getElementById("dg-date").textContent="Digest · "+(dt&&!isNaN(dt)?dt.toLocaleDateString("en-IN",{weekday:"short",day:"numeric",month:"short"}):"latest");
-    document.getElementById("dg-tag").textContent="live";
-    document.getElementById("dg-act").textContent=num(dg.act);
-    document.getElementById("dg-watch").textContent=num(dg.watch);
-    document.getElementById("dg-ign").textContent=num(dg.ignored);
-    var ul=document.getElementById("dg-why");
-    if(Array.isArray(dg.reasons)&&dg.reasons.length){
-      ul.textContent="";
-      dg.reasons.slice(0,6).forEach(function(r){
-        var li=document.createElement("li"),a=document.createElement("span"),b=document.createElement("span");
-        a.textContent=String(r.label||"");b.textContent=num(r.count);li.append(a,b);ul.appendChild(li);
-      });
-    }
+    $("dg-date").textContent="Triage · "+(dt&&!isNaN(dt)?dt.toLocaleDateString("en-IN",{weekday:"short",day:"numeric",month:"short"}):"latest");
+    $("dg-tag").textContent="live";
+    $("dg-act").textContent=num(dg.act);$("dg-watch").textContent=num(dg.watch);$("dg-ign").textContent=num(dg.ignored);
+    var ul=$("dg-why");
+    if(Array.isArray(dg.reasons)&&dg.reasons.length){ul.textContent="";dg.reasons.slice(0,6).forEach(function(r){var li=el("li");li.append(el("span",null,String(r.label||"")),el("span",null,num(r.count)));ul.appendChild(li)})}
   }
-
-  // agree / disagree feedback, per viewer
   var fb={};try{fb=JSON.parse(store("pe_fb")||"{}")||{}}catch(e){fb={}}
   function setFb(id,val){
     if(fb[id]===val)delete fb[id];else fb[id]=val;
@@ -828,124 +1076,80 @@ nav a,.social a,footer a{transition:color 160ms ease,transform 160ms cubic-bezie
     ready.then(function(){if(db&&uid)return db.collection("data/users/"+uid).doc("feedback").set({votes:fb,at:Date.now()})}).catch(function(){});
     render();
   }
-  ready.then(function(){
-    if(!db||!uid)return;
-    return db.collection("data/users/"+uid).doc("feedback").get().then(function(d){
-      if(d.exists&&d.data().votes&&typeof d.data().votes==="object"){fb=Object.assign({},d.data().votes,fb);render()}
-    });
-  }).catch(function(){});
-
   function owned(it){return it.tk.some(function(t){return holdings.some(function(h){return h.s===t})})}
   function visible(it){
     if(section==="mine"&&!owned(it))return false;
     if(section!=="mine"&&section!=="all"&&it.sec!==section)return false;
     if(verdict!=="all"&&it.v!==verdict)return false;
-    if(query){
-      var hay=(it.head+" "+it.d+" "+it.tk.join(" ")+" "+it.reason).toUpperCase();
-      return query.split(/\s+/).every(function(w){return hay.indexOf(w)>=0});
-    }
+    if(query){var hay=(it.head+" "+it.d+" "+it.tk.join(" ")+" "+it.reason).toUpperCase();return query.split(/\s+/).every(function(w){return hay.indexOf(w)>=0})}
     return true;
   }
-  var list=document.getElementById("feedlist");
-  function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e}
+  var list=$("feedlist");
   function render(fresh){
     list.textContent="";
     var shown=buffer.filter(visible).slice(0,live?60:8);
     if(!shown.length){
       var e=el("li","fempty"),b=el("b"),s=el("span");
-      if(section==="mine"&&!holdings.length){b.textContent="Your feed is empty";s.textContent="Add your holdings on the left and headlines for those stocks appear here."}
+      if(section==="mine"&&!holdings.length){b.textContent="Your feed is empty";s.textContent="Add your holdings and headlines about those stocks appear here."}
+      else if(section==="mine"){b.textContent="Nothing about your stocks yet today";s.textContent="Switch to Everything to see the whole feed."}
       else if(query){b.textContent="No headlines match “"+query.toLowerCase()+"”";s.textContent="Try a stock symbol like TCS, or clear the search."}
       else{b.textContent="Nothing here yet";s.textContent=live?"No headlines in this section today.":"New headlines arrive every few seconds."}
       e.append(b,s);list.appendChild(e);
     }
     shown.forEach(function(it){
-      var open=it.id===openId;
-      var li=el("li","row"+(it.v==="ignore"?" ig":"")+(it===fresh?" new":"")+(open?" open":""));
+      var open=it.id===openId,li=el("li","row"+(it.v==="ignore"?" ig":"")+(it===fresh?" new":"")+(open?" open":""));
       var rb=el("button","rb");rb.type="button";rb.setAttribute("aria-expanded",open?"true":"false");
       var h=el("span","h"),hs=el("span");
-      it.tk.forEach(function(t){if(holdings.some(function(x){return x.s===t}))hs.appendChild(el("span","tk",t))});
+      it.tk.forEach(function(t){hs.appendChild(el("span","tk",t))});
       hs.appendChild(document.createTextNode(it.d));
       h.append(el("b",null,it.head),hs);
       rb.append(el("span","t",it.time),el("span","v "+it.v,it.v.toUpperCase()),h,el("span","hz",it.hz||"–"));
       rb.onclick=function(){openId=open?null:it.id;render()};
       li.appendChild(rb);
       if(open){
-        var det=el("div","det");
-        det.appendChild(el("p",null,it.reason||"No reason recorded for this headline."));
+        var det=el("div","det");det.appendChild(el("p",null,it.reason||"No reason recorded for this headline."));
         var meta=el("div","meta");
         if(it.src)meta.appendChild(el("span",null,"Source: "+it.src));
         if(it.tk.length)meta.appendChild(el("span",null,"Stocks: "+it.tk.join(", ")));
-        if(it.url){var a=el("a",null,"Open source filing ↗");a.href=it.url;a.target="_blank";a.rel="noopener";meta.appendChild(a)}
+        if(it.url){var a=el("a",null,"Open source ↗");a.href=it.url;a.target="_blank";a.rel="noopener";meta.appendChild(a)}
         if(meta.childNodes.length)det.appendChild(meta);
         var f=el("div","fb");f.appendChild(el("span",null,"Was this verdict right?"));
-        [["agree","Yes"],["disagree","No, wrong call"]].forEach(function(o){
-          var bt=el("button",null,o[1]);bt.type="button";bt.setAttribute("aria-pressed",fb[it.id]===o[0]?"true":"false");
-          bt.onclick=function(){setFb(it.id,o[0])};f.appendChild(bt);
-        });
+        [["agree","Yes"],["disagree","No, wrong call"]].forEach(function(o){var bt=el("button",null,o[1]);bt.type="button";bt.setAttribute("aria-pressed",fb[it.id]===o[0]?"true":"false");bt.onclick=function(){setFb(it.id,o[0])};f.appendChild(bt)});
         if(fb[it.id])f.appendChild(el("span",null,"Thanks, noted."));
         det.appendChild(f);li.appendChild(det);
       }
       list.appendChild(li);
     });
-    var mine=buffer.filter(owned),c={act:0,watch:0,ignore:0};
-    buffer.forEach(function(it){c[it.v]++});
-    document.getElementById("stat").textContent=buffer.length+" read · "+c.act+" act · "+c.watch+" watch · "+c.ignore+" ignored"+(holdings.length?" · "+mine.length+" about your stocks":"");
+    var mine=buffer.filter(owned),c={act:0,watch:0,ignore:0};buffer.forEach(function(it){c[it.v]++});
+    $("stat").textContent=buffer.length+" read · "+c.act+" act · "+c.watch+" watch · "+c.ignore+" ignored"+(holdings.length?" · "+mine.length+" about your stocks":"");
   }
-  function push(){
-    if(live||openId)return; // don't shuffle rows while someone is reading one
-    var it=nextItem();buffer.unshift(it);if(buffer.length>60)buffer.pop();render(it);
-  }
-  function rebuild(){
-    if(live){render();return}
-    buffer=[];tick=0;for(var k=0;k<24;k++)buffer.unshift(nextItem());render();
-  }
-
-  function select(s){
-    section=s;
-    document.querySelectorAll(".tab").forEach(function(x){x.setAttribute("aria-selected",x.dataset.s===s?"true":"false")});
-    render();
-  }
+  function push(){if(live||openId)return;var it=nextItem();buffer.unshift(it);if(buffer.length>60)buffer.pop();render(it)}
+  function rebuild(){if(live){render();return}buffer=[];tick=0;for(var k=0;k<24;k++)buffer.unshift(nextItem());render()}
+  function select(s){section=s;document.querySelectorAll(".tab").forEach(function(x){x.setAttribute("aria-selected",x.dataset.s===s?"true":"false")});render()}
   document.querySelectorAll(".tab").forEach(function(x){x.onclick=function(){select(x.dataset.s)}});
-  document.querySelectorAll(".chip").forEach(function(c){
-    c.onclick=function(){
-      verdict=c.dataset.f;
-      document.querySelectorAll(".chip").forEach(function(x){x.setAttribute("aria-pressed",x===c?"true":"false")});
-      render();
-    };
-  });
-  document.getElementById("q").addEventListener("input",function(e){query=e.target.value.trim().toUpperCase();render()});
-
+  document.querySelectorAll(".chip").forEach(function(c){c.onclick=function(){verdict=c.dataset.f;document.querySelectorAll(".chip").forEach(function(x){x.setAttribute("aria-pressed",x===c?"true":"false")});render()}});
+  $("q").addEventListener("input",function(e){query=e.target.value.trim().toUpperCase();render()});
   renderHold();rebuild();
   if(!holdings.length)select("all");
-  if(!matchMedia("(prefers-reduced-motion:reduce)").matches)timer=setInterval(push,3200);
-  loadLive().catch(function(){}); // stays on samples until data/feed.json exists
+  if(!reduce)timer=setInterval(push,3200);
+  loadLive().catch(function(){});
   setInterval(function(){if(live&&!openId)loadLive().catch(function(){})},120000);
 })();
 </script>
 <script>
 // Theme: follows the phone/computer setting; the sun/moon button overrides it and the choice is shared by all PulsEdge pages.
-// Switching back to the system's own theme returns to following the system.
 (function(){
   var d=document.documentElement,b=document.getElementById("thm"),mq=matchMedia("(prefers-color-scheme: dark)");
   function sys(){return mq.matches?"dark":"light"}
   function cur(){return d.getAttribute("data-theme")||sys()}
   function save(v){try{v?localStorage.setItem("th",v):localStorage.removeItem("th")}catch(e){}}
-  function sync(){
-    var k=cur()==="dark",l=k?"Switch to light mode":"Switch to dark mode";
-    b.querySelector(".i-sun").toggleAttribute("hidden",!k);b.querySelector(".i-moon").toggleAttribute("hidden",k);
-    b.setAttribute("aria-label",l);b.title=l;
-  }
-  b.addEventListener("click",function(){
-    var n=cur()==="dark"?"light":"dark";
-    if(n===sys()){d.removeAttribute("data-theme");save(null)}else{d.setAttribute("data-theme",n);save(n)}
-    sync();
-  });
+  function sync(){var k=cur()==="dark",l=k?"Switch to light mode":"Switch to dark mode";b.querySelector(".i-sun").toggleAttribute("hidden",!k);b.querySelector(".i-moon").toggleAttribute("hidden",k);b.setAttribute("aria-label",l);b.title=l}
+  b.addEventListener("click",function(){var n=cur()==="dark"?"light":"dark";if(n===sys()){d.removeAttribute("data-theme");save(null)}else{d.setAttribute("data-theme",n);save(n)}sync()});
   function onSys(){if(d.getAttribute("data-theme")===sys()){d.removeAttribute("data-theme");save(null)}sync()}
   if(mq.addEventListener)mq.addEventListener("change",onSys);else mq.addListener(onSys);
   window.addEventListener("storage",function(e){if(e.key!=="th")return;if(e.newValue)d.setAttribute("data-theme",e.newValue);else d.removeAttribute("data-theme");sync()});
   sync();
 })();
 </script>
-<script src="assets/pulse-scene.js" defer></script>
 </body>
 </html>
