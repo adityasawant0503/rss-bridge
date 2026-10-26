@@ -27,6 +27,7 @@ The full checklist (launch, payments, compliance, growth and routines) lives in 
 - Track record (`track.html`, `pulsedge-bot/track_record.py`): every Watch/Act call on a named stock checked against NSE closes 1 and 5 sessions later
 - Free trial and access links on the terminal (`assets/member.js`): 5-session self-serve trial, signed links for 10-session trials, paid, founding and guest plans, NSE holiday calendar, sample-data mode, feedback form
 - Terms, Privacy, Refunds & delivery, and Contact pages (needed for Razorpay KYC); free-trial entry in pricing and nav
+- Landing page redesign: live product preview with scroll-flattening tilt, live triage numbers, four-step scroll story, real-feed demo, audit trail, track record teaser, FAQ; site-wide IBM Plex Sans with Plex Mono for data
 - PulsEdge HQ (private claude.ai page): CRM, access-link issuing, email templates, revenue and GST tracking, launch and compliance checklist
 - Telegram signal-card renderer and poster (`pulsedge-bot/pulse_bot.py`), plus a workflow that posts new BUY/SELL signals when `data/feed.json` changes
 
