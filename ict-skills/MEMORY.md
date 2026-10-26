@@ -65,9 +65,13 @@ structural reference only.
 
 - **Waiting on:** Aditya's Dhan trade book and contract notes for **June, August, September, October and
   November 2025** (July not included).
-- **What Aditya said about them (26 Oct 2026, unverified):** "highly profitable", roughly "56" overall
-  (the unit isn't confirmed: ₹56k? 56%?), with about 12 losing trades and everything else profitable.
-  Confirm against the data and don't repeat it as fact before then.
+- **What Aditya said about them (26 Oct 2026, unverified):** about **₹5–6 lakh a month**, with typical
+  trading days of ₹30k–₹80k profit and about 12 losing trades in total. Aditya also mentioned "5–6
+  minutes", possibly the typical holding time (to confirm). Check all of this against the data and
+  don't repeat it as fact before then.
+- **Source:** the P&L report and tradebook from Dhan's own site or app. The Gmail account connected here
+  (asawant.work@gmail.com) has no Dhan contract notes or statements, only Dhan newsletters, so the Dhan
+  account probably uses a different email.
 - **Goal:** tally every trade, find the traits that made those months work, compare them with the MMXM
   rules, then tune `ict-india` (windows, filters, sizing) to what actually worked.
 - **Plan:**
@@ -80,4 +84,4 @@ structural reference only.
      obtained (Yahoo doesn't go back that far, so try the Dhan historical-data API or a chart export),
      against sweep → MSS → FVG.
 - **Reminder:** a scheduled task in the original session fires on 27 Oct 2026 at 18:30 IST to ask
-  Aditya for the files. Claude can also pull the contract notes from Aditya's Gmail if they agree.
+  Aditya for the files.
