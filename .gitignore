@@ -252,3 +252,7 @@ robots.txt
 
 # PulsEdge site data is published, unlike RSS-Bridge runtime data
 !pulsedge/data/
+
+# ICT skills: personal trading state (journal, bias, plans, backtests)
+/ict/
+/ict-skills/**/ict/
