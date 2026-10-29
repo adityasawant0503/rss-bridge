@@ -176,12 +176,17 @@ jobs:
         node-version: '20'
     - name: Install the renderer
       if: steps.gate.outputs.go == 'true'
+      timeout-minutes: 6
+      # GitHub's Ubuntu image already has Google Chrome; only the small playwright-core driver is needed
       run: |
-        npm i --no-save --no-audit --no-fund playwright@1.48.2
-        npx playwright install --with-deps chromium
-        command -v ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
+        npm i --no-save --no-audit --no-fund playwright-core@1.48.2
+        CHROME=$(command -v google-chrome || command -v google-chrome-stable || command -v chromium || command -v chromium-browser)
+        echo "CHROME_PATH=$CHROME" >> "$GITHUB_ENV"; echo "Chrome: $CHROME"
+        command -v ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends ffmpeg)
+        ffmpeg -hide_banner -encoders 2>/dev/null | grep -q libx264 && echo "ffmpeg with libx264 ready"
     - name: Render the reel
       if: steps.gate.outputs.go == 'true'
+      timeout-minutes: 8
       run: node pulsedge-bot/reel/render.js --out "out/pulsedge-reel-${{ steps.gate.outputs.day }}.mp4"
     - name: Keep the test reel (branches)
       if: steps.gate.outputs.go == 'true' && env.PUBLISH != '1'
