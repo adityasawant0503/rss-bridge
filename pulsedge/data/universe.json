@@ -1,6 +1,6 @@
 {
  "name": "NIFTY 500",
- "updated": "2026-10-21",
+ "updated": "2026-10-29",
  "stocks": [
   {
    "symbol": "360ONE",
@@ -1108,6 +1108,11 @@
    "sector": "Financial Services"
   },
   {
+   "symbol": "ICICILIFE",
+   "name": "ICICI Life Insurance Ltd.",
+   "sector": "Financial Services"
+  },
+  {
    "symbol": "ICICIGI",
    "name": "ICICI Lombard General Insurance Company Ltd.",
    "sector": "Financial Services"
@@ -1115,11 +1120,6 @@
   {
    "symbol": "ICICIAMC",
    "name": "ICICI Prudential Asset Management Company Ltd.",
-   "sector": "Financial Services"
-  },
-  {
-   "symbol": "ICICIPRULI",
-   "name": "ICICI Prudential Life Insurance Company Ltd.",
    "sector": "Financial Services"
   },
   {

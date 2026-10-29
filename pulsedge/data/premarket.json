@@ -1,18 +1,18 @@
 {
- "date": "2026-10-26",
- "updated": "2026-10-26T16:11:27+05:30",
+ "date": "2026-10-29",
+ "updated": "2026-10-29T21:27:37+05:30",
  "sentiment": "Mildly bullish",
  "breadth": {
-  "up": 2,
+  "up": 3,
   "down": 1
  },
  "checklist": [
   {
    "title": "Nifty 50 last close (GIFT Nifty not available from free sources)",
    "dir": "up",
-   "value": "22,753.20 (+0.68%)",
+   "value": "22,936.75 (+1.05%)",
    "detail": [
-    "Previous close 22,599.52"
+    "Previous close 22,698.42"
    ]
   },
   {
@@ -20,10 +20,10 @@
    "dir": "down",
    "value": "Lower",
    "detail": [
-    "Dow 52,215.16 -1.23%",
-    "S&P 7,623.68 -0.52%",
-    "Nasdaq 25,955.34 -0.21%",
-    "Nasdaq futures now +0.09%"
+    "Dow 52,285.27 -0.36%",
+    "S&P 7,720.16 -0.31%",
+    "Nasdaq 26,233.85 -1.19%",
+    "Nasdaq futures now -1.19%"
    ]
   },
   {
@@ -31,8 +31,8 @@
    "dir": "flat",
    "value": "Asia mixed",
    "detail": [
-    "Nikkei 62,189.65 -0.80%",
-    "Hang Seng 23,211.81 +0.51%"
+    "Nikkei 64,659.47 +1.10%",
+    "Hang Seng 22,958.65 -0.59%"
    ]
   },
   {
@@ -40,83 +40,88 @@
    "dir": "flat",
    "value": "No major currency pressure",
    "detail": [
-    "DXY 101.83 +0.02%",
-    "USD/INR 95.185 +0.26%"
+    "DXY 102.00 -0.19%",
+    "USD/INR 95.220 +0.00%"
    ]
   },
   {
    "title": "Brent crude level",
    "dir": "up",
-   "value": "$114.99 -1.48%",
+   "value": "$113.65 -1.45%",
    "detail": []
   },
   {
    "title": "India VIX",
-   "dir": "flat",
-   "value": "17.16 (+1.78%) — normal",
+   "dir": "up",
+   "value": "15.12 (-6.94%) — normal",
    "detail": []
   }
  ],
- "summary": "Mildly bullish setup. Brent down 1.48% — relief for OMCs and paints; NASDAQ closed 0.21% lower.",
+ "summary": "Mildly bullish setup. Brent down 1.45% — relief for OMCs and paints; NASDAQ closed 1.19% lower; IT may open soft.",
  "global_cues": [
-  "Brent down 1.48% — relief for OMCs and paints",
-  "NASDAQ closed 0.21% lower",
-  "Nikkei down, Hang Seng up"
+  "Brent down 1.45% — relief for OMCs and paints",
+  "NASDAQ closed 1.19% lower; IT may open soft",
+  "Nikkei up, Hang Seng down"
  ],
  "india_triggers": [
-  "85 filings and headlines worth a look so far today"
+  "32 filings and headlines worth a look so far today"
  ],
  "focus": [
   {
-   "symbol": "DALBHARAT",
-   "note": "Dalmia Bharat Limited: Dalmia Bharat Limited has informed the Exchange"
+   "symbol": "MEESHO",
+   "note": "Meesho Limited: MEESHO LIMITED (Formerly known as “Meesho Private Limi"
   },
   {
-   "symbol": "DALBHARAT",
-   "note": "Dalmia Bharat Limited: Dalmia Bharat Limited has submitted to the Exch"
+   "symbol": "RVNL",
+   "note": "Rail Vikas Nigam Limited: Rail Vikas Nigam Limited has informed the Ex"
   },
   {
-   "symbol": "SUMICHEM",
-   "note": "Sumitomo Chemical India Limited: Sumitomo Chemical India Limited has s"
+   "symbol": "RVNL",
+   "note": "Rail Vikas Nigam Limited: Disclosure under Regulation 30 of SEBI (LODR"
   }
  ],
- "sector_tags": [],
- "key_risk": "",
+ "sector_tags": [
+  {
+   "label": "IT",
+   "tone": "watch"
+  }
+ ],
+ "key_risk": "Weak US tech could weigh on Indian IT at the open",
  "also": [
   {
    "name": "BANK NIFTY",
-   "value": "54,366.7",
-   "change": 0.15
+   "value": "54,909.7",
+   "change": 1.18
   },
   {
    "name": "S&P FUT",
-   "value": "7,673",
-   "change": 0.17
+   "value": "7,756",
+   "change": -0.35
   },
   {
    "name": "NASDAQ FUT",
-   "value": "29,143",
-   "change": 0.09
+   "value": "29,621",
+   "change": -1.19
   },
   {
    "name": "KOSPI",
-   "value": "5,469",
-   "change": -1.46
+   "value": "5,938",
+   "change": -1.24
   },
   {
    "name": "WTI",
-   "value": "101.10",
-   "change": -2.1
+   "value": "100.50",
+   "change": -2.22
   },
   {
    "name": "GOLD",
-   "value": "4,030",
-   "change": 0.55
+   "value": "4,033",
+   "change": -0.46
   },
   {
    "name": "US 10Y",
-   "value": "4.99",
-   "change": 0.08
+   "value": "5.00",
+   "change": -0.83
   }
  ],
  "source": "CNBC / Yahoo Finance (unofficial, delayed)"
