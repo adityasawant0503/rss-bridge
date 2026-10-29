@@ -23,9 +23,17 @@ function spokenList(names) {
   if (names.length <= 1) return names.join("");
   return names.slice(0, -1).join(", ") + " and " + names[names.length - 1];
 }
-function company(headline) {
-  const m = String(headline || "").match(/^(.+?)(?: Limited| Ltd\.?)?:/);
-  return m ? m[1].trim() : "";
+// Spoken name for a symbol: the Nifty 500 list's company name, else an exchange filing's "X Limited:" prefix, else the symbol.
+// (A plain "Something:" prefix is often a column title, e.g. "Market Trading Guide: ...", so it isn't used.)
+function company(symbol, items, universe) {
+  const u = ((universe && universe.stocks) || []).find((s) => s.symbol === symbol);
+  if (u && u.name) return u.name.replace(/\s+(Limited|Ltd\.?)$/i, "").trim();
+  for (const x of items) {
+    if (((x.tickers || [])[0] || {}).symbol !== symbol) continue;
+    const m = String(x.headline || "").match(/^(.+?) (?:Limited|Ltd\.?):/i);
+    if (m) return m[1].trim();
+  }
+  return symbol;
 }
 
 async function main() {
@@ -65,8 +73,8 @@ async function main() {
   await page.screenshot({ path: cover, type: "jpeg", quality: 92 });
   await browser.close();
 
-  const names = items.filter((x) => sum.picked.includes(((x.tickers || [])[0] || {}).symbol)).map((x) => company(x.headline) || ((x.tickers || [])[0] || {}).symbol);
-  const uniq = [...new Set(names)].slice(0, 3);
+  const universe = load("universe.json");
+  const uniq = [...new Set(sum.picked.filter(Boolean).map((s) => company(s, items, universe)))].slice(0, 3);
   const n = (v) => Number(v).toLocaleString("en-IN");
   const vo = [
     `[0:00] ${n(sum.read)} market headlines hit Indian markets today. Only ${n(sum.worth)} were worth a look.`,
