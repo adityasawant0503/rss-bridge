@@ -2,11 +2,24 @@ name: PulsEdge news
 
 # Every 15 minutes during Indian market hours (08:15–16:15 IST, Mon–Fri), plus manual runs.
 # On master: collect -> classify -> commit pulsedge/data/feed.json -> deploy the site -> post to Telegram.
-# On any other branch (push): a dry run that fetches and classifies but changes nothing.
+# At 19:20 IST (after NSE publishes closing prices) the same run also renders the daily reel and publishes
+# it to the "daily-reel" release; run it by hand with reel: true.
+# On any other branch (push): a dry run that fetches and classifies but changes nothing; reel changes
+# render a test reel as a workflow artifact.
 on:
   schedule:
     - cron: '45,0,15,30 2-10 * * 1-5'
+    - cron: '50 13 * * 1-5'
   workflow_dispatch:
+    inputs:
+      reel:
+        description: 'Render and publish the daily reel'
+        type: boolean
+        default: false
+      force:
+        description: 'Make the reel even if today already has one, or the market was closed'
+        type: boolean
+        default: false
   push:
     branches-ignore:
       - master
@@ -15,6 +28,7 @@ on:
       - 'pulsedge-bot/sources.json'
       - 'pulsedge-bot/premarket.py'
       - 'pulsedge-bot/track_record.py'
+      - 'pulsedge-bot/reel/**'
       - '.github/workflows/pulsedge-news.yml'
 
 permissions:
@@ -122,3 +136,93 @@ jobs:
           git commit -q -m "PulsEdge bot: record posted events"
           git pull --rebase -q && git push
         fi
+
+  reel:
+    needs: update
+    # evening schedule or a manual run with reel: true on master; any push that reaches this workflow on another branch
+    if: >-
+      (github.ref == 'refs/heads/master' && (github.event.schedule == '50 13 * * 1-5' || inputs.reel))
+      || (github.ref != 'refs/heads/master' && github.event_name == 'push')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ github.token }}
+      PUBLISH: ${{ github.ref == 'refs/heads/master' && '1' || '' }}
+      FORCE: ${{ inputs.force && '1' || '' }}
+    steps:
+    - uses: actions/checkout@v5
+      with:
+        ref: ${{ github.ref == 'refs/heads/master' && 'master' || github.sha }}
+    - name: Market day, and no reel yet today?
+      id: gate
+      run: |
+        DAY=$(TZ=Asia/Kolkata date +%F)
+        echo "day=$DAY" >> "$GITHUB_OUTPUT"
+        GO=$(python3 - "$DAY" <<'PY'
+        import json, sys, datetime
+        day = sys.argv[1]
+        hol = set(json.load(open("pulsedge/data/calendar.json")).get("holidays", []))
+        print("no" if datetime.date.fromisoformat(day).weekday() >= 5 or day in hol else "yes")
+        PY
+        )
+        if [ "$GO" = no ] && [ -z "$FORCE" ] && [ -n "$PUBLISH" ]; then echo "NSE closed on $DAY; no reel."; echo "go=false" >> "$GITHUB_OUTPUT"; exit 0; fi
+        if [ -n "$PUBLISH" ] && [ -z "$FORCE" ] && gh release view daily-reel --json assets -q '.assets[].name' 2>/dev/null | grep -qx "pulsedge-reel-$DAY.mp4"; then
+          echo "Today's reel is already published."; echo "go=false" >> "$GITHUB_OUTPUT"; exit 0
+        fi
+        echo "go=true" >> "$GITHUB_OUTPUT"
+    - uses: actions/setup-node@v4
+      if: steps.gate.outputs.go == 'true'
+      with:
+        node-version: '20'
+    - name: Install the renderer
+      if: steps.gate.outputs.go == 'true'
+      timeout-minutes: 6
+      # GitHub's Ubuntu image already has Google Chrome; only the small playwright-core driver is needed
+      run: |
+        npm i --no-save --no-audit --no-fund playwright-core@1.48.2
+        CHROME=$(command -v google-chrome || command -v google-chrome-stable || command -v chromium || command -v chromium-browser)
+        echo "CHROME_PATH=$CHROME" >> "$GITHUB_ENV"; echo "Chrome: $CHROME"
+        command -v ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq --no-install-recommends ffmpeg)
+        ffmpeg -hide_banner -encoders 2>/dev/null | grep -q libx264 && echo "ffmpeg with libx264 ready"
+    - name: Render the reel
+      if: steps.gate.outputs.go == 'true'
+      timeout-minutes: 8
+      run: node pulsedge-bot/reel/render.js --out "out/pulsedge-reel-${{ steps.gate.outputs.day }}.mp4"
+    - name: Keep the test reel (branches)
+      if: steps.gate.outputs.go == 'true' && env.PUBLISH != '1'
+      uses: actions/upload-artifact@v4
+      with:
+        name: pulsedge-reel-test
+        path: out/
+    - name: Publish to the daily-reel release
+      if: steps.gate.outputs.go == 'true' && env.PUBLISH == '1'
+      env:
+        DAY: ${{ steps.gate.outputs.day }}
+        REPO: ${{ github.repository }}
+      run: |
+        cd out
+        for f in pulsedge-reel-$DAY*; do cp "$f" "${f/$DAY/latest}"; done
+        BASE="https://github.com/$REPO/releases/download/daily-reel"
+        { echo "Latest reel: **$DAY**. Download: [video]($BASE/pulsedge-reel-latest.mp4) · [cover]($BASE/pulsedge-reel-latest-cover.jpg)"; echo
+          echo "### Caption"; echo; echo '```'; cat "pulsedge-reel-$DAY-caption.txt"; echo '```'; echo
+          echo "### Voice-over script"; echo; echo '```'; cat "pulsedge-reel-$DAY-voiceover.txt"; echo '```'; } > ../notes.md
+        gh release view daily-reel >/dev/null 2>&1 || gh release create daily-reel --title "PulsEdge daily reel" --notes "Daily reels, made after the market closes." --latest=false
+        gh release upload daily-reel pulsedge-reel-* --clobber
+        gh release edit daily-reel --notes-file ../notes.md
+        # keep 30 days of dated reels
+        CUT=$(date -d "$DAY -30 days" +%F)
+        gh release view daily-reel --json assets -q '.assets[].name' | while read -r n; do
+          d=$(echo "$n" | grep -oE '20[0-9]{2}-[0-9]{2}-[0-9]{2}' || true)
+          if [ -n "$d" ] && [[ "$d" < "$CUT" ]]; then gh release delete-asset daily-reel "$n" -y; fi
+        done
+        { echo "### Today's reel"; echo; echo "- [Video]($BASE/pulsedge-reel-latest.mp4)"; echo "- [Release page](https://github.com/$REPO/releases/tag/daily-reel)"; } >> "$GITHUB_STEP_SUMMARY"
+    - name: Send to Telegram
+      if: steps.gate.outputs.go == 'true' && env.PUBLISH == '1'
+      env:
+        TG_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        TG_CHAT: ${{ vars.TELEGRAM_REEL_CHAT_ID }}
+        DAY: ${{ steps.gate.outputs.day }}
+      run: |
+        if [ -z "$TG_TOKEN" ] || [ -z "$TG_CHAT" ]; then echo "Telegram not set up (TELEGRAM_BOT_TOKEN secret, TELEGRAM_REEL_CHAT_ID variable); skipping."; exit 0; fi
+        curl -sf -o /dev/null -F chat_id="$TG_CHAT" -F supports_streaming=true -F video=@"out/pulsedge-reel-$DAY.mp4" \
+          -F caption="$(head -c 1000 "out/pulsedge-reel-$DAY-caption.txt")" "https://api.telegram.org/bot$TG_TOKEN/sendVideo" && echo "Sent to Telegram."
