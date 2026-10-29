@@ -1,6 +1,6 @@
 {
  "date": "2026-10-29",
- "updated": "2026-10-29T21:27:37+05:30",
+ "updated": "2026-10-29T21:33:48+05:30",
  "sentiment": "Mildly bullish",
  "breadth": {
   "up": 3,
@@ -20,10 +20,10 @@
    "dir": "down",
    "value": "Lower",
    "detail": [
-    "Dow 52,285.27 -0.36%",
-    "S&P 7,720.16 -0.31%",
-    "Nasdaq 26,233.85 -1.19%",
-    "Nasdaq futures now -1.19%"
+    "Dow 52,315.70 -0.30%",
+    "S&P 7,722.03 -0.28%",
+    "Nasdaq 26,236.64 -1.18%",
+    "Nasdaq futures now -1.24%"
    ]
   },
   {
@@ -40,14 +40,14 @@
    "dir": "flat",
    "value": "No major currency pressure",
    "detail": [
-    "DXY 102.00 -0.19%",
+    "DXY 102.04 -0.15%",
     "USD/INR 95.220 +0.00%"
    ]
   },
   {
    "title": "Brent crude level",
    "dir": "up",
-   "value": "$113.65 -1.45%",
+   "value": "$113.61 -1.48%",
    "detail": []
   },
   {
@@ -57,14 +57,14 @@
    "detail": []
   }
  ],
- "summary": "Mildly bullish setup. Brent down 1.45% — relief for OMCs and paints; NASDAQ closed 1.19% lower; IT may open soft.",
+ "summary": "Mildly bullish setup. Brent down 1.48% — relief for OMCs and paints; NASDAQ closed 1.18% lower; IT may open soft.",
  "global_cues": [
-  "Brent down 1.45% — relief for OMCs and paints",
-  "NASDAQ closed 1.19% lower; IT may open soft",
+  "Brent down 1.48% — relief for OMCs and paints",
+  "NASDAQ closed 1.18% lower; IT may open soft",
   "Nikkei up, Hang Seng down"
  ],
  "india_triggers": [
-  "32 filings and headlines worth a look so far today"
+  "86 filings and headlines worth a look so far today"
  ],
  "focus": [
   {
@@ -95,13 +95,13 @@
   },
   {
    "name": "S&P FUT",
-   "value": "7,756",
-   "change": -0.35
+   "value": "7,753",
+   "change": -0.39
   },
   {
    "name": "NASDAQ FUT",
-   "value": "29,621",
-   "change": -1.19
+   "value": "29,609",
+   "change": -1.24
   },
   {
    "name": "KOSPI",
@@ -110,18 +110,18 @@
   },
   {
    "name": "WTI",
-   "value": "100.50",
-   "change": -2.22
+   "value": "100.61",
+   "change": -2.11
   },
   {
    "name": "GOLD",
-   "value": "4,033",
-   "change": -0.46
+   "value": "4,035",
+   "change": -0.4
   },
   {
    "name": "US 10Y",
    "value": "5.00",
-   "change": -0.83
+   "change": -0.79
   }
  ],
  "source": "CNBC / Yahoo Finance (unofficial, delayed)"
