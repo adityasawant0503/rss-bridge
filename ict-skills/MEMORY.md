@@ -85,5 +85,14 @@ structural reference only.
   4. Check entries against the killzones and, where 5m index history for those dates can be
      obtained (Yahoo doesn't go back that far, so try the Dhan historical-data API or a chart export),
      against sweep → MSS → FVG.
+- **Aim (29 Oct 2026):** combine the real P&L with the ICT notes into one strategy that fits Aditya, keeping
+  the ICT structure as the framework.
+- **Tool ready:** `ict-india/trades.py report <files>` reads Dhan Excel/CSV tradebooks. It builds round
+  trips, tags them by ICT window, hour, weekday, days to expiry, instrument, CE/PE, direction and holding
+  time, and replays the notes' rules on the real trades. `--bars` adds sweep/MMXM checks. It's tested on
+  synthetic Dhan-style files only; the real column names are unknown until the files arrive, so the
+  header detection may need a tweak.
+- **Network:** this cloud environment blocks Yahoo, Dhan, NSE and Stooq (checked 29 Oct 2026). Aditya needs
+  to allow them in the environment's network settings, or the index bars have to come as files.
 - **Reminder:** a scheduled task in the original session fires on 27 Oct 2026 at 18:30 IST to ask
   Aditya for the files.

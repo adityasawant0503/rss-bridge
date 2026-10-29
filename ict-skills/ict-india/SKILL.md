@@ -118,6 +118,29 @@ until `"profitable": true` *(p.12)*. `size_factor: 0.75` applies "lower size by 
 journal's "entered with all profits" (p.2) is exactly what fixed RPT prevents: never size off the
 day's gains.
 
+## Your own trades, through the ICT structure
+
+`trades.py` reads Aditya's real tradebook and splits every rupee of P&L along the same lines the
+model uses. Put the broker files in `ict/dhan-2025/` (git-ignored), then:
+
+```bash
+python3 trades.py report ict/dhan-2025/*.xlsx ict/dhan-2025/*.csv --months 2025-06,2025-08,2025-09,2025-10,2025-11
+python3 trades.py report ict/dhan-2025/*.csv --bars ict/banknifty-5m.csv --json ict/dhan-2025/report.json
+```
+
+- Fills are paired into round trips (flat → position → flat per contract). P&L is gross, so check it
+  against the P&L statement's net total.
+- Each trade is tagged with its ICT window (opening range, AM killzone, lunch, PM killzone, close),
+  hour, weekday, days to expiry (read from the contract name), underlying, buy/sell CE/PE, index direction,
+  holding time, and its number in the day.
+- **Rule replay**: every rule from the notes is applied to the trades Aditya actually took, to show what each
+  would have blocked and whether that saved or cost money. That's how the notes and the real P&L get
+  combined into one rule set: keep the rules that saved money, question the ones that cost it.
+- With `--bars` (index candles for those dates), it also checks whether each entry came after a
+  liquidity sweep or during a live MMXM setup in the same direction.
+- Only aggregates go into notes or memory. The raw statements belong to Shreyas's account (from a
+  previous venture), so never copy their personal details anywhere.
+
 ## Backtest before trusting it
 
 The notes ask for 6 months of backtesting *(p.10)*. Yahoo gives about 59 sessions of 5m bars. For more, use a
