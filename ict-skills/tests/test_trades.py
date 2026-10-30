@@ -54,6 +54,51 @@ def write_xlsx(path, rows):
         z.writestr("xl/worksheets/sheet1.xml", sheet)
 
 
+NOTE_LINES = [
+    "CONTRACT NOTE CUM TAX INVOICE",
+    "Trade Date: 09/09/2025          Settlement No: 2025171",
+    "Order No.          Order Time  Trade No.   Trade Time  Security / Contract Description          B/S   Quantity   Gross Rate   Net Total",
+    "1100000012345678   09:41:02    50012345    09:41:05    OPTIDX BANKNIFTY 30SEP2025 54000.00 PE    B     105        210.50       -22102.50",
+    "1100000012345679   09:43:58    50012399    09:44:00    OPTIDX BANKNIFTY 30SEP2025 54000.00 PE    S     60         238.00       14280.00",
+    "1100000012345680   09:47:08    50012411    09:47:10    OPTIDX BANKNIFTY 30SEP2025 54000.00 PE    S     45         233.00       10485.00",
+    "1100000012345690   09:50:00    ADJUSTMENT NIFTY ROUNDING",
+    "Total                                                                                                   2662.50",
+]
+
+
+def make_pdf(path, lines, password=None):
+    """A one-page PDF in Courier with one text line per row, optionally locked like a broker contract note."""
+    esc = lambda t: t.replace("\\", "\\\\").replace("(", "\\(").replace(")", "\\)")
+    content = "BT /F1 7 Tf 10 800 Td 10 TL " + " ".join("(%s) Tj T*" % esc(l) for l in lines) + " ET"
+    objs = ["<< /Type /Catalog /Pages 2 0 R >>", "<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
+            "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 1000 842] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>",
+            "<< /Length %d >>\nstream\n%s\nendstream" % (len(content), content),
+            "<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>"]
+    out, offs = "%PDF-1.4\n", []
+    for k, o in enumerate(objs, 1):
+        offs.append(len(out))
+        out += "%d 0 obj\n%s\nendobj\n" % (k, o)
+    xref = len(out)
+    out += "xref\n0 %d\n0000000000 65535 f \n" % (len(objs) + 1) + "".join("%010d 00000 n \n" % x for x in offs)
+    out += "trailer\n<< /Size %d /Root 1 0 R >>\nstartxref\n%d\n%%%%EOF\n" % (len(objs) + 1, xref)
+    with open(path, "w", encoding="latin-1") as f:
+        f.write(out)
+    if password:
+        import pypdf
+        w = pypdf.PdfWriter(clone_from=pypdf.PdfReader(path))
+        w.encrypt(password)
+        with open(path, "wb") as f:
+            w.write(f)
+
+
+def have_pdf_tools():
+    try:
+        import pypdf  # noqa: F401
+        return True
+    except ImportError:
+        return False
+
+
 class TestTrades(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.mkdtemp()
@@ -113,6 +158,36 @@ class TestTrades(unittest.TestCase):
         self.assertEqual(T.parse_dt("45909", "0.4034722"), datetime(2025, 9, 9, 9, 41))
         self.assertEqual(T.parse_dt("45909.4034722"), datetime(2025, 9, 9, 9, 41))
         self.assertEqual(T.parse_dt("09 Sep 2025", "09:41:05 AM"), datetime(2025, 9, 9, 9, 41, 5))
+
+    @unittest.skipUnless(have_pdf_tools(), "needs pypdf to build a locked PDF")
+    def test_locked_contract_notes_in_a_zip(self):
+        pdf = os.path.join(self.tmp, "cn-09-09-2025.pdf")
+        make_pdf(pdf, NOTE_LINES, password="ABCDE1234F")
+        with self.assertRaises(ValueError) as e:
+            T.build([pdf])
+        self.assertIn("password", str(e.exception))
+        z = os.path.join(self.tmp, "notes.zip")
+        with zipfile.ZipFile(z, "w") as zz:
+            zz.write(pdf, "Sep/cn-09-09-2025.pdf")
+            zz.writestr("readme.txt", "ignored")
+        rep, trips = T.build([z], password="ABCDE1234F")
+        self.assertEqual(rep["fills"], 3)
+        self.assertEqual(len(trips), 1)
+        t = trips[0]
+        self.assertEqual((t["underlying"], t["kind"], t["expiry"], t["pnl"], t["window"]),
+                         ("BANKNIFTY", "PE", date(2025, 9, 30), 2662.5, "am"))
+        self.assertEqual(t["entry_t"], datetime(2025, 9, 9, 9, 41, 5))   # trade time, not order time
+        self.assertEqual(len(rep["unparsed"]), 1)                         # the adjustment line is reported, not guessed
+
+    @unittest.skipUnless(have_pdf_tools(), "needs pypdf to build a PDF")
+    def test_contract_note_and_tradebook_together(self):
+        pdf = os.path.join(self.tmp, "cn.pdf")
+        make_pdf(pdf, NOTE_LINES)
+        csvp = os.path.join(self.tmp, "tb.csv")
+        write_csv(csvp, ROWS[3:])
+        rep, _ = T.build([pdf, csvp])
+        self.assertEqual(rep["overall"]["trades"], 3)
+        self.assertEqual(rep["overall"]["pnl"], 2587.5)
 
     def test_ict_context_against_index_bars(self):
         # the textbook India session from test_mmxm: short filled at 10:35 IST on 20 Oct 2026

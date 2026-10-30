@@ -92,6 +92,10 @@ structural reference only.
   time, and replays the notes' rules on the real trades. `--bars` adds sweep/MMXM checks. It's tested on
   synthetic Dhan-style files only; the real column names are unknown until the files arrive, so the
   header detection may need a tweak.
+- **Contract notes (30 Oct 2026):** Aditya worried that unlocking each password-locked note would be tedious.
+  `trades.py` now unlocks and reads them in bulk (a zip plus one password, via pdftotext/pypdf). The
+  easiest route is still Dhan's single tradebook Excel export for the whole period. Screenshots are only
+  good for checking monthly totals, not for the trade-by-trade analysis.
 - **Network:** this cloud environment blocks Yahoo, Dhan, NSE and Stooq (checked 29 Oct 2026). Aditya needs
   to allow them in the environment's network settings, or the index bars have to come as files.
 - **Reminder:** a scheduled task in the original session fires on 27 Oct 2026 at 18:30 IST to ask

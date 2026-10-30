@@ -11,6 +11,7 @@ and shows what each rule would have kept or cost you.
   python3 trades.py report ict/dhan-2025/*.xlsx ict/dhan-2025/*.csv
   python3 trades.py report tradebook.csv --bars banknifty-5m.csv   # also check for a sweep/MSS/FVG before each entry
   python3 trades.py report tradebook.csv --months 2025-06,2025-08,2025-09,2025-10,2025-11 --json out.json
+  DHAN_PDF_PASSWORD=XXXXX1234X python3 trades.py report contract-notes.zip   # locked contract notes, unlocked in bulk
 
 Raw files stay on your machine (keep them in ict/, which is git-ignored). Standard library only.
 """
@@ -20,7 +21,10 @@ import io
 import json
 import os
 import re
+import shutil
+import subprocess
 import sys
+import tempfile
 import zipfile
 from collections import OrderedDict, defaultdict
 from datetime import date, datetime, timedelta
@@ -163,26 +167,116 @@ def parse_contract(sym, trade_day):
     return {"underlying": und or s.split(" ")[0], "kind": kind, "strike": strike, "expiry": exp}
 
 
-def load_fills(paths):
-    fills = []
+def pdf_text(path, password=None):
+    """Text of a PDF, unlocked with the password when it has one: pdftotext (poppler) first, then pypdf."""
+    name = os.path.basename(path)
+    exe = shutil.which("pdftotext")
+    if exe:
+        out = subprocess.run([exe, "-layout"] + (["-upw", password] if password else []) + [path, "-"],
+                             capture_output=True, timeout=120)
+        if out.returncode == 0:
+            return out.stdout.decode("utf-8", "replace")
+        if b"assword" in out.stderr:
+            raise ValueError("%s is password-protected: pass --password or set DHAN_PDF_PASSWORD" % name)
+    try:
+        import pypdf
+    except ImportError:
+        raise ValueError("reading %s needs pdftotext (poppler) or the pypdf package" % name)
+    reader = pypdf.PdfReader(path)
+    if reader.is_encrypted and (not password or not reader.decrypt(password)):
+        raise ValueError("%s is password-protected and the password did not open it" % name)
+    pages = []
+    for page in reader.pages:
+        try:
+            pages.append(page.extract_text(extraction_mode="layout") or "")
+        except TypeError:
+            pages.append(page.extract_text() or "")
+    return "\n".join(pages)
+
+
+NOTE_DATE = re.compile(r"trade\s*date\s*[:\-]?\s*(\d{1,2}[/\-.]\d{1,2}[/\-.]\d{2,4}|\d{1,2}[ \-][A-Za-z]{3}[ \-]\d{2,4}|\d{4}-\d{2}-\d{2})", re.I)
+TIME_RE = re.compile(r"\b(\d{1,2}:\d{2}:\d{2})\b")
+SIDE_RE = re.compile(r"(?<![A-Z])(BUY|SELL|B|S)(?![A-Z])")
+NUM_RE = re.compile(r"\d[\d,]*(?:\.\d+)?")
+UND_RE = re.compile(r"(?<![A-Z])(" + "|".join(UNDERLYINGS) + r")")
+
+
+def parse_contract_note(text, name):
+    """Trade rows from a contract note's text: a line with a time, an index contract, B/S, quantity and price.
+
+    Returns (fills, unparsed lines that looked like trades)."""
+    m = NOTE_DATE.search(text)
+    if not m:
+        raise ValueError("%s: no 'Trade Date' found, so this may not be a contract note" % name)
+    day = parse_dt(m.group(1).replace(".", "-")).date()
+    fills, misses = [], []
+    for line in text.splitlines():
+        up = line.upper()
+        und = UND_RE.search(up)
+        if not und or not TIME_RE.search(up):
+            continue
+        tail = up[und.start():]
+        side = None
+        for x in SIDE_RE.finditer(tail):
+            if len(NUM_RE.findall(tail[x.end():])) >= 2:
+                side = x
+                break
+        if not side:
+            misses.append(line.strip())
+            continue
+        nums = NUM_RE.findall(tail[side.end():])
+        before = TIME_RE.findall(up[:und.start()]) or TIME_RE.findall(up)
+        try:
+            qty, price = num(nums[0]), num(nums[1])
+            when = datetime.combine(day, datetime.strptime(before[-1], "%H:%M:%S").time())
+        except ValueError:
+            misses.append(line.strip())
+            continue
+        if qty <= 0 or price <= 0:
+            misses.append(line.strip())
+            continue
+        fills.append({"t": when, "symbol": re.sub(r"\s+", " ", tail[:side.start()].strip()), "side": side.group(1)[0],
+                      "qty": qty, "price": price, "file": name})
+    return fills, misses
+
+
+def expand(paths, workdir):
+    """Zip files are unpacked (only PDF/CSV/Excel members) into workdir; everything else passes through."""
+    out = []
     for p in paths:
-        rows = read_rows(p)
-        h, col = find_header(rows)
-        for r in rows[h + 1:]:
-            if len(r) <= max(col.values()) or not str(r[col["symbol"]]).strip():
+        if p.lower().endswith(".zip"):
+            with zipfile.ZipFile(p) as z:
+                for k, info in enumerate(z.infolist()):
+                    base = os.path.basename(info.filename)
+                    if info.is_dir() or not base.lower().endswith((".pdf", ".csv", ".xlsx", ".xlsm")):
+                        continue
+                    dest = os.path.join(workdir, "%04d-%s" % (k, re.sub(r"[^A-Za-z0-9._-]", "_", base)))
+                    with z.open(info) as src, open(dest, "wb") as dst:
+                        shutil.copyfileobj(src, dst)
+                    out.append(dest)
+        else:
+            out.append(p)
+    return out
+
+
+LAST_MISSES = []
+
+
+def load_fills(paths, password=None):
+    fills = []
+    del LAST_MISSES[:]
+    work = tempfile.mkdtemp(prefix="trades-")
+    try:
+        files = expand(paths, work)
+        for p in files:
+            if p.lower().endswith(".pdf"):
+                got, misses = parse_contract_note(pdf_text(p, password), os.path.basename(p))
+                fills.extend(got)
+                LAST_MISSES.extend((os.path.basename(p), x) for x in misses)
                 continue
-            side = str(r[col["side"]]).strip().upper()
-            if side[:1] not in ("B", "S"):
-                continue
-            try:
-                when = parse_dt(r[col["datetime"]]) if "datetime" in col else parse_dt(r[col["date"]], r[col["time"]] if "time" in col else "")
-                qty, price = abs(num(r[col["qty"]])), num(r[col["price"]])
-            except ValueError:
-                continue
-            if qty <= 0:
-                continue
-            fills.append({"t": when, "symbol": re.sub(r"\s+", " ", str(r[col["symbol"]]).strip()),
-                          "side": side[0], "qty": qty, "price": price, "file": os.path.basename(p)})
+            fills.extend(load_table(p))
+    finally:
+        shutil.rmtree(work, ignore_errors=True)
     fills.sort(key=lambda f: (f["t"], f["symbol"]))
     # the same fill exported twice (overlapping reports) counts once
     seen, out = set(), []
@@ -192,6 +286,28 @@ def load_fills(paths):
             seen.add(k)
             out.append(f)
     return out
+
+
+def load_table(p):
+    fills = []
+    rows = read_rows(p)
+    h, col = find_header(rows)
+    for r in rows[h + 1:]:
+        if len(r) <= max(col.values()) or not str(r[col["symbol"]]).strip():
+            continue
+        side = str(r[col["side"]]).strip().upper()
+        if side[:1] not in ("B", "S"):
+            continue
+        try:
+            when = parse_dt(r[col["datetime"]]) if "datetime" in col else parse_dt(r[col["date"]], r[col["time"]] if "time" in col else "")
+            qty, price = abs(num(r[col["qty"]])), num(r[col["price"]])
+        except ValueError:
+            continue
+        if qty <= 0:
+            continue
+        fills.append({"t": when, "symbol": re.sub(r"\s+", " ", str(r[col["symbol"]]).strip()),
+                      "side": side[0], "qty": qty, "price": price, "file": os.path.basename(p)})
+    return fills
 
 
 # ---------------------------------------------------------------- round trips
@@ -365,11 +481,11 @@ def inr(v):
     return ("-" if v < 0 else "") + "₹" + (head + "," + tail if head else tail)
 
 
-def build(paths, months=None, bars=None, profile=None):
+def build(paths, months=None, bars=None, profile=None, password=None):
     prof = mmxm.load_profile(profile)
     cfg = mmxm.load_config(prof)
     mkt = mmxm.Market(prof, cfg)
-    fills = load_fills(paths)
+    fills = load_fills(paths, password)
     if months:
         fills = [f for f in fills if f["t"].strftime("%Y-%m") in months]
     trips = round_trips(fills)
@@ -383,6 +499,7 @@ def build(paths, months=None, bars=None, profile=None):
             days[t["day"]] += t["pnl"]
     rep = {
         "fills": len(fills), "files": sorted({f["file"] for f in fills}),
+        "unparsed": [{"file": f, "line": x} for f, x in LAST_MISSES],
         "overall": stats(trips),
         "open_positions": [t["symbol"] for t in trips if t["pnl"] is None],
         "by_month": group(trips, lambda t: t["entry_t"].strftime("%Y-%m")),
@@ -414,7 +531,12 @@ def build(paths, months=None, bars=None, profile=None):
 
 def print_report(rep):
     o = rep["overall"]
-    print("%d fills from %s -> %d round trips" % (rep["fills"], ", ".join(rep["files"]), o["trades"]))
+    files = rep["files"]
+    print("%d fills from %s -> %d round trips" % (rep["fills"], ", ".join(files) if len(files) <= 4 else "%d files" % len(files), o["trades"]))
+    if rep["unparsed"]:
+        print("%d lines looked like trades but could not be read, for example:" % len(rep["unparsed"]))
+        for u in rep["unparsed"][:3]:
+            print("  %s: %s" % (u["file"], u["line"][:140]))
     print("gross P&L %s   won %d / lost %d (%.0f%%)   avg win %s   avg loss %s   profit factor %s   largest loss %s" % (
         inr(o["pnl"]), o["wins"], o["losses"], o["win_rate"] or 0, inr(o["avg_win"]), inr(o["avg_loss"]),
         o["profit_factor"], inr(o["largest_loss"])))
@@ -458,8 +580,10 @@ def main(argv=None):
     r.add_argument("--months", help="comma list like 2025-06,2025-08")
     r.add_argument("--bars", help="index bars (CSV time,open,high,low,close) to check for sweeps and MMXM setups")
     r.add_argument("--json", help="write the full report and every round trip here")
+    r.add_argument("--password", help="contract-note PDF password (or set DHAN_PDF_PASSWORD, which keeps it out of shell history)")
     a = ap.parse_args(argv)
-    rep, trips = build(a.files, set(a.months.split(",")) if a.months else None, a.bars)
+    rep, trips = build(a.files, set(a.months.split(",")) if a.months else None, a.bars,
+                       password=a.password or os.environ.get("DHAN_PDF_PASSWORD"))
     print_report(rep)
     if a.json:
         os.makedirs(os.path.dirname(os.path.abspath(a.json)), exist_ok=True)

@@ -128,6 +128,11 @@ python3 trades.py report ict/dhan-2025/*.xlsx ict/dhan-2025/*.csv --months 2025-
 python3 trades.py report ict/dhan-2025/*.csv --bars ict/banknifty-5m.csv --json ict/dhan-2025/report.json
 ```
 
+- It reads Excel/CSV tradebooks **and contract-note PDFs**, including password-locked ones, in bulk. A whole
+  zip of them is unlocked with one password, so nobody has to open each note
+  (`DHAN_PDF_PASSWORD=... python3 trades.py report notes.zip`). Lines that look like trades but can't be read
+  are listed, never guessed. The PDF layout parser is checked against a synthetic NSE-style note only, so
+  confirm it on the first real note.
 - Fills are paired into round trips (flat → position → flat per contract). P&L is gross, so check it
   against the P&L statement's net total.
 - Each trade is tagged with its ICT window (opening range, AM killzone, lunch, PM killzone, close),
