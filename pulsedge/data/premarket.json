@@ -1,6 +1,6 @@
 {
  "date": "2026-10-30",
- "updated": "2026-10-30T13:28:58+05:30",
+ "updated": "2026-10-30T19:26:28+05:30",
  "sentiment": "Mildly bearish",
  "breadth": {
   "up": 1,
@@ -10,9 +10,9 @@
   {
    "title": "Nifty 50 last close (GIFT Nifty not available from free sources)",
    "dir": "up",
-   "value": "23,095.65 (+0.69%)",
+   "value": "23,053.10 (+0.51%)",
    "detail": [
-    "Previous close 22,937.38"
+    "Previous close 22,936.13"
    ]
   },
   {
@@ -20,10 +20,10 @@
    "dir": "down",
    "value": "Lower",
    "detail": [
-    "Dow 52,342.56 -0.25%",
-    "S&P 7,720.39 -0.30%",
-    "Nasdaq 26,184.72 -1.38%",
-    "Nasdaq futures now -2.04%"
+    "Dow 52,156.82 -0.35%",
+    "S&P 7,627.25 -1.21%",
+    "Nasdaq 25,604.81 -2.22%",
+    "Nasdaq futures now -2.75%"
    ]
   },
   {
@@ -32,7 +32,7 @@
    "value": "Asia mixed",
    "detail": [
     "Nikkei 63,290.11 -2.12%",
-    "Hang Seng 23,306.74 +1.52%"
+    "Hang Seng 23,294.42 +1.46%"
    ]
   },
   {
@@ -40,14 +40,14 @@
    "dir": "flat",
    "value": "No major currency pressure",
    "detail": [
-    "DXY 101.77 -0.26%",
-    "USD/INR 95.055 -0.14%"
+    "DXY 101.99 -0.05%",
+    "USD/INR 94.855 -0.35%"
    ]
   },
   {
    "title": "Brent crude level",
    "dir": "down",
-   "value": "$116.92 +1.78%",
+   "value": "$117.25 +2.06%",
    "detail": [
     "Rising crude hurts India (OMCs, paints, aviation); helps upstream"
    ]
@@ -55,31 +55,31 @@
   {
    "title": "India VIX",
    "dir": "flat",
-   "value": "15.38 (+1.72%) — normal",
+   "value": "15.30 (+1.22%) — normal",
    "detail": []
   }
  ],
- "summary": "Mildly bearish setup. Brent up 1.78% — pressure on OMCs, paints and aviation; NASDAQ closed 1.38% lower; IT may open soft.",
+ "summary": "Mildly bearish setup. Brent up 2.06% — pressure on OMCs, paints and aviation; NASDAQ closed 2.22% lower; IT may open soft.",
  "global_cues": [
-  "Brent up 1.78% — pressure on OMCs, paints and aviation",
-  "NASDAQ closed 1.38% lower; IT may open soft",
+  "Brent up 2.06% — pressure on OMCs, paints and aviation",
+  "NASDAQ closed 2.22% lower; IT may open soft",
   "Nikkei down, Hang Seng up"
  ],
  "india_triggers": [
-  "64 filings and headlines worth a look so far today"
+  "89 filings and headlines worth a look so far today"
  ],
  "focus": [
   {
-   "symbol": "INTELLECT",
-   "note": "Intellect Design Arena Limited: Intellect Design Arena Limited has sub"
+   "symbol": "PHOENIXLTD",
+   "note": "The Phoenix Mills Limited: The Phoenix Mills Limited has submitted to "
   },
   {
-   "symbol": "LAURUSLABS",
-   "note": "Laurus Labs share price at record high after Q2 results 20⁠⁩26, divide"
+   "symbol": "UNITDSPR",
+   "note": "United Spirits Limited: United Spirits Limited has informed the Exchan"
   },
   {
-   "symbol": "OIL",
-   "note": "Vedanta Oil and Gas shares zoom 18% as Q2 profit rises manifold to ₹74"
+   "symbol": "GRASIM",
+   "note": "Grasim Industries Limited: Update on acquisition of Solenergi Power Pr"
   }
  ],
  "sector_tags": [
@@ -100,18 +100,18 @@
  "also": [
   {
    "name": "BANK NIFTY",
-   "value": "54,920.2",
-   "change": 0.02
+   "value": "54,686.9",
+   "change": -0.41
   },
   {
    "name": "S&P FUT",
-   "value": "7,683",
-   "change": -0.92
+   "value": "7,659",
+   "change": -1.23
   },
   {
    "name": "NASDAQ FUT",
-   "value": "28,958",
-   "change": -2.04
+   "value": "28,749",
+   "change": -2.75
   },
   {
    "name": "KOSPI",
@@ -120,18 +120,18 @@
   },
   {
    "name": "WTI",
-   "value": "103.67",
-   "change": 1.64
+   "value": "103.72",
+   "change": 1.69
   },
   {
    "name": "GOLD",
-   "value": "3,988",
-   "change": -1.07
+   "value": "3,935",
+   "change": -2.38
   },
   {
    "name": "US 10Y",
-   "value": "4.94",
-   "change": -1.04
+   "value": "4.93",
+   "change": -1.08
   }
  ],
  "source": "CNBC / Yahoo Finance (unofficial, delayed)"
