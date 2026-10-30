@@ -1,18 +1,18 @@
 {
- "date": "2026-10-29",
- "updated": "2026-10-29T21:33:48+05:30",
- "sentiment": "Mildly bullish",
+ "date": "2026-10-30",
+ "updated": "2026-10-30T08:41:35+05:30",
+ "sentiment": "Mildly bearish",
  "breadth": {
-  "up": 3,
-  "down": 1
+  "up": 0,
+  "down": 2
  },
  "checklist": [
   {
    "title": "Nifty 50 last close (GIFT Nifty not available from free sources)",
-   "dir": "up",
-   "value": "22,936.75 (+1.05%)",
+   "dir": "flat",
+   "value": "22,936.75 (+0.00%)",
    "detail": [
-    "Previous close 22,698.42"
+    "Previous close 22,936.75"
    ]
   },
   {
@@ -20,10 +20,10 @@
    "dir": "down",
    "value": "Lower",
    "detail": [
-    "Dow 52,315.70 -0.30%",
-    "S&P 7,722.03 -0.28%",
-    "Nasdaq 26,236.64 -1.18%",
-    "Nasdaq futures now -1.24%"
+    "Dow 52,342.56 -0.25%",
+    "S&P 7,720.39 -0.30%",
+    "Nasdaq 26,184.72 -1.38%",
+    "Nasdaq futures now -2.23%"
    ]
   },
   {
@@ -31,8 +31,8 @@
    "dir": "flat",
    "value": "Asia mixed",
    "detail": [
-    "Nikkei 64,659.47 +1.10%",
-    "Hang Seng 22,958.65 -0.59%"
+    "Nikkei 63,019.78 -2.54%",
+    "Hang Seng 23,270.14 +1.36%"
    ]
   },
   {
@@ -40,88 +40,98 @@
    "dir": "flat",
    "value": "No major currency pressure",
    "detail": [
-    "DXY 102.04 -0.15%",
-    "USD/INR 95.220 +0.00%"
+    "DXY 101.67 -0.36%",
+    "USD/INR 95.190 +0.00%"
    ]
   },
   {
    "title": "Brent crude level",
-   "dir": "up",
-   "value": "$113.61 -1.48%",
-   "detail": []
+   "dir": "down",
+   "value": "$116.54 +1.44%",
+   "detail": [
+    "Rising crude hurts India (OMCs, paints, aviation); helps upstream"
+   ]
   },
   {
    "title": "India VIX",
-   "dir": "up",
-   "value": "15.12 (-6.94%) — normal",
+   "dir": "flat",
+   "value": "15.12 (+0.00%) — normal",
    "detail": []
   }
  ],
- "summary": "Mildly bullish setup. Brent down 1.48% — relief for OMCs and paints; NASDAQ closed 1.18% lower; IT may open soft.",
+ "summary": "Mildly bearish setup. Brent up 1.44% — pressure on OMCs, paints and aviation; NASDAQ closed 1.38% lower; IT may open soft.",
  "global_cues": [
-  "Brent down 1.48% — relief for OMCs and paints",
-  "NASDAQ closed 1.18% lower; IT may open soft",
-  "Nikkei up, Hang Seng down"
+  "Brent up 1.44% — pressure on OMCs, paints and aviation",
+  "NASDAQ closed 1.38% lower; IT may open soft",
+  "Nikkei down, Hang Seng up"
  ],
  "india_triggers": [
-  "86 filings and headlines worth a look so far today"
+  "25 filings and headlines worth a look so far today"
  ],
  "focus": [
   {
-   "symbol": "MEESHO",
-   "note": "Meesho Limited: MEESHO LIMITED (Formerly known as “Meesho Private Limi"
+   "symbol": "RELIANCE",
+   "note": "Reliance Industries Q2 results 2026 today: Preview, should you buy, se"
   },
   {
-   "symbol": "RVNL",
-   "note": "Rail Vikas Nigam Limited: Rail Vikas Nigam Limited has informed the Ex"
+   "symbol": "TRENT",
+   "note": "Trent net profit up 25% despite cost pressures and stiff competition"
   },
   {
-   "symbol": "RVNL",
-   "note": "Rail Vikas Nigam Limited: Disclosure under Regulation 30 of SEBI (LODR"
+   "symbol": "GODREJCP",
+   "note": "Godrej consumer profit rises 14%, weighs calibrated price hikes to off"
   }
  ],
  "sector_tags": [
+  {
+   "label": "Upstream oil",
+   "tone": "positive"
+  },
+  {
+   "label": "OMCs",
+   "tone": "negative"
+  },
   {
    "label": "IT",
    "tone": "watch"
   }
  ],
- "key_risk": "Weak US tech could weigh on Indian IT at the open",
+ "key_risk": "A further crude spike would hit OMCs and widen the INR move",
  "also": [
   {
    "name": "BANK NIFTY",
    "value": "54,909.7",
-   "change": 1.18
+   "change": 0.0
   },
   {
    "name": "S&P FUT",
-   "value": "7,753",
-   "change": -0.39
+   "value": "7,676",
+   "change": -1.01
   },
   {
    "name": "NASDAQ FUT",
-   "value": "29,609",
-   "change": -1.24
+   "value": "28,903",
+   "change": -2.23
   },
   {
    "name": "KOSPI",
-   "value": "5,938",
-   "change": -1.24
+   "value": "5,632",
+   "change": -5.15
   },
   {
    "name": "WTI",
-   "value": "100.61",
-   "change": -2.11
+   "value": "103.36",
+   "change": 1.33
   },
   {
    "name": "GOLD",
-   "value": "4,035",
-   "change": -0.4
+   "value": "4,008",
+   "change": -0.58
   },
   {
    "name": "US 10Y",
-   "value": "5.00",
-   "change": -0.79
+   "value": "4.91",
+   "change": -1.54
   }
  ],
  "source": "CNBC / Yahoo Finance (unofficial, delayed)"
