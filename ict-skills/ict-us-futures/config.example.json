@@ -1,0 +1,29 @@
+{
+ "_how": "Copy to ict/config-us-futures.json in the folder you work from, then edit. Every key is optional.",
+ "account": 50000,
+ "risk_pct": 1.0,
+ "profitable": false,
+ "_profitable": "Notes EP-7: risk 1% or half a % until profitability. While false, risk is capped at unprofitable_risk_pct.",
+ "unprofitable_risk_pct": 0.5,
+ "size_factor": 1.0,
+ "_size_factor": "Psychology #9: lower size by 1/4 until it feels comfortable -> 0.75.",
+ "instrument": "MNQ",
+ "max_trades_per_day": 2,
+ "stop_after_losses": 2,
+ "pm_after_am_trade": false,
+ "avoid_fridays": true,
+ "walk_away_after_profitable_wednesday": true,
+ "_events": "Fill in this month's red-folder dates from an economic calendar. action avoid = no trades (CPI), conviction = allowed with a warning (FOMC). These two dates are examples only.",
+ "events": [
+  {"date": "2026-11-12", "name": "CPI", "action": "avoid"},
+  {"date": "2026-12-09", "name": "FOMC", "action": "conviction"}
+ ],
+ "entry_tf": "5m",
+ "entry_mode": "confirm",
+ "confirm_bars": 2,
+ "fvg_pick": "nearest",
+ "stop_mode": "swing",
+ "min_rr": 1.0,
+ "dr_filter": "half",
+ "displacement_mult": 1.5
+}
