@@ -1,6 +1,6 @@
 {
  "date": "2026-10-30",
- "updated": "2026-10-30T19:26:28+05:30",
+ "updated": "2026-10-30T20:26:43+05:30",
  "sentiment": "Mildly bearish",
  "breadth": {
   "up": 1,
@@ -20,10 +20,10 @@
    "dir": "down",
    "value": "Lower",
    "detail": [
-    "Dow 52,156.82 -0.35%",
-    "S&P 7,627.25 -1.21%",
-    "Nasdaq 25,604.81 -2.22%",
-    "Nasdaq futures now -2.75%"
+    "Dow 52,102.68 -0.46%",
+    "S&P 7,618.26 -1.32%",
+    "Nasdaq 25,616.54 -2.17%",
+    "Nasdaq futures now -2.63%"
    ]
   },
   {
@@ -40,14 +40,14 @@
    "dir": "flat",
    "value": "No major currency pressure",
    "detail": [
-    "DXY 101.99 -0.05%",
+    "DXY 101.94 -0.09%",
     "USD/INR 94.855 -0.35%"
    ]
   },
   {
    "title": "Brent crude level",
    "dir": "down",
-   "value": "$117.25 +2.06%",
+   "value": "$117.44 +2.23%",
    "detail": [
     "Rising crude hurts India (OMCs, paints, aviation); helps upstream"
    ]
@@ -59,27 +59,27 @@
    "detail": []
   }
  ],
- "summary": "Mildly bearish setup. Brent up 2.06% — pressure on OMCs, paints and aviation; NASDAQ closed 2.22% lower; IT may open soft.",
+ "summary": "Mildly bearish setup. Brent up 2.23% — pressure on OMCs, paints and aviation; NASDAQ closed 2.17% lower; IT may open soft.",
  "global_cues": [
-  "Brent up 2.06% — pressure on OMCs, paints and aviation",
-  "NASDAQ closed 2.22% lower; IT may open soft",
+  "Brent up 2.23% — pressure on OMCs, paints and aviation",
+  "NASDAQ closed 2.17% lower; IT may open soft",
   "Nikkei down, Hang Seng up"
  ],
  "india_triggers": [
-  "89 filings and headlines worth a look so far today"
+  "95 filings and headlines worth a look so far today"
  ],
  "focus": [
   {
-   "symbol": "PHOENIXLTD",
-   "note": "The Phoenix Mills Limited: The Phoenix Mills Limited has submitted to "
+   "symbol": "RELIANCE",
+   "note": "Reliance Retail Q2 Results: Net profit falls 24% YoY to Rs 2,611 crore"
   },
   {
-   "symbol": "UNITDSPR",
-   "note": "United Spirits Limited: United Spirits Limited has informed the Exchan"
+   "symbol": "RELIANCE",
+   "note": "Reliance Industries announces fundraising, to raise Rs 15,000 crore th"
   },
   {
-   "symbol": "GRASIM",
-   "note": "Grasim Industries Limited: Update on acquisition of Solenergi Power Pr"
+   "symbol": "RELIANCE",
+   "note": "Reliance Industries Q2 results 2026: RIL quarterly earnings announced "
   }
  ],
  "sector_tags": [
@@ -105,13 +105,13 @@
   },
   {
    "name": "S&P FUT",
-   "value": "7,659",
-   "change": -1.23
+   "value": "7,653",
+   "change": -1.31
   },
   {
    "name": "NASDAQ FUT",
-   "value": "28,749",
-   "change": -2.75
+   "value": "28,785",
+   "change": -2.63
   },
   {
    "name": "KOSPI",
@@ -120,18 +120,18 @@
   },
   {
    "name": "WTI",
-   "value": "103.72",
-   "change": 1.69
+   "value": "104.25",
+   "change": 2.21
   },
   {
    "name": "GOLD",
-   "value": "3,935",
-   "change": -2.38
+   "value": "3,920",
+   "change": -2.77
   },
   {
    "name": "US 10Y",
-   "value": "4.93",
-   "change": -1.08
+   "value": "4.95",
+   "change": -0.74
   }
  ],
  "source": "CNBC / Yahoo Finance (unofficial, delayed)"
