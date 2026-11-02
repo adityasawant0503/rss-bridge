@@ -1,18 +1,18 @@
 {
  "date": "2026-11-02",
- "updated": "2026-11-02T08:41:22+05:30",
- "sentiment": "Neutral",
+ "updated": "2026-11-02T14:15:45+05:30",
+ "sentiment": "Mildly bullish",
  "breadth": {
-  "up": 1,
+  "up": 2,
   "down": 1
  },
  "checklist": [
   {
    "title": "Nifty 50 last close (GIFT Nifty not available from free sources)",
-   "dir": "flat",
-   "value": "23,053.10 (+0.00%)",
+   "dir": "up",
+   "value": "23,245.50 (+0.83%)",
    "detail": [
-    "Previous close 23,053.10"
+    "Previous close 23,054.15"
    ]
   },
   {
@@ -23,7 +23,7 @@
     "Dow 51,770.31 -1.09%",
     "S&P 7,580.07 -1.82%",
     "Nasdaq 25,437.00 -2.86%",
-    "Nasdaq futures now +0.80%"
+    "Nasdaq futures now +0.77%"
    ]
   },
   {
@@ -31,8 +31,8 @@
    "dir": "flat",
    "value": "Asia mixed",
    "detail": [
-    "Nikkei 63,095.11 -0.31%",
-    "Hang Seng 23,320.14 +0.11%"
+    "Nikkei 63,081.86 -0.33%",
+    "Hang Seng 23,393.32 +0.42%"
    ]
   },
   {
@@ -40,44 +40,44 @@
    "dir": "flat",
    "value": "No major currency pressure",
    "detail": [
-    "DXY 101.95 +0.07%",
-    "USD/INR 94.855 +0.00%"
+    "DXY 101.54 -0.33%",
+    "USD/INR 94.995 +0.15%"
    ]
   },
   {
    "title": "Brent crude level",
    "dir": "up",
-   "value": "$110.25 -2.80%",
+   "value": "$109.20 -3.73%",
    "detail": []
   },
   {
    "title": "India VIX",
    "dir": "flat",
-   "value": "15.30 (+0.00%) — normal",
+   "value": "15.75 (+2.91%) — normal",
    "detail": []
   }
  ],
- "summary": "Neutral setup. Brent down 2.80% — relief for OMCs and paints; NASDAQ closed 2.86% lower; IT may open soft.",
+ "summary": "Mildly bullish setup. Brent down 3.73% — relief for OMCs and paints; NASDAQ closed 2.86% lower; IT may open soft.",
  "global_cues": [
-  "Brent down 2.80% — relief for OMCs and paints",
+  "Brent down 3.73% — relief for OMCs and paints",
   "NASDAQ closed 2.86% lower; IT may open soft",
   "Nikkei down, Hang Seng up"
  ],
  "india_triggers": [
-  "30 filings and headlines worth a look so far today"
+  "76 filings and headlines worth a look so far today"
  ],
  "focus": [
   {
-   "symbol": "BANKBARODA",
-   "note": "Stocks to watch: RIL, Jio Platforms, NTPC, Muthoot Finance, Bank of Ba"
+   "symbol": "IDEA",
+   "note": "Vodafone Idea Limited: Vodafone Idea Limited has informed the Exchange"
   },
   {
-   "symbol": "SUNPHARMA",
-   "note": "Sun Pharma’s specialty portfolio, Organon deal to drive growth"
+   "symbol": "MSUMI",
+   "note": "Motherson Sumi Wiring India share price rallies 13% on strong Q2 resul"
   },
   {
    "symbol": "OIL",
-   "note": "Reliance Industries eyes growth boost from O2C, retail and Jio busines"
+   "note": "Missed Reliance Industries’ historic 8% one-day rally? Here’s what tec"
   }
  ],
  "sector_tags": [
@@ -90,38 +90,38 @@
  "also": [
   {
    "name": "BANK NIFTY",
-   "value": "54,686.9",
-   "change": 0.0
+   "value": "54,662.2",
+   "change": -0.05
   },
   {
    "name": "S&P FUT",
-   "value": "7,645",
-   "change": 0.4
+   "value": "7,643",
+   "change": 0.38
   },
   {
    "name": "NASDAQ FUT",
-   "value": "28,762",
-   "change": 0.8
+   "value": "28,754",
+   "change": 0.77
   },
   {
    "name": "KOSPI",
-   "value": "5,794",
-   "change": 1.11
+   "value": "5,859",
+   "change": 2.24
   },
   {
    "name": "WTI",
-   "value": "101.02",
-   "change": -2.98
+   "value": "100.04",
+   "change": -3.92
   },
   {
    "name": "GOLD",
-   "value": "3,907",
-   "change": 0.21
+   "value": "3,904",
+   "change": 0.14
   },
   {
    "name": "US 10Y",
-   "value": "4.92",
-   "change": -0.08
+   "value": "4.91",
+   "change": -0.34
   }
  ],
  "source": "CNBC / Yahoo Finance (unofficial, delayed)"
