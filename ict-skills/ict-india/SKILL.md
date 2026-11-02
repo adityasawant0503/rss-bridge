@@ -143,8 +143,8 @@ python3 trades.py report ict/dhan-2025/*.csv --bars ict/banknifty-5m.csv --json 
   combined into one rule set: keep the rules that saved money, question the ones that cost it.
 - With `--bars` (index candles for those dates), it also checks whether each entry came after a
   liquidity sweep or during a live MMXM setup in the same direction.
-- Only aggregates go into notes or memory. The raw statements belong to Shreyas's account (from a
-  previous venture), so never copy their personal details anywhere.
+- Only totals go into notes or memory, never names, PAN, phone numbers, emails or account IDs from the
+  statements. Some accounts aren't Aditya's own. Results stay out of this repo, which may be public.
 
 ## Backtest before trusting it
 

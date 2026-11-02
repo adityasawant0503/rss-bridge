@@ -69,11 +69,10 @@ structural reference only.
   trading days of ₹30k–₹80k profit and about 12 losing trades in total. Aditya also mentioned "5–6
   minutes", possibly the typical holding time (to confirm). Check all of this against the data and
   don't repeat it as fact before then.
-- **Source:** the Dhan contract notes and P&L for these trades went to the Gmail of **Shreyas**, from
-  Aditya's previous business venture, not to Aditya's own email. Aditya will share them directly.
-- **Handling:** put the raw files in `ict/dhan-2025/`, which is git-ignored, and never commit them.
-  Don't copy Shreyas's personal details (name, PAN, client code) into notes, memory or code. Only
-  trade-level numbers and aggregates go there.
+- **Source:** the statements came from a former business partner's email, not Aditya's. Keep raw files in
+  the git-ignored `ict/` folder. At Aditya's request (2 Nov 2026), no names, account IDs or other personal
+  details from them are kept anywhere, and no results from them go into this repo (it may be public).
+  Totals live in Aditya's private Notion memory ("2025 trade review").
 - **Goal:** tally every trade, find the traits that made those months work, compare them with the MMXM
   rules, then tune `ict-india` (windows, filters, sizing) to what actually worked.
 - **Plan:**
