@@ -7,17 +7,15 @@
 4. Re-run with correlations forced to 0 and to 1 to see that correlation,
    not the individual stocks, drives portfolio risk.
 
-Usage: python 01_monte_carlo_var.py [--synthetic]
+Usage: python 01_monte_carlo_var.py [--market in|us] [--tickers A B C] [--synthetic]
 """
 import argparse
 
 import numpy as np
 
-from common import load_prices
+from common import fmt_money, load_prices
+from markets import MARKETS
 
-TICKERS = ["AAPL", "MSFT", "JPM", "XOM", "JNJ"]
-WEIGHTS = np.array([0.2, 0.2, 0.2, 0.2, 0.2])
-PORTFOLIO_VALUE = 1_000_000
 N_SIMS = 10_000
 HORIZON = 21  # trading days ~ one month
 CONFIDENCE = 0.95
@@ -34,42 +32,43 @@ def simulate(mu, cov, weights, n_sims, horizon, rng):
 
 def var_es(pnl, confidence):
     cutoff = np.quantile(pnl, 1 - confidence)
-    var = -cutoff
-    es = -pnl[pnl <= cutoff].mean()
-    return var, es
+    return -cutoff, -pnl[pnl <= cutoff].mean()
 
 
 def main():
     ap = argparse.ArgumentParser()
+    ap.add_argument("--market", choices=MARKETS, default="in")
+    ap.add_argument("--tickers", nargs="+")
+    ap.add_argument("--value", type=float, help="portfolio value in local currency")
     ap.add_argument("--synthetic", action="store_true")
     args = ap.parse_args()
+    m = MARKETS[args.market]
+    tickers = args.tickers or m["var_tickers"]
+    value = args.value or m["portfolio_value"]
+    cur = m["currency"]
+    weights = np.full(len(tickers), 1 / len(tickers))
 
-    prices = load_prices(TICKERS, synthetic=args.synthetic)
+    prices = load_prices(tickers, synthetic=args.synthetic)
     rets = np.log(prices).diff().dropna()
     mu, vol = rets.mean().values, rets.std().values
     corr = rets.corr().values
-    cov = rets.cov().values
 
-    print("\nAnnualised stats")
-    for t, m, v in zip(TICKERS, mu, vol):
-        print(f"  {t:5s} return {m*252:6.1%}   vol {v*np.sqrt(252):6.1%}")
+    print("\nAnnualised stats (equal weights)")
+    for t, mu_i, v in zip(tickers, mu, vol):
+        print(f"  {t:14s} return {mu_i*252:6.1%}   vol {v*np.sqrt(252):6.1%}")
     print("\nCorrelation matrix\n", rets.corr().round(2))
 
     rng = np.random.default_rng(0)
-    results = {}
-    for label, c in [("estimated", corr),
-                     ("zero corr", np.eye(len(mu))),
-                     ("perfect corr", np.ones_like(corr) * 0.999 + np.eye(len(mu)) * 0.001)]:
-        cov_c = np.outer(vol, vol) * c
-        port = simulate(mu, cov_c, WEIGHTS, N_SIMS, HORIZON, rng)
-        pnl = port * PORTFOLIO_VALUE
-        results[label] = var_es(pnl, CONFIDENCE)
-
+    k = len(mu)
+    scenarios = [("estimated", corr), ("zero corr", np.eye(k)),
+                 ("perfect corr", np.full((k, k), 0.999) + np.eye(k) * 0.001)]
     print(f"\n{N_SIMS:,} simulations, {HORIZON}-day horizon, "
-          f"{CONFIDENCE:.0%} confidence, ${PORTFOLIO_VALUE:,.0f} portfolio")
-    print(f"  {'scenario':14s} {'VaR':>12s} {'Exp. Shortfall':>16s}")
-    for label, (v, e) in results.items():
-        print(f"  {label:14s} ${v:>11,.0f} ${e:>15,.0f}")
+          f"{CONFIDENCE:.0%} confidence, portfolio {fmt_money(value, cur)}")
+    print(f"  {'scenario':14s} {'VaR':>16s} {'Exp. Shortfall':>18s}")
+    for label, c in scenarios:
+        port = simulate(mu, np.outer(vol, vol) * c, weights, N_SIMS, HORIZON, rng)
+        v, e = var_es(port * value, CONFIDENCE)
+        print(f"  {label:14s} {fmt_money(v, cur):>16s} {fmt_money(e, cur):>18s}")
     print("\nLesson: same stocks, same volatilities - only correlation changed,"
           " and the risk moved dramatically.")
 

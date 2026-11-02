@@ -7,7 +7,7 @@ import pandas as pd
 TRADING_DAYS = 252
 
 
-def load_prices(tickers, start="2015-01-01", end=None, synthetic=False, seed=42):
+def load_prices(tickers, start="2015-01-01", end=None, synthetic=False, seed=42, start_price=100):
     """Return a DataFrame of adjusted close prices, one column per ticker.
 
     Tries yfinance first; falls back to synthetic data if it is missing,
@@ -27,10 +27,10 @@ def load_prices(tickers, start="2015-01-01", end=None, synthetic=False, seed=42)
                 return df
         except Exception as exc:  # noqa: BLE001
             print(f"[data] yfinance unavailable ({type(exc).__name__}); using synthetic data")
-    return synthetic_prices(tickers, seed=seed)
+    return synthetic_prices(tickers, seed=seed, start_price=start_price)
 
 
-def synthetic_prices(tickers, n_days=2500, seed=42):
+def synthetic_prices(tickers, n_days=2500, seed=42, start_price=100):
     """Correlated geometric Brownian motion with a shared market factor."""
     rng = np.random.default_rng(seed)
     k = len(tickers)
@@ -41,12 +41,21 @@ def synthetic_prices(tickers, n_days=2500, seed=42):
     idio = rng.standard_normal((n_days, k))
     z = beta * market[:, None] + np.sqrt(1 - beta**2) * idio
     rets = mu - 0.5 * vol**2 + vol * z
-    prices = 100 * np.exp(np.cumsum(rets, axis=0))
+    prices = start_price * np.exp(np.cumsum(rets, axis=0))
     idx = pd.bdate_range("2015-01-02", periods=n_days)
     print(f"[data] generated {n_days} days of synthetic prices")
     df = pd.DataFrame(prices, index=idx, columns=list(tickers))
     df.attrs["synthetic"] = True
     return df
+
+
+def fmt_money(x, currency):
+    """Format money; rupees in lakh/crore, otherwise plain thousands."""
+    if currency == "Rs":
+        if abs(x) >= 1e7:
+            return f"Rs {x/1e7:,.2f} cr"
+        return f"Rs {x/1e5:,.2f} lakh"
+    return f"{currency}{x:,.0f}"
 
 
 def ols(y, X):
