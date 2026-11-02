@@ -1,6 +1,6 @@
 {
  "date": "2026-11-02",
- "updated": "2026-11-02T14:15:45+05:30",
+ "updated": "2026-11-02T19:35:04+05:30",
  "sentiment": "Mildly bullish",
  "breadth": {
   "up": 2,
@@ -10,9 +10,9 @@
   {
    "title": "Nifty 50 last close (GIFT Nifty not available from free sources)",
    "dir": "up",
-   "value": "23,245.50 (+0.83%)",
+   "value": "23,440.80 (+1.68%)",
    "detail": [
-    "Previous close 23,054.15"
+    "Previous close 23,053.50"
    ]
   },
   {
@@ -23,7 +23,7 @@
     "Dow 51,770.31 -1.09%",
     "S&P 7,580.07 -1.82%",
     "Nasdaq 25,437.00 -2.86%",
-    "Nasdaq futures now +0.77%"
+    "Nasdaq futures now +0.82%"
    ]
   },
   {
@@ -40,44 +40,44 @@
    "dir": "flat",
    "value": "No major currency pressure",
    "detail": [
-    "DXY 101.54 -0.33%",
-    "USD/INR 94.995 +0.15%"
+    "DXY 101.61 -0.26%",
+    "USD/INR 94.900 +0.05%"
    ]
   },
   {
    "title": "Brent crude level",
    "dir": "up",
-   "value": "$109.20 -3.73%",
+   "value": "$106.52 -6.09%",
    "detail": []
   },
   {
    "title": "India VIX",
    "dir": "flat",
-   "value": "15.75 (+2.91%) — normal",
+   "value": "15.50 (+1.29%) — normal",
    "detail": []
   }
  ],
- "summary": "Mildly bullish setup. Brent down 3.73% — relief for OMCs and paints; NASDAQ closed 2.86% lower; IT may open soft.",
+ "summary": "Mildly bullish setup. Brent down 6.09% — relief for OMCs and paints; NASDAQ closed 2.86% lower; IT may open soft.",
  "global_cues": [
-  "Brent down 3.73% — relief for OMCs and paints",
+  "Brent down 6.09% — relief for OMCs and paints",
   "NASDAQ closed 2.86% lower; IT may open soft",
   "Nikkei down, Hang Seng up"
  ],
  "india_triggers": [
-  "76 filings and headlines worth a look so far today"
+  "89 filings and headlines worth a look so far today"
  ],
  "focus": [
   {
-   "symbol": "IDEA",
-   "note": "Vodafone Idea Limited: Vodafone Idea Limited has informed the Exchange"
+   "symbol": "TIINDIA",
+   "note": "Tube Investments of India Limited: TUBE INVESTMENTS OF INDIA LIMITED h"
   },
   {
-   "symbol": "MSUMI",
-   "note": "Motherson Sumi Wiring India share price rallies 13% on strong Q2 resul"
+   "symbol": "DOMS",
+   "note": "DOMS Industries Limited: DOMS Industries Limited has informed the Exch"
   },
   {
-   "symbol": "OIL",
-   "note": "Missed Reliance Industries’ historic 8% one-day rally? Here’s what tec"
+   "symbol": "TIINDIA",
+   "note": "Tube Investments of India Limited: Tube Investments of India Limited h"
   }
  ],
  "sector_tags": [
@@ -90,18 +90,18 @@
  "also": [
   {
    "name": "BANK NIFTY",
-   "value": "54,662.2",
-   "change": -0.05
+   "value": "55,002.2",
+   "change": 0.58
   },
   {
    "name": "S&P FUT",
-   "value": "7,643",
-   "change": 0.38
+   "value": "7,649",
+   "change": 0.46
   },
   {
    "name": "NASDAQ FUT",
-   "value": "28,754",
-   "change": 0.77
+   "value": "28,768",
+   "change": 0.82
   },
   {
    "name": "KOSPI",
@@ -110,18 +110,18 @@
   },
   {
    "name": "WTI",
-   "value": "100.04",
-   "change": -3.92
+   "value": "97.67",
+   "change": -6.19
   },
   {
    "name": "GOLD",
-   "value": "3,904",
-   "change": 0.14
+   "value": "3,952",
+   "change": 1.37
   },
   {
    "name": "US 10Y",
-   "value": "4.91",
-   "change": -0.34
+   "value": "4.90",
+   "change": -0.59
   }
  ],
  "source": "CNBC / Yahoo Finance (unofficial, delayed)"
