@@ -13,7 +13,7 @@ import argparse
 
 import numpy as np
 
-from common import fmt_money, load_prices
+from common import fmt_money, load_csv_dir, load_prices
 from markets import MARKETS
 
 N_SIMS = 10_000
@@ -40,6 +40,7 @@ def main():
     ap.add_argument("--market", choices=MARKETS, default="in")
     ap.add_argument("--tickers", nargs="+")
     ap.add_argument("--value", type=float, help="portfolio value in local currency")
+    ap.add_argument("--dir", help="folder of <TICKER>_*.csv files instead of yfinance")
     ap.add_argument("--synthetic", action="store_true")
     args = ap.parse_args()
     m = MARKETS[args.market]
@@ -48,7 +49,12 @@ def main():
     cur = m["currency"]
     weights = np.full(len(tickers), 1 / len(tickers))
 
-    prices = load_prices(tickers, synthetic=args.synthetic)
+    if args.dir:
+        tickers = [t.removesuffix(".NS") for t in tickers]
+        prices = load_csv_dir(args.dir, tickers)[tickers]
+    else:
+        prices = load_prices(tickers, synthetic=args.synthetic)
+    print(f"[data] {prices.index[0].date()} -> {prices.index[-1].date()}")
     rets = np.log(prices).diff().dropna()
     mu, vol = rets.mean().values, rets.std().values
     corr = rets.corr().values

@@ -49,6 +49,31 @@ def synthetic_prices(tickers, n_days=2500, seed=42, start_price=100):
     return df
 
 
+def load_csv(path):
+    """Read a price CSV with Date/Close or timestamp/close columns -> Series."""
+    df = pd.read_csv(path)
+    cols = {c.lower(): c for c in df.columns}
+    date = df[cols.get("date", cols.get("timestamp"))].astype(str).str[:10]
+    s = pd.Series(df[cols["close"]].astype(float).values, index=pd.to_datetime(date))
+    return s[~s.index.duplicated()].sort_index()
+
+
+def load_csv_dir(folder, tickers=None):
+    """Load every <TICKER>_*.csv (or <TICKER>.csv) in a folder into one DataFrame."""
+    import glob
+    import os
+    out = {}
+    for path in sorted(glob.glob(os.path.join(folder, "*.csv"))):
+        name = os.path.basename(path).split("_")[0].removesuffix(".csv")
+        if tickers is None or name in tickers:
+            out[name] = load_csv(path)
+    df = pd.DataFrame(out)
+    full = df.notna().sum() >= 0.9 * len(df)   # drop recent listings (e.g. JIOFIN)
+    if (~full).any():
+        print(f"[data] dropped short histories: {', '.join(df.columns[~full])}")
+    return df.loc[:, full].dropna()
+
+
 def fmt_money(x, currency):
     """Format money; rupees in lakh/crore, otherwise plain thousands."""
     if currency == "Rs":

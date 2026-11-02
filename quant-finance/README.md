@@ -12,6 +12,8 @@ python 02_pairs_trading.py                         # HDFCBANK vs ICICIBANK, cost
 python 03_ma_crossover.py                          # NIFTYBEES (Nifty 50 ETF)
 python 03_ma_crossover.py --ticker RELIANCE.NS --instrument equity_delivery
 python 04_ma_sweep.py --csv nifty.csv               # SMA vs EMA sweep, columns Date,Close
+python 05_var_backtest.py --csv nifty.csv           # does the VaR hold up?
+python 06_pairs_scan.py --dir prices/               # scan same-sector pairs (<TICKER>_*.csv)
 python markets.py                                  # print the Indian cost model
 
 # US markets
@@ -51,8 +53,34 @@ correlation changes, and VaR moves a lot (in the sample run: $63k with zero
 correlation, $103k with the estimated correlation, $129k with perfect
 correlation). Diversification comes from correlation.
 
-**Extensions:** fat tails (Student-t shocks), historical bootstrap instead of
-normal shocks, backtest VaR by counting breaches, optimise weights to minimise ES.
+### 1b. Does the VaR actually hold? (`05_var_backtest.py`)
+
+Every month the script re-estimates the model on the trailing year, forecasts
+next month's 95% and 99% VaR, and checks the forecast against what really
+happened. It compares normal, Student-t, historical bootstrap and EWMA
+(recent-weighted) shocks.
+
+Results on Nifty 50, 2002-2023 (260 monthly forecasts):
+- The 99% VaR was breached 3.1% of the time, about 3x the 1% it promises.
+  Breaches came in clusters (3 in 2008, 2 in 2020).
+- **March 2020: a -25.9% month against a 99% VaR forecast of -9.2%.**
+  Calm data going in gave the model no warning.
+- Fat tails (Student-t) and bootstrap changed almost nothing at a one-month
+  horizon, because summing 21 daily draws averages the fat tails away. The real
+  problem is that volatility comes in regimes.
+- EWMA, which weights recent days heavily, did *worse* (10.4% breaches at 95%).
+  Markets are often calm right before a crash, so overreacting to the recent
+  calm lowers the VaR at the wrong moment.
+- Five stocks (RELIANCE, HDFCBANK, TCS, INFY, ITC), Rs 1 crore, 2020-2025:
+  VaR of Rs 5.9 lakh at estimated correlation, Rs 3.9 lakh at zero, Rs 9.5 lakh at
+  perfect correlation. Average correlation was 0.24 in calm quarters and
+  0.34 in volatile ones.
+
+Use VaR as a minimum estimate of loss, not a ceiling. Stress-test with 2008
+and March 2020 directly.
+
+**Extensions:** GARCH volatility, regime-switching models, optimising weights
+to minimise ES.
 
 ---
 
@@ -77,6 +105,23 @@ normal shocks, backtest VaR by counting breaches, optimise weights to minimise E
 **relationships break**. A pair that passes the test in-sample can stop being
 cointegrated later, so always validate out of sample and use a stop-loss
 (for example, exit at |z| > 4).
+
+### 2b. Scanning for pairs (`06_pairs_scan.py`)
+
+The scan Engle-Granger tests 69 same-sector Nifty 50 pairs on Oct 2020-Sep 2023,
+then trades them from Oct 2023 to Sep 2025 with the hedge ratio frozen and stock-futures costs.
+- 18 pairs tested as cointegrated, mostly private banks and PSU power.
+  About 3.5 would be expected by chance.
+- **None of the 18 were still cointegrated in the trading period.** Two years is
+  a short window for the test, so this partly reflects low statistical power,
+  but every relationship weakened.
+- Out-of-sample return averaged 4.7% a year, down from 10.9% in-sample. 13 of 18
+  were profitable, but only 6 of 18 beat the 6% risk-free rate.
+- Pairs without cointegration lost 3.4% a year on average. Without a stop-loss,
+  one bad pair can wipe out years of gains (HEROMOTOCO vs TATAMOTORS: -52% a year).
+- Best performers: POWERGRID/COALINDIA (14.9%, Sharpe 0.92),
+  KOTAKBANK/INDUSINDBK (14.4%) and HDFCBANK/ICICIBANK (11.9%). Expect them
+  to fade too.
 
 **Extensions:** rolling or Kalman-filter hedge ratio, half-life of mean reversion
 (fit an AR(1) to the spread), scanning a sector for candidate pairs (watch out for
@@ -123,7 +168,7 @@ Results on Nifty 50 daily data, 2002-2023:
 - Out of sample (2013-2023) **no rule beat buy and hold on return**: 14.3%
   vs about 11-13% for the best rules. What they kept was a much smaller drawdown
   (about -11% to -15% vs -38%).
-- On 48 Nifty 50 stocks from 2021 to 2025, with delivery costs (32 bps round trip),
+- On 49 Nifty 50 stocks from 2021 to 2025, with delivery costs (32 bps round trip),
   every rule lost to buy and hold by about 7% a year on the median stock.
 
 The "best crossover" changes from one period to the next. What a trend filter
