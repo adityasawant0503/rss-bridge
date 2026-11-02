@@ -1,18 +1,18 @@
 {
- "date": "2026-10-31",
- "updated": "2026-10-31T00:24:30+05:30",
- "sentiment": "Mildly bearish",
+ "date": "2026-11-02",
+ "updated": "2026-11-02T08:41:22+05:30",
+ "sentiment": "Neutral",
  "breadth": {
   "up": 1,
-  "down": 2
+  "down": 1
  },
  "checklist": [
   {
    "title": "Nifty 50 last close (GIFT Nifty not available from free sources)",
-   "dir": "up",
-   "value": "23,053.10 (+0.51%)",
+   "dir": "flat",
+   "value": "23,053.10 (+0.00%)",
    "detail": [
-    "Previous close 22,936.13"
+    "Previous close 23,053.10"
    ]
   },
   {
@@ -20,10 +20,10 @@
    "dir": "down",
    "value": "Lower",
    "detail": [
-    "Dow 51,576.06 -1.46%",
-    "S&P 7,529.70 -2.47%",
-    "Nasdaq 25,188.49 -3.81%",
-    "Nasdaq futures now -4.22%"
+    "Dow 51,770.31 -1.09%",
+    "S&P 7,580.07 -1.82%",
+    "Nasdaq 25,437.00 -2.86%",
+    "Nasdaq futures now +0.80%"
    ]
   },
   {
@@ -31,8 +31,8 @@
    "dir": "flat",
    "value": "Asia mixed",
    "detail": [
-    "Nikkei 63,290.11 -2.12%",
-    "Hang Seng 23,294.42 +1.46%"
+    "Nikkei 63,095.11 -0.31%",
+    "Hang Seng 23,320.14 +0.11%"
    ]
   },
   {
@@ -40,85 +40,88 @@
    "dir": "flat",
    "value": "No major currency pressure",
    "detail": [
-    "DXY 101.88 -0.16%",
-    "USD/INR 94.855 -0.35%"
+    "DXY 101.95 +0.07%",
+    "USD/INR 94.855 +0.00%"
    ]
   },
   {
    "title": "Brent crude level",
-   "dir": "down",
-   "value": "$117.55 +2.32%",
-   "detail": [
-    "Rising crude hurts India (OMCs, paints, aviation); helps upstream"
-   ]
+   "dir": "up",
+   "value": "$110.25 -2.80%",
+   "detail": []
   },
   {
    "title": "India VIX",
    "dir": "flat",
-   "value": "15.30 (+1.22%) — normal",
+   "value": "15.30 (+0.00%) — normal",
    "detail": []
   }
  ],
- "summary": "Mildly bearish setup. Brent up 2.32% — pressure on OMCs, paints and aviation; NASDAQ closed 3.81% lower; IT may open soft.",
+ "summary": "Neutral setup. Brent down 2.80% — relief for OMCs and paints; NASDAQ closed 2.86% lower; IT may open soft.",
  "global_cues": [
-  "Brent up 2.32% — pressure on OMCs, paints and aviation",
-  "NASDAQ closed 3.81% lower; IT may open soft",
+  "Brent down 2.80% — relief for OMCs and paints",
+  "NASDAQ closed 2.86% lower; IT may open soft",
   "Nikkei down, Hang Seng up"
  ],
  "india_triggers": [
-  "0 filings and headlines worth a look so far today"
+  "30 filings and headlines worth a look so far today"
  ],
- "focus": [],
+ "focus": [
+  {
+   "symbol": "BANKBARODA",
+   "note": "Stocks to watch: RIL, Jio Platforms, NTPC, Muthoot Finance, Bank of Ba"
+  },
+  {
+   "symbol": "SUNPHARMA",
+   "note": "Sun Pharma’s specialty portfolio, Organon deal to drive growth"
+  },
+  {
+   "symbol": "OIL",
+   "note": "Reliance Industries eyes growth boost from O2C, retail and Jio busines"
+  }
+ ],
  "sector_tags": [
-  {
-   "label": "Upstream oil",
-   "tone": "positive"
-  },
-  {
-   "label": "OMCs",
-   "tone": "negative"
-  },
   {
    "label": "IT",
    "tone": "watch"
   }
  ],
- "key_risk": "A further crude spike would hit OMCs and widen the INR move",
+ "key_risk": "Weak US tech could weigh on Indian IT at the open",
  "also": [
   {
    "name": "BANK NIFTY",
    "value": "54,686.9",
-   "change": -0.41
+   "change": 0.0
   },
   {
    "name": "S&P FUT",
-   "value": "7,572",
-   "change": -2.35
+   "value": "7,645",
+   "change": 0.4
   },
   {
    "name": "NASDAQ FUT",
-   "value": "28,313",
-   "change": -4.22
+   "value": "28,762",
+   "change": 0.8
   },
   {
    "name": "KOSPI",
-   "value": "5,731",
-   "change": -3.48
+   "value": "5,794",
+   "change": 1.11
   },
   {
    "name": "WTI",
-   "value": "104.03",
-   "change": 1.99
+   "value": "101.02",
+   "change": -2.98
   },
   {
    "name": "GOLD",
-   "value": "3,892",
-   "change": -3.45
+   "value": "3,907",
+   "change": 0.21
   },
   {
    "name": "US 10Y",
    "value": "4.92",
-   "change": -1.36
+   "change": -0.08
   }
  ],
  "source": "CNBC / Yahoo Finance (unofficial, delayed)"
