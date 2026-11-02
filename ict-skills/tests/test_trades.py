@@ -189,6 +189,62 @@ class TestTrades(unittest.TestCase):
         self.assertEqual(rep["overall"]["trades"], 3)
         self.assertEqual(rep["overall"]["pnl"], 2587.5)
 
+    def write_workbook(self, path, sheets):
+        """A multi-sheet xlsx (workbook.xml + rels) with inline strings, like a combined broker export."""
+        from xml.sax.saxutils import escape
+
+        def cell(ref, v):
+            return '<c r="%s" t="inlineStr"><is><t>%s</t></is></c>' % (ref, escape(v))
+        with zipfile.ZipFile(path, "w") as z:
+            wb, rels = [], []
+            for k, (name, rows) in enumerate(sheets, start=1):
+                xml_rows = "".join('<row r="%d">%s</row>' % (i, "".join(cell("%s%d" % (chr(65 + c), i), v) for c, v in enumerate(r)))
+                                   for i, r in enumerate(rows, start=1))
+                z.writestr("xl/worksheets/sheet%d.xml" % k, '<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">'
+                           '<sheetData>%s</sheetData></worksheet>' % xml_rows)
+                wb.append('<sheet name="%s" sheetId="%d" r:id="rId%d"/>' % (name, k, k))
+                rels.append('<Relationship Id="rId%d" Target="worksheets/sheet%d.xml" Type="x"/>' % (k, k))
+            z.writestr("xl/workbook.xml", '<workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" '
+                       'xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets>%s</sheets></workbook>' % "".join(wb))
+            z.writestr("xl/_rels/workbook.xml.rels", '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">%s</Relationships>' % "".join(rels))
+
+    def test_zerodha_and_fyers_sheets_as_accounts(self):
+        zh = ["symbol", "isin", "trade_date", "exchange", "segment", "series", "trade_type", "auction", "quantity", "price",
+              "trade_id", "order_id", "order_execution_time", "expiry_date"]
+        zerodha = [zh,
+                   ["RELIANCE25SEP1380CE", "", "2025-09-09", "NSE", "FO", "", "buy", "false", "1500", "20.0", "1", "9", "2025-09-09T11:00:00", "2025-09-30"],
+                   # one order split into three identical fills: all three are real
+                   ["RELIANCE25SEP1380CE", "", "2025-09-10", "NSE", "FO", "", "sell", "false", "500", "25.0", "2", "8", "2025-09-10T09:45:00", "2025-09-30"],
+                   ["RELIANCE25SEP1380CE", "", "2025-09-10", "NSE", "FO", "", "sell", "false", "500", "25.0", "3", "8", "2025-09-10T09:45:00", "2025-09-30"],
+                   ["RELIANCE25SEP1380CE", "", "2025-09-10", "NSE", "FO", "", "sell", "false", "500", "25.0", "4", "8", "2025-09-10T09:45:00", "2025-09-30"],
+                   # bought on expiry day, never sold: expired worthless
+                   ["NIFTY2590924850PE", "", "2025-09-09", "NSE", "FO", "", "buy", "false", "150", "10.0", "5", "7", "2025-09-09T14:30:00", "2025-09-09"]]
+        fyers = [["Report Title", "Tradebook report"], [],
+                 ["Symbol name", "Symbol code", "Date & time", "Side", "Product type", "Qty", "Traded price", "Total value"],
+                 ["SENSEX25D0485700CE", "SENSEX 85700 CE", "28 Nov 2025, 11:45:00 AM", "BUY", "Intraday", "20", "500", "10000"],
+                 ["SENSEX25D0485700CE", "SENSEX 85700 CE", "28 Nov 2025, 12:10:00 PM", "SELL", "Intraday", "20", "520", "10400"]]
+        pnl = [["P&L Statement"], ["Realized P&L", "-1000"]]               # summary sheet: skipped
+        wbp = os.path.join(self.tmp, "all.xlsx")
+        self.write_workbook(wbp, [("02_PnL", pnl), ("03_Zerodha_Tradebook", zerodha), ("07_Fyers_Tradebook", fyers)])
+        rep, trips = T.build([wbp])
+        by = {t["symbol"]: t for t in trips}
+        rel = by["RELIANCE25SEP1380CE"]
+        self.assertEqual((rel["pnl"], rel["overnight"], rel["underlying"], rel["expiry"], rel["strike"]),
+                         (7500.0, True, "RELIANCE", date(2025, 9, 30), 1380.0))
+        dead = by["NIFTY2590924850PE"]
+        self.assertTrue(dead["expired_worthless"])
+        self.assertEqual(dead["pnl"], -1500.0)
+        sx = by["SENSEX25D0485700CE"]
+        self.assertEqual((sx["account"], sx["expiry"], sx["pnl"], sx["entry_t"]),
+                         ("07_Fyers_Tradebook", date(2025, 12, 4), 400.0, datetime(2025, 11, 28, 11, 45)))
+        self.assertEqual(sorted(k for k, _ in rep["by_account"]), ["03_Zerodha_Tradebook", "07_Fyers_Tradebook"])
+
+    def test_monthly_expiry_rule(self):
+        self.assertEqual(T.monthly_expiry("NIFTY", 2025, 9), date(2025, 9, 30))      # last Tuesday from Sep 2025
+        self.assertEqual(T.monthly_expiry("NIFTY", 2025, 8), date(2025, 8, 28))      # last Thursday before
+        self.assertEqual(T.monthly_expiry("SENSEX", 2025, 10), date(2025, 10, 30))   # BSE: last Thursday from Sep 2025
+        self.assertEqual(T.parse_contract("TATAELXSI25OCT5700CE", date(2025, 10, 7))["expiry"], date(2025, 10, 28))
+
     def test_ict_context_against_index_bars(self):
         # the textbook India session from test_mmxm: short filled at 10:35 IST on 20 Oct 2026
         bars = M.india_bars(M.IN, M.IN_P)
