@@ -11,6 +11,7 @@ python 01_monte_carlo_var.py                       # RELIANCE, HDFCBANK, TCS, IN
 python 02_pairs_trading.py                         # HDFCBANK vs ICICIBANK, costed as stock futures
 python 03_ma_crossover.py                          # NIFTYBEES (Nifty 50 ETF)
 python 03_ma_crossover.py --ticker RELIANCE.NS --instrument equity_delivery
+python 04_ma_sweep.py --csv nifty.csv               # SMA vs EMA sweep, columns Date,Close
 python markets.py                                  # print the Indian cost model
 
 # US markets
@@ -105,6 +106,28 @@ same data you tested on.
 
 **Extensions:** a parameter sweep (and then ask why the best parameters won't
 hold up), walk-forward testing, applying it to many assets.
+
+### 3b. Which crossover is best? SMA vs EMA sweep (`04_ma_sweep.py`)
+
+The script tests 70 rules (SMA and EMA, fast 1-100, slow 20-250) with a one-day
+lag, ETF costs, cash earning 6% and a 1.3% dividend yield added back to the price index.
+Then it picks the winner using data before 2013 and checks how that winner did after 2013.
+
+Results on Nifty 50 daily data, 2002-2023:
+- Buy and hold: 16.4% CAGR, Sharpe 0.54, max drawdown -59%.
+- The best rules were short-term **price vs 50/100-day MA** and **EMA 20/50**,
+  at 17-18% CAGR, Sharpe 0.75-0.85, and drawdowns of -18% to -31%.
+- The famous **50/200 cross came last of the classics**: 12.1% CAGR, Sharpe 0.41.
+- EMA vs SMA: EMA was slightly better on average (Sharpe 0.57 vs 0.54).
+  The choice of lookback matters far more than the type of average.
+- Out of sample (2013-2023) **no rule beat buy and hold on return**: 14.3%
+  vs about 11-13% for the best rules. What they kept was a much smaller drawdown
+  (about -11% to -15% vs -38%).
+- On 48 Nifty 50 stocks from 2021 to 2025, with delivery costs (32 bps round trip),
+  every rule lost to buy and hold by about 7% a year on the median stock.
+
+The "best crossover" changes from one period to the next. What a trend filter
+reliably gives you is protection in a crash. It doesn't add return.
 
 ---
 
