@@ -1,10 +1,10 @@
 {
- "date": "2026-11-02",
- "updated": "2026-11-02T19:35:04+05:30",
- "sentiment": "Mildly bullish",
+ "date": "2026-11-03",
+ "updated": "2026-11-03T00:32:55+05:30",
+ "sentiment": "Bullish",
  "breadth": {
-  "up": 2,
-  "down": 1
+  "up": 3,
+  "down": 0
  },
  "checklist": [
   {
@@ -17,13 +17,13 @@
   },
   {
    "title": "US close - Dow/S&P/Nasdaq direction",
-   "dir": "down",
-   "value": "Lower",
+   "dir": "up",
+   "value": "Mixed — 2/3 higher",
    "detail": [
-    "Dow 51,770.31 -1.09%",
-    "S&P 7,580.07 -1.82%",
-    "Nasdaq 25,437.00 -2.86%",
-    "Nasdaq futures now +0.82%"
+    "Dow 52,220.29 +0.87%",
+    "S&P 7,589.34 +0.12%",
+    "Nasdaq 25,404.71 -0.13%",
+    "Nasdaq futures now -0.25%"
    ]
   },
   {
@@ -40,14 +40,14 @@
    "dir": "flat",
    "value": "No major currency pressure",
    "detail": [
-    "DXY 101.61 -0.26%",
+    "DXY 101.74 -0.13%",
     "USD/INR 94.900 +0.05%"
    ]
   },
   {
    "title": "Brent crude level",
    "dir": "up",
-   "value": "$106.52 -6.09%",
+   "value": "$104.65 -7.74%",
    "detail": []
   },
   {
@@ -57,36 +57,18 @@
    "detail": []
   }
  ],
- "summary": "Mildly bullish setup. Brent down 6.09% — relief for OMCs and paints; NASDAQ closed 2.86% lower; IT may open soft.",
+ "summary": "Bullish setup. Brent down 7.74% — relief for OMCs and paints; NASDAQ closed 0.13% lower.",
  "global_cues": [
-  "Brent down 6.09% — relief for OMCs and paints",
-  "NASDAQ closed 2.86% lower; IT may open soft",
+  "Brent down 7.74% — relief for OMCs and paints",
+  "NASDAQ closed 0.13% lower",
   "Nikkei down, Hang Seng up"
  ],
  "india_triggers": [
-  "89 filings and headlines worth a look so far today"
+  "2 filings and headlines worth a look so far today"
  ],
- "focus": [
-  {
-   "symbol": "TIINDIA",
-   "note": "Tube Investments of India Limited: TUBE INVESTMENTS OF INDIA LIMITED h"
-  },
-  {
-   "symbol": "DOMS",
-   "note": "DOMS Industries Limited: DOMS Industries Limited has informed the Exch"
-  },
-  {
-   "symbol": "TIINDIA",
-   "note": "Tube Investments of India Limited: Tube Investments of India Limited h"
-  }
- ],
- "sector_tags": [
-  {
-   "label": "IT",
-   "tone": "watch"
-  }
- ],
- "key_risk": "Weak US tech could weigh on Indian IT at the open",
+ "focus": [],
+ "sector_tags": [],
+ "key_risk": "",
  "also": [
   {
    "name": "BANK NIFTY",
@@ -95,13 +77,13 @@
   },
   {
    "name": "S&P FUT",
-   "value": "7,649",
-   "change": 0.46
+   "value": "7,625",
+   "change": 0.15
   },
   {
    "name": "NASDAQ FUT",
-   "value": "28,768",
-   "change": 0.82
+   "value": "28,464",
+   "change": -0.25
   },
   {
    "name": "KOSPI",
@@ -110,18 +92,18 @@
   },
   {
    "name": "WTI",
-   "value": "97.67",
-   "change": -6.19
+   "value": "96.31",
+   "change": -7.5
   },
   {
    "name": "GOLD",
-   "value": "3,952",
-   "change": 1.37
+   "value": "3,964",
+   "change": 1.66
   },
   {
    "name": "US 10Y",
-   "value": "4.90",
-   "change": -0.59
+   "value": "4.89",
+   "change": -0.79
   }
  ],
  "source": "CNBC / Yahoo Finance (unofficial, delayed)"
