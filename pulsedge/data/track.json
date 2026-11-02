@@ -1,7 +1,7 @@
 {
- "updated": "2026-11-03T00:32:55+05:30",
+ "updated": "2026-11-03T03:58:54+05:30",
  "summary": {
-  "calls": 429,
+  "calls": 433,
   "scored_calls": 0,
   "d1": {
    "scored": 0,
@@ -21,6 +21,45 @@
  "method": "Entry is the NSE close of the last session that had ended when the news came out; 1D and 5D are the closes 1 and 5 sessions later. Only AI calls with an up/down direction count towards the hit rate.",
  "source": "NSE end-of-day bhavcopy",
  "calls": [
+  {
+   "id": "e59450142ed3cb73",
+   "symbol": "OIL",
+   "time": "2026-11-03T03:30:33+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "Mint Markets",
+   "headline": "Treasury Yields Extend Past Month’s Slide as Oil Prices Drop",
+   "url": "https://www.livemint.com/market/treasury-yields-extend-past-month-s-slide-as-oil-prices-drop-11793656834005.html",
+   "entry_date": "2026-11-02",
+   "entry": 461.9
+  },
+  {
+   "id": "e28422aaf26501f0",
+   "symbol": "OIL",
+   "time": "2026-11-03T03:09:46+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "Mint Markets",
+   "headline": "TSX rebounds as oil pullback boosts industrials, mining shares",
+   "url": "https://www.livemint.com/market/tsx-rebounds-as-oil-pullback-boosts-industrials-mining-shares-11793655587408.html",
+   "entry_date": "2026-11-02",
+   "entry": 461.9
+  },
+  {
+   "id": "adaed27b280b29db",
+   "symbol": "OIL",
+   "time": "2026-11-03T02:50:46+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "ET Markets",
+   "headline": "US stocks today: Nasdaq ends over 1% lower as AI worries persist",
+   "url": "https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/us-stocks-today-nasdaq-ends-over-1-lower-as-ai-worries-persist/articleshow/135474287.cms",
+   "entry_date": "2026-11-02",
+   "entry": 461.9
+  },
   {
    "id": "7f871040597c0371",
    "symbol": "RELIANCE",
@@ -459,6 +498,19 @@
    "scored": false,
    "source": "ET Markets",
    "headline": "US Stock Market Live Updates: US stocks rise as oil tumbles on Iran peace hopes, investors eye midterm elections",
+   "url": "https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/stock-market-live-updates-dow-jones-nasdaq-sp-500-us-midterm-elections-ai-stocks-tech-stocks-openai-anthropic-intel-amd-apple-alphabet-spacex-earnings-oil-prices-treasury-yields-news-2nd-november-2026/liveblog/135463461.cms",
+   "entry_date": "2026-11-02",
+   "entry": 461.9
+  },
+  {
+   "id": "ba10f34c5ae55096",
+   "symbol": "OIL",
+   "time": "2026-11-02T18:41:31+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "ET Markets",
+   "headline": "US Stock Market Highlights: US stocks rise as oil tumbles on Iran peace hopes, investors eye midterm elections",
    "url": "https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/stock-market-live-updates-dow-jones-nasdaq-sp-500-us-midterm-elections-ai-stocks-tech-stocks-openai-anthropic-intel-amd-apple-alphabet-spacex-earnings-oil-prices-treasury-yields-news-2nd-november-2026/liveblog/135463461.cms",
    "entry_date": "2026-11-02",
    "entry": 461.9

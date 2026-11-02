@@ -1,6 +1,329 @@
 {
- "updated": "2026-11-03T00:32:53+05:30",
+ "updated": "2026-11-03T03:58:51+05:30",
  "items": [
+  {
+   "id": "e59450142ed3cb73",
+   "time": "2026-11-03T03:30:33+05:30",
+   "headline": "Treasury Yields Extend Past Month’s Slide as Oil Prices Drop",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/treasury-yields-extend-past-month-s-slide-as-oil-prices-drop-11793656834005.html",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "OIL",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Treasuries rose, building on their biggest monthly advance in more than two years, as tumbling oil prices eased concern about inflation pressure leading to additional Federal Reserve interest-rate hikes."
+  },
+  {
+   "id": "e28422aaf26501f0",
+   "time": "2026-11-03T03:09:46+05:30",
+   "headline": "TSX rebounds as oil pullback boosts industrials, mining shares",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/tsx-rebounds-as-oil-pullback-boosts-industrials-mining-shares-11793655587408.html",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "OIL",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "CANADA-STOCKS/ (UPDATE 1):CANADA STOCKS-TSX rebounds as oil pullback boosts industrials, mining shares"
+  },
+  {
+   "id": "478c16b34bdc960f",
+   "time": "2026-11-03T03:00:35+05:30",
+   "headline": "LIVESTOCK-CME hogs set contract lows on big supply, weak demand",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/livestockcme-hogs-set-contract-lows-on-big-supply-weak-demand-11793655036311.html",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "USA-LIVESTOCK/:LIVESTOCK-CME hogs set contract lows on big supply, weak demand"
+  },
+  {
+   "id": "adaed27b280b29db",
+   "time": "2026-11-03T02:50:46+05:30",
+   "headline": "US stocks today: Nasdaq ends over 1% lower as AI worries persist",
+   "source": "ET Markets",
+   "url": "https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/us-stocks-today-nasdaq-ends-over-1-lower-as-ai-worries-persist/articleshow/135474287.cms",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "OIL",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "US stocks ended mixed on Monday, with the S&P 500 and Nasdaq closing lower as Apple shares slipped ahead of earnings and Oracle fell over plans to raise $20 billion. Falling oil prices amid US-Iran peace hopes offered some relief, while concerns over Big Tech's AI spending persisted."
+  },
+  {
+   "id": "f61c1b47fb6b04a7",
+   "time": "2026-11-03T02:25:03+05:30",
+   "headline": "EFC (I) Limited: EFC (I) Limited has informed the Exchange about Presentation |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/EFCILTD_03112026022442_Intimation.pdf",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "EFC (I) Limited: EFC (I) Limited has informed the Exchange about Presentation |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates"
+  },
+  {
+   "id": "fbc34361d0dd1f6b",
+   "time": "2026-11-03T02:23:14+05:30",
+   "headline": "EFC (I) Limited: EFC (I) Limited has informed the Exchange about Investor Presentation |SUBJECT: Investor Presentation",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/EFCILTD_03112026022250_Intimation.pdf",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "EFC (I) Limited: EFC (I) Limited has informed the Exchange about Investor Presentation |SUBJECT: Investor Presentation"
+  },
+  {
+   "id": "c5577711c45f7b8c",
+   "time": "2026-11-03T02:19:17+05:30",
+   "headline": "EFC (I) Limited: EFC (I) Limited has informed the Exchange regarding a press release dated November 03, 2026, titled \"Q2 & H1 FY27 Results: EFC (I) Limited Reports Strong Q2 Results, Reflecting Profitable Growth and Operational Strength\"",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/EFCILTD_03112026021903_Intimation.pdf",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "EFC (I) Limited: EFC (I) Limited has informed the Exchange regarding a press release dated November 03, 2026, titled \"Q2 & H1 FY27 Results: EFC (I) Limited Reports Strong Q2 Results, Reflecting Profitable Growth and Operational Strength\""
+  },
+  {
+   "id": "3e930bae9bc8ad12",
+   "time": "2026-11-03T02:12:52+05:30",
+   "headline": "EFC (I) Limited: EFC (I) Limited has informed the Exchange about statement of deviation(s) or variation(s) under Reg. 32 |SUBJECT: Statement of deviation(s) or variation(s) under Reg. 32",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/EFCILTD_03112026021116_EFC__I__-_Statement_of_Deviation_and_Variation.pdf",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "EFC (I) Limited: EFC (I) Limited has informed the Exchange about statement of deviation(s) or variation(s) under Reg. 32 |SUBJECT: Statement of deviation(s) or variation(s) under Reg. 32"
+  },
+  {
+   "id": "31e80788e6900c87",
+   "time": "2026-11-03T01:57:20+05:30",
+   "headline": "EFC (I) Limited: EFC (I) Limited has informed the Exchange about Unaudited (Standalone and Consolidated) financial results for the quarter and half year ended September 30, 2026. |SUBJECT: General Updates",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/EFCILTD_03112026015659_EFC_Financial_Results_Q2.pdf",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "EFC (I) Limited: EFC (I) Limited has informed the Exchange about Unaudited (Standalone and Consolidated) financial results for the quarter and half year ended September 30, 2026. |SUBJECT: General Updates"
+  },
+  {
+   "id": "8ae922dc72e0ae7a",
+   "time": "2026-11-03T01:48:13+05:30",
+   "headline": "EFC (I) Limited: EFC (I) Limited has submitted to the Exchange, about the Outcome of Board Meeting. |SUBJECT: Outcome of Board Meeting",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/EFCILTD_03112026014646_Outcome.pdf",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "EFC (I) Limited: EFC (I) Limited has submitted to the Exchange, about the Outcome of Board Meeting. |SUBJECT: Outcome of Board Meeting"
+  },
+  {
+   "id": "46262358d5b69adb",
+   "time": "2026-11-03T01:31:04+05:30",
+   "headline": "El Nino could add to US inflation pressures in 2027, San Francisco Fed paper warns",
+   "source": "ET Markets",
+   "url": "https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/el-nino-could-add-to-us-inflation-pressures-in-2027-san-francisco-fed-paper-warns/articleshow/135473482.cms",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "A San Francisco Fed study warns the current strong El Niño could drive US inflation up by 1 percentage point in 2027, despite temporarily boosting jobs. With inflation already above the 2% target, the climate shock adds further pressure on the Fed to raise interest rates."
+  },
+  {
+   "id": "b07a9e99344412ca",
+   "time": "2026-11-03T01:10:54+05:30",
+   "headline": "Orient Technologies Limited: Orient Technologies Limited has informed the Exchange about Investor Presentation |SUBJECT: Investor Presentation",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/Orient97_03112026011044_Investor_Presentation_Cover_final_signed.pdf",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Orient Technologies Limited: Orient Technologies Limited has informed the Exchange about Investor Presentation |SUBJECT: Investor Presentation"
+  },
+  {
+   "id": "3bb9cdb3ba795b8c",
+   "time": "2026-11-03T00:47:36+05:30",
+   "headline": "US manufacturing strengthens in October, input prices stay high",
+   "source": "ET Markets",
+   "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/us-manufacturing-strengthens-in-october-input-prices-stay-high/articleshow/135472594.cms",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "US manufacturing activity accelerated in October, with the ISM manufacturing PMI rising to 55.5 from 54.5 in September, beating Reuters-polled economists' expectations. Strong consumer and AI-related business spending supported growth, but factory input prices remained elevated at 75.2, reinforcing "
+  },
+  {
+   "id": "cf5469335079a01d",
+   "time": "2026-11-03T00:33:06+05:30",
+   "headline": "Ravindra Energy Limited: Ravindra Energy Limited has informed the Exchange about Schedule of Analysts or Institutional Investors Meet |SUBJECT: Analyst/Investor Meet Para A-XBRL",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/xbrl/SAIIM_23918_WebXMLFile_20261103_003304195.xml",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Ravindra Energy Limited: Ravindra Energy Limited has informed the Exchange about Schedule of Analysts or Institutional Investors Meet |SUBJECT: Analyst/Investor Meet Para A-XBRL"
+  },
   {
    "id": "261cb393d18f5a5d",
    "time": "2026-11-03T00:28:02+05:30",
@@ -4230,6 +4553,33 @@
    "original": "Coal India plans to sell 66.81 crore shares in subsidiary SECL through an IPO, reducing its holding to 90 per cent. The coal producer reported ₹4,754.59 crore profit in FY26."
   },
   {
+   "id": "ba10f34c5ae55096",
+   "time": "2026-11-02T18:41:31+05:30",
+   "headline": "US Stock Market Highlights: US stocks rise as oil tumbles on Iran peace hopes, investors eye midterm elections",
+   "source": "ET Markets",
+   "url": "https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/stock-market-live-updates-dow-jones-nasdaq-sp-500-us-midterm-elections-ai-stocks-tech-stocks-openai-anthropic-intel-amd-apple-alphabet-spacex-earnings-oil-prices-treasury-yields-news-2nd-november-2026/liveblog/135463461.cms",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "OIL",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "US Stock Market Highlights: US stocks rise as oil tumbles on Iran peace hopes, investors eye midterm elections"
+  },
+  {
    "id": "72c789991956c684",
    "time": "2026-11-02T18:41:31+05:30",
    "headline": "US Stock Market Live Updates: US stocks rise as oil tumbles on Iran peace hopes, investors eye midterm elections",
@@ -6803,374 +7153,21 @@
    ],
    "risks": [],
    "original": "Kalpataru Limited: Kalpataru Limited has informed the Exchange about acquisition of equity shares of Agile Real Estate Private Limited and Agile Real Estate Dev Private Limited, step down Subsidiaries of the Company, by Kalpataru Propertie"
-  },
-  {
-   "id": "24e592848f905d8d",
-   "time": "2026-11-02T13:22:43+05:30",
-   "headline": "HFCL, MTAR Technologies, Sterlite Tech shares hit 5% lower circuits",
-   "source": "Business Standard",
-   "url": "https://www.business-standard.com/markets/news/hfcl-mtar-technologies-sterlite-tech-shares-hit-5-lower-circuits-126110200560_1.html",
-   "section": "trading",
-   "call": "watch",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [
-    {
-     "symbol": "BSE",
-     "direction": "up"
-    },
-    {
-     "symbol": "HFCL",
-     "direction": "up"
-    },
-    {
-     "symbol": "MTARTECH",
-     "direction": "up"
-    }
-   ],
-   "sectors": [],
-   "impact": 25,
-   "confidence": 30,
-   "category": "Trading",
-   "action": "Read the source before acting",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Despite the recent correction, thus far in calendar year 2026, the market price of STL (up 664%), MTAR (up 171%) and HFCL (up 151%) have more than doubled, against a 11.6% decline in the BSE Sensex."
-  },
-  {
-   "id": "3ac9f37da8e929d8",
-   "time": "2026-11-02T13:22:30+05:30",
-   "headline": "Shree Vasu Logistics Limited: SHREE VASU LOGISTICS LIMITED has informed the Exchange about Schedule of Analysts or Institutional Investors Meet |SUBJECT: Analyst/Investor Meet Para A-XBRL",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/SAIIM_16229_WebXMLFile_20261102_132228393.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Shree Vasu Logistics Limited: SHREE VASU LOGISTICS LIMITED has informed the Exchange about Schedule of Analysts or Institutional Investors Meet |SUBJECT: Analyst/Investor Meet Para A-XBRL"
-  },
-  {
-   "id": "b6edbe2bd63bdcf8",
-   "time": "2026-11-02T13:22:27+05:30",
-   "headline": "Diensten Tech Limited: Diensten Tech Limited has informed the Exchange about the Corporate Presentation. |SUBJECT: General Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/DIENSTEN_02112026132143_Corporate_Presentation_final__1_.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Diensten Tech Limited: Diensten Tech Limited has informed the Exchange about the Corporate Presentation. |SUBJECT: General Updates"
-  },
-  {
-   "id": "13930383a62c858d",
-   "time": "2026-11-02T13:22:21+05:30",
-   "headline": "Is the AI investment boom losing steam? What is driving the sell-off",
-   "source": "Business Standard",
-   "url": "https://www.business-standard.com/markets/news/ai-investment-boom-faces-a-test-as-tech-stocks-and-credit-risks-mount-126110200578_1.html",
-   "section": "trading",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Global AI investment boom faces growing scrutiny as technology stocks slide and investors question whether heavy spending on AI infrastructure will deliver expected returns"
-  },
-  {
-   "id": "dc966fb201cf508a",
-   "time": "2026-11-02T13:21:46+05:30",
-   "headline": "Campus Activewear Limited: Campus Activewear Limited has informed the Exchange about Schedule of meet |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/CAMPUSSHOES_02112026132059_INVESTORFINALSIGNED.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Campus Activewear Limited: Campus Activewear Limited has informed the Exchange about Schedule of meet |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates"
-  },
-  {
-   "id": "e2aae12a79b04a23",
-   "time": "2026-11-02T13:21:05+05:30",
-   "headline": "PCBL Chemical Limited: PCBL Chemical Limited has submitted to the Exchange, the financial results for the period ended September 30, 2026. |SUBJECT: Outcome of Board Meeting",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/PCBL_02112026131934_FinalBMOutcomeheldon2112026.pdf",
-   "section": "news",
-   "call": "watch",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [
-    {
-     "symbol": "PCBL",
-     "direction": "up"
-    }
-   ],
-   "sectors": [],
-   "impact": 45,
-   "confidence": 30,
-   "category": "News",
-   "action": "Read the source before acting",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "PCBL Chemical Limited: PCBL Chemical Limited has submitted to the Exchange, the financial results for the period ended September 30, 2026. |SUBJECT: Outcome of Board Meeting"
-  },
-  {
-   "id": "28f7084a5865d3fb",
-   "time": "2026-11-02T13:20:42+05:30",
-   "headline": "Shree Vasu Logistics Limited: Shree Vasu Logistics Limited has informed the Exchange about Schedule of meet |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/SVLL_02112026132024_SVLL.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Shree Vasu Logistics Limited: Shree Vasu Logistics Limited has informed the Exchange about Schedule of meet |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates"
-  },
-  {
-   "id": "3ab5e2206743e371",
-   "time": "2026-11-02T13:19:44+05:30",
-   "headline": "Capillary Technologies India Limited: Capillary Technologies India Limited has informed the Exchange about Change in Directors/KMP/SMP/Auditor/RTA |SUBJECT: Change in Directors/KMP/SMP/Auditor/RTA",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/CIM_20334_WebXMLFile_20261102_131943947.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Capillary Technologies India Limited: Capillary Technologies India Limited has informed the Exchange about Change in Directors/KMP/SMP/Auditor/RTA |SUBJECT: Change in Directors/KMP/SMP/Auditor/RTA"
-  },
-  {
-   "id": "10dfb6bc9e9cbc04",
-   "time": "2026-11-02T13:19:29+05:30",
-   "headline": "Suprajit Engineering Limited: Suprajit Engineering Limited has informed the Exchange regarding 'Grant Of Stock Appreciation Rights ('Sars') Under SEL Employee Stock Appreciation Rights Plan 2017'. |SUBJECT: Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/SUPRAJIT_02112026131742_ESAR_Grant_Letter.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Suprajit Engineering Limited: Suprajit Engineering Limited has informed the Exchange regarding 'Grant Of Stock Appreciation Rights ('Sars') Under SEL Employee Stock Appreciation Rights Plan 2017'. |SUBJECT: Updates"
-  },
-  {
-   "id": "296ded8ade7bc910",
-   "time": "2026-11-02T13:18:06+05:30",
-   "headline": "United Foodbrands Limited: United Foodbrands Limited has informed the Exchange regarding Grant of 13500 Options. |SUBJECT: ESOP/ESOS/ESPS",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/BARBEQUE_02112026131703_ESOPGrant.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "United Foodbrands Limited: United Foodbrands Limited has informed the Exchange regarding Grant of 13500 Options. |SUBJECT: ESOP/ESOS/ESPS"
-  },
-  {
-   "id": "fa38ca7fd290f8f2",
-   "time": "2026-11-02T13:17:00+05:30",
-   "headline": "Capillary Technologies India Limited: Capillary Technologies India Limited has informed the Exchange regarding Other Restructuring |SUBJECT: Other Restructuring-XBRL",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/REG30_Restructuring_20334_WebXMLFile_20261102_131658971.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Capillary Technologies India Limited: Capillary Technologies India Limited has informed the Exchange regarding Other Restructuring |SUBJECT: Other Restructuring-XBRL"
-  },
-  {
-   "id": "8fa6e741ccde302b",
-   "time": "2026-11-02T13:15:27+05:30",
-   "headline": "Effwa Infra & Research Limited: Effwa Infra & Research Limited has informed the Exchange about Investor Presentation |SUBJECT: Investor Presentation",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/EFFWA_02112026131517_Investor_Presentation.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Effwa Infra & Research Limited: Effwa Infra & Research Limited has informed the Exchange about Investor Presentation |SUBJECT: Investor Presentation"
-  },
-  {
-   "id": "72d93636532f16f3",
-   "time": "2026-11-02T13:14:58+05:30",
-   "headline": "United Foodbrands Limited: United Foodbrands Limited has informed the Exchange regarding Allotment of 8656 Shares. |SUBJECT: ESOP/ESOS/ESPS",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/BARBEQUE_02112026131355_ESOPAllotment.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "United Foodbrands Limited: United Foodbrands Limited has informed the Exchange regarding Allotment of 8656 Shares. |SUBJECT: ESOP/ESOS/ESPS"
-  },
-  {
-   "id": "8fb761ab6549e22d",
-   "time": "2026-11-02T13:13:09+05:30",
-   "headline": "Zydus Lifesciences Limited: ZYDUS LIFESCIENCES LIMITED has informed the Exchange regarding Update-Acquisition/Scheme/Sale/Disposal-XBRL |SUBJECT: Update-Acquisition (including agreement to acquire)-XBRL",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/REG30_Restructuring_1852_WebXMLFile_20261102_131308439.xml",
-   "section": "news",
-   "call": "watch",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [
-    {
-     "symbol": "ZYDUSLIFE",
-     "direction": "up"
-    }
-   ],
-   "sectors": [],
-   "impact": 45,
-   "confidence": 30,
-   "category": "News",
-   "action": "Read the source before acting",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Zydus Lifesciences Limited: ZYDUS LIFESCIENCES LIMITED has informed the Exchange regarding Update-Acquisition/Scheme/Sale/Disposal-XBRL |SUBJECT: Update-Acquisition (including agreement to acquire)-XBRL"
-  },
-  {
-   "id": "39dc884fda91cb7f",
-   "time": "2026-11-02T13:11:40+05:30",
-   "headline": "Mask Investments Limited: MASKINVEST: Mask Investments Limited has informed the Exchange about Copy of Newspaper Publication of Standalone Unaudited Financial Results of the company for the quarter and half year ended September 30, 2026. |SUBJECT",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/MASKINVEST_02112026131131_MASKNEWSADV02112026.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Mask Investments Limited: MASKINVEST: Mask Investments Limited has informed the Exchange about Copy of Newspaper Publication of Standalone Unaudited Financial Results of the company for the quarter and half year ended September 30, 2026. |SUBJECT"
   }
  ],
  "digest": {
   "date": "2026-11-03",
   "act": 0,
-  "watch": 2,
-  "ignored": 4,
+  "watch": 8,
+  "ignored": 12,
   "reasons": [
    {
     "label": "No listed-stock impact",
-    "count": 3
+    "count": 9
    },
    {
     "label": "Routine filing",
-    "count": 1
+    "count": 3
    }
   ]
  }

@@ -1,10 +1,10 @@
 {
  "date": "2026-11-03",
- "updated": "2026-11-03T00:32:55+05:30",
- "sentiment": "Bullish",
+ "updated": "2026-11-03T03:58:54+05:30",
+ "sentiment": "Mildly bullish",
  "breadth": {
-  "up": 3,
-  "down": 0
+  "up": 2,
+  "down": 1
  },
  "checklist": [
   {
@@ -17,13 +17,13 @@
   },
   {
    "title": "US close - Dow/S&P/Nasdaq direction",
-   "dir": "up",
-   "value": "Mixed — 2/3 higher",
+   "dir": "down",
+   "value": "Mixed — 1/3 higher",
    "detail": [
-    "Dow 52,220.29 +0.87%",
-    "S&P 7,589.34 +0.12%",
-    "Nasdaq 25,404.71 -0.13%",
-    "Nasdaq futures now -0.25%"
+    "Dow 51,983.98 +0.41%",
+    "S&P 7,541.40 -0.51%",
+    "Nasdaq 25,164.31 -1.07%",
+    "Nasdaq futures now -1.09%"
    ]
   },
   {
@@ -40,14 +40,14 @@
    "dir": "flat",
    "value": "No major currency pressure",
    "detail": [
-    "DXY 101.74 -0.13%",
-    "USD/INR 94.900 +0.05%"
+    "DXY 101.77 -0.11%",
+    "USD/INR 94.900 +0.00%"
    ]
   },
   {
    "title": "Brent crude level",
    "dir": "up",
-   "value": "$104.65 -7.74%",
+   "value": "$104.20 -8.14%",
    "detail": []
   },
   {
@@ -57,18 +57,36 @@
    "detail": []
   }
  ],
- "summary": "Bullish setup. Brent down 7.74% — relief for OMCs and paints; NASDAQ closed 0.13% lower.",
+ "summary": "Mildly bullish setup. Brent down 8.14% — relief for OMCs and paints; NASDAQ closed 1.07% lower; IT may open soft.",
  "global_cues": [
-  "Brent down 7.74% — relief for OMCs and paints",
-  "NASDAQ closed 0.13% lower",
+  "Brent down 8.14% — relief for OMCs and paints",
+  "NASDAQ closed 1.07% lower; IT may open soft",
   "Nikkei down, Hang Seng up"
  ],
  "india_triggers": [
-  "2 filings and headlines worth a look so far today"
+  "8 filings and headlines worth a look so far today"
  ],
- "focus": [],
- "sector_tags": [],
- "key_risk": "",
+ "focus": [
+  {
+   "symbol": "OIL",
+   "note": "Treasury Yields Extend Past Month’s Slide as Oil Prices Drop"
+  },
+  {
+   "symbol": "OIL",
+   "note": "TSX rebounds as oil pullback boosts industrials, mining shares"
+  },
+  {
+   "symbol": "OIL",
+   "note": "US stocks today: Nasdaq ends over 1% lower as AI worries persist"
+  }
+ ],
+ "sector_tags": [
+  {
+   "label": "IT",
+   "tone": "watch"
+  }
+ ],
+ "key_risk": "Weak US tech could weigh on Indian IT at the open",
  "also": [
   {
    "name": "BANK NIFTY",
@@ -77,33 +95,33 @@
   },
   {
    "name": "S&P FUT",
-   "value": "7,625",
-   "change": 0.15
+   "value": "7,587",
+   "change": -0.35
   },
   {
    "name": "NASDAQ FUT",
-   "value": "28,464",
-   "change": -0.25
+   "value": "28,224",
+   "change": -1.09
   },
   {
    "name": "KOSPI",
    "value": "5,859",
-   "change": 2.24
+   "change": 0.0
   },
   {
    "name": "WTI",
-   "value": "96.31",
-   "change": -7.5
+   "value": "96.26",
+   "change": -7.55
   },
   {
    "name": "GOLD",
-   "value": "3,964",
-   "change": 1.66
+   "value": "3,957",
+   "change": 1.48
   },
   {
    "name": "US 10Y",
-   "value": "4.89",
-   "change": -0.79
+   "value": "4.91",
+   "change": -0.34
   }
  ],
  "source": "CNBC / Yahoo Finance (unofficial, delayed)"
