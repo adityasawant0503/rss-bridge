@@ -238,6 +238,8 @@ class TestTrades(unittest.TestCase):
         self.assertEqual((sx["account"], sx["expiry"], sx["pnl"], sx["entry_t"]),
                          ("07_Fyers_Tradebook", date(2025, 12, 4), 400.0, datetime(2025, 11, 28, 11, 45)))
         self.assertEqual(sorted(k for k, _ in rep["by_account"]), ["03_Zerodha_Tradebook", "07_Fyers_Tradebook"])
+        only, _ = T.build([wbp], accounts=["fyers"])
+        self.assertEqual([k for k, _ in only["by_account"]], ["07_Fyers_Tradebook"])
 
     def test_monthly_expiry_rule(self):
         self.assertEqual(T.monthly_expiry("NIFTY", 2025, 9), date(2025, 9, 30))      # last Tuesday from Sep 2025
