@@ -568,11 +568,13 @@ def inr(v):
     return ("-" if v < 0 else "") + "₹" + (head + "," + tail if head else tail)
 
 
-def build(paths, months=None, bars=None, profile=None, password=None):
+def build(paths, months=None, bars=None, profile=None, password=None, accounts=None):
     prof = mmxm.load_profile(profile)
     cfg = mmxm.load_config(prof)
     mkt = mmxm.Market(prof, cfg)
     fills = load_fills(paths, password)
+    if accounts:
+        fills = [f for f in fills if any(a.lower() in f["account"].lower() for a in accounts)]
     if months:
         fills = [f for f in fills if f["t"].strftime("%Y-%m") in months]
     trips = round_trips(fills)
@@ -685,12 +687,14 @@ def main(argv=None):
     r = sub.add_parser("report")
     r.add_argument("files", nargs="+")
     r.add_argument("--months", help="comma list like 2025-06,2025-08")
+    r.add_argument("--accounts", help="only these accounts (sheet names or parts of them), comma separated")
     r.add_argument("--bars", help="index bars (CSV time,open,high,low,close) to check for sweeps and MMXM setups")
     r.add_argument("--json", help="write the full report and every round trip here")
     r.add_argument("--password", help="contract-note PDF password (or set DHAN_PDF_PASSWORD, which keeps it out of shell history)")
     a = ap.parse_args(argv)
     rep, trips = build(a.files, set(a.months.split(",")) if a.months else None, a.bars,
-                       password=a.password or os.environ.get("DHAN_PDF_PASSWORD"))
+                       password=a.password or os.environ.get("DHAN_PDF_PASSWORD"),
+                       accounts=a.accounts.split(",") if a.accounts else None)
     print_report(rep)
     if a.json:
         os.makedirs(os.path.dirname(os.path.abspath(a.json)), exist_ok=True)
