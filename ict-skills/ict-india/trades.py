@@ -38,65 +38,91 @@ MONTHS = {m: i + 1 for i, m in enumerate("JAN FEB MAR APR MAY JUN JUL AUG SEP OC
 UNDERLYINGS = ["MIDCPNIFTY", "NIFTYNXT50", "BANKNIFTY", "FINNIFTY", "BANKEX", "SENSEX", "NIFTY"]
 
 COLS = OrderedDict([
-    ("datetime", ["trade date time", "trade datetime", "date time", "datetime", "timestamp", "exchange time"]),
+    ("datetime", ["trade date time", "trade datetime", "date time", "date & time", "datetime", "timestamp",
+                  "order execution time", "execution time", "exchange time"]),
     ("date", ["trade date", "date", "order date", "txn date"]),
     ("time", ["trade time", "time", "order time", "exch time"]),
     ("symbol", ["trading symbol", "tradingsymbol", "symbol", "contract", "instrument", "security", "scrip", "name", "description"]),
     ("side", ["buy/sell", "buy / sell", "b/s", "side", "transaction type", "txn type", "trade type", "action", "type"]),
     ("qty", ["traded qty", "trade qty", "filled qty", "quantity", "qty"]),
     ("price", ["trade price", "traded price", "avg price", "average price", "price", "rate"]),
+    ("expiry", ["expiry date", "expiry"]),                       # optional
+    ("trade_id", ["trade id", "trade no", "exchange trade id"]),  # optional, keeps split fills apart
 ])
+REQUIRED = {"symbol", "side", "qty", "price"}
 
 
 # ---------------------------------------------------------------- reading files
 
 def read_xlsx(path):
-    """First worksheet of an .xlsx as a list of rows (strings), without openpyxl."""
+    """Every worksheet of an .xlsx as [(sheet name, rows of strings)], without openpyxl."""
     with zipfile.ZipFile(path) as z:
         ns = {"m": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
+        names = z.namelist()
         shared = []
-        if "xl/sharedStrings.xml" in z.namelist():
+        if "xl/sharedStrings.xml" in names:
             root = ElementTree.fromstring(z.read("xl/sharedStrings.xml"))
             for si in root.findall("m:si", ns):
                 shared.append("".join(t.text or "" for t in si.iter("{%s}t" % ns["m"])))
-        sheets = sorted(n for n in z.namelist() if re.match(r"xl/worksheets/sheet\d+\.xml$", n))
-        root = ElementTree.fromstring(z.read(sheets[0]))
-        rows = []
-        for r in root.iter("{%s}row" % ns["m"]):
-            cells = {}
-            for c in r.findall("m:c", ns):
-                ref = re.match(r"([A-Z]+)", c.get("r", "A")).group(1)
-                col = 0
-                for ch in ref:
-                    col = col * 26 + ord(ch) - 64
-                v = c.find("m:v", ns)
-                t = c.get("t")
-                if t == "s" and v is not None:
-                    val = shared[int(v.text)]
-                elif t == "inlineStr":
-                    val = "".join(x.text or "" for x in c.iter("{%s}t" % ns["m"]))
-                else:
-                    val = v.text if v is not None else ""
-                cells[col - 1] = val
-            if cells:
-                rows.append([cells.get(i, "") for i in range(max(cells) + 1)])
-        return rows
+        order = []
+        if "xl/workbook.xml" in names and "xl/_rels/workbook.xml.rels" in names:
+            rels = {r.get("Id"): r.get("Target") for r in ElementTree.fromstring(z.read("xl/_rels/workbook.xml.rels"))}
+            rid = "{http://schemas.openxmlformats.org/officeDocument/2006/relationships}id"
+            for sh in ElementTree.fromstring(z.read("xl/workbook.xml")).iter("{%s}sheet" % ns["m"]):
+                target = rels.get(sh.get(rid), "")
+                target = target.lstrip("/") if target.startswith("/") else "xl/" + target
+                if target in names:
+                    order.append((sh.get("name"), target))
+        if not order:
+            files = sorted((n for n in names if re.match(r"xl/worksheets/sheet\d+\.xml$", n)),
+                           key=lambda n: int(re.search(r"(\d+)\.xml$", n).group(1)))
+            order = [(os.path.splitext(os.path.basename(n))[0], n) for n in files]
+        return [(name, sheet_rows(z.read(target), shared, ns)) for name, target in order]
 
 
-def read_rows(path):
+def sheet_rows(xml, shared, ns):
+    root = ElementTree.fromstring(xml)
+    rows = []
+    for r in root.iter("{%s}row" % ns["m"]):
+        cells = {}
+        for c in r.findall("m:c", ns):
+            ref = re.match(r"([A-Z]+)", c.get("r", "A")).group(1)
+            col = 0
+            for ch in ref:
+                col = col * 26 + ord(ch) - 64
+            v = c.find("m:v", ns)
+            t = c.get("t")
+            if t == "s" and v is not None:
+                val = shared[int(v.text)]
+            elif t == "inlineStr":
+                val = "".join(x.text or "" for x in c.iter("{%s}t" % ns["m"]))
+            else:
+                val = v.text if v is not None else ""
+            cells[col - 1] = val
+        if cells:
+            rows.append([cells.get(i, "") for i in range(max(cells) + 1)])
+    return rows
+
+
+def read_tables(path):
+    """[(table name, rows)]: one per worksheet for Excel, one for CSV."""
     if path.lower().endswith((".xlsx", ".xlsm")):
         return read_xlsx(path)
     with open(path, newline="", encoding="utf-8-sig", errors="replace") as f:
         text = f.read()
     head = text[:8192]
     delim = max(",;\t|", key=head.count)
-    return [r for r in csv.reader(io.StringIO(text), delimiter=delim)]
+    return [(os.path.splitext(os.path.basename(path))[0], [r for r in csv.reader(io.StringIO(text), delimiter=delim)])]
+
+
+def read_rows(path):
+    return read_tables(path)[0][1]
 
 
 def find_header(rows):
     """The first row that names a symbol, a side, a quantity and a price; returns (index, {field: column})."""
     for i, row in enumerate(rows[:60]):
-        low = [str(c).strip().lower() for c in row]
+        low = [re.sub(r"\s+", " ", str(c).strip().lower().replace("_", " ")) for c in row]
         found = {}
         for field, names in COLS.items():
             for name in names:
@@ -106,7 +132,7 @@ def find_header(rows):
                 if hit is not None:
                     found[field] = hit
                     break
-        if {"symbol", "side", "qty", "price"} <= set(found) and ({"date", "datetime"} & set(found)):
+        if REQUIRED <= set(found) and ({"date", "datetime"} & set(found)):
             return i, found
     raise ValueError("could not find a header row with date, symbol, buy/sell, quantity and price columns")
 
@@ -119,7 +145,7 @@ def parse_dt(d, t=""):
     if re.fullmatch(r"\d+(\.\d+)?", d) and float(d) > 20000:            # Excel serial date (maybe with time)
         dt = datetime(1899, 12, 30) + timedelta(seconds=round(float(d) * 86400))
         d = dt.strftime("%Y-%m-%d") if t else dt.strftime("%Y-%m-%d %H:%M:%S")
-    s = (d + " " + t).strip().replace("T", " ")
+    s = (d + " " + t).strip().replace("T", " ").replace(",", " ")
     s = re.sub(r"\s+", " ", s)
     for fmt in ("%Y-%m-%d %H:%M:%S", "%Y-%m-%d %H:%M", "%d-%m-%Y %H:%M:%S", "%d/%m/%Y %H:%M:%S", "%d-%m-%Y %H:%M",
                 "%d/%m/%Y %H:%M", "%d %b %Y %H:%M:%S", "%d-%b-%Y %H:%M:%S", "%d %b %Y %I:%M:%S %p",
@@ -136,11 +162,30 @@ def num(v):
     return float(str(v).replace(",", "").replace("₹", "").strip() or 0)
 
 
-def parse_contract(sym, trade_day):
-    """Underlying, kind (CE/PE/FUT/EQ), strike and expiry date (when the symbol carries one)."""
+BSE = ("SENSEX", "BANKEX")
+
+
+def last_weekday(y, m, wd):
+    d = date(y + (m == 12), m % 12 + 1, 1) - timedelta(days=1)
+    return d - timedelta(days=(d.weekday() - wd) % 7)
+
+
+def monthly_expiry(und, y, m):
+    """Last Tuesday (NSE) / Thursday (BSE) from Sep 2025, the other way round before. Holiday shifts ignored."""
+    nse = und not in BSE
+    new = (y, m) >= (2025, 9)
+    return last_weekday(y, m, 1 if nse == new else 3)
+
+
+def parse_contract(sym, trade_day, expiry=None):
+    """Underlying, kind (CE/PE/FUT/EQ), strike and expiry date (when the symbol or an expiry column has one)."""
     s = re.sub(r"[-_/]", " ", str(sym).upper())
     s = re.sub(r"\s+", " ", s).strip()
     und = next((u for u in UNDERLYINGS if re.search(r"(^|[^A-Z])" + u + r"(?![A-Z])", s) or s.startswith(u)), None)
+    compact = re.match(r"^([A-Z&]+?)(\d{2})(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC|[1-9OND]\d{2})(\d+(?:\.\d+)?)(CE|PE|FUT)$",
+                       s.replace(" ", ""))
+    if compact and not und:
+        und = compact.group(1)
     kind = "CE" if re.search(r"(CE|CALL)\b", s) else "PE" if re.search(r"(PE|PUT)\b", s) else "FUT" if "FUT" in s else "EQ"
     strike = None
     m = re.search(r"(\d{4,6}(?:\.\d+)?)\s*(CE|PE|CALL|PUT)\b", s)
@@ -155,6 +200,15 @@ def parse_contract(sym, trade_day):
             exp = date(y, MONTHS[m.group(2)], int(m.group(1)))
         except ValueError:
             exp = None
+    if expiry:
+        try:
+            exp = parse_dt(expiry).date()
+        except ValueError:
+            pass
+    if exp is None and compact and compact.group(3) in MONTHS:
+        exp = monthly_expiry(und, 2000 + int(compact.group(2)), MONTHS[compact.group(3)])
+    if strike is None and compact and compact.group(5) != "FUT":
+        strike = float(compact.group(4))
     if exp is None and und:
         rest = s.replace(" ", "")[len(und):] if s.replace(" ", "").startswith(und) else ""
         m = re.match(r"(\d{2})([1-9OND])(\d{2})\d{4,6}(CE|PE)$", rest)   # NSE weekly: YY M DD strike CE
@@ -236,7 +290,7 @@ def parse_contract_note(text, name):
             misses.append(line.strip())
             continue
         fills.append({"t": when, "symbol": re.sub(r"\s+", " ", tail[:side.start()].strip()), "side": side.group(1)[0],
-                      "qty": qty, "price": price, "file": name})
+                      "qty": qty, "price": price, "file": name, "account": "contract notes", "expiry": None, "trade_id": None})
     return fills, misses
 
 
@@ -277,21 +331,43 @@ def load_fills(paths, password=None):
             fills.extend(load_table(p))
     finally:
         shutil.rmtree(work, ignore_errors=True)
-    fills.sort(key=lambda f: (f["t"], f["symbol"]))
-    # the same fill exported twice (overlapping reports) counts once
-    seen, out = set(), []
+    # The same fill exported twice (overlapping reports) counts once. Identical fills inside one export
+    # (an order split across several fills) are kept apart by trade id, or by their running count.
+    nth, seen, out = defaultdict(int), set(), []
     for f in fills:
-        k = (f["t"], f["symbol"], f["side"], f["qty"], f["price"])
+        base = (f["account"], f["t"], f["symbol"], f["side"], f["qty"], f["price"])
+        if f.get("trade_id"):
+            k = base + (f["trade_id"],)
+        else:
+            nth[(f["file"],) + base] += 1
+            k = base + ("#%d" % nth[(f["file"],) + base],)
         if k not in seen:
             seen.add(k)
             out.append(f)
+    out.sort(key=lambda f: (f["t"], f["symbol"]))
     return out
 
 
 def load_table(p):
+    """Fills from every sheet of p that has a tradebook header; sheets without one (P&L summaries) are skipped."""
+    fills, tables, errors = [], read_tables(p), []
+    for name, rows in tables:
+        try:
+            h, col = find_header(rows)
+        except ValueError as e:
+            errors.append(e)
+            continue
+        # Sheets of one workbook are separate accounts; separate files are treated as exports of the same account,
+        # so overlapping date ranges de-duplicate instead of double counting.
+        account = name if len(tables) > 1 else "main"
+        fills.extend(table_fills(rows, h, col, os.path.basename(p), account))
+    if not fills and errors:
+        raise ValueError("%s: %s" % (os.path.basename(p), errors[0]))
+    return fills
+
+
+def table_fills(rows, h, col, fname, account):
     fills = []
-    rows = read_rows(p)
-    h, col = find_header(rows)
     for r in rows[h + 1:]:
         if len(r) <= max(col.values()) or not str(r[col["symbol"]]).strip():
             continue
@@ -306,7 +382,9 @@ def load_table(p):
         if qty <= 0:
             continue
         fills.append({"t": when, "symbol": re.sub(r"\s+", " ", str(r[col["symbol"]]).strip()),
-                      "side": side[0], "qty": qty, "price": price, "file": os.path.basename(p)})
+                      "side": side[0], "qty": qty, "price": price, "file": fname, "account": account,
+                      "expiry": str(r[col["expiry"]]).strip() if "expiry" in col and col["expiry"] < len(r) else None,
+                      "trade_id": str(r[col["trade_id"]]).strip() if "trade_id" in col and col["trade_id"] < len(r) else None})
     return fills
 
 
@@ -317,9 +395,10 @@ def round_trips(fills):
     open_, trips = {}, []
     for f in fills:
         sign = 1 if f["side"] == "B" else -1
-        tr = open_.get(f["symbol"])
+        key = (f["account"], f["symbol"])
+        tr = open_.get(key)
         if tr is None:
-            tr = open_[f["symbol"]] = {"symbol": f["symbol"], "entry_t": f["t"], "pos": 0.0, "cash": 0.0, "max_qty": 0.0,
+            tr = open_[key] = {"symbol": f["symbol"], "account": f["account"], "expiry_col": f.get("expiry"), "entry_t": f["t"], "pos": 0.0, "cash": 0.0, "max_qty": 0.0,
                                        "fills": 0, "first_side": f["side"], "buy_qty": 0.0, "buy_val": 0.0, "sell_val": 0.0}
         tr["pos"] += sign * f["qty"]
         tr["cash"] -= sign * f["qty"] * f["price"]
@@ -332,14 +411,22 @@ def round_trips(fills):
             tr["sell_val"] += f["qty"] * f["price"]
         if abs(tr["pos"]) < 1e-9:
             tr["exit_t"] = f["t"]
-            trips.append(open_.pop(f["symbol"]))
+            trips.append(open_.pop(key))
     for tr in open_.values():
         tr["exit_t"] = None
         trips.append(tr)
+    last_day = max((f["t"].date() for f in fills), default=None)
     for tr in trips:
-        c = parse_contract(tr["symbol"], tr["entry_t"].date())
+        c = parse_contract(tr["symbol"], tr["entry_t"].date(), tr.get("expiry_col"))
         tr.update(c)
+        # An option still held after its expiry (and the data runs past it) is settled at 0: expired worthless.
+        # That's right for out-of-the-money options; an in-the-money one settles at intrinsic, so check the statement.
+        tr["expired_worthless"] = False
+        if tr["exit_t"] is None and tr["kind"] in ("CE", "PE") and tr["expiry"] and last_day and tr["expiry"] <= last_day:
+            tr["exit_t"] = datetime.combine(tr["expiry"], datetime.min.time()).replace(hour=15, minute=30)
+            tr["expired_worthless"] = True
         tr["pnl"] = round(tr["cash"], 2) if tr["exit_t"] else None
+        tr["overnight"] = bool(tr["exit_t"]) and tr["exit_t"].date() > tr["entry_t"].date()
         tr["hold_min"] = round((tr["exit_t"] - tr["entry_t"]).total_seconds() / 60, 1) if tr["exit_t"] else None
         bought = tr["first_side"] == "B"
         if tr["kind"] in ("CE", "FUT", "EQ"):
@@ -371,10 +458,10 @@ def tag(mkt, trips):
         t["weekday"] = t["entry_t"].strftime("%a")
         t["hour"] = t["entry_t"].strftime("%H:00")
         t["expiry_day"] = t["dte"] == 0
-    by_day = defaultdict(list)
+    by_day = defaultdict(list)      # daily rules count per account: each account is one trader's day
     for t in trips:
-        by_day[t["day"]].append(t)
-    for day, ts in by_day.items():
+        by_day[(t.get("account"), t["day"])].append(t)
+    for _, ts in by_day.items():
         losses = 0
         am_traded = False
         for k, t in enumerate(ts):
@@ -507,10 +594,17 @@ def build(paths, months=None, bars=None, profile=None, password=None):
         "by_hour": group(trips, lambda t: t["hour"]),
         "by_weekday": group(trips, lambda t: t["weekday"], ["Mon", "Tue", "Wed", "Thu", "Fri"]),
         "by_expiry": group(trips, dte_bucket, ["expiry day", "1 day before", "2-3 days", "4+ days", "unknown"]),
+        "by_account": group(trips, lambda t: t["account"]),
         "by_underlying": group(trips, lambda t: t["underlying"]),
         "by_style": group(trips, lambda t: t["style"]),
         "by_view": group(trips, lambda t: t["view"], ["long", "short"]),
         "by_hold": group(trips, hold_bucket, [b for _, b in HOLD_BUCKETS] + ["open"]),
+        "by_overnight": group(trips, lambda t: "held overnight" if t["overnight"] else "closed same day"),
+        "expired_worthless": [{"symbol": t["symbol"], "account": t["account"], "pnl": t["pnl"]} for t in trips if t["expired_worthless"]],
+        "biggest_losers": [{"day": str(t["day"]), "time": t["entry_t"].strftime("%H:%M"), "account": t["account"], "symbol": t["symbol"],
+                            "style": t["style"], "pnl": t["pnl"], "hold_min": t["hold_min"], "overnight": t["overnight"],
+                            "expired_worthless": t["expired_worthless"], "max_qty": t["max_qty"]}
+                           for t in sorted((t for t in trips if t["pnl"] is not None and t["pnl"] < 0), key=lambda t: t["pnl"])[:10]],
         "by_nth_trade": group(trips, lambda t: "trade %d of the day" % min(t["nth_today"], 4) if t["nth_today"] < 4 else "4th or later"),
         "days": {"count": len(days), "green": len([v for v in days.values() if v > 0]),
                  "median": round(sorted(days.values())[len(days) // 2], 2) if days else None,
@@ -543,6 +637,10 @@ def print_report(rep):
     print("charges are not included: compare with the P&L statement's net figure")
     if rep["open_positions"]:
         print("still open at the end of the data: %s" % ", ".join(rep["open_positions"]))
+    if rep["expired_worthless"]:
+        print("%d options were held to expiry and are counted as expired worthless (%s): %s" % (
+            len(rep["expired_worthless"]), inr(sum(x["pnl"] for x in rep["expired_worthless"])),
+            ", ".join(x["symbol"] for x in rep["expired_worthless"])))
     d = rep["days"]
     if d["count"]:
         print("%d trading days, %d green, median day %s, median hold %s min" % (d["count"], d["green"], inr(d["median"]), rep["hold_minutes_median"]))
@@ -553,14 +651,23 @@ def print_report(rep):
             pf = "-" if s["profit_factor"] is None else s["profit_factor"]
             print("  %-26s %4d trades  %13s  win %5s%%  PF %s" % (k, s["trades"], inr(s["pnl"]), s["win_rate"], pf))
 
-    for title, key in (("By month", "by_month"), ("By ICT window (IST)", "by_window"), ("By hour", "by_hour"),
+    for title, key in (("By account", "by_account"), ("By month", "by_month"), ("By ICT window (IST)", "by_window"), ("By hour", "by_hour"),
                        ("By weekday", "by_weekday"), ("By days to expiry", "by_expiry"), ("By underlying", "by_underlying"),
                        ("By style", "by_style"), ("By index direction", "by_view"), ("By holding time", "by_hold"),
+                       ("Overnight", "by_overnight"),
                        ("By trade number in the day", "by_nth_trade")):
         table(title, rep[key])
     if "ict" in rep:
         table("Sweep before entry (%d trades checked against index bars)" % rep["ict"]["checked"], rep["ict"]["after_sweep"])
         table("MMXM setup at entry", rep["ict"]["mmxm_live"])
+    bl = rep["biggest_losers"]
+    if bl:
+        all_losses = -sum(t["pnl"] for t in rep["losers"])
+        print("\nTen biggest losers: %s, %.0f%% of all losses" % (inr(sum(t["pnl"] for t in bl)), 100.0 * -sum(t["pnl"] for t in bl) / all_losses))
+        for t in bl:
+            print("  %s %s  %-22s %-8s %12s  held %s%s" % (t["day"], t["time"], t["symbol"], t["style"], inr(t["pnl"]),
+                                                         "%.0f min" % t["hold_min"] if t["hold_min"] is not None else "-",
+                                                         ", to expiry (worthless)" if t["expired_worthless"] else ", overnight" if t["overnight"] else ""))
     print("\nYour notes' rules, replayed on these trades (what each would have blocked)")
     for r in rep["rules"]:
         if not r["blocked"]:
