@@ -1,18 +1,18 @@
 {
  "date": "2026-11-03",
- "updated": "2026-11-03T03:58:54+05:30",
- "sentiment": "Mildly bullish",
+ "updated": "2026-11-03T14:25:27+05:30",
+ "sentiment": "Mildly bearish",
  "breadth": {
-  "up": 2,
-  "down": 1
+  "up": 1,
+  "down": 2
  },
  "checklist": [
   {
    "title": "Nifty 50 last close (GIFT Nifty not available from free sources)",
    "dir": "up",
-   "value": "23,440.80 (+1.68%)",
+   "value": "23,703.30 (+1.12%)",
    "detail": [
-    "Previous close 23,053.50"
+    "Previous close 23,440.76"
    ]
   },
   {
@@ -22,8 +22,8 @@
    "detail": [
     "Dow 51,983.98 +0.41%",
     "S&P 7,541.40 -0.51%",
-    "Nasdaq 25,164.31 -1.07%",
-    "Nasdaq futures now -1.09%"
+    "Nasdaq 25,164.36 -1.07%",
+    "Nasdaq futures now -0.03%"
    ]
   },
   {
@@ -32,7 +32,7 @@
    "value": "Asia mixed",
    "detail": [
     "Nikkei 63,081.86 -0.33%",
-    "Hang Seng 23,393.32 +0.42%"
+    "Hang Seng 23,525.97 +0.57%"
    ]
   },
   {
@@ -40,88 +40,99 @@
    "dir": "flat",
    "value": "No major currency pressure",
    "detail": [
-    "DXY 101.77 -0.11%",
-    "USD/INR 94.900 +0.00%"
+    "DXY 101.74 -0.00%",
+    "USD/INR 94.710 -0.20%"
    ]
   },
   {
    "title": "Brent crude level",
-   "dir": "up",
-   "value": "$104.20 -8.14%",
-   "detail": []
+   "dir": "down",
+   "value": "$106.79 +1.93%",
+   "detail": [
+    "Rising crude hurts India (OMCs, paints, aviation); helps upstream"
+   ]
   },
   {
    "title": "India VIX",
    "dir": "flat",
-   "value": "15.50 (+1.29%) — normal",
+   "value": "16.01 (+3.27%) — normal",
    "detail": []
   }
  ],
- "summary": "Mildly bullish setup. Brent down 8.14% — relief for OMCs and paints; NASDAQ closed 1.07% lower; IT may open soft.",
+ "summary": "Mildly bearish setup. Brent up 1.93% — pressure on OMCs, paints and aviation; NASDAQ closed 1.07% lower; IT may open soft.",
  "global_cues": [
-  "Brent down 8.14% — relief for OMCs and paints",
+  "Brent up 1.93% — pressure on OMCs, paints and aviation",
   "NASDAQ closed 1.07% lower; IT may open soft",
   "Nikkei down, Hang Seng up"
  ],
  "india_triggers": [
-  "8 filings and headlines worth a look so far today"
+  "72 filings and headlines worth a look so far today",
+  "India VIX up 3.3% — expect wider ranges"
  ],
  "focus": [
   {
-   "symbol": "OIL",
-   "note": "Treasury Yields Extend Past Month’s Slide as Oil Prices Drop"
+   "symbol": "FLUOROCHEM",
+   "note": "Gujarat Fluorochemicals Limited: Gujarat Fluorochemicals Limited has s"
   },
   {
-   "symbol": "OIL",
-   "note": "TSX rebounds as oil pullback boosts industrials, mining shares"
+   "symbol": "SOLARINDS",
+   "note": "Solar Industries India Limited: Solar Industries India Limited has sub"
   },
   {
-   "symbol": "OIL",
-   "note": "US stocks today: Nasdaq ends over 1% lower as AI worries persist"
+   "symbol": "TATASTEEL",
+   "note": "Tata Steel Limited: Tata Steel Limited has informed the Exchange regar"
   }
  ],
  "sector_tags": [
+  {
+   "label": "Upstream oil",
+   "tone": "positive"
+  },
+  {
+   "label": "OMCs",
+   "tone": "negative"
+  },
   {
    "label": "IT",
    "tone": "watch"
   }
  ],
- "key_risk": "Weak US tech could weigh on Indian IT at the open",
+ "key_risk": "A further crude spike would hit OMCs and widen the INR move",
  "also": [
   {
    "name": "BANK NIFTY",
-   "value": "55,002.2",
-   "change": 0.58
+   "value": "55,619.4",
+   "change": 1.12
   },
   {
    "name": "S&P FUT",
-   "value": "7,587",
-   "change": -0.35
+   "value": "7,557",
+   "change": -0.23
   },
   {
    "name": "NASDAQ FUT",
-   "value": "28,224",
-   "change": -1.09
+   "value": "28,118",
+   "change": -0.03
   },
   {
    "name": "KOSPI",
-   "value": "5,859",
-   "change": 0.0
+   "value": "5,649",
+   "change": -3.59
   },
   {
    "name": "WTI",
-   "value": "96.26",
-   "change": -7.55
+   "value": "98.01",
+   "change": 1.61
   },
   {
    "name": "GOLD",
-   "value": "3,957",
-   "change": 1.48
+   "value": "3,910",
+   "change": -1.5
   },
   {
    "name": "US 10Y",
-   "value": "4.91",
-   "change": -0.34
+   "value": "4.92",
+   "change": 0.47
   }
  ],
  "source": "CNBC / Yahoo Finance (unofficial, delayed)"
