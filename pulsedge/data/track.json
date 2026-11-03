@@ -1,7 +1,7 @@
 {
- "updated": "2026-11-03T14:25:27+05:30",
+ "updated": "2026-11-03T22:18:19+05:30",
  "summary": {
-  "calls": 468,
+  "calls": 502,
   "scored_calls": 0,
   "d1": {
    "scored": 0,
@@ -15,12 +15,453 @@
    "hit_rate": null,
    "avg_return": null
   },
-  "avg_abs_move_1d": 3.47,
+  "avg_abs_move_1d": 3.17,
   "since": "2026-10-26"
  },
  "method": "Entry is the NSE close of the last session that had ended when the news came out; 1D and 5D are the closes 1 and 5 sessions later. Only AI calls with an up/down direction count towards the hit rate.",
  "source": "NSE end-of-day bhavcopy",
  "calls": [
+  {
+   "id": "d9490af90fbc1a15",
+   "symbol": "AARTIIND",
+   "time": "2026-11-03T22:16:05+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "Aarti Drugs Limited: Aarti Drugs Limited has informed the Exchange regarding a press release dated November 03, 2026, titled \"Q2&H1FY27 Business and Financial P",
+   "url": "https://nsearchives.nseindia.com/corporate/AARTIDRUGS_03112026221548_ADL.pdf",
+   "entry_date": "2026-11-03",
+   "entry": 439.15
+  },
+  {
+   "id": "d5b190541f8c1d76",
+   "symbol": "SIGNATURE",
+   "time": "2026-11-03T22:15:31+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "Signatureglobal (India) Limited: Signatureglobal (India) Limited has informed the Exchange regarding 'Execution of Sale Deed'. |SUBJECT: Updates",
+   "url": "https://nsearchives.nseindia.com/corporate/SGLOBAL_03112026221401_saledeedreg30signed.pdf",
+   "entry_date": "2026-11-03",
+   "entry": 700.2
+  },
+  {
+   "id": "2cc6047fdd99f64f",
+   "symbol": "MAXHEALTH",
+   "time": "2026-11-03T22:14:12+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "Max Healthcare Institute Limited: Max Healthcare Institute Limited has informed the Exchange about disclosure under regulation 30 of the SEBI (Listing Obligatio",
+   "url": "https://nsearchives.nseindia.com/corporate/MAXHEALTH_03112026221201_SE_Disclosure.pdf",
+   "entry_date": "2026-11-03",
+   "entry": 895.5
+  },
+  {
+   "id": "ed59bf37648f9d0d",
+   "symbol": "CHOLAFIN",
+   "time": "2026-11-03T22:10:31+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "Cholamandalam Investment and Finance Company Limited: Cholamandalam Investment and Finance Company Limited has informed the Exchange regarding 'Intimation of ch",
+   "url": "https://nsearchives.nseindia.com/corporate/lakshmits_03112026220159_Intimation_RTA_Corporate_Office_Addresschange_revsd.pdf",
+   "entry_date": "2026-11-03",
+   "entry": 1650.0
+  },
+  {
+   "id": "0abac905c32ba07e",
+   "symbol": "CLEANMAX",
+   "time": "2026-11-03T22:10:23+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "Clean Max Enviro Energy Solutions Limited: Monitoring Agency Report |SUBJECT: Monitoring Agency Report",
+   "url": "https://nsearchives.nseindia.com/corporate/CLEANMAX_03112026221014_MAR.pdf",
+   "entry_date": "2026-11-03",
+   "entry": 1225.9
+  },
+  {
+   "id": "0abac905c32ba07e",
+   "symbol": "CLEAN",
+   "time": "2026-11-03T22:10:23+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "Clean Max Enviro Energy Solutions Limited: Monitoring Agency Report |SUBJECT: Monitoring Agency Report",
+   "url": "https://nsearchives.nseindia.com/corporate/CLEANMAX_03112026221014_MAR.pdf",
+   "entry_date": "2026-11-03",
+   "entry": 658.8
+  },
+  {
+   "id": "1bd934d44ddcb825",
+   "symbol": "KPITTECH",
+   "time": "2026-11-03T22:07:58+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "KPIT Technologies Limited: KPIT Technologies Limited has informed the Exchange about Transcript of the Post Earnings Conference call for the quarter ended Septe",
+   "url": "https://nsearchives.nseindia.com/corporate/KPITTECH_03112026220723_KPIT_Q2FY27_Transcript_Signed.pdf",
+   "entry_date": "2026-11-03",
+   "entry": 519.8
+  },
+  {
+   "id": "00cd23b4f1886ee7",
+   "symbol": "LLOYDSME",
+   "time": "2026-11-03T22:03:04+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "Lloyds Metals And Energy Limited: Lloyds Metals and Energy Limited has informed the Exchange regarding Acquisition (including agreement to acquire) |SUBJECT: Ac",
+   "url": "https://nsearchives.nseindia.com/corporate/xbrl/REG30_Restructuring_21270_WebXMLFile_20261103_220303760.xml",
+   "entry_date": "2026-11-03",
+   "entry": 1780.3
+  },
+  {
+   "id": "ad8a0bc94be1fc55",
+   "symbol": "BLS",
+   "time": "2026-11-03T22:02:11+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "Mint Markets",
+   "headline": "BLS International Q2 results: Record revenue on Digital Services growth, but can strong earnings revive shares?",
+   "url": "https://www.livemint.com/market/bls-international-q2-results-record-revenue-on-digital-services-growth-but-can-strong-earnings-revive-shares-11793718530166.html",
+   "entry_date": "2026-11-03",
+   "entry": 215.63
+  },
+  {
+   "id": "1b58e3246d60a61a",
+   "symbol": "CLEANMAX",
+   "time": "2026-11-03T21:56:06+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "Clean Max Enviro Energy Solutions Limited: Clean Max Enviro Energy Solutions Limited has informed the Exchange regarding a press release dated November 03, 2026",
+   "url": "https://nsearchives.nseindia.com/corporate/CLEANMAX_03112026215339_Press_Release_Sep_2026.pdf",
+   "entry_date": "2026-11-03",
+   "entry": 1225.9
+  },
+  {
+   "id": "1b58e3246d60a61a",
+   "symbol": "CLEAN",
+   "time": "2026-11-03T21:56:06+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "Clean Max Enviro Energy Solutions Limited: Clean Max Enviro Energy Solutions Limited has informed the Exchange regarding a press release dated November 03, 2026",
+   "url": "https://nsearchives.nseindia.com/corporate/CLEANMAX_03112026215339_Press_Release_Sep_2026.pdf",
+   "entry_date": "2026-11-03",
+   "entry": 658.8
+  },
+  {
+   "id": "3c3dcdad209a195f",
+   "symbol": "CLEANMAX",
+   "time": "2026-11-03T21:48:56+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "Clean Max Enviro Energy Solutions Limited: Clean Max Enviro Energy Solutions Limited has informed the Exchange about Investor Presentation |SUBJECT: Investor Pr",
+   "url": "https://nsearchives.nseindia.com/corporate/CLEANMAX_03112026214450_InvestorP.pdf",
+   "entry_date": "2026-11-03",
+   "entry": 1225.9
+  },
+  {
+   "id": "3c3dcdad209a195f",
+   "symbol": "CLEAN",
+   "time": "2026-11-03T21:48:56+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "Clean Max Enviro Energy Solutions Limited: Clean Max Enviro Energy Solutions Limited has informed the Exchange about Investor Presentation |SUBJECT: Investor Pr",
+   "url": "https://nsearchives.nseindia.com/corporate/CLEANMAX_03112026214450_InvestorP.pdf",
+   "entry_date": "2026-11-03",
+   "entry": 658.8
+  },
+  {
+   "id": "37728e7e513e92b6",
+   "symbol": "CLEANMAX",
+   "time": "2026-11-03T21:39:02+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "Clean Max Enviro Energy Solutions Limited: Clean Max Enviro Energy Solutions Limited has submitted to the Exchange, the financial results for the period ended S",
+   "url": "https://nsearchives.nseindia.com/corporate/CLEANMAX_03112026213525_Outcome031126.pdf",
+   "entry_date": "2026-11-03",
+   "entry": 1225.9
+  },
+  {
+   "id": "37728e7e513e92b6",
+   "symbol": "CLEAN",
+   "time": "2026-11-03T21:39:02+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "Clean Max Enviro Energy Solutions Limited: Clean Max Enviro Energy Solutions Limited has submitted to the Exchange, the financial results for the period ended S",
+   "url": "https://nsearchives.nseindia.com/corporate/CLEANMAX_03112026213525_Outcome031126.pdf",
+   "entry_date": "2026-11-03",
+   "entry": 658.8
+  },
+  {
+   "id": "4c61fc39cd5af12d",
+   "symbol": "UCOBANK",
+   "time": "2026-11-03T21:34:43+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "UCO Bank: UCO Bank has informed the Exchange about Updates on Non Deal Roadshow |SUBJECT: General Updates",
+   "url": "https://nsearchives.nseindia.com/corporate/UCOBANK_03112026213430_NSEBSEOUTCOME03112026.pdf",
+   "entry_date": "2026-11-03",
+   "entry": 22.6
+  },
+  {
+   "id": "f9be134901a5917c",
+   "symbol": "BANKINDIA",
+   "time": "2026-11-03T21:33:26+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "ET Markets",
+   "headline": "Loan growth, fall in provisions help SBI profits in Q2",
+   "url": "https://economictimes.indiatimes.com/markets/stocks/earnings/loan-growth-fall-in-provisions-help-sbi-profits-in-q2/articleshow/135505841.cms",
+   "entry_date": "2026-11-03",
+   "entry": 133.17
+  },
+  {
+   "id": "f9be134901a5917c",
+   "symbol": "SBIN",
+   "time": "2026-11-03T21:33:26+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "ET Markets",
+   "headline": "Loan growth, fall in provisions help SBI profits in Q2",
+   "url": "https://economictimes.indiatimes.com/markets/stocks/earnings/loan-growth-fall-in-provisions-help-sbi-profits-in-q2/articleshow/135505841.cms",
+   "entry_date": "2026-11-03",
+   "entry": 970.25
+  },
+  {
+   "id": "d7f3f0a34d1b471b",
+   "symbol": "IRB",
+   "time": "2026-11-03T21:16:12+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "IRB INFRASTRUCTURE TRUST: IRB INFRASTRUCTURE TRUST has informed regarding Valuation report as on September 30, 2026 |SUBJECT: Disclosure of Valuation report",
+   "url": "https://nsearchives.nseindia.com/corporate/IRBIT_03112026211437_ValReport_-_Sept_2026_-_IRB_Infrastructure_Trust-sd.pdf",
+   "entry_date": "2026-11-03",
+   "entry": 16.3
+  },
+  {
+   "id": "557479f9b0ece067",
+   "symbol": "JWL",
+   "time": "2026-11-03T21:12:36+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "Jupiter Wagons Limited: Jupiter Wagons Limited has informed the Exchange about incorporation of a Subsidiary Company in India |SUBJECT: General Updates",
+   "url": "https://nsearchives.nseindia.com/corporate/CEBBCO_03112026211217_reg30subsidiary_incorporation.pdf",
+   "entry_date": "2026-11-03",
+   "entry": 192.18
+  },
+  {
+   "id": "5e91c86010b1e322",
+   "symbol": "IRB",
+   "time": "2026-11-03T21:07:09+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "IRB INFRASTRUCTURE TRUST: IRB INFRASTRUCTURE TRUST has submitted to the Exchange, the Unaudited Consolidated and Standalone financial information for the quarte",
+   "url": "https://nsearchives.nseindia.com/corporate/IRBIT_03112026210456_Outcome_BM_IRBIT__Financial_Results_-sd.pdf",
+   "entry_date": "2026-11-03",
+   "entry": 16.3
+  },
+  {
+   "id": "71caecfd1141dae6",
+   "symbol": "LLOYDSME",
+   "time": "2026-11-03T21:04:25+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "Lloyds Metals And Energy Limited: Lloyds Metals and Energy Limited has informed the Exchange regarding Issuance of securities |SUBJECT: Alteration Of Capital an",
+   "url": "https://nsearchives.nseindia.com/corporate/xbrl/ALTERATION_OF_CAPITAL_AND_FUND_RAISING_21270_WebXMLFile_20261103_210424250.xml",
+   "entry_date": "2026-11-03",
+   "entry": 1780.3
+  },
+  {
+   "id": "34f74b22e379cb1e",
+   "symbol": "LLOYDSME",
+   "time": "2026-11-03T21:03:38+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "Lloyds Metals And Energy Limited: Lloyds Metals and Energy Limited has informed the Exchange about Capacity addition (Sub-para 3-Para B) |SUBJECT: Capacity addi",
+   "url": "https://nsearchives.nseindia.com/corporate/xbrl/REG30_PARA_B_21270_WebXMLFile_20261103_210337496.xml",
+   "entry_date": "2026-11-03",
+   "entry": 1780.3
+  },
+  {
+   "id": "86ea7be8b8e9c367",
+   "symbol": "DALBHARAT",
+   "time": "2026-11-03T20:58:26+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "Dalmia Bharat Sugar and Industries Limited: Dalmia Bharat Sugar and Industries Limited has informed the Exchange regarding De-merger |SUBJECT: De-merger-XBRL",
+   "url": "https://nsearchives.nseindia.com/corporate/xbrl/REG30_Restructuring_1289_WebXMLFile_20261103_205825142.xml",
+   "entry_date": "2026-11-03",
+   "entry": 1381.4
+  },
+  {
+   "id": "ff8e01c7a1828445",
+   "symbol": "FRACTAL",
+   "time": "2026-11-03T20:58:10+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "Fractal Analytics Limited: Acquisition of certain assets and certain liabilities of Pricing One SA, by Asper. AI Inc., a step-down subsidiary of the Company |SU",
+   "url": "https://nsearchives.nseindia.com/corporate/FRACTAL_03112026205732_SEIntimationPricing_One.pdf",
+   "entry_date": "2026-11-03",
+   "entry": 732.8
+  },
+  {
+   "id": "4706868aeb4c0d44",
+   "symbol": "DALBHARAT",
+   "time": "2026-11-03T20:57:45+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "Dalmia Bharat Sugar and Industries Limited: Dalmia Bharat Sugar and Industries Limited has informed the Exchange regarding Acquisition (including agreement to a",
+   "url": "https://nsearchives.nseindia.com/corporate/xbrl/REG30_Restructuring_1289_WebXMLFile_20261103_205744257.xml",
+   "entry_date": "2026-11-03",
+   "entry": 1381.4
+  },
+  {
+   "id": "dc2b78e49711deed",
+   "symbol": "AIIL",
+   "time": "2026-11-03T20:53:23+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "Authum Investment & Infrastructure Limited: Authum Investment & Infrastructure Limited has submitted to the Exchange, the financial results for the period ended",
+   "url": "https://nsearchives.nseindia.com/corporate/Authum123_03112026205231_OutcomeBM03112026.pdf",
+   "entry_date": "2026-11-03",
+   "entry": 527.55
+  },
+  {
+   "id": "077e5f6eec89643f",
+   "symbol": "MCX",
+   "time": "2026-11-03T20:44:21+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "ET Markets",
+   "headline": "MCX Q2 Results: Profit rockets 130% YoY to Rs 455 crore, revenue jumps 114%",
+   "url": "https://economictimes.indiatimes.com/markets/stocks/earnings/mcx-q2-results-profit-rockets-130-yoy-to-rs-455-crore-revenue-jumps-114/articleshow/135504568.cms",
+   "entry_date": "2026-11-03",
+   "entry": 3490.1
+  },
+  {
+   "id": "259a3abcef0e25db",
+   "symbol": "VIJAYA",
+   "time": "2026-11-03T20:43:19+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "Vijaya Diagnostic Centre Limited: Vijaya Diagnostic Centre Limited has informed the Exchange about Change in Directors/KMP/SMP/Auditor/RTA |SUBJECT: Change in D",
+   "url": "https://nsearchives.nseindia.com/corporate/xbrl/CIM_19532_WebXMLFile_20261103_204318925.xml",
+   "entry_date": "2026-11-03",
+   "entry": 1447.1
+  },
+  {
+   "id": "c4b46b5d91a2d1c6",
+   "symbol": "MOTILALOFS",
+   "time": "2026-11-03T20:42:23+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "ET Markets",
+   "headline": "Motilal Oswal Financial Services announces leadership rejig; appoints new heads across businesses",
+   "url": "https://economictimes.indiatimes.com/markets/stocks/news/motilal-oswal-financial-services-announces-leadership-rejig-appoints-new-heads-across-businesses/articleshow/135504517.cms",
+   "entry_date": "2026-11-03",
+   "entry": 1010.0
+  },
+  {
+   "id": "e874f5e79bf1106c",
+   "symbol": "EMBASSY",
+   "time": "2026-11-03T20:42:22+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "Embassy Developments Limited: Investor Update for the quarter and half year ended September 30, 2026. |SUBJECT: General Updates",
+   "url": "https://nsearchives.nseindia.com/corporate/EMBDL_03112026204124_EDL_Investor_Update_03112026_.pdf",
+   "entry_date": "2026-11-03"
+  },
+  {
+   "id": "5a031056812b2fbd",
+   "symbol": "BLS",
+   "time": "2026-11-03T20:40:34+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "BLS Polymers Limited: BLS Polymers Limited has informed the Exchange regarding 'Disclosure Under Regulation 30(5) Of The SEBI (Listing Obligations And Disclosur",
+   "url": "https://nsearchives.nseindia.com/corporate/BLSPOLYMERS_03112026204014_Materiality_Disclsoure_Signed.pdf",
+   "entry_date": "2026-11-03",
+   "entry": 215.63
+  },
+  {
+   "id": "05ddc8a501beec06",
+   "symbol": "LLOYDSME",
+   "time": "2026-11-03T20:35:05+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "Lloyds Metals And Energy Limited: Monitoring Agency Report for the Quarter ended 30th September, 2026. |SUBJECT: Monitoring Agency Report",
+   "url": "https://nsearchives.nseindia.com/corporate/LLOYDSME_03112026203431_20261103_Intimation_Monitoring_Agency_Report.pdf",
+   "entry_date": "2026-11-03",
+   "entry": 1780.3
+  },
+  {
+   "id": "8d9fb1361c2a16c2",
+   "symbol": "VIJAYA",
+   "time": "2026-11-03T20:34:49+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "Vijaya Diagnostic Centre Limited: Vijaya Diagnostic Centre Limited has informed the Exchange about Investor Presentation |SUBJECT: Investor Presentation",
+   "url": "https://nsearchives.nseindia.com/corporate/VIJAYA_03112026203436_VDCL_Investor_Pres_03112026.pdf",
+   "entry_date": "2026-11-03",
+   "entry": 1447.1
+  },
   {
    "id": "e8e7ad2dfb3082c3",
    "symbol": "ICICIBANK",
@@ -32,7 +473,8 @@
    "headline": "ICICI Bank Limited: ICICI BANK LIMITED has informed the Exchange regarding Allotment of Securities |SUBJECT: Alteration Of Capital and Fund Raising-XBRL",
    "url": "https://nsearchives.nseindia.com/corporate/xbrl/ALTERATION_OF_CAPITAL_AND_FUND_RAISING_1606_WebXMLFile_20261103_142216083.xml",
    "entry_date": "2026-11-02",
-   "entry": 1387.4
+   "entry": 1387.4,
+   "r1": 2.67
   },
   {
    "id": "a64fccfb9d1baa58",
@@ -45,7 +487,8 @@
    "headline": "Gujarat Fluorochemicals Limited: Gujarat Fluorochemicals Limited has informed the Exchange regarding Outcome of Board Meeting held on November 03, 2026. |SUBJEC",
    "url": "https://nsearchives.nseindia.com/corporate/FLUOROCHEM_03112026141707_GFCL__Outcome.pdf",
    "entry_date": "2026-11-02",
-   "entry": 4324.1
+   "entry": 4324.1,
+   "r1": 3.23
   },
   {
    "id": "288f4e183f0e6b74",
@@ -58,7 +501,8 @@
    "headline": "Solar Industries India Limited: Outcome of the Board Meeting dated November 03, 2026. |SUBJECT: Integrated Filing- Financial",
    "url": "https://nsearchives.nseindia.com/corporate/SOLARINDS_03112026141540_OutcomeBM.pdf",
    "entry_date": "2026-11-02",
-   "entry": 19438.0
+   "entry": 19438.0,
+   "r1": 1.11
   },
   {
    "id": "09cb88bd63909f9d",
@@ -71,7 +515,8 @@
    "headline": "Gujarat Fluorochemicals Limited: Gujarat Fluorochemicals Limited has submitted to the Exchange, the financial results for the period ended September 30, 2026. |",
    "url": "https://nsearchives.nseindia.com/corporate/FLUOROCHEM_03112026141153_GFCL_Financial_Results.pdf",
    "entry_date": "2026-11-02",
-   "entry": 4324.1
+   "entry": 4324.1,
+   "r1": 3.23
   },
   {
    "id": "f9c053c89212c31a",
@@ -84,7 +529,8 @@
    "headline": "Lodha Developers' return of launch momentum excites investors",
    "url": "https://www.livemint.com/market/mark-to-market/lodha-developers-share-price-q2-results-fy27-sales-launches-11793690713747.html",
    "entry_date": "2026-11-02",
-   "entry": 1002.8
+   "entry": 1002.8,
+   "r1": 5.78
   },
   {
    "id": "4cde4fd9b33976dc",
@@ -97,7 +543,8 @@
    "headline": "Solar Industries India Limited: Solar Industries India Limited has submitted to the Exchange, the financial results for the period ended September 30, 2026. |SU",
    "url": "https://nsearchives.nseindia.com/corporate/SOLARINDS_03112026140845_OutcomeBM.pdf",
    "entry_date": "2026-11-02",
-   "entry": 19438.0
+   "entry": 19438.0,
+   "r1": 1.11
   },
   {
    "id": "3c721c0b083cb7eb",
@@ -110,7 +557,8 @@
    "headline": "Tata Steel Limited: Tata Steel Limited has informed the Exchange regarding Update-Acquisition/Scheme/Sale/Disposal-XBRL |SUBJECT: Update-Amalgamation/ Merger-XB",
    "url": "https://nsearchives.nseindia.com/corporate/xbrl/REG30_Restructuring_234_WebXMLFile_20261103_140831262.xml",
    "entry_date": "2026-11-02",
-   "entry": 177.37
+   "entry": 177.37,
+   "r1": -0.49
   },
   {
    "id": "06d02a65df108ea2",
@@ -123,7 +571,8 @@
    "headline": "Emcure Pharmaceuticals Limited: Emcure Pharmaceuticals Limited has informed the Exchange about Investor Presentation |SUBJECT: Investor Presentation",
    "url": "https://nsearchives.nseindia.com/corporate/EMCURE_03112026140137_IntimationOfInvestorPresentation.pdf",
    "entry_date": "2026-11-02",
-   "entry": 1883.5
+   "entry": 1883.5,
+   "r1": 4.94
   },
   {
    "id": "1ddcb371c4ad9622",
@@ -136,7 +585,8 @@
    "headline": "Graphite India Limited: Graphite India Limited has submitted to the Exchange, the financial results for the period ended September 30, 2026. |SUBJECT: Outcome o",
    "url": "https://nsearchives.nseindia.com/corporate/GILKOLKATA_03112026135910_RESULT30092026F.pdf",
    "entry_date": "2026-11-02",
-   "entry": 755.55
+   "entry": 755.55,
+   "r1": -0.69
   },
   {
    "id": "5427d04156068177",
@@ -149,7 +599,8 @@
    "headline": "State Bank of India: State Bank of India has informed the Exchange regarding a press release dated November 03, 2026, titled \"Press Release Q2FY27\". |SUBJECT: P",
    "url": "https://nsearchives.nseindia.com/corporate/SBIN_03112026135813_PressRelease.pdf",
    "entry_date": "2026-11-02",
-   "entry": 134.4
+   "entry": 134.4,
+   "r1": -0.92
   },
   {
    "id": "5427d04156068177",
@@ -162,7 +613,8 @@
    "headline": "State Bank of India: State Bank of India has informed the Exchange regarding a press release dated November 03, 2026, titled \"Press Release Q2FY27\". |SUBJECT: P",
    "url": "https://nsearchives.nseindia.com/corporate/SBIN_03112026135813_PressRelease.pdf",
    "entry_date": "2026-11-02",
-   "entry": 987.0
+   "entry": 987.0,
+   "r1": -1.7
   },
   {
    "id": "68cff13ce3c501a8",
@@ -175,7 +627,8 @@
    "headline": "State Bank of India: State Bank Of India has informed the Exchange about Investor Presentation |SUBJECT: Investor Presentation",
    "url": "https://nsearchives.nseindia.com/corporate/SBIN_03112026135925_Presentation.pdf",
    "entry_date": "2026-11-02",
-   "entry": 134.4
+   "entry": 134.4,
+   "r1": -0.92
   },
   {
    "id": "68cff13ce3c501a8",
@@ -188,7 +641,8 @@
    "headline": "State Bank of India: State Bank Of India has informed the Exchange about Investor Presentation |SUBJECT: Investor Presentation",
    "url": "https://nsearchives.nseindia.com/corporate/SBIN_03112026135925_Presentation.pdf",
    "entry_date": "2026-11-02",
-   "entry": 987.0
+   "entry": 987.0,
+   "r1": -1.7
   },
   {
    "id": "faea8ae7177ce0a0",
@@ -201,7 +655,8 @@
    "headline": "Ramkrishna Forgings Limited: Ramkrishna Forgings Limited has informed the Exchange about communication sent to shareholders for intimation on TDS on 1st Interim",
    "url": "https://nsearchives.nseindia.com/corporate/RKFORGE_03112026135443_StExcTDSIntim1stIntDivd26-27.pdf",
    "entry_date": "2026-11-02",
-   "entry": 696.1
+   "entry": 696.1,
+   "r1": -0.67
   },
   {
    "id": "9242bbba431eed8c",
@@ -214,7 +669,8 @@
    "headline": "Alkem Laboratories Limited: ALKEM LABORATORIES LIMITED has informed the Exchange about Change in Directors/KMP/SMP/Auditor/RTA |SUBJECT: Change in Directors/KMP",
    "url": "https://nsearchives.nseindia.com/corporate/xbrl/CIM_13311_WebXMLFile_20261103_134838677.xml",
    "entry_date": "2026-11-02",
-   "entry": 5155.0
+   "entry": 5155.0,
+   "r1": 1.57
   },
   {
    "id": "c4aced26b15bcb6a",
@@ -227,7 +683,8 @@
    "headline": "State Bank of India: State Bank Of India has submitted to the Exchange, the financial results for the period ended September 30, 2026. |SUBJECT: Outcome of Boar",
    "url": "https://nsearchives.nseindia.com/corporate/SBIN_03112026134649_FR_DSC.pdf",
    "entry_date": "2026-11-02",
-   "entry": 134.4
+   "entry": 134.4,
+   "r1": -0.92
   },
   {
    "id": "c4aced26b15bcb6a",
@@ -240,7 +697,8 @@
    "headline": "State Bank of India: State Bank Of India has submitted to the Exchange, the financial results for the period ended September 30, 2026. |SUBJECT: Outcome of Boar",
    "url": "https://nsearchives.nseindia.com/corporate/SBIN_03112026134649_FR_DSC.pdf",
    "entry_date": "2026-11-02",
-   "entry": 987.0
+   "entry": 987.0,
+   "r1": -1.7
   },
   {
    "id": "8e26ea93f6f1052c",
@@ -253,7 +711,8 @@
    "headline": "Eicher Motors Limited: Eicher Motors Limited has informed the Exchange regarding a press release dated November 03, 2026, titled \"Royal Enfield at EICMA 2026: T",
    "url": "https://nsearchives.nseindia.com/corporate/rahulrathore_royalenfield_com_03112026133859_Press_Release_03-11-2026_EICMA_Himalayan_750_Signed.pdf",
    "entry_date": "2026-11-02",
-   "entry": 7213.0
+   "entry": 7213.0,
+   "r1": 3.15
   },
   {
    "id": "818f672a4f0a65ed",
@@ -266,7 +725,8 @@
    "headline": "Emcure Pharmaceuticals Limited: Emcure Pharmaceuticals Limited has submitted to the Exchange, the financial results for the period ended September 30, 2026. |SU",
    "url": "https://nsearchives.nseindia.com/corporate/EMCURE_03112026134234_EPLOutcomeofBMQ2FY27.pdf",
    "entry_date": "2026-11-02",
-   "entry": 1883.5
+   "entry": 1883.5,
+   "r1": 4.94
   },
   {
    "id": "e9714b523a161856",
@@ -279,7 +739,8 @@
    "headline": "Textile, garment stocks in demand; Kitex, Trident, Gokaldas rally up to 18%",
    "url": "https://www.business-standard.com/markets/news/textile-garment-stocks-in-demand-kitex-trident-gokaldas-rally-up-to-18-126110300776_1.html",
    "entry_date": "2026-11-02",
-   "entry": 22.21
+   "entry": 22.21,
+   "r1": 7.11
   },
   {
    "id": "c45a18fb45ce9e99",
@@ -292,7 +753,8 @@
    "headline": "Hero MotoCorp Limited: Pursuant to Regulation 30 read with Schedule III of the SEBI (Listing Obligations and Disclosure Requirements), Regulations 2015, please ",
    "url": "https://nsearchives.nseindia.com/corporate/HEROMOTO_03112026134115_Stxintimationtranscript03112026.pdf",
    "entry_date": "2026-11-02",
-   "entry": 5193.0
+   "entry": 5193.0,
+   "r1": 2.06
   },
   {
    "id": "78e16342c7ae0d81",
@@ -305,7 +767,8 @@
    "headline": "Bata India Limited: BATA INDIA LIMITED has informed the Exchange about Change in Directors/KMP/SMP/Auditor/RTA |SUBJECT: Change in Directors/KMP/SMP/Auditor/RTA",
    "url": "https://nsearchives.nseindia.com/corporate/xbrl/CIM_254_WebXMLFile_20261103_133820878.xml",
    "entry_date": "2026-11-02",
-   "entry": 637.75
+   "entry": 637.75,
+   "r1": 1.89
   },
   {
    "id": "e3a9a8c24eff839d",
@@ -318,7 +781,8 @@
    "headline": "Alkem Laboratories Limited: Alkem Laboratories Limited has informed the Exchange regarding Appointment of Dr. Amrut Naik as Chief Executive Officer (CEO) and Ke",
    "url": "https://nsearchives.nseindia.com/corporate/ALKEM_03112026133322_Reg30_Appointment_of_CEO_signed.pdf",
    "entry_date": "2026-11-02",
-   "entry": 5155.0
+   "entry": 5155.0,
+   "r1": 1.57
   },
   {
    "id": "46820b721e421b9a",
@@ -331,7 +795,8 @@
    "headline": "Bata India Limited: Pursuant to Regulation 30 of the SEBI (Listing Obligations and Disclosure Requirements) Regulations, 2015, Bata India Limited has informed a",
    "url": "https://nsearchives.nseindia.com/corporate/BATAINDIA_03112026133021_Change_in_SMP_SE_Intimation_Signed.pdf",
    "entry_date": "2026-11-02",
-   "entry": 637.75
+   "entry": 637.75,
+   "r1": 1.89
   },
   {
    "id": "4c25a48e344472c7",
@@ -344,7 +809,8 @@
    "headline": "How ITC shares are performing after Q2 results? Should you buy, sell or hold? Brokerages give targets, key levels",
    "url": "https://www.livemint.com/market/stock-market-news/how-itc-shares-are-performing-after-q2-results-should-you-buy-sell-or-hold-brokerages-give-targets-key-levels-11793688619420.html",
    "entry_date": "2026-11-02",
-   "entry": 266.4
+   "entry": 266.4,
+   "r1": 2.82
   },
   {
    "id": "8c69fa8542f957c9",
@@ -357,7 +823,8 @@
    "headline": "Diwali 2026 Muhurat Trading Samvat 2083 stocks with up to 35% gain: HDFC AMC, SBI, Tech Mahindra, 3 more by Anand Rathi",
    "url": "https://www.livemint.com/market/stock-market-news/diwali-2026-muhurat-trading-samvat-2083-stocks-with-up-to-35-gain-hdfc-amc-sbi-tech-mahindra-3-more-by-anand-rathi-11793691071592.html",
    "entry_date": "2026-11-02",
-   "entry": 1786.9
+   "entry": 1786.9,
+   "r1": 0.12
   },
   {
    "id": "8119aebe7e862642",
@@ -370,7 +837,8 @@
    "headline": "Aavas Financiers Limited: AAVAS FINANCIERS LIMITED has informed the Exchange about Change in Directors/KMP/SMP/Auditor/RTA |SUBJECT: Change in Directors/KMP/SMP",
    "url": "https://nsearchives.nseindia.com/corporate/xbrl/CIM_16760_WebXMLFile_20261103_132258046.xml",
    "entry_date": "2026-11-02",
-   "entry": 1094.6
+   "entry": 1094.6,
+   "r1": 2.47
   },
   {
    "id": "4b26fbbed4e3fd5a",
@@ -383,7 +851,8 @@
    "headline": "Bajaj Finserv Limited: Bajaj Finserv Limited has informed the Exchange about Investor Presentation |SUBJECT: Investor Presentation",
    "url": "https://nsearchives.nseindia.com/corporate/walimbelk_03112026132221_BajajFinservInvestorPresentationQ2FY20262027_1.pdf",
    "entry_date": "2026-11-02",
-   "entry": 1691.5
+   "entry": 1691.5,
+   "r1": 1.57
   },
   {
    "id": "40a36d55010e6572",
@@ -396,7 +865,8 @@
    "headline": "Jyoti CNC Automation Limited: Jyoti CNC Automation Limited has informed the Exchange about Investor Presentation |SUBJECT: Investor Presentation",
    "url": "https://nsearchives.nseindia.com/corporate/JYOTICNC_NSE_03112026131222_BSEnseJCALSubmissionUpdatedInvestorPresentation03112026.pdf",
    "entry_date": "2026-11-02",
-   "entry": 941.45
+   "entry": 941.45,
+   "r1": 2.76
   },
   {
    "id": "062aa862cb99faf5",
@@ -409,7 +879,8 @@
    "headline": "GRSE shares jump 9% after signing Rs 32,000 crore Indian Navy contract for five next-generation corvettes",
    "url": "https://economictimes.indiatimes.com/markets/stocks/news/grse-shares-jump-9-after-signing-rs-32000-crore-indian-navy-contract-for-five-next-generation-corvettes/articleshow/135487819.cms",
    "entry_date": "2026-11-02",
-   "entry": 2046.8
+   "entry": 2046.8,
+   "r1": 4.11
   },
   {
    "id": "313ba97565b6f2cc",
@@ -422,7 +893,8 @@
    "headline": "4 reasons why Reliance Industries shares can rally after Monday magic sparked historic 12% surge",
    "url": "https://economictimes.indiatimes.com/markets/stocks/news/4-reasons-why-reliance-industries-shares-can-rally-after-monday-magic-sparked-historic-12-surge/articleshow/135487709.cms",
    "entry_date": "2026-11-02",
-   "entry": 1300.0
+   "entry": 1300.0,
+   "r1": 0.61
   },
   {
    "id": "0d594799825a88b4",
@@ -435,7 +907,8 @@
    "headline": "Bajaj Finserv Q2 Results: Net profit jumps 23% YoY to Rs 2,758 crore, shares rise 2%",
    "url": "https://economictimes.indiatimes.com/markets/stocks/earnings/bajaj-finserv-q2-results-net-profit-jumps-23-yoy-to-rs-2758-crore-shares-rise-2/articleshow/135487692.cms",
    "entry_date": "2026-11-02",
-   "entry": 1691.5
+   "entry": 1691.5,
+   "r1": 1.57
   },
   {
    "id": "20fa1683d9ebe411",
@@ -448,7 +921,8 @@
    "headline": "AIA Engineering Limited: AIA Engineering Limited has submitted to the Exchange, the financial results for the period ended September 30, 2026. |SUBJECT: Outcome",
    "url": "https://nsearchives.nseindia.com/corporate/AIAENG_03112026130540_Results.pdf",
    "entry_date": "2026-11-02",
-   "entry": 3607.3
+   "entry": 3607.3,
+   "r1": -6.03
   },
   {
    "id": "b66f99d63310df5f",
@@ -461,7 +935,8 @@
    "headline": "HDFC Bank share price gains 3% today: Here's why - Is the worst over after a 27% one-year fall? What experts say",
    "url": "https://www.livemint.com/market/stock-market-news/hdfc-bank-share-price-gains-3-today-heres-why-is-the-worst-over-after-a-27-one-year-fall-what-experts-say-11793688821749.html",
    "entry_date": "2026-11-02",
-   "entry": 700.0
+   "entry": 700.0,
+   "r1": 3.64
   },
   {
    "id": "4b26fc91345da297",
@@ -474,7 +949,8 @@
    "headline": "Schneider Electric Infrastructure Limited: Schneider Electric Infrastructure Limited has informed the Exchange about Action(s) taken or orders passed (sub-para ",
    "url": "https://nsearchives.nseindia.com/corporate/xbrl/AIATOP_5712_WebXMLFile_20261103_130523985.xml",
    "entry_date": "2026-11-02",
-   "entry": 1127.8
+   "entry": 1127.8,
+   "r1": 1.05
   },
   {
    "id": "e59450142ed3cb73",
@@ -487,7 +963,8 @@
    "headline": "Treasury Yields Extend Past Month’s Slide as Oil Prices Drop",
    "url": "https://www.livemint.com/market/treasury-yields-extend-past-month-s-slide-as-oil-prices-drop-11793656834005.html",
    "entry_date": "2026-11-02",
-   "entry": 461.9
+   "entry": 461.9,
+   "r1": -1.39
   },
   {
    "id": "e28422aaf26501f0",
@@ -500,7 +977,8 @@
    "headline": "TSX rebounds as oil pullback boosts industrials, mining shares",
    "url": "https://www.livemint.com/market/tsx-rebounds-as-oil-pullback-boosts-industrials-mining-shares-11793655587408.html",
    "entry_date": "2026-11-02",
-   "entry": 461.9
+   "entry": 461.9,
+   "r1": -1.39
   },
   {
    "id": "adaed27b280b29db",
@@ -513,7 +991,8 @@
    "headline": "US stocks today: Nasdaq ends over 1% lower as AI worries persist",
    "url": "https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/us-stocks-today-nasdaq-ends-over-1-lower-as-ai-worries-persist/articleshow/135474287.cms",
    "entry_date": "2026-11-02",
-   "entry": 461.9
+   "entry": 461.9,
+   "r1": -1.39
   },
   {
    "id": "7f871040597c0371",
@@ -526,7 +1005,8 @@
    "headline": "Reliance Industries takes the wheel, surges 12% to steer benchmarks higher",
    "url": "https://www.business-standard.com/markets/news/reliance-industries-takes-the-wheel-surges-12-to-steer-benchmarks-higher-126110201415_1.html",
    "entry_date": "2026-11-02",
-   "entry": 1300.0
+   "entry": 1300.0,
+   "r1": 0.61
   },
   {
    "id": "0115a8ba1458b1a8",
@@ -539,7 +1019,8 @@
    "headline": "Upcoming IPO: Coal India unit South Eastern Coalfields files papers – How much funds to be raised and other key facts",
    "url": "https://www.livemint.com/market/ipo/upcoming-ipo-coal-india-unit-south-eastern-coalfields-files-papers-how-much-funds-to-be-raised-and-other-key-facts-11793636533876.html",
    "entry_date": "2026-11-02",
-   "entry": 408.0
+   "entry": 408.0,
+   "r1": 0.0
   },
   {
    "id": "e18f1989304a9edd",
@@ -552,7 +1033,8 @@
    "headline": "Gold, silver prices rebound from multi-month lows as crude oil retreats; what is driving the recovery?",
    "url": "https://www.livemint.com/market/stock-market-news/november-2-gold-silver-rates-gold-silver-prices-rebound-from-multi-month-lows-as-crude-oil-retreats-11793635178579.html",
    "entry_date": "2026-11-02",
-   "entry": 461.9
+   "entry": 461.9,
+   "r1": -1.39
   },
   {
    "id": "71cfbff27092d31e",
@@ -565,7 +1047,8 @@
    "headline": "Market Trading Guide: Tata Steel among 5 stocks to buy on Tuesday for healthy returns",
    "url": "https://economictimes.indiatimes.com/markets/stocks/news/market-trading-guide-tata-steel-among-5-stocks-to-buy-on-tuesday-for-healthy-returns/articleshow/135467317.cms",
    "entry_date": "2026-11-02",
-   "entry": 177.37
+   "entry": 177.37,
+   "r1": -0.49
   },
   {
    "id": "c72da33a072320ca",
@@ -578,7 +1061,8 @@
    "headline": "Ahead of Market: 10 things that will decide stock market action on Tuesday",
    "url": "https://economictimes.indiatimes.com/markets/stocks/news/ahead-of-market-10-things-that-will-decide-stock-market-action-on-tuesday/articleshow/135466871.cms",
    "entry_date": "2026-11-02",
-   "entry": 461.9
+   "entry": 461.9,
+   "r1": -1.39
   },
   {
    "id": "f39b8c233ca4b381",
@@ -591,7 +1075,8 @@
    "headline": "ITC shares to be in focus on Tuesday as Q2 net profit drops 18.5% on higher cigarette taxes",
    "url": "https://www.livemint.com/market/stock-market-news/itc-shares-to-be-in-focus-on-tuesday-as-q2-net-profit-drops-18-5-on-higher-cigarette-taxes-11793631186838.html",
    "entry_date": "2026-11-02",
-   "entry": 266.4
+   "entry": 266.4,
+   "r1": 2.82
   },
   {
    "id": "382b6026652342ba",
@@ -604,7 +1089,8 @@
    "headline": "Why traders are moving away from equity F&O to commodities? Nithin Kamath explains",
    "url": "https://economictimes.indiatimes.com/markets/stocks/news/why-traders-are-moving-away-from-equity-fo-to-commodities-nithin-kamath-explains/articleshow/135466022.cms",
    "entry_date": "2026-11-02",
-   "entry": 3249.0
+   "entry": 3249.0,
+   "r1": 7.42
   },
   {
    "id": "8fb8440157fc09ba",
@@ -617,7 +1103,8 @@
    "headline": "US stocks today: US stocks rise as oil tumbles on peace hopes, investors eye midterm election",
    "url": "https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/us-stocks-today-us-stocks-open-higher-as-ai-trade-steadies-oil-falls/articleshow/135465480.cms",
    "entry_date": "2026-11-02",
-   "entry": 461.9
+   "entry": 461.9,
+   "r1": -1.39
   },
   {
    "id": "aafea0b2b4b7369b",
@@ -630,7 +1117,8 @@
    "headline": "Tube Investments of India Limited: TUBE INVESTMENTS OF INDIA LIMITED has informed the Exchange about Action(s) taken or orders passed (sub-para 20) |SUBJECT: Ac",
    "url": "https://nsearchives.nseindia.com/corporate/xbrl/AIATOP_15551_WebXMLFile_20261102_193422962.xml",
    "entry_date": "2026-11-02",
-   "entry": 2179.0
+   "entry": 2179.0,
+   "r1": 0.5
   },
   {
    "id": "ee2ac237ba93c848",
@@ -643,7 +1131,8 @@
    "headline": "Tata Communications Limited: The Exchange has sought clarification from Tata Communications Limited with respect to recent news item captioned KKR, Singtel and ",
    "url": "https://nsearchives.nseindia.com/corporate/TATACOMM_02112026192932_18545.pdf",
    "entry_date": "2026-11-02",
-   "entry": 1755.5
+   "entry": 1755.5,
+   "r1": 0.21
   },
   {
    "id": "d3234d74684876be",
@@ -656,7 +1145,8 @@
    "headline": "DOMS Industries Limited: DOMS Industries Limited has informed the Exchange regarding a Result Release in relation to the Unaudited Financial Results for the qua",
    "url": "https://nsearchives.nseindia.com/corporate/RAHULBS35_02112026193019_IntimationOfResultRelease.pdf",
    "entry_date": "2026-11-02",
-   "entry": 1845.0
+   "entry": 1845.0,
+   "r1": 2.7
   },
   {
    "id": "6e3b56b81c6fa17e",
@@ -669,7 +1159,8 @@
    "headline": "Amara Raja Energy & Mobility Limited: Amara Raja Energy & Mobility Limited has informed the Exchange regarding Outcome of Board Meeting held on 02-Nov-2026 for ",
    "url": "https://nsearchives.nseindia.com/corporate/xbrl/OUTCOME_421_WebXMLFile_20261102_192631185.xml",
    "entry_date": "2026-11-02",
-   "entry": 708.4
+   "entry": 708.4,
+   "r1": -1.67
   },
   {
    "id": "657b371cea16b1e5",
@@ -682,7 +1173,8 @@
    "headline": "DOMS Industries Limited: DOMS Industries Limited has informed the Exchange about Investor Presentation |SUBJECT: Investor Presentation",
    "url": "https://nsearchives.nseindia.com/corporate/RAHULBS35_02112026192549_IntimationOfInvestorPresentation.pdf",
    "entry_date": "2026-11-02",
-   "entry": 1845.0
+   "entry": 1845.0,
+   "r1": 2.7
   },
   {
    "id": "0fcf17c76fa897e2",
@@ -695,7 +1187,8 @@
    "headline": "Tube Investments of India Limited: Tube Investments of India Limited has informed the Exchange about Action(s) initiated or orders passed |SUBJECT: Action(s) in",
    "url": "https://nsearchives.nseindia.com/corporate/TIINDIA_02112026192542_TIISEDiscPenalty.pdf",
    "entry_date": "2026-11-02",
-   "entry": 2179.0
+   "entry": 2179.0,
+   "r1": 0.5
   },
   {
    "id": "d23d2522fc5c0e02",
@@ -708,7 +1201,8 @@
    "headline": "ITC Q2 Results: Profit falls 18% to Rs 4,229 crore, revenue rises 5%",
    "url": "https://economictimes.indiatimes.com/markets/stocks/earnings/itc-q2-results-profit-falls-18-to-rs-4229-crore-revenue-rises-5/articleshow/135464317.cms",
    "entry_date": "2026-11-02",
-   "entry": 266.4
+   "entry": 266.4,
+   "r1": 2.82
   },
   {
    "id": "e66de469b05c7aed",
@@ -721,7 +1215,8 @@
    "headline": "Acme Solar Holdings Limited: ACME SOLAR HOLDINGS LIMITED has informed the Exchange about Commencement or postponement (Sub-para 1-Para B) |SUBJECT: Commencement",
    "url": "https://nsearchives.nseindia.com/corporate/xbrl/REG30_PARA_B_24030_WebXMLFile_20261102_192128576.xml",
    "entry_date": "2026-11-02",
-   "entry": 418.75
+   "entry": 418.75,
+   "r1": -1.49
   },
   {
    "id": "e66de469b05c7aed",
@@ -734,7 +1229,8 @@
    "headline": "Acme Solar Holdings Limited: ACME SOLAR HOLDINGS LIMITED has informed the Exchange about Commencement or postponement (Sub-para 1-Para B) |SUBJECT: Commencement",
    "url": "https://nsearchives.nseindia.com/corporate/xbrl/REG30_PARA_B_24030_WebXMLFile_20261102_192128576.xml",
    "entry_date": "2026-11-02",
-   "entry": 19438.0
+   "entry": 19438.0,
+   "r1": 1.11
   },
   {
    "id": "2f6a8a9c82385363",
@@ -747,7 +1243,8 @@
    "headline": "Escorts Kubota Limited: Escorts Kubota Limited has informed the Exchange about statement of deviation(s) or variation(s) under Reg. 32 |SUBJECT: Statement of de",
    "url": "https://nsearchives.nseindia.com/corporate/ESCORTS2_02112026191315_EKL_2026_09_30_Statement_of_Deviation_signed1.pdf",
    "entry_date": "2026-11-02",
-   "entry": 2423.2
+   "entry": 2423.2,
+   "r1": 0.68
   },
   {
    "id": "024a717ea7996d9e",
@@ -760,7 +1257,8 @@
    "headline": "Acme Solar Holdings Limited: ACME Solar Holdings Limited has informed the Stock Exchanges regarding an update on the commissioning of the solar component of the",
    "url": "https://nsearchives.nseindia.com/corporate/ACMECS_02112026191802_Intimation02112026.pdf",
    "entry_date": "2026-11-02",
-   "entry": 418.75
+   "entry": 418.75,
+   "r1": -1.49
   },
   {
    "id": "024a717ea7996d9e",
@@ -773,7 +1271,8 @@
    "headline": "Acme Solar Holdings Limited: ACME Solar Holdings Limited has informed the Stock Exchanges regarding an update on the commissioning of the solar component of the",
    "url": "https://nsearchives.nseindia.com/corporate/ACMECS_02112026191802_Intimation02112026.pdf",
    "entry_date": "2026-11-02",
-   "entry": 19438.0
+   "entry": 19438.0,
+   "r1": 1.11
   },
   {
    "id": "4cce3326e31e0bcd",
@@ -786,7 +1285,8 @@
    "headline": "Tata Investment Corporation Limited: Tata Investment Corporation Limited has submitted to the Exchange, the financial results for the period ended September 30,",
    "url": "https://nsearchives.nseindia.com/corporate/TATAINVEST_02112026191907_SE_Int_Outcome.pdf",
    "entry_date": "2026-11-02",
-   "entry": 571.35
+   "entry": 571.35,
+   "r1": -3.23
   },
   {
    "id": "5ddcf35d77619be7",
@@ -799,7 +1299,8 @@
    "headline": "Amara Raja Energy & Mobility Limited: Amara Raja Energy & Mobility Limited has informed the Exchange regarding a press release dated November 02, 2026, titled \"",
    "url": "https://nsearchives.nseindia.com/corporate/AMARARAJA_02112026191800_PressRelease.pdf",
    "entry_date": "2026-11-02",
-   "entry": 708.4
+   "entry": 708.4,
+   "r1": -1.67
   },
   {
    "id": "4ee93ca7aaa0e465",
@@ -812,7 +1313,8 @@
    "headline": "Finally! PSU stock jumps 9% after 4 months of losses, logs biggest 1-day gain in 14 months. What sparked the rally?",
    "url": "https://www.livemint.com/market/stock-market-news/finally-psu-stock-jumps-9-after-4-months-of-losses-logs-biggest-1-day-gain-in-14-months-what-sparked-the-rally-11793625642488.html",
    "entry_date": "2026-11-02",
-   "entry": 76.13
+   "entry": 76.13,
+   "r1": -1.14
   },
   {
    "id": "6295ec1e9d54394f",
@@ -825,7 +1327,8 @@
    "headline": "DOMS Industries Limited: DOMS Industries Limited has informed the Exchange regarding Resignation of Mr. Mitesh Padia as Company Secretary & Compliance Officer o",
    "url": "https://nsearchives.nseindia.com/corporate/RAHULBS35_02112026190510_OutcomeOfBoardMeeting.pdf",
    "entry_date": "2026-11-02",
-   "entry": 1845.0
+   "entry": 1845.0,
+   "r1": 2.7
   },
   {
    "id": "aec2e44a8f180097",
@@ -838,7 +1341,8 @@
    "headline": "IIFL Capital Services Limited: IIFL Capital Services Limited has informed the Exchange about General Updates |SUBJECT: General Updates",
    "url": "https://nsearchives.nseindia.com/corporate/IIFLSEC_02112026190431_Intimation.pdf",
    "entry_date": "2026-11-02",
-   "entry": 552.95
+   "entry": 552.95,
+   "r1": -2.06
   },
   {
    "id": "909dc8137ecfcea7",
@@ -851,7 +1355,8 @@
    "headline": "Coforge among 4 stocks that hit 52-week highs and rallied up to 15% in a month",
    "url": "https://economictimes.indiatimes.com/markets/stocks/news/coforge-among-4-stocks-that-hit-52-week-highs-and-rallied-up-to-15-in-a-month/slideshow/135463866.cms",
    "entry_date": "2026-11-02",
-   "entry": 3490.0
+   "entry": 3490.0,
+   "r1": 5.03
   },
   {
    "id": "909dc8137ecfcea7",
@@ -864,7 +1369,8 @@
    "headline": "Coforge among 4 stocks that hit 52-week highs and rallied up to 15% in a month",
    "url": "https://economictimes.indiatimes.com/markets/stocks/news/coforge-among-4-stocks-that-hit-52-week-highs-and-rallied-up-to-15-in-a-month/slideshow/135463866.cms",
    "entry_date": "2026-11-02",
-   "entry": 2099.0
+   "entry": 2099.0,
+   "r1": -1.82
   },
   {
    "id": "b4750340ac0fee10",
@@ -877,7 +1383,8 @@
    "headline": "Amara Raja Energy & Mobility Limited: Amara Raja Energy & Mobility Limited has informed the Exchange about General Updates |SUBJECT: General Updates",
    "url": "https://nsearchives.nseindia.com/corporate/AMARARAJA_02112026190054_SE_Intimation_AmaronAssist.pdf",
    "entry_date": "2026-11-02",
-   "entry": 708.4
+   "entry": 708.4,
+   "r1": -1.67
   },
   {
    "id": "6ab51d87cf7dc299",
@@ -890,7 +1397,8 @@
    "headline": "Escorts Kubota Limited: Escorts Kubota Limited has informed the Exchange about Weblink of Audio Recording of Conference call to discuss the earning performance ",
    "url": "https://nsearchives.nseindia.com/corporate/ESCORTS2_02112026185828_EKL_2026_11_02_Weblink_of_Audio_Recording_Signed.pdf",
    "entry_date": "2026-11-02",
-   "entry": 2423.2
+   "entry": 2423.2,
+   "r1": 0.68
   },
   {
    "id": "5eadc78562c5eb75",
@@ -903,7 +1411,8 @@
    "headline": "ITC Limited: ITC Limited has informed the Exchange regarding Amalgamation/ Merger |SUBJECT: Amalgamation OR Merger-XBRL",
    "url": "https://nsearchives.nseindia.com/corporate/xbrl/REG30_Restructuring_818_WebXMLFile_20261102_185709038.xml",
    "entry_date": "2026-11-02",
-   "entry": 266.4
+   "entry": 266.4,
+   "r1": 2.82
   },
   {
    "id": "7c5f459a4bf1ac65",
@@ -916,7 +1425,8 @@
    "headline": "Welspun Corp Limited: Welspun Corp Limited has informed the Exchange about Resignation of Director/KMP/SMP |SUBJECT: Resignation of Director/KMP/SMP",
    "url": "https://nsearchives.nseindia.com/corporate/WELCORP_ROID_103062_KMP_Doc.zip",
    "entry_date": "2026-11-02",
-   "entry": 2315.0
+   "entry": 2315.0,
+   "r1": 0.02
   },
   {
    "id": "38ac7fea23734e7e",
@@ -929,7 +1439,8 @@
    "headline": "Welspun Corp Limited: WELSPUN CORP LIMITED has informed the Exchange about Change in Directors/KMP/SMP/Auditor/RTA |SUBJECT: Change in Directors/KMP/SMP/Auditor",
    "url": "https://nsearchives.nseindia.com/corporate/xbrl/CIM_2285_WebXMLFile_20261102_185256350.xml",
    "entry_date": "2026-11-02",
-   "entry": 2315.0
+   "entry": 2315.0,
+   "r1": 0.02
   },
   {
    "id": "dab914b568743079",
@@ -942,7 +1453,8 @@
    "headline": "Coal India files DRHP to sell 10% stake in subsidiary SECL through IPO",
    "url": "https://www.business-standard.com/companies/news/coal-india-files-drhp-to-sell-10-stake-in-subsidiary-secl-through-ipo-126110201248_1.html",
    "entry_date": "2026-11-02",
-   "entry": 408.0
+   "entry": 408.0,
+   "r1": 0.0
   },
   {
    "id": "72c789991956c684",
@@ -955,7 +1467,8 @@
    "headline": "US Stock Market Live Updates: US stocks rise as oil tumbles on Iran peace hopes, investors eye midterm elections",
    "url": "https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/stock-market-live-updates-dow-jones-nasdaq-sp-500-us-midterm-elections-ai-stocks-tech-stocks-openai-anthropic-intel-amd-apple-alphabet-spacex-earnings-oil-prices-treasury-yields-news-2nd-november-2026/liveblog/135463461.cms",
    "entry_date": "2026-11-02",
-   "entry": 461.9
+   "entry": 461.9,
+   "r1": -1.39
   },
   {
    "id": "ba10f34c5ae55096",
@@ -968,7 +1481,8 @@
    "headline": "US Stock Market Highlights: US stocks rise as oil tumbles on Iran peace hopes, investors eye midterm elections",
    "url": "https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/stock-market-live-updates-dow-jones-nasdaq-sp-500-us-midterm-elections-ai-stocks-tech-stocks-openai-anthropic-intel-amd-apple-alphabet-spacex-earnings-oil-prices-treasury-yields-news-2nd-november-2026/liveblog/135463461.cms",
    "entry_date": "2026-11-02",
-   "entry": 461.9
+   "entry": 461.9,
+   "r1": -1.39
   },
   {
    "id": "5d719c50e5557e63",
@@ -981,7 +1495,8 @@
    "headline": "Oil slide hands India's 10-year bond its best day since early April",
    "url": "https://economictimes.indiatimes.com/markets/bonds/oil-slide-hands-indias-10-year-bond-its-best-day-since-early-april/articleshow/135463185.cms",
    "entry_date": "2026-11-02",
-   "entry": 461.9
+   "entry": 461.9,
+   "r1": -1.39
   },
   {
    "id": "2a5245c955f729a3",
@@ -994,7 +1509,8 @@
    "headline": "Market wrap: RIL, Tata Steel, Infosys, ICICI Bank top gainers and losers on Nifty and Sensex on Monday",
    "url": "https://economictimes.indiatimes.com/markets/stocks/news/market-wrap-ril-tata-steel-infosys-icici-bank-top-gainers-and-losers-on-nifty-and-sensex-on-monday/articleshow/135462862.cms",
    "entry_date": "2026-11-02",
-   "entry": 1387.4
+   "entry": 1387.4,
+   "r1": 2.67
   },
   {
    "id": "2a5245c955f729a3",
@@ -1007,7 +1523,8 @@
    "headline": "Market wrap: RIL, Tata Steel, Infosys, ICICI Bank top gainers and losers on Nifty and Sensex on Monday",
    "url": "https://economictimes.indiatimes.com/markets/stocks/news/market-wrap-ril-tata-steel-infosys-icici-bank-top-gainers-and-losers-on-nifty-and-sensex-on-monday/articleshow/135462862.cms",
    "entry_date": "2026-11-02",
-   "entry": 1161.0
+   "entry": 1161.0,
+   "r1": -1.11
   },
   {
    "id": "8d5d0586cee84d76",
@@ -1020,7 +1537,8 @@
    "headline": "Multibagger Engineers India shares jump 15% to 2-week high after Q2 results; stock gains 44% in 2026",
    "url": "https://www.livemint.com/market/stock-market-news/multibagger-engineers-india-shares-jump-15-to-2-week-high-after-q2-results-stock-gains-44-in-2026-11793622662037.html",
    "entry_date": "2026-11-02",
-   "entry": 289.65
+   "entry": 289.65,
+   "r1": -0.14
   },
   {
    "id": "359335df54d161da",
@@ -1033,7 +1551,8 @@
    "headline": "RIL's best day since 2020, Sebi’s LTCG rollback proposal lift Dalal Street",
    "url": "https://www.livemint.com/market/stock-market-news/reliance-industries-ril-share-price-jump-nifty-sensex-rally-ltcg-tax-11793618242840.html",
    "entry_date": "2026-11-02",
-   "entry": 1300.0
+   "entry": 1300.0,
+   "r1": 0.61
   },
   {
    "id": "f7e9ee195820ab03",
@@ -1046,7 +1565,8 @@
    "headline": "Rates crash: Gold price slips 7%, silver tanks 20% in Oct: Is Dhanteras 2026 right time to buy? What should investors do",
    "url": "https://www.livemint.com/market/commodities/rates-crash-gold-price-slips-7-silver-tanks-20-in-oct-is-dhanteras-2026-right-time-to-buy-what-should-investors-do-11793618175891.html",
    "entry_date": "2026-11-02",
-   "entry": 3249.0
+   "entry": 3249.0,
+   "r1": 7.42
   },
   {
    "id": "c2ef57fff4f2f36f",
@@ -1059,7 +1579,8 @@
    "headline": "Massive surge! Reliance Industries shares up 12% after Q2; add ₹2 lakh cr in mcap — when did RIL last rally this much?",
    "url": "https://www.livemint.com/market/stock-market-news/massive-surge-reliance-industries-shares-up-12-after-q2-add-rs-2-lakh-cr-in-mcap-when-did-ril-last-rally-this-much-11793618055937.html",
    "entry_date": "2026-11-02",
-   "entry": 1300.0
+   "entry": 1300.0,
+   "r1": 0.61
   },
   {
    "id": "ae700e1beeef22a1",
@@ -1072,7 +1593,8 @@
    "headline": "Diwali cheer! Mukesh Ambani gets $8.5 billion richer in a day as RIL shares soar",
    "url": "https://economictimes.indiatimes.com/markets/stocks/news/diwali-cheer-mukesh-ambani-gets-8-5-billion-richer-in-a-day-as-ril-shares-soar/articleshow/135460617.cms",
    "entry_date": "2026-11-02",
-   "entry": 461.9
+   "entry": 461.9,
+   "r1": -1.39
   },
   {
    "id": "ae700e1beeef22a1",
@@ -1085,7 +1607,8 @@
    "headline": "Diwali cheer! Mukesh Ambani gets $8.5 billion richer in a day as RIL shares soar",
    "url": "https://economictimes.indiatimes.com/markets/stocks/news/diwali-cheer-mukesh-ambani-gets-8-5-billion-richer-in-a-day-as-ril-shares-soar/articleshow/135460617.cms",
    "entry_date": "2026-11-02",
-   "entry": 1300.0
+   "entry": 1300.0,
+   "r1": 0.61
   },
   {
    "id": "708bf94b8b4e6bae",
@@ -1098,7 +1621,8 @@
    "headline": "Processing of Applications Received Under the Citizen’s Charter Status as on October 31, 2026",
    "url": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63901",
    "entry_date": "2026-11-02",
-   "entry": 134.4
+   "entry": 134.4,
+   "r1": -0.92
   },
   {
    "id": "e43cc7a78ef978cf",
@@ -1111,7 +1635,8 @@
    "headline": "Marico Q2 Results: Net profit jumps 31% YoY to Rs 550 crore, revenue rises 12%",
    "url": "https://economictimes.indiatimes.com/markets/stocks/earnings/marico-q2-results-net-profit-jumps-31-yoy-to-rs-550-crore-revenue-rises-12/articleshow/135460226.cms",
    "entry_date": "2026-11-02",
-   "entry": 798.55
+   "entry": 798.55,
+   "r1": 10.0
   },
   {
    "id": "cdf32decb5660977",
@@ -1124,7 +1649,8 @@
    "headline": "SBI Q2 Results Preview: PAT may rise up to 25% YoY; NII, margins, deposit growth in focus",
    "url": "https://economictimes.indiatimes.com/markets/stocks/earnings/sbi-q2-results-preview-patmay-rise-up-to-25-yoy-nii-margins-deposit-growth-in-focus/articleshow/135458856.cms",
    "entry_date": "2026-11-02",
-   "entry": 134.4
+   "entry": 134.4,
+   "r1": -0.92
   },
   {
    "id": "cdf32decb5660977",
@@ -1137,7 +1663,8 @@
    "headline": "SBI Q2 Results Preview: PAT may rise up to 25% YoY; NII, margins, deposit growth in focus",
    "url": "https://economictimes.indiatimes.com/markets/stocks/earnings/sbi-q2-results-preview-patmay-rise-up-to-25-yoy-nii-margins-deposit-growth-in-focus/articleshow/135458856.cms",
    "entry_date": "2026-11-02",
-   "entry": 987.0
+   "entry": 987.0,
+   "r1": -1.7
   },
   {
    "id": "3b205207d7d74ef6",
@@ -1150,7 +1677,8 @@
    "headline": "Diwali 2026 Samvat 2083 stock picks: Airtel, ICICI Bank, L&T among 15 shares by Mirae Asset Sharekhan - Full list",
    "url": "https://www.livemint.com/market/stock-market-news/diwali-2026-samvat-2083-stock-picks-airtel-icici-bank-l-t-among-15-shares-by-mirae-asset-sharekhan-full-list-11793614146806.html",
    "entry_date": "2026-11-02",
-   "entry": 289.65
+   "entry": 289.65,
+   "r1": -0.14
   },
   {
    "id": "3b205207d7d74ef6",
@@ -1163,7 +1691,8 @@
    "headline": "Diwali 2026 Samvat 2083 stock picks: Airtel, ICICI Bank, L&T among 15 shares by Mirae Asset Sharekhan - Full list",
    "url": "https://www.livemint.com/market/stock-market-news/diwali-2026-samvat-2083-stock-picks-airtel-icici-bank-l-t-among-15-shares-by-mirae-asset-sharekhan-full-list-11793614146806.html",
    "entry_date": "2026-11-02",
-   "entry": 1387.4
+   "entry": 1387.4,
+   "r1": 2.67
   },
   {
    "id": "55923db70ab6d8e9",
@@ -1176,7 +1705,8 @@
    "headline": "Best EV stock to buy: Ather Energy vs Ola Electric Mobility; which is better profit-making deal? Investors guide, target",
    "url": "https://www.livemint.com/market/stock-market-news/best-ev-stock-to-buy-ather-energy-vs-ola-electric-mobility-which-is-better-profit-making-deal-investors-guide-target-11793608999266.html",
    "entry_date": "2026-11-02",
-   "entry": 1774.6
+   "entry": 1774.6,
+   "r1": 1.15
   },
   {
    "id": "55923db70ab6d8e9",
@@ -1189,7 +1719,8 @@
    "headline": "Best EV stock to buy: Ather Energy vs Ola Electric Mobility; which is better profit-making deal? Investors guide, target",
    "url": "https://www.livemint.com/market/stock-market-news/best-ev-stock-to-buy-ather-energy-vs-ola-electric-mobility-which-is-better-profit-making-deal-investors-guide-target-11793608999266.html",
    "entry_date": "2026-11-02",
-   "entry": 35.01
+   "entry": 35.01,
+   "r1": -1.2
   },
   {
    "id": "4224845d7d9b5351",
@@ -1202,7 +1733,8 @@
    "headline": "Rupee ends little changed as traders stay cautious despite oil, dollar drop",
    "url": "https://economictimes.indiatimes.com/markets/forex/rupee-ends-little-changed-as-traders-stay-cautious-despite-oil-dollar-drop/articleshow/135455769.cms",
    "entry_date": "2026-11-02",
-   "entry": 134.4
+   "entry": 134.4,
+   "r1": -0.92
   },
   {
    "id": "4224845d7d9b5351",
@@ -1215,7 +1747,8 @@
    "headline": "Rupee ends little changed as traders stay cautious despite oil, dollar drop",
    "url": "https://economictimes.indiatimes.com/markets/forex/rupee-ends-little-changed-as-traders-stay-cautious-despite-oil-dollar-drop/articleshow/135455769.cms",
    "entry_date": "2026-11-02",
-   "entry": 461.9
+   "entry": 461.9,
+   "r1": -1.39
   },
   {
    "id": "f35ef9cf8834d0e6",
@@ -5387,7 +5920,8 @@
    "url": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63875",
    "entry_date": "2026-10-27",
    "entry": 132.02,
-   "r1": 0.67
+   "r1": 0.67,
+   "r5": 0.87
   },
   {
    "id": "47e48b8a8f30f058",
