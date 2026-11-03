@@ -1,9 +1,9 @@
 {
- "date": "2026-11-03",
- "updated": "2026-11-03T22:18:18+05:30",
+ "date": "2026-11-04",
+ "updated": "2026-11-04T01:47:37+05:30",
  "sentiment": "Mildly bullish",
  "breadth": {
-  "up": 2,
+  "up": 1,
   "down": 0
  },
  "checklist": [
@@ -20,10 +20,10 @@
    "dir": "flat",
    "value": "Mixed — 2/3 higher",
    "detail": [
-    "Dow 51,764.87 -0.42%",
-    "S&P 7,569.33 +0.37%",
-    "Nasdaq 25,345.32 +0.72%",
-    "Nasdaq futures now +0.69%"
+    "Dow 51,751.15 -0.45%",
+    "S&P 7,563.17 +0.29%",
+    "Nasdaq 25,351.41 +0.74%",
+    "Nasdaq futures now +0.51%"
    ]
   },
   {
@@ -40,14 +40,14 @@
    "dir": "flat",
    "value": "No major currency pressure",
    "detail": [
-    "DXY 101.83 +0.09%",
+    "DXY 101.87 +0.13%",
     "USD/INR 94.740 -0.17%"
    ]
   },
   {
    "title": "Brent crude level",
-   "dir": "up",
-   "value": "$103.49 -1.22%",
+   "dir": "flat",
+   "value": "$104.32 -0.43%",
    "detail": []
   },
   {
@@ -57,27 +57,26 @@
    "detail": []
   }
  ],
- "summary": "Mildly bullish setup. Brent down 1.22% — relief for OMCs and paints; NASDAQ closed 0.72% higher; supportive for IT.",
+ "summary": "Mildly bullish setup. NASDAQ closed 0.74% higher; supportive for IT; Nikkei down, Hang Seng up.",
  "global_cues": [
-  "Brent down 1.22% — relief for OMCs and paints",
-  "NASDAQ closed 0.72% higher; supportive for IT",
+  "NASDAQ closed 0.74% higher; supportive for IT",
   "Nikkei down, Hang Seng up"
  ],
  "india_triggers": [
-  "116 filings and headlines worth a look so far today"
+  "9 filings and headlines worth a look so far today"
  ],
  "focus": [
   {
-   "symbol": "LLOYDSME",
-   "note": "Lloyds Metals And Energy Limited: Lloyds Metals and Energy Limited has"
+   "symbol": "LUPIN",
+   "note": "Lupin Limited: Lupin Limited has informed the Exchange regarding a pre"
   },
   {
-   "symbol": "BLS",
-   "note": "BLS International Q2 results: Record revenue on Digital Services growt"
+   "symbol": "LUPIN",
+   "note": "Lupin Limited: Lupin Limited has submitted to the Exchange, the Standa"
   },
   {
-   "symbol": "CLEANMAX",
-   "note": "Clean Max Enviro Energy Solutions Limited: Clean Max Enviro Energy Sol"
+   "symbol": "FRACTAL",
+   "note": "Fractal Analytics Limited: In continuation of our intimation dated Nov"
   }
  ],
  "sector_tags": [
@@ -95,13 +94,13 @@
   },
   {
    "name": "S&P FUT",
-   "value": "7,603",
-   "change": 0.37
+   "value": "7,592",
+   "change": 0.23
   },
   {
    "name": "NASDAQ FUT",
-   "value": "28,323",
-   "change": 0.69
+   "value": "28,271",
+   "change": 0.51
   },
   {
    "name": "KOSPI",
@@ -110,13 +109,13 @@
   },
   {
    "name": "WTI",
-   "value": "96.00",
-   "change": -0.48
+   "value": "96.65",
+   "change": 0.2
   },
   {
    "name": "GOLD",
-   "value": "3,941",
-   "change": -0.72
+   "value": "3,930",
+   "change": -0.99
   },
   {
    "name": "US 10Y",
