@@ -1,29 +1,29 @@
 {
  "date": "2026-11-04",
- "updated": "2026-11-04T13:59:23+05:30",
- "sentiment": "Mildly bullish",
+ "updated": "2026-11-04T22:00:00+05:30",
+ "sentiment": "Bullish",
  "breadth": {
-  "up": 2,
+  "up": 3,
   "down": 0
  },
  "checklist": [
   {
    "title": "Nifty 50 last close (GIFT Nifty not available from free sources)",
    "dir": "up",
-   "value": "23,899.40 (+0.37%)",
+   "value": "23,960.60 (+0.63%)",
    "detail": [
-    "Previous close 23,811.30"
+    "Previous close 23,810.59"
    ]
   },
   {
    "title": "US close - Dow/S&P/Nasdaq direction",
    "dir": "up",
-   "value": "Mixed — 2/3 higher",
+   "value": "Higher",
    "detail": [
-    "Dow 51,786.72 -0.38%",
-    "S&P 7,568.92 +0.36%",
-    "Nasdaq 25,372.01 +0.83%",
-    "Nasdaq futures now +0.33%"
+    "Dow 53,025.01 +2.39%",
+    "S&P 7,665.00 +1.27%",
+    "Nasdaq 25,690.65 +1.26%",
+    "Nasdaq futures now +1.16%"
    ]
   },
   {
@@ -40,43 +40,44 @@
    "dir": "flat",
    "value": "No major currency pressure",
    "detail": [
-    "DXY 101.42 -0.44%",
-    "USD/INR 94.790 +0.05%"
+    "DXY 101.57 -0.29%",
+    "USD/INR 94.640 -0.11%"
    ]
   },
   {
    "title": "Brent crude level",
-   "dir": "flat",
-   "value": "$103.37 -0.22%",
+   "dir": "up",
+   "value": "$99.00 -4.44%",
    "detail": []
   },
   {
    "title": "India VIX",
    "dir": "flat",
-   "value": "15.36 (-2.32%) — normal",
+   "value": "15.19 (-3.40%) — normal",
    "detail": []
   }
  ],
- "summary": "Mildly bullish setup. NASDAQ closed 0.83% higher; supportive for IT; Nikkei down, Hang Seng up.",
+ "summary": "Bullish setup. Brent down 4.44% — relief for OMCs and paints; NASDAQ closed 1.26% higher; supportive for IT.",
  "global_cues": [
-  "NASDAQ closed 0.83% higher; supportive for IT",
+  "Brent down 4.44% — relief for OMCs and paints",
+  "NASDAQ closed 1.26% higher; supportive for IT",
   "Nikkei down, Hang Seng up"
  ],
  "india_triggers": [
-  "71 filings and headlines worth a look so far today"
+  "117 filings and headlines worth a look so far today"
  ],
  "focus": [
   {
-   "symbol": "REDINGTON",
-   "note": "Redington Limited: Redington Limited has submitted to the Exchange, th"
+   "symbol": "APTUS",
+   "note": "Aptus Value Housing Finance Q2 profit rises 18% to Rs 267 cr"
   },
   {
-   "symbol": "ENGINERSIN",
-   "note": "Eppeltone Engineers Limited: EPPELTONE ENGINEERS LIMITED has informed "
+   "symbol": "KIMS",
+   "note": "Krishna Institute of Medical Sciences Limited: Krishna Institute of Me"
   },
   {
-   "symbol": "ENGINERSIN",
-   "note": "Eppeltone Engineers Limited: Eppeltone Engineers Limited has informed "
+   "symbol": "KIMS",
+   "note": "Krishna Institute of Medical Sciences Limited: Krishna Institute of Me"
   }
  ],
  "sector_tags": [
@@ -89,18 +90,18 @@
  "also": [
   {
    "name": "BANK NIFTY",
-   "value": "55,845.9",
-   "change": 0.55
+   "value": "55,913.6",
+   "change": 0.67
   },
   {
    "name": "S&P FUT",
-   "value": "7,614",
-   "change": 0.23
+   "value": "7,714",
+   "change": 1.55
   },
   {
    "name": "NASDAQ FUT",
-   "value": "28,400",
-   "change": 0.33
+   "value": "28,634",
+   "change": 1.16
   },
   {
    "name": "KOSPI",
@@ -109,18 +110,18 @@
   },
   {
    "name": "WTI",
-   "value": "95.93",
-   "change": -0.17
+   "value": "92.03",
+   "change": -4.23
   },
   {
    "name": "GOLD",
-   "value": "4,040",
-   "change": 2.53
+   "value": "4,053",
+   "change": 2.85
   },
   {
    "name": "US 10Y",
-   "value": "4.93",
-   "change": -0.46
+   "value": "4.92",
+   "change": -0.67
   }
  ],
  "source": "CNBC / Yahoo Finance (unofficial, delayed)"
