@@ -1,29 +1,29 @@
 {
  "date": "2026-11-04",
- "updated": "2026-11-04T01:47:37+05:30",
+ "updated": "2026-11-04T13:59:23+05:30",
  "sentiment": "Mildly bullish",
  "breadth": {
-  "up": 1,
+  "up": 2,
   "down": 0
  },
  "checklist": [
   {
    "title": "Nifty 50 last close (GIFT Nifty not available from free sources)",
    "dir": "up",
-   "value": "23,810.85 (+1.58%)",
+   "value": "23,899.40 (+0.37%)",
    "detail": [
-    "Previous close 23,440.49"
+    "Previous close 23,811.30"
    ]
   },
   {
    "title": "US close - Dow/S&P/Nasdaq direction",
-   "dir": "flat",
+   "dir": "up",
    "value": "Mixed — 2/3 higher",
    "detail": [
-    "Dow 51,751.15 -0.45%",
-    "S&P 7,563.17 +0.29%",
-    "Nasdaq 25,351.41 +0.74%",
-    "Nasdaq futures now +0.51%"
+    "Dow 51,786.72 -0.38%",
+    "S&P 7,568.92 +0.36%",
+    "Nasdaq 25,372.01 +0.83%",
+    "Nasdaq futures now +0.33%"
    ]
   },
   {
@@ -31,8 +31,8 @@
    "dir": "flat",
    "value": "Asia mixed",
    "detail": [
-    "Nikkei 63,081.86 -0.33%",
-    "Hang Seng 23,525.97 +0.57%"
+    "Nikkei 62,188.63 -1.42%",
+    "Hang Seng 23,919.50 +1.67%"
    ]
   },
   {
@@ -40,43 +40,43 @@
    "dir": "flat",
    "value": "No major currency pressure",
    "detail": [
-    "DXY 101.87 +0.13%",
-    "USD/INR 94.740 -0.17%"
+    "DXY 101.42 -0.44%",
+    "USD/INR 94.790 +0.05%"
    ]
   },
   {
    "title": "Brent crude level",
    "dir": "flat",
-   "value": "$104.32 -0.43%",
+   "value": "$103.37 -0.22%",
    "detail": []
   },
   {
    "title": "India VIX",
    "dir": "flat",
-   "value": "15.72 (+1.44%) — normal",
+   "value": "15.36 (-2.32%) — normal",
    "detail": []
   }
  ],
- "summary": "Mildly bullish setup. NASDAQ closed 0.74% higher; supportive for IT; Nikkei down, Hang Seng up.",
+ "summary": "Mildly bullish setup. NASDAQ closed 0.83% higher; supportive for IT; Nikkei down, Hang Seng up.",
  "global_cues": [
-  "NASDAQ closed 0.74% higher; supportive for IT",
+  "NASDAQ closed 0.83% higher; supportive for IT",
   "Nikkei down, Hang Seng up"
  ],
  "india_triggers": [
-  "9 filings and headlines worth a look so far today"
+  "71 filings and headlines worth a look so far today"
  ],
  "focus": [
   {
-   "symbol": "LUPIN",
-   "note": "Lupin Limited: Lupin Limited has informed the Exchange regarding a pre"
+   "symbol": "REDINGTON",
+   "note": "Redington Limited: Redington Limited has submitted to the Exchange, th"
   },
   {
-   "symbol": "LUPIN",
-   "note": "Lupin Limited: Lupin Limited has submitted to the Exchange, the Standa"
+   "symbol": "ENGINERSIN",
+   "note": "Eppeltone Engineers Limited: EPPELTONE ENGINEERS LIMITED has informed "
   },
   {
-   "symbol": "FRACTAL",
-   "note": "Fractal Analytics Limited: In continuation of our intimation dated Nov"
+   "symbol": "ENGINERSIN",
+   "note": "Eppeltone Engineers Limited: Eppeltone Engineers Limited has informed "
   }
  ],
  "sector_tags": [
@@ -89,38 +89,38 @@
  "also": [
   {
    "name": "BANK NIFTY",
-   "value": "55,540.1",
-   "change": 0.98
+   "value": "55,845.9",
+   "change": 0.55
   },
   {
    "name": "S&P FUT",
-   "value": "7,592",
+   "value": "7,614",
    "change": 0.23
   },
   {
    "name": "NASDAQ FUT",
-   "value": "28,271",
-   "change": 0.51
+   "value": "28,400",
+   "change": 0.33
   },
   {
    "name": "KOSPI",
-   "value": "5,649",
-   "change": -3.59
+   "value": "5,684",
+   "change": 0.62
   },
   {
    "name": "WTI",
-   "value": "96.65",
-   "change": 0.2
+   "value": "95.93",
+   "change": -0.17
   },
   {
    "name": "GOLD",
-   "value": "3,930",
-   "change": -0.99
+   "value": "4,040",
+   "change": 2.53
   },
   {
    "name": "US 10Y",
-   "value": "4.95",
-   "change": 1.14
+   "value": "4.93",
+   "change": -0.46
   }
  ],
  "source": "CNBC / Yahoo Finance (unofficial, delayed)"
