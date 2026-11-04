@@ -1,6 +1,6 @@
 {
- "date": "2026-11-04",
- "updated": "2026-11-04T22:00:00+05:30",
+ "date": "2026-11-05",
+ "updated": "2026-11-05T02:04:18+05:30",
  "sentiment": "Bullish",
  "breadth": {
   "up": 3,
@@ -20,10 +20,10 @@
    "dir": "up",
    "value": "Higher",
    "detail": [
-    "Dow 53,025.01 +2.39%",
-    "S&P 7,665.00 +1.27%",
-    "Nasdaq 25,690.65 +1.26%",
-    "Nasdaq futures now +1.16%"
+    "Dow 53,462.87 +3.24%",
+    "S&P 7,707.39 +1.83%",
+    "Nasdaq 25,826.19 +1.79%",
+    "Nasdaq futures now +1.07%"
    ]
   },
   {
@@ -40,14 +40,14 @@
    "dir": "flat",
    "value": "No major currency pressure",
    "detail": [
-    "DXY 101.57 -0.29%",
-    "USD/INR 94.640 -0.11%"
+    "DXY 101.52 -0.34%",
+    "USD/INR 94.540 -0.21%"
    ]
   },
   {
    "title": "Brent crude level",
    "dir": "up",
-   "value": "$99.00 -4.44%",
+   "value": "$95.31 -8.00%",
    "detail": []
   },
   {
@@ -57,29 +57,16 @@
    "detail": []
   }
  ],
- "summary": "Bullish setup. Brent down 4.44% — relief for OMCs and paints; NASDAQ closed 1.26% higher; supportive for IT.",
+ "summary": "Bullish setup. Brent down 8.00% — relief for OMCs and paints; NASDAQ closed 1.79% higher; supportive for IT.",
  "global_cues": [
-  "Brent down 4.44% — relief for OMCs and paints",
-  "NASDAQ closed 1.26% higher; supportive for IT",
+  "Brent down 8.00% — relief for OMCs and paints",
+  "NASDAQ closed 1.79% higher; supportive for IT",
   "Nikkei down, Hang Seng up"
  ],
  "india_triggers": [
-  "117 filings and headlines worth a look so far today"
+  "4 filings and headlines worth a look so far today"
  ],
- "focus": [
-  {
-   "symbol": "APTUS",
-   "note": "Aptus Value Housing Finance Q2 profit rises 18% to Rs 267 cr"
-  },
-  {
-   "symbol": "KIMS",
-   "note": "Krishna Institute of Medical Sciences Limited: Krishna Institute of Me"
-  },
-  {
-   "symbol": "KIMS",
-   "note": "Krishna Institute of Medical Sciences Limited: Krishna Institute of Me"
-  }
- ],
+ "focus": [],
  "sector_tags": [
   {
    "label": "IT",
@@ -95,13 +82,13 @@
   },
   {
    "name": "S&P FUT",
-   "value": "7,714",
-   "change": 1.55
+   "value": "7,730",
+   "change": 1.76
   },
   {
    "name": "NASDAQ FUT",
-   "value": "28,634",
-   "change": 1.16
+   "value": "28,608",
+   "change": 1.07
   },
   {
    "name": "KOSPI",
@@ -110,18 +97,18 @@
   },
   {
    "name": "WTI",
-   "value": "92.03",
-   "change": -4.23
+   "value": "88.75",
+   "change": -7.64
   },
   {
    "name": "GOLD",
-   "value": "4,053",
-   "change": 2.85
+   "value": "4,074",
+   "change": 3.38
   },
   {
    "name": "US 10Y",
-   "value": "4.92",
-   "change": -0.67
+   "value": "4.89",
+   "change": -1.25
   }
  ],
  "source": "CNBC / Yahoo Finance (unofficial, delayed)"
