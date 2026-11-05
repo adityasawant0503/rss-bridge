@@ -1,0 +1,31 @@
+{
+ "market": "india",
+ "title": "NSE / BSE index (spot chart, trade futures or options)",
+ "tz": "Asia/Kolkata",
+ "currency": "INR",
+ "day_start": "09:15",
+ "range_start": "09:15",
+ "anchor": "09:15",
+ "_sessions": "ICT's killzones are New York times. These Indian windows are an adaptation to backtest, not ICT's rules: the 09:15-09:30 opening range is the Judas window ('avoid the opening ranges'), PM killzone starts around the London open (12:30 IST in summer, 13:30 in winter).",
+ "sessions": {
+  "opening_range": ["09:15", "09:30"],
+  "am": ["09:30", "11:00"],
+  "lunch": ["11:30", "13:00"],
+  "pm": ["13:15", "14:45"],
+  "close": ["14:45", "15:30"]
+ },
+ "killzones": ["am", "pm"],
+ "liquidity_sessions": ["opening_range", "am", "lunch"],
+ "opens": {"day": "09:15"},
+ "flat_by": "15:15",
+ "default_symbol": "BANKNIFTY",
+ "_lots": "Exchange lot sizes as of the January 2026 revision (NIFTY 65, BANKNIFTY 30, SENSEX 20). NSE/BSE revise them twice a year: check your broker's contract note and edit point_value here.",
+ "instruments": {
+  "NIFTY":     {"name": "Nifty 50",   "yahoo": "^NSEI",    "point_value": 65, "unit": "lot", "buffer": 5,  "slippage": 1, "expiry_weekday": 1, "expiry": "weekly, Tuesday (NSE)"},
+  "BANKNIFTY": {"name": "Nifty Bank", "yahoo": "^NSEBANK", "point_value": 30, "unit": "lot", "buffer": 15, "slippage": 3, "expiry": "monthly, last Tuesday (NSE)"},
+  "SENSEX":    {"name": "BSE Sensex", "yahoo": "^BSESN",   "point_value": 20, "unit": "lot", "buffer": 15, "slippage": 3, "expiry_weekday": 3, "expiry": "weekly, Thursday (BSE)"}
+ },
+ "smt_pairs": [["NIFTY", "BANKNIFTY"], ["NIFTY", "SENSEX"]],
+ "config_defaults": {"instrument": "BANKNIFTY", "walk_away_after_profitable_wednesday": false},
+ "data_note": "Yahoo's index charts (^NSEI, ^NSEBANK, ^BSESN) are the spot index, unofficial and can lag. Futures trade at a premium (basis) and options move by delta, so take levels from your broker's futures or index chart before entering."
+}

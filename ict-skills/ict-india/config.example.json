@@ -1,0 +1,31 @@
+{
+ "_how": "Copy to ict/config-india.json in the folder you work from, then edit. Every key is optional.",
+ "account": 500000,
+ "risk_pct": 1.0,
+ "profitable": false,
+ "_profitable": "Notes EP-7: risk 1% or half a % until profitability. While false, risk is capped at unprofitable_risk_pct.",
+ "unprofitable_risk_pct": 0.5,
+ "size_factor": 1.0,
+ "_size_factor": "Psychology #9: lower size by 1/4 until it feels comfortable -> 0.75.",
+ "instrument": "BANKNIFTY",
+ "option_delta": 0.5,
+ "_option_delta": "Used by size --option: an ATM option moves about 0.5 of the index. Use the real delta from your option chain.",
+ "max_trades_per_day": 2,
+ "stop_after_losses": 2,
+ "pm_after_am_trade": false,
+ "avoid_fridays": true,
+ "walk_away_after_profitable_wednesday": false,
+ "_events": "High-impact dates: RBI policy, Union Budget, US CPI/FOMC the night before. These dates are examples only, fill in the real ones.",
+ "events": [
+  {"date": "2026-12-04", "name": "RBI policy", "action": "avoid"},
+  {"date": "2026-11-13", "name": "US CPI overnight", "action": "conviction"}
+ ],
+ "entry_tf": "5m",
+ "entry_mode": "confirm",
+ "confirm_bars": 2,
+ "fvg_pick": "nearest",
+ "stop_mode": "swing",
+ "min_rr": 1.0,
+ "dr_filter": "half",
+ "displacement_mult": 1.5
+}
