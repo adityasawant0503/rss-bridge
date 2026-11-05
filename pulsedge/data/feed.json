@@ -1,6 +1,537 @@
 {
- "updated": "2026-11-05T22:32:27+05:30",
+ "updated": "2026-11-06T02:20:45+05:30",
  "items": [
+  {
+   "id": "b1b65e582dab73e3",
+   "time": "2026-11-06T02:18:16+05:30",
+   "headline": "Prozone Realty Limited: Prozone Realty Limited has submitted to the Exchange, the financial results for the period ended September 30, 2026. |SUBJECT: Outcome of Board Meeting",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/PROZONINTU_06112026021655_OutcomePRLF.pdf",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Prozone Realty Limited: Prozone Realty Limited has submitted to the Exchange, the financial results for the period ended September 30, 2026. |SUBJECT: Outcome of Board Meeting"
+  },
+  {
+   "id": "ffc639cb916427a8",
+   "time": "2026-11-06T01:48:36+05:30",
+   "headline": "Sahajanand Medical Technologies Limited: Sahajanand Medical Technologies Limited has informed the Exchange about Audio Recording/Video Recording |SUBJECT: Analyst/Investor Meet Para A-XBRL",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/xbrl/SAIIM_20057_WebXMLFile_20261106_014834714.xml",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Sahajanand Medical Technologies Limited: Sahajanand Medical Technologies Limited has informed the Exchange about Audio Recording/Video Recording |SUBJECT: Analyst/Investor Meet Para A-XBRL"
+  },
+  {
+   "id": "d76d6d2bebe4dee5",
+   "time": "2026-11-06T01:33:02+05:30",
+   "headline": "Treasuries Soar as Tech-Stock Selloff Lures Investors to Havens",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/treasuries-soar-as-tech-stock-selloff-lures-investors-to-havens-11793908983146.html",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Treasuries rose as a Democratic sweep in the US midterms led to a selloff in shares of large US technology companies, stoking demand for havens."
+  },
+  {
+   "id": "b13a507a11eb0cf2",
+   "time": "2026-11-06T01:03:33+05:30",
+   "headline": "SEDEMAC Mechatronics Limited: SEDEMAC Mechatronics Limited has informed the Exchange about Audio Recording/Video Recording |SUBJECT: Analyst/Investor Meet Para A-XBRL",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/xbrl/SAIIM_27294_WebXMLFile_20261106_010330977.xml",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "SEDEMAC Mechatronics Limited: SEDEMAC Mechatronics Limited has informed the Exchange about Audio Recording/Video Recording |SUBJECT: Analyst/Investor Meet Para A-XBRL"
+  },
+  {
+   "id": "d1c43fb44fdab3ee",
+   "time": "2026-11-06T00:56:01+05:30",
+   "headline": "JP Morgan to add Philippines and Saudi Arabia to key EM bond index over 10 months",
+   "source": "ET Markets",
+   "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/jp-morgan-to-add-philippines-and-saudi-arabia-to-key-em-bond-index-over-10-months/articleshow/135585489.cms",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "JP Morgan has announced plans to include Saudi Arabia and the Philippines in its emerging market debt index starting in 2027. The Saudi riyal-denominated sukuk and Philippine peso-denominated government bonds will be integrated over a ten-month period. The index is expected to adjust the maximum cou"
+  },
+  {
+   "id": "a800c12c1744cfe8",
+   "time": "2026-11-06T00:54:21+05:30",
+   "headline": "The average US 30-year mortgage rate falls to 7.18% this week, its third straight decline",
+   "source": "ET Markets",
+   "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/the-average-us-30-year-mortgage-rate-falls-to-7-18-this-week-its-third-straight-decline-/articleshow/135585420.cms",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "The average long-term mortgage rates in the U.S. decreased for the third consecutive week, offering some respite. The average 30-year fixed-rate mortgage declined to 7.18% from 7.24%, according to Freddie Mac. Additionally, the 15-year fixed-rate mortgages saw a drop to 6.57%, slightly down from las"
+  },
+  {
+   "id": "381140a3fd5699e3",
+   "time": "2026-11-06T00:49:21+05:30",
+   "headline": "Manaksia Coated Metals & Industries Limited: Manaksia Coated Metals & Industries Limited has informed the Exchange regarding a press release dated November 05, 2026, titled \"Manaksia Coated Metals & Industries Limited successfully raises ₹150 crore through QIP; iss",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/MANAKCOAT_06112026004909_MCMILQIPPR.pdf",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Manaksia Coated Metals & Industries Limited: Manaksia Coated Metals & Industries Limited has informed the Exchange regarding a press release dated November 05, 2026, titled \"Manaksia Coated Metals & Industries Limited successfully raises ₹150 crore through QIP; iss"
+  },
+  {
+   "id": "438b1b5d8e4b0196",
+   "time": "2026-11-06T00:49:17+05:30",
+   "headline": "US yields fall in choppy session as oil rises and equities sink",
+   "source": "ET Markets",
+   "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/us-yields-fall-in-choppy-session-as-oil-rises-and-equities-sink/articleshow/135585328.cms",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "OIL",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "As geopolitical tensions change the landscape, US Treasuries are witnessing a spike in demand while equity markets take a hit and oil prices show volatility. Investors are reassessing their outlook on the US-Iran relations following new election results. The labor market remains resilient with dropp"
+  },
+  {
+   "id": "0fcb42b6c43f98a4",
+   "time": "2026-11-06T00:34:59+05:30",
+   "headline": "Gathering AI storm clouds doom tech stocks to darkest day in a year",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/gathering-ai-storm-clouds-doom-tech-stocks-to-darkest-day-in-a-year-11793905499422.html",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "USA-ELECTION-STOCKS-AI:Gathering AI storm clouds doom tech stocks to darkest day in a year"
+  },
+  {
+   "id": "e57bac4d0c2b57d4",
+   "time": "2026-11-06T00:23:45+05:30",
+   "headline": "Ravindra Energy Limited: we write to inform you that the Company has executed a loan agreement with Tata Capital Limited (lender) for a Rupee Term Loan facility of Rs 100 crore. |SUBJECT: Agreements",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/RAVINDRA_06112026001605_REL_TCL_Disclosure_05-11-2026-.pdf",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "TATACAP",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Ravindra Energy Limited: we write to inform you that the Company has executed a loan agreement with Tata Capital Limited (lender) for a Rupee Term Loan facility of Rs 100 crore. |SUBJECT: Agreements"
+  },
+  {
+   "id": "1d7c08fe7e2933cd",
+   "time": "2026-11-06T00:19:14+05:30",
+   "headline": "Lead Reclaim And Rubber Products Limited: Lead Reclaim And Rubber Products Limited has informed the Exchange about Investor Presentation |SUBJECT: Investor Presentation",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/LEAD_06112026001854_Intimation.pdf",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Lead Reclaim And Rubber Products Limited: Lead Reclaim And Rubber Products Limited has informed the Exchange about Investor Presentation |SUBJECT: Investor Presentation"
+  },
+  {
+   "id": "984768f31ca1b0dc",
+   "time": "2026-11-06T00:16:20+05:30",
+   "headline": "Runwal Enterprises Limited: Runwal Enterprises Limited has informed the Exchange regarding 'Intimation pursuant to Regulation 8(2) of Securities Exchange board of India (Prohibition of Insider Trading) Regulations, 2015 ( SEBI PIT Regulations )'. |",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/RUNWAL1978_06112026001507_CodeOfFairDisclosure.pdf",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Runwal Enterprises Limited: Runwal Enterprises Limited has informed the Exchange regarding 'Intimation pursuant to Regulation 8(2) of Securities Exchange board of India (Prohibition of Insider Trading) Regulations, 2015 ( SEBI PIT Regulations )'. |"
+  },
+  {
+   "id": "40354507b0cd8caa",
+   "time": "2026-11-06T00:15:15+05:30",
+   "headline": "Sai Life Sciences Limited: Sai Life Sciences Limited has informed the Exchange about Investor Presentation |SUBJECT: Investor Presentation",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/SAILIFE_06112026001507_Stx_Investor_Presentation_05112026_Signed.pdf",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "SAILIFE",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Sai Life Sciences Limited: Sai Life Sciences Limited has informed the Exchange about Investor Presentation |SUBJECT: Investor Presentation"
+  },
+  {
+   "id": "962e66f6e37856d3",
+   "time": "2026-11-06T00:12:52+05:30",
+   "headline": "Sai Life Sciences Limited: Sai Life Sciences Limited has informed the Exchange regarding a press release dated November 05, 2026, titled \"Press Release on Financial Results \". |SUBJECT: Press Release",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/SAILIFE_06112026001244_Stx_Press_Release_05112026_Signed.pdf",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "SAILIFE",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Sai Life Sciences Limited: Sai Life Sciences Limited has informed the Exchange regarding a press release dated November 05, 2026, titled \"Press Release on Financial Results \". |SUBJECT: Press Release"
+  },
+  {
+   "id": "699f420aba65d7c6",
+   "time": "2026-11-06T00:12:48+05:30",
+   "headline": "Manaksia Coated Metals & Industries Limited: Manaksia Coated Metals & Industries Limited has informed the Exchange regarding allotment of 11999847 securities pursuant to Qualified Institution Placement at its meeting held on November 05, 2026 |SUBJECT: Allotment of",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/MANAKCOAT_06112026001233_Outcome-allottmentss.pdf",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Manaksia Coated Metals & Industries Limited: Manaksia Coated Metals & Industries Limited has informed the Exchange regarding allotment of 11999847 securities pursuant to Qualified Institution Placement at its meeting held on November 05, 2026 |SUBJECT: Allotment of"
+  },
+  {
+   "id": "050fecab521bebf9",
+   "time": "2026-11-06T00:10:26+05:30",
+   "headline": "Cello World Limited: Cello World Limited has informed the Exchange about Investor Presentation |SUBJECT: Investor Presentation",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/CELLO2023_06112026001012_IP_CWL.pdf",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Cello World Limited: Cello World Limited has informed the Exchange about Investor Presentation |SUBJECT: Investor Presentation"
+  },
+  {
+   "id": "c2c113b444ee6d3b",
+   "time": "2026-11-06T00:04:17+05:30",
+   "headline": "Universus Photo Imagings Limited: Universus Photo Imagings Limited has informed the Exchange about Resignation of Director/KMP/SMP |SUBJECT: Resignation of Director/KMP/SMP",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/UNIVPHOTO_ROID_103935_KMP_Doc.zip",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Universus Photo Imagings Limited: Universus Photo Imagings Limited has informed the Exchange about Resignation of Director/KMP/SMP |SUBJECT: Resignation of Director/KMP/SMP"
+  },
+  {
+   "id": "6bc83dc70963a7f0",
+   "time": "2026-11-06T00:04:15+05:30",
+   "headline": "Universus Photo Imagings Limited: UNIVERSUS PHOTO IMAGINGS LIMITED has informed the Exchange about Change in Directors/KMP/SMP/Auditor/RTA |SUBJECT: Change in Directors/KMP/SMP/Auditor/RTA",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/xbrl/CIM_17762_WebXMLFile_20261106_000412213.xml",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Universus Photo Imagings Limited: UNIVERSUS PHOTO IMAGINGS LIMITED has informed the Exchange about Change in Directors/KMP/SMP/Auditor/RTA |SUBJECT: Change in Directors/KMP/SMP/Auditor/RTA"
+  },
+  {
+   "id": "ee5fa0f04560e4d9",
+   "time": "2026-11-06T00:02:00+05:30",
+   "headline": "Lead Reclaim And Rubber Products Limited: Lead Reclaim And Rubber Products Limited has informed the Exchange regarding a press release dated November 05, 2026, titled \"Lead Reclaim and Rubber Products Limited Reports Robust H1 FY27 Performance with Revenue Growt",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/LEAD_06112026000151_Intimation.pdf",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Lead Reclaim And Rubber Products Limited: Lead Reclaim And Rubber Products Limited has informed the Exchange regarding a press release dated November 05, 2026, titled \"Lead Reclaim and Rubber Products Limited Reports Robust H1 FY27 Performance with Revenue Growt"
+  },
+  {
+   "id": "585d694b197dd15b",
+   "time": "2026-11-06T00:00:18+05:30",
+   "headline": "Manaksia Coated Metals & Industries Limited: Manaksia Coated Metals & Industries Limited has informed the Exchange regarding Outcome of Board Meeting held on November 05, 2026. |SUBJECT: Outcome of Board Meeting",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/MANAKCOAT_05112026235959_Outcome-allottmentss.pdf",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Manaksia Coated Metals & Industries Limited: Manaksia Coated Metals & Industries Limited has informed the Exchange regarding Outcome of Board Meeting held on November 05, 2026. |SUBJECT: Outcome of Board Meeting"
+  },
+  {
+   "id": "3ee856c1ef1120a7",
+   "time": "2026-11-05T23:55:18+05:30",
+   "headline": "Early Diwali cheer: Markets see fireworks; rupee rises, bond yields ease",
+   "source": "Business Standard",
+   "url": "https://www.business-standard.com/markets/news/early-diwali-cheer-markets-see-fireworks-rupee-rises-bond-yields-ease-126110502021_1.html",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "The Nifty rose 2.4% to 24,536.60, while the Sensex gained 2.6%, as falling crude prices and strong foreign investor inflows lifted financial and auto stocks despite record DII selling."
+  },
+  {
+   "id": "23cfd02f0995b239",
+   "time": "2026-11-05T23:47:04+05:30",
+   "headline": "Reserve Bank of India may hike rates by up to 75 bps more: Uday Kotak",
+   "source": "Business Standard",
+   "url": "https://www.business-standard.com/markets/news/reserve-bank-of-india-may-hike-rates-by-up-to-75-bps-more-uday-kotak-126110501915_1.html",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "BANKINDIA",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Uday Kotak expects another 50-75 basis points of repo rate hikes and warns of prolonged Middle East risks, but sees Indian equities well placed to attract foreign investors."
+  },
+  {
+   "id": "7ac3b70e828bb924",
+   "time": "2026-11-05T23:21:52+05:30",
+   "headline": "US stock market crash: Chip stocks extend sell-off, AMD, Arm, Qualcomm and Sandisk plunge up to 17%; Nasdaq down 6%",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/stock-market-news/us-stock-market-crash-chip-stocks-extend-sell-off-amd-arm-qualcomm-and-sandisk-plunge-up-to-17-nasdaq-down-6-11793900308301.html",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "A sharp sell-off hit chipmakers as disappointing forecasts from Qualcomm and Arm compounded worries about potential restrictions on AI data centres. AMD, Sandisk and Micron also fell heavily, while the semiconductor index dropped 9.7%."
+  },
   {
    "id": "de0d9d1b1fc5d0e6",
    "time": "2026-11-05T22:32:27+05:30",
@@ -2959,6 +3490,28 @@
    "original": "Pramara Promotions Limited: Pramara Promotions Limited has informed the Exchange about Board Meeting to be held on 12-Sep-2026 to inter-alia consider and approve the Unaudited Financial results of the Company for the Half Yearly ended September 202"
   },
   {
+   "id": "e7f5573a698342d1",
+   "time": "2026-11-05T21:04:33+05:30",
+   "headline": "FPIs turn net buyers in the second half of October, shows data",
+   "source": "Business Standard",
+   "url": "https://www.business-standard.com/markets/news/fpis-were-net-buyers-in-2nd-half-of-oct-pumped-13k-cr-into-equities-126110501860_1.html",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Overseas investors bought heavily into IT and telecom stocks, but remained net sellers for October, with total equity outflows of ₹34,843 crore"
+  },
+  {
    "id": "4bba99e57a8dfce7",
    "time": "2026-11-05T21:04:19+05:30",
    "headline": "FPIs were net buyers in 2nd half of Oct, pumped ₹13K cr into equities",
@@ -3488,6 +4041,1017 @@
    ],
    "risks": [],
    "original": "Basilic Fly Studio Limited: Basilic Fly Studio Limited has submitted to the Exchange, the financial results for the period ended September 30, 2026. |SUBJECT: Outcome of Board Meeting"
+  },
+  {
+   "id": "3cf40b11acd001aa",
+   "time": "2026-11-05T20:46:47+05:30",
+   "headline": "PSU dividend jackpot! ONGC vs NTPC vs CONCOR vs Petronet: Who offers highest payout? Record date, technical targets",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/stock-market-news/psu-dividend-jackpot-ongc-vs-ntpc-vs-concor-vs-petronet-who-offers-highest-payout-record-date-technical-targets-11793880794114.html",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "CONCOR",
+     "direction": "up"
+    },
+    {
+     "symbol": "NTPC",
+     "direction": "up"
+    },
+    {
+     "symbol": "ONGC",
+     "direction": "up"
+    },
+    {
+     "symbol": "PETRONET",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "ONGC, NTPC, CONCOR and Petronet LNG announced FY2026-27 dividends of ₹8, ₹3, ₹1.90 and ₹7 per share, respectively. Check details of these PSU dividends"
+  },
+  {
+   "id": "9acc51318d2d7ec5",
+   "time": "2026-11-05T20:46:43+05:30",
+   "headline": "'No reason to go elsewhere': Zerodha CEO Nithin Kamath welcomes SEBI's NRI KYC changes",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/stock-market-news/no-reason-to-go-elsewhere-zerodha-ceo-nithin-kamath-welcomes-sebis-nri-kyc-changes-11793886877810.html",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Zerodha CEO Nithin Kamath welcomed SEBI’s eased digital KYC rules for overseas investors, saying eligible NRIs and OCIs can now complete account opening from abroad in days instead of weeks. The change takes effect December 3, 2026, and could help attract more long-term investment to India."
+  },
+  {
+   "id": "54430a92e28b4255",
+   "time": "2026-11-05T20:39:12+05:30",
+   "headline": "Emerging markets lose $33.8 billion in October as investors flee Asian stocks",
+   "source": "ET Markets",
+   "url": "https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/emerging-market-outflows-hit-33-8-billion-us-midterms-offer-some-relief/articleshow/135578199.cms",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "October witnessed an alarming withdrawal of $33.8 billion by foreign investors from emerging markets, the largest since March. Almost all of this outflow consisted of equities, severely impacting Taiwan. While Emerging Asia grappled with major losses, Latin America encountered minimal setbacks amid "
+  },
+  {
+   "id": "d1798f023683c86f",
+   "time": "2026-11-05T20:33:16+05:30",
+   "headline": "Why Asian AI stocks tumbled after US midterm results as Kospi plunged over 5%; key reasons explained",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/stock-market-news/why-asian-ai-stocks-tumbled-after-us-midterm-results-as-kospi-plunged-over-5-key-reasons-explained-11793873377482.html",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "South Korea’s Kospi fell 5.3% as technology and semiconductor shares sold off, prompting temporary trading restrictions. Asian markets also declined amid concerns that Democratic gains in US midterm elections could bring tighter limits on AI data centres and pressure to curb military spending."
+  },
+  {
+   "id": "0f5eb020c634c2d6",
+   "time": "2026-11-05T20:30:35+05:30",
+   "headline": "Maharashtra state discom targets February 2027 IPO, aims to raise over ₹10,000 crore",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/ipo/msedcl-targets-february-2027-ipo-aims-to-raise-over-10-000-crore-11793880648583.html",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Maharashtra's state-run power distributor plans to file its prospectus by December, following a restructuring that includes the demerger of its agricultural business and a ₹32,679 crore debt takeover by the state government."
+  },
+  {
+   "id": "31c41ceff5191450",
+   "time": "2026-11-05T20:10:26+05:30",
+   "headline": "Nasdaq tumbles over 3% as tech stocks extend selloff after Democrats sweep midterms; Tesla plunges 9%, chipmakers slide",
+   "source": "ET Markets",
+   "url": "https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/us-stocks-today-nasdaq-falls-at-open-after-midterms-fueled-surge-as-chip-data-center-stocks-fall/articleshow/135577537.cms",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "US stocks faced a sharp decline on Thursday, particularly in technology shares, amid concerns over regulatory scrutiny. The Nasdaq Composite fell over 3%, reversing optimism following the Democrats' midterm election victories. Key companies including Nvidia, Advanced Micro Devices, and Tesla were am"
+  },
+  {
+   "id": "284f8f715a8d7aa3",
+   "time": "2026-11-05T20:10:22+05:30",
+   "headline": "Signature Global clocks Rs 67 cr profit in Q2 vs loss yr ago, revenue rises over 2-fold",
+   "source": "ET Markets",
+   "url": "https://economictimes.indiatimes.com/markets/digital-real-estate/realty-news/signature-global-clocks-rs-67-cr-profit-in-q2-vs-loss-yr-ago-revenue-rises-over-2-fold/articleshow/135577590.cms",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "SIGNATURE",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Signature Global Ltd has reported a consolidated net profit of Rs 66.90 crore for the quarter ending September, marking a significant turnaround from last year's net loss of Rs 46.86 crore. With total income soaring from Rs 372.51 crore to Rs 870.70 crore, the company's chairman highlighted a robust"
+  },
+  {
+   "id": "eda3d6e0e5cffc92",
+   "time": "2026-11-05T20:08:54+05:30",
+   "headline": "Glenmark Pharma Q2 Results: Net profit plunges 56% to Rs 264 crore, revenue down at Rs 4,247 cr",
+   "source": "ET Markets",
+   "url": "https://economictimes.indiatimes.com/markets/stocks/earnings/glenmark-pharma-q2-results-net-profit-plunges-56-to-rs-264-crore-revenue-down-at-rs-4247-cr/articleshow/135577516.cms",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "GLENMARK",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Glenmark Pharmaceuticals experienced a 56.78 percent drop in consolidated profit after tax during the September quarter. Total revenue from operations decreased to Rs 4,247.32 crore compared to the previous year. The company's total expenses also decreased during the same period, indicating some ope"
+  },
+  {
+   "id": "8e3e8824bc3c42a1",
+   "time": "2026-11-05T20:07:48+05:30",
+   "headline": "Muhurat Trading 2026: How has the Indian stock market performed over the past 10 years? What lies ahead in Samvat 2083",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/stock-market-news/muhurat-trading-2026-how-has-the-indian-stock-market-performed-over-the-past-10-years-what-lies-ahead-in-samvat-2083-11793885461795.html",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "India’s stock exchanges will hold Diwali Muhurat Trading on November 8, continuing a tradition seen as auspicious by investors. The session has historically closed higher in eight of the past 10 years.&nbsp;"
+  },
+  {
+   "id": "4ad8a93a36f4f9bd",
+   "time": "2026-11-05T19:46:16+05:30",
+   "headline": "Gold, Silver, Stocks: Why Bonds Deserve a Place on Your Dhanteras Shopping List",
+   "source": "ET Markets",
+   "url": "https://economictimes.indiatimes.com/markets/bonds/gold-silver-stocks-why-bonds-deserve-a-place-on-your-dhanteras-shopping-list/articleshow/135576862.cms",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Traditionally, investors have turned to gold and silver on Dhanteras, but this trend is shifting. Recent fluctuations in these precious metals and stock equities have raised apprehensions over their reliability. Bonds present a viable alternative with their assured returns and steady interest payout"
+  },
+  {
+   "id": "76294b406f84e3e7",
+   "time": "2026-11-05T19:45:54+05:30",
+   "headline": "Rupee hits over one-month high, 10-year bond yield falls to 7.17%",
+   "source": "Business Standard",
+   "url": "https://www.business-standard.com/markets/news/rupee-hits-over-one-month-high-10-year-bond-yield-falls-to-7-17-126110501865_1.html",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "OIL",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "The rupee closed at 94.47 against the dollar, its strongest level since October 21, while the benchmark 10-year bond yield eased to 7.17 per cent as crude oil prices declined"
+  },
+  {
+   "id": "ec18cface5f9c5ed",
+   "time": "2026-11-05T19:33:58+05:30",
+   "headline": "Sebi revises currency derivative norms for domestic investors, FPIs; allows to trade up to USD 5 mn",
+   "source": "ET Markets",
+   "url": "https://economictimes.indiatimes.com/markets/stocks/news/sebi-revises-currency-derivative-norms-for-domestic-investors-fpis-allows-to-trade-up-to-usd-5-mn/articleshow/135576552.cms",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Sebi has revised its regulations to permit domestic and foreign portfolio investors to take positions in currency derivatives. Investors can now hold up to USD 5 million without establishing underlying exposure. The new guidelines also require FPIs to ensure their short positions do not exceed this "
+  },
+  {
+   "id": "95c7f28bea9e2142",
+   "time": "2026-11-05T19:32:00+05:30",
+   "headline": "Fed's Beth Hammack favors gradual rate-hike path to lower inflation",
+   "source": "ET Markets",
+   "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/feds-beth-hammack-favors-gradual-rate-hike-path-to-lower-inflation/articleshow/135576467.cms",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Cleveland's Federal Reserve President Beth Hammack has emphasized the need for additional rate hikes to achieve the target inflation rate of 2%. She proposes implementing smaller, more frequent adjustments to minimize impacts on households and markets. Dissatisfied with the last Fed meeting's outcom"
+  },
+  {
+   "id": "99170e41a40dd796",
+   "time": "2026-11-05T19:10:36+05:30",
+   "headline": "Trump's Loss, Wall Street's Gain? What Could Change for AI, Defence, Crypto and Elon Musk",
+   "source": "ET Markets",
+   "url": "https://economictimes.indiatimes.com/markets/stocks/news/trumps-loss-wall-streets-gain-what-could-change-for-ai-defence-crypto-and-elon-musk/videoshow/135575972.cms",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Trump's Loss, Wall Street's Gain? What Could Change for AI, Defence, Crypto and Elon Musk"
+  },
+  {
+   "id": "807320a36281164a",
+   "time": "2026-11-05T19:10:00+05:30",
+   "headline": "RBI to conduct 3-day Variable Rate Reverse Repo (VRRR) auction under LAF on November 06, 2026",
+   "source": "RBI",
+   "url": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63932",
+   "section": "macro",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "On a review of current and evolving liquidity conditions, it has been decided to conduct a Variable Rate Reverse Repo (VRRR) auction on Friday, November 06, 2026, as under: Sl. No. Notified Amount (₹ crore) Tenor (day) Window Timing Date of Reversal 1 25,000 3 09:30 AM to 10:00 AM November 09, 2026 "
+  },
+  {
+   "id": "dbbee7e6ef3cd34e",
+   "time": "2026-11-05T19:08:02+05:30",
+   "headline": "AMC stocks rebound as equity market recovery lifts earnings expectations",
+   "source": "Business Standard",
+   "url": "https://www.business-standard.com/markets/stock-market-news/amc-stocks-rebound-as-equity-market-recovery-lifts-earnings-expectations-126110501795_1.html",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Shares of asset management companies rallied up to 7 per cent as improving equity market sentiment raised expectations of stronger earnings and assets under management growth"
+  },
+  {
+   "id": "391bd27fb2cd924c",
+   "time": "2026-11-05T18:56:35+05:30",
+   "headline": "Sebi allows mutual funds to net cash market obligations from April",
+   "source": "Business Standard",
+   "url": "https://www.business-standard.com/markets/news/sebi-allows-mutual-funds-to-net-cash-market-obligations-from-april-126110501727_1.html",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "The new facility will allow mutual fund schemes to offset cash market funds payable against receivables within the same scheme and settlement cycle from April 1, 2027."
+  },
+  {
+   "id": "13e7e10970a961e3",
+   "time": "2026-11-05T18:55:30+05:30",
+   "headline": "PFC dividend: Up 200% in 5 yrs, Maharatna PSU's shares rally 5% in 3 days - Check dividend record date, payment timeline",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/stock-market-news/pfc-dividend-up-200-in-5-yrs-maharatna-psus-shares-rally-5-in-3-days-check-dividend-record-date-payment-timeline-11793884952011.html",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "PFC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Power Finance Corporation approved a second interim dividend of ₹4.10 per share for FY27. Check the record date and payment timeline.&nbsp;"
+  },
+  {
+   "id": "9d4710fa5a90528a",
+   "time": "2026-11-05T18:40:30+05:30",
+   "headline": "Stock Market Live Updates: Nasdaq drops 5%, Dow Jones 1,600 pts as AI selloff intensifies",
+   "source": "ET Markets",
+   "url": "https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/stock-market-live-updates-dow-jones-nasdaq-sp-500-qualcomm-nvidia-coreweave-tesla-amazon-meta-ai-stocks-data-center-stocks-semiconductor-stocks-brent-crude-us-jobs-report-federal-reserve-treasury-yield-news-5th-november-2026/liveblog/135575228.cms",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Stock Market Live Updates: Nasdaq drops 5%, Dow Jones 1,600 pts as AI selloff intensifies"
+  },
+  {
+   "id": "de555b553726b79f",
+   "time": "2026-11-05T18:36:47+05:30",
+   "headline": "Bank of England hikes rates to 4%, first raise since 2023, says more may come amid high UK inflation",
+   "source": "ET Markets",
+   "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/bank-of-england-hikes-rates-to-4-first-raise-since-2023-says-more-may-come-amid-high-uk-inflation/articleshow/135574865.cms",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "BANKINDIA",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "In a decisive move, the Bank of England has escalated interest rates to 4% amidst spiraling inflation, projected to hit 4.8% in Q2 next year. Governor Andrew Bailey cautioned that further hikes may be necessary, especially with ongoing global conflicts. Market reactions were notably favorable, with "
+  },
+  {
+   "id": "7965dd213cfb4e1b",
+   "time": "2026-11-05T18:20:41+05:30",
+   "headline": "Planning to buy gold this Dhanteras? Experts advise caution amid volatility",
+   "source": "Business Standard",
+   "url": "https://www.business-standard.com/markets/news/planning-to-buy-gold-this-dhanteras-experts-advise-caution-amid-volatility-126110501704_1.html",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Restore your target allocation to gold, maintain realistic return expectations, and be prepared for near-term volatility"
+  },
+  {
+   "id": "e556181c7c19bed2",
+   "time": "2026-11-05T18:18:39+05:30",
+   "headline": "Titan shines in Q2 Results 2026; Net profit doubles to ₹2,393 crore, aided by one-time gain; jewellery business up 24%",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/stock-market-news/titan-shines-in-q2-results-2026-net-profit-doubles-to-rs-2-393-crore-aided-by-one-time-gain-jewellery-business-up-24-11793880484831.html",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "TITAN",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Titan reported a 113% year-on-year rise in September-quarter net profit to ₹2,393 crore, including a ₹671 crore one-time gain. Revenue grew 25% to ₹20,533 crore, led by jewellery, watches and eyewear, while strong demand for studded jewellery improved the product mix."
+  },
+  {
+   "id": "a53f865cbde3981c",
+   "time": "2026-11-05T18:14:24+05:30",
+   "headline": "Marico among 10 stocks hitting 52-week highs; rally up to 14% in a month",
+   "source": "ET Markets",
+   "url": "https://economictimes.indiatimes.com/markets/stocks/news/marico-among-10-stocks-hitting-52-week-highs-rally-up-to-14-in-a-month/slideshow/135574817.cms",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "BSE",
+     "direction": "up"
+    },
+    {
+     "symbol": "ICICIBANK",
+     "direction": "up"
+    },
+    {
+     "symbol": "MARICO",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Ten BSE 100 stocks, including Marico, Adani Ports, Divis Laboratories and ICICI Bank, hit fresh 52-week highs on Thursday as benchmark indices staged a sharp rally."
+  },
+  {
+   "id": "dc2713bbc21421b5",
+   "time": "2026-11-05T18:08:53+05:30",
+   "headline": "Bharti Airtel Q2 results: Profit jumps 31% to ₹8,888 crore, ARPU up ₹271 crore, telco stock rallies 121% in 3 yrs",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/stock-market-news/bharti-airtel-q2-results-profit-jumps-31-to-rs-8-888-crore-arpu-up-rs-271-telecom-stock-rallies-121-in-3-yrs-11793882129364.html",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "BHARTIARTL",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Bharti Airtel reported a 31% annual increase in Q2FY27 net profit to ₹8,888 crore, while revenue rose 16.7% to ₹60,877.5 crore. ARPU climbed 6% to ₹271, supported by growth in 4G and 5G users."
+  },
+  {
+   "id": "e67201ada5bc6815",
+   "time": "2026-11-05T18:06:56+05:30",
+   "headline": "Sebi allows mutual fund schemes to net cash market fund settlements",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/sebi-allows-mutual-fund-schemes-to-net-cash-market-fund-settlements-11793879902529.html",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Sebi’s move changes the treatment of fund obligations for eligible mutual fund transactions, without altering the requirement for securities to be settled on a gross basis."
+  },
+  {
+   "id": "4a6bdb14aca9b6be",
+   "time": "2026-11-05T17:54:11+05:30",
+   "headline": "Sebi eases investor accreditation norms, lets fund managers certify status",
+   "source": "Business Standard",
+   "url": "https://www.business-standard.com/markets/news/sebi-eases-investor-accreditation-norms-lets-fund-managers-certify-status-126110501539_1.html",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Sebi has allowed AIF, SIF and portfolio managers to certify investor accreditation, simplifying the process while retaining verification and record-keeping requirements."
+  },
+  {
+   "id": "cd0ddc1453ea5dae",
+   "time": "2026-11-05T17:43:35+05:30",
+   "headline": "Rising oil prices cap India bond rally; traders cash in gains",
+   "source": "ET Markets",
+   "url": "https://economictimes.indiatimes.com/markets/bonds/rising-oil-prices-cap-india-bond-rally-traders-cash-in-gains/articleshow/135572997.cms",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "OIL",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Indian government bonds saw a rise as traders reacted to a US Treasury rally and falling crude prices. The benchmark 6.94% 2036 bond yield declined by nearly 2 basis points after intraday fluctuations. Oil prices rebounded after initially falling, causing traders to lock in profits. Attention will t"
+  },
+  {
+   "id": "8ff46bb65f3a3041",
+   "time": "2026-11-05T17:41:45+05:30",
+   "headline": "Sebi approves net settlement of cash market trades for mutual funds",
+   "source": "ET Markets",
+   "url": "https://economictimes.indiatimes.com/markets/stocks/news/sebi-approves-net-settlement-of-cash-market-trades-for-mutual-funds/articleshow/135572968.cms",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "India’s Securities and Exchange Board of India (SEBI) has greenlit the introduction of net settlement for mutual fund schemes, set to take effect on April 1, 2027. This initiative is designed to streamline funding requirements and boost market efficiency. Previously, net settlement was exclusive to "
+  },
+  {
+   "id": "e8cb5a219bc14b7c",
+   "time": "2026-11-05T17:39:28+05:30",
+   "headline": "AI, data-center stocks slip as Democratic sweep clouds expansion plans",
+   "source": "ET Markets",
+   "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/ai-data-center-stocks-slip-as-democratic-sweep-clouds-expansion-plans/articleshow/135572604.cms",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Stocks related to AI and data centers are facing a slump in premarket trading as Democrats secure significant wins in the US midterm elections. Investors are wary as possible regulatory changes from Congress loom, jeopardizing the industry's growth prospects. Analysts highlight that many anticipated"
+  },
+  {
+   "id": "d3aabb33cbeb2760",
+   "time": "2026-11-05T17:37:14+05:30",
+   "headline": "Terrific Thursday for stock market! Nifty jumps 576 pts, Sensex 2,009 pts after US election results; bank, IT shares fly",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/stock-market-news/terrific-thursday-for-stock-market-nifty-jumps-576-pts-sensex-2-009-pts-after-us-election-results-bank-it-shares-fly-11793879260120.html",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Indian equities rose for a sixth straight session, with the Sensex gaining 2.6% and the Nifty 2.4% in their biggest single-day advances in seven months. Lower crude prices renewed foreign buying and hopes of geopolitical de-escalation supported the rally.&nbsp;"
+  },
+  {
+   "id": "c82997793db1af2b",
+   "time": "2026-11-05T17:30:00+05:30",
+   "headline": "Foreign Exchange Turnover Data: October 26, 2026 – October 30, 2026",
+   "source": "RBI",
+   "url": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63930",
+   "section": "macro",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "BANKINDIA",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "Macro",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "The Reserve Bank of India today released the data showing daily merchant and Inter-Bank transactions in foreign exchange for the period October 26, 2026 – October 30, 2026. All Figures are in USD Millions Position Date MERCHANT INTER BANK FCY / INR FCY / FCY FCY / INR FCY / FCY Spot Forward Cancella"
+  },
+  {
+   "id": "c719e8dd901d2161",
+   "time": "2026-11-05T17:13:12+05:30",
+   "headline": "Gold Price Prediction: After 20% crash, Gold may rise 20–25% by Dhanteras 2027; check price forecast - Buy or wait?",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/stock-market-news/gold-price-prediction-after-20-crash-gold-may-rise-20-25-by-dhanteras-2027-check-price-forecast-buy-or-wait-11793874721471.html",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Gold’s correction of more than 20% from its January 2026 peak may offer long-term investors an opportunity to accumulate gradually. Central-bank buying and renewed ETF inflows could support a recovery, while high interest rates, a stronger US dollar and geopolitical uncertainty remain risks."
+  },
+  {
+   "id": "547bf91d50a6cdf5",
+   "time": "2026-11-05T17:10:00+05:30",
+   "headline": "Foreign Exchange Turnover Data: September 28, 2026 – October 01, 2026",
+   "source": "RBI",
+   "url": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63926",
+   "section": "macro",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "BANKINDIA",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "Macro",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "The Reserve Bank of India today released the data showing daily merchant and Inter-Bank transactions in foreign exchange for the period September 28, 2026 – October 01, 2026. All Figures are in USD Millions Position Date MERCHANT INTER BANK FCY / INR FCY / FCY FCY / INR FCY / FCY Spot Forward Cancel"
+  },
+  {
+   "id": "7d3d25967aaa2985",
+   "time": "2026-11-05T17:06:14+05:30",
+   "headline": "168% rally in 3 yrs: After ₹270 dividend, auto ancillary stock to consider bonus, stock split - Do you own?",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/stock-market-news/168-rally-in-3-yrs-after-rs-270-dividend-auto-ancillary-stock-to-consider-bonus-stock-split-do-you-own-11793867159176.html",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "BOSCHLTD",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Bosch shares rose 3.25% on Thursday after the company said its board would consider a stock split and bonus issue at its November 6 meeting. The stock has gained 17.21% in a month. Earlier this year, Bosch announced a dividend of ₹270 per share."
+  },
+  {
+   "id": "8ff4b4a92350d963",
+   "time": "2026-11-05T17:05:00+05:30",
+   "headline": "Consolidation of Instructions Related to Priority Sector Lending – Drafts for Comments",
+   "source": "RBI",
+   "url": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63925",
+   "section": "macro",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "BANKINDIA",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "Macro",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "As part of the ongoing effort towards consolidation of various instructions issued from time to time, the Reserve Bank has undertaken a review of the extant guidelines relating to Priority Sector Lending (PSL) and proposes to issue Directions on the subject RE-wise. 2. Accordingly, the following dra"
+  },
+  {
+   "id": "938f9ebd580efd34",
+   "time": "2026-11-05T16:43:07+05:30",
+   "headline": "Ashok Leyland shares jump over 10% in biggest single-day gain since April; here's what lifted the stock",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/stock-market-news/ashok-leyland-shares-jump-over-10-in-biggest-single-day-gain-since-april-heres-what-lifted-the-stock-11793875257087.html",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "ASHOKLEY",
+     "direction": "up"
+    },
+    {
+     "symbol": "OIL",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "The rally in Ashok Leyland followed a sharp overnight retreat in crude oil prices, while expectations of a possible easing of US trade tariffs after Democrats swept both chambers of Congress in the US midterm elections lifted Dalal Street sentiment."
+  },
+  {
+   "id": "5c7e55c906eb869d",
+   "time": "2026-11-05T16:42:30+05:30",
+   "headline": "Digital gift cards brand Gyftr shares zoom 14.5% after announcement of Q2 Results 2026 date; do you own?",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/stock-market-news/digital-gift-cards-brand-gyftr-shares-zoom-14-5-after-announcement-of-q2-results-2026-date-do-you-own-11793875623650.html",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Shares of digital gift cards brand Gyftr finished 14.50% upside after the announcement of board meeting date to declare Q2 Results 2026"
+  },
+  {
+   "id": "ae9b2bf5e62b6300",
+   "time": "2026-11-05T16:39:14+05:30",
+   "headline": "When Stocks Dampen Festive Cheer, Can Bonds Keep the Celebrations Going?",
+   "source": "ET Markets",
+   "url": "https://economictimes.indiatimes.com/markets/bonds/when-stocks-dampen-festive-cheer-can-bonds-keep-the-celebrations-going/articleshow/135570554.cms",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Investors in India are navigating a challenging landscape as the equity markets descend into significant losses. Selling off assets at this juncture could incur financial damage, yet deferring such decisions may hinder urgent expenses. By maintaining fixed-income portfolios, investors can secure con"
+  },
+  {
+   "id": "8b9dfcdd83f89268",
+   "time": "2026-11-05T16:04:09+05:30",
+   "headline": "11 smallcap stocks maintain over 10% profit margin in Q1 and Q2, shares rally 150-350% in FY27",
+   "source": "ET Markets",
+   "url": "https://economictimes.indiatimes.com/markets/stocks/news/11-smallcap-stocks-maintain-over-10-profit-margin-in-q1-and-q2-shares-rally-150-350-in-fy27/slideshow/135569927.cms",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Eleven smallcap stocks have maintained net profit margins above 10% in both Q1 and Q2FY27, while delivering share price gains of 151% to 352% so far this fiscal year."
+  },
+  {
+   "id": "48187e891c20b4fd",
+   "time": "2026-11-05T16:03:02+05:30",
+   "headline": "Rupee finds its footing as oil worries cool, traders watch flow momentum",
+   "source": "ET Markets",
+   "url": "https://economictimes.indiatimes.com/markets/forex/forex-news/rupee-finds-its-footing-as-oil-worries-cool-traders-watch-flow-momentum/articleshow/135569527.cms",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "OIL",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "The Indian rupee climbed to its highest value in two weeks, following a notable fall in oil prices. This uplifting trend was mirrored by a stark rise in Indian stock markets and a reduction in bond yields. Recently, foreign investments poured into Indian equities, showcasing hefty net purchases. Ana"
+  },
+  {
+   "id": "92bd52c4645d5676",
+   "time": "2026-11-05T16:00:31+05:30",
+   "headline": "Samvat 2083 Outlook Ahead of Diwali, Muhurat Trading: Nifty at 27,000 soon? What Choice Wealth's Dheeraj said - Strategy",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/stock-market-news/samvat-2083-outlook-ahead-of-diwali-muhurat-trading-nifty-at-27-000-soon-what-choice-wealths-dheeraj-said-strategy-11793867994138.html",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "OIL",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Choice Wealth expects the Nifty to reach 26,500–27,000 and the Sensex 86,000–88,000 over 12 months, supported by resilient growth and earnings. Elevated oil prices and geopolitical tensions remain key risks. The firm favors large-caps, with selective exposure to healthcare and financial services."
   },
   {
    "id": "ec3abc317ac32918",
@@ -5478,1542 +7042,21 @@
    ],
    "risks": [],
    "original": "Thirumalai Chemicals Limited: Thirumalai Chemicals Limited has informed the Exchange about statement of deviation(s) or variation(s) under Reg. 32 |SUBJECT: Statement of deviation(s) or variation(s) under Reg. 32"
-  },
-  {
-   "id": "1a1e0443fcdcef75",
-   "time": "2026-11-05T15:34:46+05:30",
-   "headline": "Aurionpro Solutions Limited: Aurionpro Solutions Limited has informed the Exchange about Transcript of Earnings call held on November 02, 2026. |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/AURIONPRO_05112026153420_ASL_Earnings_Call_Transcript_sd.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Aurionpro Solutions Limited: Aurionpro Solutions Limited has informed the Exchange about Transcript of Earnings call held on November 02, 2026. |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates"
-  },
-  {
-   "id": "bfb286b1d8c9525c",
-   "time": "2026-11-05T15:34:28+05:30",
-   "headline": "Jharkhand Road Projects Implementation Company Limited: Auditors report |SUBJECT: Auditors report",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/content/debt/WDM/JRPICL_05112026153412_JRPICL_52FinResult_Sept26signed.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Jharkhand Road Projects Implementation Company Limited: Auditors report |SUBJECT: Auditors report"
-  },
-  {
-   "id": "6e419180d1f8342a",
-   "time": "2026-11-05T15:34:27+05:30",
-   "headline": "Jharkhand Road Projects Implementation Company Limited: Financial Results Updates |SUBJECT: Financial Results Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/content/debt/WDM/JRPICL_05112026153359_JRPICL_52FinResult_Sept26signed.pdf",
-   "section": "news",
-   "call": "watch",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 45,
-   "confidence": 30,
-   "category": "News",
-   "action": "Read the source before acting",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Jharkhand Road Projects Implementation Company Limited: Financial Results Updates |SUBJECT: Financial Results Updates"
-  },
-  {
-   "id": "069441240aa69257",
-   "time": "2026-11-05T15:34:25+05:30",
-   "headline": "Sundaram Multi Pap Limited: SUNDARAM MULTI PAP LIMITED has informed the Exchange about Board Meeting to be held on 13-Nov-2026 to inter-alia consider and approve the Unaudited Financial results of the Company for the Quarterly ended September 2026 ",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/PRIOR_INTIMATION_3292_WebXMLFile_20261105_153424350.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Sundaram Multi Pap Limited: SUNDARAM MULTI PAP LIMITED has informed the Exchange about Board Meeting to be held on 13-Nov-2026 to inter-alia consider and approve the Unaudited Financial results of the Company for the Quarterly ended September 2026 "
-  },
-  {
-   "id": "5dc2705aa1e89a58",
-   "time": "2026-11-05T15:34:18+05:30",
-   "headline": "Wonder Electricals Limited: WONDER ELECTRICALS LIMITED has informed the Exchange about Change in Directors/KMP/SMP/Auditor/RTA |SUBJECT: Change in Directors/KMP/SMP/Auditor/RTA",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/CIM_17563_WebXMLFile_20261105_153417057.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Wonder Electricals Limited: WONDER ELECTRICALS LIMITED has informed the Exchange about Change in Directors/KMP/SMP/Auditor/RTA |SUBJECT: Change in Directors/KMP/SMP/Auditor/RTA"
-  },
-  {
-   "id": "e52f606722b312e6",
-   "time": "2026-11-05T15:33:46+05:30",
-   "headline": "Abans Financial Services Limited: Abans Financial Services Limited has informed the Exchange about Board Meeting to be held on 11-Nov-2026 to inter-alia consider and approve the Unaudited Financial results of the Company for the Half Yearly ended Septemb",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/PRIOR_INTIMATION_20054_WebXMLFile_20261105_153345192.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Abans Financial Services Limited: Abans Financial Services Limited has informed the Exchange about Board Meeting to be held on 11-Nov-2026 to inter-alia consider and approve the Unaudited Financial results of the Company for the Half Yearly ended Septemb"
-  },
-  {
-   "id": "cb95a24b231936cc",
-   "time": "2026-11-05T15:33:38+05:30",
-   "headline": "Punjab Chemicals & Crop Protection Limited: Punjab Chemicals and Crop Protection Limited has informed the Exchange about Notice of Shareholders Meeting for Postal Ballot |SUBJECT: Notice Of Shareholders Meetings-XBRL",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/NOTICE_OF_SHAREHOLDERS_MEETINGS_1477_WebXMLFile_20261105_153337614.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Punjab Chemicals & Crop Protection Limited: Punjab Chemicals and Crop Protection Limited has informed the Exchange about Notice of Shareholders Meeting for Postal Ballot |SUBJECT: Notice Of Shareholders Meetings-XBRL"
-  },
-  {
-   "id": "dc60467568212eb7",
-   "time": "2026-11-05T15:33:11+05:30",
-   "headline": "Dabur India Limited: Dabur India Limited has informed the Exchange about Presentation of Analyst/ Institutional Investor Meet |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/DABURA_05112026153249_Ref.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [
-    {
-     "symbol": "DABUR",
-     "direction": "up"
-    }
-   ],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Dabur India Limited: Dabur India Limited has informed the Exchange about Presentation of Analyst/ Institutional Investor Meet |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates"
-  },
-  {
-   "id": "121d9e11f34f5b48",
-   "time": "2026-11-05T15:32:40+05:30",
-   "headline": "Lambodhara Textiles Limited: Lambodhara Textiles Limited has informed the Exchange about Copy of Newspaper Publication regarding opening of Special Window for transfer and dematerialization of physical shares and updation of KYC details (Bi-monthly)",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/LAMBODHARA_05112026153222_Intimation_of_Press_Release_Special_Window.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Lambodhara Textiles Limited: Lambodhara Textiles Limited has informed the Exchange about Copy of Newspaper Publication regarding opening of Special Window for transfer and dematerialization of physical shares and updation of KYC details (Bi-monthly)"
-  },
-  {
-   "id": "bd9feb6eb8e519e3",
-   "time": "2026-11-05T15:30:22+05:30",
-   "headline": "Mahendra Realtors & Infrastructure Limited: Mahendra Realtors & Infrastructure Limited has submitted to the Exchange, the financial results for the period ended September 30, 2026. |SUBJECT: Outcome of Board Meeting",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/MRIL_05112026152816_Outcome_financial_result.pdf",
-   "section": "news",
-   "call": "watch",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 45,
-   "confidence": 30,
-   "category": "News",
-   "action": "Read the source before acting",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Mahendra Realtors & Infrastructure Limited: Mahendra Realtors & Infrastructure Limited has submitted to the Exchange, the financial results for the period ended September 30, 2026. |SUBJECT: Outcome of Board Meeting"
-  },
-  {
-   "id": "cc7d56d9ed7aee1e",
-   "time": "2026-11-05T15:29:59+05:30",
-   "headline": "Ganesh Benzoplast Limited: GANESH BENZOPLAST LIMITED has informed the Exchange about Board Meeting to be held on 13-Nov-2026 to inter-alia consider and approve the Unaudited Financial results of the Company for the Quarterly ended September 2026 .",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/PRIOR_INTIMATION_19975_WebXMLFile_20261105_152958224.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Ganesh Benzoplast Limited: GANESH BENZOPLAST LIMITED has informed the Exchange about Board Meeting to be held on 13-Nov-2026 to inter-alia consider and approve the Unaudited Financial results of the Company for the Quarterly ended September 2026 ."
-  },
-  {
-   "id": "d9d9364952b2471c",
-   "time": "2026-11-05T15:29:52+05:30",
-   "headline": "Poly Medicure Limited: Poly Medicure Limited has informed the Exchange about statement of deviation(s) or variation(s) under Reg. 32 |SUBJECT: Statement of deviation(s) or variation(s) under Reg. 32",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/POLYMED_05112026152133_STATMENT_OF_DEVIATION_AND_VARIATION_SIGNED.pdf",
-   "section": "news",
-   "call": "watch",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [
-    {
-     "symbol": "POLYMED",
-     "direction": "up"
-    }
-   ],
-   "sectors": [],
-   "impact": 25,
-   "confidence": 30,
-   "category": "News",
-   "action": "Read the source before acting",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Poly Medicure Limited: Poly Medicure Limited has informed the Exchange about statement of deviation(s) or variation(s) under Reg. 32 |SUBJECT: Statement of deviation(s) or variation(s) under Reg. 32"
-  },
-  {
-   "id": "1e26ec02afb2a832",
-   "time": "2026-11-05T15:29:51+05:30",
-   "headline": "Lokesh Machines Limited: LOKESH MACHINES LIMITED has informed the Exchange about Bagging/Receiving of orders/contracts (Sub-para 4-Para B) |SUBJECT: Bagging/Receiving of orders/contracts (Sub-para 4-Para B)",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/REG30_PARA_B_2401_WebXMLFile_20261105_152950518.xml",
-   "section": "news",
-   "call": "watch",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 45,
-   "confidence": 30,
-   "category": "News",
-   "action": "Read the source before acting",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Lokesh Machines Limited: LOKESH MACHINES LIMITED has informed the Exchange about Bagging/Receiving of orders/contracts (Sub-para 4-Para B) |SUBJECT: Bagging/Receiving of orders/contracts (Sub-para 4-Para B)"
-  },
-  {
-   "id": "ee6cbf92319d174b",
-   "time": "2026-11-05T15:29:50+05:30",
-   "headline": "Punjab Chemicals & Crop Protection Limited: Punjab Chemicals & Crop Protection Limited has informed the Exchange regarding Notice of Postal Ballot |SUBJECT: Shareholders meeting",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/PUNJAB_05112026152726_Postal_Ballot_Notice.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Punjab Chemicals & Crop Protection Limited: Punjab Chemicals & Crop Protection Limited has informed the Exchange regarding Notice of Postal Ballot |SUBJECT: Shareholders meeting"
-  },
-  {
-   "id": "cd9d7b3cda3e9a3f",
-   "time": "2026-11-05T15:29:46+05:30",
-   "headline": "Innomet Advanced Materials Limited: INNOMET ADVANCED MATERIALS LIMITED has informed the Exchange about Bagging/Receiving of orders/contracts (Sub-para 4-Para B) |SUBJECT: Bagging/Receiving of orders/contracts (Sub-para 4-Para B)",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/REG30_PARA_B_23290_WebXMLFile_20261105_152945832.xml",
-   "section": "news",
-   "call": "watch",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 45,
-   "confidence": 30,
-   "category": "News",
-   "action": "Read the source before acting",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Innomet Advanced Materials Limited: INNOMET ADVANCED MATERIALS LIMITED has informed the Exchange about Bagging/Receiving of orders/contracts (Sub-para 4-Para B) |SUBJECT: Bagging/Receiving of orders/contracts (Sub-para 4-Para B)"
-  },
-  {
-   "id": "741f62eaeeec6a64",
-   "time": "2026-11-05T15:29:31+05:30",
-   "headline": "Insecticides (India) Limited: Insecticides (India) Limited has informed the Exchange about declaration of Interim Dividend for Rs. 5/- per share of FY 2026-27. |SUBJECT: General Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/INSECTICID_05112026152457_Outcome_05112026.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Insecticides (India) Limited: Insecticides (India) Limited has informed the Exchange about declaration of Interim Dividend for Rs. 5/- per share of FY 2026-27. |SUBJECT: General Updates"
-  },
-  {
-   "id": "5e2a0c94f14f3e6a",
-   "time": "2026-11-05T15:29:13+05:30",
-   "headline": "Pudumjee Paper Products Limited: Pudumjee Paper Products Limited has informed the Exchange about General Updates |SUBJECT: General Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/PDMJEPAPER_05112026152906_PPPLChangeinCorporateOfficeofRTAKFin05112026.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Pudumjee Paper Products Limited: Pudumjee Paper Products Limited has informed the Exchange about General Updates |SUBJECT: General Updates"
-  },
-  {
-   "id": "5429997e36f75efd",
-   "time": "2026-11-05T15:29:07+05:30",
-   "headline": "Marine Electricals (India) Limited: Marine Electricals (India) Limited has informed the Exchange about General Updates |SUBJECT: General Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/MARINE_05112026152829_Signed_Press_Release.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Marine Electricals (India) Limited: Marine Electricals (India) Limited has informed the Exchange about General Updates |SUBJECT: General Updates"
-  },
-  {
-   "id": "59c15faca6bc9282",
-   "time": "2026-11-05T15:29:04+05:30",
-   "headline": "Ceigall India Limited: Ceigall India Limited has informed the Exchange regarding fund raising. |SUBJECT: Others",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/ceigall_05112026152850_Outcome_05112026.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Ceigall India Limited: Ceigall India Limited has informed the Exchange regarding fund raising. |SUBJECT: Others"
-  },
-  {
-   "id": "4c4d3573792332ac",
-   "time": "2026-11-05T15:28:32+05:30",
-   "headline": "Wakefit Innovations Limited: Wakefit Innovations Limited has informed the Exchange about Schedule of Analysts or Institutional Investors Meet |SUBJECT: Analyst/Investor Meet Para A-XBRL",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/SAIIM_26417_WebXMLFile_20261105_152830471.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Wakefit Innovations Limited: Wakefit Innovations Limited has informed the Exchange about Schedule of Analysts or Institutional Investors Meet |SUBJECT: Analyst/Investor Meet Para A-XBRL"
-  },
-  {
-   "id": "b75efb7d29d09c74",
-   "time": "2026-11-05T15:28:30+05:30",
-   "headline": "Patel Engineering Limited: Security Cover |SUBJECT: Security Cover",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/content/debt/WDM/PATELENG_05112026152823_5SEIntimationAssetCovercertificate.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Patel Engineering Limited: Security Cover |SUBJECT: Security Cover"
-  },
-  {
-   "id": "db0ac52b04bab6c7",
-   "time": "2026-11-05T15:28:10+05:30",
-   "headline": "Kakatiya Cement Sugar & Industries Limited: Kakatiya Cement Sugar & Industries Limited has informed the Exchange about General Updates |SUBJECT: General Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/KAKATCEM_05112026152731_RELOD05112026.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Kakatiya Cement Sugar & Industries Limited: Kakatiya Cement Sugar & Industries Limited has informed the Exchange about General Updates |SUBJECT: General Updates"
-  },
-  {
-   "id": "6379c590ff06f9f2",
-   "time": "2026-11-05T15:28:06+05:30",
-   "headline": "Hexa Tradex Limited: Hexa Tradex Limited has submitted to the Exchange, the financial results for the period ended September 30, 2026. |SUBJECT: Outcome of Board Meeting",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/HEXATRADEX_05112026152650_ResultsSept2026SE.pdf",
-   "section": "news",
-   "call": "watch",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 45,
-   "confidence": 30,
-   "category": "News",
-   "action": "Read the source before acting",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Hexa Tradex Limited: Hexa Tradex Limited has submitted to the Exchange, the financial results for the period ended September 30, 2026. |SUBJECT: Outcome of Board Meeting"
-  },
-  {
-   "id": "d6d43e836bbefb55",
-   "time": "2026-11-05T15:27:46+05:30",
-   "headline": "Diwali Muhurat Trading: HDFC AMC, BEL, SBI, VAML among Monarch's picks; 8th Pay Commission, BSFI key Samvat 2083 themes",
-   "source": "Mint Markets",
-   "url": "https://www.livemint.com/market/stock-market-news/diwali-muhurat-trading-hdfc-amc-bel-sbi-vedant-aluminium-monarch-stock-picks-8th-pay-commission-bsfi-samvat-2083-11793872391839.html",
-   "section": "trading",
-   "call": "watch",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [
-    {
-     "symbol": "BEL",
-     "direction": "up"
-    },
-    {
-     "symbol": "CCL",
-     "direction": "up"
-    },
-    {
-     "symbol": "CARBORUNIV",
-     "direction": "up"
-    },
-    {
-     "symbol": "VAML",
-     "direction": "up"
-    },
-    {
-     "symbol": "VEDL",
-     "direction": "up"
-    }
-   ],
-   "sectors": [],
-   "impact": 25,
-   "confidence": 30,
-   "category": "Trading",
-   "action": "Read the source before acting",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "After sharp corrections in Samvat 2082, Monarch Networth Capital sees potential for a market rally and wealth creation. The brokerage’s Samvat 2083 themes include the 8th Pay Commission and BFSI. Its top stock ideas are Carborundum Universal, CCL Products, Vedanta Aluminium, and more"
-  },
-  {
-   "id": "e989c483a3655d12",
-   "time": "2026-11-05T15:27:28+05:30",
-   "headline": "Elin Electronics Limited: Elin Electronics Limited has informed the Exchange about Investor Presentation |SUBJECT: Investor Presentation",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/ELIN_05112026152717_InvestorPresentationQ2FY27.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Elin Electronics Limited: Elin Electronics Limited has informed the Exchange about Investor Presentation |SUBJECT: Investor Presentation"
-  },
-  {
-   "id": "7893f0240f3dc8d5",
-   "time": "2026-11-05T15:27:19+05:30",
-   "headline": "Lokesh Machines Limited: Lokesh Machines Limited has informed the Exchange about Bagging/Receiving of orders/contracts |SUBJECT: Bagging/Receiving of orders/contracts",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/LOKESHMACH_05112026152441_sdOrder_Intimation.pdf",
-   "section": "news",
-   "call": "watch",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 45,
-   "confidence": 30,
-   "category": "News",
-   "action": "Read the source before acting",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Lokesh Machines Limited: Lokesh Machines Limited has informed the Exchange about Bagging/Receiving of orders/contracts |SUBJECT: Bagging/Receiving of orders/contracts"
-  },
-  {
-   "id": "c1853e6825e61eb7",
-   "time": "2026-11-05T15:27:12+05:30",
-   "headline": "Thermax Limited: Thermax Limited has informed the Exchange about Action(s) taken or orders passed |SUBJECT: Action(s) taken or orders passed",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/THERMAXNSE_05112026152702_SEIntimationGSTPenalty_Nov2026.pdf",
-   "section": "news",
-   "call": "watch",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [
-    {
-     "symbol": "THERMAX",
-     "direction": "up"
-    }
-   ],
-   "sectors": [],
-   "impact": 45,
-   "confidence": 30,
-   "category": "News",
-   "action": "Read the source before acting",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Thermax Limited: Thermax Limited has informed the Exchange about Action(s) taken or orders passed |SUBJECT: Action(s) taken or orders passed"
-  },
-  {
-   "id": "2c2e694d43e3130b",
-   "time": "2026-11-05T15:26:58+05:30",
-   "headline": "Exide Industries Limited: Exide Industries Limited has informed the Exchange about Link of Recording |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/EXIDEIND_05112026152622_signedSEAUDIORECORDING.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [
-    {
-     "symbol": "EXIDEIND",
-     "direction": "up"
-    }
-   ],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Exide Industries Limited: Exide Industries Limited has informed the Exchange about Link of Recording |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates"
-  },
-  {
-   "id": "8626bf40d8c4351c",
-   "time": "2026-11-05T15:26:20+05:30",
-   "headline": "Afcons Infrastructure Limited: Afcons Infrastructure Limited has informed the Exchange about Copy of Newspaper Publication |SUBJECT: Copy of Newspaper Publication",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/AFCONS_05112026151841_Afcons_Intimation_Newspaper_publicationdated05112026.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [
-    {
-     "symbol": "AFCONS",
-     "direction": "up"
-    }
-   ],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Afcons Infrastructure Limited: Afcons Infrastructure Limited has informed the Exchange about Copy of Newspaper Publication |SUBJECT: Copy of Newspaper Publication"
-  },
-  {
-   "id": "88fdc41d2a919b10",
-   "time": "2026-11-05T15:25:51+05:30",
-   "headline": "Gravita India Limited: Gravita India Limited has informed the Exchange about Cancellation of Meeting |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/GRAVITA_05112026151703_investormeetcancel.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [
-    {
-     "symbol": "GRAVITA",
-     "direction": "up"
-    }
-   ],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Gravita India Limited: Gravita India Limited has informed the Exchange about Cancellation of Meeting |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates"
-  },
-  {
-   "id": "3bfd21cea8aa9158",
-   "time": "2026-11-05T15:25:26+05:30",
-   "headline": "Ganga Forging Limited: GANGA FORGING LIMITED has informed the Exchange about Change in Directors/KMP/SMP/Auditor/RTA |SUBJECT: Change in Directors/KMP/SMP/Auditor/RTA",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/CIM_16424_WebXMLFile_20261105_152525142.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Ganga Forging Limited: GANGA FORGING LIMITED has informed the Exchange about Change in Directors/KMP/SMP/Auditor/RTA |SUBJECT: Change in Directors/KMP/SMP/Auditor/RTA"
-  },
-  {
-   "id": "3ca0ac90e86e9e29",
-   "time": "2026-11-05T15:25:10+05:30",
-   "headline": "Nalwa Sons Investments Limited: NALWA SONS INVESTMENTS LIMITED has informed the Exchange about Board Meeting to be held on 12-Nov-2026 to inter-alia consider and approve the Unaudited Financial results of the Company for the Quarterly ended September 2",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/PRIOR_INTIMATION_2157_WebXMLFile_20261105_152509763.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Nalwa Sons Investments Limited: NALWA SONS INVESTMENTS LIMITED has informed the Exchange about Board Meeting to be held on 12-Nov-2026 to inter-alia consider and approve the Unaudited Financial results of the Company for the Quarterly ended September 2"
-  },
-  {
-   "id": "4b47a6731f1bc30b",
-   "time": "2026-11-05T15:24:51+05:30",
-   "headline": "Jharkhand Road Projects Implementation Company Limited: Outcome of Board Meeting |SUBJECT: Outcome of Board Meeting",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/content/debt/WDM/JRPICL_05112026152305_JRPICLOutcomeBM.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Jharkhand Road Projects Implementation Company Limited: Outcome of Board Meeting |SUBJECT: Outcome of Board Meeting"
-  },
-  {
-   "id": "943dd70df34ce32c",
-   "time": "2026-11-05T15:23:59+05:30",
-   "headline": "VISA Chrome Limited: VISA CHROME LIMITED has informed the Exchange about Board Meeting to be held on 12-Nov-2026 to consider and approve the Half Yearly Unaudited Financial results of the Company for the period ended September 2026 and Other",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/PRIOR_INTIMATION_2376_WebXMLFile_20261105_152358078.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "VISA Chrome Limited: VISA CHROME LIMITED has informed the Exchange about Board Meeting to be held on 12-Nov-2026 to consider and approve the Half Yearly Unaudited Financial results of the Company for the period ended September 2026 and Other"
-  },
-  {
-   "id": "6b6ca7a74ae075c4",
-   "time": "2026-11-05T15:23:53+05:30",
-   "headline": "Indian Railway Catering And Tourism Corporation Limited: INDIAN RAILWAY CATERING AND TOURISM CORPORATION LIMITED has informed the Exchange about Board Meeting to be held on 12-Nov-2026 to inter-alia consider and approve the Unaudited Financial results of the Company for the Ha",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/PRIOR_INTIMATION_17586_WebXMLFile_20261105_152352758.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [
-    {
-     "symbol": "IRCTC",
-     "direction": "up"
-    }
-   ],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Indian Railway Catering And Tourism Corporation Limited: INDIAN RAILWAY CATERING AND TOURISM CORPORATION LIMITED has informed the Exchange about Board Meeting to be held on 12-Nov-2026 to inter-alia consider and approve the Unaudited Financial results of the Company for the Ha"
-  },
-  {
-   "id": "4349e1209e2dbbbb",
-   "time": "2026-11-05T15:23:49+05:30",
-   "headline": "Amj Land Holdings Limited: Amj Land Holdings Limited has informed the Exchange about General Updates |SUBJECT: General Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/AMJLAND_05112026152342_AMJChangeinKfinCorporateOfficeAddress05112026.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Amj Land Holdings Limited: Amj Land Holdings Limited has informed the Exchange about General Updates |SUBJECT: General Updates"
-  },
-  {
-   "id": "ac35960c5a743133",
-   "time": "2026-11-05T15:23:46+05:30",
-   "headline": "Blue Chip India Limited: BLUE CHIP INDIA LIMITED has informed the Exchange about Board Meeting to be held on 13-Nov-2026 to inter-alia consider and approve the Unaudited Financial results of the Company for the Quarterly ended September 2026 . |",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/PRIOR_INTIMATION_1587_WebXMLFile_20261105_152345261.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Blue Chip India Limited: BLUE CHIP INDIA LIMITED has informed the Exchange about Board Meeting to be held on 13-Nov-2026 to inter-alia consider and approve the Unaudited Financial results of the Company for the Quarterly ended September 2026 . |"
-  },
-  {
-   "id": "30388b8cb0c30002",
-   "time": "2026-11-05T15:23:26+05:30",
-   "headline": "RITES Limited: RITES Limited has informed the Exchange about Copy of Newspaper Publication of Extract of Unaudited Financial Results for the quarter and half year ended September 30, 2026 |SUBJECT: Copy of Newspaper Publication",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/RITES_05112026150952_Intimation.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [
-    {
-     "symbol": "RITES",
-     "direction": "up"
-    }
-   ],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "RITES Limited: RITES Limited has informed the Exchange about Copy of Newspaper Publication of Extract of Unaudited Financial Results for the quarter and half year ended September 30, 2026 |SUBJECT: Copy of Newspaper Publication"
-  },
-  {
-   "id": "7942738c81e44db2",
-   "time": "2026-11-05T15:22:26+05:30",
-   "headline": "Nalwa Sons Investments Limited: Prior Intimation of the Board meeting pursuant to Regulation 29 of SEBI (Listing Obligations and Disclosure Requirements) Regulations, 2015. |SUBJECT: General Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/NSIL_05112026152218_BMIntimationNSIL.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Nalwa Sons Investments Limited: Prior Intimation of the Board meeting pursuant to Regulation 29 of SEBI (Listing Obligations and Disclosure Requirements) Regulations, 2015. |SUBJECT: General Updates"
-  },
-  {
-   "id": "dc59a67c77bac5fe",
-   "time": "2026-11-05T15:21:56+05:30",
-   "headline": "Suraksha Diagnostic Limited: SURAKSHA DIAGNOSTIC LIMITED has informed the Exchange about Board Meeting to be held on 10-Nov-2026 to consider and approve the Quarterly Unaudited Financial results of the Company for the period ended September 2026 and",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/PRIOR_INTIMATION_24149_WebXMLFile_20261105_152155140.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Suraksha Diagnostic Limited: SURAKSHA DIAGNOSTIC LIMITED has informed the Exchange about Board Meeting to be held on 10-Nov-2026 to consider and approve the Quarterly Unaudited Financial results of the Company for the period ended September 2026 and"
-  },
-  {
-   "id": "f50e4584030f462e",
-   "time": "2026-11-05T15:21:37+05:30",
-   "headline": "JHS Svendgaard Retail Ventures Limited: JHS Svendgaard Retail Ventures Limited has informed the Exchange about the decision of Board regarding withdrawal of its earlier proposal of investment in Woop Amusement Private Limited. |SUBJECT: General Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/RETAIL_05112026152018_Outcome_Withdrawal.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "JHS Svendgaard Retail Ventures Limited: JHS Svendgaard Retail Ventures Limited has informed the Exchange about the decision of Board regarding withdrawal of its earlier proposal of investment in Woop Amusement Private Limited. |SUBJECT: General Updates"
-  },
-  {
-   "id": "922ff731d1d6c9ac",
-   "time": "2026-11-05T15:21:23+05:30",
-   "headline": "Ajax Engineering Limited: Ajax Engineering Limited has informed the Exchange about Schedule of meet |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/AJAX123_05112026152021_Investor_Meet_Invitation_05112026.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Ajax Engineering Limited: Ajax Engineering Limited has informed the Exchange about Schedule of meet |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates"
-  },
-  {
-   "id": "ea3cbf1a4f77a64e",
-   "time": "2026-11-05T15:21:11+05:30",
-   "headline": "Ndr Auto Components Limited: NDR Auto Components Limited has informed the Exchange about Audio Recording/Video Recording |SUBJECT: Analyst/Investor Meet Para A-XBRL",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/SAIIM_18572_WebXMLFile_20261105_152109969.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Ndr Auto Components Limited: NDR Auto Components Limited has informed the Exchange about Audio Recording/Video Recording |SUBJECT: Analyst/Investor Meet Para A-XBRL"
-  },
-  {
-   "id": "ef707d91bd5ab184",
-   "time": "2026-11-05T15:20:08+05:30",
-   "headline": "V.S.T Tillers Tractors Limited: V.S.T Tillers Tractors Limited has informed the Exchange about Investor Presentation |SUBJECT: Investor Presentation",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/VSTTILLERS_05112026151954_PPT.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "V.S.T Tillers Tractors Limited: V.S.T Tillers Tractors Limited has informed the Exchange about Investor Presentation |SUBJECT: Investor Presentation"
-  },
-  {
-   "id": "1422f02f67a85309",
-   "time": "2026-11-05T15:20:00+05:30",
-   "headline": "Ice Make Refrigeration Limited: Ice Make Refrigeration Limited has submitted to the Exchange, the financial results for the period ended September 30, 2026. |SUBJECT: Outcome of Board Meeting",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/ICEMAKE_05112026151937_Outcome051126.pdf",
-   "section": "news",
-   "call": "watch",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 45,
-   "confidence": 30,
-   "category": "News",
-   "action": "Read the source before acting",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Ice Make Refrigeration Limited: Ice Make Refrigeration Limited has submitted to the Exchange, the financial results for the period ended September 30, 2026. |SUBJECT: Outcome of Board Meeting"
-  },
-  {
-   "id": "d1e3cf5394c85f59",
-   "time": "2026-11-05T15:19:56+05:30",
-   "headline": "PDS Limited: PDS Limited has informed the Exchange about Copy of Newspaper Publication |SUBJECT: Copy of Newspaper Publication",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/PDSL_05112026151941_Ltr_NewspaperAdvt_05112026.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "PDS Limited: PDS Limited has informed the Exchange about Copy of Newspaper Publication |SUBJECT: Copy of Newspaper Publication"
-  },
-  {
-   "id": "def1bfe11ad0052b",
-   "time": "2026-11-05T15:19:48+05:30",
-   "headline": "Wakefit Innovations Limited: Wakefit Innovations Limited has informed the Exchange about Board Meeting to be held on 12-Nov-2026 to inter-alia consider and approve the Unaudited Financial results of the Company for the Quarterly ended September 2026",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/PRIOR_INTIMATION_26417_WebXMLFile_20261105_151947559.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Wakefit Innovations Limited: Wakefit Innovations Limited has informed the Exchange about Board Meeting to be held on 12-Nov-2026 to inter-alia consider and approve the Unaudited Financial results of the Company for the Quarterly ended September 2026"
-  },
-  {
-   "id": "ae374141dda3e304",
-   "time": "2026-11-05T15:19:28+05:30",
-   "headline": "Biocon Limited: Biocon Limited has informed the Exchange about Copy of Newspaper Publication |SUBJECT: Copy of Newspaper Publication",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/BIOCON_05112026151910_NewspaperAd_Financials.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [
-    {
-     "symbol": "BIOCON",
-     "direction": "up"
-    }
-   ],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Biocon Limited: Biocon Limited has informed the Exchange about Copy of Newspaper Publication |SUBJECT: Copy of Newspaper Publication"
-  },
-  {
-   "id": "61d9b710c07ea3ee",
-   "time": "2026-11-05T15:19:25+05:30",
-   "headline": "Ndr Auto Components Limited: Ndr Auto Components Limited has informed the Exchange about Link of Recording |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/NDRAUTO_05112026151853_SE_intimation.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Ndr Auto Components Limited: Ndr Auto Components Limited has informed the Exchange about Link of Recording |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates"
-  },
-  {
-   "id": "2334c3d7d769e7bb",
-   "time": "2026-11-05T15:19:18+05:30",
-   "headline": "Diffusion Engineers Limited: Diffusion Engineers Limited has informed the Exchange about Copy of Newspaper Publication |SUBJECT: Copy of Newspaper Publication",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/DIFFUSION_05112026151828_NEWSPAPERAD05112026.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [
-    {
-     "symbol": "ENGINERSIN",
-     "direction": "up"
-    }
-   ],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Diffusion Engineers Limited: Diffusion Engineers Limited has informed the Exchange about Copy of Newspaper Publication |SUBJECT: Copy of Newspaper Publication"
-  },
-  {
-   "id": "d6955027ec22628a",
-   "time": "2026-11-05T15:19:10+05:30",
-   "headline": "Jai Balaji Industries Limited: Jai Balaji Industries Limited has submitted to the Exchange, the financial results for the period ended September 30, 2026. |SUBJECT: Outcome of Board Meeting",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/JAIBALAJI_05112026151135_Outcome051126.pdf",
-   "section": "news",
-   "call": "watch",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 45,
-   "confidence": 30,
-   "category": "News",
-   "action": "Read the source before acting",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Jai Balaji Industries Limited: Jai Balaji Industries Limited has submitted to the Exchange, the financial results for the period ended September 30, 2026. |SUBJECT: Outcome of Board Meeting"
-  },
-  {
-   "id": "8bce817db64eebb2",
-   "time": "2026-11-05T15:18:48+05:30",
-   "headline": "Elin Electronics Limited: Elin Electronics Limited has submitted to the Exchange, the financial results for the period ended September 30, 2026. |SUBJECT: Outcome of Board Meeting",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/ELIN_05112026151621_outcome5112026.pdf",
-   "section": "news",
-   "call": "watch",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 45,
-   "confidence": 30,
-   "category": "News",
-   "action": "Read the source before acting",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Elin Electronics Limited: Elin Electronics Limited has submitted to the Exchange, the financial results for the period ended September 30, 2026. |SUBJECT: Outcome of Board Meeting"
-  },
-  {
-   "id": "5c6d01633c274205",
-   "time": "2026-11-05T15:18:29+05:30",
-   "headline": "Ceigall India Limited: Ceigall India Limited has informed the Exchange about Sale or disposal |SUBJECT: Sale or disposal",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/ceigall_05112026151813_Outcome_05112026.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Ceigall India Limited: Ceigall India Limited has informed the Exchange about Sale or disposal |SUBJECT: Sale or disposal"
-  },
-  {
-   "id": "4b1e9b3f5a5a5476",
-   "time": "2026-11-05T15:18:18+05:30",
-   "headline": "Glottis Limited: Glottis Limited has informed the Exchange about Board Meeting to be held on 11-Nov-2026 to inter-alia consider and approve the Unaudited Financial results of the Company for the Half Yearly ended September 2026 . |SUBJEC",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/PRIOR_INTIMATION_24556_WebXMLFile_20261105_151818098.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Glottis Limited: Glottis Limited has informed the Exchange about Board Meeting to be held on 11-Nov-2026 to inter-alia consider and approve the Unaudited Financial results of the Company for the Half Yearly ended September 2026 . |SUBJEC"
-  },
-  {
-   "id": "ad1c7c2829b9749d",
-   "time": "2026-11-05T15:17:52+05:30",
-   "headline": "Insecticides (India) Limited: Insecticides (India) Limited has submitted to the Exchange, the financial results for the period ended September 30, 2026. |SUBJECT: Outcome of Board Meeting",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/INSECTICID_05112026151438_Outcome_05112026.pdf",
-   "section": "news",
-   "call": "watch",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 45,
-   "confidence": 30,
-   "category": "News",
-   "action": "Read the source before acting",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Insecticides (India) Limited: Insecticides (India) Limited has submitted to the Exchange, the financial results for the period ended September 30, 2026. |SUBJECT: Outcome of Board Meeting"
-  },
-  {
-   "id": "c88bff9c45d0439b",
-   "time": "2026-11-05T15:17:29+05:30",
-   "headline": "Knowledge Realty Trust: Knowledge Realty Trust has informed the Exchange regarding 'Transcript of the Earnings Conference Call for the quarter ended 30th September, 2026 held on 03rd November, 2026'. |SUBJECT: Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/KRT_05112026151715_Transcript_of_Earnings_Call.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Knowledge Realty Trust: Knowledge Realty Trust has informed the Exchange regarding 'Transcript of the Earnings Conference Call for the quarter ended 30th September, 2026 held on 03rd November, 2026'. |SUBJECT: Updates"
-  },
-  {
-   "id": "41402869a2a6a843",
-   "time": "2026-11-05T15:17:13+05:30",
-   "headline": "Innomet Advanced Materials Limited: Pursuant to Regulation 30 of the SEBI (Listing Obligations and Disclosure Requirements) Regulations, 2015 ( Listing Regulations ), we wish to inform you that Innomet Advanced Materials Limited has received a purchase ord",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/INNOMET_05112026151615_Innomet_PO_Intimation__05_11_2026sd.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Innomet Advanced Materials Limited: Pursuant to Regulation 30 of the SEBI (Listing Obligations and Disclosure Requirements) Regulations, 2015 ( Listing Regulations ), we wish to inform you that Innomet Advanced Materials Limited has received a purchase ord"
-  },
-  {
-   "id": "6d09c67bad870c05",
-   "time": "2026-11-05T15:16:56+05:30",
-   "headline": "GLOBE ENTERPRISES (INDIA) LIMITED: GLOBE ENTERPRISES (INDIA) LIMITED has submitted to the Exchange, the financial results for the period ended September 30, 2026. |SUBJECT: Outcome of Board Meeting",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/GLOBE_05112026151532_OutcomeofBM05112026Signed.pdf",
-   "section": "news",
-   "call": "watch",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 45,
-   "confidence": 30,
-   "category": "News",
-   "action": "Read the source before acting",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "GLOBE ENTERPRISES (INDIA) LIMITED: GLOBE ENTERPRISES (INDIA) LIMITED has submitted to the Exchange, the financial results for the period ended September 30, 2026. |SUBJECT: Outcome of Board Meeting"
-  },
-  {
-   "id": "33467826d4f7832f",
-   "time": "2026-11-05T15:16:25+05:30",
-   "headline": "NBCC (India) Limited: NBCC (India) Limited has informed the Exchange that Record date for the purpose of Dividend is 11-Nov-2026. |SUBJECT: Record Date",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/NBCC_05112026151605_Intimationoutcomeboardmeeting.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [
-    {
-     "symbol": "NBCC",
-     "direction": "up"
-    }
-   ],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "NBCC (India) Limited: NBCC (India) Limited has informed the Exchange that Record date for the purpose of Dividend is 11-Nov-2026. |SUBJECT: Record Date"
-  },
-  {
-   "id": "6fb34280e3aa5545",
-   "time": "2026-11-05T15:15:52+05:30",
-   "headline": "Dabur India Limited: Dabur India Limited has informed the Exchange about Resignation of Director/KMP/SMP |SUBJECT: Resignation of Director/KMP/SMP",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/DABUR_ROID_103682_KMP_Doc.zip",
-   "section": "news",
-   "call": "watch",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [
-    {
-     "symbol": "DABUR",
-     "direction": "up"
-    }
-   ],
-   "sectors": [],
-   "impact": 45,
-   "confidence": 30,
-   "category": "News",
-   "action": "Read the source before acting",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Dabur India Limited: Dabur India Limited has informed the Exchange about Resignation of Director/KMP/SMP |SUBJECT: Resignation of Director/KMP/SMP"
-  },
-  {
-   "id": "d6db3b49596c00f6",
-   "time": "2026-11-05T15:15:49+05:30",
-   "headline": "Dabur India Limited: Dabur India Limited has informed the Exchange about Change in Directors/KMP/SMP/Auditor/RTA |SUBJECT: Change in Directors/KMP/SMP/Auditor/RTA",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/CIM_787_WebXMLFile_20261105_151548451.xml",
-   "section": "news",
-   "call": "watch",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [
-    {
-     "symbol": "DABUR",
-     "direction": "up"
-    }
-   ],
-   "sectors": [],
-   "impact": 25,
-   "confidence": 30,
-   "category": "News",
-   "action": "Read the source before acting",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Dabur India Limited: Dabur India Limited has informed the Exchange about Change in Directors/KMP/SMP/Auditor/RTA |SUBJECT: Change in Directors/KMP/SMP/Auditor/RTA"
-  },
-  {
-   "id": "652c2eafeac94b83",
-   "time": "2026-11-05T15:15:38+05:30",
-   "headline": "NRB Bearing Limited: NRB Bearing Limited has informed the Exchange about Copy of Newspaper Publication |SUBJECT: Copy of Newspaper Publication",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/NRBBEARING1_05112026151514_NRB_Newspaper_intimation_for_upload.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "NRB Bearing Limited: NRB Bearing Limited has informed the Exchange about Copy of Newspaper Publication |SUBJECT: Copy of Newspaper Publication"
-  },
-  {
-   "id": "2243e54e60722503",
-   "time": "2026-11-05T15:15:00+05:30",
-   "headline": "NBCC (India) Limited: NBCC (India) Limited has informed the Exchange that Board of Directors at its meeting held on November 05, 2026, declared Interim Dividend of Rs. 0.25 per equity share. |SUBJECT: Dividend",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/NBCC_05112026151417_Intimationoutcomeboardmeeting.pdf",
-   "section": "news",
-   "call": "watch",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [
-    {
-     "symbol": "NBCC",
-     "direction": "up"
-    }
-   ],
-   "sectors": [],
-   "impact": 25,
-   "confidence": 30,
-   "category": "News",
-   "action": "Read the source before acting",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "NBCC (India) Limited: NBCC (India) Limited has informed the Exchange that Board of Directors at its meeting held on November 05, 2026, declared Interim Dividend of Rs. 0.25 per equity share. |SUBJECT: Dividend"
-  },
-  {
-   "id": "b402b73185e807c5",
-   "time": "2026-11-05T15:13:52+05:30",
-   "headline": "Puravankara Limited: Puravankara Limited has informed the Exchange about Transcript of the earnings call held on Tuesday, November 03, 2026, on the Un-Audited Standalone and Consolidated Financial Results for the quarter and half-year ended ",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/PURVA_05112026151154_Earnings_Call_Transcript_Q2_FY27.pdf",
-   "section": "news",
-   "call": "watch",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 45,
-   "confidence": 30,
-   "category": "News",
-   "action": "Read the source before acting",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Puravankara Limited: Puravankara Limited has informed the Exchange about Transcript of the earnings call held on Tuesday, November 03, 2026, on the Un-Audited Standalone and Consolidated Financial Results for the quarter and half-year ended "
-  },
-  {
-   "id": "59a3d8f4b3d44919",
-   "time": "2026-11-05T15:13:45+05:30",
-   "headline": "Credo Brands Marketing Limited: Credo Brands Marketing Limited has informed the Exchange about Link of Recording |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/CREDONSE_05112026151251_20261105_Audio_Recording_Intimation.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Credo Brands Marketing Limited: Credo Brands Marketing Limited has informed the Exchange about Link of Recording |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates"
   }
  ],
  "digest": {
-  "date": "2026-11-05",
+  "date": "2026-11-06",
   "act": 0,
-  "watch": 74,
-  "ignored": 226,
+  "watch": 6,
+  "ignored": 14,
   "reasons": [
    {
-    "label": "Routine filing",
-    "count": 126
+    "label": "No listed-stock impact",
+    "count": 12
    },
    {
-    "label": "No listed-stock impact",
-    "count": 100
+    "label": "Routine filing",
+    "count": 2
    }
   ]
  }

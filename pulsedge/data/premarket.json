@@ -1,6 +1,6 @@
 {
- "date": "2026-11-05",
- "updated": "2026-11-05T22:32:30+05:30",
+ "date": "2026-11-06",
+ "updated": "2026-11-06T02:20:48+05:30",
  "sentiment": "Mildly bearish",
  "breadth": {
   "up": 1,
@@ -20,10 +20,10 @@
    "dir": "down",
    "value": "Lower",
    "detail": [
-    "Dow 52,024.95 -2.49%",
-    "S&P 7,432.59 -3.33%",
-    "Nasdaq 24,574.40 -4.52%",
-    "Nasdaq futures now -4.88%"
+    "Dow 51,622.49 -3.25%",
+    "S&P 7,375.22 -4.08%",
+    "Nasdaq 24,401.13 -5.19%",
+    "Nasdaq futures now -5.95%"
    ]
   },
   {
@@ -40,14 +40,14 @@
    "dir": "flat",
    "value": "No major currency pressure",
    "detail": [
-    "DXY 101.45 -0.12%",
+    "DXY 101.58 +0.01%",
     "USD/INR 94.475 -0.07%"
    ]
   },
   {
    "title": "Brent crude level",
    "dir": "down",
-   "value": "$96.66 +2.16%",
+   "value": "$98.36 +3.95%",
    "detail": [
     "Rising crude hurts India (OMCs, paints, aviation); helps upstream"
    ]
@@ -59,27 +59,27 @@
    "detail": []
   }
  ],
- "summary": "Mildly bearish setup. Brent up 2.16% — pressure on OMCs, paints and aviation; NASDAQ closed 4.52% lower; IT may open soft.",
+ "summary": "Mildly bearish setup. Brent up 3.95% — pressure on OMCs, paints and aviation; NASDAQ closed 5.19% lower; IT may open soft.",
  "global_cues": [
-  "Brent up 2.16% — pressure on OMCs, paints and aviation",
-  "NASDAQ closed 4.52% lower; IT may open soft",
+  "Brent up 3.95% — pressure on OMCs, paints and aviation",
+  "NASDAQ closed 5.19% lower; IT may open soft",
   "Nikkei down, Hang Seng up"
  ],
  "india_triggers": [
-  "74 filings and headlines worth a look so far today"
+  "6 filings and headlines worth a look so far today"
  ],
  "focus": [
   {
-   "symbol": "ADANIPORTS",
-   "note": "Adani Ports and Special Economic Zone Limited: Adani Ports and Special"
+   "symbol": "OIL",
+   "note": "US yields fall in choppy session as oil rises and equities sink"
   },
   {
-   "symbol": "IKS",
-   "note": "Inventurus Knowledge Solutions Limited: Inventurus Knowledge Solutions"
+   "symbol": "SAILIFE",
+   "note": "Sai Life Sciences Limited: Sai Life Sciences Limited has informed the "
   },
   {
-   "symbol": "ULTRACEMCO",
-   "note": "Texmaco Rail & Engineering Limited: Texmaco Rail & Engineering Limited"
+   "symbol": "TATACAP",
+   "note": "Ravindra Energy Limited: we write to inform you that the Company has e"
   }
  ],
  "sector_tags": [
@@ -105,28 +105,28 @@
   },
   {
    "name": "S&P FUT",
-   "value": "7,475",
-   "change": -3.18
+   "value": "7,397",
+   "change": -4.19
   },
   {
    "name": "NASDAQ FUT",
-   "value": "27,174",
-   "change": -4.88
+   "value": "26,866",
+   "change": -5.95
   },
   {
    "name": "KOSPI",
    "value": "5,384",
-   "change": -5.28
+   "change": 0.0
   },
   {
    "name": "WTI",
-   "value": "90.07",
-   "change": 2.21
+   "value": "90.68",
+   "change": 2.91
   },
   {
    "name": "GOLD",
-   "value": "4,134",
-   "change": 1.49
+   "value": "4,114",
+   "change": 0.99
   },
   {
    "name": "US 10Y",
