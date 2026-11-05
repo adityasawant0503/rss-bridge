@@ -173,6 +173,19 @@ h1 .hl{color:var(--acc)}
 h2{font-size:var(--fs-h2);line-height:1.04;letter-spacing:-.04em;font-weight:600;margin:0 0 18px;max-width:19ch;text-wrap:balance}
 .lede{color:var(--mute);font-size:var(--fs-lead);line-height:1.5;max-width:52ch;margin:0 0 44px}
 
+/* founding story */
+.origin{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:56px;align-items:start}
+.letter p{color:var(--mute);font-size:var(--fs-lead);line-height:1.55;margin:0 0 18px;max-width:56ch}
+.letter strong{color:var(--ink);font-weight:500}
+.letter .sig{font:500 var(--fs-sm)/1.4 var(--mono);color:var(--ink);margin-top:28px}
+.beliefs{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px 24px 8px;box-shadow:var(--elev)}
+.beliefs h3{font:500 var(--fs-micro)/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin:0 0 4px}
+.beliefs ol{list-style:none;margin:0;padding:0;counter-reset:b}
+.beliefs li{counter-increment:b;display:grid;grid-template-columns:34px minmax(0,1fr);gap:6px;padding:16px 0;border-top:1px solid var(--line);font-size:var(--fs-body);line-height:1.45;color:var(--ink)}
+.beliefs li:first-child{border-top:0}
+.beliefs li::before{content:counter(b,decimal-leading-zero);font:500 var(--fs-xs)/1.7 var(--mono);color:var(--acc)}
+@media (max-width:820px){.origin{grid-template-columns:1fr;gap:32px}}
+
 /* scroll story */
 .story{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:64px;align-items:start}
 .steps{list-style:none;margin:0;padding:0}
@@ -481,6 +494,29 @@ footer{margin-top:96px;border-top:1px solid var(--line);padding-block:48px 40px;
       </div>
       <p class="pnote" id="p-note">Live numbers from the PulsEdge pipeline.</p>
       <div class="srcs" aria-label="Sources PulsEdge reads"><b>Reads</b><span>NSE announcements</span><span>SEBI</span><span>RBI</span><span>Economic Times Markets</span><span>Mint</span><span>Business Standard</span><span>Moneycontrol</span></div>
+    </div>
+  </section>
+
+  <section class="s w" id="why">
+    <p class="kick">Why PulsEdge exists</p>
+    <h2>I got tired of seeing investors <span class="dim">lose their mornings to noise.</span></h2>
+    <div class="origin">
+      <div class="letter">
+        <p>Every trading day, Indian markets put out hundreds of headlines: exchange filings, regulator circulars, news and rumours. <strong>Most of it is paperwork.</strong> A newspaper advertisement, a trading-window closure, a change of registrar. The few lines that matter for a stock you own look exactly like the rest.</p>
+        <p>So people end up with two choices. <strong>Read everything and still miss what mattered.</strong> Or hand the decision to a tip channel that never tells you why, and never shows the calls that went wrong.</p>
+        <p>I didn't think those should be the only two choices. You should see, before 9:15, <strong>the few things that matter for your own stocks, with the reason and the source</strong>, and then decide for yourself. And whoever filters the news for you should publish every call they get wrong.</p>
+        <p>That's why I built PulsEdge.</p>
+        <p class="sig">Aditya Sawant, founder</p>
+      </div>
+      <div class="beliefs">
+        <h3>What we believe</h3>
+        <ol>
+          <li>What matters should reach you before 9:15, not after the move.</li>
+          <li>Every verdict should show its reason and its source.</li>
+          <li>Every call should be scored in public, misses included.</li>
+          <li>You decide. We never sell tips or trade for you.</li>
+        </ol>
+      </div>
     </div>
   </section>
 
