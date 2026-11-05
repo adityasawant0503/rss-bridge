@@ -1,18 +1,18 @@
 {
  "date": "2026-11-05",
- "updated": "2026-11-05T14:23:01+05:30",
+ "updated": "2026-11-05T15:59:57+05:30",
  "sentiment": "Mildly bullish",
  "breadth": {
   "up": 2,
-  "down": 0
+  "down": 1
  },
  "checklist": [
   {
    "title": "Nifty 50 last close (GIFT Nifty not available from free sources)",
    "dir": "up",
-   "value": "24,564.00 (+2.52%)",
+   "value": "24,536.60 (+2.40%)",
    "detail": [
-    "Previous close 23,960.20"
+    "Previous close 23,961.52"
    ]
   },
   {
@@ -23,7 +23,7 @@
     "Dow 53,356.12 +3.03%",
     "S&P 7,688.62 +1.58%",
     "Nasdaq 25,736.51 +1.44%",
-    "Nasdaq futures now -0.72%"
+    "Nasdaq futures now -0.57%"
    ]
   },
   {
@@ -40,68 +40,78 @@
    "dir": "flat",
    "value": "No major currency pressure",
    "detail": [
-    "DXY 101.42 -0.14%",
-    "USD/INR 94.450 -0.10%"
+    "DXY 101.50 -0.07%",
+    "USD/INR 94.475 -0.07%"
    ]
   },
   {
    "title": "Brent crude level",
-   "dir": "flat",
-   "value": "$95.28 +0.70%",
-   "detail": []
+   "dir": "down",
+   "value": "$96.23 +1.70%",
+   "detail": [
+    "Rising crude hurts India (OMCs, paints, aviation); helps upstream"
+   ]
   },
   {
    "title": "India VIX",
    "dir": "flat",
-   "value": "15.85 (+4.36%) — normal",
+   "value": "15.58 (+2.58%) — normal",
    "detail": []
   }
  ],
- "summary": "Mildly bullish setup. NASDAQ closed 1.44% higher; supportive for IT; Nikkei down, Hang Seng up.",
+ "summary": "Mildly bullish setup. Brent up 1.70% — pressure on OMCs, paints and aviation; NASDAQ closed 1.44% higher; supportive for IT.",
  "global_cues": [
+  "Brent up 1.70% — pressure on OMCs, paints and aviation",
   "NASDAQ closed 1.44% higher; supportive for IT",
   "Nikkei down, Hang Seng up"
  ],
  "india_triggers": [
-  "65 filings and headlines worth a look so far today",
-  "India VIX up 4.4% — expect wider ranges"
+  "93 filings and headlines worth a look so far today"
  ],
  "focus": [
   {
-   "symbol": "POLYMED",
-   "note": "Poly Medicure Limited: Poly Medicure Limited has submitted to the Exch"
+   "symbol": "THERMAX",
+   "note": "Thermax Limited: THERMAX LIMITED has informed the Exchange about Actio"
   },
   {
-   "symbol": "BEML",
-   "note": "BEML Limited: BEML Limited has submitted to the Exchange, the financia"
+   "symbol": "SOLARINDS",
+   "note": "Sahaj Solar Limited: Sahaj Solar Limited has informed the Exchange abo"
   },
   {
-   "symbol": "EMAMILTD",
-   "note": "Emami Limited: Emami Limited has submitted to the Exchange, the financ"
+   "symbol": "OIL",
+   "note": "Gulf Oil Lubricants India Limited: We enclose herewith the transcript "
   }
  ],
  "sector_tags": [
+  {
+   "label": "Upstream oil",
+   "tone": "positive"
+  },
+  {
+   "label": "OMCs",
+   "tone": "negative"
+  },
   {
    "label": "IT",
    "tone": "watch"
   }
  ],
- "key_risk": "",
+ "key_risk": "A further crude spike would hit OMCs and widen the INR move",
  "also": [
   {
    "name": "BANK NIFTY",
-   "value": "57,794.4",
-   "change": 3.36
+   "value": "57,773.7",
+   "change": 3.33
   },
   {
    "name": "S&P FUT",
-   "value": "7,715",
-   "change": -0.07
+   "value": "7,723",
+   "change": 0.04
   },
   {
    "name": "NASDAQ FUT",
-   "value": "28,361",
-   "change": -0.72
+   "value": "28,404",
+   "change": -0.57
   },
   {
    "name": "KOSPI",
@@ -110,18 +120,18 @@
   },
   {
    "name": "WTI",
-   "value": "88.17",
-   "change": 0.06
+   "value": "88.64",
+   "change": 0.59
   },
   {
    "name": "GOLD",
-   "value": "4,135",
-   "change": 1.52
+   "value": "4,133",
+   "change": 1.48
   },
   {
    "name": "US 10Y",
-   "value": "4.87",
-   "change": -0.51
+   "value": "4.88",
+   "change": -0.25
   }
  ],
  "source": "CNBC / Yahoo Finance (unofficial, delayed)"
