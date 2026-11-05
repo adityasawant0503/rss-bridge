@@ -1,10 +1,10 @@
 {
  "date": "2026-11-05",
- "updated": "2026-11-05T15:59:57+05:30",
- "sentiment": "Mildly bullish",
+ "updated": "2026-11-05T22:32:30+05:30",
+ "sentiment": "Mildly bearish",
  "breadth": {
-  "up": 2,
-  "down": 1
+  "up": 1,
+  "down": 2
  },
  "checklist": [
   {
@@ -17,13 +17,13 @@
   },
   {
    "title": "US close - Dow/S&P/Nasdaq direction",
-   "dir": "up",
-   "value": "Higher",
+   "dir": "down",
+   "value": "Lower",
    "detail": [
-    "Dow 53,356.12 +3.03%",
-    "S&P 7,688.62 +1.58%",
-    "Nasdaq 25,736.51 +1.44%",
-    "Nasdaq futures now -0.57%"
+    "Dow 52,024.95 -2.49%",
+    "S&P 7,432.59 -3.33%",
+    "Nasdaq 24,574.40 -4.52%",
+    "Nasdaq futures now -4.88%"
    ]
   },
   {
@@ -40,14 +40,14 @@
    "dir": "flat",
    "value": "No major currency pressure",
    "detail": [
-    "DXY 101.50 -0.07%",
+    "DXY 101.45 -0.12%",
     "USD/INR 94.475 -0.07%"
    ]
   },
   {
    "title": "Brent crude level",
    "dir": "down",
-   "value": "$96.23 +1.70%",
+   "value": "$96.66 +2.16%",
    "detail": [
     "Rising crude hurts India (OMCs, paints, aviation); helps upstream"
    ]
@@ -59,27 +59,27 @@
    "detail": []
   }
  ],
- "summary": "Mildly bullish setup. Brent up 1.70% — pressure on OMCs, paints and aviation; NASDAQ closed 1.44% higher; supportive for IT.",
+ "summary": "Mildly bearish setup. Brent up 2.16% — pressure on OMCs, paints and aviation; NASDAQ closed 4.52% lower; IT may open soft.",
  "global_cues": [
-  "Brent up 1.70% — pressure on OMCs, paints and aviation",
-  "NASDAQ closed 1.44% higher; supportive for IT",
+  "Brent up 2.16% — pressure on OMCs, paints and aviation",
+  "NASDAQ closed 4.52% lower; IT may open soft",
   "Nikkei down, Hang Seng up"
  ],
  "india_triggers": [
-  "93 filings and headlines worth a look so far today"
+  "74 filings and headlines worth a look so far today"
  ],
  "focus": [
   {
-   "symbol": "THERMAX",
-   "note": "Thermax Limited: THERMAX LIMITED has informed the Exchange about Actio"
+   "symbol": "ADANIPORTS",
+   "note": "Adani Ports and Special Economic Zone Limited: Adani Ports and Special"
   },
   {
-   "symbol": "SOLARINDS",
-   "note": "Sahaj Solar Limited: Sahaj Solar Limited has informed the Exchange abo"
+   "symbol": "IKS",
+   "note": "Inventurus Knowledge Solutions Limited: Inventurus Knowledge Solutions"
   },
   {
-   "symbol": "OIL",
-   "note": "Gulf Oil Lubricants India Limited: We enclose herewith the transcript "
+   "symbol": "ULTRACEMCO",
+   "note": "Texmaco Rail & Engineering Limited: Texmaco Rail & Engineering Limited"
   }
  ],
  "sector_tags": [
@@ -105,13 +105,13 @@
   },
   {
    "name": "S&P FUT",
-   "value": "7,723",
-   "change": 0.04
+   "value": "7,475",
+   "change": -3.18
   },
   {
    "name": "NASDAQ FUT",
-   "value": "28,404",
-   "change": -0.57
+   "value": "27,174",
+   "change": -4.88
   },
   {
    "name": "KOSPI",
@@ -120,18 +120,18 @@
   },
   {
    "name": "WTI",
-   "value": "88.64",
-   "change": 0.59
+   "value": "90.07",
+   "change": 2.21
   },
   {
    "name": "GOLD",
-   "value": "4,133",
-   "change": 1.48
+   "value": "4,134",
+   "change": 1.49
   },
   {
    "name": "US 10Y",
-   "value": "4.88",
-   "change": -0.25
+   "value": "4.83",
+   "change": -1.21
   }
  ],
  "source": "CNBC / Yahoo Finance (unofficial, delayed)"

@@ -1,7 +1,7 @@
 {
- "updated": "2026-11-05T15:59:57+05:30",
+ "updated": "2026-11-05T22:32:31+05:30",
  "summary": {
-  "calls": 677,
+  "calls": 698,
   "scored_calls": 0,
   "d1": {
    "scored": 0,
@@ -15,12 +15,285 @@
    "hit_rate": null,
    "avg_return": null
   },
-  "avg_abs_move_1d": 3.16,
+  "avg_abs_move_1d": 3.12,
   "since": "2026-10-26"
  },
  "method": "Entry is the NSE close of the last session that had ended when the news came out; 1D and 5D are the closes 1 and 5 sessions later. Only AI calls with an up/down direction count towards the hit rate.",
  "source": "NSE end-of-day bhavcopy",
  "calls": [
+  {
+   "id": "e07e21ab547b595c",
+   "symbol": "ADANIPORTS",
+   "time": "2026-11-05T22:28:04+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "Adani Ports and Special Economic Zone Limited: Adani Ports and Special Economic Zone Limited has informed the Exchange regarding 'Audio Recording of Analysts/In",
+   "url": "https://nsearchives.nseindia.com/corporate/rkbhagia_05112026222750_Letter14.pdf",
+   "entry_date": "2026-11-05",
+   "entry": 1884.6
+  },
+  {
+   "id": "0b2d18ab4df08a12",
+   "symbol": "RUBICON",
+   "time": "2026-11-05T22:25:45+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "Rubicon Research Limited: Rubicon Research Limited has informed the Exchange about Audio Recording of the Earnings call held for Q2 ended September 30, 2026 |SU",
+   "url": "https://nsearchives.nseindia.com/corporate/9823522970_05112026222514_RRLSEIntimationAudioRecording05Nov2026.pdf",
+   "entry_date": "2026-11-05",
+   "entry": 1740.6
+  },
+  {
+   "id": "e9f4adaaec4463fa",
+   "symbol": "IKS",
+   "time": "2026-11-05T22:24:13+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "Inventurus Knowledge Solutions Limited: Inventurus Knowledge Solutions Limited has informed the Exchange about Investor Presentation |SUBJECT: Investor Presenta",
+   "url": "https://nsearchives.nseindia.com/corporate/IKS2006_05112026222358_20261105InvestorPresentationSEupload.pdf",
+   "entry_date": "2026-11-05",
+   "entry": 1757.2
+  },
+  {
+   "id": "d868550bf5c9a1cb",
+   "symbol": "IKS",
+   "time": "2026-11-05T22:16:06+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "Inventurus Knowledge Solutions Limited: Inventurus Knowledge Solutions Limited has informed the Exchange regarding a press release dated November 05, 2026, titl",
+   "url": "https://nsearchives.nseindia.com/corporate/IKS2006_05112026221504_20261105PressReleaseSEUpload.pdf",
+   "entry_date": "2026-11-05",
+   "entry": 1757.2
+  },
+  {
+   "id": "cf6e5e227fcf1d0a",
+   "symbol": "COALINDIA",
+   "time": "2026-11-05T22:15:23+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "Mint Markets",
+   "headline": "Dividend stocks: Coal India, TCS, HUDCO, HCL Tech, GAIL among top 10 dividend paying stocks - Check yield, annual return",
+   "url": "https://www.livemint.com/market/stock-market-news/dividend-stocks-coal-india-tcs-hudco-hcl-tech-gail-among-top-10-dividend-paying-stocks-check-yield-annual-return-11793892901046.html",
+   "entry_date": "2026-11-05",
+   "entry": 394.3
+  },
+  {
+   "id": "cf6e5e227fcf1d0a",
+   "symbol": "GAIL",
+   "time": "2026-11-05T22:15:23+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "Mint Markets",
+   "headline": "Dividend stocks: Coal India, TCS, HUDCO, HCL Tech, GAIL among top 10 dividend paying stocks - Check yield, annual return",
+   "url": "https://www.livemint.com/market/stock-market-news/dividend-stocks-coal-india-tcs-hudco-hcl-tech-gail-among-top-10-dividend-paying-stocks-check-yield-annual-return-11793892901046.html",
+   "entry_date": "2026-11-05",
+   "entry": 185.99
+  },
+  {
+   "id": "4176eaee7609a232",
+   "symbol": "GODFRYPHLP",
+   "time": "2026-11-05T21:54:48+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "Godfrey Phillips India Limited: Godfrey Phillips India Limited has informed the Exchange about Intimation to Shareholders about TDS on Interim Dividend for FY 2",
+   "url": "https://nsearchives.nseindia.com/corporate/PANKAJCHAWLA_05112026215440_TDS_Intimation.pdf",
+   "entry_date": "2026-11-05",
+   "entry": 1794.0
+  },
+  {
+   "id": "02f5d29b170453cb",
+   "symbol": "IKS",
+   "time": "2026-11-05T21:49:50+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "Inventurus Knowledge Solutions Limited: Inventurus Knowledge Solutions Limited has submitted to the Exchange, the financial results for the period ended Septemb",
+   "url": "https://nsearchives.nseindia.com/corporate/IKS2006_05112026214823_Outcome-05112026SEupload.pdf",
+   "entry_date": "2026-11-05",
+   "entry": 1757.2
+  },
+  {
+   "id": "f74b1ca3b8cae18c",
+   "symbol": "GAIL",
+   "time": "2026-11-05T21:47:16+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "GAIL (India) Limited: GAIL (India) Limited has informed the Exchange regarding a press release dated November 05, 2026, titled \"GMPL, A Wholly Owned Subsidiary ",
+   "url": "https://nsearchives.nseindia.com/corporate/GAIL_05112026214710_PR05112026.pdf",
+   "entry_date": "2026-11-05",
+   "entry": 185.99
+  },
+  {
+   "id": "0a4b18ee34e57579",
+   "symbol": "CARTRADE",
+   "time": "2026-11-05T21:45:55+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "Mint Markets",
+   "headline": "InCred Equities picks 5 stocks to buy in Samvat 2083, sees up to 46% upside; Artemis, CarTrade Tech among top bets",
+   "url": "https://www.livemint.com/market/stock-market-news/incred-equities-picks-5-stocks-to-buy-in-samvat-2083-sees-up-to-46-upside-artemis-cartrade-tech-among-top-bets-11793894473274.html",
+   "entry_date": "2026-11-05",
+   "entry": 2601.9
+  },
+  {
+   "id": "0a4b18ee34e57579",
+   "symbol": "LEMONTREE",
+   "time": "2026-11-05T21:45:55+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "Mint Markets",
+   "headline": "InCred Equities picks 5 stocks to buy in Samvat 2083, sees up to 46% upside; Artemis, CarTrade Tech among top bets",
+   "url": "https://www.livemint.com/market/stock-market-news/incred-equities-picks-5-stocks-to-buy-in-samvat-2083-sees-up-to-46-upside-artemis-cartrade-tech-among-top-bets-11793894473274.html",
+   "entry_date": "2026-11-05",
+   "entry": 117.53
+  },
+  {
+   "id": "3d18836a0078d62f",
+   "symbol": "KPIL",
+   "time": "2026-11-05T21:40:53+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "Kalpataru Projects International Limited: KALPATARU PROJECTS INTERNATIONAL LIMITED has informed the Exchange about Change in Directors/KMP/SMP/Auditor/RTA |SUBJ",
+   "url": "https://nsearchives.nseindia.com/corporate/xbrl/CIM_500_WebXMLFile_20261105_214052494.xml",
+   "entry_date": "2026-11-05",
+   "entry": 1371.3
+  },
+  {
+   "id": "17629b6ce5c522fd",
+   "symbol": "ULTRACEMCO",
+   "time": "2026-11-05T21:25:38+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "Texmaco Rail & Engineering Limited: Texmaco Rail & Engineering Limited has informed the Exchange about receipt of Orders worth Rs. 428.55 Crores in aggregate (i",
+   "url": "https://nsearchives.nseindia.com/corporate/TEXRAIL_05112026212458_OrderUJA05112026Signed.pdf",
+   "entry_date": "2026-11-05",
+   "entry": 12250.0
+  },
+  {
+   "id": "bab6d10eb311f81c",
+   "symbol": "SANSERA",
+   "time": "2026-11-05T21:21:52+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "Sansera Engineering Limited: Sansera Engineering Limited has informed the Exchange about Investor Presentation |SUBJECT: Investor Presentation",
+   "url": "https://nsearchives.nseindia.com/corporate/SANSERA_05112026212139_Investorspresentation.pdf",
+   "entry_date": "2026-11-05",
+   "entry": 4431.8
+  },
+  {
+   "id": "497cb3d36c9e6999",
+   "symbol": "SUNDARMFIN",
+   "time": "2026-11-05T21:20:51+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "Sundaram Finance Limited: Sundaram Finance Limited has informed the Exchange about Sundaram Finance Limited has informed the Exchange about Institutional invest",
+   "url": "https://nsearchives.nseindia.com/corporate/SUNDARMFIN_05112026212025_Investor_meet_ICICI_AMC.pdf",
+   "entry_date": "2026-11-05",
+   "entry": 4222.4
+  },
+  {
+   "id": "1c32183a5ffa0092",
+   "symbol": "SANSERA",
+   "time": "2026-11-05T21:18:02+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "Sansera Engineering Limited: Sansera Engineering Limited has informed the Exchange regarding a press release dated November 05, 2026, titled \"Q2 & H1FY27 Consol",
+   "url": "https://nsearchives.nseindia.com/corporate/SANSERA_05112026211749_Earningrelease.pdf",
+   "entry_date": "2026-11-05",
+   "entry": 4431.8
+  },
+  {
+   "id": "cac6c0998a0f7149",
+   "symbol": "ASTRAL",
+   "time": "2026-11-05T21:10:21+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "Astral Limited: Astral Limited has informed the Exchange regarding ''Astral Limited has informed the Exchange regarding 'Shareholders Communication-TDS on Inter",
+   "url": "https://nsearchives.nseindia.com/corporate/ASTRAL_05112026210956_TDS_Cover_letter.pdf",
+   "entry_date": "2026-11-05",
+   "entry": 1388.0
+  },
+  {
+   "id": "611a3a416312411e",
+   "symbol": "GODFRYPHLP",
+   "time": "2026-11-05T21:09:02+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "ET Markets",
+   "headline": "Godfrey Phillips Q2 profit down 37% to Rs 190 cr; revenue up twofold at Rs 4,198 cr",
+   "url": "https://economictimes.indiatimes.com/markets/stocks/earnings/godfrey-phillips-q2-profit-down-37-to-rs-190-cr-revenue-up-twofold-at-rs-4198-cr/articleshow/135578939.cms",
+   "entry_date": "2026-11-05",
+   "entry": 1794.0
+  },
+  {
+   "id": "23d077941443512c",
+   "symbol": "PRESTIGE",
+   "time": "2026-11-05T21:00:52+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "Prestige Estates Projects Limited: Prestige Estates Projects Limited has informed the Exchange about Investor Presentation |SUBJECT: Investor Presentation",
+   "url": "https://nsearchives.nseindia.com/corporate/PRESTIGE_05112026205804_InvPresentationIntimation.pdf",
+   "entry_date": "2026-11-05",
+   "entry": 1643.0
+  },
+  {
+   "id": "b9e88cedf0767a03",
+   "symbol": "MOTHERSON",
+   "time": "2026-11-05T20:55:34+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "Samvardhana Motherson International Limited: Samvardhana Motherson International Limited has informed the Exchange about Link of Recording of Earnings Conferenc",
+   "url": "https://nsearchives.nseindia.com/corporate/MOTHERSON_05112026205504_Earnings_Call_Outcome.pdf",
+   "entry_date": "2026-11-05",
+   "entry": 168.0
+  },
+  {
+   "id": "d934cd9fc673bdf6",
+   "symbol": "LEMONTREE",
+   "time": "2026-11-05T20:53:06+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "Lemon Tree Hotels Limited: Lemon Tree Hotels Limited has submitted to the Exchange, the financial results for the period ended September 30, 2026. |SUBJECT: Out",
+   "url": "https://nsearchives.nseindia.com/corporate/LEMONTREE_05112026204533_Outcome_of_Board_Meeting_Nov_2026.pdf",
+   "entry_date": "2026-11-05",
+   "entry": 117.53
+  },
   {
    "id": "e0b1e4cbe1fae32d",
    "symbol": "THERMAX",
@@ -31,8 +304,8 @@
    "source": "NSE Announcements",
    "headline": "Thermax Limited: THERMAX LIMITED has informed the Exchange about Action(s) taken or orders passed (sub-para 20) |SUBJECT: Actions initiated/taken or orders pass",
    "url": "https://nsearchives.nseindia.com/corporate/xbrl/AIATOP_65_WebXMLFile_20261105_155921800.xml",
-   "entry_date": "2026-11-04",
-   "entry": 3282.3
+   "entry_date": "2026-11-05",
+   "entry": 3319.7
   },
   {
    "id": "b4f1ac55efbb4fe4",
@@ -44,8 +317,8 @@
    "source": "NSE Announcements",
    "headline": "VST Industries Limited: VST Industries Limited has informed the Exchange regarding 'Change in Corporate Office of the Company's Registrar to an Issue and Share ",
    "url": "https://nsearchives.nseindia.com/corporate/VSTIND_05112026153751_SEKfintechaddress.pdf",
-   "entry_date": "2026-11-04",
-   "entry": 896.8
+   "entry_date": "2026-11-05",
+   "entry": 926.4
   },
   {
    "id": "5f8329e68831527b",
@@ -57,8 +330,8 @@
    "source": "NSE Announcements",
    "headline": "Sahaj Solar Limited: Sahaj Solar Limited has informed the Exchange about Link of Recording of earnings conference call on the unaudited Standalone and Consolida",
    "url": "https://nsearchives.nseindia.com/corporate/SahajSolar_05112026154433_051126SSLAudioRecording.pdf",
-   "entry_date": "2026-11-04",
-   "entry": 19393.0
+   "entry_date": "2026-11-05",
+   "entry": 18520.0
   },
   {
    "id": "1e252b0a2479d40e",
@@ -70,8 +343,8 @@
    "source": "NSE Announcements",
    "headline": "Varun Beverages Limited: We wish to inform you that pursuant to Regulation 30 of the SEBI (Listing Obligations and Disclosure Requirements) Regulations, 2015, r",
    "url": "https://nsearchives.nseindia.com/corporate/VBL_05112026154036_Intimation_InvestorMeet.pdf",
-   "entry_date": "2026-11-04",
-   "entry": 420.45
+   "entry_date": "2026-11-05",
+   "entry": 433.3
   },
   {
    "id": "1d6d7a6bd4063b9a",
@@ -83,8 +356,8 @@
    "source": "NSE Announcements",
    "headline": "Gulf Oil Lubricants India Limited: We enclose herewith the transcript of the Earnings Conference Call held on October 30, 2026 with Investors in connection with",
    "url": "https://nsearchives.nseindia.com/corporate/GULFOILLUB_05112026153944_Transcript05102026.pdf",
-   "entry_date": "2026-11-04",
-   "entry": 458.0
+   "entry_date": "2026-11-05",
+   "entry": 439.75
   },
   {
    "id": "3a4b3496276b8291",
@@ -96,8 +369,8 @@
    "source": "NSE Announcements",
    "headline": "Schneider Electric Infrastructure Limited: Schneider Electric Infrastructure Limited has submitted to the Exchange, the financial results for the period ended S",
    "url": "https://nsearchives.nseindia.com/corporate/SCHNEIDER_05112026153711_SEILOutcome_FR_05112026.pdf",
-   "entry_date": "2026-11-04",
-   "entry": 1148.4
+   "entry_date": "2026-11-05",
+   "entry": 1135.8
   },
   {
    "id": "2ae5bd4085c8b663",
@@ -109,8 +382,8 @@
    "source": "NSE Announcements",
    "headline": "Afcons Infrastructure Limited: Afcons Infrastructure Limited has informed the Exchange about Link of Recording ( Audio Link for Earnings Conference Call on Unau",
    "url": "https://nsearchives.nseindia.com/corporate/AFCONS_05112026153459_Afcons_Recording_of_EarningsCall_05112026.pdf",
-   "entry_date": "2026-11-04",
-   "entry": 211.11
+   "entry_date": "2026-11-05",
+   "entry": 219.44
   },
   {
    "id": "d9d9364952b2471c",
@@ -123,7 +396,8 @@
    "headline": "Poly Medicure Limited: Poly Medicure Limited has informed the Exchange about statement of deviation(s) or variation(s) under Reg. 32 |SUBJECT: Statement of devi",
    "url": "https://nsearchives.nseindia.com/corporate/POLYMED_05112026152133_STATMENT_OF_DEVIATION_AND_VARIATION_SIGNED.pdf",
    "entry_date": "2026-11-04",
-   "entry": 1586.8
+   "entry": 1586.8,
+   "r1": 0.97
   },
   {
    "id": "d6d43e836bbefb55",
@@ -136,7 +410,8 @@
    "headline": "Diwali Muhurat Trading: HDFC AMC, BEL, SBI, VAML among Monarch's picks; 8th Pay Commission, BSFI key Samvat 2083 themes",
    "url": "https://www.livemint.com/market/stock-market-news/diwali-muhurat-trading-hdfc-amc-bel-sbi-vedant-aluminium-monarch-stock-picks-8th-pay-commission-bsfi-samvat-2083-11793872391839.html",
    "entry_date": "2026-11-04",
-   "entry": 398.0
+   "entry": 398.0,
+   "r1": -0.73
   },
   {
    "id": "d6d43e836bbefb55",
@@ -149,7 +424,8 @@
    "headline": "Diwali Muhurat Trading: HDFC AMC, BEL, SBI, VAML among Monarch's picks; 8th Pay Commission, BSFI key Samvat 2083 themes",
    "url": "https://www.livemint.com/market/stock-market-news/diwali-muhurat-trading-hdfc-amc-bel-sbi-vedant-aluminium-monarch-stock-picks-8th-pay-commission-bsfi-samvat-2083-11793872391839.html",
    "entry_date": "2026-11-04",
-   "entry": 964.4
+   "entry": 964.4,
+   "r1": 0.08
   },
   {
    "id": "c1853e6825e61eb7",
@@ -162,7 +438,8 @@
    "headline": "Thermax Limited: Thermax Limited has informed the Exchange about Action(s) taken or orders passed |SUBJECT: Action(s) taken or orders passed",
    "url": "https://nsearchives.nseindia.com/corporate/THERMAXNSE_05112026152702_SEIntimationGSTPenalty_Nov2026.pdf",
    "entry_date": "2026-11-04",
-   "entry": 3282.3
+   "entry": 3282.3,
+   "r1": 1.14
   },
   {
    "id": "6fb34280e3aa5545",
@@ -175,7 +452,8 @@
    "headline": "Dabur India Limited: Dabur India Limited has informed the Exchange about Resignation of Director/KMP/SMP |SUBJECT: Resignation of Director/KMP/SMP",
    "url": "https://nsearchives.nseindia.com/corporate/DABUR_ROID_103682_KMP_Doc.zip",
    "entry_date": "2026-11-04",
-   "entry": 395.0
+   "entry": 395.0,
+   "r1": -2.53
   },
   {
    "id": "d6db3b49596c00f6",
@@ -188,7 +466,8 @@
    "headline": "Dabur India Limited: Dabur India Limited has informed the Exchange about Change in Directors/KMP/SMP/Auditor/RTA |SUBJECT: Change in Directors/KMP/SMP/Auditor/R",
    "url": "https://nsearchives.nseindia.com/corporate/xbrl/CIM_787_WebXMLFile_20261105_151548451.xml",
    "entry_date": "2026-11-04",
-   "entry": 395.0
+   "entry": 395.0,
+   "r1": -2.53
   },
   {
    "id": "2243e54e60722503",
@@ -201,7 +480,8 @@
    "headline": "NBCC (India) Limited: NBCC (India) Limited has informed the Exchange that Board of Directors at its meeting held on November 05, 2026, declared Interim Dividend",
    "url": "https://nsearchives.nseindia.com/corporate/NBCC_05112026151417_Intimationoutcomeboardmeeting.pdf",
    "entry_date": "2026-11-04",
-   "entry": 77.74
+   "entry": 77.74,
+   "r1": 3.33
   },
   {
    "id": "1ab31e954dcd1d5c",
@@ -214,7 +494,8 @@
    "headline": "Samvat 2083 stock Muhurat Trading 2026 Stocks to Buy: HFCL, Varun Beverages, Greaves Cotton - List by Centrum for Diwali",
    "url": "https://www.livemint.com/market/stock-market-news/samvat-2083-stock-muhurat-trading-2026-stocks-to-buy-hfcl-varun-beverages-greaves-cotton-list-by-centrum-for-diwali-11793864066141.html",
    "entry_date": "2026-11-04",
-   "entry": 228.16
+   "entry": 228.16,
+   "r1": -2.81
   },
   {
    "id": "1ab31e954dcd1d5c",
@@ -227,7 +508,8 @@
    "headline": "Samvat 2083 stock Muhurat Trading 2026 Stocks to Buy: HFCL, Varun Beverages, Greaves Cotton - List by Centrum for Diwali",
    "url": "https://www.livemint.com/market/stock-market-news/samvat-2083-stock-muhurat-trading-2026-stocks-to-buy-hfcl-varun-beverages-greaves-cotton-list-by-centrum-for-diwali-11793864066141.html",
    "entry_date": "2026-11-04",
-   "entry": 1750.4
+   "entry": 1750.4,
+   "r1": 0.39
   },
   {
    "id": "f56c8657cf5dd298",
@@ -240,7 +522,8 @@
    "headline": "Poly Medicure Limited: Poly Medicure Limited has submitted to the Exchange, the financial results for the period ended September 30, 2026. |SUBJECT: Outcome of ",
    "url": "https://nsearchives.nseindia.com/corporate/POLYMED_05112026140848_FINAL_OUTCOME_SIGNED.pdf",
    "entry_date": "2026-11-04",
-   "entry": 1586.8
+   "entry": 1586.8,
+   "r1": 0.97
   },
   {
    "id": "c5f7b0d46e484cc7",
@@ -253,7 +536,8 @@
    "headline": "Dalmia Bharat Sugar and Industries Limited: Dalmia Bharat Sugar and Industries Limited has informed the Exchange regarding 'Intimation Regarding Change in Corpo",
    "url": "https://nsearchives.nseindia.com/corporate/DALMIACEM_05112026135838_SE_Intimation_-_RTA_Update.pdf",
    "entry_date": "2026-11-04",
-   "entry": 1407.0
+   "entry": 1407.0,
+   "r1": 4.21
   },
   {
    "id": "52e92ccd7a755979",
@@ -266,7 +550,8 @@
    "headline": "Emami Limited: Emami Limited has informed the Exchange about Appointment of Company Secretary & Compliance Officer |SUBJECT: Change in Company Secretary/Complia",
    "url": "https://nsearchives.nseindia.com/corporate/EMAMILTD2_05112026141144_BM_Outcome_Q2_FY_27_signed.pdf",
    "entry_date": "2026-11-04",
-   "entry": 381.35
+   "entry": 381.35,
+   "r1": 1.76
   },
   {
    "id": "3af1e5819583a08f",
@@ -279,7 +564,8 @@
    "headline": "BEML Limited: BEML Limited has informed the Exchange about General Updates |SUBJECT: General Updates",
    "url": "https://nsearchives.nseindia.com/corporate/BEML_05112026140307_UPSI__1_.pdf",
    "entry_date": "2026-11-04",
-   "entry": 2123.0
+   "entry": 2123.0,
+   "r1": -6.22
   },
   {
    "id": "c11308cac8926346",
@@ -292,7 +578,8 @@
    "headline": "IRB Infrastructure Developers Limited: IRB Infrastructure Developers Limited has informed the Exchange regarding Outcome of Board Meeting held on 05-Nov-2026 fo",
    "url": "https://nsearchives.nseindia.com/corporate/xbrl/OUTCOME_2724_WebXMLFile_20261105_140406622.xml",
    "entry_date": "2026-11-04",
-   "entry": 16.79
+   "entry": 16.79,
+   "r1": 2.32
   },
   {
    "id": "7768783c0ae4a58b",
@@ -305,7 +592,8 @@
    "headline": "Diwali 2026, Samvat 2083: Ahead of Muhurat Trading, Uday Kotak shares 5 factors to watch in festive season - List",
    "url": "https://www.livemint.com/market/stock-market-news/diwali-2026-samvat-2083-ahead-of-muhurat-trading-uday-kotak-shares-5-factors-to-watch-in-festive-season-list-11793863466374.html",
    "entry_date": "2026-11-04",
-   "entry": 459.4
+   "entry": 459.4,
+   "r1": 1.65
   },
   {
    "id": "41242de1bbb57370",
@@ -318,7 +606,8 @@
    "headline": "Emami Limited: Emami Limited has informed the Exchange that Board of Directors at its meeting held on November 05, 2026, declared Interim Dividend of Rs. 5 per ",
    "url": "https://nsearchives.nseindia.com/corporate/EMAMILTD2_05112026140009_BM_Outcome_Q2_FY_27_signed.pdf",
    "entry_date": "2026-11-04",
-   "entry": 381.35
+   "entry": 381.35,
+   "r1": 1.76
   },
   {
    "id": "f7728e5927a09df7",
@@ -331,7 +620,8 @@
    "headline": "BEML Limited: BEML Limited has submitted to the Exchange, the financial results for the period ended September 30, 2026. |SUBJECT: Outcome of Board Meeting",
    "url": "https://nsearchives.nseindia.com/corporate/BEML_05112026135743_30299-001_20261105_161537__4_files_merged_.pdf",
    "entry_date": "2026-11-04",
-   "entry": 2123.0
+   "entry": 2123.0,
+   "r1": -6.22
   },
   {
    "id": "516b3a7fe6a1f5e5",
@@ -344,7 +634,8 @@
    "headline": "Emami Limited: Emami Limited has informed the Exchange about Investor Presentation |SUBJECT: Investor Presentation",
    "url": "https://nsearchives.nseindia.com/corporate/EMAMILTD2_05112026135709_Press_Release_and_Investor_Presentation_Q2_signed.pdf",
    "entry_date": "2026-11-04",
-   "entry": 381.35
+   "entry": 381.35,
+   "r1": 1.76
   },
   {
    "id": "5ea2c566376bc3a4",
@@ -357,7 +648,8 @@
    "headline": "Emami Limited: Emami Limited has informed the Exchange regarding a press release dated November 05, 2026, titled \"Emami delivers robust Q2FY27 performance with ",
    "url": "https://nsearchives.nseindia.com/corporate/EMAMILTD2_05112026135615_Press_Release_and_Investor_Presentation_Q2_signed.pdf",
    "entry_date": "2026-11-04",
-   "entry": 381.35
+   "entry": 381.35,
+   "r1": 1.76
   },
   {
    "id": "94804b593bd6b877",
@@ -370,7 +662,8 @@
    "headline": "Hexaware Technologies Limited: Hexaware Technologies Limited has informed the Exchange regarding 'Hexaware Selected as Strategic Technology Partner by the Europ",
    "url": "https://nsearchives.nseindia.com/corporate/HEXAWARETECH_05112026135421_Press_Release.pdf",
    "entry_date": "2026-11-04",
-   "entry": 501.2
+   "entry": 501.2,
+   "r1": 0.39
   },
   {
    "id": "265887b6fa506085",
@@ -383,7 +676,8 @@
    "headline": "Mahindra & Mahindra Limited: Mahindra & Mahindra Limited has informed the Exchange about Investor Presentation |SUBJECT: Investor Presentation",
    "url": "https://nsearchives.nseindia.com/corporate/AmitDodani_05112026135323_PresentationtobemadetoPressAnalyst_Reg_30.pdf",
    "entry_date": "2026-11-04",
-   "entry": 2961.9
+   "entry": 2961.9,
+   "r1": 5.59
   },
   {
    "id": "d705244d7e078ccd",
@@ -396,7 +690,8 @@
    "headline": "Emami Limited: Emami Limited has submitted to the Exchange, the financial results for the period ended September 30, 2026. |SUBJECT: Outcome of Board Meeting",
    "url": "https://nsearchives.nseindia.com/corporate/EMAMILTD2_05112026135037_BM_Outcome_Q2_FY_27_signed.pdf",
    "entry_date": "2026-11-04",
-   "entry": 381.35
+   "entry": 381.35,
+   "r1": 1.76
   },
   {
    "id": "90a35e9c8bf5d7e1",
@@ -409,7 +704,8 @@
    "headline": "Bharat Forge Limited: BHARAT FORGE LIMITED has informed the Exchange regarding Acquisition (including agreement to acquire) |SUBJECT: Acquisition (including agr",
    "url": "https://nsearchives.nseindia.com/corporate/xbrl/REG30_Restructuring_201_WebXMLFile_20261105_134846342.xml",
    "entry_date": "2026-11-04",
-   "entry": 1812.8
+   "entry": 1812.8,
+   "r1": -3.3
   },
   {
    "id": "d0f891910688fdd1",
@@ -422,7 +718,8 @@
    "headline": "Oil Country Tubular Limited: Oil Country Tubular Limited has submitted to the Exchange, the financial results for the period ended September 30, 2026. |SUBJECT:",
    "url": "https://nsearchives.nseindia.com/corporate/OILCOUNTUB_05112026134444_OUTCOME.pdf",
    "entry_date": "2026-11-04",
-   "entry": 458.0
+   "entry": 458.0,
+   "r1": -3.98
   },
   {
    "id": "6554b54fb2bd03d9",
@@ -435,7 +732,8 @@
    "headline": "IRB Infrastructure Developers Limited: IRB Infrastructure Developers Limited has informed the Exchange that Board of Directors at its meeting held on November 0",
    "url": "https://nsearchives.nseindia.com/corporate/IRB_05112026134452_IRBIDL_Outcome_of_Board_Meeting.pdf",
    "entry_date": "2026-11-04",
-   "entry": 16.79
+   "entry": 16.79,
+   "r1": 2.32
   },
   {
    "id": "6a732f80edf4e7cd",
@@ -448,7 +746,8 @@
    "headline": "Mahindra & Mahindra Limited: Mahindra and Mahindra Limited has informed the Exchange about Change in Directors/KMP/SMP/Auditor/RTA |SUBJECT: Change in Directors",
    "url": "https://nsearchives.nseindia.com/corporate/xbrl/CIM_679_WebXMLFile_20261105_134354901.xml",
    "entry_date": "2026-11-04",
-   "entry": 2961.9
+   "entry": 2961.9,
+   "r1": 5.59
   },
   {
    "id": "73ddd825d2aa2651",
@@ -461,7 +760,8 @@
    "headline": "Oil Country Tubular Limited: Oil Country Tubular Limited has informed the Exchange regarding Outcome of Board Meeting held on November 05, 2026. |SUBJECT: Outco",
    "url": "https://nsearchives.nseindia.com/corporate/OILCOUNTUB_05112026134343_OUTCOME.pdf",
    "entry_date": "2026-11-04",
-   "entry": 458.0
+   "entry": 458.0,
+   "r1": -3.98
   },
   {
    "id": "89de0dedfc21a710",
@@ -474,7 +774,8 @@
    "headline": "IPCA Laboratories Limited: IPCA Laboratories Limited has submitted to the Exchange, the financial results for the period ended September 30, 2026. |SUBJECT: Out",
    "url": "https://nsearchives.nseindia.com/corporate/IPCALAB_05112026134131_IpcaResultsandPressRelease.pdf",
    "entry_date": "2026-11-04",
-   "entry": 1972.0
+   "entry": 1972.0,
+   "r1": -1.14
   },
   {
    "id": "24a2cb3ee046cc58",
@@ -487,7 +788,8 @@
    "headline": "Nykaa gets a margin makeover, but risks remain",
    "url": "https://www.livemint.com/market/mark-to-market/nykaa-fashion-ebitda-margin-growth-competition-valuation-risks-11793859471376.html",
    "entry_date": "2026-11-04",
-   "entry": 355.5
+   "entry": 355.5,
+   "r1": -1.46
   },
   {
    "id": "8d826a75ef2f0972",
@@ -500,7 +802,8 @@
    "headline": "Z-Tech (India) Limited: Z-Tech (India) Limited has informed the Exchange regarding a press release dated November 05, 2026, titled \"Work order from M/s. Afcons ",
    "url": "https://nsearchives.nseindia.com/corporate/ZTECH_05112026133957_enhancement_of_work_order-afcons.pdf",
    "entry_date": "2026-11-04",
-   "entry": 211.11
+   "entry": 211.11,
+   "r1": 3.95
   },
   {
    "id": "0012a7cf21f04f9a",
@@ -513,7 +816,8 @@
    "headline": "IRB Infrastructure Developers Limited: IRB Infrastructure Developers Limited has submitted to the Exchange, the financial results for the quarter and six months",
    "url": "https://nsearchives.nseindia.com/corporate/IRB_05112026133344_IRBIDL_Outcome_of_Board_Meeting.pdf",
    "entry_date": "2026-11-04",
-   "entry": 16.79
+   "entry": 16.79,
+   "r1": 2.32
   },
   {
    "id": "6bbcb4c88c5fe76e",
@@ -526,7 +830,8 @@
    "headline": "Lenskart Solutions Limited: Lenskart Solutions Limited has informed the Exchange regarding Allotment of Securities |SUBJECT: Alteration Of Capital and Fund Rais",
    "url": "https://nsearchives.nseindia.com/corporate/xbrl/ALTERATION_OF_CAPITAL_AND_FUND_RAISING_26609_WebXMLFile_20261105_133422803.xml",
    "entry_date": "2026-11-04",
-   "entry": 689.7
+   "entry": 689.7,
+   "r1": 4.15
   },
   {
    "id": "2e1fd60649677660",
@@ -539,7 +844,8 @@
    "headline": "Mahindra & Mahindra Limited: Mahindra & Mahindra Limited has informed the Exchange about Press/Analyst Presentation being made today |SUBJECT: General Updates",
    "url": "https://nsearchives.nseindia.com/corporate/AmitDodani_05112026133302_PresentationtobemadetoPressAnalyst.pdf",
    "entry_date": "2026-11-04",
-   "entry": 2961.9
+   "entry": 2961.9,
+   "r1": 5.59
   },
   {
    "id": "8512027201239585",
@@ -552,7 +858,8 @@
    "headline": "Tube Investments of India Limited: Tube Investments of India Limited has informed the Exchange regarding a press release dated November 05, 2026, titled \"Press ",
    "url": "https://nsearchives.nseindia.com/corporate/TIINDIA_05112026133156_TIINSEBSEBM.pdf",
    "entry_date": "2026-11-04",
-   "entry": 2250.5
+   "entry": 2250.5,
+   "r1": 2.2
   },
   {
    "id": "6e6e070d1041d0ea",
@@ -565,7 +872,8 @@
    "headline": "India bonds climb in step with Treasuries as oil sinks",
    "url": "https://economictimes.indiatimes.com/markets/bonds/india-bonds-climb-in-step-with-treasuries-as-oil-sinks/articleshow/135564784.cms",
    "entry_date": "2026-11-04",
-   "entry": 133.9
+   "entry": 133.9,
+   "r1": 3.81
   },
   {
    "id": "6e6e070d1041d0ea",
@@ -578,7 +886,8 @@
    "headline": "India bonds climb in step with Treasuries as oil sinks",
    "url": "https://economictimes.indiatimes.com/markets/bonds/india-bonds-climb-in-step-with-treasuries-as-oil-sinks/articleshow/135564784.cms",
    "entry_date": "2026-11-04",
-   "entry": 458.0
+   "entry": 458.0,
+   "r1": -3.98
   },
   {
    "id": "ca31a7e3acccade6",
@@ -591,7 +900,8 @@
    "headline": "Biocon share price rises nearly 6% despite 52% dip in Q2 profit",
    "url": "https://www.business-standard.com/markets/news/biocon-share-price-rises-nearly-6-despite-52-fall-in-q2-profit-126110500911_1.html",
    "entry_date": "2026-11-04",
-   "entry": 344.45
+   "entry": 344.45,
+   "r1": 5.1
   },
   {
    "id": "bc400cc1db87f979",
@@ -604,7 +914,8 @@
    "headline": "Tube Investments of India Limited: Tube Investments of India Limited has informed the Exchange about Capacity addition |SUBJECT: Capacity addition",
    "url": "https://nsearchives.nseindia.com/corporate/TIINDIA_05112026132904_TIINSEBSEBM.pdf",
    "entry_date": "2026-11-04",
-   "entry": 2250.5
+   "entry": 2250.5,
+   "r1": 2.2
   },
   {
    "id": "8d401f90f137465e",
@@ -617,7 +928,8 @@
    "headline": "Mankind Pharma Limited: Mankind Pharma Limited has informed the Exchange about General Updates |SUBJECT: General Updates",
    "url": "https://nsearchives.nseindia.com/corporate/MANKIND1_05112026132852_20261104_ESG_Ratings_SES_SD.pdf",
    "entry_date": "2026-11-04",
-   "entry": 2537.9
+   "entry": 2537.9,
+   "r1": -0.78
   },
   {
    "id": "b6691effb6ceb05e",
@@ -630,7 +942,8 @@
    "headline": "SRF Limited: SRF Limited has informed the Exchange about Action(s) taken or orders passed (sub-para 20) |SUBJECT: Actions initiated/taken or orders passed-XBRL",
    "url": "https://nsearchives.nseindia.com/corporate/xbrl/AIATOP_323_WebXMLFile_20261105_132842714.xml",
    "entry_date": "2026-11-04",
-   "entry": 2458.7
+   "entry": 2458.7,
+   "r1": 1.07
   },
   {
    "id": "1b1580471ae467f2",
@@ -643,7 +956,8 @@
    "headline": "Tube Investments of India Limited: Tube Investments of India Limited has submitted to the Exchange, the financial results for the period ended September 30, 202",
    "url": "https://nsearchives.nseindia.com/corporate/TIINDIA_05112026132513_TIINSEBSEBM.pdf",
    "entry_date": "2026-11-04",
-   "entry": 2250.5
+   "entry": 2250.5,
+   "r1": 2.2
   },
   {
    "id": "c7dd53d599743ad0",
@@ -656,7 +970,8 @@
    "headline": "Nykaa's Q2 fails to impress Street despite 200% rise in PAT; stock falls 2%",
    "url": "https://www.business-standard.com/markets/news/nykaa-s-q2-fails-to-impress-street-despite-200-rise-in-pat-stock-falls-2-126110500904_1.html",
    "entry_date": "2026-11-04",
-   "entry": 355.5
+   "entry": 355.5,
+   "r1": -1.46
   },
   {
    "id": "975e73573f320225",
@@ -669,7 +984,8 @@
    "headline": "Bharat Forge Limited: Bharat Forge Limited has informed the Exchange about Investor Presentation |SUBJECT: Investor Presentation",
    "url": "https://nsearchives.nseindia.com/corporate/ANILSHINDE_05112026132350_SEIntimationInvestorPresentation_sd.pdf",
    "entry_date": "2026-11-04",
-   "entry": 1812.8
+   "entry": 1812.8,
+   "r1": -3.3
   },
   {
    "id": "56574980285ce751",
@@ -682,7 +998,8 @@
    "headline": "Wall Street cheers US midterm results as Dow Jones jumps 1300 points; Amazon, Apple, Microsoft among top gainers",
    "url": "https://www.livemint.com/market/stock-market-news/wall-street-cheers-us-midterm-results-as-dow-jones-jumps-1300-points-amazon-apple-microsoft-among-top-gainers-11793807617877.html",
    "entry_date": "2026-11-04",
-   "entry": 458.0
+   "entry": 458.0,
+   "r1": -3.98
   },
   {
    "id": "d147713e000cfe1c",
@@ -695,7 +1012,8 @@
    "headline": "AI data center stocks dip, renewables surge after Democrat sweep in US midterm elections",
    "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/ai-data-center-stocks-dip-renewables-surge-after-democrat-sweep-in-us-midterm-elections/articleshow/135545518.cms",
    "entry_date": "2026-11-04",
-   "entry": 656.4
+   "entry": 656.4,
+   "r1": 3.4
   },
   {
    "id": "f3e855d06937ea53",
@@ -708,7 +1026,8 @@
    "headline": "Beyond HAL, BEL: Apollo Micro Systems, MTAR, Data Patterns, Zen Tech, among 5 defence stocks on experts' radar | List",
    "url": "https://www.livemint.com/market/stock-market-news/beyond-hal-bel-apollo-micro-systems-mtar-data-patterns-zen-tech-among-5-defence-stocks-on-experts-radar-list-11793804507584.html",
    "entry_date": "2026-11-04",
-   "entry": 398.0
+   "entry": 398.0,
+   "r1": -0.73
   },
   {
    "id": "f3e855d06937ea53",
@@ -721,7 +1040,8 @@
    "headline": "Beyond HAL, BEL: Apollo Micro Systems, MTAR, Data Patterns, Zen Tech, among 5 defence stocks on experts' radar | List",
    "url": "https://www.livemint.com/market/stock-market-news/beyond-hal-bel-apollo-micro-systems-mtar-data-patterns-zen-tech-among-5-defence-stocks-on-experts-radar-list-11793804507584.html",
    "entry_date": "2026-11-04",
-   "entry": 4078.0
+   "entry": 4078.0,
+   "r1": -2.9
   },
   {
    "id": "f6c377f7a4f12db3",
@@ -734,7 +1054,8 @@
    "headline": "RITES Limited: RITES Limited has informed the Exchange regarding a press release dated November 04, 2026, titled \"RITES Q2FY27 Revenue ₹583 cr; PAT ₹97 cr Decla",
    "url": "https://nsearchives.nseindia.com/corporate/RITES_04112026214619_IntimationSigned.pdf",
    "entry_date": "2026-11-04",
-   "entry": 197.13
+   "entry": 197.13,
+   "r1": -0.29
   },
   {
    "id": "46fe5b3315fc645f",
@@ -747,7 +1068,8 @@
    "headline": "Torrent Power Limited: Security Cover |SUBJECT: Security Cover",
    "url": "https://nsearchives.nseindia.com/content/debt/WDM/TORNTPOWER_04112026212544_Security_Cover_certificate.pdf",
    "entry_date": "2026-11-04",
-   "entry": 1234.4
+   "entry": 1234.4,
+   "r1": 2.51
   },
   {
    "id": "d1268edee1793e38",
@@ -760,7 +1082,8 @@
    "headline": "Raajmarg Infra Investment Trust: Raajmarg Infra Investment Trust has informed the Exchange regarding 'Intimation regarding Appointment of Mr. Sanjiv Bhatia (DIN",
    "url": "https://nsearchives.nseindia.com/corporate/RIIT_04112026211919_SE_Intimation_Appointment_ND_RIIT.pdf",
    "entry_date": "2026-11-04",
-   "entry": 1232.0
+   "entry": 1232.0,
+   "r1": 3.9
   },
   {
    "id": "88966783dfdaa22d",
@@ -773,7 +1096,8 @@
    "headline": "HEG Advanced Materials Limited: HEG Advanced Materials Limited has informed the Exchange about Investor Presentation |SUBJECT: Investor Presentation",
    "url": "https://nsearchives.nseindia.com/corporate/HEGAM_04112026210939_STEX_InvestorPresentation.pdf",
    "entry_date": "2026-11-04",
-   "entry": 288.18
+   "entry": 288.18,
+   "r1": 2.51
   },
   {
    "id": "0fbca50a569cc4bb",
@@ -786,7 +1110,8 @@
    "headline": "National Aluminium Company Limited: National Aluminium Company Limited has informed the Exchange regarding a press release dated November 04, 2026, titled \"NALC",
    "url": "https://nsearchives.nseindia.com/corporate/bharatsahu_04112026210604_SELETTER.pdf",
    "entry_date": "2026-11-04",
-   "entry": 326.25
+   "entry": 326.25,
+   "r1": 1.46
   },
   {
    "id": "165ea2aad67c19a9",
@@ -799,7 +1124,8 @@
    "headline": "Balkrishna Industries Limited: Balkrishna Industries Limited has informed the Exchange regarding 'Investor Presentation November 2026'. |SUBJECT: Updates",
    "url": "https://nsearchives.nseindia.com/corporate/BALKRISIND_04112026210438_BKT_Investor_Presentation_November_2026_V1.pdf",
    "entry_date": "2026-11-04",
-   "entry": 2243.7
+   "entry": 2243.7,
+   "r1": 7.05
   },
   {
    "id": "295b65a7d9743cf9",
@@ -812,7 +1138,8 @@
    "headline": "Infosys Limited: Infosys Limited has informed the Exchange regarding 'Investor Conference'. |SUBJECT: Updates",
    "url": "https://nsearchives.nseindia.com/corporate/INFY_04112026210117_SE_filing_Investor_conference_04112026_signed.pdf",
    "entry_date": "2026-11-04",
-   "entry": 1128.2
+   "entry": 1128.2,
+   "r1": 3.47
   },
   {
    "id": "0b3d331aa0303bf2",
@@ -825,7 +1152,8 @@
    "headline": "Gallantt Ispat Limited: Gallantt Ispat Limited has informed the Exchange about General Updates - Inter-se transfer of shares among Promoter and Promoter Group |",
    "url": "https://nsearchives.nseindia.com/corporate/GALLANTT_04112026205810_GALLANTT_04112026.pdf",
    "entry_date": "2026-11-04",
-   "entry": 529.15
+   "entry": 529.15,
+   "r1": 1.29
   },
   {
    "id": "c86710597d1e67da",
@@ -838,7 +1166,8 @@
    "headline": "Krishna Institute of Medical Sciences Limited: Krishna Institute of Medical Sciences Limited has informed the Exchange about statement of deviation(s) or variat",
    "url": "https://nsearchives.nseindia.com/corporate/KIMS_04112026205735_Disclosure_to_Deviation_of_funds_-_Pref.pdf",
    "entry_date": "2026-11-04",
-   "entry": 740.55
+   "entry": 740.55,
+   "r1": -1.28
   },
   {
    "id": "b66b6fe30731ef45",
@@ -851,7 +1180,8 @@
    "headline": "JM Financial Limited: JM FINANCIAL LIMITED has informed the Exchange regarding Outcome of Board Meeting held on 04-Nov-2026 for Dividend |SUBJECT: Outcome of Bo",
    "url": "https://nsearchives.nseindia.com/corporate/xbrl/OUTCOME_2447_WebXMLFile_20261104_205203935.xml",
    "entry_date": "2026-11-04",
-   "entry": 113.95
+   "entry": 113.95,
+   "r1": -4.53
   },
   {
    "id": "da0f8e088599d110",
@@ -864,7 +1194,8 @@
    "headline": "Krishna Institute of Medical Sciences Limited: PREF REPORT |SUBJECT: Monitoring Agency Report",
    "url": "https://nsearchives.nseindia.com/corporate/KIMS_04112026204936_PREFREPORTFINAL.pdf",
    "entry_date": "2026-11-04",
-   "entry": 740.55
+   "entry": 740.55,
+   "r1": -1.28
   },
   {
    "id": "60bdb9331b25db70",
@@ -877,7 +1208,8 @@
    "headline": "Indian bonds rally most since April as oil slides after US midterm verdict",
    "url": "https://economictimes.indiatimes.com/markets/bonds/indian-bonds-rally-most-since-april-as-oil-slides-after-us-midterm-verdict/articleshow/135543664.cms",
    "entry_date": "2026-11-04",
-   "entry": 133.9
+   "entry": 133.9,
+   "r1": 3.81
   },
   {
    "id": "60bdb9331b25db70",
@@ -890,7 +1222,8 @@
    "headline": "Indian bonds rally most since April as oil slides after US midterm verdict",
    "url": "https://economictimes.indiatimes.com/markets/bonds/indian-bonds-rally-most-since-april-as-oil-slides-after-us-midterm-verdict/articleshow/135543664.cms",
    "entry_date": "2026-11-04",
-   "entry": 458.0
+   "entry": 458.0,
+   "r1": -3.98
   },
   {
    "id": "91fb55e5bd294fae",
@@ -903,7 +1236,8 @@
    "headline": "Aptus Value Housing Finance Q2 profit rises 18% to Rs 267 cr",
    "url": "https://economictimes.indiatimes.com/markets/digital-real-estate/realty-news/aptus-value-housing-finance-q2-profit-rises-18-to-rs-267-cr/articleshow/135543628.cms",
    "entry_date": "2026-11-04",
-   "entry": 206.28
+   "entry": 206.28,
+   "r1": -12.77
   },
   {
    "id": "345ebfdf5838fee0",
@@ -916,7 +1250,8 @@
    "headline": "Krishna Institute of Medical Sciences Limited: Monitoring Agency Report-QIPO |SUBJECT: Monitoring Agency Report",
    "url": "https://nsearchives.nseindia.com/corporate/KIMS_04112026204232_QIPOfinal.pdf",
    "entry_date": "2026-11-04",
-   "entry": 740.55
+   "entry": 740.55,
+   "r1": -1.28
   },
   {
    "id": "a3b26f8ab1fffef9",
@@ -929,7 +1264,8 @@
    "headline": "Aurobindo Pharma Limited: Aurobindo Pharma Limited has informed the Exchange regarding Change in Director(s) of the company. |SUBJECT: Change in Director(s)",
    "url": "https://nsearchives.nseindia.com/corporate/AUROPHARMA_04112026204230_LtrToSEsReappointmentofMrKumar04112026.pdf",
    "entry_date": "2026-11-04",
-   "entry": 1705.0
+   "entry": 1705.0,
+   "r1": 4.69
   },
   {
    "id": "5ec11a4c752b94c4",
@@ -942,7 +1278,8 @@
    "headline": "Krishna Institute of Medical Sciences Limited: Krishna Institute of Medical Sciences Limited has informed the Exchange regarding Amalgamation/ Merger |SUBJECT: ",
    "url": "https://nsearchives.nseindia.com/corporate/xbrl/REG30_Restructuring_19312_WebXMLFile_20261104_203402426.xml",
    "entry_date": "2026-11-04",
-   "entry": 740.55
+   "entry": 740.55,
+   "r1": -1.28
   },
   {
    "id": "33a2cf513f337bb5",
@@ -955,7 +1292,8 @@
    "headline": "Aurobindo Pharma Limited: Aurobindo Pharma Limited has informed the Exchange about transfer ownership of Auro Pharma LLC, Russia, from Auro Active Pharma Privat",
    "url": "https://nsearchives.nseindia.com/corporate/AUROPHARMA_04112026203119_LtrToSEsOwnershipTransferRussia04112026.pdf",
    "entry_date": "2026-11-04",
-   "entry": 1705.0
+   "entry": 1705.0,
+   "r1": 4.69
   },
   {
    "id": "c428438f43b7362b",
@@ -968,7 +1306,8 @@
    "headline": "Krishna Institute of Medical Sciences Limited: Krishna Institute of Medical Sciences Limited has informed the Exchange about Amalgamation/Merger |SUBJECT: Amalg",
    "url": "https://nsearchives.nseindia.com/corporate/KIMS_04112026203114_Disclosure_to_SE_Rajhmundry.pdf",
    "entry_date": "2026-11-04",
-   "entry": 740.55
+   "entry": 740.55,
+   "r1": -1.28
   },
   {
    "id": "d6a55ae0c50358d2",
@@ -981,7 +1320,8 @@
    "headline": "Hy-Tech Engineers Limited: Hy-Tech Engineers Limited has informed the Exchange regarding Outcome of Board Meeting held on November 04, 2026. |SUBJECT: Outcome o",
    "url": "https://nsearchives.nseindia.com/corporate/HYTECH_04112026202846_Outcome_04Nov2026.pdf",
    "entry_date": "2026-11-04",
-   "entry": 300.85
+   "entry": 300.85,
+   "r1": -0.78
   },
   {
    "id": "fee5250d1d471f1b",
@@ -994,7 +1334,8 @@
    "headline": "US stocks today: US stocks rally after Democrats' midterm sweep as AI infrastructure stocks slide",
    "url": "https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/us-stocks-today-dow-jones-soars-1000-points-at-open-as-democrats-win-congress-data-center-stocks-slide/articleshow/135542698.cms",
    "entry_date": "2026-11-04",
-   "entry": 656.4
+   "entry": 656.4,
+   "r1": 3.4
   },
   {
    "id": "75b69431fe4a32cc",
@@ -1007,7 +1348,8 @@
    "headline": "Bond yields fall 11 bps, rupee gains as oil prices slide after US midterms",
    "url": "https://www.business-standard.com/markets/news/bond-yields-fall-11-bps-rupee-gains-as-oil-prices-slide-after-us-midterms-126110401818_1.html",
    "entry_date": "2026-11-04",
-   "entry": 458.0
+   "entry": 458.0,
+   "r1": -3.98
   },
   {
    "id": "38506d579e8a7e6e",
@@ -1020,7 +1362,8 @@
    "headline": "Ather Energy among 15 stocks that hit 52-week highs and rallied up to 30% in a month",
    "url": "https://economictimes.indiatimes.com/markets/stocks/news/ather-energy-among-15-stocks-that-hit-52-week-highs-and-rallied-up-to-30-in-a-month/slideshow/135541189.cms",
    "entry_date": "2026-11-04",
-   "entry": 1840.0
+   "entry": 1840.0,
+   "r1": -3.34
   },
   {
    "id": "38506d579e8a7e6e",
@@ -1033,7 +1376,8 @@
    "headline": "Ather Energy among 15 stocks that hit 52-week highs and rallied up to 30% in a month",
    "url": "https://economictimes.indiatimes.com/markets/stocks/news/ather-energy-among-15-stocks-that-hit-52-week-highs-and-rallied-up-to-30-in-a-month/slideshow/135541189.cms",
    "entry_date": "2026-11-04",
-   "entry": 3601.5
+   "entry": 3601.5,
+   "r1": 5.23
   },
   {
    "id": "1f5d3e45933a7f50",
@@ -1046,7 +1390,8 @@
    "headline": "Diwali 2026 Muhurat Trading stock picks: Eternal, ICICI, Titan, Radico, 7 more Samvat 2083 stocks by Shriram Research",
    "url": "https://www.livemint.com/market/stock-market-news/diwali-stock-picks-eternal-icici-l-t-titan-to-radico-11-stocks-shriram-research-is-bullish-on-in-samvat-2083-11793796674218.html",
    "entry_date": "2026-11-04",
-   "entry": 344.5
+   "entry": 344.5,
+   "r1": 4.01
   },
   {
    "id": "1f5d3e45933a7f50",
@@ -1059,7 +1404,8 @@
    "headline": "Diwali 2026 Muhurat Trading stock picks: Eternal, ICICI, Titan, Radico, 7 more Samvat 2083 stocks by Shriram Research",
    "url": "https://www.livemint.com/market/stock-market-news/diwali-stock-picks-eternal-icici-l-t-titan-to-radico-11-stocks-shriram-research-is-bullish-on-in-samvat-2083-11793796674218.html",
    "entry_date": "2026-11-04",
-   "entry": 4396.5
+   "entry": 4396.5,
+   "r1": 2.92
   },
   {
    "id": "b15d158c698f726b",
@@ -1072,7 +1418,8 @@
    "headline": "US Stock Market Live Updates: Dow soars 1,500 points as Brent oil's price drops below $95 per barrel on Democrat win, Iran peace deal hopes",
    "url": "https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/stock-market-live-updates-dow-jones-nasdaq-sp-500-amd-nvidia-tesla-amazon-meta-ai-stocks-us-midterm-election-results-democrat-win-treasury-yield-news-4th-november-2026/liveblog/135540466.cms",
    "entry_date": "2026-11-04",
-   "entry": 458.0
+   "entry": 458.0,
+   "r1": -3.98
   },
   {
    "id": "b84208a6e300568a",
@@ -1085,7 +1432,8 @@
    "headline": "BSE Q2 net profit jumps 45% to ₹809 crore, board clears BKC plot proposal",
    "url": "https://www.business-standard.com/companies/news/bse-q2-net-profit-jumps-45-to-809-crore-board-clears-bkc-plot-proposal-126110401578_1.html",
    "entry_date": "2026-11-04",
-   "entry": 3601.5
+   "entry": 3601.5,
+   "r1": 5.23
   },
   {
    "id": "404c36f8876ccc5a",
@@ -1098,7 +1446,8 @@
    "headline": "Democratic victory in midterm elections adds a new twist to stock markets' Iran war, AI, and debt worries",
    "url": "https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/democratic-sweep-adds-new-twist-to-markets-iran-ai-and-debt-worries/articleshow/135539439.cms",
    "entry_date": "2026-11-04",
-   "entry": 458.0
+   "entry": 458.0,
+   "r1": -3.98
   },
   {
    "id": "28dd72329b891505",
@@ -1111,7 +1460,8 @@
    "headline": "Beyond Equity: Jiraaf’s Saurav Ghosh on how to customise your portfolio, and the importance of bonds",
    "url": "https://economictimes.indiatimes.com/markets/bonds/beyond-equity-jiraafs-saurav-ghosh-on-how-to-customise-your-portfolio-and-the-importance-of-bonds/articleshow/135538953.cms",
    "entry_date": "2026-11-04",
-   "entry": 12.55
+   "entry": 12.55,
+   "r1": 2.71
   },
   {
    "id": "df9133b84174810a",
@@ -1124,7 +1474,8 @@
    "headline": "Stocks to buy in November: Axis Direct names Nuvama, BEML and Petronet, sees up to 27% upside; target, rationale",
    "url": "https://www.livemint.com/market/stock-market-news/stocks-to-buy-in-november-axis-direct-names-nuvama-beml-and-petronet-sees-up-to-27-upside-target-rationale-11793790461951.html",
    "entry_date": "2026-11-04",
-   "entry": 2123.0
+   "entry": 2123.0,
+   "r1": -6.22
   },
   {
    "id": "df9133b84174810a",
@@ -1137,7 +1488,8 @@
    "headline": "Stocks to buy in November: Axis Direct names Nuvama, BEML and Petronet, sees up to 27% upside; target, rationale",
    "url": "https://www.livemint.com/market/stock-market-news/stocks-to-buy-in-november-axis-direct-names-nuvama-beml-and-petronet-sees-up-to-27-upside-target-rationale-11793790461951.html",
    "entry_date": "2026-11-04",
-   "entry": 1846.4
+   "entry": 1846.4,
+   "r1": 1.46
   },
   {
    "id": "1eab46826d829f45",
@@ -1150,7 +1502,8 @@
    "headline": "490% return in 5 yrs: BEL shares up 9% in week - How much upside do experts see in defence PSU stock post Q2 results?",
    "url": "https://www.livemint.com/market/stock-market-news/bel-share-price-rally-bharat-electronics-jumps-9-in-week-fresh-upside-ahead-post-q2-results-check-brokerage-target-p-11793790957688.html",
    "entry_date": "2026-11-04",
-   "entry": 398.0
+   "entry": 398.0,
+   "r1": -0.73
   },
   {
    "id": "79dfddb623a304fb",
@@ -1163,7 +1516,8 @@
    "headline": "Top 2 stocks to buy for short-term: GMR Airports, HAL by Nagaraj Shetti - Check stop loss, targets",
    "url": "https://www.livemint.com/market/stock-market-news/top-2-stocks-to-buy-for-short-term-gmr-airports-hal-by-nagaraj-shetti-check-stop-loss-targets-11793791298237.html",
    "entry_date": "2026-11-04",
-   "entry": 95.0
+   "entry": 95.0,
+   "r1": 4.53
   },
   {
    "id": "79dfddb623a304fb",
@@ -1176,7 +1530,8 @@
    "headline": "Top 2 stocks to buy for short-term: GMR Airports, HAL by Nagaraj Shetti - Check stop loss, targets",
    "url": "https://www.livemint.com/market/stock-market-news/top-2-stocks-to-buy-for-short-term-gmr-airports-hal-by-nagaraj-shetti-check-stop-loss-targets-11793791298237.html",
    "entry_date": "2026-11-04",
-   "entry": 5079.1
+   "entry": 5079.1,
+   "r1": -0.71
   },
   {
    "id": "f92808011ff4cc4f",
@@ -1189,7 +1544,8 @@
    "headline": "US Midterm Election Results Impact Decoded: Can Sensex, Nifty hit new peak? Gold, silver rates rebound with Trump loss",
    "url": "https://www.livemint.com/market/stock-market-news/us-midterm-election-results-impact-decoded-can-sensex-nifty-hit-new-peak-gold-silver-rates-rebound-with-trump-loss-11793788769424.html",
    "entry_date": "2026-11-04",
-   "entry": 458.0
+   "entry": 458.0,
+   "r1": -3.98
   },
   {
    "id": "5b0863c5f0a731bb",
@@ -1202,7 +1558,8 @@
    "headline": "Nykaa Q2 Results: PAT soars 207% YoY to Rs 101 crore, revenue up 28%; co to acquire 82% stake in Simply Nam",
    "url": "https://economictimes.indiatimes.com/markets/stocks/earnings/nykaa-q2-results-pat-soars-207-yoy-to-rs-101-crore-revenue-up-28-co-to-acquire-82-stake-in-simply-nam/articleshow/135537436.cms",
    "entry_date": "2026-11-04",
-   "entry": 355.5
+   "entry": 355.5,
+   "r1": -1.46
   },
   {
    "id": "8b2a5a655d5211e1",
@@ -1215,7 +1572,8 @@
    "headline": "Auto sales growth to cool post-festive season, says Monarch; bets on Minda Corp, RK Forgings and Sundram Fasteners",
    "url": "https://economictimes.indiatimes.com/markets/stocks/news/auto-sales-growth-to-cool-post-festive-season-says-monarch-bets-on-minda-corp-rk-forgings-and-sundram-fasteners/articleshow/135537265.cms",
    "entry_date": "2026-11-04",
-   "entry": 678.55
+   "entry": 678.55,
+   "r1": 2.25
   },
   {
    "id": "3b37aa30b9f64177",
@@ -1228,7 +1586,8 @@
    "headline": "European shares rise as banks, clean energy stocks rally; Novo Nordisk jumps",
    "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/european-shares-rise-as-banks-clean-energy-stocks-rally-novo-nordisk-jumps/articleshow/135536424.cms",
    "entry_date": "2026-11-04",
-   "entry": 656.4
+   "entry": 656.4,
+   "r1": 3.4
   },
   {
    "id": "dc43a9e1ba861a4f",
@@ -1241,7 +1600,8 @@
    "headline": "Rupee gains 17 paise to settle at 94.58 against Us dollar",
    "url": "https://economictimes.indiatimes.com/markets/forex/rupee-gains-17-paise-to-settle-at-94-58-against-us-dollar/articleshow/135536340.cms",
    "entry_date": "2026-11-04",
-   "entry": 458.0
+   "entry": 458.0,
+   "r1": -3.98
   },
   {
    "id": "9b1cfd944a58a1af",
@@ -1254,7 +1614,8 @@
    "headline": "Diwali 2026: Stocks to buy for Samvat 2083: Adani Energy, Coforge, PNB, Zydus, KDDL - 5 shares for Muhurat Trading",
    "url": "https://www.livemint.com/market/stock-market-news/diwali-2026-stocks-to-buy-for-samvat-2083-adani-energy-coforge-pnb-zydus-kddl-5-shares-for-muhurat-trading-11793785141234.html",
    "entry_date": "2026-11-04",
-   "entry": 1414.0
+   "entry": 1414.0,
+   "r1": 2.31
   },
   {
    "id": "9b1cfd944a58a1af",
@@ -1267,7 +1628,8 @@
    "headline": "Diwali 2026: Stocks to buy for Samvat 2083: Adani Energy, Coforge, PNB, Zydus, KDDL - 5 shares for Muhurat Trading",
    "url": "https://www.livemint.com/market/stock-market-news/diwali-2026-stocks-to-buy-for-samvat-2083-adani-energy-coforge-pnb-zydus-kddl-5-shares-for-muhurat-trading-11793785141234.html",
    "entry_date": "2026-11-04",
-   "entry": 2060.0
+   "entry": 2060.0,
+   "r1": 0.92
   },
   {
    "id": "398aa4e75742ab0a",
@@ -1280,7 +1642,8 @@
    "headline": "US midterm elections impact on gold, silver prices in India: How Donald Trump's loss is affecting precious metals rates",
    "url": "https://www.livemint.com/market/stock-market-news/us-midterm-elections-impact-on-gold-silver-prices-in-india-how-donald-trumps-loss-is-affecting-precious-metals-rates-11793785627674.html",
    "entry_date": "2026-11-04",
-   "entry": 3315.0
+   "entry": 3315.0,
+   "r1": 1.54
   },
   {
    "id": "4d3b80a61884c0cb",
@@ -1293,7 +1656,8 @@
    "headline": "Lenskart Q2 Results: Profit zooms 122% YoY to Rs 227 crore; revenue grows 36%",
    "url": "https://economictimes.indiatimes.com/markets/stocks/earnings/lenskart-q2-results-profit-zooms-122-yoy-to-rs-227-crore-revenue-grows-36/articleshow/135535400.cms",
    "entry_date": "2026-11-04",
-   "entry": 689.7
+   "entry": 689.7,
+   "r1": 4.15
   },
   {
    "id": "d55673bd309a0d54",
@@ -1306,7 +1670,8 @@
    "headline": "Multibagger HEG Advanced Materials shares hit 20% upper circuit in biggest 1-day gain in 8 years; what drove the rally?",
    "url": "https://www.livemint.com/market/stock-market-news/multibagger-heg-advanced-materials-shares-hit-20-upper-circuit-in-biggest-1-day-gain-in-8-years-what-drove-the-rally-11793785661852.html",
    "entry_date": "2026-11-04",
-   "entry": 288.18
+   "entry": 288.18,
+   "r1": 2.51
   },
   {
    "id": "b0a6d1f8d6220a9d",
@@ -6496,7 +6861,8 @@
    "url": "https://nsearchives.nseindia.com/corporate/HDFCBANK_30102026132409_SELetterESOP30102026.pdf",
    "entry_date": "2026-10-29",
    "entry": 683.3,
-   "r1": 1.39
+   "r1": 1.39,
+   "r5": 11.22
   },
   {
    "id": "62a055386f0f5d96",
@@ -6510,7 +6876,8 @@
    "url": "https://nsearchives.nseindia.com/corporate/OLAELECTRIC_30102026132256_SEintimationIssueClosing30102026.pdf",
    "entry_date": "2026-10-29",
    "entry": 35.16,
-   "r1": -5.63
+   "r1": -5.63,
+   "r5": -0.2
   },
   {
    "id": "0c28dea67eb7ff4f",
@@ -6524,7 +6891,8 @@
    "url": "https://nsearchives.nseindia.com/corporate/INTELLECT_30102026131831_OutcomeofBoardMeeting30102026.pdf",
    "entry_date": "2026-10-29",
    "entry": 602.85,
-   "r1": -16.31
+   "r1": -16.31,
+   "r5": -11.31
   },
   {
    "id": "a6c88a23a94040bd",
@@ -6538,7 +6906,8 @@
    "url": "https://nsearchives.nseindia.com/corporate/INTELLECT_30102026131206_OutcomeofBoardMeeting30102026.pdf",
    "entry_date": "2026-10-29",
    "entry": 602.85,
-   "r1": -16.31
+   "r1": -16.31,
+   "r5": -11.31
   },
   {
    "id": "7ca17402578eab4e",
@@ -6552,7 +6921,8 @@
    "url": "https://nsearchives.nseindia.com/corporate/INTELLECT_30102026130840_OutcomeofBoardMeeting30102026.pdf",
    "entry_date": "2026-10-29",
    "entry": 602.85,
-   "r1": -16.31
+   "r1": -16.31,
+   "r5": -11.31
   },
   {
    "id": "b4d103b33fbb576d",
@@ -6566,7 +6936,8 @@
    "url": "https://www.livemint.com/market/stock-market-news/laurus-labs-share-price-at-record-high-after-q2-results-20-26-dividend-announcement-should-you-buy-pharma-stock-11793343724383.html",
    "entry_date": "2026-10-29",
    "entry": 2244.0,
-   "r1": 7.2
+   "r1": 7.2,
+   "r5": 4.55
   },
   {
    "id": "25186af03729ae0f",
@@ -6580,7 +6951,8 @@
    "url": "https://www.business-standard.com/markets/news/eternal-share-price-rallies-6-in-two-days-stock-nears-record-high-here-s-why-126103000553_1.html",
    "entry_date": "2026-10-29",
    "entry": 337.85,
-   "r1": 1.72
+   "r1": 1.72,
+   "r5": 6.05
   },
   {
    "id": "c602c19b75bcebb8",
@@ -6594,7 +6966,8 @@
    "url": "https://www.business-standard.com/markets/news/vedanta-oil-and-gas-shares-zoom-18-as-q2-profit-rises-manifold-to-746-cr-126103000595_1.html",
    "entry_date": "2026-10-29",
    "entry": 454.5,
-   "r1": -0.11
+   "r1": -0.11,
+   "r5": -3.25
   },
   {
    "id": "c602c19b75bcebb8",
@@ -6608,7 +6981,8 @@
    "url": "https://www.business-standard.com/markets/news/vedanta-oil-and-gas-shares-zoom-18-as-q2-profit-rises-manifold-to-746-cr-126103000595_1.html",
    "entry_date": "2026-10-29",
    "entry": 234.55,
-   "r1": 1.43
+   "r1": 1.43,
+   "r5": 12.47
   },
   {
    "id": "2625b0e85635b7b7",
@@ -6622,7 +6996,8 @@
    "url": "https://economictimes.indiatimes.com/markets/stocks/news/coal-india-shares-fall-3-after-q2-results-jefferies-motilal-oswal-others-cut-target-price/articleshow/135349282.cms",
    "entry_date": "2026-10-29",
    "entry": 393.1,
-   "r1": -1.04
+   "r1": -1.04,
+   "r5": 0.31
   },
   {
    "id": "2625b0e85635b7b7",
@@ -6636,7 +7011,8 @@
    "url": "https://economictimes.indiatimes.com/markets/stocks/news/coal-india-shares-fall-3-after-q2-results-jefferies-motilal-oswal-others-cut-target-price/articleshow/135349282.cms",
    "entry_date": "2026-10-29",
    "entry": 114.01,
-   "r1": -5.46
+   "r1": -5.46,
+   "r5": -4.58
   },
   {
    "id": "dc38fef3f2b2b984",
@@ -6650,7 +7026,8 @@
    "url": "https://www.business-standard.com/markets/news/suzlon-energy-shares-sink-8-after-q2-results-miss-margin-expectations-126103000583_1.html",
    "entry_date": "2026-10-29",
    "entry": 36.79,
-   "r1": -7.86
+   "r1": -7.86,
+   "r5": 4.89
   },
   {
    "id": "cf87cb97a1494ebc",
@@ -6664,7 +7041,8 @@
    "url": "https://nsearchives.nseindia.com/corporate/NTPC_30102026123023_2021030_NGELCOD.pdf",
    "entry_date": "2026-10-29",
    "entry": 310.5,
-   "r1": 1.85
+   "r1": 1.85,
+   "r5": 2.0
   },
   {
    "id": "cf87cb97a1494ebc",
@@ -6678,7 +7056,8 @@
    "url": "https://nsearchives.nseindia.com/corporate/NTPC_30102026123023_2021030_NGELCOD.pdf",
    "entry_date": "2026-10-29",
    "entry": 19430.0,
-   "r1": -3.24
+   "r1": -3.24,
+   "r5": -4.68
   },
   {
    "id": "a07dd901580c1354",
@@ -6692,7 +7071,8 @@
    "url": "https://nsearchives.nseindia.com/corporate/GMDCLTD_30102026122502_results0926.pdf",
    "entry_date": "2026-10-29",
    "entry": 438.75,
-   "r1": -6.18
+   "r1": -6.18,
+   "r5": 6.99
   },
   {
    "id": "875f7fb30309e64b",
@@ -6706,7 +7086,8 @@
    "url": "https://nsearchives.nseindia.com/corporate/xbrl/OUTCOME_14348_WebXMLFile_20261030_122608027.xml",
    "entry_date": "2026-10-29",
    "entry": 414.8,
-   "r1": -5.5
+   "r1": -5.5,
+   "r5": 4.46
   },
   {
    "id": "2fe7e344e2fc03ba",
@@ -6720,7 +7101,8 @@
    "url": "https://www.livemint.com/market/stock-market-news/reliance-group-stocks-ahead-of-q2-results-today-how-jio-platforms-ril-shares-are-performing-jpl-ril-earnings-schedule-11793339608520.html",
    "entry_date": "2026-10-29",
    "entry": 1167.4,
-   "r1": -0.21
+   "r1": -0.21,
+   "r5": 12.51
   },
   {
    "id": "4ff59a4a84d9c019",
@@ -6734,7 +7116,8 @@
    "url": "https://nsearchives.nseindia.com/corporate/POLYCAB_30102026121954_SECIRP30102026.pdf",
    "entry_date": "2026-10-29",
    "entry": 7745.0,
-   "r1": 0.54
+   "r1": 0.54,
+   "r5": 1.34
   },
   {
    "id": "8405314b689ce634",
@@ -6748,7 +7131,8 @@
    "url": "https://nsearchives.nseindia.com/content/debt/WDM/FEDERALBNK_30102026121320_SignedSEIntimationRegulation7.pdf",
    "entry_date": "2026-10-29",
    "entry": 347.75,
-   "r1": -2.31
+   "r1": -2.31,
+   "r5": -2.66
   },
   {
    "id": "4a5527c53a7e4df1",
@@ -6762,7 +7146,8 @@
    "url": "https://www.livemint.com/market/stock-market-news/stock-market-outlook-crude-oil-prices-to-fpi-inflows-triggers-that-could-reverse-trend-in-sensex-nifty-50-11793327449431.html",
    "entry_date": "2026-10-29",
    "entry": 454.5,
-   "r1": -0.11
+   "r1": -0.11,
+   "r5": -3.25
   },
   {
    "id": "73dc4d13da018bd0",
@@ -6776,7 +7161,8 @@
    "url": "https://www.livemint.com/market/stock-market-news/indian-shares-seen-opening-higher-after-earnings-led-rebound-higher-oil-to-cap-gains-11793327632640.html",
    "entry_date": "2026-10-29",
    "entry": 454.5,
-   "r1": -0.11
+   "r1": -0.11,
+   "r5": -3.25
   },
   {
    "id": "9bd9e07a2d1970c6",
@@ -6790,7 +7176,8 @@
    "url": "https://www.livemint.com/market/stock-market-news/reliance-industries-q2-results-2026-today-preview-should-you-buy-sell-or-hold-ahead-of-earnings-experts-views-11793325321666.html",
    "entry_date": "2026-10-29",
    "entry": 1167.4,
-   "r1": -0.21
+   "r1": -0.21,
+   "r5": 12.51
   },
   {
    "id": "522c4beb80b5c672",
@@ -6804,7 +7191,8 @@
    "url": "https://economictimes.indiatimes.com/markets/stocks/earnings/trent-net-profit-up-25-despite-cost-pressures-and-stiff-competition/articleshow/135339383.cms",
    "entry_date": "2026-10-29",
    "entry": 2861.7,
-   "r1": 5.44
+   "r1": 5.44,
+   "r5": 6.75
   },
   {
    "id": "b8b57795a1859f5a",
@@ -6818,7 +7206,8 @@
    "url": "https://economictimes.indiatimes.com/markets/commodities/news/oil-price-today-october-30-crude-oil-jumps-to-118-as-trump-weighs-fresh-attacks-after-midterm-what-are-experts-saying/articleshow/135339349.cms",
    "entry_date": "2026-10-29",
    "entry": 454.5,
-   "r1": -0.11
+   "r1": -0.11,
+   "r5": -3.25
   },
   {
    "id": "2d49418e40cc470a",
@@ -6832,7 +7221,8 @@
    "url": "https://economictimes.indiatimes.com/markets/stocks/earnings/godrej-consumer-profit-rises-14-weighs-calibrated-price-hikes-to-offset-inflation/articleshow/135339162.cms",
    "entry_date": "2026-10-29",
    "entry": 837.0,
-   "r1": -2.27
+   "r1": -2.27,
+   "r5": 3.08
   },
   {
    "id": "2d49418e40cc470a",
@@ -6846,7 +7236,8 @@
    "url": "https://economictimes.indiatimes.com/markets/stocks/earnings/godrej-consumer-profit-rises-14-weighs-calibrated-price-hikes-to-offset-inflation/articleshow/135339162.cms",
    "entry_date": "2026-10-29",
    "entry": 928.5,
-   "r1": -2.54
+   "r1": -2.54,
+   "r5": 5.48
   },
   {
    "id": "09456bd65f3482a3",
@@ -6860,7 +7251,8 @@
    "url": "https://economictimes.indiatimes.com/markets/forex/forex-news/yen-steady-before-boj-ai-jitters-drive-treasury-rally-weigh-on-dollar/articleshow/135338954.cms",
    "entry_date": "2026-10-29",
    "entry": 135.7,
-   "r1": -2.09
+   "r1": -2.09,
+   "r5": 2.43
   },
   {
    "id": "dd2eade23a3d3906",
@@ -6874,7 +7266,8 @@
    "url": "https://economictimes.indiatimes.com/markets/stocks/earnings/coal-india-reports-57-rise-in-net-profit-to-rs-6547-crore-in-q2/articleshow/135338780.cms",
    "entry_date": "2026-10-29",
    "entry": 393.1,
-   "r1": -1.04
+   "r1": -1.04,
+   "r5": 0.31
   },
   {
    "id": "f2a46a6df6521b20",
@@ -6888,7 +7281,8 @@
    "url": "https://www.livemint.com/market/stock-market-news/top-stocks-to-watch-today-reliance-jio-platforms-trent-bel-rvnl-shares-in-focus-on-friday-30-oct-full-list-11793323032394.html",
    "entry_date": "2026-10-29",
    "entry": 370.0,
-   "r1": -0.03
+   "r1": -0.03,
+   "r5": 6.78
   },
   {
    "id": "f2a46a6df6521b20",
@@ -6902,7 +7296,8 @@
    "url": "https://www.livemint.com/market/stock-market-news/top-stocks-to-watch-today-reliance-jio-platforms-trent-bel-rvnl-shares-in-focus-on-friday-30-oct-full-list-11793323032394.html",
    "entry_date": "2026-10-29",
    "entry": 4675.0,
-   "r1": 4.33
+   "r1": 4.33,
+   "r5": 15.94
   },
   {
    "id": "6bba6b9cd31b5906",
@@ -6916,7 +7311,8 @@
    "url": "https://economictimes.indiatimes.com/markets/stocks/earnings/suzlon-energy-q2-profit-up-1-3-revenue-rises-26/articleshow/135338430.cms",
    "entry_date": "2026-10-29",
    "entry": 36.79,
-   "r1": -7.86
+   "r1": -7.86,
+   "r5": 4.89
   },
   {
    "id": "46ada29be7e42410",
@@ -6930,7 +7326,8 @@
    "url": "",
    "entry_date": "2026-10-29",
    "entry": 1167.4,
-   "r1": -0.21
+   "r1": -0.21,
+   "r5": 12.51
   },
   {
    "id": "0ef967c136789351",
@@ -6944,7 +7341,8 @@
    "url": "",
    "entry_date": "2026-10-29",
    "entry": 1167.4,
-   "r1": -0.21
+   "r1": -0.21,
+   "r5": 12.51
   },
   {
    "id": "59f068686233a4dd",
@@ -6958,7 +7356,8 @@
    "url": "",
    "entry_date": "2026-10-29",
    "entry": 1167.4,
-   "r1": -0.21
+   "r1": -0.21,
+   "r5": 12.51
   },
   {
    "id": "40d54460009707ab",
@@ -6972,7 +7371,8 @@
    "url": "",
    "entry_date": "2026-10-29",
    "entry": 844.9,
-   "r1": -4.66
+   "r1": -4.66,
+   "r5": 5.8
   },
   {
    "id": "574352a216cf2b72",
@@ -6986,7 +7386,8 @@
    "url": "",
    "entry_date": "2026-10-29",
    "entry": 844.9,
-   "r1": -4.66
+   "r1": -4.66,
+   "r5": 5.8
   },
   {
    "id": "574352a216cf2b72",
@@ -7000,7 +7401,8 @@
    "url": "",
    "entry_date": "2026-10-29",
    "entry": 3502.0,
-   "r1": 0.24
+   "r1": 0.24,
+   "r5": 8.22
   },
   {
    "id": "373954198cab0411",
@@ -7014,7 +7416,8 @@
    "url": "",
    "entry_date": "2026-10-29",
    "entry": 844.9,
-   "r1": -4.66
+   "r1": -4.66,
+   "r5": 5.8
   },
   {
    "id": "373954198cab0411",
@@ -7028,7 +7431,8 @@
    "url": "",
    "entry_date": "2026-10-29",
    "entry": 4598.4,
-   "r1": -1.78
+   "r1": -1.78,
+   "r5": -3.69
   },
   {
    "id": "726bd22a4a73965d",
@@ -7042,7 +7446,8 @@
    "url": "",
    "entry_date": "2026-10-29",
    "entry": 844.9,
-   "r1": -4.66
+   "r1": -4.66,
+   "r5": 5.8
   },
   {
    "id": "3d80de616090a836",
@@ -7056,7 +7461,8 @@
    "url": "",
    "entry_date": "2026-10-29",
    "entry": 844.9,
-   "r1": -4.66
+   "r1": -4.66,
+   "r5": 5.8
   },
   {
    "id": "3d80de616090a836",
@@ -7070,7 +7476,8 @@
    "url": "",
    "entry_date": "2026-10-29",
    "entry": 3502.0,
-   "r1": 0.24
+   "r1": 0.24,
+   "r5": 8.22
   },
   {
    "id": "fb0a3f620b80c789",
@@ -7084,7 +7491,8 @@
    "url": "",
    "entry_date": "2026-10-29",
    "entry": 844.9,
-   "r1": -4.66
+   "r1": -4.66,
+   "r5": 5.8
   },
   {
    "id": "fb0a3f620b80c789",
@@ -7098,7 +7506,8 @@
    "url": "",
    "entry_date": "2026-10-29",
    "entry": 4598.4,
-   "r1": -1.78
+   "r1": -1.78,
+   "r5": -3.69
   },
   {
    "id": "802d48a15183107e",
@@ -7112,7 +7521,8 @@
    "url": "",
    "entry_date": "2026-10-29",
    "entry": 3502.0,
-   "r1": 0.24
+   "r1": 0.24,
+   "r5": 8.22
   },
   {
    "id": "9d8049ccdf214c2f",
@@ -7126,7 +7536,8 @@
    "url": "",
    "entry_date": "2026-10-29",
    "entry": 844.9,
-   "r1": -4.66
+   "r1": -4.66,
+   "r5": 5.8
   },
   {
    "id": "9d8049ccdf214c2f",
@@ -7140,7 +7551,8 @@
    "url": "",
    "entry_date": "2026-10-29",
    "entry": 4598.4,
-   "r1": -1.78
+   "r1": -1.78,
+   "r5": -3.69
   },
   {
    "id": "c5eef21c412f146f",
@@ -7154,7 +7566,8 @@
    "url": "",
    "entry_date": "2026-10-29",
    "entry": 844.9,
-   "r1": -4.66
+   "r1": -4.66,
+   "r5": 5.8
   },
   {
    "id": "eb40eb69acb77b3c",
@@ -7168,7 +7581,8 @@
    "url": "https://nsearchives.nseindia.com/corporate/Cslogin_29102026210534_SEIntimation29102026.pdf",
    "entry_date": "2026-10-29",
    "entry": 190.1,
-   "r1": 4.32
+   "r1": 4.32,
+   "r5": 4.37
   },
   {
    "id": "ffa9815964c94683",
@@ -7182,7 +7596,8 @@
    "url": "https://economictimes.indiatimes.com/markets/stocks/news/market-trading-guide-eternal-among-2-stocks-to-buy-for-friday-for-healthy-returns/articleshow/135321713.cms",
    "entry_date": "2026-10-29",
    "entry": 337.85,
-   "r1": 1.72
+   "r1": 1.72,
+   "r5": 6.05
   },
   {
    "id": "d0ccd28cb3864a3a",
@@ -7196,7 +7611,8 @@
    "url": "https://nsearchives.nseindia.com/corporate/xbrl/REG30_Restructuring_26469_WebXMLFile_20261029_204800214.xml",
    "entry_date": "2026-10-29",
    "entry": 224.78,
-   "r1": -0.79
+   "r1": -0.79,
+   "r5": 3.89
   },
   {
    "id": "892ff947d4a3f246",
@@ -7210,7 +7626,8 @@
    "url": "https://nsearchives.nseindia.com/corporate/xbrl/ALTERATION_OF_CAPITAL_AND_FUND_RAISING_792_WebXMLFile_20261029_203722697.xml",
    "entry_date": "2026-10-29",
    "entry": 1358.0,
-   "r1": 1.54
+   "r1": 1.54,
+   "r5": 3.39
   },
   {
    "id": "c47cc26fe47a6e0b",
@@ -7224,7 +7641,8 @@
    "url": "https://nsearchives.nseindia.com/corporate/xbrl/REG30_PARA_B_17412_WebXMLFile_20261029_203318841.xml",
    "entry_date": "2026-10-29",
    "entry": 186.0,
-   "r1": -3.4
+   "r1": -3.4,
+   "r5": 4.13
   },
   {
    "id": "b09e663909c59ffd",
@@ -7238,7 +7656,8 @@
    "url": "https://nsearchives.nseindia.com/corporate/CIPLA_29102026202841_SE_Intimation_Signed.pdf",
    "entry_date": "2026-10-29",
    "entry": 1358.0,
-   "r1": 1.54
+   "r1": 1.54,
+   "r5": 3.39
   },
   {
    "id": "fae2a29d3f63b160",
@@ -7252,7 +7671,8 @@
    "url": "https://nsearchives.nseindia.com/corporate/BANKBARODA_29102026202746_SENews.pdf",
    "entry_date": "2026-10-29",
    "entry": 241.31,
-   "r1": -1.12
+   "r1": -1.12,
+   "r5": 3.46
   },
   {
    "id": "fae2a29d3f63b160",
@@ -7266,7 +7686,8 @@
    "url": "https://nsearchives.nseindia.com/corporate/BANKBARODA_29102026202746_SENews.pdf",
    "entry_date": "2026-10-29",
    "entry": 135.7,
-   "r1": -2.09
+   "r1": -2.09,
+   "r5": 2.43
   },
   {
    "id": "4caf18ba264dad2b",
@@ -7280,7 +7701,8 @@
    "url": "https://nsearchives.nseindia.com/corporate/RVNL_29102026202703_Coveringletter29102026__2_.pdf",
    "entry_date": "2026-10-29",
    "entry": 186.0,
-   "r1": -3.4
+   "r1": -3.4,
+   "r5": 4.13
   },
   {
    "id": "27436a19c8b45fd0",
@@ -7294,7 +7716,8 @@
    "url": "https://economictimes.indiatimes.com/markets/stocks/earnings/ambuja-cements-profit-slumps-90-on-higher-costs-high-previous-year-base/articleshow/135320851.cms",
    "entry_date": "2026-10-29",
    "entry": 354.7,
-   "r1": -1.87
+   "r1": -1.87,
+   "r5": 9.39
   },
   {
    "id": "27436a19c8b45fd0",
@@ -7308,7 +7731,8 @@
    "url": "https://economictimes.indiatimes.com/markets/stocks/earnings/ambuja-cements-profit-slumps-90-on-higher-costs-high-previous-year-base/articleshow/135320851.cms",
    "entry_date": "2026-10-29",
    "entry": 300.25,
-   "r1": 3.95
+   "r1": 3.95,
+   "r5": 15.42
   },
   {
    "id": "d610e4ceb0558b67",
@@ -7322,7 +7746,8 @@
    "url": "https://nsearchives.nseindia.com/corporate/xbrl/AIATOP_2032_WebXMLFile_20261029_201718390.xml",
    "entry_date": "2026-10-29",
    "entry": 119.79,
-   "r1": -1.88
+   "r1": -1.88,
+   "r5": 2.6
   },
   {
    "id": "49b10b2b20e2817a",
@@ -7336,7 +7761,8 @@
    "url": "https://nsearchives.nseindia.com/corporate/CANBK_29102026201344_Intimationse29102026.pdf",
    "entry_date": "2026-10-29",
    "entry": 119.79,
-   "r1": -1.88
+   "r1": -1.88,
+   "r5": 2.6
   },
   {
    "id": "8d99bf495ab047f7",
@@ -7350,7 +7776,8 @@
    "url": "https://economictimes.indiatimes.com/markets/stocks/earnings/brigade-group-reports-29-growth-in-q2-net-profit-at-rs-219-crore/articleshow/135320326.cms",
    "entry_date": "2026-10-29",
    "entry": 532.0,
-   "r1": -0.92
+   "r1": -0.92,
+   "r5": 5.86
   },
   {
    "id": "a0ca4833442ee83d",
@@ -7364,7 +7791,8 @@
    "url": "https://nsearchives.nseindia.com/corporate/Nandhini_29102026200224_CAMS_Earnings_presentation_Signed.pdf",
    "entry_date": "2026-10-29",
    "entry": 696.95,
-   "r1": -6.22
+   "r1": -6.22,
+   "r5": 2.64
   },
   {
    "id": "aa4e89fee8e1a3d8",
@@ -7378,7 +7806,8 @@
    "url": "https://www.livemint.com/market/stock-market-news/20-crash-in-2026-this-fmcg-stock-is-on-track-for-its-biggest-annual-drop-in-22-years-should-investors-be-worried-11793278361272.html",
    "entry_date": "2026-10-29",
    "entry": 1858.2,
-   "r1": 0.34
+   "r1": 0.34,
+   "r5": 6.66
   },
   {
    "id": "29557f58d1f345ea",
@@ -7392,7 +7821,8 @@
    "url": "https://nsearchives.nseindia.com/corporate/TRIDENTTECHLABS_29102026200009_Dividend_PAyment_Disclosure-signed.pdf",
    "entry_date": "2026-10-29",
    "entry": 21.42,
-   "r1": -1.17
+   "r1": -1.17,
+   "r5": 11.39
   },
   {
    "id": "64fdd595b4347749",
@@ -7406,7 +7836,8 @@
    "url": "https://nsearchives.nseindia.com/corporate/INTELLECT_29102026195829_RSU_Grant.pdf",
    "entry_date": "2026-10-29",
    "entry": 602.85,
-   "r1": -16.31
+   "r1": -16.31,
+   "r5": -11.31
   },
   {
    "id": "c4be521fcf553088",
@@ -7420,7 +7851,8 @@
    "url": "https://economictimes.indiatimes.com/markets/stocks/earnings/vedanta-power-q2-results-company-swings-to-profit-at-rs-83-crore-revenue-rises-38-yoy/articleshow/135317122.cms",
    "entry_date": "2026-10-29",
    "entry": 234.55,
-   "r1": 1.43
+   "r1": 1.43,
+   "r5": 12.47
   },
   {
    "id": "c4be521fcf553088",
@@ -7434,7 +7866,8 @@
    "url": "https://economictimes.indiatimes.com/markets/stocks/earnings/vedanta-power-q2-results-company-swings-to-profit-at-rs-83-crore-revenue-rises-38-yoy/articleshow/135317122.cms",
    "entry_date": "2026-10-29",
    "entry": 28.88,
-   "r1": 14.72
+   "r1": 14.72,
+   "r5": 26.21
   },
   {
    "id": "67d58c3271de1f86",
@@ -7448,7 +7881,8 @@
    "url": "https://www.livemint.com/market/stock-market-news/top-3-stocks-to-buy-tomorrow-kotak-mahindra-bank-nykaa-eternal-by-market-expert-check-stop-loss-target-price-11793275019681.html",
    "entry_date": "2026-10-29",
    "entry": 337.85,
-   "r1": 1.72
+   "r1": 1.72,
+   "r5": 6.05
   },
   {
    "id": "67d58c3271de1f86",
@@ -7462,7 +7896,8 @@
    "url": "https://www.livemint.com/market/stock-market-news/top-3-stocks-to-buy-tomorrow-kotak-mahindra-bank-nykaa-eternal-by-market-expert-check-stop-loss-target-price-11793275019681.html",
    "entry_date": "2026-10-29",
    "entry": 352.9,
-   "r1": -1.01
+   "r1": -1.01,
+   "r5": -0.74
   },
   {
    "id": "f76d8a0f67a97d07",
@@ -7476,7 +7911,8 @@
    "url": "https://economictimes.indiatimes.com/markets/stocks/news/shukra-medtech-laurus-labs-among-4-healthcare-stocks-to-hit-52-week-highs-and-rally-up-to-26-in-a-month/slideshow/135311397.cms",
    "entry_date": "2026-10-29",
    "entry": 3976.7,
-   "r1": 0.68
+   "r1": 0.68,
+   "r5": -5.18
   },
   {
    "id": "f76d8a0f67a97d07",
@@ -7490,7 +7926,8 @@
    "url": "https://economictimes.indiatimes.com/markets/stocks/news/shukra-medtech-laurus-labs-among-4-healthcare-stocks-to-hit-52-week-highs-and-rally-up-to-26-in-a-month/slideshow/135311397.cms",
    "entry_date": "2026-10-29",
    "entry": 2244.0,
-   "r1": 7.2
+   "r1": 7.2,
+   "r5": 4.55
   },
   {
    "id": "2d2c1c69155440a0",
@@ -7504,7 +7941,8 @@
    "url": "https://www.livemint.com/market/stock-market-news/yes-bank-shares-extend-decline-to-26-in-october-hit-a-multi-year-low-why-are-investors-turning-cautious-11793273761294.html",
    "entry_date": "2026-10-29",
    "entry": 3210.0,
-   "r1": -1.87
+   "r1": -1.87,
+   "r5": 2.52
   },
   {
    "id": "2d2c1c69155440a0",
@@ -7518,7 +7956,8 @@
    "url": "https://www.livemint.com/market/stock-market-news/yes-bank-shares-extend-decline-to-26-in-october-hit-a-multi-year-low-why-are-investors-turning-cautious-11793273761294.html",
    "entry_date": "2026-10-29",
    "entry": 15.43,
-   "r1": -1.81
+   "r1": -1.81,
+   "r5": 5.25
   },
   {
    "id": "b44b59e1a4e1b5f5",
@@ -7532,7 +7971,8 @@
    "url": "https://economictimes.indiatimes.com/markets/bonds/indias-10-year-bond-has-best-day-in-3-months-on-treasury-rally-easing-oil/articleshow/135308975.cms",
    "entry_date": "2026-10-29",
    "entry": 454.5,
-   "r1": -0.11
+   "r1": -0.11,
+   "r5": -3.25
   },
   {
    "id": "e30e05d1a471bc9c",
@@ -7546,7 +7986,8 @@
    "url": "https://economictimes.indiatimes.com/markets/stocks/news/market-wrap-adani-ports-sez-adani-ent-trent-maruti-suzuki-top-gainers-and-losers-on-nifty-and-sensex-on-thursday/articleshow/135307738.cms",
    "entry_date": "2026-10-29",
    "entry": 2607.9,
-   "r1": -1.09
+   "r1": -1.09,
+   "r5": 4.81
   },
   {
    "id": "e30e05d1a471bc9c",
@@ -7560,7 +8001,8 @@
    "url": "https://economictimes.indiatimes.com/markets/stocks/news/market-wrap-adani-ports-sez-adani-ent-trent-maruti-suzuki-top-gainers-and-losers-on-nifty-and-sensex-on-thursday/articleshow/135307738.cms",
    "entry_date": "2026-10-29",
    "entry": 11426.0,
-   "r1": -0.25
+   "r1": -0.25,
+   "r5": 10.73
   },
   {
    "id": "6cfdc0a532827a10",
@@ -7574,7 +8016,8 @@
    "url": "https://www.livemint.com/market/commodities/karwa-chauth-today-but-gold-silver-rates-not-glittering-will-prices-rebound-or-pain-will-continue-till-diwali-11793271194604.html",
    "entry_date": "2026-10-29",
    "entry": 3231.0,
-   "r1": -1.31
+   "r1": -1.31,
+   "r5": 4.18
   },
   {
    "id": "e38481c7cc8c2840",
@@ -7588,7 +8031,8 @@
    "url": "https://www.livemint.com/market/stock-market-news/tcs-infosys-hcl-tech-anthropic-revenue-soars-14-fold-in-h1-2026-can-indian-it-stocks-benefit-from-ai-boom-11793272878286.html",
    "entry_date": "2026-10-29",
    "entry": 1146.5,
-   "r1": 3.36
+   "r1": 3.36,
+   "r5": 1.82
   },
   {
    "id": "e38481c7cc8c2840",
@@ -7602,7 +8046,8 @@
    "url": "https://www.livemint.com/market/stock-market-news/tcs-infosys-hcl-tech-anthropic-revenue-soars-14-fold-in-h1-2026-can-indian-it-stocks-benefit-from-ai-boom-11793272878286.html",
    "entry_date": "2026-10-29",
    "entry": 2478.0,
-   "r1": 0.99
+   "r1": 0.99,
+   "r5": 0.71
   },
   {
    "id": "e9921ad3149c5d16",
@@ -7616,7 +8061,8 @@
    "url": "https://economictimes.indiatimes.com/markets/stocks/earnings/godrej-consumer-q2-results-profit-rises-14-yoy-to-rs-523-crore-revenue-jumps-19-co-declares-rs-5/share-dividend/articleshow/135306134.cms",
    "entry_date": "2026-10-29",
    "entry": 837.0,
-   "r1": -2.27
+   "r1": -2.27,
+   "r5": 3.08
   },
   {
    "id": "e9921ad3149c5d16",
@@ -7630,7 +8076,8 @@
    "url": "https://economictimes.indiatimes.com/markets/stocks/earnings/godrej-consumer-q2-results-profit-rises-14-yoy-to-rs-523-crore-revenue-jumps-19-co-declares-rs-5/share-dividend/articleshow/135306134.cms",
    "entry_date": "2026-10-29",
    "entry": 928.5,
-   "r1": -2.54
+   "r1": -2.54,
+   "r5": 5.48
   },
   {
    "id": "38379af90378a497",
@@ -7644,7 +8091,8 @@
    "url": "https://www.livemint.com/market/stock-market-news/reliance-power-shares-on-fire-anil-ambani-s-stock-jumps-9-22-but-remains-down-59-in-a-year-should-you-buy-11793273904768.html",
    "entry_date": "2026-10-29",
    "entry": 1167.4,
-   "r1": -0.21
+   "r1": -0.21,
+   "r5": 12.51
   },
   {
    "id": "38379af90378a497",
@@ -7658,7 +8106,8 @@
    "url": "https://www.livemint.com/market/stock-market-news/reliance-power-shares-on-fire-anil-ambani-s-stock-jumps-9-22-but-remains-down-59-in-a-year-should-you-buy-11793273904768.html",
    "entry_date": "2026-10-29",
    "entry": 18.98,
-   "r1": -5.64
+   "r1": -5.64,
+   "r5": -1.48
   },
   {
    "id": "1f10b55f4f8d006d",
@@ -7672,7 +8121,8 @@
    "url": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63882",
    "entry_date": "2026-10-29",
    "entry": 135.7,
-   "r1": -2.09
+   "r1": -2.09,
+   "r5": 2.43
   },
   {
    "id": "d1c188c4ad4e8cfd",
@@ -7686,7 +8136,8 @@
    "url": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63881",
    "entry_date": "2026-10-29",
    "entry": 135.7,
-   "r1": -2.09
+   "r1": -2.09,
+   "r5": 2.43
   },
   {
    "id": "8f56cc74fab0d19e",
@@ -7700,7 +8151,8 @@
    "url": "https://www.livemint.com/market/stock-market-news/msci-rejig-lic-meesho-likely-to-enter-india-standard-index-ofss-siemens-energy-may-be-dropped-11793271137051.html",
    "entry_date": "2026-10-29",
    "entry": 114.01,
-   "r1": -5.46
+   "r1": -5.46,
+   "r5": -4.58
   },
   {
    "id": "8f56cc74fab0d19e",
@@ -7714,7 +8166,8 @@
    "url": "https://www.livemint.com/market/stock-market-news/msci-rejig-lic-meesho-likely-to-enter-india-standard-index-ofss-siemens-energy-may-be-dropped-11793271137051.html",
    "entry_date": "2026-10-29",
    "entry": 224.78,
-   "r1": -0.79
+   "r1": -0.79,
+   "r5": 3.89
   },
   {
    "id": "9e720b21efbfcff2",
@@ -7728,7 +8181,8 @@
    "url": "https://economictimes.indiatimes.com/markets/stocks/earnings/suzlon-energy-q2-results-profit-plunges-69-yoy-to-rs-394-crore-revenue-rises-26/articleshow/135304125.cms",
    "entry_date": "2026-10-29",
    "entry": 36.79,
-   "r1": -7.86
+   "r1": -7.86,
+   "r5": 4.89
   },
   {
    "id": "909e077be72749ed",
@@ -7742,7 +8196,8 @@
    "url": "https://economictimes.indiatimes.com/markets/stocks/earnings/trent-q2-results-profit-jumps-25-yoy-to-rs-468-crore-revenue-climbs-22/articleshow/135302253.cms",
    "entry_date": "2026-10-29",
    "entry": 2861.7,
-   "r1": 5.44
+   "r1": 5.44,
+   "r5": 6.75
   },
   {
    "id": "c8032abf1941539b",
@@ -7756,7 +8211,8 @@
    "url": "https://economictimes.indiatimes.com/markets/forex/rupee-rises-3-paise-to-close-at-95-25-against-us-dollar/articleshow/135302143.cms",
    "entry_date": "2026-10-29",
    "entry": 454.5,
-   "r1": -0.11
+   "r1": -0.11,
+   "r5": -3.25
   },
   {
    "id": "21416e56139833c6",
@@ -7770,7 +8226,8 @@
    "url": "https://www.livemint.com/market/stock-market-news/kotak-mahindra-bank-shares-gain-over-4-hit-highest-level-since-april-2025-here-s-what-you-should-know-11793266996926.html",
    "entry_date": "2026-10-29",
    "entry": 459.0,
-   "r1": 0.57
+   "r1": 0.57,
+   "r5": 1.74
   },
   {
    "id": "adf3864cd600453c",
@@ -7784,7 +8241,8 @@
    "url": "https://economictimes.indiatimes.com/markets/stocks/earnings/indigo-q2-results-loss-narrows-yoy-to-rs-1879-crore-revenue-rises-26/articleshow/135301474.cms",
    "entry_date": "2026-10-29",
    "entry": 4675.0,
-   "r1": 4.33
+   "r1": 4.33,
+   "r5": 15.94
   },
   {
    "id": "50d85688fc51be13",
@@ -7798,7 +8256,8 @@
    "url": "https://economictimes.indiatimes.com/markets/stocks/news/tatapower-jswenergy-torrentpower-ambitseesbuyingopportunity-in-powerstocksaftervaluationreset/articleshow/135301267.cms",
    "entry_date": "2026-10-29",
    "entry": 510.0,
-   "r1": -1.89
+   "r1": -1.89,
+   "r5": 2.62
   },
   {
    "id": "50d85688fc51be13",
@@ -7812,7 +8271,8 @@
    "url": "https://economictimes.indiatimes.com/markets/stocks/news/tatapower-jswenergy-torrentpower-ambitseesbuyingopportunity-in-powerstocksaftervaluationreset/articleshow/135301267.cms",
    "entry_date": "2026-10-29",
    "entry": 344.55,
-   "r1": 0.15
+   "r1": 0.15,
+   "r5": 5.8
   },
   {
    "id": "364a502eae0bcf9f",
