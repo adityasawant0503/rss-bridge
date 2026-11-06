@@ -130,6 +130,8 @@ def refresh_closes(closes, wanted):
 
 
 def ai_classified(item):
+    if item.get("kind") == "deal":                 # reported trades (flows.py), not predictions
+        return False
     return not any("Keyword rules" in r for r in item.get("reason") or [])
 
 
