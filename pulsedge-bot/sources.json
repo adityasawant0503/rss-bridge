@@ -69,12 +69,6 @@
       "kind": "rss",
       "url": "https://www.cnbc.com/id/20910258/device/rss/rss.html",
       "section": "global"
-    },
-    {
-      "name": "Yahoo Finance",
-      "kind": "rss",
-      "url": "https://finance.yahoo.com/news/rssindex",
-      "section": "global"
     }
   ]
 }
