@@ -97,13 +97,20 @@ def parse_date(s):
     return None
 
 
+def _words(keys):
+    return re.compile(r"\b(?:" + "|".join(re.escape(k.strip()) for k in keys) + r")(?![A-Z0-9])")
+
+
+PROP_RE, FOREIGN_RE, DOMESTIC_RE = _words(PROP), _words(FOREIGN), _words(DOMESTIC)
+
+
 def who(client):
-    c = " " + re.sub(r"\s+", " ", client.upper()) + " "
-    if any(k in c for k in PROP):
+    c = re.sub(r"\s+", " ", client.upper())
+    if PROP_RE.search(c):
         return "prop"
-    if any(k in c for k in FOREIGN):
+    if FOREIGN_RE.search(c):
         return "foreign"
-    if any(k in c for k in DOMESTIC):
+    if DOMESTIC_RE.search(c):
         return "domestic"
     return "other"
 
