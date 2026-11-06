@@ -4,7 +4,9 @@
 Builds pulsedge/data/flows.json from NSE's end-of-day public data:
   - bulk and block deals (who bought or sold large blocks of which stock),
   - FII/FPI and DII net buying in the cash market (provisional),
-  - FII positioning in index futures (participant-wise open interest).
+  - FII positioning in index futures (participant-wise open interest),
+  - Nifty and sector index closes, for 1-day and 5-day sector moves and a
+    this-week summary of the Nifty against FII positioning.
 
 Large deals by foreign funds and domestic institutions are also added to
 pulsedge/data/feed.json as Watch items, so they show up under My stocks for
@@ -38,6 +40,14 @@ DEAL_URL = "https://www.nseindia.com/report-detail/display-bulk-and-block-deals"
 MIN_INSTITUTION_CR = 5      # feed items for institutional deals at or above this size (₹ crore)
 MIN_OTHER_CR = 50           # and for anyone else's deals in Nifty 500 stocks
 MAX_FEED_DEALS = 20
+
+# NSE index name (lower case) -> label used for sector chips in the terminal
+INDICES = {"nifty 50": "Nifty 50", "nifty midcap 100": "Midcap 100", "nifty smallcap 100": "Smallcap 100",
+           "nifty bank": "Banks", "nifty it": "IT", "nifty pharma": "Pharma", "nifty auto": "Auto", "nifty fmcg": "FMCG",
+           "nifty metal": "Metals", "nifty realty": "Realty", "nifty energy": "Energy", "nifty oil & gas": "Oil & Gas",
+           "nifty psu bank": "PSU Banks", "nifty financial services": "Financials", "nifty media": "Media",
+           "nifty healthcare index": "Healthcare", "nifty consumer durables": "Consumer durables"}
+BROAD = ("Nifty 50", "Midcap 100", "Smallcap 100")
 
 # Trading firms whose bulk deals are same-day churn, not investment decisions
 PROP = ("GRAVITON", "JUNOMONETA", "QE SECURITIES", "IRAGE", "ALPHAGREP", "HRTI", "NK SECURITIES", "SILVERLEAF",
@@ -245,9 +255,70 @@ def fno():
     day, oi = found[0]
     prev = found[1][1].get("fii", {}).get("long_pct") if len(found) > 1 else None
     res = {"date": day.isoformat(), "fii_long": oi["fii"]["long"], "fii_short": oi["fii"]["short"],
-           "fii_long_pct": oi["fii"]["long_pct"], "prev_long_pct": prev}
+           "fii_long_pct": oi["fii"]["long_pct"], "prev_long_pct": prev,
+           "prev_date": found[1][0].isoformat() if len(found) > 1 else None}
     log(f"FII index futures {res['date']}: {res['fii_long_pct']}% long (previous {prev})")
     return res
+
+
+# ---------- Nifty and sector indices ----------
+
+def index_day(day):
+    text = get_archive(f"/content/indices/ind_close_all_{day:%d%m%Y}.csv").decode("utf-8", "replace")
+    rows = [r for r in csv.reader(io.StringIO(text)) if r]
+    h = rows[0]
+    i_name, i_close, i_chg = col(h, "index name"), col(h, "closing index"), col(h, "change(%)")
+    out = {}
+    for r in rows[1:]:
+        label = INDICES.get(r[i_name].strip().lower())
+        if label:
+            out[label] = [num(r[i_close]), round(num(r[i_chg]), 2)]
+    if not out:
+        raise ValueError("no known indices")
+    return out
+
+
+def indices(prev_hist):
+    hist = dict(prev_hist or {})
+    d, tried = NOW.date(), 0
+    while tried < 8 and d.isoformat() not in hist:   # fetch only sessions not stored yet
+        if d.weekday() < 5:
+            tried += 1
+            try:
+                hist[d.isoformat()] = index_day(d)
+            except Exception:  # noqa: BLE001 - not published yet, or a holiday
+                pass
+        d -= timedelta(days=1)
+    days = sorted(hist)[-12:]
+    hist = {k: hist[k] for k in days}
+    if not days:
+        log("indices: unavailable")
+        return hist, [], None
+    last = hist[days[-1]]
+    base = hist[days[-6]] if len(days) >= 6 else None
+    rows = []
+    for label, (close, d1) in last.items():
+        d5 = round(100 * (close / base[label][0] - 1), 2) if base and base.get(label, [0])[0] else None
+        rows.append({"label": label, "close": close, "d1": d1, "d5": d5, "broad": label in BROAD})
+    rows.sort(key=lambda x: -x["d1"])
+    log(f"indices {days[-1]}: {len(rows)} ({', '.join(f'{x['label']} {x['d1']:+.2f}%' for x in rows[:3])} ...)")
+    return hist, rows, days[-1]
+
+
+def week_summary(sectors, fno_hist, cash_hist):
+    nifty = next((x for x in sectors if x["label"] == "Nifty 50"), None)
+    days = sorted(fno_hist)
+    out = {}
+    if nifty and nifty["d5"] is not None:
+        out["nifty_5d"] = nifty["d5"]
+    if days:
+        out["fii_long_now"] = fno_hist[days[-1]]
+        if len(days) >= 6:
+            out["fii_long_5d_ago"] = fno_hist[days[-6]]
+    if len(cash_hist) >= 2:
+        out["fii_cash_5d"] = round(sum(h["fii"] for h in cash_hist[-5:]), 2)
+        out["dii_cash_5d"] = round(sum(h["dii"] for h in cash_hist[-5:]), 2)
+    return out or None
 
 
 # ---------- feed items ----------
@@ -308,6 +379,13 @@ def main():
     rows = deals()
     c = cash()
     f = fno()
+    idx_hist, sectors, idx_date = indices(prev.get("index_history"))
+    fno_hist = dict(prev.get("fno_history") or {})
+    if f:
+        fno_hist[f["date"]] = f["fii_long_pct"]
+        if f.get("prev_date") and f.get("prev_long_pct") is not None:
+            fno_hist.setdefault(f["prev_date"], f["prev_long_pct"])
+    fno_hist = {k: fno_hist[k] for k in sorted(fno_hist)[-20:]}
 
     hist = {h["date"]: h for h in prev.get("cash_history", []) if h.get("date")}
     if c:
@@ -331,6 +409,11 @@ def main():
         "deals_date": rows[0]["date"] if rows else prev.get("deals_date"),
         "deals": [x for x in rows if x["who"] != "prop"][:40] if rows else prev.get("deals", []),
         "by_stock": by_stock if rows else prev.get("by_stock", []),
+        "sectors_date": idx_date or prev.get("sectors_date"),
+        "sectors": sectors or prev.get("sectors", []),
+        "index_history": idx_hist,
+        "fno_history": fno_hist,
+        "week": week_summary(sectors or prev.get("sectors", []), fno_hist, hist),
     }
     added = merge_feed(deal_items(rows), a.dry_run)
     inst = [x for x in rows if x["who"] in ("foreign", "domestic")]

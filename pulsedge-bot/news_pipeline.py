@@ -349,10 +349,44 @@ def classify_compat(batch, universe, url, key, model):
     return out
 
 
+# Global themes and the Indian sectors they usually move (used for global sources)
+THEMES = [
+    ("AI and chips", re.compile(r"\b(AI|artificial intelligence|Nvidia|OpenAI|Anthropic|semiconductors?|chips?|chipmakers?|GPUs?|data cent(?:er|re)s?)\b", re.I), ["IT"]),
+    ("US tech", re.compile(r"\b(Nasdaq|tech stocks|Big Tech|Apple|Microsoft|Alphabet|Google|Meta|Amazon|Accenture|Cognizant)\b"), ["IT"]),
+    ("Oil", re.compile(r"\b(crude|oil prices?|OPEC\+?|Brent|WTI)\b", re.I), ["Oil & Gas", "Paints", "Aviation"]),
+    ("US rates", re.compile(r"\b(Fed|Federal Reserve|Powell|Treasury yields?|bond yields?|rate cuts?|rate hikes?|inflation|CPI|jobs report|payrolls)\b"), ["Banks", "IT", "Realty"]),
+    ("China and metals", re.compile(r"\b(China|Chinese|steel|copper|aluminium|aluminum|iron ore|metals?)\b", re.I), ["Metals"]),
+    ("US pharma", re.compile(r"\b(FDA|drug pricing|drugmakers?|pharma(?:ceutical)?s?|generic drugs?)\b", re.I), ["Pharma"]),
+    ("Trade and tariffs", re.compile(r"\b(tariffs?|trade war|trade deal|export controls?|sanctions)\b", re.I), ["IT", "Pharma", "Auto"]),
+    ("Dollar", re.compile(r"\b(dollar index|DXY|greenback|strong dollar|weak dollar)\b", re.I), ["IT", "Pharma"]),
+    ("Gold", re.compile(r"\b(gold prices?|bullion)\b", re.I), ["Gold & jewellery"]),
+]
+
+
+def global_themes(text):
+    names, sectors = [], []
+    for name, rx, secs in THEMES:
+        if rx.search(text):
+            names.append(name)
+            sectors += [x for x in secs if x not in sectors]
+    return names, sectors
+
+
 def classify_rules(batch, universe):
     out = {}
     for n, b in enumerate(batch):
         text = b["headline"] + " " + b["summary"]
+        if b["section_hint"] == "global":
+            names, secs = global_themes(text)
+            out[n] = {
+                "i": n, "section": "global", "call": "watch" if names else "ignore", "horizon": "intraday",
+                "direction": "mixed", "tickers": [], "sectors": secs[:4], "impact": 35 if names else 8, "confidence": 30,
+                "category": ("Global: " + ", ".join(names[:2])) if names else "Global: no clear India link",
+                "action": "Check how these sectors open" if names else "No action",
+                "reason": ([f"{names[0]} news usually moves Indian {', '.join(secs[:3])}"] if names else [])
+                + ["Keyword rules (AI classification is off)"], "risks": [],
+            }
+            continue
         tk = [{"symbol": s, "direction": "up"} for s in match_tickers(text, universe)]
         routine = bool(ROUTINE.search(text))
         signal = bool(SIGNAL.search(text))
@@ -392,7 +426,8 @@ def main():
         it["key"], it["time"] = k, t
         fresh.append(it)
     fresh.sort(key=lambda x: x["time"], reverse=True)
-    fresh = fresh[:150]                                   # cap per run to bound cost
+    glob = [x for x in fresh if x.get("section_hint") == "global"][:25]   # global news must not crowd out Indian items
+    fresh = sorted([x for x in fresh if x.get("section_hint") != "global"][:125] + glob, key=lambda x: x["time"], reverse=True)                                   # cap per run to bound cost
     log(f"{len(raw)} collected, {len(fresh)} new")
 
     # AI provider: Claude if a key is set, else free GitHub Models inside Actions, else keyword rules
@@ -427,6 +462,10 @@ def main():
         known = {s["symbol"] for s in universe}
         for n, it in enumerate(chunk):
             r = res.get(n) or classify_rules([it], universe)[0]
+            if it.get("section_hint") == "global":
+                r["section"] = "global"
+                if not r.get("sectors"):
+                    r["sectors"] = global_themes(it["headline"] + " " + it["summary"])[1]
             tickers = [t for t in r["tickers"] if t["symbol"].upper() in known]
             classified.append({
                 "id": it["key"], "time": it["time"].isoformat(timespec="seconds"), "headline": it["headline"],

@@ -110,6 +110,10 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .notes{padding:16px;display:grid;gap:14px}
 #pm-flows{border-top:1px solid var(--line)}
 .fnote{margin:0;color:var(--mute);font-size:12.5px;line-height:1.5}
+.secs{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:5px 14px;font:13px/1.45 var(--mono);align-items:baseline}
+.secs .h{color:var(--mute);font-size:11px;letter-spacing:.06em}
+.secs .gap{grid-column:1/-1;border-top:1px dashed var(--line)}
+.wk{margin:0;font-size:14.5px;line-height:1.5}
 .summary{margin:0;font-size:15.5px;line-height:1.5}
 .lbl{font:600 11.5px/1 var(--sans);letter-spacing:.12em;color:var(--mute);text-transform:uppercase;margin:4px 0 8px}
 .bul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
@@ -280,6 +284,7 @@ html{-webkit-tap-highlight-color:transparent}
       <button class="tab" role="tab" data-t="all" aria-selected="true">All</button>
       <button class="tab" role="tab" data-t="ideas" aria-selected="false">Trade ideas</button>
       <button class="tab" role="tab" data-t="watch" aria-selected="false">Watch</button>
+      <button class="tab" role="tab" data-t="global" aria-selected="false">Global</button>
       <button class="tab" role="tab" data-t="redbox" aria-selected="false">RedBox</button>
       <button class="tab" role="tab" data-t="filings" aria-selected="false">Filings</button>
       <button class="tab" role="tab" data-t="money" aria-selected="false">Big money</button>
@@ -381,10 +386,27 @@ document.getElementById("fb").onclick=function(){if(window.PulseAccess)PulseAcce
   var flows=null;
   function crore(v){var a=Math.abs(v),t=a>=1000?Math.round(a).toLocaleString("en-IN"):a.toFixed(a>=100?0:1);return (v<0?"\u2212":"+")+"\u20b9"+t+" cr"}
   function shortDay(d){var x=new Date(d+"T12:00:00+05:30");return isNaN(x)?"":x.toLocaleDateString("en-IN",{timeZone:"Asia/Kolkata",day:"numeric",month:"short"})}
+  function sectorMove(label){var l=String(label).toLowerCase();return (flows&&flows.sectors||[]).filter(function(x){return x.label.toLowerCase()===l})[0]||null}
   function renderFlows(){
     var n=document.getElementById("pm-flows");n.textContent="";
     var c=flows&&flows.cash,f=flows&&flows.fno,deals=(flows&&flows.deals||[]).filter(function(x){return x.who==="foreign"||x.who==="domestic"}).slice(0,6);
-    n.hidden=!(c||f||deals.length);if(n.hidden)return;
+    var secs=(flows&&flows.sectors||[]).filter(function(x){return !x.broad}),wk=flows&&flows.week;
+    n.hidden=!(c||f||deals.length||secs.length);if(n.hidden)return;
+    function pct(v){return v==null?"\u2013":(v>=0?"+":"")+v.toFixed(1)+"%"}
+    if(wk&&(wk.nifty_5d!=null||wk.fii_long_now!=null)){
+      var w0=el("div"),parts=[];w0.appendChild(el("div","lbl","This week"));
+      if(wk.nifty_5d!=null)parts.push("Nifty "+pct(wk.nifty_5d)+" over 5 sessions");
+      if(wk.fii_long_now!=null)parts.push(wk.fii_long_5d_ago!=null?"FIIs went from "+wk.fii_long_5d_ago+"% to "+wk.fii_long_now+"% long in index futures":"FIIs "+wk.fii_long_now+"% long in index futures");
+      if(wk.fii_cash_5d!=null)parts.push("FII cash "+crore(wk.fii_cash_5d)+", DII "+crore(wk.dii_cash_5d));
+      w0.appendChild(el("p","wk",parts.join(". ")+"."));n.appendChild(w0);
+    }
+    if(secs.length){
+      var ws=el("div"),g0=el("div","secs"),pick=secs.length>8?secs.slice(0,4).concat([null],secs.slice(-4)):secs;
+      ws.appendChild(el("div","lbl","Sectors"+(flows.sectors_date?" \u00b7 "+shortDay(flows.sectors_date):"")));
+      g0.append(el("span","h",""),el("span","h","1 DAY"),el("span","h","5 DAYS"));
+      pick.forEach(function(x){if(!x){g0.appendChild(el("span","gap"));return}g0.append(el("span",null,x.label),el("span",x.d1>=0?"up":"down",pct(x.d1)),el("span",x.d5==null?"flat":x.d5>=0?"up":"down",pct(x.d5)))});
+      ws.appendChild(g0);n.appendChild(ws);
+    }
     if(c||f){
       var w=el("div"),g=el("div","also"),h=(flows.cash_history||[]).slice(-5);
       w.appendChild(el("div","lbl","Institutional money"+(c&&c.date?" \u00b7 "+shortDay(c.date):"")));
@@ -429,7 +451,7 @@ document.getElementById("fb").onclick=function(){if(window.PulseAccess)PulseAcce
     function list(v){return Array.isArray(v)?v.map(String):v?[String(v)]:[]}
     return {id:String(x.id||("s"+i)),t:t,ts:t?t.getTime():0,source:String(x.source||""),call:normCall(x),
       horizon:String(x.horizon||"").toLowerCase(),dir:dir,latency:typeof x.latency==="number"?x.latency:null,
-      headline:String(x.headline||""),tickers:tk,sectors:list(x.sectors||x.affected),
+      headline:String(x.headline||""),tickers:tk,sectors:list(x.sectors||x.affected),section:String(x.section||""),
       impact:typeof x.impact==="number"?Math.max(0,Math.min(100,x.impact)):null,conf:typeof x.confidence==="number"?Math.max(0,Math.min(100,x.confidence)):null,
       category:String(x.category||x.theme||""),action:String(x.action||""),reason:list(x.reason),risks:list(x.risks),original:String(x.original||""),
       url:/^https?:\/\//.test(x.url||"")?x.url:"",after:x.after&&typeof x.after==="object"?x.after:null};
@@ -438,6 +460,7 @@ document.getElementById("fb").onclick=function(){if(window.PulseAccess)PulseAcce
     if(t==="ideas")return s.call==="buy"||s.call==="sell";
     if(t==="watch")return s.call==="watch";
     if(t==="redbox")return /redbox/i.test(s.source);
+    if(t==="global")return s.section==="global";
     if(t==="money")return /bulk|block deal/i.test(s.source);
     if(t==="filings")return /announcement|filing|nse|bse/i.test(s.source)||/filing|compliance/i.test(s.category);
     if(t==="mine")return s.tickers.some(function(m){return mine(m.symbol)});
@@ -461,7 +484,7 @@ document.getElementById("fb").onclick=function(){if(window.PulseAccess)PulseAcce
     li.append(h,el("h3",null,s.headline));
     var ch=el("div","chips");
     s.tickers.forEach(function(m){ch.appendChild(el("span","tk"+(m.direction==="down"?" down":"")+(mine(m.symbol)?" mine":""),(m.direction==="down"?"▼ ":"")+m.symbol))});
-    s.sectors.forEach(function(x){ch.appendChild(el("span","sec",x))});
+    s.sectors.forEach(function(x){var m=sectorMove(x),c=el("span","sec",x);if(m){c.appendChild(el("span",m.d1>=0?"up":"down"," "+(m.d1>=0?"+":"")+m.d1.toFixed(1)+"%"));c.title=x+": "+(m.d1>=0?"+":"")+m.d1+"% on the last session"+(m.d5!=null?", "+(m.d5>=0?"+":"")+m.d5+"% over 5 sessions":"")}ch.appendChild(c)});
     if(ch.childNodes.length)li.appendChild(ch);
     var mt=el("div","meters");
     if(s.impact!=null)mt.appendChild(meter("Impact",s.impact));
