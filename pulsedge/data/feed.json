@@ -1,6 +1,512 @@
 {
- "updated": "2026-11-06T22:02:46+05:30",
+ "updated": "2026-11-07T01:36:31+05:30",
  "items": [
+  {
+   "id": "b13380612441ffc9",
+   "time": "2026-11-07T01:34:57+05:30",
+   "headline": "Kirloskar Oil Engines Limited: Kirloskar Oil Engines Limited has informed the Exchange regarding 'Update'. |SUBJECT: Updates",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/KIRLOSENG_07112026013429_SE_Outcome_6Nov26.pdf",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "OIL",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Kirloskar Oil Engines Limited: Kirloskar Oil Engines Limited has informed the Exchange regarding 'Update'. |SUBJECT: Updates"
+  },
+  {
+   "id": "bae86f0dc232a087",
+   "time": "2026-11-07T01:33:14+05:30",
+   "headline": "Ola Electric Mobility Limited: Ola Electric Mobility Limited has informed the Exchange about Board Meeting to be held on 12-Nov-2026 to inter-alia consider and approve the Unaudited Financial results of the Company for the Quarterly ended September 20",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/xbrl/PRIOR_INTIMATION_22983_WebXMLFile_20261107_013312842.xml",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "OLAELEC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Ola Electric Mobility Limited: Ola Electric Mobility Limited has informed the Exchange about Board Meeting to be held on 12-Nov-2026 to inter-alia consider and approve the Unaudited Financial results of the Company for the Quarterly ended September 20"
+  },
+  {
+   "id": "d647353d0f27e3ab",
+   "time": "2026-11-07T01:32:01+05:30",
+   "headline": "Ola Electric Mobility Limited: Ola Electric Mobility Limited has informed the Exchange about schedule of Earnings Conference Call-Q2 FY 2026-27 |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/OLAELECTRIC_07112026013048_SEintimationearningscall.pdf",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "OLAELEC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Ola Electric Mobility Limited: Ola Electric Mobility Limited has informed the Exchange about schedule of Earnings Conference Call-Q2 FY 2026-27 |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates"
+  },
+  {
+   "id": "b2dccb44f5114a7c",
+   "time": "2026-11-07T01:30:29+05:30",
+   "headline": "Kirloskar Oil Engines Limited: Kirloskar Oil Engines Limited has informed the Exchange regarding a press release dated November 06, 2026, titled \"Press Release\". |SUBJECT: Press Release",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/KIRLOSENG_07112026012948_SE_Outcome_6Nov26.pdf",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "OIL",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Kirloskar Oil Engines Limited: Kirloskar Oil Engines Limited has informed the Exchange regarding a press release dated November 06, 2026, titled \"Press Release\". |SUBJECT: Press Release"
+  },
+  {
+   "id": "52ea673100b75725",
+   "time": "2026-11-07T01:28:29+05:30",
+   "headline": "OpenAI bugging suspect Alfozan pleads not guilty",
+   "source": "CNBC World Markets",
+   "url": "https://www.cnbc.com/2026/11/06/openai-bugging-alfozan-saudi.html",
+   "section": "global",
+   "call": "watch",
+   "horizon": "intraday",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [
+    "IT"
+   ],
+   "impact": 35,
+   "confidence": 30,
+   "category": "Global: AI and chips",
+   "action": "Check how these sectors open",
+   "reason": [
+    "AI and chips news usually moves Indian IT",
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Saudi national Abdulrahman Alfozan is charged with planting a recording device in a conference room at artificial intelligence giant OpenAI."
+  },
+  {
+   "id": "378669e263cbaf57",
+   "time": "2026-11-07T01:24:30+05:30",
+   "headline": "Oil prices tumble for the week as investors weigh Iran conflict risk after midterm elections",
+   "source": "CNBC World Markets",
+   "url": "https://www.cnbc.com/2026/11/06/oil-price-today-brent-wti.html",
+   "section": "global",
+   "call": "watch",
+   "horizon": "intraday",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [
+    "Oil & Gas",
+    "Paints",
+    "Aviation"
+   ],
+   "impact": 35,
+   "confidence": 30,
+   "category": "Global: Oil",
+   "action": "Check how these sectors open",
+   "reason": [
+    "Oil news usually moves Indian Oil & Gas, Paints, Aviation",
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Oil prices fell Friday as investors weighed the risk of renewed Iran war escalation after the midterms, alongside prospects for a diplomatic breakthrough."
+  },
+  {
+   "id": "600b88a1245174cc",
+   "time": "2026-11-07T01:19:09+05:30",
+   "headline": "A disturbing employment trend is hiding beneath the latest strong job numbers",
+   "source": "CNBC Economy",
+   "url": "https://www.cnbc.com/2026/11/06/long-term-unemployment-october-jobs-report.html",
+   "section": "global",
+   "call": "ignore",
+   "horizon": "intraday",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Global: no clear India link",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "The average jobless worker's bout of unemployment surpassed 27 weeks in October, the highest outside of the pandemic period in a decade."
+  },
+  {
+   "id": "34e04e9f98ef2c16",
+   "time": "2026-11-07T01:09:24+05:30",
+   "headline": "Quick Mart IPO Draws Strong Demand as Kenyan Listings Pick Up",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/quick-mart-ipo-draws-strong-demand-as-kenyan-listings-pick-up-11793993964421.html",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Quick Mart Plc saw demand for shares in its initial public offering exceed the number available by almost 23% as Kenya’s second-biggest supermarket chain concluded the nation’s second IPO of the year."
+  },
+  {
+   "id": "e80a1e6b07d4dc8b",
+   "time": "2026-11-07T00:30:48+05:30",
+   "headline": "Tata Motors Limited: Tata Motors Limited has informed the Exchange regarding a press release dated November 07, 2026, titled \"TML CV Holdings B.V., an Indirect Wholly Owned Subsidiary of Tata Motors Limited (formerly TML Commercial Vehicles ",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/TMLCOMMERCIAL_07112026002910_final.pdf",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "TMCV",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Tata Motors Limited: Tata Motors Limited has informed the Exchange regarding a press release dated November 07, 2026, titled \"TML CV Holdings B.V., an Indirect Wholly Owned Subsidiary of Tata Motors Limited (formerly TML Commercial Vehicles "
+  },
+  {
+   "id": "9cfc867130d8a3e5",
+   "time": "2026-11-07T00:26:44+05:30",
+   "headline": "3i Infotech Limited: 3i Infotech Limited has informed the Exchange about Transcripts - earnings or quarterly calls |SUBJECT: Analyst/Investor Meet Para A-XBRL",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/xbrl/SAIIM_19957_WebXMLFile_20261107_002642039.xml",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "3i Infotech Limited: 3i Infotech Limited has informed the Exchange about Transcripts - earnings or quarterly calls |SUBJECT: Analyst/Investor Meet Para A-XBRL"
+  },
+  {
+   "id": "95357b25dfe70ae6",
+   "time": "2026-11-07T00:24:00+05:30",
+   "headline": "3i Infotech Limited: 3i Infotech Limited has informed the Exchange about Transcript |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/3IINFOTECHLTD_07112026002311_Transcript_for_Q2FY27_Earnings_call_signed.pdf",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "3i Infotech Limited: 3i Infotech Limited has informed the Exchange about Transcript |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates"
+  },
+  {
+   "id": "d733f169b2166e4f",
+   "time": "2026-11-07T00:20:06+05:30",
+   "headline": "Juniper Green Energy Limited: Juniper Green Energy Limited has informed the Exchange about Schedule of Analysts or Institutional Investors Meet |SUBJECT: Analyst/Investor Meet Para A-XBRL",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/xbrl/SAIIM_26430_WebXMLFile_20261107_002002910.xml",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Juniper Green Energy Limited: Juniper Green Energy Limited has informed the Exchange about Schedule of Analysts or Institutional Investors Meet |SUBJECT: Analyst/Investor Meet Para A-XBRL"
+  },
+  {
+   "id": "5f32792184b9ec4d",
+   "time": "2026-11-07T00:18:18+05:30",
+   "headline": "Aarnav Fashions Limited: AARNAV FASHIONS LIMITED has informed the Exchange about Change in Directors/KMP/SMP/Auditor/RTA |SUBJECT: Change in Directors/KMP/SMP/Auditor/RTA",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/xbrl/CIM_24042_WebXMLFile_20261107_001803348.xml",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Aarnav Fashions Limited: AARNAV FASHIONS LIMITED has informed the Exchange about Change in Directors/KMP/SMP/Auditor/RTA |SUBJECT: Change in Directors/KMP/SMP/Auditor/RTA"
+  },
+  {
+   "id": "e3ad68bf8c7247bf",
+   "time": "2026-11-07T00:10:58+05:30",
+   "headline": "Microsoft plans to use fewer neoclouds as AI buildout shows signs of strain",
+   "source": "CNBC World Markets",
+   "url": "https://www.cnbc.com/2026/11/06/microsoft-moves-to-consolidate-its-relationships-with-neoclouds-in-ai.html",
+   "section": "global",
+   "call": "watch",
+   "horizon": "intraday",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [
+    "IT"
+   ],
+   "impact": 35,
+   "confidence": 30,
+   "category": "Global: AI and chips, US tech",
+   "action": "Check how these sectors open",
+   "reason": [
+    "AI and chips news usually moves Indian IT",
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Microsoft is winding down the number of neoclouds it counts as partners, picking key suppliers and focusing on its own data centers."
+  },
+  {
+   "id": "66223114803085fc",
+   "time": "2026-11-07T00:05:08+05:30",
+   "headline": "OpenAI, Arm and Qualcomm executives react to post-midterm AI sell-off",
+   "source": "CNBC Technology",
+   "url": "https://www.cnbc.com/2026/11/06/tech-executives-ai-data-center-selloff-midterms.html",
+   "section": "global",
+   "call": "watch",
+   "horizon": "intraday",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [
+    "IT"
+   ],
+   "impact": 35,
+   "confidence": 30,
+   "category": "Global: AI and chips",
+   "action": "Check how these sectors open",
+   "reason": [
+    "AI and chips news usually moves Indian IT",
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Executives of major tech companies are largely projecting optimism about continued growth in the artificial intelligence sector despite a post-midterm sell-off."
+  },
+  {
+   "id": "c4e61607558fc097",
+   "time": "2026-11-06T23:34:28+05:30",
+   "headline": "Samvat 2082: Commodities witness sharp volatility as crude surges",
+   "source": "Business Standard",
+   "url": "https://www.business-standard.com/markets/news/samvat-2082-commodities-witness-sharp-volatility-as-crude-surges-126110601860_1.html",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Brent crude surged 60.4% in Samvat 2082 amid the US-Iran conflict, while gold and silver fell in dollar terms after retreating from record highs, though rupee depreciation supported domestic returns."
+  },
+  {
+   "id": "0883839cb3b41fde",
+   "time": "2026-11-06T23:32:09+05:30",
+   "headline": "Best-ever Samvat for IPOs: Record ₹2.23 trillion raised, up 19.6%",
+   "source": "Business Standard",
+   "url": "https://www.business-standard.com/markets/ipo/best-ever-samvat-for-ipos-record-2-23-trillion-raised-up-19-6-126110601904_1.html",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "India's primary market raised a record ₹2.23 trillion through 375 IPOs in Samvat 2082, with mainboard issues accounting for ₹2.12 trillion and SME offerings for the rest."
+  },
+  {
+   "id": "b9d8e6d273eec792",
+   "time": "2026-11-06T23:22:49+05:30",
+   "headline": "Weakest Samvat in 15 years ends on a high for mkts as Sensex, Nifty rally",
+   "source": "Business Standard",
+   "url": "https://www.business-standard.com/markets/news/weakest-samvat-in-15-years-ends-on-a-high-for-mkts-as-sensex-nifty-rally-126110601769_1.html",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "The Sensex and Nifty ended Samvat 2082 with losses of 4% and 3.1%, respectively, despite a sharp late rally that delivered their biggest weekly gains in nearly six years."
+  },
+  {
+   "id": "6db6fe064deb7380",
+   "time": "2026-11-06T23:21:19+05:30",
+   "headline": "Street basks in Diwali glow: Benchmark indices post best week in 6 years",
+   "source": "Business Standard",
+   "url": "https://www.business-standard.com/markets/news/street-basks-in-diwali-glow-benchmark-indices-post-best-week-in-6-years-126110602064_1.html",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Rupee shines across Asia; Brent sinks most in a week since Covid"
+  },
+  {
+   "id": "3753daeafeecf608",
+   "time": "2026-11-06T22:55:16+05:30",
+   "headline": "Gold, silver turn volatile after strong US jobs data, but remain on track to snap multi-week losing streaks",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/stock-market-news/gold-silver-turn-volatile-after-strong-us-jobs-data-but-remain-on-track-to-snap-multi-week-losing-streaks-11793985166600.html",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Gold and silver prices fell on Friday as stronger-than-expected US jobs data lifted expectations of a Federal Reserve rate hike in December. Gold was down ₹1,700 to ₹1,42,930 per 10 grams, while silver slipped 1.26% to ₹1,84,800 per kilogram."
+  },
+  {
+   "id": "9b824d46666f9baa",
+   "time": "2026-11-06T22:29:09+05:30",
+   "headline": "Dhanteras special: Gold beats stocks or Nifty takes the lead? Gold vs Nifty 50 returns in Samvat 2082 compared",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/stock-market-news/dhanteras-diwali-gold-beats-stocks-or-nifty-takes-the-lead-gold-vs-nifty-50-returns-in-samvat-2082-compared-11793983947279.html",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "OIL",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Indian equities endured volatility in Samvat 2082 amid geopolitical tensions, oil-price swings and inflation concerns. A late rally lifted the Nifty 50 more than 10% in seven sessions, but the index is still set to finish the year down about 3.24%."
+  },
   {
    "id": "3c802683fb2fa177",
    "time": "2026-11-06T22:01:17+05:30",
@@ -2862,6 +3368,28 @@
    "original": "FIIs sold a record ₹4.55 trillion worth of Indian equities in Samvat 2082, while DIIs bought ₹8.55 trillion, cushioning the market against global turmoil and foreign selling"
   },
   {
+   "id": "19a35dcc6fbe5a3f",
+   "time": "2026-11-06T20:08:20+05:30",
+   "headline": "Samvat 2082: Record DII buying more than makes up for record FPI outflow",
+   "source": "Business Standard",
+   "url": "https://www.business-standard.com/markets/news/record-fii-selling-of-4-55-trillion-meets-record-dii-buying-in-samvat-2082-126110601834_1.html",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "FIIs sold a record ₹4.55 trillion worth of Indian equities in Samvat 2082, while DIIs bought ₹8.55 trillion, cushioning the market against global turmoil and foreign selling"
+  },
+  {
    "id": "5d0ae872f039d829",
    "time": "2026-11-06T20:08:11+05:30",
    "headline": "Awfis Space Solutions Limited: Awfis Space Solutions Limited has informed the Exchange about Transcript |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates",
@@ -2909,6 +3437,152 @@
    ],
    "risks": [],
    "original": "Anupam Rasayan India Limited: ANUPAM RASAYAN INDIA LIMITED has informed the Exchange about Audio Recording/Video Recording |SUBJECT: Analyst/Investor Meet Para A-XBRL"
+  },
+  {
+   "id": "90111955498000e0",
+   "time": "2026-11-06T19:43:35+05:30",
+   "headline": "Pulse of the Street: Dalal Street shines before Diwali. Can the rally last?",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/pulse-of-the-street-dalal-street-shines-before-diwali-can-the-rally-last-11793965614339.html",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "OIL",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Indian stocks outperformed major global peers as cheaper oil and foreign buying lifted sentiment. Sustained inflows and earnings upgrades will determine whether the gains last."
+  },
+  {
+   "id": "f085f655c3ec9389",
+   "time": "2026-11-06T19:41:52+05:30",
+   "headline": "Diwali stock picks: 4 large cap stocks to buy for Samvat 2083 - PL Capital bullish on BEL, Britannia to ICICI | Target",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/stock-market-news/diwali-stock-picks-4-large-cap-stocks-to-buy-for-samvat-2083-pl-capital-bullish-on-bel-britannia-to-icici-target-11793974105149.html",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "BEL",
+     "direction": "up"
+    },
+    {
+     "symbol": "BRITANNIA",
+     "direction": "up"
+    },
+    {
+     "symbol": "ICICIBANK",
+     "direction": "up"
+    },
+    {
+     "symbol": "SHRIRAMFIN",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "PL Capital named Bharat Electronics, Britannia Industries, ICICI Bank and Shriram Finance among its top large-cap picks for Samvat 2083.&nbsp;"
+  },
+  {
+   "id": "dfd303199676c4f6",
+   "time": "2026-11-06T19:40:01+05:30",
+   "headline": "Pressure on rupee continues in Samvat 2082; 10-year bond yields harden",
+   "source": "Business Standard",
+   "url": "https://www.business-standard.com/markets/news/pressure-on-rupee-continues-in-samvat-2082-10-year-bond-yields-harden-126110601774_1.html",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "The rupee depreciated 6.37 per cent against the dollar in Samvat 2082 amid FPI outflows and global uncertainty, while the benchmark 10-year bond yield rose 69 basis points"
+  },
+  {
+   "id": "84904eaa8fbf8204",
+   "time": "2026-11-06T19:31:04+05:30",
+   "headline": "Upcoming IPO: Coal India’s Mahanadi Coalfields gets Sebi nod for public issue; top things to know about PSU public offer",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/ipo/upcoming-ipo-coal-india-s-mahanadi-coalfields-gets-sebi-nod-for-public-issue-top-things-to-know-about-psu-public-offer-11793970259119.html",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "COALINDIA",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Mahanadi Coalfields filed its draft red herring prospectus (DRHP) with the Sebi in September. The proposed IPO will be entirely an offer for sale (OFS) by promoter"
+  },
+  {
+   "id": "809f821fc7b4ef23",
+   "time": "2026-11-06T19:29:01+05:30",
+   "headline": "Angel One overtakes Zerodha to become 2nd-largest broker by active clients",
+   "source": "Business Standard",
+   "url": "https://www.business-standard.com/companies/news/angel-one-overtakes-zerodha-to-become-2nd-largest-broker-by-active-clients-126110601754_1.html",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "ANGELONE",
+     "direction": "up"
+    },
+    {
+     "symbol": "GROWW",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Angel One's active NSE client base rose to 6.99 million in October, surpassing Zerodha's 6.76 million, while Groww retained the top position with 13.75 million clients"
   },
   {
    "id": "c751e4fdc5682325",
@@ -5827,6 +6501,55 @@
    "original": "Archean Chemical Industries Limited: Archean Chemical Industries Limited has informed the Exchange about Transcript |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates"
   },
   {
+   "id": "7dd9be68111bdbda",
+   "time": "2026-11-06T18:56:15+05:30",
+   "headline": "Sagar Defence, Encube Ethicals among 4 firms to secure Sebi's nod for IPOs",
+   "source": "Business Standard",
+   "url": "https://www.business-standard.com/markets/ipo/sagar-defence-encube-ethicals-among-4-firms-to-secure-sebi-s-nod-for-ipos-126110601677_1.html",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Sagar Defence Engineering, Encube Ethicals, Arjun Jewellers and IFL Finance have received Sebi's approval to launch IPOs, with proposed issues including fresh shares and offers for sale."
+  },
+  {
+   "id": "9217145d7a9bed01",
+   "time": "2026-11-06T18:56:06+05:30",
+   "headline": "Multibagger stock to buy: Motilal Oswal sees 37% upside in Himadri Speciality Chemical; key triggers, target price",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/stock-market-news/multibagger-stock-to-buy-motilal-oswal-sees-37-upside-in-himadri-speciality-chemical-key-triggers-target-price-11793971080471.html",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "HSCL",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Motilal Oswal maintained its Buy rating on Himadri Speciality Chemical, with a target price of ₹780, implying about 37% upside from Friday’s close. The brokerage cited growth potential in battery materials, specialty carbon products and tyre manufacturing."
+  },
+  {
    "id": "8f6fcb5059ae4077",
    "time": "2026-11-06T18:42:36+05:30",
    "headline": "Tesla to wind down Cybertruck production in Texas next year to ramp Cybercab, Musk says",
@@ -5847,6 +6570,50 @@
    ],
    "risks": [],
    "original": "The Cybertruck and its polarizing design gained a niche following, but it did not achieve mass-market sales and Tesla has issued several voluntary recalls."
+  },
+  {
+   "id": "fbc7b822d4aa05c0",
+   "time": "2026-11-06T18:39:13+05:30",
+   "headline": "Stock Market Live Updates: US stocks rebound as chip stocks recover, Nasdaq gains over 1%",
+   "source": "ET Markets",
+   "url": "https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/stock-market-live-updates-dow-jones-nasdaq-sp-500-nvidia-amd-intel-broadcom-micron-tesla-airbnb-ai-chip-stocks-jobs-report-treasury-yields-iran-war-democrat-midterm-inflation-oil-prices-6th-november-2026/liveblog/135609029.cms",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Stock Market Live Updates: US stocks rebound as chip stocks recover, Nasdaq gains over 1%"
+  },
+  {
+   "id": "15ad6ad256773322",
+   "time": "2026-11-06T18:35:14+05:30",
+   "headline": "Ecom, qcom companies see consumer spending surge ahead of Diwali",
+   "source": "Business Standard",
+   "url": "https://www.business-standard.com/markets/news/ecom-qcom-companies-gear-up-for-diwali-rush-with-expanded-offerings-126110601644_1.html",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "E-commerce order volumes rose 21% YoY during the festive period, with quick commerce leading at 75% growth as platforms expanded offerings across gifting, fashion and decor"
   },
   {
    "id": "3d95103f277ce98f",
@@ -5871,6 +6638,60 @@
    "original": "Dozens of flights across Europe reported bomb threats this week, disrupting air travel across London, Dublin, and Helsinki."
   },
   {
+   "id": "4442a2d4cf53d5fa",
+   "time": "2026-11-06T18:18:53+05:30",
+   "headline": "Diwali 2026 stock market holiday: NSE, BSE open on Sunday but closed this day -Muhurat trading date, time | Samvat 2083",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/stock-market-news/diwali-2026-stock-market-holiday-nse-bse-open-on-sunday-but-closed-this-day-muhurat-trading-date-time-samvat-2083-11793967554645.html",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "BSE",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "NSE and BSE will hold a special Muhurat trading session on Sunday, November 8, from 2:20 PM to 3:30 PM, with a pre-open session at 2:05 PM. Markets will be closed on November 10 for Diwali-Balipratipada."
+  },
+  {
+   "id": "9fde10ebb4e00deb",
+   "time": "2026-11-06T18:07:53+05:30",
+   "headline": "Rupee hits six-month high of 93.91 against dollar on oil price decline",
+   "source": "Business Standard",
+   "url": "https://www.business-standard.com/economy/news/rupee-hits-six-month-high-of-93-91-against-dollar-on-oil-price-decline-126110601558_1.html",
+   "section": "trading",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "OIL",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "Trading",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "The rupee gained 0.60 per cent to close at 93.91 against the dollar on Friday, its highest level since April 22, supported by falling crude oil prices and foreign equity inflows"
+  },
+  {
    "id": "7587c52da058f5bc",
    "time": "2026-11-06T18:00:40+05:30",
    "headline": "Democratic sweep gives markets a reason to rethink path of interest rates",
@@ -5891,6 +6712,50 @@
    ],
    "risks": [],
    "original": "Rate hikes could be curbed by an Iran war resolution, slower U.S. growth and fresh fiscal policy — but none are set in stone."
+  },
+  {
+   "id": "50fb4d23e791d00d",
+   "time": "2026-11-06T17:48:46+05:30",
+   "headline": "Muhurat Trading 2026 on Diwali: Trading with Zerodha app, website? Check brokerage waiver, SIP and payout rules",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/stock-market-news/muhurat-trading-2026-on-diwali-trading-with-zerodha-app-website-check-brokerage-waiver-sip-and-payout-rules-11793964964951.html",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Zerodha will reverse brokerage charges for trades made during the November 8, 2026, Muhurat trading session, covering intraday, F&amp;O, commodity and MTF transactions.&nbsp;"
+  },
+  {
+   "id": "9c38f67fc941c3da",
+   "time": "2026-11-06T17:43:49+05:30",
+   "headline": "Investing in US stocks from India: Check how these 5 platforms stack up",
+   "source": "Business Standard",
+   "url": "https://www.business-standard.com/markets/news/investing-in-us-stocks-from-india-check-how-these-5-platforms-stack-up-126110601421_1.html",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Fees, structure and tax help differ across INDmoney, Interactive Brokers, Vested Finance, Paasa and ZFunds"
   },
   {
    "id": "eaf7dac970bb71ee",
@@ -5918,579 +6783,43 @@
    "original": "The election rout landed on an AI trade already under pressure from high interest rates, heavy capital spending and questions about returns."
   },
   {
-   "id": "889a155a5c029731",
-   "time": "2026-11-06T16:54:52+05:30",
-   "headline": "AI debt concerns grow as ING reportedly seeks buyers for $500 million of data center loans",
-   "source": "CNBC World Markets",
-   "url": "https://www.cnbc.com/2026/11/06/ing-ai-data-center-loans-debt.html",
-   "section": "global",
-   "call": "watch",
-   "horizon": "intraday",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [
-    "IT"
-   ],
-   "impact": 35,
-   "confidence": 30,
-   "category": "Global: AI and chips",
-   "action": "Check how these sectors open",
-   "reason": [
-    "AI and chips news usually moves Indian IT",
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "ING is reportedly seeking bids for about $500 million across 12 data center loans, including debt tied to a New Mexico Stargate site."
-  },
-  {
-   "id": "d404a2de61d201e7",
-   "time": "2026-11-06T16:36:58+05:30",
-   "headline": "Nasdaq sell-off batters Asian chip stocks as SK Hynix, Samsung, Softbank, TSMC tumble",
-   "source": "CNBC World Markets",
-   "url": "https://www.cnbc.com/2026/11/06/tech-stocks-sk-hynix-samsung-softbank.html",
-   "section": "global",
-   "call": "watch",
-   "horizon": "intraday",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [
-    "IT"
-   ],
-   "impact": 35,
-   "confidence": 30,
-   "category": "Global: AI and chips, US tech",
-   "action": "Check how these sectors open",
-   "reason": [
-    "AI and chips news usually moves Indian IT",
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Asian technology stocks tumbled Friday, tracking a sharp sell-off on Wall Street overnight that sent the tech-heavy Nasdaq Composite into correction territory."
-  },
-  {
-   "id": "19b0f59e07fc1128",
-   "time": "2026-11-06T16:09:51+05:30",
-   "headline": "Drones are changing warfare. But defense giants are still making billions from old-school weapons",
-   "source": "CNBC World Markets",
-   "url": "https://www.cnbc.com/2026/11/06/defense-military-tech-earnings.html",
-   "section": "global",
-   "call": "watch",
-   "horizon": "intraday",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [
-    "IT"
-   ],
-   "impact": 35,
-   "confidence": 30,
-   "category": "Global: AI and chips",
-   "action": "Check how these sectors open",
-   "reason": [
-    "AI and chips news usually moves Indian IT",
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "The world's biggest defense firms are finding that demand for traditional military equipment remains strong even as drones and AI reshape how wars are fought."
-  },
-  {
-   "id": "c3028a13e34c15a5",
-   "kind": "deal",
-   "time": "2026-11-06T16:00:00+05:30",
-   "headline": "Bulk deal: PEAK XV PARTNERS INVESTMENTS VI-1 sold 602.1 lakh shares of Billionbrains Garage Vn L at ₹215.2 (₹1,295.8 cr)",
-   "source": "NSE bulk & block deals",
-   "url": "https://www.nseindia.com/report-detail/display-bulk-and-block-deals",
+   "id": "2109eaa07eff07ea",
+   "time": "2026-11-06T17:32:52+05:30",
+   "headline": "India's 10-year bond posts best week in 7 years, leads emerging Asia as oil slides",
+   "source": "ET Markets",
+   "url": "https://economictimes.indiatimes.com/markets/bonds/indias-10-year-bond-posts-best-week-in-7-years-leads-emerging-asia-as-oil-slides/articleshow/135606792.cms",
    "section": "trading",
-   "call": "watch",
-   "horizon": "positional",
-   "direction": "down",
-   "tickers": [
-    {
-     "symbol": "GROWW",
-     "direction": "down"
-    }
-   ],
-   "sectors": [],
-   "impact": 75,
-   "confidence": 55,
-   "category": "Institutional deal",
-   "action": "See why before acting: check recent results and news. One deal isn't a trend.",
-   "reason": [
-    "Large investor sold ₹1,295.8 cr of GROWW in one bulk deal",
-    "Big trades by institutions can show conviction, but can also be rebalancing or an exit",
-    "From NSE's end-of-day bulk and block deal disclosures"
-   ],
-   "risks": [
-    "The other side of the trade may also be an institution"
-   ],
-   "original": "PEAK XV PARTNERS INVESTMENTS VI-1 sold 60,213,215 shares of GROWW (bulk deal, 2026-11-06)"
-  },
-  {
-   "id": "8d4ae12664d3b33c",
-   "kind": "deal",
-   "time": "2026-11-06T16:00:00+05:30",
-   "headline": "Bulk deal: GOLDMAN SACHS BANK EUROPE SE - ODI bought 355.1 lakh shares of Billionbrains Garage Vn L at ₹215.01 (₹763.6 cr)",
-   "source": "NSE bulk & block deals",
-   "url": "https://www.nseindia.com/report-detail/display-bulk-and-block-deals",
-   "section": "trading",
-   "call": "watch",
-   "horizon": "positional",
-   "direction": "up",
-   "tickers": [
-    {
-     "symbol": "GROWW",
-     "direction": "up"
-    }
-   ],
-   "sectors": [],
-   "impact": 75,
-   "confidence": 55,
-   "category": "Institutional deal",
-   "action": "See why before acting: check recent results and news. One deal isn't a trend.",
-   "reason": [
-    "Foreign fund bought ₹763.6 cr of GROWW in one bulk deal",
-    "Big trades by institutions can show conviction, but can also be rebalancing or an exit",
-    "From NSE's end-of-day bulk and block deal disclosures"
-   ],
-   "risks": [
-    "The other side of the trade may also be an institution"
-   ],
-   "original": "GOLDMAN SACHS BANK EUROPE SE - ODI bought 35,513,869 shares of GROWW (bulk deal, 2026-11-06)"
-  },
-  {
-   "id": "cae614b6e1fa2ba8",
-   "kind": "deal",
-   "time": "2026-11-06T16:00:00+05:30",
-   "headline": "Bulk deal: SYNERGY METALS INVESTMENTS HOLDING LIMITED sold 191.0 lakh shares of JSW Cement Limited at ₹120.5 (₹230.1 cr)",
-   "source": "NSE bulk & block deals",
-   "url": "https://www.nseindia.com/report-detail/display-bulk-and-block-deals",
-   "section": "trading",
-   "call": "watch",
-   "horizon": "positional",
-   "direction": "down",
-   "tickers": [
-    {
-     "symbol": "JSWCEMENT",
-     "direction": "down"
-    }
-   ],
-   "sectors": [],
-   "impact": 75,
-   "confidence": 55,
-   "category": "Institutional deal",
-   "action": "See why before acting: check recent results and news. One deal isn't a trend.",
-   "reason": [
-    "Large investor sold ₹230.1 cr of JSWCEMENT in one bulk deal",
-    "Big trades by institutions can show conviction, but can also be rebalancing or an exit",
-    "From NSE's end-of-day bulk and block deal disclosures"
-   ],
-   "risks": [
-    "The other side of the trade may also be an institution"
-   ],
-   "original": "SYNERGY METALS INVESTMENTS HOLDING LIMITED sold 19,098,281 shares of JSWCEMENT (bulk deal, 2026-11-06)"
-  },
-  {
-   "id": "890e780c80cda0cf",
-   "kind": "deal",
-   "time": "2026-11-06T16:00:00+05:30",
-   "headline": "Bulk deal: NOMURA FUNDS IRELAND PLC NOMURA FUNDS IRELAND INDIA EQUITY F bought 120.0 lakh shares of JSW Cement Limited at ₹120.5 (₹144.6 cr)",
-   "source": "NSE bulk & block deals",
-   "url": "https://www.nseindia.com/report-detail/display-bulk-and-block-deals",
-   "section": "trading",
-   "call": "watch",
-   "horizon": "positional",
-   "direction": "up",
-   "tickers": [
-    {
-     "symbol": "JSWCEMENT",
-     "direction": "up"
-    }
-   ],
-   "sectors": [],
-   "impact": 65,
-   "confidence": 55,
-   "category": "Institutional deal",
-   "action": "See why before acting: check recent results and news. One deal isn't a trend.",
-   "reason": [
-    "Foreign fund bought ₹144.6 cr of JSWCEMENT in one bulk deal",
-    "Big trades by institutions can show conviction, but can also be rebalancing or an exit",
-    "From NSE's end-of-day bulk and block deal disclosures"
-   ],
-   "risks": [
-    "The other side of the trade may also be an institution"
-   ],
-   "original": "NOMURA FUNDS IRELAND PLC NOMURA FUNDS IRELAND INDIA EQUITY FUND bought 12,000,000 shares of JSWCEMENT (bulk deal, 2026-11-06)"
-  },
-  {
-   "id": "c9d1cac0bc5d46e8",
-   "kind": "deal",
-   "time": "2026-11-06T16:00:00+05:30",
-   "headline": "Bulk deal: BANDHAN MUTUAL FUND bought 8.6 lakh shares of Alivus Life Sciences Ltd at ₹1,370.0 (₹117.3 cr)",
-   "source": "NSE bulk & block deals",
-   "url": "https://www.nseindia.com/report-detail/display-bulk-and-block-deals",
-   "section": "trading",
-   "call": "watch",
-   "horizon": "positional",
-   "direction": "up",
-   "tickers": [
-    {
-     "symbol": "ALIVUS",
-     "direction": "up"
-    }
-   ],
-   "sectors": [],
-   "impact": 65,
-   "confidence": 55,
-   "category": "Institutional deal",
-   "action": "See why before acting: check recent results and news. One deal isn't a trend.",
-   "reason": [
-    "Domestic institution bought ₹117.3 cr of ALIVUS in one bulk deal",
-    "Big trades by institutions can show conviction, but can also be rebalancing or an exit",
-    "From NSE's end-of-day bulk and block deal disclosures"
-   ],
-   "risks": [
-    "The other side of the trade may also be an institution"
-   ],
-   "original": "BANDHAN MUTUAL FUND bought 855,971 shares of ALIVUS (bulk deal, 2026-11-06)"
-  },
-  {
-   "id": "070f08f3ed3b16fb",
-   "kind": "deal",
-   "time": "2026-11-06T16:00:00+05:30",
-   "headline": "Block deal: BANDHAN MUTUAL FUND bought 8.6 lakh shares of Alivus Life Sciences Ltd at ₹1,370.0 (₹117.3 cr)",
-   "source": "NSE bulk & block deals",
-   "url": "https://www.nseindia.com/report-detail/display-bulk-and-block-deals",
-   "section": "trading",
-   "call": "watch",
-   "horizon": "positional",
-   "direction": "up",
-   "tickers": [
-    {
-     "symbol": "ALIVUS",
-     "direction": "up"
-    }
-   ],
-   "sectors": [],
-   "impact": 65,
-   "confidence": 55,
-   "category": "Institutional deal",
-   "action": "See why before acting: check recent results and news. One deal isn't a trend.",
-   "reason": [
-    "Domestic institution bought ₹117.3 cr of ALIVUS in one block deal",
-    "Big trades by institutions can show conviction, but can also be rebalancing or an exit",
-    "From NSE's end-of-day bulk and block deal disclosures"
-   ],
-   "risks": [
-    "The other side of the trade may also be an institution"
-   ],
-   "original": "BANDHAN MUTUAL FUND bought 855,971 shares of ALIVUS (block deal, 2026-11-06)"
-  },
-  {
-   "id": "83636d53a5419c27",
-   "kind": "deal",
-   "time": "2026-11-06T16:00:00+05:30",
-   "headline": "Block deal: HELIOS MUTUAL FUND bought 2.2 lakh shares of Alivus Life Sciences Ltd at ₹1,370.0 (₹29.8 cr)",
-   "source": "NSE bulk & block deals",
-   "url": "https://www.nseindia.com/report-detail/display-bulk-and-block-deals",
-   "section": "trading",
-   "call": "watch",
-   "horizon": "positional",
-   "direction": "up",
-   "tickers": [
-    {
-     "symbol": "ALIVUS",
-     "direction": "up"
-    }
-   ],
-   "sectors": [],
-   "impact": 55,
-   "confidence": 55,
-   "category": "Institutional deal",
-   "action": "See why before acting: check recent results and news. One deal isn't a trend.",
-   "reason": [
-    "Domestic institution bought ₹29.8 cr of ALIVUS in one block deal",
-    "Big trades by institutions can show conviction, but can also be rebalancing or an exit",
-    "From NSE's end-of-day bulk and block deal disclosures"
-   ],
-   "risks": [
-    "The other side of the trade may also be an institution"
-   ],
-   "original": "HELIOS MUTUAL FUND bought 217,500 shares of ALIVUS (block deal, 2026-11-06)"
-  },
-  {
-   "id": "74e789ef0d511268",
-   "kind": "deal",
-   "time": "2026-11-06T16:00:00+05:30",
-   "headline": "Block deal: NORGES BANK ON ACCOUNT OF THE GOVERNMENT PENSION FUND GLOBAL bought 1.8 lakh shares of Alivus Life Sciences Ltd at ₹1,370.0 (₹25.1 cr)",
-   "source": "NSE bulk & block deals",
-   "url": "https://www.nseindia.com/report-detail/display-bulk-and-block-deals",
-   "section": "trading",
-   "call": "watch",
-   "horizon": "positional",
-   "direction": "up",
-   "tickers": [
-    {
-     "symbol": "ALIVUS",
-     "direction": "up"
-    }
-   ],
-   "sectors": [],
-   "impact": 55,
-   "confidence": 55,
-   "category": "Institutional deal",
-   "action": "See why before acting: check recent results and news. One deal isn't a trend.",
-   "reason": [
-    "Foreign fund bought ₹25.1 cr of ALIVUS in one block deal",
-    "Big trades by institutions can show conviction, but can also be rebalancing or an exit",
-    "From NSE's end-of-day bulk and block deal disclosures"
-   ],
-   "risks": [
-    "The other side of the trade may also be an institution"
-   ],
-   "original": "NORGES BANK ON ACCOUNT OF THE GOVERNMENT PENSION FUND GLOBAL bought 183,000 shares of ALIVUS (block deal, 2026-11-06)"
-  },
-  {
-   "id": "ef601d36f0ca89a6",
-   "time": "2026-11-06T15:58:25+05:30",
-   "headline": "Chinese AI lab Moonshot turned to Europe for Nvidia Blackwell access amid U.S. China curbs, sources tell CNBC",
-   "source": "CNBC World Markets",
-   "url": "https://www.cnbc.com/2026/11/05/moonshot-ai-nvidia-chips-europe-china.html",
-   "section": "global",
-   "call": "watch",
-   "horizon": "intraday",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [
-    "IT",
-    "Metals",
-    "Pharma",
-    "Auto"
-   ],
-   "impact": 35,
-   "confidence": 30,
-   "category": "Global: AI and chips, China and metals",
-   "action": "Check how these sectors open",
-   "reason": [
-    "AI and chips news usually moves Indian IT, Metals, Pharma",
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Moonshot AI has sought leasing agreements with neoclouds for advanced chips in Europe, as U.S. export controls restrict their import to China."
-  },
-  {
-   "id": "f22a6ae59aeebfe4",
-   "time": "2026-11-06T15:30:54+05:30",
-   "headline": "Oil prices set for sharp weekly fall after midterm elections as investors weigh Iran conflict risk",
-   "source": "CNBC World Markets",
-   "url": "https://www.cnbc.com/2026/11/06/oil-price-today-brent-wti.html",
-   "section": "global",
-   "call": "watch",
-   "horizon": "intraday",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [
-    "Oil & Gas",
-    "Paints",
-    "Aviation"
-   ],
-   "impact": 35,
-   "confidence": 30,
-   "category": "Global: Oil",
-   "action": "Check how these sectors open",
-   "reason": [
-    "Oil news usually moves Indian Oil & Gas, Paints, Aviation",
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Oil prices fell Friday as investors weighed the risk of renewed Iran war escalation after the midterms, alongside prospects for a diplomatic breakthrough."
-  },
-  {
-   "id": "3dcad06aa441081e",
-   "time": "2026-11-06T14:20:40+05:30",
-   "headline": "Mangalam Global Enterprise Limited: Mangalam Global Enterprise Limited has informed the Exchange regarding fund raising at its Board Meeting held on November 06, 2026. |SUBJECT: General Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/MGEL_06112026142022_OUTCOME_OF_BOARD_MEETING_06112026_SIGNED.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Mangalam Global Enterprise Limited: Mangalam Global Enterprise Limited has informed the Exchange regarding fund raising at its Board Meeting held on November 06, 2026. |SUBJECT: General Updates"
-  },
-  {
-   "id": "8b943a95bf6e8f59",
-   "time": "2026-11-06T14:20:27+05:30",
-   "headline": "Nitin Spinners Limited: Nitin Spinners Limited has informed the Exchange about Transcript |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/NITINSPIN_06112026141957_Transcript_of_Earning_Call_on_Q2_FY_27_Results.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Nitin Spinners Limited: Nitin Spinners Limited has informed the Exchange about Transcript |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates"
-  },
-  {
-   "id": "2e02d17560cf1b1b",
-   "time": "2026-11-06T14:20:17+05:30",
-   "headline": "Vardhman Textiles Limited: Vardhman Textiles Limited has informed the Exchange about Investor Presentation |SUBJECT: Investor Presentation",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/VTL_06112026141623_vtxl_ip_sd.pdf",
-   "section": "news",
    "call": "watch",
    "horizon": "swing",
    "direction": "mixed",
    "tickers": [
     {
-     "symbol": "VTL",
+     "symbol": "BANKINDIA",
+     "direction": "up"
+    },
+    {
+     "symbol": "OIL",
      "direction": "up"
     }
    ],
    "sectors": [],
    "impact": 25,
    "confidence": 30,
-   "category": "News",
+   "category": "Trading",
    "action": "Read the source before acting",
    "reason": [
     "Keyword rules (AI classification is off)"
    ],
    "risks": [],
-   "original": "Vardhman Textiles Limited: Vardhman Textiles Limited has informed the Exchange about Investor Presentation |SUBJECT: Investor Presentation"
+   "original": "This week, Indian government bonds saw a remarkable performance, outpacing other Asian markets as benchmark yields dropped significantly. Following the Democratic win in the US midterms, crude prices fell sharply, enticing foreign investors back to purchase a significant volume of Indian bonds. This"
   },
   {
-   "id": "63db9f8a2d530533",
-   "time": "2026-11-06T14:20:11+05:30",
-   "headline": "Bhartiya International Limited: Bhartiya International Limited has informed the Exchange about Copy of Newspaper Publication |SUBJECT: Copy of Newspaper Publication",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/BIL_06112026141958_Intimation.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Bhartiya International Limited: Bhartiya International Limited has informed the Exchange about Copy of Newspaper Publication |SUBJECT: Copy of Newspaper Publication"
-  },
-  {
-   "id": "5b44da44f2c6174a",
-   "time": "2026-11-06T14:20:08+05:30",
-   "headline": "One Mobikwik Systems Limited: One Mobikwik Systems Limited has informed the Exchange about Certificate of Registration to operate as a Non-Banking Financial Company ( NBFC ) received by MobiKwik Financial Services Private Limited (Wholly Owned Subsid",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/MOBIKWIK_06112026141941_Intimation_about_granting_of_NBFC_License.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "One Mobikwik Systems Limited: One Mobikwik Systems Limited has informed the Exchange about Certificate of Registration to operate as a Non-Banking Financial Company ( NBFC ) received by MobiKwik Financial Services Private Limited (Wholly Owned Subsid"
-  },
-  {
-   "id": "c30076ee17dccef4",
-   "time": "2026-11-06T14:20:01+05:30",
-   "headline": "Tribhovandas Bhimji Zaveri Limited: Tribhovandas Bhimji Zaveri Limited has informed the Exchange regarding Notice of Postal Ballot |SUBJECT: Shareholders meeting",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/TBZ_06112026141941_Intimation_BSE_NSE_Postal_Ballot_06112026.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Tribhovandas Bhimji Zaveri Limited: Tribhovandas Bhimji Zaveri Limited has informed the Exchange regarding Notice of Postal Ballot |SUBJECT: Shareholders meeting"
-  },
-  {
-   "id": "6831012292660366",
-   "time": "2026-11-06T14:19:48+05:30",
-   "headline": "Sudarshan Chemical Industries Limited: Sudarshan Chemical Industries Limited has informed the Exchange about Authorized Officials to Determine Materiality of an Event or Information |SUBJECT: General Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/SUDARSCHEM_06112026141937_SUDARSHANOutcomeofBM06112026_v1SIGNED.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Sudarshan Chemical Industries Limited: Sudarshan Chemical Industries Limited has informed the Exchange about Authorized Officials to Determine Materiality of an Event or Information |SUBJECT: General Updates"
-  },
-  {
-   "id": "77b5d8e0dca702e5",
-   "time": "2026-11-06T14:19:23+05:30",
-   "headline": "Star Cement Limited: Star Cement Limited has informed the Exchange that Record date for the purpose of Dividend is 13-Nov-2026. |SUBJECT: Record Date",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/STARCEMENT_06112026141815_SCL_Financial_Outcome.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Star Cement Limited: Star Cement Limited has informed the Exchange that Record date for the purpose of Dividend is 13-Nov-2026. |SUBJECT: Record Date"
-  },
-  {
-   "id": "c069728d7ac4e308",
-   "time": "2026-11-06T14:19:05+05:30",
-   "headline": "Silgo Retail Limited: Silgo Retail Limited has submitted to the Exchange, the financial results for the period ended September 30, 2026. |SUBJECT: Outcome of Board Meeting",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/SILGO_06112026141746_Outcome_BM_Financials_06112026.pdf",
-   "section": "news",
+   "id": "de40b5907ed06b78",
+   "time": "2026-11-06T17:30:00+05:30",
+   "headline": "Census on Foreign Liabilities and Assets of Indian Direct Investment Entities for 2025-26",
+   "source": "RBI",
+   "url": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63941",
+   "section": "macro",
    "call": "watch",
    "horizon": "swing",
    "direction": "mixed",
@@ -6498,21 +6827,21 @@
    "sectors": [],
    "impact": 45,
    "confidence": 30,
-   "category": "News",
+   "category": "Macro",
    "action": "Read the source before acting",
    "reason": [
     "Keyword rules (AI classification is off)"
    ],
    "risks": [],
-   "original": "Silgo Retail Limited: Silgo Retail Limited has submitted to the Exchange, the financial results for the period ended September 30, 2026. |SUBJECT: Outcome of Board Meeting"
+   "original": "Today, the Reserve Bank released the provisional results of the 2025-26 1 round of the annual census on foreign liabilities and assets (FLA) covering cross-border liabilities and assets of the Indian entities [viz., companies, limited liability partnerships (LLPs), alternative investment funds (AIFs"
   },
   {
-   "id": "faf95e491da35bc6",
-   "time": "2026-11-06T14:18:52+05:30",
-   "headline": "TCI Express Limited: TCI EXPRESS LIMITED has informed the Exchange about Pendency of any litigation(s) or dispute(s)-(Sub-para 8-Para B) |SUBJECT: Pendency of any litigation(s) or dispute(s)-(Sub-para 8-Para B)",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/REG30_PARA_B_14409_WebXMLFile_20261106_141851965.xml",
-   "section": "news",
+   "id": "1ce093c43a6bb393",
+   "time": "2026-11-06T17:05:47+05:30",
+   "headline": "56% returns in 6 months! TAAL Tech dividend record date ahead- Check eligibility, dividend amount, payment timeline",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/stock-market-news/56-returns-in-6-months-taal-tech-dividend-record-date-ahead-check-eligibility-dividend-amount-payment-timeline-11793962758960.html",
+   "section": "trading",
    "call": "ignore",
    "horizon": "swing",
    "direction": "mixed",
@@ -6520,114 +6849,56 @@
    "sectors": [],
    "impact": 8,
    "confidence": 30,
-   "category": "No listed-stock impact",
+   "category": "Routine filing",
    "action": "No action",
    "reason": [
     "Keyword rules (AI classification is off)"
    ],
    "risks": [],
-   "original": "TCI Express Limited: TCI EXPRESS LIMITED has informed the Exchange about Pendency of any litigation(s) or dispute(s)-(Sub-para 8-Para B) |SUBJECT: Pendency of any litigation(s) or dispute(s)-(Sub-para 8-Para B)"
+   "original": "TAAL Tech declared its first interim dividend for FY27 at ₹5 per share, or 250%. Shareholders on record November 13, 2026, are eligible, with payment due by December 2.&nbsp;"
   },
   {
-   "id": "c6b56253c05f8605",
-   "time": "2026-11-06T14:18:46+05:30",
-   "headline": "JSW Steel Limited: Disclosure regarding incorporation of a step down wholly-owned subsidiary. |SUBJECT: Disclosure of material issue",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/jessydenny_06112026141830_Stock_Exchange_Intimation.pdf",
-   "section": "news",
+   "id": "4770c53da9b07773",
+   "time": "2026-11-06T17:04:08+05:30",
+   "headline": "Indian IT stocks emerge as 'safe AI trade' amid rising Big Tech spending; Anand Rathi prefers TechM, LTM, Mphasis",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/stock-market-news/indian-it-stocks-emerge-as-safe-ai-trade-amid-rising-big-tech-spending-anand-rathi-prefers-techm-ltm-mphasis-11793962964792.html",
+   "section": "trading",
    "call": "watch",
    "horizon": "swing",
    "direction": "mixed",
    "tickers": [
     {
-     "symbol": "JSWSTEEL",
+     "symbol": "LTM",
+     "direction": "up"
+    },
+    {
+     "symbol": "MPHASIS",
+     "direction": "up"
+    },
+    {
+     "symbol": "TECHM",
      "direction": "up"
     }
    ],
    "sectors": [],
    "impact": 25,
    "confidence": 30,
-   "category": "News",
+   "category": "Trading",
    "action": "Read the source before acting",
    "reason": [
     "Keyword rules (AI classification is off)"
    ],
    "risks": [],
-   "original": "JSW Steel Limited: Disclosure regarding incorporation of a step down wholly-owned subsidiary. |SUBJECT: Disclosure of material issue"
+   "original": "Anand Rathi sees Indian IT firms benefiting as rising AI infrastructure costs put pressure on global technology giants. It favors asset-light companies with strong cash generation, naming Tech Mahindra, LTIMindtree, and Mphasis as top picks.&nbsp;"
   },
   {
-   "id": "88ba906c83c207eb",
-   "time": "2026-11-06T14:18:45+05:30",
-   "headline": "KCP Limited: KCP Limited has informed the Exchange about General Updates of Board Meeting outcome |SUBJECT: General Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/radhika_06112026141827_SEOutcome61126.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "KCP Limited: KCP Limited has informed the Exchange about General Updates of Board Meeting outcome |SUBJECT: General Updates"
-  },
-  {
-   "id": "7f2f45acfb0d1dd5",
-   "time": "2026-11-06T14:18:36+05:30",
-   "headline": "Kiri Industries Limited: Kiri Industries Limited has informed the Exchange about Link of Recording |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/KIRIINDUS_06112026141806_ConCall_AudioRecording_06112026_S.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Kiri Industries Limited: Kiri Industries Limited has informed the Exchange about Link of Recording |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates"
-  },
-  {
-   "id": "92e7ffbb2744fae9",
-   "time": "2026-11-06T14:18:29+05:30",
-   "headline": "Gopal Snacks Limited: Gopal Snacks Limited has informed the Exchange about Transcript |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/GOPALSNACKS_06112026141815_GSLECTrancript.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Gopal Snacks Limited: Gopal Snacks Limited has informed the Exchange about Transcript |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates"
-  },
-  {
-   "id": "13c0b11c4b5d8b69",
-   "time": "2026-11-06T14:18:28+05:30",
-   "headline": "V Marc India Limited: V Marc India Limited has submitted to the Exchange, the Un-audited financial results (Standalone and Consolidated) for the period ended September 30, 2026. |SUBJECT: Outcome of Board Meeting",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/Ranjan_06112026141703_VIL_.pdf",
-   "section": "news",
+   "id": "8df742c555028a01",
+   "time": "2026-11-06T17:00:13+05:30",
+   "headline": "British Airways parent profit drops on higher fuel costs",
+   "source": "ET Markets",
+   "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/british-airways-parent-profit-drops-on-higher-fuel-costs/articleshow/135605804.cms",
+   "section": "trading",
    "call": "watch",
    "horizon": "swing",
    "direction": "mixed",
@@ -6635,65 +6906,21 @@
    "sectors": [],
    "impact": 45,
    "confidence": 30,
-   "category": "News",
+   "category": "Trading",
    "action": "Read the source before acting",
    "reason": [
     "Keyword rules (AI classification is off)"
    ],
    "risks": [],
-   "original": "V Marc India Limited: V Marc India Limited has submitted to the Exchange, the Un-audited financial results (Standalone and Consolidated) for the period ended September 30, 2026. |SUBJECT: Outcome of Board Meeting"
+   "original": "IAG, the owner of British Airways and Iberia, said Friday that its net profit dropped more than 12 percent in the third quarter on soaring fuel costs and flight disruptions caused by the Middle East conflict. The group said its overall flight capacity had been hit \"by cancellations due to the confli"
   },
   {
-   "id": "7dc63184778c458d",
-   "time": "2026-11-06T14:17:45+05:30",
-   "headline": "Euro Pratik Sales Limited: Euro Pratik Sales Limited has informed the Exchange about Link of Recording |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/EUROPRATIK2025_06112026141231_Investor_Call.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Euro Pratik Sales Limited: Euro Pratik Sales Limited has informed the Exchange about Link of Recording |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates"
-  },
-  {
-   "id": "cef7affba61f9e50",
-   "time": "2026-11-06T14:17:21+05:30",
-   "headline": "Manika Plastech Limited: Manika Plastech Limited has informed the Exchange about Copy of Newspaper Publication of extract of Un-audited Financial Results for the quarter and half year ended September 30, 2026 |SUBJECT: Copy of Newspaper Publicat",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/MANIKAPLASTECH_06112026141653_Newspaper.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Manika Plastech Limited: Manika Plastech Limited has informed the Exchange about Copy of Newspaper Publication of extract of Un-audited Financial Results for the quarter and half year ended September 30, 2026 |SUBJECT: Copy of Newspaper Publicat"
-  },
-  {
-   "id": "d33efcd9ee86689d",
-   "time": "2026-11-06T14:16:39+05:30",
-   "headline": "Sudarshan Chemical Industries Limited: Sudarshan Chemical Industries Limited has informed the Exchange about Change in Company Secretary/Compliance Officer |SUBJECT: Change in Company Secretary/Compliance Officer",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/SUDARSCHEM_06112026141622_SUDARSHANOutcomeofBM06112026_v1SIGNED.pdf",
-   "section": "news",
+   "id": "23af6bc7e5d808e0",
+   "time": "2026-11-06T17:00:00+05:30",
+   "headline": "Sectoral Deployment of Credit by NBFC – September 2026",
+   "source": "RBI",
+   "url": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63940",
+   "section": "macro",
    "call": "ignore",
    "horizon": "swing",
    "direction": "mixed",
@@ -6707,261 +6934,26 @@
     "Keyword rules (AI classification is off)"
    ],
    "risks": [],
-   "original": "Sudarshan Chemical Industries Limited: Sudarshan Chemical Industries Limited has informed the Exchange about Change in Company Secretary/Compliance Officer |SUBJECT: Change in Company Secretary/Compliance Officer"
-  },
-  {
-   "id": "c23f925f7e6bdb6e",
-   "time": "2026-11-06T14:16:11+05:30",
-   "headline": "Hexagon Nutrition Limited: HEXAGON NUTRITION LIMITED has informed the Exchange about Schedule of Analysts or Institutional Investors Meet |SUBJECT: Analyst/Investor Meet Para A-XBRL",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/SAIIM_20301_WebXMLFile_20261106_141610086.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Hexagon Nutrition Limited: HEXAGON NUTRITION LIMITED has informed the Exchange about Schedule of Analysts or Institutional Investors Meet |SUBJECT: Analyst/Investor Meet Para A-XBRL"
-  },
-  {
-   "id": "dafbf14d4a18cdc1",
-   "time": "2026-11-06T14:16:07+05:30",
-   "headline": "Cholamandalam Financial Holdings Limited: Cholamandalam Financial Holdings Limited has informed the exchange regarding Outcome of Board meeting held on November 6, 2026 |SUBJECT: Outcome of Board Meeting",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/9500179438_06112026141456_SEI.pdf",
-   "section": "news",
-   "call": "watch",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [
-    {
-     "symbol": "CHOLAHLDNG",
-     "direction": "up"
-    }
-   ],
-   "sectors": [],
-   "impact": 25,
-   "confidence": 30,
-   "category": "News",
-   "action": "Read the source before acting",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Cholamandalam Financial Holdings Limited: Cholamandalam Financial Holdings Limited has informed the exchange regarding Outcome of Board meeting held on November 6, 2026 |SUBJECT: Outcome of Board Meeting"
-  },
-  {
-   "id": "55ce54a07c36fad2",
-   "time": "2026-11-06T14:15:46+05:30",
-   "headline": "Star Cement Limited: Star Cement Limited has informed the Exchange that Board of Directors at its meeting held on November 06, 2026, declared Interim Dividend of Re. 1 per equity share. |SUBJECT: Dividend",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/STARCEMENT_06112026141451_SCL_Financial_Outcome.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Star Cement Limited: Star Cement Limited has informed the Exchange that Board of Directors at its meeting held on November 06, 2026, declared Interim Dividend of Re. 1 per equity share. |SUBJECT: Dividend"
-  },
-  {
-   "id": "a08abbba4015a2fb",
-   "time": "2026-11-06T14:15:36+05:30",
-   "headline": "Symbiotec Pharmalab Limited: Symbiotec Pharmalab Limited has informed the Exchange about Copy of Newspaper Publication |SUBJECT: Copy of Newspaper Publication",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/SYMBIOTEC_06112026141517_NewspaperpublicationResults.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Symbiotec Pharmalab Limited: Symbiotec Pharmalab Limited has informed the Exchange about Copy of Newspaper Publication |SUBJECT: Copy of Newspaper Publication"
-  },
-  {
-   "id": "30a62a25117ccf89",
-   "time": "2026-11-06T14:15:21+05:30",
-   "headline": "Axis Bank Limited: Axis Bank Limited has submitted the Exchange a copy Srutinizers report of Postal Ballot. Further, the company has informed the Exchange regarding voting results. |SUBJECT: Shareholders meeting",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/AXISBANK1_06112026141442_SEIntimationPostalBallot.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [
-    {
-     "symbol": "AXISBANK",
-     "direction": "up"
-    }
-   ],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Axis Bank Limited: Axis Bank Limited has submitted the Exchange a copy Srutinizers report of Postal Ballot. Further, the company has informed the Exchange regarding voting results. |SUBJECT: Shareholders meeting"
-  },
-  {
-   "id": "1831729b8c1557a9",
-   "time": "2026-11-06T14:14:36+05:30",
-   "headline": "Sudarshan Chemical Industries Limited: Sudarshan Chemical Industries Limited has informed the Exchange regarding Appointment of Mr Amit Deshpande as Company Secretary & Compliance Officer of the company w.e.f. November 06, 2026. |SUBJECT: Appointment",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/SUDARSCHEM_06112026141412_SUDARSHANOutcomeofBM06112026_v1SIGNED.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Sudarshan Chemical Industries Limited: Sudarshan Chemical Industries Limited has informed the Exchange regarding Appointment of Mr Amit Deshpande as Company Secretary & Compliance Officer of the company w.e.f. November 06, 2026. |SUBJECT: Appointment"
-  },
-  {
-   "id": "c8410b1d196c158d",
-   "time": "2026-11-06T14:14:05+05:30",
-   "headline": "Mold-Tek Technologies Limited: MOLD-TEK TECHNOLOGIES LIMITED has informed the Exchange about Transcripts - earnings or quarterly calls |SUBJECT: Analyst/Investor Meet Para A-XBRL",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/SAIIM_13981_WebXMLFile_20261106_141402990.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Mold-Tek Technologies Limited: MOLD-TEK TECHNOLOGIES LIMITED has informed the Exchange about Transcripts - earnings or quarterly calls |SUBJECT: Analyst/Investor Meet Para A-XBRL"
-  },
-  {
-   "id": "a3f6d732b1ffe94f",
-   "time": "2026-11-06T14:14:05+05:30",
-   "headline": "Indegene Limited: INDEGENE LIMITED has informed the Exchange about Schedule of Analysts or Institutional Investors Meet |SUBJECT: Analyst/Investor Meet Para A-XBRL",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/SAIIM_21426_WebXMLFile_20261106_141402607.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Indegene Limited: INDEGENE LIMITED has informed the Exchange about Schedule of Analysts or Institutional Investors Meet |SUBJECT: Analyst/Investor Meet Para A-XBRL"
-  },
-  {
-   "id": "0157b29740ed6fd1",
-   "time": "2026-11-06T14:13:55+05:30",
-   "headline": "Dabur India Limited: DABUR INDIA LIMITED has informed the Exchange regarding Allotment of Securities |SUBJECT: Alteration Of Capital and Fund Raising-XBRL",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/ALTERATION_OF_CAPITAL_AND_FUND_RAISING_787_WebXMLFile_20261106_141354865.xml",
-   "section": "news",
-   "call": "watch",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [
-    {
-     "symbol": "DABUR",
-     "direction": "up"
-    }
-   ],
-   "sectors": [],
-   "impact": 25,
-   "confidence": 30,
-   "category": "News",
-   "action": "Read the source before acting",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Dabur India Limited: DABUR INDIA LIMITED has informed the Exchange regarding Allotment of Securities |SUBJECT: Alteration Of Capital and Fund Raising-XBRL"
-  },
-  {
-   "id": "174e9221ed9b5414",
-   "time": "2026-11-06T14:13:51+05:30",
-   "headline": "Shreeji Global FMCG Limited: SHREEJI GLOBAL FMCG LIMITED has informed the Exchange about Board Meeting to be held on 14-Nov-2026 to inter-alia consider and approve the Unaudited Financial results of the Company for the Half Yearly ended September 20",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/PRIOR_INTIMATION_26432_WebXMLFile_20261106_141350129.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Shreeji Global FMCG Limited: SHREEJI GLOBAL FMCG LIMITED has informed the Exchange about Board Meeting to be held on 14-Nov-2026 to inter-alia consider and approve the Unaudited Financial results of the Company for the Half Yearly ended September 20"
+   "original": "Data on sectoral deployment of credit by non-banking financial companies (NBFCs) for the month of September 2026, collected from major NBFCs and housing finance companies (HFCs), are set out in the Statement 1 . On a year-on-year (y-o-y) basis, NBFCs’ credit registered a growth of 15.4 per cent in S"
   }
  ],
  "digest": {
-  "date": "2026-11-06",
+  "date": "2026-11-07",
   "act": 0,
-  "watch": 70,
-  "ignored": 230,
+  "watch": 7,
+  "ignored": 8,
   "reasons": [
    {
     "label": "Routine filing",
-    "count": 142
+    "count": 5
    },
    {
     "label": "No listed-stock impact",
-    "count": 84
+    "count": 2
    },
    {
     "label": "Global: no clear India link",
-    "count": 4
+    "count": 1
    }
   ]
  }

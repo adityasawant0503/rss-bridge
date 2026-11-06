@@ -1,6 +1,6 @@
 {
- "date": "2026-11-06",
- "updated": "2026-11-06T22:02:55+05:30",
+ "date": "2026-11-07",
+ "updated": "2026-11-07T01:36:37+05:30",
  "sentiment": "Mildly bearish",
  "breadth": {
   "up": 2,
@@ -18,12 +18,12 @@
   {
    "title": "US close - Dow/S&P/Nasdaq direction",
    "dir": "up",
-   "value": "Higher",
+   "value": "Mixed — 2/3 higher",
    "detail": [
-    "Dow 51,555.14 +0.06%",
-    "S&P 7,424.02 +0.96%",
-    "Nasdaq 24,736.92 +1.74%",
-    "Nasdaq futures now +1.52%"
+    "Dow 51,435.21 -0.17%",
+    "S&P 7,402.26 +0.66%",
+    "Nasdaq 24,659.30 +1.42%",
+    "Nasdaq futures now +1.55%"
    ]
   },
   {
@@ -40,14 +40,14 @@
    "dir": "down",
    "value": "Rupee under pressure",
    "detail": [
-    "DXY 102.20 +0.64%",
-    "USD/INR 93.905 -0.60%"
+    "DXY 102.30 +0.75%",
+    "USD/INR 93.900 -0.61%"
    ]
   },
   {
    "title": "Brent crude level",
    "dir": "flat",
-   "value": "$97.64 -0.66%",
+   "value": "$98.45 +0.16%",
    "detail": []
   },
   {
@@ -57,27 +57,27 @@
    "detail": []
   }
  ],
- "summary": "Mildly bearish setup. NASDAQ closed 1.74% higher; supportive for IT; Nikkei down, Hang Seng down.",
+ "summary": "Mildly bearish setup. NASDAQ closed 1.42% higher; supportive for IT; Nikkei down, Hang Seng down.",
  "global_cues": [
-  "NASDAQ closed 1.74% higher; supportive for IT",
+  "NASDAQ closed 1.42% higher; supportive for IT",
   "Nikkei down, Hang Seng down"
  ],
  "india_triggers": [
-  "74 filings and headlines worth a look so far today",
+  "7 filings and headlines worth a look so far today",
   "India VIX up 12.1% — expect wider ranges"
  ],
  "focus": [
   {
-   "symbol": "GROWW",
-   "note": "Bulk deal: PEAK XV PARTNERS INVESTMENTS VI-1 sold 602.1 lakh shares of"
+   "symbol": "OIL",
+   "note": "Kirloskar Oil Engines Limited: Kirloskar Oil Engines Limited has infor"
   },
   {
-   "symbol": "GROWW",
-   "note": "Bulk deal: GOLDMAN SACHS BANK EUROPE SE - ODI bought 355.1 lakh shares"
+   "symbol": "OIL",
+   "note": "Kirloskar Oil Engines Limited: Kirloskar Oil Engines Limited has infor"
   },
   {
-   "symbol": "JSWCEMENT",
-   "note": "Bulk deal: SYNERGY METALS INVESTMENTS HOLDING LIMITED sold 191.0 lakh "
+   "symbol": "TMCV",
+   "note": "Tata Motors Limited: Tata Motors Limited has informed the Exchange reg"
   }
  ],
  "sector_tags": [
@@ -95,13 +95,13 @@
   },
   {
    "name": "S&P FUT",
-   "value": "7,429",
-   "change": 0.62
+   "value": "7,420",
+   "change": 0.5
   },
   {
    "name": "NASDAQ FUT",
-   "value": "27,158",
-   "change": 1.52
+   "value": "27,166",
+   "change": 1.55
   },
   {
    "name": "KOSPI",
@@ -110,18 +110,18 @@
   },
   {
    "name": "WTI",
-   "value": "90.55",
-   "change": 0.03
+   "value": "91.02",
+   "change": 0.55
   },
   {
    "name": "GOLD",
-   "value": "4,071",
-   "change": -1.04
+   "value": "4,072",
+   "change": -1.01
   },
   {
    "name": "US 10Y",
    "value": "4.86",
-   "change": 0.5
+   "change": 0.37
   }
  ],
  "source": "CNBC / Yahoo Finance (unofficial, delayed)"
