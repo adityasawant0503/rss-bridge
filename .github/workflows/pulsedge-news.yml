@@ -28,6 +28,7 @@ on:
       - 'pulsedge-bot/sources.json'
       - 'pulsedge-bot/premarket.py'
       - 'pulsedge-bot/track_record.py'
+      - 'pulsedge-bot/flows.py'
       - 'pulsedge-bot/reel/**'
       - '.github/workflows/pulsedge-news.yml'
 
@@ -65,6 +66,11 @@ jobs:
         PULSEDGE_GH_MODEL: ${{ vars.PULSEDGE_GH_MODEL }}
         DRY: ${{ github.ref != 'refs/heads/master' && '--dry-run' || '' }}
       run: python pulsedge-bot/news_pipeline.py $DRY
+    - name: Institutional flows
+      timeout-minutes: 3
+      env:
+        DRY: ${{ github.ref != 'refs/heads/master' && '--dry-run' || '' }}
+      run: python pulsedge-bot/flows.py $DRY
     - name: Pre-market panel
       timeout-minutes: 4
       env:
@@ -79,10 +85,10 @@ jobs:
       id: commit
       if: github.ref == 'refs/heads/master'
       run: |
-        if [ -n "$(git status --porcelain pulsedge/data/feed.json pulsedge/data/universe.json pulsedge/data/premarket.json pulsedge/data/track.json pulsedge-bot/state)" ]; then
+        if [ -n "$(git status --porcelain pulsedge/data/feed.json pulsedge/data/universe.json pulsedge/data/premarket.json pulsedge/data/track.json pulsedge/data/flows.json pulsedge-bot/state)" ]; then
           git config user.name "pulsedge-bot"
           git config user.email "pulsedge-bot@users.noreply.github.com"
-          git add pulsedge/data/feed.json pulsedge/data/universe.json pulsedge/data/premarket.json pulsedge/data/track.json pulsedge-bot/state
+          git add pulsedge/data/feed.json pulsedge/data/universe.json pulsedge/data/premarket.json pulsedge/data/track.json pulsedge/data/flows.json pulsedge-bot/state
           git commit -q -m "PulsEdge news: $(date -u +%Y-%m-%dT%H:%MZ)"
           git push
           echo "changed=true" >> "$GITHUB_OUTPUT"
