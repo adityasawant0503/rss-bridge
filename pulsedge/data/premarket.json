@@ -1,6 +1,6 @@
 {
  "date": "2026-11-06",
- "updated": "2026-11-06T14:21:51+05:30",
+ "updated": "2026-11-06T19:27:03+05:30",
  "sentiment": "Bearish",
  "breadth": {
   "up": 1,
@@ -10,9 +10,9 @@
   {
    "title": "Nifty 50 last close (GIFT Nifty not available from free sources)",
    "dir": "up",
-   "value": "24,795.00 (+1.05%)",
+   "value": "25,030.35 (+2.01%)",
    "detail": [
-    "Previous close 24,537.36"
+    "Previous close 24,537.15"
    ]
   },
   {
@@ -23,7 +23,7 @@
     "Dow 51,523.06 -3.44%",
     "S&P 7,353.73 -4.36%",
     "Nasdaq 24,315.00 -5.52%",
-    "Nasdaq futures now +1.09%"
+    "Nasdaq futures now +1.41%"
    ]
   },
   {
@@ -40,20 +40,20 @@
    "dir": "down",
    "value": "Rupee under pressure",
    "detail": [
-    "DXY 101.92 +0.37%",
-    "USD/INR 93.980 -0.52%"
+    "DXY 102.21 +0.65%",
+    "USD/INR 93.905 -0.60%"
    ]
   },
   {
    "title": "Brent crude level",
    "dir": "flat",
-   "value": "$97.51 -0.79%",
+   "value": "$98.54 +0.25%",
    "detail": []
   },
   {
    "title": "India VIX",
    "dir": "down",
-   "value": "17.23 (+10.59%) — normal",
+   "value": "17.46 (+12.10%) — normal",
    "detail": []
   }
  ],
@@ -63,8 +63,8 @@
   "Nikkei down, Hang Seng down"
  ],
  "india_triggers": [
-  "49 filings and headlines worth a look so far today",
-  "India VIX up 10.6% — expect wider ranges"
+  "79 filings and headlines worth a look so far today",
+  "India VIX up 12.1% — expect wider ranges"
  ],
  "focus": [
   {
@@ -90,18 +90,18 @@
  "also": [
   {
    "name": "BANK NIFTY",
-   "value": "58,585.9",
-   "change": 1.41
+   "value": "59,086.0",
+   "change": 2.27
   },
   {
    "name": "S&P FUT",
-   "value": "7,399",
-   "change": 0.21
+   "value": "7,394",
+   "change": 0.16
   },
   {
    "name": "NASDAQ FUT",
-   "value": "27,044",
-   "change": 1.09
+   "value": "27,129",
+   "change": 1.41
   },
   {
    "name": "KOSPI",
@@ -110,18 +110,18 @@
   },
   {
    "name": "WTI",
-   "value": "89.80",
-   "change": -0.8
+   "value": "91.01",
+   "change": 0.54
   },
   {
    "name": "GOLD",
-   "value": "4,080",
-   "change": -0.83
+   "value": "4,059",
+   "change": -1.33
   },
   {
    "name": "US 10Y",
-   "value": "4.83",
-   "change": -0.08
+   "value": "4.87",
+   "change": 0.68
   }
  ],
  "source": "CNBC / Yahoo Finance (unofficial, delayed)"
