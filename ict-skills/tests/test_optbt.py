@@ -79,5 +79,35 @@ class TestSimulate(unittest.TestCase):
         self.assertAlmostEqual(trades[0]["pnl"], (trades[0]["entry"] * 0.7 - 1.0 - trades[0]["entry"]) * 65 - 40, delta=1.0)
 
 
+class TestAdding(unittest.TestCase):
+    P = dict(O.DEFAULTS, stop=0.2, target=0.4, slippage=0.0)
+
+    def run_path(self, prices, **kw):
+        """Bars whose worst/best/close premiums are given directly: (worst, best, close)."""
+        p = dict(self.P, **kw)
+        price = lambda S, tau: S
+        bars = [((None, 0, best, worst, close), 1.0) for worst, best, close in prices]   # CE: low=worst, high=best
+        return O.manage(p, 100.0, bars, price, "CE")
+
+    def test_pyramid_adds_then_protects_at_break_even(self):
+        exit_px, why, fills = self.run_path([(99, 116, 115), (114, 120, 118), (107, 109, 108)],
+                                            add_mode="up", max_lots=2, add_step=0.15)
+        self.assertEqual([round(f, 6) for f in fills], [100.0, 115.0])
+        self.assertEqual((why, round(exit_px, 6)), ("stop", 107.5))             # stop moved to the average of 100 and 115
+
+    def test_pyramid_target_is_from_the_first_price(self):
+        exit_px, why, fills = self.run_path([(99, 116, 115), (114, 141, 140)], add_mode="up", max_lots=2, add_step=0.15)
+        self.assertEqual((why, round(exit_px, 6), len(fills)), ("target", 140.0, 2))
+
+    def test_average_down_adds_and_uses_one_hard_stop(self):
+        exit_px, why, fills = self.run_path([(84, 101, 85), (69, 86, 70), (54, 71, 55)],
+                                            add_mode="down", max_lots=3, add_step=0.15, hard_stop=0.45)
+        self.assertEqual([round(f, 6) for f in fills], [100.0, 85.0, 70.0])
+        self.assertEqual((why, round(exit_px, 6)), ("stop", 55.0))
+
+    def test_no_adding_is_the_plain_trade(self):
+        self.assertEqual(self.run_path([(79, 101, 80)]), (80.0, "stop", [100.0]))
+
+
 if __name__ == "__main__":
     unittest.main()

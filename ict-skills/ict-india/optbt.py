@@ -47,7 +47,10 @@ LOTS = {"NIFTY": [(date(2024, 11, 20), 75), (date(2026, 1, 1), 65)],
         "SENSEX": [(date(2024, 11, 20), 20)],
         "BANKNIFTY": [(date(2024, 11, 20), 30), (date(2025, 4, 24), 35), (date(2026, 1, 1), 30)]}
 DEFAULTS = {"mode": "fade", "entry": "10:15", "stop": 0.30, "target": 0.50, "min_dte": 4, "ivm": 0.97,
-            "slippage": 1.0, "charges": 40.0, "rate": 0.065}
+            "slippage": 1.0, "charges": 40.0, "rate": 0.065,
+            # adding lots: "none"; "down" = average down (add as the premium falls, one hard stop for all lots,
+            # target from the average price); "up" = pyramid (add as the premium rises, stop moves to the average)
+            "add_mode": "none", "add_step": 0.15, "max_lots": 1, "hard_stop": 0.45}
 
 
 # ---------------------------------------------------------------- data
@@ -171,6 +174,46 @@ def bias_for(days, d, i, mode):
     return "CE" if call else "PE"
 
 
+def manage(p, P0, bars, price, kind):
+    """Walk the day's hourly bars after entry. Returns (exit price, reason, [entry price of each lot]).
+
+    Within a bar the worst price is taken first (stop before target). Lots added in a bar can't hit the
+    target in that same bar, so averaging is never credited with an intrabar round trip."""
+    mode, step, max_lots = p.get("add_mode", "none"), p.get("add_step", 0.15), max(1, int(p.get("max_lots", 1)))
+    fills = [P0]
+    stop_px = P0 * (1 - (p.get("hard_stop", p["stop"]) if mode == "down" else p["stop"]))
+    last = P0
+    for b, tau in bars:
+        worst = price(b[3] if kind == "CE" else b[2], tau)
+        best = price(b[2] if kind == "CE" else b[3], tau)
+        added = False
+        if mode == "down":
+            while len(fills) < max_lots:
+                level = P0 * (1 - len(fills) * step)
+                if worst <= level and level > stop_px:
+                    fills.append(level + p["slippage"])
+                    added = True
+                else:
+                    break
+        if worst <= stop_px:
+            return stop_px - p["slippage"], "stop", fills
+        if mode == "up":
+            while len(fills) < max_lots:
+                level = P0 * (1 + len(fills) * step)
+                if best >= level and level < P0 * (1 + p["target"]):
+                    fills.append(level + p["slippage"])
+                else:
+                    break
+        avg = sum(fills) / len(fills)
+        tgt_px = avg * (1 + p["target"]) if mode == "down" else P0 * (1 + p["target"])
+        if not added and best >= tgt_px:
+            return tgt_px - p["slippage"], "target", fills
+        if mode == "up" and len(fills) > 1:
+            stop_px = max(stop_px, avg)            # once you've added, the whole position is protected at break-even
+        last = price(b[4], tau)
+    return last - p["slippage"], "close", fills
+
+
 def simulate(name, hourly, d, vix, p, start=None, end=None):
     """One trade a day. Returns trades with modelled option prices (per lot, after slippage and charges)."""
     eh, em = map(int, p["entry"].split(":"))
@@ -194,24 +237,13 @@ def simulate(name, hourly, d, vix, p, start=None, end=None):
         exp = weekly_expiry(name, day, p["min_dte"])
         vol = vix_on(vix, day) / 100.0 * p["ivm"]
         P0 = bs(S0, K, tau_years(entry_t, exp), vol, kind, p["rate"]) + p["slippage"]
-        stop_px, tgt_px = P0 * (1 - p["stop"]), P0 * (1 + p["target"])
-        exit_px, why, last = None, "close", P0
-        for b in after:
-            t = b[0] + timedelta(minutes=59)
-            tau = tau_years(t, exp)
-            worst = bs(b[3] if kind == "CE" else b[2], K, tau, vol, kind, p["rate"])
-            best = bs(b[2] if kind == "CE" else b[3], K, tau, vol, kind, p["rate"])
-            if worst <= stop_px:                # the stop is checked first when one bar reaches both
-                exit_px, why = stop_px, "stop"
-                break
-            if best >= tgt_px:
-                exit_px, why = tgt_px, "target"
-                break
-            last = bs(b[4], K, tau, vol, kind, p["rate"])
-        exit_px = (exit_px if exit_px is not None else last) - p["slippage"]
+        exit_px, why, fills = manage(p, P0, [(b, tau_years(b[0] + timedelta(minutes=59), exp)) for b in after],
+                                     lambda S, tau: bs(S, K, tau, vol, kind, p["rate"]), kind)
         lot = lot_size(name, day)
+        pnl = sum(exit_px - f for f in fills) * lot - p["charges"] * len(fills)
         trades.append({"day": day, "kind": kind, "strike": K, "expiry": exp, "entry": round(P0, 2), "exit": round(exit_px, 2),
-                       "why": why, "lot": lot, "premium": round(P0 * lot, 2), "pnl": round((exit_px - P0) * lot - p["charges"], 2)})
+                       "why": why, "lot": lot, "lots": len(fills), "premium": round(P0 * lot, 2),
+                       "max_premium": round(sum(fills) * lot, 2), "pnl": round(pnl, 2)})
     return trades
 
 
@@ -228,13 +260,15 @@ def summarize(trades):
         dd = min(dd, eq - peak)
     return {"trades": len(p), "pnl": round(sum(p), 2), "win_rate": round(100.0 * len(w) / len(p), 1),
             "profit_factor": round(sum(w) / -sum(l), 2) if l and sum(l) else None, "avg": round(sum(p) / len(p), 2),
-            "max_drawdown": round(dd, 2), "avg_premium": round(sum(t["premium"] for t in trades) / len(p), 2)}
+            "max_drawdown": round(dd, 2), "avg_premium": round(sum(t["premium"] for t in trades) / len(p), 2),
+            "worst_trade": round(min(p), 2), "avg_lots": round(sum(t.get("lots", 1) for t in trades) / len(p), 2),
+            "max_outlay": round(max(t.get("max_premium", t["premium"]) for t in trades), 2)}
 
 
 def params(cfg, args):
     p = dict(DEFAULTS)
     p.update(cfg.get("strategy") or {})
-    for k in ("mode", "entry", "stop", "target", "min_dte", "ivm", "slippage"):
+    for k in ("mode", "entry", "stop", "target", "min_dte", "ivm", "slippage", "add_mode", "add_step", "max_lots", "hard_stop"):
         v = getattr(args, k, None)
         if v is not None:
             p[k] = v
@@ -262,8 +296,9 @@ def cmd_backtest(args, cfg):
     for label, tr in rows:
         s = summarize(tr)
         if s:
-            print("  %-6s %4d trades  P&L %+10.0f  win %4.1f%%  PF %-5s  avg %+7.0f  worst drawdown %+9.0f  avg premium %7.0f" % (
-                label, s["trades"], s["pnl"], s["win_rate"], s["profit_factor"], s["avg"], s["max_drawdown"], s["avg_premium"]))
+            print("  %-6s %4d trades  P&L %+10.0f  win %4.1f%%  PF %-5s  avg %+7.0f  worst drawdown %+9.0f  worst trade %+8.0f  "
+                  "avg lots %.2f  max outlay %7.0f" % (label, s["trades"], s["pnl"], s["win_rate"], s["profit_factor"], s["avg"],
+                                                      s["max_drawdown"], s["worst_trade"], s["avg_lots"], s["max_outlay"]))
     exits = collections.Counter(t["why"] for t in trades)
     print("  exits: %s" % ", ".join("%s %d" % kv for kv in exits.most_common()))
     if args.json:
@@ -309,6 +344,17 @@ def cmd_today(args, cfg):
     print("  index now %.2f; model premium about %.1f (check the real price, the model has no skew or spread)" % (S0, est))
     print("  stop at -%d%% (about %.1f), target +%d%% (about %.1f), else exit by the close" % (
         p["stop"] * 100, est * (1 - p["stop"]), p["target"] * 100, est * (1 + p["target"])))
+    lots = max(1, int(p.get("max_lots", 1)))
+    if p.get("add_mode") == "up" and lots > 1:
+        for k in range(1, lots):
+            lvl = est * (1 + k * p["add_step"])
+            avg = est * (1 + sum(range(k + 1)) * p["add_step"] / (k + 1))
+            print("  pyramid: if it reaches +%d%% (about %.1f), add 1 lot and move the stop for all lots to the average (about %.1f)" % (
+                k * p["add_step"] * 100, lvl, avg))
+        print("  never add when it is below your entry: averaging down is off")
+    elif p.get("add_mode") == "down" and lots > 1:
+        print("  averaging down to %d lots every -%d%%, one stop for all at -%d%% from the first price (backtests worse)" % (
+            lots, p["add_step"] * 100, p["hard_stop"] * 100))
     try:
         mkt = mmxm.Market(mmxm.load_profile(), cfg)
         sz = mmxm.size(mkt, cfg, est, est * (1 - p["stop"]), est * (1 + p["target"]), name, premium=True)
@@ -341,6 +387,10 @@ def main(argv=None):
         s.add_argument("--min-dte", type=int)
         s.add_argument("--ivm", type=float, help="volatility = India VIX x this")
         s.add_argument("--slippage", type=float, help="premium points lost on each fill")
+        s.add_argument("--add-mode", choices=["none", "down", "up"], help="add lots: average down, or pyramid up")
+        s.add_argument("--add-step", type=float, help="premium move between adds, e.g. 0.15")
+        s.add_argument("--max-lots", type=int, help="most lots in one trade, the first included")
+        s.add_argument("--hard-stop", type=float, help="averaging down: one stop for all lots, from the first price")
         s.add_argument("--refresh", action="store_true", help="download fresh data first")
         s.add_argument("--json")
         s.add_argument("--now", help=argparse.SUPPRESS)
