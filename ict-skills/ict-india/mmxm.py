@@ -34,6 +34,7 @@ from datetime import date, datetime, time as dtime, timedelta, timezone
 HERE = os.path.dirname(os.path.abspath(__file__))
 STATE_DIR = os.environ.get("ICT_DIR", "ict")
 UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
+YAHOO_UA = "Mozilla/5.0"   # Yahoo's chart API rate-limits (429) a full browser identity without cookies, not this
 
 Bar = namedtuple("Bar", "t o h l c v")
 
@@ -209,7 +210,7 @@ def yahoo(symbol, interval, days):
         url = "%s/v8/finance/chart/%s?interval=%s&range=%s&includePrePost=true" % (
             host, urllib.request.quote(symbol), interval, rng)
         try:
-            req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json"})
+            req = urllib.request.Request(url, headers={"User-Agent": YAHOO_UA, "Accept": "application/json"})
             with urllib.request.urlopen(req, timeout=20) as r:
                 return parse_yahoo(json.load(r))
         except (urllib.error.URLError, ValueError, KeyError, IndexError, TypeError) as e:

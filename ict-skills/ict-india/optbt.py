@@ -62,7 +62,7 @@ def fetch(symbol, interval, rng, tries=5):
         for host in ("https://query1.finance.yahoo.com", "https://query2.finance.yahoo.com"):
             url = "%s/v8/finance/chart/%s?interval=%s&range=%s" % (host, urllib.request.quote(symbol), interval, rng)
             try:
-                req = urllib.request.Request(url, headers={"User-Agent": mmxm.UA, "Accept": "application/json"})
+                req = urllib.request.Request(url, headers={"User-Agent": mmxm.YAHOO_UA, "Accept": "application/json"})
                 with urllib.request.urlopen(req, timeout=30) as r:
                     return json.load(r)
             except (urllib.error.URLError, ValueError) as e:
@@ -102,10 +102,13 @@ def load(symbol, interval, refresh=False, max_age=None):
     """Bars from the local cache, downloading when asked, when missing, or when older than max_age seconds."""
     p = cache_name(symbol, interval)
     stale = max_age is not None and os.path.exists(p) and time.time() - os.path.getmtime(p) > max_age
-    if refresh or stale or not os.path.exists(p):
+    if refresh or stale or not os.path.exists(p) or os.path.getsize(p) == 0:
         os.makedirs(MARKET_DIR, exist_ok=True)
-        with open(p, "w") as f:
-            json.dump(fetch(symbol, interval, "2y" if interval != "5m" else "60d"), f)
+        doc = fetch(symbol, interval, "2y" if interval != "5m" else "60d")    # download first: a failure keeps the old cache
+        tmp = p + ".part"
+        with open(tmp, "w") as f:
+            json.dump(doc, f)
+        os.replace(tmp, p)
     with open(p) as f:
         return ist_bars(json.load(f))
 
