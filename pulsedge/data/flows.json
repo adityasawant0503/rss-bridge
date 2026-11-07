@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-07T11:20:01+05:30",
+ "updated": "2026-11-07T11:23:55+05:30",
  "source": "NSE (bulk and block deals, provisional FII/DII cash, participant-wise open interest)",
  "cash": null,
  "cash_history": [],
@@ -16,7 +16,7 @@
   {
    "date": "2026-11-06",
    "symbol": "GROWW",
-   "name": "Billionbrains Garage Vn L",
+   "name": "Billionbrains Garage Ventures Ltd.",
    "client": "PEAK XV PARTNERS INVESTMENTS VI-1",
    "who": "other",
    "side": "sell",
@@ -29,7 +29,7 @@
   {
    "date": "2026-11-06",
    "symbol": "GROWW",
-   "name": "Billionbrains Garage Vn L",
+   "name": "Billionbrains Garage Ventures Ltd.",
    "client": "GOLDMAN SACHS BANK EUROPE SE - ODI",
    "who": "foreign",
    "side": "buy",
@@ -38,6 +38,19 @@
    "value_cr": 763.58,
    "kind": "bulk",
    "nifty500": true
+  },
+  {
+   "date": "2026-11-06",
+   "symbol": "ALIVUS",
+   "name": "Alivus Life Sciences Ltd",
+   "client": "NIRMA LIMITED",
+   "who": "other",
+   "side": "sell",
+   "qty": 3680000,
+   "price": 1381.85,
+   "value_cr": 508.52,
+   "kind": "bulk",
+   "nifty500": false
   },
   {
    "date": "2026-11-06",
@@ -55,7 +68,7 @@
   {
    "date": "2026-11-06",
    "symbol": "JSWCEMENT",
-   "name": "JSW Cement Limited",
+   "name": "JSW Cement Ltd.",
    "client": "SYNERGY METALS INVESTMENTS HOLDING LIMITED",
    "who": "other",
    "side": "sell",
@@ -81,7 +94,7 @@
   {
    "date": "2026-11-06",
    "symbol": "JSWCEMENT",
-   "name": "JSW Cement Limited",
+   "name": "JSW Cement Ltd.",
    "client": "NOMURA FUNDS IRELAND PLC NOMURA FUNDS IRELAND INDIA EQUITY FUND",
    "who": "foreign",
    "side": "buy",
@@ -102,32 +115,6 @@
    "price": 160.0,
    "value_cr": 132.8,
    "kind": "block",
-   "nifty500": false
-  },
-  {
-   "date": "2026-11-06",
-   "symbol": "ALIVUS",
-   "name": "Alivus Life Sciences Ltd",
-   "client": "NIRMA LIMITED",
-   "who": "other",
-   "side": "sell",
-   "qty": 833700,
-   "price": 1422.29,
-   "value_cr": 118.58,
-   "kind": "bulk",
-   "nifty500": false
-  },
-  {
-   "date": "2026-11-06",
-   "symbol": "ALIVUS",
-   "name": "Alivus Life Sciences Ltd",
-   "client": "BANDHAN MUTUAL FUND",
-   "who": "domestic",
-   "side": "buy",
-   "qty": 855971,
-   "price": 1370.0,
-   "value_cr": 117.27,
-   "kind": "bulk",
    "nifty500": false
   },
   {
@@ -537,7 +524,7 @@
  "by_stock": [
   {
    "symbol": "GROWW",
-   "name": "Billionbrains Garage Vn L",
+   "name": "Billionbrains Garage Ventures Ltd.",
    "foreign_cr": 763.58,
    "domestic_cr": 0.0
   },
@@ -545,11 +532,11 @@
    "symbol": "ALIVUS",
    "name": "Alivus Life Sciences Ltd",
    "foreign_cr": 25.07,
-   "domestic_cr": 264.34
+   "domestic_cr": 147.07
   },
   {
    "symbol": "JSWCEMENT",
-   "name": "JSW Cement Limited",
+   "name": "JSW Cement Ltd.",
    "foreign_cr": 144.6,
    "domestic_cr": 0.0
   },

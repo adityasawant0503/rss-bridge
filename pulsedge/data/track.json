@@ -1,7 +1,7 @@
 {
- "updated": "2026-11-07T11:20:03+05:30",
+ "updated": "2026-11-07T11:23:57+05:30",
  "summary": {
-  "calls": 794,
+  "calls": 797,
   "scored_calls": 0,
   "d1": {
    "scored": 0,
@@ -189,6 +189,19 @@
    "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/risk-off-mood-sweeps-european-stocks-as-ai-concerns-deepen/articleshow/135626153.cms",
    "entry_date": "2026-11-06",
    "entry": 668.95
+  },
+  {
+   "id": "343034c7f15e8bbc",
+   "symbol": "OIL",
+   "time": "2026-11-07T01:40:59+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "NSE Announcements",
+   "headline": "Kirloskar Oil Engines Limited: Kirloskar Oil Engines Limited has informed the Exchange regarding Outcome of Board Meeting held on November 06, 2026. |SUBJECT: O",
+   "url": "https://nsearchives.nseindia.com/corporate/KIRLOSENG_07112026013628_SE_Outcome_6Nov26.pdf",
+   "entry_date": "2026-11-06",
+   "entry": 443.9
   },
   {
    "id": "b13380612441ffc9",
@@ -581,6 +594,19 @@
    "entry": 443.9
   },
   {
+   "id": "8bdf8a5bc989aeff",
+   "symbol": "BANKINDIA",
+   "time": "2026-11-06T17:55:00+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "RBI",
+   "headline": "Auction of 91-Day, 182-Day and 364-Day Treasury Bills",
+   "url": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63942",
+   "entry_date": "2026-11-06",
+   "entry": 138.57
+  },
+  {
    "id": "2109eaa07eff07ea",
    "symbol": "BANKINDIA",
    "time": "2026-11-06T17:32:52+05:30",
@@ -631,6 +657,19 @@
    "url": "https://www.livemint.com/market/stock-market-news/indian-it-stocks-emerge-as-safe-ai-trade-amid-rising-big-tech-spending-anand-rathi-prefers-techm-ltm-mphasis-11793962964792.html",
    "entry_date": "2026-11-06",
    "entry": 2520.0
+  },
+  {
+   "id": "78fb6471947fcf5c",
+   "symbol": "BANKINDIA",
+   "time": "2026-11-06T17:00:00+05:30",
+   "call": "watch",
+   "dir": null,
+   "scored": false,
+   "source": "RBI",
+   "headline": "Reserve Bank of India – Bulletin Weekly Statistical Supplement – Extract",
+   "url": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63939",
+   "entry_date": "2026-11-06",
+   "entry": 138.57
   },
   {
    "id": "c3028a13e34c15a5",

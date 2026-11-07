@@ -1,6 +1,72 @@
 {
- "updated": "2026-11-07T11:19:57+05:30",
+ "updated": "2026-11-07T11:23:51+05:30",
  "items": [
+  {
+   "id": "a342fc9f9b075370",
+   "time": "2026-11-07T11:22:29+05:30",
+   "headline": "Om Freight Forwarders Limited: Om Freight Forwarders Limited has informed the Exchange about Board Meeting to be held on 13-Nov-2026 to inter-alia consider and approve the Unaudited Financial results of the Company for the Half Yearly ended September ",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/xbrl/PRIOR_INTIMATION_25794_WebXMLFile_20261107_112228453.xml",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Om Freight Forwarders Limited: Om Freight Forwarders Limited has informed the Exchange about Board Meeting to be held on 13-Nov-2026 to inter-alia consider and approve the Unaudited Financial results of the Company for the Half Yearly ended September "
+  },
+  {
+   "id": "72839d80d562890b",
+   "time": "2026-11-07T11:22:09+05:30",
+   "headline": "Nagreeka Capital & Infrastructure Limited: Nagreeka Capital & Infrastructure Limited has informed the Exchange about Copy of Newspaper Publication |SUBJECT: Copy of Newspaper Publication",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/NAGREEKCAP_07112026112201_FINAL_ocr.pdf",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Nagreeka Capital & Infrastructure Limited: Nagreeka Capital & Infrastructure Limited has informed the Exchange about Copy of Newspaper Publication |SUBJECT: Copy of Newspaper Publication"
+  },
+  {
+   "id": "c5868fee2dbb510e",
+   "time": "2026-11-07T11:21:36+05:30",
+   "headline": "The Byke Hospitality Ltd: The Byke Hospitality Ltd has informed the Exchange about Copy of Newspaper Publication |SUBJECT: Copy of Newspaper Publication",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/BYKE_07112026112117_Cover_Letter_Final-signed.pdf",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "The Byke Hospitality Ltd: The Byke Hospitality Ltd has informed the Exchange about Copy of Newspaper Publication |SUBJECT: Copy of Newspaper Publication"
+  },
   {
    "id": "f0a6d578f1706de2",
    "time": "2026-11-07T11:18:39+05:30",
@@ -1483,6 +1549,1916 @@
    ],
    "risks": [],
    "original": "Reliance MF - Reliance Interval Fund - QIF- Dir-Div-DPO: Nippon Life India Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Reliance MF - Reliance Interval Fund - QIF- Dir-Div-DPO as on November 06, 2026 is Rs. 13.6798. |SUBJECT: Declar"
+  },
+  {
+   "id": "54e56c6e0f06d8e5",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "HDFC Nifty 1D Rate Liquid ETF - Growth: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC Nifty 1D Rate Liquid ETF as on November 06, 2026 is Rs. 1085.8251. |SUBJECT: Declaration of N",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "HDFCAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "HDFC Nifty 1D Rate Liquid ETF - Growth: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC Nifty 1D Rate Liquid ETF as on November 06, 2026 is Rs. 1085.8251. |SUBJECT: Declaration of N"
+  },
+  {
+   "id": "a45c6383697a8cbc",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "SBI Mutual Fund - Magnum Hybrid Long Short Fund - DP-IDCW RO: MHLSDDR : SBI Funds Management Limited has informed the Exchange that the Net Asset Value (per unit) of SBI Mutual Fund - Magnum Hybrid Long Short Fund - DP-IDCW RO as on November 06, 2026 is Rs. 10.5233. |SUBJECT: Decla",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "SBI Mutual Fund - Magnum Hybrid Long Short Fund - DP-IDCW RO: MHLSDDR : SBI Funds Management Limited has informed the Exchange that the Net Asset Value (per unit) of SBI Mutual Fund - Magnum Hybrid Long Short Fund - DP-IDCW RO as on November 06, 2026 is Rs. 10.5233. |SUBJECT: Decla"
+  },
+  {
+   "id": "09142000f4ace726",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "SBI Mutual Fund - Magnum Hybrid Long Short Fund - DP - IDCW PO: MHLSDD : SBI Funds Management Limited has informed the Exchange that the Net Asset Value (per unit) of SBI Mutual Fund - Magnum Hybrid Long Short Fund - DP - IDCW PO as on November 06, 2026 is Rs. 10.5233. |SUBJECT: Decl",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "SBI Mutual Fund - Magnum Hybrid Long Short Fund - DP - IDCW PO: MHLSDD : SBI Funds Management Limited has informed the Exchange that the Net Asset Value (per unit) of SBI Mutual Fund - Magnum Hybrid Long Short Fund - DP - IDCW PO as on November 06, 2026 is Rs. 10.5233. |SUBJECT: Decl"
+  },
+  {
+   "id": "e004106ec76ba007",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "SBI Mutual Fund - Magnum Hybrid Long Short Fund - DP - GO: MHLSDG : SBI Funds Management Limited has informed the Exchange that the Net Asset Value (per unit) of SBI Mutual Fund - Magnum Hybrid Long Short Fund - DP - GO as on November 06, 2026 is Rs. 10.5173. |SUBJECT: Declarati",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "SBI Mutual Fund - Magnum Hybrid Long Short Fund - DP - GO: MHLSDG : SBI Funds Management Limited has informed the Exchange that the Net Asset Value (per unit) of SBI Mutual Fund - Magnum Hybrid Long Short Fund - DP - GO as on November 06, 2026 is Rs. 10.5173. |SUBJECT: Declarati"
+  },
+  {
+   "id": "e2131eb35b07fdeb",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "SBI Mutual Fund - Magnum Hybrid Long Short Fund - RP-IDCW RO: MHLSRDR : SBI Funds Management Limited has informed the Exchange that the Net Asset Value (per unit) of SBI Mutual Fund - Magnum Hybrid Long Short Fund - RP-IDCW RO as on November 06, 2026 is Rs. 10.4402. |SUBJECT: Decla",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "SBI Mutual Fund - Magnum Hybrid Long Short Fund - RP-IDCW RO: MHLSRDR : SBI Funds Management Limited has informed the Exchange that the Net Asset Value (per unit) of SBI Mutual Fund - Magnum Hybrid Long Short Fund - RP-IDCW RO as on November 06, 2026 is Rs. 10.4402. |SUBJECT: Decla"
+  },
+  {
+   "id": "014b9c8c1975ad6f",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "SBI Mutual Fund - Magnum Hybrid Long Short Fund - RP-IDCW PO: MHLSRD : SBI Funds Management Limited has informed the Exchange that the Net Asset Value (per unit) of SBI Mutual Fund - Magnum Hybrid Long Short Fund - RP-IDCW PO as on November 06, 2026 is Rs. 10.4402. |SUBJECT: Declar",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "SBI Mutual Fund - Magnum Hybrid Long Short Fund - RP-IDCW PO: MHLSRD : SBI Funds Management Limited has informed the Exchange that the Net Asset Value (per unit) of SBI Mutual Fund - Magnum Hybrid Long Short Fund - RP-IDCW PO as on November 06, 2026 is Rs. 10.4402. |SUBJECT: Declar"
+  },
+  {
+   "id": "0060f8f3ac0ce072",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "SBI Mutual Fund - Magnum Hybrid Long Short Fund - RP-GO: MHLSRG : SBI Funds Management Limited has informed the Exchange that the Net Asset Value (per unit) of SBI Mutual Fund - Magnum Hybrid Long Short Fund - RP-GO as on November 06, 2026 is Rs. 10.4411. |SUBJECT: Declaration",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "SBI Mutual Fund - Magnum Hybrid Long Short Fund - RP-GO: MHLSRG : SBI Funds Management Limited has informed the Exchange that the Net Asset Value (per unit) of SBI Mutual Fund - Magnum Hybrid Long Short Fund - RP-GO as on November 06, 2026 is Rs. 10.4411. |SUBJECT: Declaration"
+  },
+  {
+   "id": "03c55355736162af",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "Edelweiss Mutual Fund - Edelweiss BSE Sensex ETF: ESENSEX : Edelweiss Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Edelweiss Mutual Fund - Edelweiss BSE Sensex ETF as on November 06, 2026 is Rs. 81.6839. |SUBJECT: Declaration",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "BSE",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Edelweiss Mutual Fund - Edelweiss BSE Sensex ETF: ESENSEX : Edelweiss Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Edelweiss Mutual Fund - Edelweiss BSE Sensex ETF as on November 06, 2026 is Rs. 81.6839. |SUBJECT: Declaration"
+  },
+  {
+   "id": "fee51265e7b38924",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "Groww Mutual Fund - Groww Nifty India Internet ETF: GROWWNET : Groww Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Groww Mutual Fund - Groww Nifty India Internet ETF as on November 06, 2026 is Rs. 10.3586. |SUBJECT: Declaration ",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "GROWW",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Groww Mutual Fund - Groww Nifty India Internet ETF: GROWWNET : Groww Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Groww Mutual Fund - Groww Nifty India Internet ETF as on November 06, 2026 is Rs. 10.3586. |SUBJECT: Declaration "
+  },
+  {
+   "id": "7061a5832d1fd6a8",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "Choice Mutual Fund - Choice Gold ETF: Choice AMC Private Limited has informed the Exchange that the Net Asset Value (per unit) of Choice Mutual Fund - Choice Gold ETF as on November 06, 2026 is Rs. 139.3968. |SUBJECT: Declaration of NAV",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Choice Mutual Fund - Choice Gold ETF: Choice AMC Private Limited has informed the Exchange that the Net Asset Value (per unit) of Choice Mutual Fund - Choice Gold ETF as on November 06, 2026 is Rs. 139.3968. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "a235b9768fcd888c",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "Groww Mutual Fund - Groww Nifty Realty ETF: GROWWRLTY : Groww Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Groww Mutual Fund - Groww Nifty Realty ETF as on November 06, 2026 is Rs. 10.0522. |SUBJECT: Declaration of NAV",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "GROWW",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Groww Mutual Fund - Groww Nifty Realty ETF: GROWWRLTY : Groww Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Groww Mutual Fund - Groww Nifty Realty ETF as on November 06, 2026 is Rs. 10.0522. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "cc57888b1f0a16e2",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "SBI Mutual Fund - SBI Nifty Midcap 150 ETF: SBIMID150 : SBI Funds Management Limited has informed the Exchange that the Net Asset Value (per unit) of SBI Mutual Fund - SBI Nifty Midcap 150 ETF as on November 06, 2026 is Rs. 22.3412. |SUBJECT: Declaration of NAV",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "SBI Mutual Fund - SBI Nifty Midcap 150 ETF: SBIMID150 : SBI Funds Management Limited has informed the Exchange that the Net Asset Value (per unit) of SBI Mutual Fund - SBI Nifty Midcap 150 ETF as on November 06, 2026 is Rs. 22.3412. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "0b8b1e0805bdfcbe",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "Groww Mutual Fund - Groww Nifty PSE ETF: GROWWPSE : Groww Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Groww Mutual Fund - Groww Nifty PSE ETF as on November 06, 2026 is Rs. 96.3819. |SUBJECT: Declaration of NAV",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "GROWW",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Groww Mutual Fund - Groww Nifty PSE ETF: GROWWPSE : Groww Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Groww Mutual Fund - Groww Nifty PSE ETF as on November 06, 2026 is Rs. 96.3819. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "c854b02295e8b754",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "HDFC Mutual Fund - HDFC FMP 1861D March 2022 - Series 46 - RPQ - IDCW: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC FMP 1861D March 2022 - Series 46 - RPQ - IDCW as on November 06, 2026 is Rs. 10.0641. |SUBJEC",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "HDFCAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "HDFC Mutual Fund - HDFC FMP 1861D March 2022 - Series 46 - RPQ - IDCW: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC FMP 1861D March 2022 - Series 46 - RPQ - IDCW as on November 06, 2026 is Rs. 10.0641. |SUBJEC"
+  },
+  {
+   "id": "f18261a70641b186",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "HDFC Mutual Fund - HDFC FMP 1861D March 2022 - Series 46 - DPQ - IDCW: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC FMP 1861D March 2022 - Series 46 - DPQ - IDCW as on November 06, 2026 is Rs. 10.0663. |SUBJEC",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "HDFCAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "HDFC Mutual Fund - HDFC FMP 1861D March 2022 - Series 46 - DPQ - IDCW: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC FMP 1861D March 2022 - Series 46 - DPQ - IDCW as on November 06, 2026 is Rs. 10.0663. |SUBJEC"
+  },
+  {
+   "id": "6c0069b155dfc977",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "HDFC Mutual Fund - HDFC FMP 1861D March 2022 - Series 46 - RP - IDCW: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC FMP 1861D March 2022 - Series 46 - RP - IDCW as on November 06, 2026 is Rs. 13.3807. |SUBJECT",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "HDFCAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "HDFC Mutual Fund - HDFC FMP 1861D March 2022 - Series 46 - RP - IDCW: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC FMP 1861D March 2022 - Series 46 - RP - IDCW as on November 06, 2026 is Rs. 13.3807. |SUBJECT"
+  },
+  {
+   "id": "5db3b4d148cfcf7c",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "HDFC Mutual Fund - HDFC FMP 1861D March 2022 - Series 46 - DPN - IDCW: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC FMP 1861D March 2022 - Series 46 - DPN - IDCW as on November 06, 2026 is Rs. 13.4835. |SUBJEC",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "HDFCAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "HDFC Mutual Fund - HDFC FMP 1861D March 2022 - Series 46 - DPN - IDCW: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC FMP 1861D March 2022 - Series 46 - DPN - IDCW as on November 06, 2026 is Rs. 13.4835. |SUBJEC"
+  },
+  {
+   "id": "82bb553f274a78d9",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "HDFC Mutual Fund - HDFC FMP 1861D March 2022 - Series 46 - RP - G: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC FMP 1861D March 2022 - Series 46 - RP - G as on November 06, 2026 is Rs. 13.3807. |SUBJECT: D",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "HDFCAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "HDFC Mutual Fund - HDFC FMP 1861D March 2022 - Series 46 - RP - G: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC FMP 1861D March 2022 - Series 46 - RP - G as on November 06, 2026 is Rs. 13.3807. |SUBJECT: D"
+  },
+  {
+   "id": "7eec56d8df84309b",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "Groww Mutual Fund - Groww Nifty 500 Low Volatility 50 ETF: Groww Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Groww Mutual Fund - Groww Nifty 500 Low Volatility 50 ETF as on November 06, 2026 is Rs. 10.4552. |SUBJECT: Declaration of N",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "GROWW",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Groww Mutual Fund - Groww Nifty 500 Low Volatility 50 ETF: Groww Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Groww Mutual Fund - Groww Nifty 500 Low Volatility 50 ETF as on November 06, 2026 is Rs. 10.4552. |SUBJECT: Declaration of N"
+  },
+  {
+   "id": "d11f705435b38db0",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "Edelweiss Mutual Fund - Edelweiss Nifty Next 50 ETF: ENEXT50 : Edelweiss Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Edelweiss Mutual Fund - Edelweiss Nifty Next 50 ETF as on November 06, 2026 is Rs. 71.6012. |SUBJECT: Declarat",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Edelweiss Mutual Fund - Edelweiss Nifty Next 50 ETF: ENEXT50 : Edelweiss Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Edelweiss Mutual Fund - Edelweiss Nifty Next 50 ETF as on November 06, 2026 is Rs. 71.6012. |SUBJECT: Declarat"
+  },
+  {
+   "id": "ba58f85d90bdba8d",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "SBI Mutual Fund - SBI Nifty Smallcap 250 ETF: SBISMLETF : SBI Funds Management Limited has informed the Exchange that the Net Asset Value (per unit) of SBI Mutual Fund - SBI Nifty Smallcap 250 ETF as on November 06, 2026 is Rs. 17.3866. |SUBJECT: Declaration of NAV",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "SBI Mutual Fund - SBI Nifty Smallcap 250 ETF: SBISMLETF : SBI Funds Management Limited has informed the Exchange that the Net Asset Value (per unit) of SBI Mutual Fund - SBI Nifty Smallcap 250 ETF as on November 06, 2026 is Rs. 17.3866. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "852a94dddf690979",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "SBI Mutual Fund - SBI Nifty50 Equal Weight ETF: SBI Funds Management Limited has informed the Exchange that the Net Asset Value (per unit) of SBI Mutual Fund - SBI Nifty50 Equal Weight ETF as on November 06, 2026 is Rs. 34.0069. |SUBJECT: Declaration of NAV",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "SBI Mutual Fund - SBI Nifty50 Equal Weight ETF: SBI Funds Management Limited has informed the Exchange that the Net Asset Value (per unit) of SBI Mutual Fund - SBI Nifty50 Equal Weight ETF as on November 06, 2026 is Rs. 34.0069. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "743eb96b838af5af",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "quant Mutual Fund - quant Silver ETF: SILVER001 : quant Money Managers Limited has informed the Exchange that the Net Asset Value (per unit) of quant Mutual Fund - quant Silver ETF as on November 06, 2026 is Rs. 18.5298. |SUBJECT: Declaration of NAV",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "quant Mutual Fund - quant Silver ETF: SILVER001 : quant Money Managers Limited has informed the Exchange that the Net Asset Value (per unit) of quant Mutual Fund - quant Silver ETF as on November 06, 2026 is Rs. 18.5298. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "5dab83574fd3a810",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "HDFC Mutual Fund - HDFC NIFTY IT ETF: HDFCNIFIT : HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC NIFTY IT ETF as on November 06, 2026 is Rs. 35.36. |SUBJECT: Declaration of NAV",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "HDFCAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "HDFC Mutual Fund - HDFC NIFTY IT ETF: HDFCNIFIT : HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC NIFTY IT ETF as on November 06, 2026 is Rs. 35.36. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "ae62b96aac7fe6cf",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "HDFC Mutual Fund - HDFC NIFTY Private Bank ETF: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC NIFTY Private Bank ETF as on November 06, 2026 is Rs. 30.1. |SUBJECT: Declaration of NAV",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "HDFCAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "HDFC Mutual Fund - HDFC NIFTY Private Bank ETF: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC NIFTY Private Bank ETF as on November 06, 2026 is Rs. 30.1. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "ae6aca87dfc339fd",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "HDFC Mutual Fund - HDFC Silver ETF: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC Silver ETF as on November 06, 2026 is Rs. 174.94. |SUBJECT: Declaration of NAV",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "HDFCAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "HDFC Mutual Fund - HDFC Silver ETF: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC Silver ETF as on November 06, 2026 is Rs. 174.94. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "46232043c8a2b834",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "HDFC Mutual Fund - HDFC NIFTY 100 ETF: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC NIFTY 100 ETF as on November 06, 2026 is Rs. 26.82. |SUBJECT: Declaration of NAV",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "HDFCAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "HDFC Mutual Fund - HDFC NIFTY 100 ETF: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC NIFTY 100 ETF as on November 06, 2026 is Rs. 26.82. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "35e40aec289c3a17",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "HDFC Mutual Fund - HDFC NIFTY NEXT 50 ETF: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC NIFTY NEXT 50 ETF as on November 06, 2026 is Rs. 73.34. |SUBJECT: Declaration of NAV",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "HDFCAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "HDFC Mutual Fund - HDFC NIFTY NEXT 50 ETF: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC NIFTY NEXT 50 ETF as on November 06, 2026 is Rs. 73.34. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "d9ef3e93271bfd8e",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "Edelweiss Mutual Fund - Edelweiss Silver ETF: ESILVER : Edelweiss Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Edelweiss Mutual Fund - Edelweiss Silver ETF as on November 06, 2026 is Rs. 182.9945. |SUBJECT: Declaration of",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Edelweiss Mutual Fund - Edelweiss Silver ETF: ESILVER : Edelweiss Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Edelweiss Mutual Fund - Edelweiss Silver ETF as on November 06, 2026 is Rs. 182.9945. |SUBJECT: Declaration of"
+  },
+  {
+   "id": "fbb3bb323bbadc17",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "Groww Mutual Fund - Groww Nifty Capital Markets ETF: GROWWCAPM : Groww Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Groww Mutual Fund - Groww Nifty Capital Markets ETF as on November 06, 2026 is Rs. 12.004. |SUBJECT: Declaration",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "GROWW",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Groww Mutual Fund - Groww Nifty Capital Markets ETF: GROWWCAPM : Groww Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Groww Mutual Fund - Groww Nifty Capital Markets ETF as on November 06, 2026 is Rs. 12.004. |SUBJECT: Declaration"
+  },
+  {
+   "id": "0b789173c5db1ca5",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "HDFC Mutual Fund - HDFC FMP - Series 46 Plan 3 - ROQ - IDCW: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC FMP - Series 46 Plan 3 - ROQ - IDCW as on November 06, 2026 is Rs. 10.0575. |SUBJECT: Declara",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "HDFCAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "HDFC Mutual Fund - HDFC FMP - Series 46 Plan 3 - ROQ - IDCW: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC FMP - Series 46 Plan 3 - ROQ - IDCW as on November 06, 2026 is Rs. 10.0575. |SUBJECT: Declara"
+  },
+  {
+   "id": "fbbc00f550206b43",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "HDFC Mutual Fund - HDFC FMP - Series 46 Plan 2 - RON - IDCW: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC FMP - Series 46 Plan 2 - RON - IDCW as on November 06, 2026 is Rs. 13.3336. |SUBJECT: Declara",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "HDFCAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "HDFC Mutual Fund - HDFC FMP - Series 46 Plan 2 - RON - IDCW: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC FMP - Series 46 Plan 2 - RON - IDCW as on November 06, 2026 is Rs. 13.3336. |SUBJECT: Declara"
+  },
+  {
+   "id": "4153cc7fcd607c7f",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "HDFC Mutual Fund - HDFC FMP - Series 46 Plan 3 - RO - G: H187646RG : HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC FMP - Series 46 Plan 3 - RO - G as on November 06, 2026 is Rs. 13.3336. |SUBJECT:",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "HDFCAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "HDFC Mutual Fund - HDFC FMP - Series 46 Plan 3 - RO - G: H187646RG : HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC FMP - Series 46 Plan 3 - RO - G as on November 06, 2026 is Rs. 13.3336. |SUBJECT:"
+  },
+  {
+   "id": "5072bf333de8cd61",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "HDFC Mutual Fund - HDFC FMP - Series 46 Plan 3 - DOQ - IDCW: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC FMP - Series 46 Plan 3 - DOQ - IDCW as on November 06, 2026 is Rs. 10.0595. |SUBJECT: Declara",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "HDFCAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "HDFC Mutual Fund - HDFC FMP - Series 46 Plan 3 - DOQ - IDCW: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC FMP - Series 46 Plan 3 - DOQ - IDCW as on November 06, 2026 is Rs. 10.0595. |SUBJECT: Declara"
+  },
+  {
+   "id": "716f5db0beafa030",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "HDFC Mutual Fund - HDFC FMP - Series 46 Plan 3 - DON - IDCW: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC FMP - Series 46 Plan 3 - DON - IDCW as on November 06, 2026 is Rs. 13.4249. |SUBJECT: Declara",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "HDFCAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "HDFC Mutual Fund - HDFC FMP - Series 46 Plan 3 - DON - IDCW: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC FMP - Series 46 Plan 3 - DON - IDCW as on November 06, 2026 is Rs. 13.4249. |SUBJECT: Declara"
+  },
+  {
+   "id": "52adf6e5b69103c0",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "HDFC Mutual Fund - HDFC FMP -Series 46-Plan 3-DO-G: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC FMP -Series 46-Plan 3-DO-G as on November 06, 2026 is Rs. 13.4249. |SUBJECT: Declaration of N",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "HDFCAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "HDFC Mutual Fund - HDFC FMP -Series 46-Plan 3-DO-G: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC FMP -Series 46-Plan 3-DO-G as on November 06, 2026 is Rs. 13.4249. |SUBJECT: Declaration of N"
+  },
+  {
+   "id": "671366a3c8bf3eeb",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "Groww Mutual Fund - Groww Nifty Midcap 150 ETF: Groww Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Groww Mutual Fund - Groww Nifty Midcap 150 ETF as on November 06, 2026 is Rs. 223.2517. |SUBJECT: Declaration of NAV",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "GROWW",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Groww Mutual Fund - Groww Nifty Midcap 150 ETF: Groww Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Groww Mutual Fund - Groww Nifty Midcap 150 ETF as on November 06, 2026 is Rs. 223.2517. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "4c836b033c2b40d0",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "Groww Mutual Fund - Groww BSE Hospitals ETF: Groww Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Groww Mutual Fund - Groww BSE Hospitals ETF as on November 06, 2026 is Rs. 48.1813. |SUBJECT: Declaration of NAV",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "BSE",
+     "direction": "up"
+    },
+    {
+     "symbol": "GROWW",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Groww Mutual Fund - Groww BSE Hospitals ETF: Groww Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Groww Mutual Fund - Groww BSE Hospitals ETF as on November 06, 2026 is Rs. 48.1813. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "96a6d03720f58ba6",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "SBI Mutual Fund - SBI NIFTY 1D Rate Liquid ETF - Growth: SBILIQETF : SBI Funds Management Limited has informed the Exchange that the Net Asset Value (per unit) of SBI Mutual Fund - SBI NIFTY 1D Rate Liquid ETF - Growth as on November 06, 2026 is Rs. 1063.6344. |SUBJECT: Declar",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "SBI Mutual Fund - SBI NIFTY 1D Rate Liquid ETF - Growth: SBILIQETF : SBI Funds Management Limited has informed the Exchange that the Net Asset Value (per unit) of SBI Mutual Fund - SBI NIFTY 1D Rate Liquid ETF - Growth as on November 06, 2026 is Rs. 1063.6344. |SUBJECT: Declar"
+  },
+  {
+   "id": "44b325ac47c1956d",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "HDFC Mutual Fund - HDFC NIFTY Growth Sectors 15 ETF: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC NIFTY Growth Sectors 15 ETF as on November 06, 2026 is Rs. 123.33. |SUBJECT: Declaration of N",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "HDFCAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "HDFC Mutual Fund - HDFC NIFTY Growth Sectors 15 ETF: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC NIFTY Growth Sectors 15 ETF as on November 06, 2026 is Rs. 123.33. |SUBJECT: Declaration of N"
+  },
+  {
+   "id": "07dd8f41a79b1aa2",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "HDFC Mutual Fund - HDFC NIFTY50 Value 20 ETF: HDFCVALUE : HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC NIFTY50 Value 20 ETF as on November 06, 2026 is Rs. 130.41. |SUBJECT: Declaration",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "HDFCAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "HDFC Mutual Fund - HDFC NIFTY50 Value 20 ETF: HDFCVALUE : HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC NIFTY50 Value 20 ETF as on November 06, 2026 is Rs. 130.41. |SUBJECT: Declaration"
+  },
+  {
+   "id": "61e92ad524c4978f",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "SBI Mutual Fund - SBI FMP S61 - SFMP61GR-RP-Growth Option: SFMP61GR : SBI Funds Management Limited has informed the Exchange that the Net Asset Value (per unit) of SBI Mutual Fund - SBI FMP S61 - SFMP61GR-RP-Growth Option as on November 06, 2026 is Rs. 13.3536. |SUBJECT: Declara",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "SBI Mutual Fund - SBI FMP S61 - SFMP61GR-RP-Growth Option: SFMP61GR : SBI Funds Management Limited has informed the Exchange that the Net Asset Value (per unit) of SBI Mutual Fund - SBI FMP S61 - SFMP61GR-RP-Growth Option as on November 06, 2026 is Rs. 13.3536. |SUBJECT: Declara"
+  },
+  {
+   "id": "5eee6555bcc1c1b0",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "SBI Mutual Fund - SBI FMP S61 - SFMP61DD-DP- IDCW Payout Option: SFMP61DD : SBI Funds Management Limited has informed the Exchange that the Net Asset Value (per unit) of SBI Mutual Fund - SBI FMP S61 - SFMP61DD-DP- IDCW Payout Option as on November 06, 2026 is Rs. 13.4255. |SUBJECT: D",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "SBI Mutual Fund - SBI FMP S61 - SFMP61DD-DP- IDCW Payout Option: SFMP61DD : SBI Funds Management Limited has informed the Exchange that the Net Asset Value (per unit) of SBI Mutual Fund - SBI FMP S61 - SFMP61DD-DP- IDCW Payout Option as on November 06, 2026 is Rs. 13.4255. |SUBJECT: D"
+  },
+  {
+   "id": "307b703c41135dde",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "SBI Mutual Fund - SBI FMP S61 - SFMP61GD-DP-Growth Option: SFMP61GD : SBI Funds Management Limited has informed the Exchange that the Net Asset Value (per unit) of SBI Mutual Fund - SBI FMP S61 - SFMP61GD-DP-Growth Option as on November 06, 2026 is Rs. 13.4253. |SUBJECT: Declara",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "SBI Mutual Fund - SBI FMP S61 - SFMP61GD-DP-Growth Option: SFMP61GD : SBI Funds Management Limited has informed the Exchange that the Net Asset Value (per unit) of SBI Mutual Fund - SBI FMP S61 - SFMP61GD-DP-Growth Option as on November 06, 2026 is Rs. 13.4253. |SUBJECT: Declara"
+  },
+  {
+   "id": "47b5e69b760d53a4",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "SBI Mutual Fund - SBI FMP S61 - SFMP61DR-RP - IDCW Payout: SFMP61DR : SBI Funds Management Limited has informed the Exchange that the Net Asset Value (per unit) of SBI Mutual Fund - SBI FMP S61 - SFMP61DR-RP - IDCW Payout as on November 06, 2026 is Rs. 13.3535. |SUBJECT: Declara",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "SBI Mutual Fund - SBI FMP S61 - SFMP61DR-RP - IDCW Payout: SFMP61DR : SBI Funds Management Limited has informed the Exchange that the Net Asset Value (per unit) of SBI Mutual Fund - SBI FMP S61 - SFMP61DR-RP - IDCW Payout as on November 06, 2026 is Rs. 13.3535. |SUBJECT: Declara"
+  },
+  {
+   "id": "ea781e6cf5158e5b",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "Baroda BNP Paribas Mutual Fund - Baroda BNP Paribas Nifty Bank ETF: BBNPNBETF : Baroda BNP Paribas Asset Management India Private Limited has informed the Exchange that the Net Asset Value (per unit) of Baroda BNP Paribas Mutual Fund- Baroda BNP Paribas Nifty Bank ETF as on November 06, ",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Baroda BNP Paribas Mutual Fund - Baroda BNP Paribas Nifty Bank ETF: BBNPNBETF : Baroda BNP Paribas Asset Management India Private Limited has informed the Exchange that the Net Asset Value (per unit) of Baroda BNP Paribas Mutual Fund- Baroda BNP Paribas Nifty Bank ETF as on November 06, "
+  },
+  {
+   "id": "02c99f9ebc0a1f5f",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "Edelweiss Mutual Fund - Edelweiss Nifty 50 ETF: ENIFTY : Edelweiss Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Edelweiss Mutual Fund - Edelweiss Nifty 50 ETF as on November 06, 2026 is Rs. 25.3144. |SUBJECT: Declaration of",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Edelweiss Mutual Fund - Edelweiss Nifty 50 ETF: ENIFTY : Edelweiss Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Edelweiss Mutual Fund - Edelweiss Nifty 50 ETF as on November 06, 2026 is Rs. 25.3144. |SUBJECT: Declaration of"
+  },
+  {
+   "id": "053ef5382d769d13",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "HDFC Mutual Fund - HDFC NIFTY Midcap 150 ETF: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC NIFTY Midcap 150 ETF as on November 06, 2026 is Rs. 22.58. |SUBJECT: Declaration of NAV",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "HDFCAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "HDFC Mutual Fund - HDFC NIFTY Midcap 150 ETF: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC NIFTY Midcap 150 ETF as on November 06, 2026 is Rs. 22.58. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "45c74a9f805cf863",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "HDFC Mutual Fund - HDFC NIFTY Smallcap 250 ETF: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC NIFTY Smallcap 250 ETF as on November 06, 2026 is Rs. 175.11. |SUBJECT: Declaration of NAV",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "HDFCAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "HDFC Mutual Fund - HDFC NIFTY Smallcap 250 ETF: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC NIFTY Smallcap 250 ETF as on November 06, 2026 is Rs. 175.11. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "b403820d54b1721d",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "HDFC BSE 500 ETF: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC S&P BSE 500 ETF as on November 06, 2026 is Rs. 37.73. |SUBJECT: Declaration of NAV",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "BSE",
+     "direction": "up"
+    },
+    {
+     "symbol": "HDFCAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "HDFC BSE 500 ETF: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC S&P BSE 500 ETF as on November 06, 2026 is Rs. 37.73. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "8ecf39791ccb020e",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "HDFC Mutual Fund - HDFC NIFTY100 Quality 30 ETF: HDFCQUAL : HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC NIFTY100 Quality 30 ETF as on November 06, 2026 is Rs. 59.37. |SUBJECT: Declaratio",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "HDFCAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "HDFC Mutual Fund - HDFC NIFTY100 Quality 30 ETF: HDFCQUAL : HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC NIFTY100 Quality 30 ETF as on November 06, 2026 is Rs. 59.37. |SUBJECT: Declaratio"
+  },
+  {
+   "id": "d13c3398c8cedd19",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "HDFC Mutual Fund - HDFC Charity Fund for Cancer Cure-RP-75% IDCWPO: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC Charity Fund for Cancer Cure-RP-75% IDCWPO as on November 06, 2026 is Rs. 10.2866. |SUBJECT: ",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "HDFCAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "HDFC Mutual Fund - HDFC Charity Fund for Cancer Cure-RP-75% IDCWPO: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC Charity Fund for Cancer Cure-RP-75% IDCWPO as on November 06, 2026 is Rs. 10.2866. |SUBJECT: "
+  },
+  {
+   "id": "b8b581bab3a87e3c",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "HDFC Mutual Fund - HDFC Charity Fund for Cancer Cure-RP-50% IDCWPO: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC Charity Fund for Cancer Cure-RP-50% IDCWPO as on November 06, 2026 is Rs. 10.2866. |SUBJECT: ",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "HDFCAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "HDFC Mutual Fund - HDFC Charity Fund for Cancer Cure-RP-50% IDCWPO: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC Charity Fund for Cancer Cure-RP-50% IDCWPO as on November 06, 2026 is Rs. 10.2866. |SUBJECT: "
+  },
+  {
+   "id": "0e75f889fa53ac68",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "HDFC Mutual Fund - HDFC Charity Fund for Cancer Cure-DP-75% IDCWPO: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC Charity Fund for Cancer Cure-DP-75% IDCWPO as on November 06, 2026 is Rs. 10.2866. |SUBJECT: ",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "HDFCAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "HDFC Mutual Fund - HDFC Charity Fund for Cancer Cure-DP-75% IDCWPO: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC Charity Fund for Cancer Cure-DP-75% IDCWPO as on November 06, 2026 is Rs. 10.2866. |SUBJECT: "
+  },
+  {
+   "id": "de6c93b8527e0657",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "HDFC Mutual Fund - HDFC Charity Fund for Cancer Cure-DP-50% IDCWPO: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC Charity Fund for Cancer Cure-DP-50% IDCWPO as on November 06, 2026 is Rs. 10.2866. |SUBJECT: ",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "HDFCAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "HDFC Mutual Fund - HDFC Charity Fund for Cancer Cure-DP-50% IDCWPO: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC Charity Fund for Cancer Cure-DP-50% IDCWPO as on November 06, 2026 is Rs. 10.2866. |SUBJECT: "
+  },
+  {
+   "id": "98b8e671486d1ddf",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "The Wealth Company Mutual Fund - The Wealth Company Gold ETF: Wealth Company Asset Management Holdings Private Limited has informed the Exchange that the Net Asset Value (per unit) of The Wealth Company Mutual Fund - The Wealth Company Gold ETF as on November 06, 2026 is Rs. 139.83",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "The Wealth Company Mutual Fund - The Wealth Company Gold ETF: Wealth Company Asset Management Holdings Private Limited has informed the Exchange that the Net Asset Value (per unit) of The Wealth Company Mutual Fund - The Wealth Company Gold ETF as on November 06, 2026 is Rs. 139.83"
+  },
+  {
+   "id": "8368ca804e721fa9",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "Edelweiss Mutual Fund - Edelweiss Nifty LargeMidcap 250 ETF: ELM250 : Edelweiss Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Edelweiss Mutual Fund - Edelweiss Nifty LargeMidcap 250 ETF as on November 06, 2026 is Rs. 16.5441. |SUBJECT: D",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Edelweiss Mutual Fund - Edelweiss Nifty LargeMidcap 250 ETF: ELM250 : Edelweiss Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Edelweiss Mutual Fund - Edelweiss Nifty LargeMidcap 250 ETF as on November 06, 2026 is Rs. 16.5441. |SUBJECT: D"
+  },
+  {
+   "id": "6e9c979c346f2412",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "Baroda BNP Paribas Mutual Fund - Baroda BNP Paribas Gold ETF: BBNPPGOLD : Baroda BNP Paribas Asset Management India Private Limited has informed the Exchange that the Net Asset Value (per unit) of Baroda BNP Paribas Mutual Fund - Baroda BNP Paribas Gold ETF as on November 06, 2026 ",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Baroda BNP Paribas Mutual Fund - Baroda BNP Paribas Gold ETF: BBNPPGOLD : Baroda BNP Paribas Asset Management India Private Limited has informed the Exchange that the Net Asset Value (per unit) of Baroda BNP Paribas Mutual Fund - Baroda BNP Paribas Gold ETF as on November 06, 2026 "
+  },
+  {
+   "id": "5e24f8f5933e2c81",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "Groww Mutual Fund - Groww Nifty Metal ETF: Groww Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Groww Mutual Fund - Groww Nifty Metal ETF as on November 06, 2026 is Rs. 12.1306. |SUBJECT: Declaration of NAV",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "GROWW",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Groww Mutual Fund - Groww Nifty Metal ETF: Groww Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Groww Mutual Fund - Groww Nifty Metal ETF as on November 06, 2026 is Rs. 12.1306. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "c92332ae10f4c21b",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "HDFC Mutual Fund - HDFC NIFTY200 Momentum 30 ETF: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC NIFTY200 Momentum 30 ETF as on November 06, 2026 is Rs. 30.26. |SUBJECT: Declaration of NAV",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "HDFCAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "HDFC Mutual Fund - HDFC NIFTY200 Momentum 30 ETF: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC NIFTY200 Momentum 30 ETF as on November 06, 2026 is Rs. 30.26. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "ba9daae4c72f8789",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "SBI Mutual Fund - SBI Nifty200 Value 30 ETF: SBIVALETF : SBI Funds Management Limited has informed the Exchange that the Net Asset Value (per unit) of SBI Mutual Fund - SBI Nifty200 Value 30 ETF SBI Nifty200 Value 30 ETF as on November 06, 2026 is Rs. 14.5808. |SUB",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "SBI Mutual Fund - SBI Nifty200 Value 30 ETF: SBIVALETF : SBI Funds Management Limited has informed the Exchange that the Net Asset Value (per unit) of SBI Mutual Fund - SBI Nifty200 Value 30 ETF SBI Nifty200 Value 30 ETF as on November 06, 2026 is Rs. 14.5808. |SUB"
+  },
+  {
+   "id": "9507bc7eac092ee8",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "360 ONE Mutual Fund - 360 ONE MSCI India ETF: MSCI360 : 360 ONE Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of 360 ONE Mutual Fund - 360 ONE MSCI India ETF as on November 06, 2026 is Rs. 10.271. |SUBJECT: Declaration of NAV",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "360 ONE Mutual Fund - 360 ONE MSCI India ETF: MSCI360 : 360 ONE Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of 360 ONE Mutual Fund - 360 ONE MSCI India ETF as on November 06, 2026 is Rs. 10.271. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "85fd477d8a640bb7",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "HDFC Mutual Fund - HDFC FTSE India Equity ETF: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC FTSE India Equity ETF as on November 06, 2026 is Rs. 32.93. |SUBJECT: Declaration of NAV",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "HDFCAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "HDFC Mutual Fund - HDFC FTSE India Equity ETF: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC FTSE India Equity ETF as on November 06, 2026 is Rs. 32.93. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "ff9eed4d843491f9",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "Tata Mutual Fund - Tata Nifty India Digital Exchange Traded Fund: TNIDETF : Tata Asset Management Private Limited has informed the Exchange that the Net Asset Value (per unit) of Tata Mutual Fund - Tata Nifty India Digital Exchange Traded Fund as on November 06, 2026 is Rs. 91.652. |SU",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Tata Mutual Fund - Tata Nifty India Digital Exchange Traded Fund: TNIDETF : Tata Asset Management Private Limited has informed the Exchange that the Net Asset Value (per unit) of Tata Mutual Fund - Tata Nifty India Digital Exchange Traded Fund as on November 06, 2026 is Rs. 91.652. |SU"
+  },
+  {
+   "id": "03c38c13d685595d",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "Groww Mutual Fund - Groww Nifty EV & New Age Automotive ETF: GROWWEV : Groww Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Groww Mutual Fund - Groww Nifty EV & New Age Automotive ETF as on November 06, 2026 is Rs. 31.4034. |SUBJECT: Decl",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "GROWW",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Groww Mutual Fund - Groww Nifty EV & New Age Automotive ETF: GROWWEV : Groww Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Groww Mutual Fund - Groww Nifty EV & New Age Automotive ETF as on November 06, 2026 is Rs. 31.4034. |SUBJECT: Decl"
+  },
+  {
+   "id": "70b7d1419b1e1540",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "Groww Mutual Fund - Groww Nifty Chemicals ETF: GROWWCHEM : Groww Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Groww Mutual Fund - Groww Nifty Chemicals ETF as on November 06, 2026 is Rs. 27.7595. |SUBJECT: Declaration of N",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "GROWW",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Groww Mutual Fund - Groww Nifty Chemicals ETF: GROWWCHEM : Groww Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Groww Mutual Fund - Groww Nifty Chemicals ETF as on November 06, 2026 is Rs. 27.7595. |SUBJECT: Declaration of N"
+  },
+  {
+   "id": "807617a4ed452843",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "Groww Mutual Fund - Groww Nifty Next 50 ETF: Groww Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Groww Mutual Fund - Groww Nifty Next 50 ETF as on November 06, 2026 is Rs. 72.122. |SUBJECT: Declaration of NAV",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "GROWW",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Groww Mutual Fund - Groww Nifty Next 50 ETF: Groww Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Groww Mutual Fund - Groww Nifty Next 50 ETF as on November 06, 2026 is Rs. 72.122. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "8c680c521885f3cf",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "Edelweiss Mutual Fund - Edelweiss Nifty 1D Rate Liquid ETF: ELIQUID : Edelweiss Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Edelweiss Mutual Fund - Edelweiss Nifty 1D Rate Liquid ETF as on November 06, 2026 is Rs. 1056.1027. |SUBJECT:",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Edelweiss Mutual Fund - Edelweiss Nifty 1D Rate Liquid ETF: ELIQUID : Edelweiss Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Edelweiss Mutual Fund - Edelweiss Nifty 1D Rate Liquid ETF as on November 06, 2026 is Rs. 1056.1027. |SUBJECT:"
+  },
+  {
+   "id": "a9a88ec5c5fc23cb",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "HDFC Mutual Fund -HDFC NIFTY PSU BANK ETF: HDFCPSUBK : HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund -HDFC NIFTY PSU BANK ETF as on November 06, 2026 is Rs. 87.13. |SUBJECT: Declaration of ",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "HDFCAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "HDFC Mutual Fund -HDFC NIFTY PSU BANK ETF: HDFCPSUBK : HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund -HDFC NIFTY PSU BANK ETF as on November 06, 2026 is Rs. 87.13. |SUBJECT: Declaration of "
+  },
+  {
+   "id": "7876010350cceaeb",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "SBI Nifty 1D Rate Liquid ETF - IDCW: LIQUIDSBI : SBI Funds Management Limited has informed the Exchange that the Net Asset Value (per unit) of SBI Mutual Fund - SBI NIFTY 1D Rate ETF as on November 06, 2026 is Rs. 1000. |SUBJECT: Declaration of NAV",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "SBI Nifty 1D Rate Liquid ETF - IDCW: LIQUIDSBI : SBI Funds Management Limited has informed the Exchange that the Net Asset Value (per unit) of SBI Mutual Fund - SBI NIFTY 1D Rate ETF as on November 06, 2026 is Rs. 1000. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "a29ca218c4b51042",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "HDFC Mutual Fund - HDFC NIFTY100 Low Volatility 30 ETF: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC NIFTY100 Low Volatility 30 ETF as on November 06, 2026 is Rs. 20.78. |SUBJECT: Declaration of",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "HDFCAMC",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "HDFC Mutual Fund - HDFC NIFTY100 Low Volatility 30 ETF: HDFC Asset Management Company Limited has informed the Exchange that the Net Asset Value (per unit) of HDFC Mutual Fund - HDFC NIFTY100 Low Volatility 30 ETF as on November 06, 2026 is Rs. 20.78. |SUBJECT: Declaration of"
+  },
+  {
+   "id": "2737efc246f58fbd",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "SBI Mutual Fund - SBI SILVER ETF: SBISILVER : SBI Funds Management Limited has informed the Exchange that the Net Asset Value (per unit) of SBI Mutual Fund - SBI SILVER ETF as on November 06, 2026 is Rs. 179.5227. |SUBJECT: Declaration of NAV",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "SBI Mutual Fund - SBI SILVER ETF: SBISILVER : SBI Funds Management Limited has informed the Exchange that the Net Asset Value (per unit) of SBI Mutual Fund - SBI SILVER ETF as on November 06, 2026 is Rs. 179.5227. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "c8d0aac73341b3c4",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "Edelweiss Mutual Fund - BHARAT Bond ETF - April 2032 - Growth: BBETF0432 : Edelweiss Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Edelweiss Mutual Fund - BHARAT Bond ETF - April 2032 - Growth as on November 06, 2026 is Rs. 1344.9991. |SUB",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Edelweiss Mutual Fund - BHARAT Bond ETF - April 2032 - Growth: BBETF0432 : Edelweiss Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Edelweiss Mutual Fund - BHARAT Bond ETF - April 2032 - Growth as on November 06, 2026 is Rs. 1344.9991. |SUB"
+  },
+  {
+   "id": "4e8fce94a8b99023",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "Groww Mutual Fund - Groww Nifty 500 Momentum 50 ETF: Groww Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Groww Mutual Fund - Groww Nifty 500 Momentum 50 ETF as on November 06, 2026 is Rs. 10.6215. |SUBJECT: Declaration of NAV",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "GROWW",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Groww Mutual Fund - Groww Nifty 500 Momentum 50 ETF: Groww Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Groww Mutual Fund - Groww Nifty 500 Momentum 50 ETF as on November 06, 2026 is Rs. 10.6215. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "065189b2e0355111",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "Groww Mutual Fund - Groww Gold ETF: GROWWGOLD : Groww Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Groww Mutual Fund - Groww Gold ETF as on November 06, 2026 is Rs. 13.7116. |SUBJECT: Declaration of NAV",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "GROWW",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Groww Mutual Fund - Groww Gold ETF: GROWWGOLD : Groww Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Groww Mutual Fund - Groww Gold ETF as on November 06, 2026 is Rs. 13.7116. |SUBJECT: Declaration of NAV"
+  },
+  {
+   "id": "4f16cfd8a42bec04",
+   "time": "2026-11-07T07:43:00+05:30",
+   "headline": "Groww Mutual Fund - Groww Nifty 1D Rate Liquid ETF: Groww Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Groww Mutual Fund - Groww Nifty 1D Rate Liquid ETF as on November 06, 2026 is Rs. 111.5139. |SUBJECT: Declaration of NAV",
+   "source": "NSE Announcements",
+   "url": "",
+   "section": "news",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "GROWW",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "Routine filing",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Groww Mutual Fund - Groww Nifty 1D Rate Liquid ETF: Groww Asset Management Limited has informed the Exchange that the Net Asset Value (per unit) of Groww Mutual Fund - Groww Nifty 1D Rate Liquid ETF as on November 06, 2026 is Rs. 111.5139. |SUBJECT: Declaration of NAV"
   },
   {
    "id": "3caa198b88d77ffe",
@@ -3055,6 +5031,28 @@
    "original": "Tata Mutual Fund Tata Silver Exchange Traded Fund: TATSILV : Tata Asset Management Private Limited has informed the Exchange that the Net Asset Value (per unit) of Tata Mutual Fund Tata Silver Exchange Traded Fund as on November 06, 2026 is Rs. 17.8162. |SUBJECT: Declara"
   },
   {
+   "id": "56ec563bfd38d749",
+   "time": "2026-11-07T07:01:05+05:30",
+   "headline": "Three warship manufacturing stocks to watch in India",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/stock-market-news/three-warship-manufacturing-stocks-to-watch-in-india-11793980065116.html",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Considering stocks with a focus on warship manufacturing. Here are 3 such stocks with a solid track record in warship manufacturing."
+  },
+  {
    "id": "4a39cb2c0267baa9",
    "time": "2026-11-07T04:43:10+05:30",
    "headline": "Cramer’s week ahead: AI data center stocks face another hurdle and so does the Fed",
@@ -3082,6 +5080,28 @@
    "original": "CoreWeave and Nebius earnings, alongside key inflation reports that could shape the Fed's next interest rate decision, are the focus."
   },
   {
+   "id": "0bb40906acc7a9af",
+   "time": "2026-11-07T04:18:35+05:30",
+   "headline": "Arini’s Hedge Fund Losses Grow to 32% as It Sells Some Positions",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/arinis-hedge-fund-losses-grow-to-32-as-it-sells-some-positions-11794005315599.html",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Losses at Arini Capital Management’s main hedge fund deepened in the final days of October, taking declines to 32% for the year, according to a letter to investors seen by Bloomberg."
+  },
+  {
    "id": "8754867cae7db711",
    "time": "2026-11-07T04:00:22+05:30",
    "headline": "SpaceX says Google exec Don Harrison has resigned from its board",
@@ -3107,6 +5127,28 @@
    "original": "SpaceX announced that Don Harrison, a Google executive, has resigned from the company's board of directors."
   },
   {
+   "id": "9fd3a78e370732c2",
+   "time": "2026-11-07T03:03:15+05:30",
+   "headline": "Gold Extends Drop on Stronger-Than-Expected US Employment Data",
+   "source": "Mint Markets",
+   "url": "https://www.livemint.com/market/gold-extends-drop-on-stronger-than-expected-us-employment-data-11794000796269.html",
+   "section": "trading",
+   "call": "ignore",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 8,
+   "confidence": 30,
+   "category": "No listed-stock impact",
+   "action": "No action",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Gold fell after a hot US nonfarm payrolls print added fuel to speculations that the Federal Reserve will seek to raise interest rates to contain inflation."
+  },
+  {
    "id": "7083c35db4085085",
    "time": "2026-11-07T02:37:07+05:30",
    "headline": "Investors brace for lower Anthropic valuation, calling $1.5 trillion a 'stretch'",
@@ -3130,6 +5172,33 @@
    ],
    "risks": [],
    "original": "Anthropic could list below a $1.5 trillion valuation, trailing previous expectations, as the AI trade sours on Wall Street."
+  },
+  {
+   "id": "343034c7f15e8bbc",
+   "time": "2026-11-07T01:40:59+05:30",
+   "headline": "Kirloskar Oil Engines Limited: Kirloskar Oil Engines Limited has informed the Exchange regarding Outcome of Board Meeting held on November 06, 2026. |SUBJECT: Outcome of Board Meeting",
+   "source": "NSE Announcements",
+   "url": "https://nsearchives.nseindia.com/corporate/KIRLOSENG_07112026013628_SE_Outcome_6Nov26.pdf",
+   "section": "news",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "OIL",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "News",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Kirloskar Oil Engines Limited: Kirloskar Oil Engines Limited has informed the Exchange regarding Outcome of Board Meeting held on November 06, 2026. |SUBJECT: Outcome of Board Meeting"
   },
   {
    "id": "b13380612441ffc9",
@@ -3292,50 +5361,6 @@
    "original": "Oil prices fell Friday as investors weighed the risk of renewed Iran war escalation after the midterms, alongside prospects for a diplomatic breakthrough."
   },
   {
-   "id": "600b88a1245174cc",
-   "time": "2026-11-07T01:19:09+05:30",
-   "headline": "A disturbing employment trend is hiding beneath the latest strong job numbers",
-   "source": "CNBC Economy",
-   "url": "https://www.cnbc.com/2026/11/06/long-term-unemployment-october-jobs-report.html",
-   "section": "global",
-   "call": "ignore",
-   "horizon": "intraday",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Global: no clear India link",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "The average jobless worker's bout of unemployment surpassed 27 weeks in October, the highest outside of the pandemic period in a decade."
-  },
-  {
-   "id": "34e04e9f98ef2c16",
-   "time": "2026-11-07T01:09:24+05:30",
-   "headline": "Quick Mart IPO Draws Strong Demand as Kenyan Listings Pick Up",
-   "source": "Mint Markets",
-   "url": "https://www.livemint.com/market/quick-mart-ipo-draws-strong-demand-as-kenyan-listings-pick-up-11793993964421.html",
-   "section": "trading",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Quick Mart Plc saw demand for shares in its initial public offering exceed the number available by almost 23% as Kenya’s second-biggest supermarket chain concluded the nation’s second IPO of the year."
-  },
-  {
    "id": "e80a1e6b07d4dc8b",
    "time": "2026-11-07T00:30:48+05:30",
    "headline": "Tata Motors Limited: Tata Motors Limited has informed the Exchange regarding a press release dated November 07, 2026, titled \"TML CV Holdings B.V., an Indirect Wholly Owned Subsidiary of Tata Motors Limited (formerly TML Commercial Vehicles ",
@@ -3361,94 +5386,6 @@
    ],
    "risks": [],
    "original": "Tata Motors Limited: Tata Motors Limited has informed the Exchange regarding a press release dated November 07, 2026, titled \"TML CV Holdings B.V., an Indirect Wholly Owned Subsidiary of Tata Motors Limited (formerly TML Commercial Vehicles "
-  },
-  {
-   "id": "9cfc867130d8a3e5",
-   "time": "2026-11-07T00:26:44+05:30",
-   "headline": "3i Infotech Limited: 3i Infotech Limited has informed the Exchange about Transcripts - earnings or quarterly calls |SUBJECT: Analyst/Investor Meet Para A-XBRL",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/SAIIM_19957_WebXMLFile_20261107_002642039.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "3i Infotech Limited: 3i Infotech Limited has informed the Exchange about Transcripts - earnings or quarterly calls |SUBJECT: Analyst/Investor Meet Para A-XBRL"
-  },
-  {
-   "id": "95357b25dfe70ae6",
-   "time": "2026-11-07T00:24:00+05:30",
-   "headline": "3i Infotech Limited: 3i Infotech Limited has informed the Exchange about Transcript |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/3IINFOTECHLTD_07112026002311_Transcript_for_Q2FY27_Earnings_call_signed.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "3i Infotech Limited: 3i Infotech Limited has informed the Exchange about Transcript |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates"
-  },
-  {
-   "id": "d733f169b2166e4f",
-   "time": "2026-11-07T00:20:06+05:30",
-   "headline": "Juniper Green Energy Limited: Juniper Green Energy Limited has informed the Exchange about Schedule of Analysts or Institutional Investors Meet |SUBJECT: Analyst/Investor Meet Para A-XBRL",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/SAIIM_26430_WebXMLFile_20261107_002002910.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Juniper Green Energy Limited: Juniper Green Energy Limited has informed the Exchange about Schedule of Analysts or Institutional Investors Meet |SUBJECT: Analyst/Investor Meet Para A-XBRL"
-  },
-  {
-   "id": "5f32792184b9ec4d",
-   "time": "2026-11-07T00:18:18+05:30",
-   "headline": "Aarnav Fashions Limited: AARNAV FASHIONS LIMITED has informed the Exchange about Change in Directors/KMP/SMP/Auditor/RTA |SUBJECT: Change in Directors/KMP/SMP/Auditor/RTA",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/CIM_24042_WebXMLFile_20261107_001803348.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Aarnav Fashions Limited: AARNAV FASHIONS LIMITED has informed the Exchange about Change in Directors/KMP/SMP/Auditor/RTA |SUBJECT: Change in Directors/KMP/SMP/Auditor/RTA"
   },
   {
    "id": "e3ad68bf8c7247bf",
@@ -3501,116 +5438,6 @@
    "original": "Executives of major tech companies are largely projecting optimism about continued growth in the artificial intelligence sector despite a post-midterm sell-off."
   },
   {
-   "id": "c4e61607558fc097",
-   "time": "2026-11-06T23:34:28+05:30",
-   "headline": "Samvat 2082: Commodities witness sharp volatility as crude surges",
-   "source": "Business Standard",
-   "url": "https://www.business-standard.com/markets/news/samvat-2082-commodities-witness-sharp-volatility-as-crude-surges-126110601860_1.html",
-   "section": "trading",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Brent crude surged 60.4% in Samvat 2082 amid the US-Iran conflict, while gold and silver fell in dollar terms after retreating from record highs, though rupee depreciation supported domestic returns."
-  },
-  {
-   "id": "0883839cb3b41fde",
-   "time": "2026-11-06T23:32:09+05:30",
-   "headline": "Best-ever Samvat for IPOs: Record ₹2.23 trillion raised, up 19.6%",
-   "source": "Business Standard",
-   "url": "https://www.business-standard.com/markets/ipo/best-ever-samvat-for-ipos-record-2-23-trillion-raised-up-19-6-126110601904_1.html",
-   "section": "trading",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "India's primary market raised a record ₹2.23 trillion through 375 IPOs in Samvat 2082, with mainboard issues accounting for ₹2.12 trillion and SME offerings for the rest."
-  },
-  {
-   "id": "b9d8e6d273eec792",
-   "time": "2026-11-06T23:22:49+05:30",
-   "headline": "Weakest Samvat in 15 years ends on a high for mkts as Sensex, Nifty rally",
-   "source": "Business Standard",
-   "url": "https://www.business-standard.com/markets/news/weakest-samvat-in-15-years-ends-on-a-high-for-mkts-as-sensex-nifty-rally-126110601769_1.html",
-   "section": "trading",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "The Sensex and Nifty ended Samvat 2082 with losses of 4% and 3.1%, respectively, despite a sharp late rally that delivered their biggest weekly gains in nearly six years."
-  },
-  {
-   "id": "6db6fe064deb7380",
-   "time": "2026-11-06T23:21:19+05:30",
-   "headline": "Street basks in Diwali glow: Benchmark indices post best week in 6 years",
-   "source": "Business Standard",
-   "url": "https://www.business-standard.com/markets/news/street-basks-in-diwali-glow-benchmark-indices-post-best-week-in-6-years-126110602064_1.html",
-   "section": "trading",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Rupee shines across Asia; Brent sinks most in a week since Covid"
-  },
-  {
-   "id": "3753daeafeecf608",
-   "time": "2026-11-06T22:55:16+05:30",
-   "headline": "Gold, silver turn volatile after strong US jobs data, but remain on track to snap multi-week losing streaks",
-   "source": "Mint Markets",
-   "url": "https://www.livemint.com/market/stock-market-news/gold-silver-turn-volatile-after-strong-us-jobs-data-but-remain-on-track-to-snap-multi-week-losing-streaks-11793985166600.html",
-   "section": "trading",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Gold and silver prices fell on Friday as stronger-than-expected US jobs data lifted expectations of a Federal Reserve rate hike in December. Gold was down ₹1,700 to ₹1,42,930 per 10 grams, while silver slipped 1.26% to ₹1,84,800 per kilogram."
-  },
-  {
    "id": "9b824d46666f9baa",
    "time": "2026-11-06T22:29:09+05:30",
    "headline": "Dhanteras special: Gold beats stocks or Nifty takes the lead? Gold vs Nifty 50 returns in Samvat 2082 compared",
@@ -3636,72 +5463,6 @@
    ],
    "risks": [],
    "original": "Indian equities endured volatility in Samvat 2082 amid geopolitical tensions, oil-price swings and inflation concerns. A late rally lifted the Nifty 50 more than 10% in seven sessions, but the index is still set to finish the year down about 3.24%."
-  },
-  {
-   "id": "3c802683fb2fa177",
-   "time": "2026-11-06T22:01:17+05:30",
-   "headline": "Tracxn Technologies Limited: Tracxn Technologies Limited has informed the Exchange regarding Allotment of 58982 securities pursuant to ESOP/ESPS at its meeting held on November 06, 2026. |SUBJECT: ESOP/ESOS/ESPS",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/TRACXN_06112026220054_Intimationofallotment.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Tracxn Technologies Limited: Tracxn Technologies Limited has informed the Exchange regarding Allotment of 58982 securities pursuant to ESOP/ESPS at its meeting held on November 06, 2026. |SUBJECT: ESOP/ESOS/ESPS"
-  },
-  {
-   "id": "1a4be4e6e550415a",
-   "time": "2026-11-06T22:00:31+05:30",
-   "headline": "Ugro Capital Limited: Updates |SUBJECT: Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/content/debt/WDM/UGROCAP_06112026215950_CoverletterAudiorecording.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Ugro Capital Limited: Updates |SUBJECT: Updates"
-  },
-  {
-   "id": "f3d4faffe38aaa22",
-   "time": "2026-11-06T21:59:27+05:30",
-   "headline": "Innovision Limited: Innovision Limited has informed the Exchange about Copy of Newspaper Publication |SUBJECT: Copy of Newspaper Publication",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/INNOVISION2007_06112026215918_IntimationPost_Dispatch_Newspaper20th_AGM_061126_combinedsigned.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Innovision Limited: Innovision Limited has informed the Exchange about Copy of Newspaper Publication |SUBJECT: Copy of Newspaper Publication"
   },
   {
    "id": "21865caaa4aae67d",
@@ -3751,125 +5512,6 @@
    "original": "Mayur Uniquoters Ltd: Mayur Uniquoters Ltd has informed the Exchange about Resignation of Director/KMP/SMP |SUBJECT: Resignation of Director/KMP/SMP"
   },
   {
-   "id": "a49929bb4dbedbd6",
-   "time": "2026-11-06T21:56:44+05:30",
-   "headline": "Mayur Uniquoters Ltd: Mayur Uniquoters Ltd has informed the Exchange about Change in Directors/KMP/SMP/Auditor/RTA |SUBJECT: Change in Directors/KMP/SMP/Auditor/RTA",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/CIM_6149_WebXMLFile_20261106_215643377.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Mayur Uniquoters Ltd: Mayur Uniquoters Ltd has informed the Exchange about Change in Directors/KMP/SMP/Auditor/RTA |SUBJECT: Change in Directors/KMP/SMP/Auditor/RTA"
-  },
-  {
-   "id": "ed1c31feb30816b1",
-   "time": "2026-11-06T21:56:37+05:30",
-   "headline": "Blue Water Logistics Limited: Blue Water Logistics Limited has informed the Exchange about Schedule of meet |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/BLUEWATER2024_06112026215551_Binder1.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Blue Water Logistics Limited: Blue Water Logistics Limited has informed the Exchange about Schedule of meet |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates"
-  },
-  {
-   "id": "163572d15cdd3bc7",
-   "time": "2026-11-06T21:55:49+05:30",
-   "headline": "Ugro Capital Limited: Audio recording of the earing call held on 6 November 2026 |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/UGROCAP_06112026214824_CoverletterAudiorecording.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Ugro Capital Limited: Audio recording of the earing call held on 6 November 2026 |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates"
-  },
-  {
-   "id": "bed00c50443a44ea",
-   "time": "2026-11-06T21:55:42+05:30",
-   "headline": "Telangana State Industrial Infrastructure Corporation Limited: Intimation under Regulation 50(1) |SUBJECT: Intimation under Regulation 50(1)",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/content/debt/WDM/TSIICL_06112026215532_PreboardmeetingQ2TSIIC.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Telangana State Industrial Infrastructure Corporation Limited: Intimation under Regulation 50(1) |SUBJECT: Intimation under Regulation 50(1)"
-  },
-  {
-   "id": "30653c0bb7134eb4",
-   "time": "2026-11-06T21:54:47+05:30",
-   "headline": "Oil & Natural Gas Corporation Limited: Oil & Natural Gas Corporation Limited has informed the Exchange about Link of Recording |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/ONGC_06112026215343_linkaudio06112026SD.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [
-    {
-     "symbol": "ONGC",
-     "direction": "up"
-    },
-    {
-     "symbol": "OIL",
-     "direction": "up"
-    }
-   ],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Oil & Natural Gas Corporation Limited: Oil & Natural Gas Corporation Limited has informed the Exchange about Link of Recording |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates"
-  },
-  {
    "id": "5655551829352a5d",
    "time": "2026-11-06T21:54:10+05:30",
    "headline": "Blue Water Logistics Limited: Blue Water Logistics Limited has submitted to the Exchange, the Unaudited financial results for the quarter and Half year ended September 30, 2026. |SUBJECT: Outcome of Board Meeting",
@@ -3892,50 +5534,6 @@
    "original": "Blue Water Logistics Limited: Blue Water Logistics Limited has submitted to the Exchange, the Unaudited financial results for the quarter and Half year ended September 30, 2026. |SUBJECT: Outcome of Board Meeting"
   },
   {
-   "id": "53bc1815e30705d2",
-   "time": "2026-11-06T21:52:38+05:30",
-   "headline": "Stallion India Fluorochemicals Limited: STALLION INDIA FLUOROCHEMICALS LIMITED has informed the Exchange about Schedule of Analysts or Institutional Investors Meet |SUBJECT: Analyst/Investor Meet Para A-XBRL",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/SAIIM_22963_WebXMLFile_20261106_215236472.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Stallion India Fluorochemicals Limited: STALLION INDIA FLUOROCHEMICALS LIMITED has informed the Exchange about Schedule of Analysts or Institutional Investors Meet |SUBJECT: Analyst/Investor Meet Para A-XBRL"
-  },
-  {
-   "id": "f2c347e95b3d9cea",
-   "time": "2026-11-06T21:51:35+05:30",
-   "headline": "Elin Electronics Limited: Elin Electronics Limited has informed the Exchange about Copy of Newspaper Publication |SUBJECT: Copy of Newspaper Publication",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/ELIN_06112026215125_NEWSPAPERPUBLICATION06112026.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Elin Electronics Limited: Elin Electronics Limited has informed the Exchange about Copy of Newspaper Publication |SUBJECT: Copy of Newspaper Publication"
-  },
-  {
    "id": "d1b0b59a3bfa22f4",
    "time": "2026-11-06T21:50:53+05:30",
    "headline": "Vinit Mobile Limited: Vinit Mobile Limited has submitted to the Exchange, the financial results for the period ended September 30, 2026. |SUBJECT: Outcome of Board Meeting",
@@ -3956,33 +5554,6 @@
    ],
    "risks": [],
    "original": "Vinit Mobile Limited: Vinit Mobile Limited has submitted to the Exchange, the financial results for the period ended September 30, 2026. |SUBJECT: Outcome of Board Meeting"
-  },
-  {
-   "id": "ca05872b3cfc1b70",
-   "time": "2026-11-06T21:46:25+05:30",
-   "headline": "Asian Paints Limited: Please find enclosed the following: 1. Voting results of postal ballot pursuant to Regulation 44(3) of the SEBI (Listing Obligations and Disclosure Requirements) Regulations, 2015 and 2. Scrutinizer s Report dated 6th No",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/ASIANPAINT_06112026214436_SE_intimation_Result_of_Postal_ballot.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [
-    {
-     "symbol": "ASIANPAINT",
-     "direction": "up"
-    }
-   ],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Asian Paints Limited: Please find enclosed the following: 1. Voting results of postal ballot pursuant to Regulation 44(3) of the SEBI (Listing Obligations and Disclosure Requirements) Regulations, 2015 and 2. Scrutinizer s Report dated 6th No"
   },
   {
    "id": "c2b20c81e866988d",
@@ -4029,116 +5600,6 @@
    "original": "Ramky Infrastructure Limited: The Board of Directors of the Company at its meeting held on Friday, 06th November, 2026, have inter alia approved the following:1. Unaudited Financial Results (Standalone & Consolidated) for the quarter and half year en"
   },
   {
-   "id": "7c50cf3a3ae8a451",
-   "time": "2026-11-06T21:41:35+05:30",
-   "headline": "ADF Foods Limited: ADF FOODS LIMITED has informed the Exchange about Audio Recording/Video Recording |SUBJECT: Analyst/Investor Meet Para A-XBRL",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/SAIIM_3510_WebXMLFile_20261106_214133871.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "ADF Foods Limited: ADF FOODS LIMITED has informed the Exchange about Audio Recording/Video Recording |SUBJECT: Analyst/Investor Meet Para A-XBRL"
-  },
-  {
-   "id": "e77c48be56e6596e",
-   "time": "2026-11-06T21:40:03+05:30",
-   "headline": "One Mobikwik Systems Limited: One Mobikwik Systems Limited has informed the Exchange about Shareholders Letter for the quarter ended September 30, 2026 |SUBJECT: General Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/MOBIKWIK_06112026213933_Shareholders_Letter_06112026.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "One Mobikwik Systems Limited: One Mobikwik Systems Limited has informed the Exchange about Shareholders Letter for the quarter ended September 30, 2026 |SUBJECT: General Updates"
-  },
-  {
-   "id": "a356cc426802b4bd",
-   "time": "2026-11-06T21:38:56+05:30",
-   "headline": "Punjab Chemicals & Crop Protection Limited: Punjab Chemicals & Crop Protection Limited has informed the Exchange about Transcript |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/PUNJAB_06112026213817_Earning_Call_Transcript.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Punjab Chemicals & Crop Protection Limited: Punjab Chemicals & Crop Protection Limited has informed the Exchange about Transcript |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates"
-  },
-  {
-   "id": "bfe91267668f96d8",
-   "time": "2026-11-06T21:37:30+05:30",
-   "headline": "Nvidia shares rebound over 7% after biggest single-day crash in nearly 2 years; what led to the sentiment reversal?",
-   "source": "Mint Markets",
-   "url": "https://www.livemint.com/market/stock-market-news/nvidia-shares-rebound-over-7-after-biggest-single-day-crash-in-nearly-2-years-what-led-to-the-sentiment-reversal-11793980720704.html",
-   "section": "trading",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Nvidia shares rebounded 7.3% Friday after plunging 9.3% in the previous session, as investors weighed political risks to data centre expansion. The stock remains 25% below its peak amid concerns about AI investment costs, regulation and whether massive spending will generate sufficient returns."
-  },
-  {
-   "id": "90486ff88c3be301",
-   "time": "2026-11-06T21:37:27+05:30",
-   "headline": "Falcon Technoprojects India Limited: FALCON TECHNOPROJECTS INDIA LIMITED has informed the Exchange about Board Meeting to be held on 13-Nov-2026 to inter-alia consider and approve the Unaudited Financial results of the Company for the Half Yearly ended Sept",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/PRIOR_INTIMATION_22870_WebXMLFile_20261106_213726341.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Falcon Technoprojects India Limited: FALCON TECHNOPROJECTS INDIA LIMITED has informed the Exchange about Board Meeting to be held on 13-Nov-2026 to inter-alia consider and approve the Unaudited Financial results of the Company for the Half Yearly ended Sept"
-  },
-  {
    "id": "8ba99b10f6913be9",
    "time": "2026-11-06T21:36:59+05:30",
    "headline": "U.S. economy added 165,000 jobs in October, way more than expected; unemployment rate slips to 4.1%",
@@ -4166,28 +5627,6 @@
    "original": "Nonfarm payrolls were expected to increase by 59,000 in October as the unemployment rate was expected to hold steady at 4.2%."
   },
   {
-   "id": "2ec0629e1fe06911",
-   "time": "2026-11-06T21:36:57+05:30",
-   "headline": "Stallion India Fluorochemicals Limited: Stallion India Fluorochemicals Limited has informed the Exchange about Intimation of Cancellation of Analyst Meeting |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/STALLION_06112026213646_Intimation_Analyst_Meeting_Cancellation_06_11_2026-Signed.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Stallion India Fluorochemicals Limited: Stallion India Fluorochemicals Limited has informed the Exchange about Intimation of Cancellation of Analyst Meeting |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates"
-  },
-  {
    "id": "260b6fdea3b830f3",
    "time": "2026-11-06T21:36:06+05:30",
    "headline": "AJR INFRA AND TOLLING LIMITED: AJR INFRA AND TOLLING LIMITED has informed the Exchange regarding Acquisition (including agreement to acquire) |SUBJECT: Acquisition (including agreement to acquire)-XBRL",
@@ -4208,28 +5647,6 @@
    ],
    "risks": [],
    "original": "AJR INFRA AND TOLLING LIMITED: AJR INFRA AND TOLLING LIMITED has informed the Exchange regarding Acquisition (including agreement to acquire) |SUBJECT: Acquisition (including agreement to acquire)-XBRL"
-  },
-  {
-   "id": "7c6b861271c5dcd7",
-   "time": "2026-11-06T21:31:40+05:30",
-   "headline": "AJR INFRA AND TOLLING LIMITED: AJR INFRA AND TOLLING LIMITED has informed the Exchange about Approved the Shifting of Registered Office of the Company within the local limits of city where the registered office of the Company is presently situated. |S",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/AJRINFRA_06112026213039_Outcome_of_Board_Meeting_06-11-2026.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "AJR INFRA AND TOLLING LIMITED: AJR INFRA AND TOLLING LIMITED has informed the Exchange about Approved the Shifting of Registered Office of the Company within the local limits of city where the registered office of the Company is presently situated. |S"
   },
   {
    "id": "8689c0077aabe963",
@@ -4254,197 +5671,6 @@
    "original": "AJR INFRA AND TOLLING LIMITED: AJR INFRA AND TOLLING LIMITED has informed the Exchange about Approved the Acquisition of 100% equity stake in Rajahmundry Expressway Private Limited ( REPL ), resulting REPL to become a Wholly-Owned Subsidiary of the Co"
   },
   {
-   "id": "e0b557b1733a1467",
-   "time": "2026-11-06T21:27:56+05:30",
-   "headline": "ESDS Software Solution Limited: ESDS Software Solution Limited has informed the Exchange regarding Notice of Annual General Meeting to be held on November 30, 2026 |SUBJECT: Shareholders meeting",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/ESDS_06112026212712_ESDS_AGM_Notice_BSE_NSE.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "ESDS Software Solution Limited: ESDS Software Solution Limited has informed the Exchange regarding Notice of Annual General Meeting to be held on November 30, 2026 |SUBJECT: Shareholders meeting"
-  },
-  {
-   "id": "2779145ddec24de0",
-   "time": "2026-11-06T21:24:56+05:30",
-   "headline": "Voltas Limited: Voltas Limited has informed the Exchange about Audio Recording/Video Recording |SUBJECT: Analyst/Investor Meet Para A-XBRL",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/SAIIM_231_WebXMLFile_20261106_212454399.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [
-    {
-     "symbol": "VOLTAS",
-     "direction": "up"
-    }
-   ],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Voltas Limited: Voltas Limited has informed the Exchange about Audio Recording/Video Recording |SUBJECT: Analyst/Investor Meet Para A-XBRL"
-  },
-  {
-   "id": "2bf3cae8a229b72f",
-   "time": "2026-11-06T21:24:16+05:30",
-   "headline": "Godrej Agrovet Limited: Godrej Agrovet Limited has informed the Exchange about Audio Recording/Video Recording |SUBJECT: Analyst/Investor Meet Para A-XBRL",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/SAIIM_15534_WebXMLFile_20261106_212415050.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [
-    {
-     "symbol": "GODREJIND",
-     "direction": "up"
-    }
-   ],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Godrej Agrovet Limited: Godrej Agrovet Limited has informed the Exchange about Audio Recording/Video Recording |SUBJECT: Analyst/Investor Meet Para A-XBRL"
-  },
-  {
-   "id": "12fd168eee0ad43a",
-   "time": "2026-11-06T21:23:45+05:30",
-   "headline": "Pace Digitek Limited: Pace Digitek Limited has informed the Exchange Intimation of receipt of In-principle Approvals for listing of up to 20,00,000 Equity Shares of face value of ₹2/- each under Pace Digitek Limited Employee Stock Option Sche",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/PACE_06112026212337_ESOP-IPA-Final.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Pace Digitek Limited: Pace Digitek Limited has informed the Exchange Intimation of receipt of In-principle Approvals for listing of up to 20,00,000 Equity Shares of face value of ₹2/- each under Pace Digitek Limited Employee Stock Option Sche"
-  },
-  {
-   "id": "7fe281f2e409dccb",
-   "time": "2026-11-06T21:22:27+05:30",
-   "headline": "ESDS Software Solution Limited: ESDS Software Solution Limited has informed the Exchange regarding Annual General Meeting to be held on Monday, November 30, 2026 |SUBJECT: Shareholders meeting",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/ESDS_06112026212210_ESDS_Annual_Report_BSE_NSE.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "ESDS Software Solution Limited: ESDS Software Solution Limited has informed the Exchange regarding Annual General Meeting to be held on Monday, November 30, 2026 |SUBJECT: Shareholders meeting"
-  },
-  {
-   "id": "b624ad6b34b673fb",
-   "time": "2026-11-06T21:22:24+05:30",
-   "headline": "This Samvat, can large companies learn to think like entrepreneurs?",
-   "source": "Business Standard",
-   "url": "https://www.business-standard.com/companies/news/this-samvat-can-large-companies-learn-to-think-like-entrepreneurs-126110601936_1.html",
-   "section": "trading",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "As the new Samvat begins, large companies must embrace entrepreneurial thinking, foster innovation and build the agility to respond to uncertainty rather than rely solely on budgets and forecasts"
-  },
-  {
-   "id": "d688481d56e24db6",
-   "time": "2026-11-06T21:22:23+05:30",
-   "headline": "Prabha Energy Limited: Prabha Energy Limited has informed the Exchange about Copy of Newspaper Publication |SUBJECT: Copy of Newspaper Publication",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/PRABHAENR_06112026212211_NewspaperIntimation.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Prabha Energy Limited: Prabha Energy Limited has informed the Exchange about Copy of Newspaper Publication |SUBJECT: Copy of Newspaper Publication"
-  },
-  {
-   "id": "2c7ec316f697652b",
-   "time": "2026-11-06T21:20:13+05:30",
-   "headline": "Godrej Agrovet Limited: Godrej Agrovet Limited has informed the Exchange about Link of Recording |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/GODREJAGRO_06112026212004_BSENSECONCALLAUDIO06112026.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [
-    {
-     "symbol": "GODREJIND",
-     "direction": "up"
-    }
-   ],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Godrej Agrovet Limited: Godrej Agrovet Limited has informed the Exchange about Link of Recording |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates"
-  },
-  {
    "id": "cb5f14dd4c77e582",
    "time": "2026-11-06T21:19:53+05:30",
    "headline": "Hunting for next defence stock winners? Raymond, PTC, Axiscades, Rossell - Experts decode opportunity, share targets",
@@ -4465,55 +5691,6 @@
    ],
    "risks": [],
    "original": "Private-sector firms are expanding India’s indigenous aerospace and defence capabilities. Raymond, PTC Industries, Rossell Techsys and Axiscades have varied growth prospects, but analysts flag execution, valuation and order-visibility risks."
-  },
-  {
-   "id": "81fed5e2544a8295",
-   "time": "2026-11-06T21:19:45+05:30",
-   "headline": "ADF Foods Limited: Pursuant to Regulation 30 of SEBI (LODR) Regulations, 2015, please find enclosed herewith Earnings call audio link for Q2 & H1 FY 2026-27. |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/ADFFOODS1_06112026211751_EarningsCallAudioRecording06112026.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "ADF Foods Limited: Pursuant to Regulation 30 of SEBI (LODR) Regulations, 2015, please find enclosed herewith Earnings call audio link for Q2 & H1 FY 2026-27. |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates"
-  },
-  {
-   "id": "814e69cea776af16",
-   "time": "2026-11-06T21:14:59+05:30",
-   "headline": "Voltas Limited: Voltas Limited has informed the Exchange about Link of Recording |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/VOLTAS_RB_06112026211403_SEIntimationAudioRecording.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [
-    {
-     "symbol": "VOLTAS",
-     "direction": "up"
-    }
-   ],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Voltas Limited: Voltas Limited has informed the Exchange about Link of Recording |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates"
   },
   {
    "id": "3cb92aaaed7f14d4",
@@ -4558,28 +5735,6 @@
    ],
    "risks": [],
    "original": "Rain Industries Limited: Rain Industries Limited has informed the Exchange about Management Presentation on Un-Audited Financial Results of the Company (Standalone, Consolidated and Segment) for the third quarter ended September 30, 2026. |SUBJE"
-  },
-  {
-   "id": "91009b52a8b33880",
-   "time": "2026-11-06T21:11:34+05:30",
-   "headline": "SML Mahindra Limited: SML MAHINDRA LIMITED has informed the Exchange about Board Meeting to be held on 13-Nov-2026 to consider Other business. |SUBJECT: Board Meeting Intimation",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/PRIOR_INTIMATION_121_WebXMLFile_20261106_211133968.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "SML Mahindra Limited: SML MAHINDRA LIMITED has informed the Exchange about Board Meeting to be held on 13-Nov-2026 to consider Other business. |SUBJECT: Board Meeting Intimation"
   },
   {
    "id": "635d80c3a1d5e2c4",
@@ -4631,72 +5786,6 @@
    "original": "Yasons Chemex Care Limited: Yasons Chemex Care Limited has informed the Exchange regarding |SUBJECT: Agreements,Contracts,Arrangements,MOU-XBRL"
   },
   {
-   "id": "e40f4ff109cf73d6",
-   "time": "2026-11-06T21:09:36+05:30",
-   "headline": "Yasons Chemex Care Limited: Yasons Chemex Care Limited has informed the Exchange about execution of Business Transfer Agreement by Rishit Polysurf LLP, Subsidiary of Company. |SUBJECT: Agreements",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/YASONS_06112026210913_Reg_30_Disclosure_BTA.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Yasons Chemex Care Limited: Yasons Chemex Care Limited has informed the Exchange about execution of Business Transfer Agreement by Rishit Polysurf LLP, Subsidiary of Company. |SUBJECT: Agreements"
-  },
-  {
-   "id": "7c13054d9966d2f4",
-   "time": "2026-11-06T21:09:34+05:30",
-   "headline": "Gaursons India Private Limited: Disclosure under Regulation 52(4) |SUBJECT: Disclosure under Regulation 52(4)",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/content/debt/WDM/GAURS2025_06112026210906_Disclosure_of_Ratios.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Gaursons India Private Limited: Disclosure under Regulation 52(4) |SUBJECT: Disclosure under Regulation 52(4)"
-  },
-  {
-   "id": "02a75c2a5dcf6d37",
-   "time": "2026-11-06T21:09:11+05:30",
-   "headline": "Carraro India Limited: CARRARO INDIA LIMITED has informed the Exchange about Audio Recording/Video Recording |SUBJECT: Analyst/Investor Meet Para A-XBRL",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/SAIIM_24333_WebXMLFile_20261106_210909134.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Carraro India Limited: CARRARO INDIA LIMITED has informed the Exchange about Audio Recording/Video Recording |SUBJECT: Analyst/Investor Meet Para A-XBRL"
-  },
-  {
    "id": "f4e37d1c8bdc800e",
    "time": "2026-11-06T21:07:22+05:30",
    "headline": "Gaursons India Private Limited: Financial Results Updates |SUBJECT: Financial Results Updates",
@@ -4717,50 +5806,6 @@
    ],
    "risks": [],
    "original": "Gaursons India Private Limited: Financial Results Updates |SUBJECT: Financial Results Updates"
-  },
-  {
-   "id": "0fbc02347373ff6b",
-   "time": "2026-11-06T21:05:45+05:30",
-   "headline": "Autoline Industries Limited: Autoline Industries Limited has informed the Exchange regarding a press release dated November 06, 2026, titled \"PRESS RELEASE FOR QUARTER AND HALF YEAR ENDED SEPTEMBER 30, 2026\". |SUBJECT: Press Release",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/AUTOIND_06112026210517_Autoline_Industries_Q2_H1_FY27_Press_Release_06_Nov_2026.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Autoline Industries Limited: Autoline Industries Limited has informed the Exchange regarding a press release dated November 06, 2026, titled \"PRESS RELEASE FOR QUARTER AND HALF YEAR ENDED SEPTEMBER 30, 2026\". |SUBJECT: Press Release"
-  },
-  {
-   "id": "57db46dd6ffe1010",
-   "time": "2026-11-06T21:04:57+05:30",
-   "headline": "Ravita Engineering Services Limited: RAVITA ENGINEERING SERVICES LIMITED has informed the Exchange about Board Meeting to be held on 13-Nov-2026 to inter-alia consider and approve the Unaudited Financial results of the Company for the Half Yearly ended Sept",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/PRIOR_INTIMATION_28251_WebXMLFile_20261106_210457003.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Ravita Engineering Services Limited: RAVITA ENGINEERING SERVICES LIMITED has informed the Exchange about Board Meeting to be held on 13-Nov-2026 to inter-alia consider and approve the Unaudited Financial results of the Company for the Half Yearly ended Sept"
   },
   {
    "id": "f33c35c901a7cd19",
@@ -4788,28 +5833,6 @@
    ],
    "risks": [],
    "original": "Prestige Estates Projects Limited: PRESTIGE: Prestige Estates Projects Limited has informed the Exchange about Acquisition of 100% stake in Allure Developers Private Limited. |SUBJECT: Acquisition"
-  },
-  {
-   "id": "6e74af9fefd2c80c",
-   "time": "2026-11-06T21:00:40+05:30",
-   "headline": "Flywings Simulator Training Centre Limited: Flywings Simulator Training Centre Limited has informed the Exchange about Copy of Newspaper Publication |SUBJECT: Copy of Newspaper Publication",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/FLYWINGSINC_06112026210020_Cover_E_voting_Flywings_EGM_2711_S.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Flywings Simulator Training Centre Limited: Flywings Simulator Training Centre Limited has informed the Exchange about Copy of Newspaper Publication |SUBJECT: Copy of Newspaper Publication"
   },
   {
    "id": "3bc856e967ad0cba",
@@ -4900,116 +5923,6 @@
    "original": "Mayur Uniquoters Ltd: Mayur Uniquoters Ltd has informed the Exchange regarding Resignation of Mr Rakesh Kumar Saxena as Assistant General Manager- Project (Civil) (Designated as Senior Management personnel) of the company w.e.f November 06,20"
   },
   {
-   "id": "f8f598721237de48",
-   "time": "2026-11-06T20:58:20+05:30",
-   "headline": "Carraro India Limited: Carraro India Limited has informed the Exchange about Link of Recording |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/CARRARO_06112026205627_CILQ2FY26IntimationofAudioRecordingsofInvestorcall_S.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Carraro India Limited: Carraro India Limited has informed the Exchange about Link of Recording |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates"
-  },
-  {
-   "id": "f43f66f344334ff7",
-   "time": "2026-11-06T20:56:00+05:30",
-   "headline": "SML Mahindra Limited: SML MAHINDRA LIMITED has informed the Exchange regarding Issuance of securities |SUBJECT: Alteration Of Capital and Fund Raising-XBRL",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/ALTERATION_OF_CAPITAL_AND_FUND_RAISING_121_WebXMLFile_20261106_205559463.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "SML Mahindra Limited: SML MAHINDRA LIMITED has informed the Exchange regarding Issuance of securities |SUBJECT: Alteration Of Capital and Fund Raising-XBRL"
-  },
-  {
-   "id": "16028f02ce817ef7",
-   "time": "2026-11-06T20:54:57+05:30",
-   "headline": "Gaursons India Private Limited: Outcome of Board Meeting |SUBJECT: Outcome of Board Meeting",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/content/debt/WDM/GAURS2025_06112026205355_Outcome_of_Board_Meeting.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Gaursons India Private Limited: Outcome of Board Meeting |SUBJECT: Outcome of Board Meeting"
-  },
-  {
-   "id": "8e0a1f4b1fbd5bca",
-   "time": "2026-11-06T20:54:33+05:30",
-   "headline": "Zetwerk Manufacturing Businesses Limited: Zetwerk Manufacturing Businesses Ltd has informed the Exchange about Schedule of Analysts or Institutional Investors Meet |SUBJECT: Analyst/Investor Meet Para A-XBRL",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/SAIIM_28277_WebXMLFile_20261106_205431475.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Zetwerk Manufacturing Businesses Limited: Zetwerk Manufacturing Businesses Ltd has informed the Exchange about Schedule of Analysts or Institutional Investors Meet |SUBJECT: Analyst/Investor Meet Para A-XBRL"
-  },
-  {
-   "id": "b9d3fbc72d90442d",
-   "time": "2026-11-06T20:54:24+05:30",
-   "headline": "Rain Industries Limited: Rain Industries Limited has informed the Exchange about Date of Payment of second interim dividend for the financial year ending December 31, 2026. |SUBJECT: General Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/RAIN_06112026205346_Date_of_Payment_of_Div.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Rain Industries Limited: Rain Industries Limited has informed the Exchange about Date of Payment of second interim dividend for the financial year ending December 31, 2026. |SUBJECT: General Updates"
-  },
-  {
    "id": "d915ee4123dc4138",
    "time": "2026-11-06T20:53:58+05:30",
    "headline": "Sebi warns Dabur India over delay in disclosing USFDA warning letter",
@@ -5037,50 +5950,6 @@
    "original": "The market regulator has cautioned Dabur India over delayed disclosure of a USFDA warning letter, saying repeated violations could attract enforcement action under Sebi rules."
   },
   {
-   "id": "ef5d7cdf9aeaffe0",
-   "time": "2026-11-06T20:50:58+05:30",
-   "headline": "Ravindra Energy Limited: Ravindra Energy Limited has informed the Exchange about Copy of Newspaper Publication on financial results for the quarter and half year ended 30/09/2026 |SUBJECT: Copy of Newspaper Publication",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/RAVINDRA_06112026205046_REL_Fin_Results_NewS.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Ravindra Energy Limited: Ravindra Energy Limited has informed the Exchange about Copy of Newspaper Publication on financial results for the quarter and half year ended 30/09/2026 |SUBJECT: Copy of Newspaper Publication"
-  },
-  {
-   "id": "88253b5bd9d60d37",
-   "time": "2026-11-06T20:49:52+05:30",
-   "headline": "Intrasoft Technologies Limited: Intrasoft Technologies Limited has informed the Exchange about Investor Presentation |SUBJECT: Investor Presentation",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/ISFT_06112026204937_PresentationQ2.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Intrasoft Technologies Limited: Intrasoft Technologies Limited has informed the Exchange about Investor Presentation |SUBJECT: Investor Presentation"
-  },
-  {
    "id": "cdca88dcf90c96d2",
    "time": "2026-11-06T20:49:42+05:30",
    "headline": "Kilitch Drugs (India) Limited: Kilitch Drugs (India) Limited has submitted to the Exchange, the financial results for the period ended September 30, 2026. |SUBJECT: Outcome of Board Meeting",
@@ -5101,263 +5970,6 @@
    ],
    "risks": [],
    "original": "Kilitch Drugs (India) Limited: Kilitch Drugs (India) Limited has submitted to the Exchange, the financial results for the period ended September 30, 2026. |SUBJECT: Outcome of Board Meeting"
-  },
-  {
-   "id": "20ad453662f3ef33",
-   "time": "2026-11-06T20:49:08+05:30",
-   "headline": "Hero MotoCorp Limited: Pursuant to Regulation 30 of the SEBI Listing Regulations, please find attached the copy of the newspaper advertisement(s) published today, intimating that the special window has been opened for transfer and dematerializ",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/HEROMOTO_06112026204820_Stxintimation6112026newspaperadvertisment.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [
-    {
-     "symbol": "HEROMOTOCO",
-     "direction": "up"
-    }
-   ],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Hero MotoCorp Limited: Pursuant to Regulation 30 of the SEBI Listing Regulations, please find attached the copy of the newspaper advertisement(s) published today, intimating that the special window has been opened for transfer and dematerializ"
-  },
-  {
-   "id": "b2248680881fb730",
-   "time": "2026-11-06T20:49:07+05:30",
-   "headline": "Rain Industries Limited: RAIN INDUSTRIES LIMITED has informed the Exchange regarding Outcome of Board Meeting held on 06-Nov-2026 for Dividend |SUBJECT: Outcome of Board Meeting-XBRL",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/OUTCOME_959_WebXMLFile_20261106_204906989.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Rain Industries Limited: RAIN INDUSTRIES LIMITED has informed the Exchange regarding Outcome of Board Meeting held on 06-Nov-2026 for Dividend |SUBJECT: Outcome of Board Meeting-XBRL"
-  },
-  {
-   "id": "a86ce12e529c4dd8",
-   "time": "2026-11-06T20:46:52+05:30",
-   "headline": "Latent View Analytics Limited: LATENT VIEW ANALYTICS LIMITED has informed the Exchange about Transcripts - earnings or quarterly calls |SUBJECT: Analyst/Investor Meet Para A-XBRL",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/SAIIM_19894_WebXMLFile_20261106_204650664.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Latent View Analytics Limited: LATENT VIEW ANALYTICS LIMITED has informed the Exchange about Transcripts - earnings or quarterly calls |SUBJECT: Analyst/Investor Meet Para A-XBRL"
-  },
-  {
-   "id": "8bc3eefed686e902",
-   "time": "2026-11-06T20:46:17+05:30",
-   "headline": "NDR INVIT Trust: NDR INVIT Trust has informed the Exchange regarding 'Investor Presentation for Q2 FY27 '. |SUBJECT: Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/NDRINVIT_06112026204456_Q2Investorpresentation.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "NDR INVIT Trust: NDR INVIT Trust has informed the Exchange regarding 'Investor Presentation for Q2 FY27 '. |SUBJECT: Updates"
-  },
-  {
-   "id": "a625ef4395df44f1",
-   "time": "2026-11-06T20:45:56+05:30",
-   "headline": "Schneider Electric Infrastructure Limited: Schneider Electric Infrastructure Limited has informed the Exchange about Audio Recording/Video Recording |SUBJECT: Analyst/Investor Meet Para A-XBRL",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/SAIIM_5712_WebXMLFile_20261106_204554932.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [
-    {
-     "symbol": "SCHNEIDER",
-     "direction": "up"
-    }
-   ],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Schneider Electric Infrastructure Limited: Schneider Electric Infrastructure Limited has informed the Exchange about Audio Recording/Video Recording |SUBJECT: Analyst/Investor Meet Para A-XBRL"
-  },
-  {
-   "id": "aa0a7ff00d057f4d",
-   "time": "2026-11-06T20:45:27+05:30",
-   "headline": "Vasa Retail and Overseas Ltd: VASA RETAIL AND OVERSEAS LTD has informed the Exchange about Board Meeting to be held on 12-Nov-2026 to inter-alia consider and approve the Unaudited Financial results of the Company for the Half Yearly ended September 2",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/PRIOR_INTIMATION_15755_WebXMLFile_20261106_204526919.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Vasa Retail and Overseas Ltd: VASA RETAIL AND OVERSEAS LTD has informed the Exchange about Board Meeting to be held on 12-Nov-2026 to inter-alia consider and approve the Unaudited Financial results of the Company for the Half Yearly ended September 2"
-  },
-  {
-   "id": "d39caf15683ea8e0",
-   "time": "2026-11-06T20:44:05+05:30",
-   "headline": "Borosil Limited: BOROSIL LIMITED has informed the Exchange about Transcripts - earnings or quarterly calls |SUBJECT: Analyst/Investor Meet Para A-XBRL",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/SAIIM_18006_WebXMLFile_20261106_204402338.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Borosil Limited: BOROSIL LIMITED has informed the Exchange about Transcripts - earnings or quarterly calls |SUBJECT: Analyst/Investor Meet Para A-XBRL"
-  },
-  {
-   "id": "81c16a9d4fba46c2",
-   "time": "2026-11-06T20:43:39+05:30",
-   "headline": "Schneider Electric Infrastructure Limited: Schneider Electric Infrastructure Limited has informed the Exchange about Link of Recording |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/SCHNEIDER_06112026204327_InvestorsConferenceCallRecordinglink.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [
-    {
-     "symbol": "SCHNEIDER",
-     "direction": "up"
-    }
-   ],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Schneider Electric Infrastructure Limited: Schneider Electric Infrastructure Limited has informed the Exchange about Link of Recording |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates"
-  },
-  {
-   "id": "95f26c5e57e0c74c",
-   "time": "2026-11-06T20:42:46+05:30",
-   "headline": "NIIF Infrastructure Finance Limited: Confirmation of Redemption/Payment of Interest and Principal |SUBJECT: Confirmation of Redemption/Payment of Interest and Principal",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/content/debt/WDM/IDFCIDFL_06112026204204_NSE_Payment_Certificate_061126_Signed.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "NIIF Infrastructure Finance Limited: Confirmation of Redemption/Payment of Interest and Principal |SUBJECT: Confirmation of Redemption/Payment of Interest and Principal"
-  },
-  {
-   "id": "ad88025d7bbfb4d3",
-   "time": "2026-11-06T20:41:43+05:30",
-   "headline": "Borosil Limited: Borosil Limited has informed the Exchange about Transcript |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/BOROSIL_06112026204110_SEIntimationTranscript.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Borosil Limited: Borosil Limited has informed the Exchange about Transcript |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates"
-  },
-  {
-   "id": "51bfed674e4db2b1",
-   "time": "2026-11-06T20:40:22+05:30",
-   "headline": "Flywings Simulator Training Centre Limited: Flywings Simulator Training Centre Limited has informed the Exchange regarding Issuance of securities |SUBJECT: Alteration Of Capital and Fund Raising-XBRL",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/ALTERATION_OF_CAPITAL_AND_FUND_RAISING_26689_WebXMLFile_20261106_204021248.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Flywings Simulator Training Centre Limited: Flywings Simulator Training Centre Limited has informed the Exchange regarding Issuance of securities |SUBJECT: Alteration Of Capital and Fund Raising-XBRL"
   },
   {
    "id": "628863801bd2d3cb",
@@ -5385,121 +5997,6 @@
    ],
    "risks": [],
    "original": "Voltas Limited: Voltas Limited has informed the Exchange about Change in Directors/KMP/SMP/Auditor/RTA |SUBJECT: Change in Directors/KMP/SMP/Auditor/RTA"
-  },
-  {
-   "id": "de8a9ee83aac2d13",
-   "time": "2026-11-06T20:40:00+05:30",
-   "headline": "Sonata Software Limited: SONATA SOFTWARE LIMITED has informed the Exchange about Audio Recording/Video Recording |SUBJECT: Analyst/Investor Meet Para A-XBRL",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/SAIIM_1704_WebXMLFile_20261106_203958438.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Sonata Software Limited: SONATA SOFTWARE LIMITED has informed the Exchange about Audio Recording/Video Recording |SUBJECT: Analyst/Investor Meet Para A-XBRL"
-  },
-  {
-   "id": "ee0c50e70dd3a06b",
-   "time": "2026-11-06T20:38:56+05:30",
-   "headline": "Zetwerk Manufacturing Businesses Limited: Q2 FY2027 Earnings Conference Call scheduled to be held on November 13, 2026 at 5:30 PM. |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/ZETWERK_06112026203808_ScheduleofAnalystInvestorCall_Q22026.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Zetwerk Manufacturing Businesses Limited: Q2 FY2027 Earnings Conference Call scheduled to be held on November 13, 2026 at 5:30 PM. |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates"
-  },
-  {
-   "id": "0b2b810a09ba3a78",
-   "time": "2026-11-06T20:38:44+05:30",
-   "headline": "Rain Industries Limited: Rain Industries Limited has informed the Exchange that Record date for the purpose of Dividend is 13-Nov-2026. |SUBJECT: Record Date",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/RAIN_06112026203751_Div_Record_date.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Rain Industries Limited: Rain Industries Limited has informed the Exchange that Record date for the purpose of Dividend is 13-Nov-2026. |SUBJECT: Record Date"
-  },
-  {
-   "id": "9ca3afc7d4c1fb07",
-   "time": "2026-11-06T20:38:37+05:30",
-   "headline": "Lupin Limited: Lupin Limited has informed the Exchange about Transcript of Q2 FY2027 Earnings Conference Call. |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/Lupin2_06112026203743_SE_Intimation_of_Investor_Meet_Transcript.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [
-    {
-     "symbol": "LUPIN",
-     "direction": "up"
-    }
-   ],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Lupin Limited: Lupin Limited has informed the Exchange about Transcript of Q2 FY2027 Earnings Conference Call. |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates"
-  },
-  {
-   "id": "b582218d685336b6",
-   "time": "2026-11-06T20:37:44+05:30",
-   "headline": "Bonfiglioli Transmissions Limited: Bonfiglioli Transmissions Limited has informed the Exchange about Schedule of Analysts or Institutional Investors Meet |SUBJECT: Analyst/Investor Meet Para A-XBRL",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/SAIIM_27862_WebXMLFile_20261106_203742366.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Bonfiglioli Transmissions Limited: Bonfiglioli Transmissions Limited has informed the Exchange about Schedule of Analysts or Institutional Investors Meet |SUBJECT: Analyst/Investor Meet Para A-XBRL"
   },
   {
    "id": "615fd7ffb58b5486",
@@ -5535,72 +6032,6 @@
    ],
    "risks": [],
    "original": "Equirus Prive has unveiled Diwali Picks 2026, a portfolio of 16 stocks across financial services, automobiles, manufacturing, infrastructure, energy and consumption.&nbsp;"
-  },
-  {
-   "id": "a1d31f4a37ec1f75",
-   "time": "2026-11-06T20:35:59+05:30",
-   "headline": "Windlas Biotech Limited: Windlas Biotech Limited has informed the Exchange about Link of Recording |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/WINDLAS_06112026203542_Audio_Recording_061126.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Windlas Biotech Limited: Windlas Biotech Limited has informed the Exchange about Link of Recording |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates"
-  },
-  {
-   "id": "7857abeeaaa32e15",
-   "time": "2026-11-06T20:35:47+05:30",
-   "headline": "Prataap Snacks Limited: Prataap Snacks Limited has informed the Exchange about Transcript |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/DIAMONDYD_06112026203505_IntimationofTranscriptInvestorMeet03112026.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Prataap Snacks Limited: Prataap Snacks Limited has informed the Exchange about Transcript |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates"
-  },
-  {
-   "id": "8de9fcce6eb7615b",
-   "time": "2026-11-06T20:35:42+05:30",
-   "headline": "Bikaji Foods International Limited: BIKAJI FOODS INTERNATIONAL LIMITED has informed the Exchange about Schedule of Analysts or Institutional Investors Meet |SUBJECT: Analyst/Investor Meet Para A-XBRL",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/SAIIM_20521_WebXMLFile_20261106_203540551.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Bikaji Foods International Limited: BIKAJI FOODS INTERNATIONAL LIMITED has informed the Exchange about Schedule of Analysts or Institutional Investors Meet |SUBJECT: Analyst/Investor Meet Para A-XBRL"
   },
   {
    "id": "232452e1bd2233e8",
@@ -5647,204 +6078,6 @@
    "original": "Lancer Container Lines Limited: Intimation under Regulation 30 of SEBI (Listing Obligations and Disclosure Requirements) Regulations, 2015 Reporting of Cyber Fraud |SUBJECT: General Updates"
   },
   {
-   "id": "81c6a91f5e95b87f",
-   "time": "2026-11-06T20:31:49+05:30",
-   "headline": "Tamilnad Mercantile Bank Limited: Tamilnad Mercantile Bank Limited has informed the Exchange about the Revision in Marginal Cost of Funds Based Lending Rate (MCLR) of the Bank |SUBJECT: General Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/9659523378_06112026203117_91.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Tamilnad Mercantile Bank Limited: Tamilnad Mercantile Bank Limited has informed the Exchange about the Revision in Marginal Cost of Funds Based Lending Rate (MCLR) of the Bank |SUBJECT: General Updates"
-  },
-  {
-   "id": "6b6f4166887749c9",
-   "time": "2026-11-06T20:31:31+05:30",
-   "headline": "Sonata Software Limited: Sonata Software Limited has informed the Exchange about Audio Link of recording for the Earnings call held on 6th November 2026 |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/SONATSOFTW_06112026203048_audiorecordingearningscallq2fy27.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Sonata Software Limited: Sonata Software Limited has informed the Exchange about Audio Link of recording for the Earnings call held on 6th November 2026 |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates"
-  },
-  {
-   "id": "eab5ee1e7a239042",
-   "time": "2026-11-06T20:29:24+05:30",
-   "headline": "Equitas Small Finance Bank Limited: Equitas Small Finance Bank Limited has informed the Exchange about Management update call |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/EQUITASBNK_06112026202749_Forupload.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Equitas Small Finance Bank Limited: Equitas Small Finance Bank Limited has informed the Exchange about Management update call |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates"
-  },
-  {
-   "id": "ec5ed55cfa022295",
-   "time": "2026-11-06T20:29:03+05:30",
-   "headline": "Bonfiglioli Transmissions Limited: Bonfiglioli Transmissions Limited has informed the Exchange about Schedule of meet |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/BONFIGLIOLI_06112026202839_EARNINGSCALLINVITE.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Bonfiglioli Transmissions Limited: Bonfiglioli Transmissions Limited has informed the Exchange about Schedule of meet |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates"
-  },
-  {
-   "id": "0291cae522689daf",
-   "time": "2026-11-06T20:27:29+05:30",
-   "headline": "Knowledge Marine & Engineering Works Limited: Monitoring Agency Report for the quarter ended September 30, 2026 |SUBJECT: Monitoring Agency Report",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/KMEW_06112026202719_MA_report.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Knowledge Marine & Engineering Works Limited: Monitoring Agency Report for the quarter ended September 30, 2026 |SUBJECT: Monitoring Agency Report"
-  },
-  {
-   "id": "59b68fe98216fd80",
-   "time": "2026-11-06T20:27:24+05:30",
-   "headline": "Equitas Small Finance Bank Limited: EQUITAS SMALL FINANCE BANK LIMITED has informed the Exchange about Schedule of Analysts or Institutional Investors Meet |SUBJECT: Analyst/Investor Meet Para A-XBRL",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/SAIIM_17660_WebXMLFile_20261106_202722545.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Equitas Small Finance Bank Limited: EQUITAS SMALL FINANCE BANK LIMITED has informed the Exchange about Schedule of Analysts or Institutional Investors Meet |SUBJECT: Analyst/Investor Meet Para A-XBRL"
-  },
-  {
-   "id": "fba3cbbc8a0d37cc",
-   "time": "2026-11-06T20:26:13+05:30",
-   "headline": "Oriana Power Limited: Oriana Power Limited has informed the Exchange about Step Down Subsidiary |SUBJECT: General Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/ORIANA_06112026202245_OPL_SDS_TruereHydrogen_061126.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Oriana Power Limited: Oriana Power Limited has informed the Exchange about Step Down Subsidiary |SUBJECT: General Updates"
-  },
-  {
-   "id": "c7c7a82239037b3d",
-   "time": "2026-11-06T20:26:08+05:30",
-   "headline": "SIGMA ADVANCED SYSTEMS LIMITED: SIGMA ADVANCED SYSTEMS LIMITED has informed the Exchange regarding Appointment of Ms Urkavalan Jeya Santhi as Independent Director of the company w.e.f. November 06, 2026. |SUBJECT: Appointment",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/MEGASOFT_06112026202504_Chnageinmgmt06112026.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "SIGMA ADVANCED SYSTEMS LIMITED: SIGMA ADVANCED SYSTEMS LIMITED has informed the Exchange regarding Appointment of Ms Urkavalan Jeya Santhi as Independent Director of the company w.e.f. November 06, 2026. |SUBJECT: Appointment"
-  },
-  {
-   "id": "2612a9e74a4419e9",
-   "time": "2026-11-06T20:25:43+05:30",
-   "headline": "Vivid Electromech Limited: Vivid Electromech Limited has informed the Exchange about Statutory Auditor Certificate and Monitoring Agency Report for the quarter ended September 30, 2026 |SUBJECT: Monitoring Agency Report",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/VIVID_06112026202533_Intimation_of_SA_Certificate_and_Monitoring_Auditors_Report_30-09-2026.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Vivid Electromech Limited: Vivid Electromech Limited has informed the Exchange about Statutory Auditor Certificate and Monitoring Agency Report for the quarter ended September 30, 2026 |SUBJECT: Monitoring Agency Report"
-  },
-  {
    "id": "03a21c4a60677167",
    "time": "2026-11-06T20:25:10+05:30",
    "headline": "Minda Corporation Limited: MINDA CORPORATION LIMITED has informed the Exchange about Change in Directors/KMP/SMP/Auditor/RTA |SUBJECT: Change in Directors/KMP/SMP/Auditor/RTA",
@@ -5870,248 +6103,6 @@
    ],
    "risks": [],
    "original": "Minda Corporation Limited: MINDA CORPORATION LIMITED has informed the Exchange about Change in Directors/KMP/SMP/Auditor/RTA |SUBJECT: Change in Directors/KMP/SMP/Auditor/RTA"
-  },
-  {
-   "id": "f5a5011411472b97",
-   "time": "2026-11-06T20:23:49+05:30",
-   "headline": "Vilas Transcore Limited: Vilas Transcore Limited has informed the Exchange about Audio Recording/Video Recording |SUBJECT: Analyst/Investor Meet Para A-XBRL",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/SAIIM_23192_WebXMLFile_20261106_202347690.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Vilas Transcore Limited: Vilas Transcore Limited has informed the Exchange about Audio Recording/Video Recording |SUBJECT: Analyst/Investor Meet Para A-XBRL"
-  },
-  {
-   "id": "bf1f45b905422f04",
-   "time": "2026-11-06T20:22:11+05:30",
-   "headline": "Gaja Alternative Asset Management Limited: GAJA ALTERNATIVE ASSET MANAGEMENT LIMITED has informed the Exchange about Notice of Shareholders Meeting for Postal Ballot |SUBJECT: Notice Of Shareholders Meetings-XBRL",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/NOTICE_OF_SHAREHOLDERS_MEETINGS_26416_WebXMLFile_20261106_202210345.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Gaja Alternative Asset Management Limited: GAJA ALTERNATIVE ASSET MANAGEMENT LIMITED has informed the Exchange about Notice of Shareholders Meeting for Postal Ballot |SUBJECT: Notice Of Shareholders Meetings-XBRL"
-  },
-  {
-   "id": "b464d5d097f1a71c",
-   "time": "2026-11-06T20:21:59+05:30",
-   "headline": "Aditya Birla Sun Life Insurance Company Limited: Others |SUBJECT: Others",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/content/debt/WDM/ABSLI_06112026202151_ABSLI.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Aditya Birla Sun Life Insurance Company Limited: Others |SUBJECT: Others"
-  },
-  {
-   "id": "c18048f1e747675e",
-   "time": "2026-11-06T20:21:40+05:30",
-   "headline": "SIGMA ADVANCED SYSTEMS LIMITED: SIGMA ADVANCED SYSTEMS LIMITED has informed the Exchange regarding Appointment of Mr Galla Jayadev as Independent Director of the company w.e.f. November 06, 2026. |SUBJECT: Appointment",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/MEGASOFT_06112026201925_Chnageinmgmt06112026.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "SIGMA ADVANCED SYSTEMS LIMITED: SIGMA ADVANCED SYSTEMS LIMITED has informed the Exchange regarding Appointment of Mr Galla Jayadev as Independent Director of the company w.e.f. November 06, 2026. |SUBJECT: Appointment"
-  },
-  {
-   "id": "1aa0f51cc9067cc4",
-   "time": "2026-11-06T20:21:24+05:30",
-   "headline": "GHCL Textiles Limited: Ghcl Textiles Limited has informed the Exchange about Copy of Newspaper Publication |SUBJECT: Copy of Newspaper Publication",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/GHCLTEXTILES_06112026202051_GHCL_Textiles_newspapercopy_06_11_2026.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "GHCL Textiles Limited: Ghcl Textiles Limited has informed the Exchange about Copy of Newspaper Publication |SUBJECT: Copy of Newspaper Publication"
-  },
-  {
-   "id": "ff36be259faf29ea",
-   "time": "2026-11-06T20:21:21+05:30",
-   "headline": "Vilas Transcore Limited: Vilas Transcore Limited has informed the Exchange about Link of Recording |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/VILAS_06112026202058_Investor_call_link_recording__1_.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Vilas Transcore Limited: Vilas Transcore Limited has informed the Exchange about Link of Recording |SUBJECT: Analysts/Institutional Investor Meet/Con. Call Updates"
-  },
-  {
-   "id": "01eaf8ae352409f1",
-   "time": "2026-11-06T20:20:23+05:30",
-   "headline": "Safe Enterprises Retail Fixtures Limited: Safe Enterprises Retail Fixtures Limited has informed the Exchange about statement of deviation(s) or variation(s) under Reg. 32 |SUBJECT: Statement of deviation(s) or variation(s) under Reg. 32",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/SAFEENTERPRISES_06112026202013_Statement_of_DV_Monitoring_Report_300926.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Safe Enterprises Retail Fixtures Limited: Safe Enterprises Retail Fixtures Limited has informed the Exchange about statement of deviation(s) or variation(s) under Reg. 32 |SUBJECT: Statement of deviation(s) or variation(s) under Reg. 32"
-  },
-  {
-   "id": "eb26eed37ba21475",
-   "time": "2026-11-06T20:19:19+05:30",
-   "headline": "Shri Ahimsa Naturals Limited: Shri Ahimsa Naturals Limited has informed the Exchange regarding a press release dated November 06, 2026, titled \"Embracing into New Horizons, Unlocking Bigger Opportunities\". |SUBJECT: Press Release",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/AHIMSANATURALS_06112026201840_H1FY2027_Press_Release_0611_Signed.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Shri Ahimsa Naturals Limited: Shri Ahimsa Naturals Limited has informed the Exchange regarding a press release dated November 06, 2026, titled \"Embracing into New Horizons, Unlocking Bigger Opportunities\". |SUBJECT: Press Release"
-  },
-  {
-   "id": "dbc16a4b83528235",
-   "time": "2026-11-06T20:18:37+05:30",
-   "headline": "Zetwerk Manufacturing Businesses Limited: Zetwerk Manufacturing Businesses Limited has informed the Exchange about Board Meeting to be held on 13-Nov-2026 to inter-alia consider and approve the Unaudited Financial results of the Company for the Half Yearly ended",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/PRIOR_INTIMATION_28277_WebXMLFile_20261106_201836411.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Zetwerk Manufacturing Businesses Limited: Zetwerk Manufacturing Businesses Limited has informed the Exchange about Board Meeting to be held on 13-Nov-2026 to inter-alia consider and approve the Unaudited Financial results of the Company for the Half Yearly ended"
-  },
-  {
-   "id": "9eb2b01b8e436dfb",
-   "time": "2026-11-06T20:18:10+05:30",
-   "headline": "TRANSWORLD SHIPPING LINES LIMITED: TRANSWORLD SHIPPING LINES LIMITED has informed the Exchange that Board of Directors at its meeting held on November 06, 2026, declared Interim Dividend of Rs. 11 per equity share. |SUBJECT: Dividend",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/TRANSWORLD_06112026201735_Board_Meeting_Outcome-signed.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "TRANSWORLD SHIPPING LINES LIMITED: TRANSWORLD SHIPPING LINES LIMITED has informed the Exchange that Board of Directors at its meeting held on November 06, 2026, declared Interim Dividend of Rs. 11 per equity share. |SUBJECT: Dividend"
-  },
-  {
-   "id": "abf4bfaa4d5a1ea1",
-   "time": "2026-11-06T20:17:53+05:30",
-   "headline": "Dhruv Consultancy Services Limited: Dhruv Consultancy Services Limited has informed the Exchange about the Incorporation of the subsidiary company. |SUBJECT: Adoption of new line(s) of business",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/DHRUV_06112026201745_dhruvRegulation30LetterValsang.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Dhruv Consultancy Services Limited: Dhruv Consultancy Services Limited has informed the Exchange about the Incorporation of the subsidiary company. |SUBJECT: Adoption of new line(s) of business"
   },
   {
    "id": "d039526de61ed7a3",
@@ -6141,28 +6132,6 @@
    "original": "Minda Corporation Limited: Minda Corporation Limited has informed the Exchange about change in Management |SUBJECT: Change in Management"
   },
   {
-   "id": "b20a4a2cf0c78871",
-   "time": "2026-11-06T20:17:21+05:30",
-   "headline": "Safe Enterprises Retail Fixtures Limited: Monitoring Agency Report for the Half Year ended 30 September, 2026 |SUBJECT: Monitoring Agency Report",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/SAFEENTERPRISES_06112026201709_Statement_of_DV_Monitoring_Report_300926.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Safe Enterprises Retail Fixtures Limited: Monitoring Agency Report for the Half Year ended 30 September, 2026 |SUBJECT: Monitoring Agency Report"
-  },
-  {
    "id": "a7214ff840846af6",
    "time": "2026-11-06T20:15:24+05:30",
    "headline": "Intrasoft Technologies Limited: Intrasoft Technologies Limited has submitted to the Exchange, the financial results for the period ended September 30, 2026. |SUBJECT: Outcome of Board Meeting",
@@ -6185,28 +6154,6 @@
    "original": "Intrasoft Technologies Limited: Intrasoft Technologies Limited has submitted to the Exchange, the financial results for the period ended September 30, 2026. |SUBJECT: Outcome of Board Meeting"
   },
   {
-   "id": "f9cc1a18d8979c1d",
-   "time": "2026-11-06T20:14:03+05:30",
-   "headline": "The Anup Engineering Limited: The Anup Engineering Limited has informed the Exchange about Audio Recording/Video Recording |SUBJECT: Analyst/Investor Meet Para A-XBRL",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/xbrl/SAIIM_17254_WebXMLFile_20261106_201400579.xml",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "Routine filing",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "The Anup Engineering Limited: The Anup Engineering Limited has informed the Exchange about Audio Recording/Video Recording |SUBJECT: Analyst/Investor Meet Para A-XBRL"
-  },
-  {
    "id": "c65bd94c94e99b2a",
    "time": "2026-11-06T20:14:01+05:30",
    "headline": "Lancer Container Lines Limited: Lancer Container Lines Limited has informed the Exchange regarding a press release dated November 06, 2026, titled \"LANCER CONTAINER LINES LIMITED ANNOUNCES UNAUDITED FINANCIAL RESULTS FOR THE QUARTER AND HALF YEAR ENDED",
@@ -6227,28 +6174,6 @@
    ],
    "risks": [],
    "original": "Lancer Container Lines Limited: Lancer Container Lines Limited has informed the Exchange regarding a press release dated November 06, 2026, titled \"LANCER CONTAINER LINES LIMITED ANNOUNCES UNAUDITED FINANCIAL RESULTS FOR THE QUARTER AND HALF YEAR ENDED"
-  },
-  {
-   "id": "30beb0198f30ed8a",
-   "time": "2026-11-06T20:13:56+05:30",
-   "headline": "Rain Industries Limited: Rain Industries Limited has informed the Exchange that Board of Directors at its meeting held on November 06, 2026, declared second Interim Dividend of Rs. 0.50 per equity share. |SUBJECT: Dividend",
-   "source": "NSE Announcements",
-   "url": "https://nsearchives.nseindia.com/corporate/RAIN_06112026201303_OutcomeOfBoardMeeting.pdf",
-   "section": "news",
-   "call": "ignore",
-   "horizon": "swing",
-   "direction": "mixed",
-   "tickers": [],
-   "sectors": [],
-   "impact": 8,
-   "confidence": 30,
-   "category": "No listed-stock impact",
-   "action": "No action",
-   "reason": [
-    "Keyword rules (AI classification is off)"
-   ],
-   "risks": [],
-   "original": "Rain Industries Limited: Rain Industries Limited has informed the Exchange that Board of Directors at its meeting held on November 06, 2026, declared second Interim Dividend of Rs. 0.50 per equity share. |SUBJECT: Dividend"
   },
   {
    "id": "8f3894b828c2b4ec",
@@ -7061,6 +6986,33 @@
    "original": "The rupee gained 0.60 per cent to close at 93.91 against the dollar on Friday, its highest level since April 22, supported by falling crude oil prices and foreign equity inflows"
   },
   {
+   "id": "8bdf8a5bc989aeff",
+   "time": "2026-11-06T17:55:00+05:30",
+   "headline": "Auction of 91-Day, 182-Day and 364-Day Treasury Bills",
+   "source": "RBI",
+   "url": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63942",
+   "section": "macro",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "BANKINDIA",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "Macro",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "Reserve Bank of India announces the auction of Government of India Treasury Bills as per the following details: Sr. No. Treasury Bill Notified Amount (₹ crore) Auction Date Settlement Date 1 91-Day 8,000 November 11, 2026 (Wednesday) November 12, 2026 (Thursday) 2 182-Day 8,000 3 364-Day 7,000 Total"
+  },
+  {
    "id": "eaf7dac970bb71ee",
    "time": "2026-11-06T17:34:17+05:30",
    "headline": "AI stocks hammered by midterm shock as data center buildout becomes a 'war of attrition'",
@@ -7196,6 +7148,33 @@
    "original": "IAG, the owner of British Airways and Iberia, said Friday that its net profit dropped more than 12 percent in the third quarter on soaring fuel costs and flight disruptions caused by the Middle East conflict. The group said its overall flight capacity had been hit \"by cancellations due to the confli"
   },
   {
+   "id": "78fb6471947fcf5c",
+   "time": "2026-11-06T17:00:00+05:30",
+   "headline": "Reserve Bank of India – Bulletin Weekly Statistical Supplement – Extract",
+   "source": "RBI",
+   "url": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63939",
+   "section": "macro",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [
+    {
+     "symbol": "BANKINDIA",
+     "direction": "up"
+    }
+   ],
+   "sectors": [],
+   "impact": 25,
+   "confidence": 30,
+   "category": "Macro",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "1. Reserve Bank of India - Liabilities and Assets* (₹ Crore) Item 2025 2026 Variation Oct. 31 Oct. 23 Oct. 30 Week Year 1 2 3 4 5 4 Loans and Advances 4.1 Central Government - 0 0 0 0 4.2 State Governments 20016 21074 20463 -611 447 * Data are provisional; difference, if any, is due to rounding off."
+  },
+  {
    "id": "c3028a13e34c15a5",
    "kind": "deal",
    "time": "2026-11-06T16:00:00+05:30",
@@ -7324,38 +7303,6 @@
    "original": "NOMURA FUNDS IRELAND PLC NOMURA FUNDS IRELAND INDIA EQUITY FUND bought 12,000,000 shares of JSWCEMENT (bulk deal, 2026-11-06)"
   },
   {
-   "id": "c9d1cac0bc5d46e8",
-   "kind": "deal",
-   "time": "2026-11-06T16:00:00+05:30",
-   "headline": "Bulk deal: BANDHAN MUTUAL FUND bought 8.6 lakh shares of Alivus Life Sciences Ltd at ₹1,370.0 (₹117.3 cr)",
-   "source": "NSE bulk & block deals",
-   "url": "https://www.nseindia.com/report-detail/display-bulk-and-block-deals",
-   "section": "trading",
-   "call": "watch",
-   "horizon": "positional",
-   "direction": "up",
-   "tickers": [
-    {
-     "symbol": "ALIVUS",
-     "direction": "up"
-    }
-   ],
-   "sectors": [],
-   "impact": 65,
-   "confidence": 55,
-   "category": "Institutional deal",
-   "action": "See why before acting: check recent results and news. One deal isn't a trend.",
-   "reason": [
-    "Domestic institution bought ₹117.3 cr of ALIVUS in one bulk deal",
-    "Big trades by institutions can show conviction, but can also be rebalancing or an exit",
-    "From NSE's end-of-day bulk and block deal disclosures"
-   ],
-   "risks": [
-    "The other side of the trade may also be an institution"
-   ],
-   "original": "BANDHAN MUTUAL FUND bought 855,971 shares of ALIVUS (bulk deal, 2026-11-06)"
-  },
-  {
    "id": "070f08f3ed3b16fb",
    "kind": "deal",
    "time": "2026-11-06T16:00:00+05:30",
@@ -7450,25 +7397,65 @@
     "The other side of the trade may also be an institution"
    ],
    "original": "NORGES BANK ON ACCOUNT OF THE GOVERNMENT PENSION FUND GLOBAL bought 183,000 shares of ALIVUS (block deal, 2026-11-06)"
+  },
+  {
+   "id": "c741590fafdce4ee",
+   "time": "2026-11-06T15:00:00+05:30",
+   "headline": "Government Stock - Full Auction Results",
+   "source": "RBI",
+   "url": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63937",
+   "section": "macro",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "Macro",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "(Amount in ₹ Crore) Auction Results 7.06% GS 2041 7.43% GS 2076 I. Notified Amount 23,000 13,000 II. Competitive Bids Received (i) Number 387 144 (ii) Amount 52,879.800 20,751.000 III. Cut-off price (₹) / Yield 97.07 95.70 (YTM: 7.3881%) (YTM: 7.7708%) IV. Competitive Bids Accepted (i) Number 144 10"
+  },
+  {
+   "id": "068d748bc547b866",
+   "time": "2026-11-06T14:20:00+05:30",
+   "headline": "Government Stock - Auction Results: Cut-off",
+   "source": "RBI",
+   "url": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63936",
+   "section": "macro",
+   "call": "watch",
+   "horizon": "swing",
+   "direction": "mixed",
+   "tickers": [],
+   "sectors": [],
+   "impact": 45,
+   "confidence": 30,
+   "category": "Macro",
+   "action": "Read the source before acting",
+   "reason": [
+    "Keyword rules (AI classification is off)"
+   ],
+   "risks": [],
+   "original": "7.06% GS 2041 7.43% GS 2076 I. Notified Amount ₹23,000 crore ₹13,000 crore II. Cut off Price (₹) / Implicit Yield at cut-off 97.07/7.3881% 95.70/7.7708% III. Amount accepted in the auction ₹23,000 crore ₹13,000 crore IV. Devolvement on Primary Dealers NIL NIL Ajit Prasad Deputy General Manager (Comm"
   }
  ],
  "digest": {
   "date": "2026-11-07",
   "act": 0,
-  "watch": 29,
-  "ignored": 114,
+  "watch": 30,
+  "ignored": 190,
   "reasons": [
    {
     "label": "Routine filing",
-    "count": 86
+    "count": 162
    },
    {
     "label": "No listed-stock impact",
-    "count": 27
-   },
-   {
-    "label": "Global: no clear India link",
-    "count": 1
+    "count": 28
    }
   ]
  }
