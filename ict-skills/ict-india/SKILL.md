@@ -118,6 +118,29 @@ until `"profitable": true` *(p.12)*. `size_factor: 0.75` applies "lower size by 
 journal's "entered with all profits" (p.2) is exactly what fixed RPT prevents: never size off the
 day's gains.
 
+## Personal rules (your config)
+
+Rules that come from reviewing your own trades go in `ict/config-india.json` (local, git-ignored), and
+`gate` enforces them. Keep the review's results in private memory, never in this repo.
+
+- `index_only`: options on Nifty, Bank Nifty or Sensex only. Stock options are blocked.
+- `max_strikes_per_expiry`: one idea is at most this many strikes of one expiry and side. A further strike is blocked.
+- `max_premium_per_trade`: the most premium a trade may cost. `size --premium` sizes within it.
+- `sessions` / `killzones`: override the windows, for example mornings only from 09:15.
+- Any open position from an earlier day whose stop isn't at break-even blocks new trades: never carry a
+  losing option overnight.
+
+```bash
+python3 mmxm.py gate --contract "NIFTY 18 NOV 26000 CE" --premium 150000
+python3 mmxm.py size --premium --entry 210 --stop 150 --instrument NIFTY      # option prices: exact risk, capped
+python3 mmxm.py journal add --symbol NIFTY --side long --entry 26010 --stop 25960 --contract "NIFTY 18 NOV 26000 CE" --premium 150000
+python3 trades.py report ict/<folder>/*.xlsx --accounts "<sheet name>"         # replays the config's rules on real trades
+```
+
+Be straight about the evidence: rules taken from the same trades they are tested on only show what
+they would have kept, not what they will make. Strike limits and premium caps cut big winners as well as
+big losers, so the loss per idea, fixed before entry, matters most. Paper-trade new rules first.
+
 ## Your own trades, through the ICT structure
 
 `trades.py` reads Aditya's real tradebook and splits every rupee of P&L along the same lines the

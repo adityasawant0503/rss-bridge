@@ -382,6 +382,71 @@ class TestGateAndJournal(unittest.TestCase):
         self.assertAlmostEqual(r["r"], round(2.7 / 2.2, 2))                # R against the original stop
 
 
+class TestPersonalRules(unittest.TestCase):
+    def setUp(self):
+        self.cfg = dict(IN.DEFAULTS, account=1000000, risk_pct=1.0, profitable=True, index_only=True,
+                        max_strikes_per_expiry=2, max_premium_per_trade=200000, avoid_fridays=False,
+                        sessions={"am": ["09:15", "10:30"]})
+        self.cfg.update(IN_P["config_defaults"])
+        self.mkt = IN.Market(IN_P, self.cfg)
+        self.now = IN.from_local(datetime(2026, 11, 10, 9, 20), "Asia/Kolkata")     # a Tuesday, 09:20
+        self.plan = {"dir": "long", "symbol": "NIFTY", "entry": 100.0, "stop": 90.0, "risk": 10.0, "rr": 1.5,
+                     "dr_extreme": 0.8, "status": "open"}
+        self.bias = {"india": {"day": "2026-11-10", "bias": "long"}}
+
+    def gate(self, journal=(), option=None, cfg=None):
+        return IN.gate(self.mkt, cfg or self.cfg, self.plan, self.now, list(journal), self.bias, option=option)
+
+    def test_session_override_moves_the_killzone(self):
+        self.assertEqual(self.mkt.session_of(self.now), "am")                    # 09:20 is now inside "am"
+        v, rows = self.gate(option={"contract": "NIFTY 18 NOV 26000 CE", "premium": 150000})
+        self.assertEqual(v, "PASS", rows)
+
+    def test_parse_option_formats(self):
+        f = IN.parse_option
+        self.assertEqual(f("NIFTY 18 NOV 26000 CE", 2026), {"underlying": "NIFTY", "expiry": "2026-11-18", "strike": 26000.0, "kind": "CE"})
+        self.assertEqual(f("SENSEX 20 Nov 2025 84300 CALL")["expiry"], "2025-11-20")
+        self.assertEqual(f("NIFTY25N1826000PE")["expiry"], "2025-11-18")
+        self.assertEqual(f("NIFTY25NOV26000CE")["expiry"], "2025-11")
+        self.assertIsNone(f("something else"))
+
+    def test_stock_options_and_premium_cap(self):
+        v, rows = self.gate(option={"contract": "TATAELXSI 25 NOV 5700 CE", "premium": 50000})
+        self.assertTrue(any(r[1] == "Index options only" for r in rows if r[0] == "BLOCK"))
+        v, rows = self.gate(option={"contract": "NIFTY 18 NOV 26000 CE", "premium": 250000})
+        self.assertTrue(any("premium cap" in r[1] for r in rows if r[0] == "BLOCK"))
+
+    def test_third_strike_of_one_expiry_is_blocked(self):
+        j = [{"market": "india", "day": "2026-11-10", "contract": "NIFTY 18 NOV 26000 CE", "status": "closed", "r": 1.0,
+              "side": "long", "entry": 1.0, "stop": 0.5, "kz": "am", "symbol": "NIFTY"},
+             {"market": "india", "day": "2026-11-09", "contract": "NIFTY 18 NOV 26100 CE", "status": "open", "r": None,
+              "side": "long", "entry": 1.0, "stop": 1.0, "kz": "am", "symbol": "NIFTY"}]
+        cfg = dict(self.cfg, max_trades_per_day=5)
+        v, rows = self.gate(j, {"contract": "NIFTY 18 NOV 26200 CE", "premium": 50000}, cfg)
+        self.assertTrue(any("strikes per expiry" in r[1] for r in rows if r[0] == "BLOCK"), rows)
+        v, rows = self.gate(j, {"contract": "NIFTY 18 NOV 26100 CE", "premium": 50000}, cfg)   # a strike already held: fine
+        self.assertFalse(any("strikes per expiry" in r[1] for r in rows if r[0] == "BLOCK"))
+        v, rows = self.gate(j, {"contract": "NIFTY 18 NOV 26200 PE", "premium": 50000}, cfg)   # other side: a new idea
+        self.assertFalse(any("strikes per expiry" in r[1] for r in rows if r[0] == "BLOCK"))
+
+    def test_losing_position_carried_overnight_blocks_new_trades(self):
+        j = [{"market": "india", "day": "2026-11-09", "contract": "NIFTY 18 NOV 26000 PE", "status": "open", "r": None,
+              "side": "long", "entry": 200.0, "stop": 150.0, "kz": "pm", "symbol": "NIFTY"}]
+        v, rows = self.gate(j, {"contract": "NIFTY 18 NOV 26000 CE", "premium": 50000})
+        self.assertTrue(any("overnight" in r[1] for r in rows if r[0] == "BLOCK"))
+
+    def test_missing_contract_warns(self):
+        v, rows = self.gate()
+        self.assertTrue(any(r[1] == "Option rules not checked" for r in rows if r[0] == "WARN"))
+
+    def test_premium_sizing_respects_cap(self):
+        sz = IN.size(self.mkt, self.cfg, 200.0, 150.0, None, "NIFTY", premium=True)
+        # risk: 10,000 / (50 x 65) = 3 lots; cap: 200,000 / (200 x 65) = 15 lots -> 3
+        self.assertEqual((sz["qty"], sz["cap_qty"], sz["premium_cost"]), (3, 15, 39000.0))
+        cfg = dict(self.cfg, max_premium_per_trade=20000)
+        self.assertEqual(IN.size(self.mkt, cfg, 200.0, 150.0, None, "NIFTY", premium=True)["qty"], 1)
+
+
 class TestRepo(unittest.TestCase):
     def test_engines_identical(self):
         a, b = (read(os.path.join(ROOT, f, "mmxm.py")) for f in ("ict-india", "ict-us-futures"))

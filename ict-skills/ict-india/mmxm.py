@@ -59,6 +59,12 @@ DEFAULTS = {
     "displacement_mult": 1.5,
     "instrument": None,
     "option_delta": 0.5,
+    # Your own rules, from your own trades (all optional):
+    "sessions": None,                 # override session times, e.g. {"am": ["09:15", "10:30"]}
+    "killzones": None,                # override which sessions you may enter in
+    "index_only": False,              # options on the profile's indices only, no stock options
+    "max_strikes_per_expiry": None,   # one idea = at most this many strikes of one expiry and side
+    "max_premium_per_trade": None,    # most premium (account currency) one trade may cost
 }
 
 
@@ -124,8 +130,10 @@ class Market:
         self.range_start = hm(profile["range_start"])
         self.anchor = hm(profile.get("anchor", "00:00"))
         self.flat_by = hm(profile["flat_by"])
-        self.sessions = {k: (hm(a), hm(b)) for k, (a, b) in profile["sessions"].items()}
-        self.killzones = profile["killzones"]
+        sessions = dict(profile["sessions"])
+        sessions.update(self.cfg.get("sessions") or {})
+        self.sessions = {k: (hm(a), hm(b)) for k, (a, b) in sessions.items()}
+        self.killzones = self.cfg.get("killzones") or profile["killzones"]
 
     def local(self, ts):
         return to_local(ts, self.tz)
@@ -150,7 +158,10 @@ class Market:
         return a <= m < b if a <= b else (m >= a or m < b)
 
     def session_of(self, ts):
-        for name, w in self.sessions.items():
+        """The session ts falls in; killzones win where sessions overlap."""
+        order = list(self.killzones) + [k for k in self.sessions if k not in self.killzones]
+        for name in order:
+            w = self.sessions[name]
             if self.in_window(ts, w):
                 return name
         return None
@@ -662,7 +673,7 @@ def auto_bias(dly, k):
 
 # ---------------------------------------------------------------- sizing
 
-def size(mkt, cfg, entry, stop, target=None, instrument=None, risk_pct=None, account=None, option=False):
+def size(mkt, cfg, entry, stop, target=None, instrument=None, risk_pct=None, account=None, option=False, premium=False):
     name, inst = mkt.instrument(instrument)
     account = account or cfg.get("account")
     if not account:
@@ -672,12 +683,19 @@ def size(mkt, cfg, entry, stop, target=None, instrument=None, risk_pct=None, acc
     rpt = account * pct / 100.0 * cfg["size_factor"]
     pts = abs(entry - stop)
     pv = inst["point_value"]
-    unit_risk = pts * pv * (cfg["option_delta"] if option else 1.0)
+    # premium=True: entry and stop are the option's own prices, so the risk per lot is exact (no delta)
+    unit_risk = pts * pv * (cfg["option_delta"] if option and not premium else 1.0)
     qty = int(rpt // unit_risk) if unit_risk > 0 else 0
+    cap = cfg.get("max_premium_per_trade")
+    cap_qty = None
+    if premium and cap:
+        cap_qty = int(cap // (entry * pv)) if entry > 0 else 0
+        qty = min(qty, cap_qty)
     out = {"instrument": name, "unit": inst.get("unit", "contract"), "account": account, "risk_pct": pct,
            "size_factor": cfg["size_factor"], "rpt": round(rpt, 2), "stop_points": round(pts, 4),
            "per_unit_risk": round(unit_risk, 2), "qty": qty, "max_loss": round(qty * unit_risk, 2),
-           "option_approx": option}
+           "option_approx": option and not premium, "premium_mode": premium, "cap_qty": cap_qty,
+           "premium_cost": round(qty * entry * pv, 2) if premium else None}
     if qty == 0 and inst.get("micro"):
         mname = inst["micro"]
         mq = int(rpt // (pts * mkt.p["instruments"][mname]["point_value"]))
@@ -689,6 +707,73 @@ def size(mkt, cfg, entry, stop, target=None, instrument=None, risk_pct=None, acc
                    at_50pct=round(entry - side * 0.5 * reward, 4),
                    stop_after_50pct=round(stop - side * 0.25 * pts, 4),
                    at_75pct=round(entry - side * 0.75 * reward, 4), stop_after_75pct=entry)
+    return out
+
+
+# ---------------------------------------------------------------- option contracts
+
+OPT_MONTHS = {m: i + 1 for i, m in enumerate("JAN FEB MAR APR MAY JUN JUL AUG SEP OCT NOV DEC".split())}
+
+
+def parse_option(text, year=None):
+    """'NIFTY 25 NOV 26000 CE', 'NIFTY 25 Nov 2025 26000 CE', 'NIFTY25N2526000CE' (weekly) or 'NIFTY25NOV26000CE'
+    (monthly) -> {underlying, expiry, strike, kind}. expiry is 'YYYY-MM-DD', or 'YYYY-MM' for a monthly code."""
+    s = re.sub(r"[-_/]", " ", str(text).upper()).strip()
+    s = re.sub(r"\s+", " ", s)
+    kind = "CE" if re.search(r"(CE|CALL)$", s) else "PE" if re.search(r"(PE|PUT)$", s) else None
+    m = re.match(r"^([A-Z&]+) (\d{1,2}) ([A-Z]{3})[A-Z]* ?(\d{4})? (\d+(?:\.\d+)?) ?(CE|PE|CALL|PUT)$", s)
+    if m and m.group(3) in OPT_MONTHS:
+        y = int(m.group(4) or year or date.today().year)
+        exp = "%04d-%02d-%02d" % (y, OPT_MONTHS[m.group(3)], int(m.group(2)))
+        return {"underlying": m.group(1), "expiry": exp, "strike": float(m.group(5)), "kind": kind}
+    c = s.replace(" ", "")
+    m = re.match(r"^([A-Z&]+?)(\d{2})([1-9OND])(\d{2})(\d+(?:\.\d+)?)(CE|PE)$", c)
+    if m:
+        mon = {"O": 10, "N": 11, "D": 12}.get(m.group(3)) or int(m.group(3))
+        return {"underlying": m.group(1), "expiry": "20%s-%02d-%s" % (m.group(2), mon, m.group(4)),
+                "strike": float(m.group(5)), "kind": m.group(6)}
+    m = re.match(r"^([A-Z&]+?)(\d{2})(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)(\d+(?:\.\d+)?)(CE|PE)$", c)
+    if m:
+        return {"underlying": m.group(1), "expiry": "20%s-%02d" % (m.group(2), OPT_MONTHS[m.group(3)]),
+                "strike": float(m.group(4)), "kind": m.group(5)}
+    return None
+
+
+def option_rules(mkt, cfg, option, journal, today):
+    """The rules from your own trades: index options only, strikes per expiry, premium cap."""
+    out = []
+    want = cfg.get("index_only") or cfg.get("max_strikes_per_expiry") or cfg.get("max_premium_per_trade")
+    if not option or not option.get("contract"):
+        if want:
+            out.append(("WARN", "Option rules not checked", "pass --contract \"NIFTY 25 NOV 26000 CE\" and --premium to check them"))
+        return out
+    o = parse_option(option["contract"], int(today[:4]))
+    if not o:
+        return [("BLOCK", "Unreadable contract", "write it like \"NIFTY 25 NOV 26000 CE\": %r" % option["contract"])]
+    if cfg.get("index_only") and o["underlying"] not in mkt.p["instruments"]:
+        out.append(("BLOCK", "Index options only", "%s is not one of %s" % (o["underlying"], ", ".join(mkt.p["instruments"]))))
+    cap, prem = cfg.get("max_premium_per_trade"), option.get("premium")
+    if cap and prem is None:
+        out.append(("WARN", "Premium cap not checked", "pass --premium (the total you will pay)"))
+    elif cap and prem > cap:
+        out.append(("BLOCK", "Fixed size: premium cap", "%s %.0f is over your cap of %.0f" % (mkt.p["currency"], prem, cap)))
+    elif cap:
+        out.append(("ok", "Premium within cap", "%.0f of %.0f" % (prem, cap)))
+    limit = cfg.get("max_strikes_per_expiry")
+    if limit:
+        same = set()
+        for r in journal:
+            if r.get("market") != mkt.p["market"] or not r.get("contract"):
+                continue
+            if r.get("status") != "open" and r.get("day") != today:
+                continue
+            ro = parse_option(r["contract"], int(r.get("day", today)[:4]))
+            if ro and (ro["underlying"], ro["expiry"], ro["kind"]) == (o["underlying"], o["expiry"], o["kind"]):
+                same.add(ro["strike"])
+        if o["strike"] not in same and len(same) >= limit:
+            out.append(("BLOCK", "One idea, at most %d strike%s per expiry" % (limit, "s" if limit > 1 else ""),
+                        "already in %s for %s %s %s; adding %.0f would make %d" % (
+                            ", ".join("%.0f" % x for x in sorted(same)), o["underlying"], o["expiry"], o["kind"], o["strike"], len(same) + 1)))
     return out
 
 
@@ -717,7 +802,7 @@ def third_friday(y, m):
     return d + timedelta(days=(4 - d.weekday()) % 7 + 14)
 
 
-def gate(mkt, cfg, plan, now_ts, journal, bias_doc, a_plus=False):
+def gate(mkt, cfg, plan, now_ts, journal, bias_doc, a_plus=False, option=None):
     """PASS only if every rule from the notes holds. Returns (verdict, [(level, rule, detail)])."""
     out = []
     add = lambda lvl, rule, detail: out.append((lvl, rule, detail))
@@ -761,6 +846,14 @@ def gate(mkt, cfg, plan, now_ts, journal, bias_doc, a_plus=False):
             elif not risk_free:
                 add("BLOCK", "Never add to a loser (your journal: 'added quantity', 'holding in loss')",
                     "the open %s from %.2f still has its stop at %.2f: move it to break-even before adding" % (r["side"], r["entry"], r["stop"]))
+    for r in [x for x in journal if x.get("market") == mkt.p["market"] and x.get("status") == "open" and x.get("day", today) < today]:
+        risk_free = r["stop"] <= r["entry"] if r["side"] == "short" else r["stop"] >= r["entry"]
+        if not risk_free:
+            add("BLOCK", "Never carry a losing position overnight",
+                "%s %s from %s is still open with its stop at %.2f: close it or move the stop to break-even first" % (
+                    r["side"], r.get("contract") or r["symbol"], r["day"], r["stop"]))
+    for row in option_rules(mkt, cfg, option, journal, today):
+        add(*row)
     for r in rows:
         tol = 0.1 * plan["risk"]
         if r.get("side") == side and abs(r.get("entry", 1e18) - plan["entry"]) <= tol:
@@ -1057,21 +1150,24 @@ def cmd_backtest(mkt, args):
 
 
 def cmd_size(mkt, args):
-    sz = size(mkt, mkt.cfg, args.entry, args.stop, args.target, args.instrument, args.risk_pct, args.account, args.option)
+    sz = size(mkt, mkt.cfg, args.entry, args.stop, args.target, args.instrument, args.risk_pct, args.account, args.option, args.premium)
     cur = mkt.p["currency"]
     print("%s: risk %s %.2f (%.2f%% of %s%s)" % (sz["instrument"], cur, sz["rpt"], sz["risk_pct"], sz["account"],
                                                ", size factor %.2f" % sz["size_factor"] if sz["size_factor"] != 1 else ""))
     print("  stop %.2f pts x %s per point%s = %s %.2f per %s" % (
         sz["stop_points"], mkt.p["instruments"][sz["instrument"]]["point_value"],
-        " x delta %.2f" % mkt.cfg["option_delta"] if args.option else "", cur, sz["per_unit_risk"], sz["unit"]))
+        " x delta %.2f" % mkt.cfg["option_delta"] if args.option and not args.premium else "", cur, sz["per_unit_risk"], sz["unit"]))
     print("  -> %d %s, max loss at the stop %s %.2f" % (sz["qty"], sz["unit"] + "s", cur, sz["max_loss"]))
     if "micro_hint" in sz:
         print("  %s" % sz["micro_hint"])
+    if sz["premium_mode"]:
+        print("  premium to pay: %s %.0f%s" % (cur, sz["premium_cost"], "  (capped at %.0f by max_premium_per_trade: %d lots fit)" % (
+            mkt.cfg["max_premium_per_trade"], sz["cap_qty"]) if sz["cap_qty"] is not None else ""))
     if "rr" in sz:
         print("  target %.2f = %.2fR" % (sz["target"], sz["rr"]))
         print("  at %.2f (50%%) move stop to %.2f; at %.2f (75%%) move stop to break-even %.2f" % (
             sz["at_50pct"], sz["stop_after_50pct"], sz["at_75pct"], sz["stop_after_75pct"]))
-    if args.option:
+    if args.option and not args.premium:
         print("  option sizing uses delta %.2f: the premium will not move 1:1 with the index. Use the option's own stop if you have one." % mkt.cfg["option_delta"])
 
 
@@ -1082,7 +1178,8 @@ def cmd_gate(mkt, args):
     with open(p) as f:
         plan = json.load(f)
     now = args.now and parse_time(args.now, mkt) or time.time()
-    verdict, rows = gate(mkt, mkt.cfg, plan, now, read_journal(), load_bias(), args.a_plus)
+    option = {"contract": args.contract, "premium": args.premium} if args.contract else None
+    verdict, rows = gate(mkt, mkt.cfg, plan, now, read_journal(), load_bias(), args.a_plus, option)
     for lvl, rule, detail in rows:
         print("  %-5s %s: %s" % (lvl, rule, detail))
     print("\n%s" % verdict)
@@ -1103,6 +1200,7 @@ def cmd_journal(mkt, args):
         r = {"id": "%s-%d" % (mkt.p["market"], len(rows) + 1), "market": mkt.p["market"], "day": args.day or str(mkt.trading_day(now)),
              "kz": args.kz or mkt.session_of(now), "symbol": args.symbol.upper(), "side": args.side, "entry": args.entry,
              "stop": args.stop, "orig_stop": args.stop, "qty": args.qty, "bias": args.bias_note, "setup": args.setup, "status": "open", "r": None,
+             "contract": args.contract, "premium": args.premium,
              "emotions": [e.strip() for e in (args.emotions or "").split(",") if e.strip()], "notes": args.notes or ""}
         if args.exit is not None:
             r.update(exit=args.exit, status="closed", r=round((args.entry - args.exit) / (args.stop - args.entry), 2) if args.side == "short"
@@ -1188,9 +1286,12 @@ def main(argv=None):
     ps.add_argument("--risk-pct", type=float)
     ps.add_argument("--account", type=float)
     ps.add_argument("--option", action="store_true", help="size an option on the index using option_delta")
+    ps.add_argument("--premium", action="store_true", help="--entry and --stop are the option's own prices (exact risk, applies the premium cap)")
     pg = sub.add_parser("gate")
     pg.add_argument("--a-plus", action="store_true", help="the afternoon setup is an easy, perfect one")
     pg.add_argument("--now", help=argparse.SUPPRESS)
+    pg.add_argument("--contract", help='the option you will buy, e.g. "NIFTY 25 NOV 26000 CE"')
+    pg.add_argument("--premium", type=float, help="total premium you will pay for it")
     pj = sub.add_parser("journal")
     pj.add_argument("action", choices=["add", "close", "move-stop", "list", "review"])
     pj.add_argument("--id")
@@ -1206,6 +1307,8 @@ def main(argv=None):
     pj.add_argument("--bias-note")
     pj.add_argument("--emotions", help="comma list, e.g. " + ",".join(EMOTIONS[:6]))
     pj.add_argument("--notes")
+    pj.add_argument("--contract", help='option traded, e.g. "NIFTY 25 NOV 26000 CE" (the strike rule reads it)')
+    pj.add_argument("--premium", type=float, help="total premium paid")
     args = ap.parse_args(argv)
 
     profile = load_profile(args.profile)

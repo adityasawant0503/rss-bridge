@@ -443,11 +443,15 @@ def round_trips(fills):
 # ---------------------------------------------------------------- ICT tagging
 
 def window_of(mkt, dt):
+    """Session name for an entry time; killzones win where sessions overlap (a config can move them)."""
     m = dt.hour * 60 + dt.minute
-    for name, (a, b) in mkt.sessions.items():
+    for name in list(mkt.killzones) + [k for k in mkt.sessions if k not in mkt.killzones]:
+        a, b = mkt.sessions[name]
         if a <= m < b:
             return name
-    return "outside" if m < mkt.sessions["opening_range"][0] or m >= mkt.sessions["close"][1] else "between"
+    first = min(a for a, _ in mkt.sessions.values())
+    last = max(b for _, b in mkt.sessions.values())
+    return "outside" if m < first or m >= last else "between"
 
 
 def tag(mkt, trips):
@@ -544,6 +548,56 @@ RULES = [
 ]
 
 
+def personal_replay(mkt, cfg, trips):
+    """The rules in your config, applied in time order to the trades you actually took.
+
+    In-sample: it shows what the rules would have kept from your own history, not what they will make next."""
+    done = sorted((t for t in trips if t["pnl"] is not None), key=lambda t: t["entry_t"])
+    index = set(mkt.p["instruments"])
+    cap, limit = cfg.get("max_premium_per_trade"), cfg.get("max_strikes_per_expiry")
+    blocked = OrderedDict()
+    day = defaultdict(lambda: {"n": 0, "losses": 0, "am": False})
+    strikes = defaultdict(set)
+    kept = []
+
+    def block(rule, t):
+        b = blocked.setdefault(rule, [0, 0.0, 0])
+        b[0] += 1
+        b[1] += t["pnl"]
+        b[2] += t["pnl"] < 0
+
+    for t in done:
+        d = day[(t["account"], t["day"])]
+        idea = (t["account"], t["underlying"], str(t["expiry"]), t["kind"])
+        if cfg.get("index_only") and t["underlying"] not in index:
+            block("Index options only", t)
+        elif t["window"] not in mkt.killzones:
+            block("Enter only in your windows (%s)" % ", ".join(
+                "%s %02d:%02d-%02d:%02d" % (k, mkt.sessions[k][0] // 60, mkt.sessions[k][0] % 60,
+                                            mkt.sessions[k][1] // 60, mkt.sessions[k][1] % 60) for k in mkt.killzones), t)
+        elif cfg.get("avoid_fridays") and t["weekday"] == "Fri":
+            block("No new positions on Friday", t)
+        elif d["n"] >= cfg["max_trades_per_day"]:
+            block("Max %d trades a day" % cfg["max_trades_per_day"], t)
+        elif d["losses"] >= cfg["stop_after_losses"]:
+            block("Stop after %d losses" % cfg["stop_after_losses"], t)
+        elif d["am"] and t["window"] != mkt.killzones[0] and not cfg["pm_after_am_trade"]:
+            block("No afternoon trade after a morning trade", t)
+        elif limit and t["strike"] not in strikes[idea] and len(strikes[idea]) >= limit:
+            block("At most %d strikes per expiry and side" % limit, t)
+        else:
+            strikes[idea].add(t["strike"])
+            scale = min(1.0, cap / t["buy_val"]) if cap and t["buy_val"] else 1.0
+            pnl = t["pnl"] * scale
+            kept.append(dict(t, pnl=round(pnl, 2), scaled=scale < 1))
+            d["n"] += 1
+            d["losses"] += pnl < 0
+            d["am"] = d["am"] or t["window"] == mkt.killzones[0]
+    return {"as_traded": stats(done), "kept": stats(kept), "capped": len([t for t in kept if t["scaled"]]),
+            "blocked": [{"rule": k, "trades": v[0], "pnl": round(v[1], 2), "losers": v[2]} for k, v in blocked.items()],
+            "by_month": group(kept, lambda t: t["entry_t"].strftime("%Y-%m"))}
+
+
 def rule_impact(trips):
     out = []
     done = [t for t in trips if t["pnl"] is not None]
@@ -613,6 +667,7 @@ def build(paths, months=None, bars=None, profile=None, password=None, accounts=N
                  "best": sorted(((str(k), round(v, 2)) for k, v in days.items()), key=lambda kv: -kv[1])[:5],
                  "worst": sorted(((str(k), round(v, 2)) for k, v in days.items()), key=lambda kv: kv[1])[:5]},
         "rules": rule_impact(trips),
+        "personal": personal_replay(mkt, cfg, trips),
         "hold_minutes_median": sorted(t["hold_min"] for t in trips if t["hold_min"] is not None)[len([t for t in trips if t["hold_min"] is not None]) // 2] if any(t["hold_min"] is not None for t in trips) else None,
         "losers": [{"day": str(t["day"]), "time": t["entry_t"].strftime("%H:%M"), "symbol": t["symbol"], "pnl": t["pnl"],
                     "window": t["window"], "hold_min": t["hold_min"]} for t in trips if t["pnl"] is not None and t["pnl"] < 0],
@@ -677,6 +732,15 @@ def print_report(rep):
         else:
             effect = ("would have cost you " if r["blocked_pnl"] > 0 else "would have saved you ") + inr(abs(r["blocked_pnl"]))
         print("  %-52s %4d trades (%d losers)  %s" % (r["rule"], r["blocked"], r["blocked_losers"], effect))
+    pr = rep["personal"]
+    print("\nYour config's rules replayed in time order (in-sample: what they would have kept, not a forecast)")
+    print("  as traded  %4d trades  %13s  win %5s%%  PF %s" % (pr["as_traded"]["trades"], inr(pr["as_traded"]["pnl"]),
+                                                            pr["as_traded"]["win_rate"], pr["as_traded"]["profit_factor"]))
+    print("  kept       %4d trades  %13s  win %5s%%  PF %s%s" % (pr["kept"]["trades"], inr(pr["kept"]["pnl"]), pr["kept"]["win_rate"],
+                                                              pr["kept"]["profit_factor"],
+                                                              "  (%d sized down to the premium cap)" % pr["capped"] if pr["capped"] else ""))
+    for b in pr["blocked"]:
+        print("  blocked by %-46s %4d trades (%d losers)  %13s" % (b["rule"], b["trades"], b["losers"], inr(b["pnl"])))
     print("\nBest days: %s" % ", ".join("%s %s" % (k, inr(v)) for k, v in d["best"]))
     print("Worst days: %s" % ", ".join("%s %s" % (k, inr(v)) for k, v in d["worst"]))
 
