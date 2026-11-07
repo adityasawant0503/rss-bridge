@@ -207,8 +207,8 @@ def parse_contract(sym, trade_day, expiry=None):
             pass
     if exp is None and compact and compact.group(3) in MONTHS:
         exp = monthly_expiry(und, 2000 + int(compact.group(2)), MONTHS[compact.group(3)])
-    if strike is None and compact and compact.group(5) != "FUT":
-        strike = float(compact.group(4))
+    if compact and compact.group(5) != "FUT":
+        strike = float(compact.group(4))      # in a compact code the digits before CE/PE include the date
     if exp is None and und:
         rest = s.replace(" ", "")[len(und):] if s.replace(" ", "").startswith(und) else ""
         m = re.match(r"(\d{2})([1-9OND])(\d{2})\d{4,6}(CE|PE)$", rest)   # NSE weekly: YY M DD strike CE
