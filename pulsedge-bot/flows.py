@@ -168,9 +168,6 @@ def deals():
                         "qty": qty, "value": qty * px, "kind": kind})
             n += 1
         log(f"{kind} deals: {n} rows")
-    # NSE can list one block-window trade in both files: keep the block copy
-    blocks = {(x["date"], x["symbol"], x["client"].upper(), x["side"], x["qty"]) for x in out if x["kind"] == "block"}
-    out = [x for x in out if x["kind"] == "block" or (x["date"], x["symbol"], x["client"].upper(), x["side"], x["qty"]) not in blocks]
     # one line per client, stock, side and day; drop same-day round trips
     agg = {}
     for x in out:
@@ -178,7 +175,7 @@ def deals():
         a = agg.setdefault(k, {**x, "buy_qty": 0.0, "buy_val": 0.0, "sell_qty": 0.0, "sell_val": 0.0})
         a[x["side"] + "_qty"] += x["qty"]
         a[x["side"] + "_val"] += x["value"]
-    universe = {s["symbol"] for s in load_json(os.path.join(DATA, "universe.json"), {}).get("stocks", [])}
+    names = {s["symbol"]: s.get("name") for s in load_json(os.path.join(DATA, "universe.json"), {}).get("stocks", [])}
     res = []
     for a in agg.values():
         gross = a["buy_val"] + a["sell_val"]
@@ -187,9 +184,14 @@ def deals():
             continue
         side = "buy" if net > 0 else "sell"
         qty = a["buy_qty"] - a["sell_qty"] if side == "buy" else a["sell_qty"] - a["buy_qty"]
-        res.append({"date": a["date"], "symbol": a["symbol"], "name": a["name"], "client": a["client"],
+        res.append({"date": a["date"], "symbol": a["symbol"], "name": names.get(a["symbol"]) or a["name"], "client": a["client"],
                     "who": who(a["client"]), "side": side, "qty": round(qty), "price": round(abs(net) / qty, 2) if qty else None,
-                    "value_cr": round(abs(net) / 1e7, 2), "kind": a["kind"], "nifty500": a["symbol"] in universe})
+                    "value_cr": round(abs(net) / 1e7, 2), "kind": a["kind"], "nifty500": a["symbol"] in names})
+    # NSE can list one block-window trade in both files (split into several bulk rows): keep the block copy
+    blocks = [x for x in res if x["kind"] == "block"]
+    res = [x for x in res if x["kind"] == "block" or not any(
+        b["date"] == x["date"] and b["symbol"] == x["symbol"] and b["client"].upper() == x["client"].upper()
+        and b["side"] == x["side"] and abs(b["qty"] - x["qty"]) <= 0.01 * x["qty"] for b in blocks)]
     res.sort(key=lambda x: -x["value_cr"])
     return res
 
@@ -337,7 +339,7 @@ def deal_items(rows):
     for x in picks:
         label = {"foreign": "Foreign fund", "domestic": "Domestic institution"}.get(x["who"], "Large investor")
         verb = "bought" if x["side"] == "buy" else "sold"
-        name = x["name"].title() if x["name"].isupper() else x["name"]
+        name = re.sub(r"\s+(Limited|Ltd\.?)$", "", x["name"].title() if x["name"].isupper() else x["name"])
         v = x["value_cr"]
         uid = hashlib.sha1(f"deal|{x['date']}|{x['symbol']}|{x['client'].upper()}|{x['kind']}".encode()).hexdigest()[:16]
         items.append({
@@ -363,9 +365,14 @@ def merge_feed(items, dry):
     if not feed or not isinstance(feed.get("items"), list):
         log("feed.json missing; deal items not added")
         return 0
+    # replace earlier deal items for the same days, so corrected numbers don't leave stale copies behind
+    days = {x["time"][:10] for x in items}
+    ids = {x["id"] for x in items}
+    stale = [x for x in feed["items"] if x.get("kind") == "deal" and x.get("time", "")[:10] in days and x.get("id") not in ids]
+    feed["items"] = [x for x in feed["items"] if x not in stale]
     have = {x.get("id") for x in feed["items"]}
     new = [x for x in items if x["id"] not in have]
-    if new and not dry:
+    if (new or stale) and not dry:
         feed["items"] = sorted(feed["items"] + new, key=lambda x: x.get("time", ""), reverse=True)   # news_pipeline.py trims
         with open(path, "w", encoding="utf-8") as fh:
             json.dump(feed, fh, ensure_ascii=False, indent=1)
