@@ -17,8 +17,16 @@
  "walk_away_after_profitable_wednesday": false,
  "_events": "High-impact dates: RBI policy, Union Budget, US CPI/FOMC the night before. These dates are examples only, fill in the real ones.",
  "events": [
-  {"date": "2026-12-04", "name": "RBI policy", "action": "avoid"},
-  {"date": "2026-11-13", "name": "US CPI overnight", "action": "conviction"}
+  {
+   "date": "2026-12-04",
+   "name": "RBI policy",
+   "action": "avoid"
+  },
+  {
+   "date": "2026-11-13",
+   "name": "US CPI overnight",
+   "action": "conviction"
+  }
  ],
  "entry_tf": "5m",
  "entry_mode": "confirm",
@@ -27,5 +35,11 @@
  "stop_mode": "swing",
  "min_rr": 1.0,
  "dr_filter": "half",
- "displacement_mult": 1.5
+ "displacement_mult": 1.5,
+ "_personal": "Rules from your own trade review. Leave a key out (or null) to switch the rule off.",
+ "index_only": true,
+ "max_strikes_per_expiry": 2,
+ "max_premium_per_trade": null,
+ "_max_premium_per_trade": "Most premium one trade may cost, in rupees. Set it to your usual position size, not your largest.",
+ "_sessions": "Override session times or killzones, e.g. \"sessions\": {\"am\": [\"09:15\", \"10:30\"]}, \"killzones\": [\"am\"]"
 }

@@ -247,6 +247,36 @@ class TestTrades(unittest.TestCase):
         self.assertEqual(T.monthly_expiry("SENSEX", 2025, 10), date(2025, 10, 30))   # BSE: last Thursday from Sep 2025
         self.assertEqual(T.parse_contract("TATAELXSI25OCT5700CE", date(2025, 10, 7))["expiry"], date(2025, 10, 28))
 
+
+    def test_personal_replay_in_time_order(self):
+        rows = [
+            # three strikes of one expiry and side: the third is blocked
+            ["10-11-2025", "09:20:00", "NIFTY 18 NOV 26000 CALL", "BUY", "M", "65", "100", "", "NSE"],
+            ["10-11-2025", "09:25:00", "NIFTY 18 NOV 26000 CALL", "SELL", "M", "65", "120", "", "NSE"],
+            ["10-11-2025", "09:30:00", "NIFTY 18 NOV 26100 CALL", "BUY", "M", "65", "80", "", "NSE"],
+            ["10-11-2025", "09:40:00", "NIFTY 18 NOV 26100 CALL", "SELL", "M", "65", "70", "", "NSE"],
+            ["11-11-2025", "09:20:00", "NIFTY 18 NOV 26200 CALL", "BUY", "M", "65", "60", "", "NSE"],
+            ["11-11-2025", "09:50:00", "NIFTY 18 NOV 26200 CALL", "SELL", "M", "65", "10", "", "NSE"],
+            # a stock option: blocked by index-only
+            ["11-11-2025", "09:30:00", "TATAELXSI 25 NOV 5700 CALL", "BUY", "M", "100", "50", "", "NSE"],
+            ["11-11-2025", "09:45:00", "TATAELXSI 25 NOV 5700 CALL", "SELL", "M", "100", "20", "", "NSE"],
+        ]
+        p = os.path.join(self.tmp, "tb.csv")
+        write_csv(p, rows)
+        T.mmxm.STATE_DIR = self.tmp
+        with open(os.path.join(self.tmp, "config-india.json"), "w") as f:
+            f.write('{"index_only": true, "max_strikes_per_expiry": 2, "max_premium_per_trade": 3250, '
+                    '"sessions": {"am": ["09:15", "10:30"]}, "avoid_fridays": false}')
+        rep, _ = T.build([p])
+        pr = rep["personal"]
+        blocked = {b["rule"]: b for b in pr["blocked"]}
+        self.assertEqual(blocked["At most 2 strikes per expiry and side"]["pnl"], -3250.0)
+        self.assertEqual(blocked["Index options only"]["pnl"], -3000.0)
+        # kept: +1,300 (premium 6,500 > cap 3,250, so halved to +650) and -650 (5,200 > 3,250: x0.625 = -406.25)
+        self.assertEqual(pr["kept"]["trades"], 2)
+        self.assertAlmostEqual(pr["kept"]["pnl"], 650.0 - 406.25)
+        self.assertEqual(pr["capped"], 2)
+
     def test_ict_context_against_index_bars(self):
         # the textbook India session from test_mmxm: short filled at 10:35 IST on 20 Oct 2026
         bars = M.india_bars(M.IN, M.IN_P)
