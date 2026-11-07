@@ -312,10 +312,14 @@ def cmd_today(args, cfg):
     try:
         mkt = mmxm.Market(mmxm.load_profile(), cfg)
         sz = mmxm.size(mkt, cfg, est, est * (1 - p["stop"]), est * (1 + p["target"]), name, premium=True)
-        print("  size: %d lot%s of %d (premium about Rs %.0f, loss at the stop about Rs %.0f)" % (
-            sz["qty"], "" if sz["qty"] == 1 else "s", lot, sz["premium_cost"], sz["max_loss"]))
-        if sz["qty"] == 0:
-            print("  -> one lot risks more than your risk per trade. Skip it, or raise risk_pct knowingly.")
+        one_risk = est * p["stop"] * lot
+        if sz["qty"] > 0:
+            print("  size: %d lot%s of %d (premium about Rs %.0f, loss at the stop about Rs %.0f)" % (
+                sz["qty"], "" if sz["qty"] == 1 else "s", lot, sz["premium_cost"], sz["max_loss"]))
+        else:
+            print("  size: 0 lots within your risk per trade (Rs %.0f). One lot (%d) costs about Rs %.0f and loses about Rs %.0f "
+                  "at the stop = %.1f%% of your capital: paper-trade it, or raise risk_pct knowingly." % (
+                      sz["rpt"], lot, est * lot, one_risk, 100.0 * one_risk / sz["account"]))
     except SystemExit as e:
         print("  size: %s" % e)
     print("  then: python3 mmxm.py gate --contract \"%s %s %d %s\" --premium <real premium x lot>" % (
