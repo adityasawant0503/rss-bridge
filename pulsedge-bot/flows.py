@@ -168,6 +168,9 @@ def deals():
                         "qty": qty, "value": qty * px, "kind": kind})
             n += 1
         log(f"{kind} deals: {n} rows")
+    # NSE can list one block-window trade in both files: keep the block copy
+    blocks = {(x["date"], x["symbol"], x["client"].upper(), x["side"], x["qty"]) for x in out if x["kind"] == "block"}
+    out = [x for x in out if x["kind"] == "block" or (x["date"], x["symbol"], x["client"].upper(), x["side"], x["qty"]) not in blocks]
     # one line per client, stock, side and day; drop same-day round trips
     agg = {}
     for x in out:
@@ -363,7 +366,7 @@ def merge_feed(items, dry):
     have = {x.get("id") for x in feed["items"]}
     new = [x for x in items if x["id"] not in have]
     if new and not dry:
-        feed["items"] = sorted(feed["items"] + new, key=lambda x: x.get("time", ""), reverse=True)[:300]
+        feed["items"] = sorted(feed["items"] + new, key=lambda x: x.get("time", ""), reverse=True)   # news_pipeline.py trims
         with open(path, "w", encoding="utf-8") as fh:
             json.dump(feed, fh, ensure_ascii=False, indent=1)
     return len(new)

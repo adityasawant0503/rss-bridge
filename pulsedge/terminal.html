@@ -389,7 +389,7 @@ document.getElementById("fb").onclick=function(){if(window.PulseAccess)PulseAcce
   function sectorMove(label){var l=String(label).toLowerCase();return (flows&&flows.sectors||[]).filter(function(x){return x.label.toLowerCase()===l})[0]||null}
   function renderFlows(){
     var n=document.getElementById("pm-flows");n.textContent="";
-    var c=flows&&flows.cash,f=flows&&flows.fno,deals=(flows&&flows.deals||[]).filter(function(x){return x.who==="foreign"||x.who==="domestic"}).slice(0,6);
+    var c=flows&&flows.cash,f=flows&&flows.fno,deals=(flows&&flows.by_stock||[]).slice(0,6);
     var secs=(flows&&flows.sectors||[]).filter(function(x){return !x.broad}),wk=flows&&flows.week;
     n.hidden=!(c||f||deals.length||secs.length);if(n.hidden)return;
     function pct(v){return v==null?"\u2013":(v>=0?"+":"")+v.toFixed(1)+"%"}
@@ -422,7 +422,11 @@ document.getElementById("fb").onclick=function(){if(window.PulseAccess)PulseAcce
     if(deals.length){
       var w2=el("div"),fz=el("div","focus");
       w2.appendChild(el("div","lbl","Big institutional deals"+(flows.deals_date?" \u00b7 "+shortDay(flows.deals_date):"")));
-      deals.forEach(function(x){var r=el("div");r.append(el("span","tk"+(mine(x.symbol)?" mine":""),x.symbol),el("span",x.side==="buy"?"up":"down",(x.side==="buy"?"Bought ":"Sold ")+"\u20b9"+x.value_cr.toLocaleString("en-IN")+" cr"),el("span",null,x.who==="foreign"?"foreign fund":"domestic institution"));fz.appendChild(r)});
+      deals.forEach(function(x){
+        var r=el("div");r.appendChild(el("span","tk"+(mine(x.symbol)?" mine":""),x.symbol));
+        [["foreign_cr","foreign funds"],["domestic_cr","domestic institutions"]].forEach(function(k){var v=x[k[0]];if(!v)return;
+          r.append(el("span",v>0?"up":"down",(v>0?"Bought ":"Sold ")+"\u20b9"+Math.abs(v).toLocaleString("en-IN",{maximumFractionDigits:1})+" cr"),el("span",null,k[1]))});
+        fz.appendChild(r)});
       w2.appendChild(fz);n.appendChild(w2);
     }
     n.appendChild(el("p","fnote","NSE end-of-day data; cash figures are provisional. Shows where money moved, not where it will go."));
@@ -531,7 +535,7 @@ document.getElementById("fb").onclick=function(){if(window.PulseAccess)PulseAcce
   function load(){
     var feed=mode==="sample"?getJson("data/feed.sample.json"):getJson("data/feed.json").then(function(j){j._live=!j.sample;return j}).catch(function(){return getJson("data/feed.sample.json")});
     var pre=(mode==="sample"?getJson("data/premarket.sample.json"):getJson("data/premarket.json").then(function(j){j._live=!j.sample;return j}).catch(function(){return getJson("data/premarket.sample.json")})).catch(function(){return null});
-    var fl=mode==="sample"?Promise.resolve(null):getJson("data/flows.json").catch(function(){return null});
+    var fl=getJson("data/flows.json").catch(function(){return null});   // public end-of-day data, shown in the demo too
     return Promise.all([feed,pre,fl]).then(function(r){
       flows=r[2];
       var j=r[0];live=!!j._live;
