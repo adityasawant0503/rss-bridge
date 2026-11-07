@@ -116,6 +116,9 @@ class TestTrades(unittest.TestCase):
         c = T.parse_contract("NIFTY25O0725000CE", d)                     # NSE weekly code: 7 Oct 2025
         self.assertEqual((c["underlying"], c["expiry"]), ("NIFTY", date(2025, 10, 7)))
         self.assertEqual(T.parse_contract("BANKNIFTY SEP FUT", d)["kind"], "FUT")
+        self.assertEqual(T.parse_contract("NIFTY25D0226100CE", d)["strike"], 26100.0)      # weekly code: not 226100
+        self.assertEqual(T.parse_contract("NIFTY2590924750PE", d)["strike"], 24750.0)
+        self.assertEqual(T.parse_contract("SENSEX25O1682200PE", d)["strike"], 82200.0)
 
     def test_round_trips_and_tags(self):
         p = os.path.join(self.tmp, "tb.csv")

@@ -141,6 +141,25 @@ Be straight about the evidence: rules taken from the same trades they are tested
 they would have kept, not what they will make. Strike limits and premium caps cut big winners as well as
 big losers, so the loss per idea, fixed before entry, matters most. Paper-trade new rules first.
 
+## The daily option strategy (`optbt.py`)
+
+One rule from the notes made mechanical: the morning move against the recent trend is the trap. Each day,
+fade the last 5 sessions' close-to-close move with an at-the-money weekly option at 10:15 IST (puts after
+an up-move, calls after a down-move), with a fixed stop and target, exiting by the close. `--mode with`
+tests the opposite (trend-continuation).
+
+```bash
+python3 optbt.py fetch                         # 2 years of hourly + daily Nifty/Sensex and India VIX, cached in ict/market/
+python3 optbt.py backtest SENSEX               # results by year, calls vs puts, exits, drawdown
+python3 optbt.py backtest NIFTY --stop 0.2 --target 0.4 --entry 11:15
+python3 optbt.py today SENSEX                  # today's contract, entry time, stop, target and lots for your account
+```
+
+Option prices are modelled (Black-Scholes from the index and India VIX), with no skew, spread or volatility
+spikes. The calibration on real fills put traded volatility at about VIX × 1.0 for options a week out, and
+higher on expiry day. Results are a test of the idea, not real fills. Always check the live premium,
+paper-trade before real money, and keep results out of this repo.
+
 ## Your own trades, through the ICT structure
 
 `trades.py` reads Aditya's real tradebook and splits every rupee of P&L along the same lines the
