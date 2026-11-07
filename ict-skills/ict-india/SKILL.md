@@ -155,6 +155,12 @@ python3 optbt.py backtest NIFTY --stop 0.2 --target 0.4 --entry 11:15
 python3 optbt.py today SENSEX                  # today's contract, entry time, stop, target and lots for your account
 ```
 
+Adding lots: `--add-mode up` pyramids (add 1 lot each time the premium rises `--add-step`, up to `--max-lots`,
+then move the stop for all lots to the average price). `--add-mode down` averages down (add as the premium
+falls, one `--hard-stop` for all lots). Compare both against `--add-mode none` before choosing: averaging down
+raises the win rate while deepening drawdowns and the worst trade. The gate's rule against adding to a
+position whose stop isn't at break-even matches the pyramid.
+
 Option prices are modelled (Black-Scholes from the index and India VIX), with no skew, spread or volatility
 spikes. The calibration on real fills put traded volatility at about VIX × 1.0 for options a week out, and
 higher on expiry day. Results are a test of the idea, not real fills. Always check the live premium,
