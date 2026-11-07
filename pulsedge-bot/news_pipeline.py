@@ -363,8 +363,13 @@ THEMES = [
 ]
 
 
+NOT_MARKETS = re.compile(r"\b(pleads?|suspects?|arrested|charged with|sentenced|murder|trial|lawsuit|sues|court)\b", re.I)
+
+
 def global_themes(text):
     names, sectors = [], []
+    if NOT_MARKETS.search(text):          # crime and court stories that merely mention a company
+        return names, sectors
     for name, rx, secs in THEMES:
         if rx.search(text):
             names.append(name)
@@ -490,7 +495,12 @@ def main():
     feed = load_json(feed_path, {"items": []})
     cutoff = NOW - timedelta(days=KEEP_DAYS)
     old = [x for x in feed.get("items", []) if not x.get("sample") and parse_time(x.get("time", "")) and parse_time(x["time"]) > cutoff]
-    items = sorted(classified + old, key=lambda x: x["time"], reverse=True)[:300]
+    # keep every flagged item (watch/act, deals) for KEEP_DAYS; routine "ignore" items fill up to 300 in total,
+    # otherwise the flood of routine NSE filings pushes yesterday's important items out within hours
+    pool = sorted(classified + old, key=lambda x: x["time"], reverse=True)
+    flagged = [x for x in pool if x.get("call") != "ignore"][:400]
+    routine = [x for x in pool if x.get("call") == "ignore"][:max(100, 300 - len(flagged))]
+    items = sorted(flagged + routine, key=lambda x: x["time"], reverse=True)
     today = [x for x in items if x["time"][:10] == NOW.strftime("%Y-%m-%d")]
     calls = {c: sum(1 for x in today if x["call"] == c) for c in ("buy", "sell", "watch", "ignore")}
     reasons = {}

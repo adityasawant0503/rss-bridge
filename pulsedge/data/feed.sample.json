@@ -97,6 +97,87 @@
       "reason": ["Routine compliance filing with no new information"],
       "risks": [],
       "original": "Certificate under Regulation 74(5) of SEBI (Depositories and Participants) Regulations, 2018."
+    },
+    {
+      "id": "sample-global-1",
+      "time": "2026-10-20T07:40:00+05:30",
+      "source": "CNBC Technology",
+      "section": "global",
+      "call": "watch",
+      "horizon": "intraday",
+      "direction": "mixed",
+      "latency": null,
+      "headline": "Nvidia falls 6% as the US widens AI chip export curbs",
+      "tickers": [],
+      "sectors": [
+        "IT"
+      ],
+      "impact": 40,
+      "confidence": 35,
+      "category": "Global: AI and chips",
+      "action": "Check how these sectors open",
+      "reason": [
+        "AI and chips news usually moves Indian IT"
+      ],
+      "risks": [],
+      "url": ""
+    },
+    {
+      "id": "sample-global-2",
+      "time": "2026-10-20T07:20:00+05:30",
+      "source": "CNBC World Markets",
+      "section": "global",
+      "call": "watch",
+      "horizon": "intraday",
+      "direction": "mixed",
+      "latency": null,
+      "headline": "Oil jumps 4% after OPEC+ extends output cuts",
+      "tickers": [],
+      "sectors": [
+        "Oil & Gas",
+        "Paints",
+        "Aviation"
+      ],
+      "impact": 40,
+      "confidence": 35,
+      "category": "Global: Oil",
+      "action": "Check how these sectors open",
+      "reason": [
+        "Oil news usually moves Indian Oil & Gas, Paints, Aviation"
+      ],
+      "risks": [],
+      "url": ""
+    },
+    {
+      "id": "sample-deal-1",
+      "kind": "deal",
+      "time": "2026-10-20T16:00:00+05:30",
+      "source": "NSE bulk & block deals",
+      "section": "trading",
+      "call": "watch",
+      "horizon": "positional",
+      "direction": "up",
+      "latency": null,
+      "headline": "Block deal (sample): a foreign fund bought 25 lakh shares of HDFC Bank at ₹1,742 (₹435.5 cr)",
+      "tickers": [
+        {
+          "symbol": "HDFCBANK",
+          "direction": "up"
+        }
+      ],
+      "sectors": [
+        "Banks"
+      ],
+      "impact": 75,
+      "confidence": 55,
+      "category": "Institutional deal",
+      "action": "See why before acting: check recent results and news. One deal isn't a trend.",
+      "reason": [
+        "Foreign fund bought ₹435.5 cr of HDFCBANK in one block deal",
+        "Big trades by institutions can show conviction, but can also be rebalancing or an exit"
+      ],
+      "risks": [],
+      "url": ""
     }
   ]
 }
