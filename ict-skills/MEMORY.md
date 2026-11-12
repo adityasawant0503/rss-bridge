@@ -1,6 +1,30 @@
 # Memory: ICT trading research
 
-Read this first when picking the work back up. Last updated 26 Oct 2026.
+Read this first when picking the work back up. Last updated 12 Nov 2026.
+
+## Current mode (12 Nov 2026): paper trading and research only
+
+- **No real-money trading.** On 12 Nov 2026 Aditya decided to stop trading with real money, to work on
+  trading psychology, and to use paper trading to look for an edge. Don't suggest going live, real-money
+  sizing or a go-live date. If Aditya asks to trade real money, remind them of this decision first.
+- **Daily (weekdays):** the "Morning Fade plan" scheduled task (10:05 IST) runs, from the repo root with
+  `ICT_DIR=<repo>/ict` (the engine reads `ict/` relative to the working folder), `optbt.py today SENSEX`
+  and `NIFTY`, pushes the paper plan and runs `optbt.py archive`. Aditya sends chart screenshots at 10:15
+  and at the close; Claude reads the levels off them and logs paper trades with `mmxm.py journal`
+  (git-ignored `ict/journal.jsonl`), tagging rule breaks and feelings.
+- **Morning Fade** (`ict-india/optbt.py`): fade the last 5 sessions' move with an at-the-money weekly
+  option at least 4 days from expiry, bought at 10:15; stop -20%, target +40%; pyramid one extra lot at
+  +15% and move the stop for both to their average; max 2 lots; out by the close; one trade a day.
+  The model prices options with Black-Scholes from India VIX, so real premiums must be checked.
+- **Intraday archive:** `optbt.py archive` merges every 5m (Yahoo serves 60 days) and 1m (7 days) bar for
+  Nifty, Sensex, Bank Nifty and India VIX into `ict/market/archive/`, in the format
+  `mmxm.py backtest --file` reads. Started 12 Nov 2026 with 5m data from 17 Aug 2026.
+- **Research next:** (1) paper-test the Morning Fade and compare real premiums with the model;
+  (2) write looser, fully specified ICT setups (for example a sweep of the first hour's range, then a
+  close back inside) and test them on the archive, keeping the latest weeks for an out-of-sample check
+  (the strict 2022 model finds about one setup in 60 days with the 09:15-10:30 window); (3) check whether
+  fade days that also show an ICT sweep are the bigger days.
+- Results, P&L and anything derived from the statements stay out of this repo.
 
 ## Aditya's background
 
@@ -50,9 +74,9 @@ structural reference only.
 
 ## Known gaps
 
-- **The skills have never run on real market data.** The build sandbox couldn't reach Yahoo. The first
-  real backtest is still to do.
-- Yahoo only keeps about 60 days of 5m bars. The notes ask for 6 months of backtesting, so it needs a broker export.
+- **Market data:** Yahoo works from the `rss-bridge` cloud environment (`mmxm.YAHOO_UA = "Mozilla/5.0"`;
+  a full browser user agent gets HTTP 429). Yahoo only keeps about 60 days of 5m bars, so the archive
+  above has to grow day by day to reach the 6 months the notes ask for.
 - Lot sizes in `ict-india/profile.json` (NIFTY 65, BANKNIFTY 30, SENSEX 20) came from memory of the
   January 2026 revision and need checking against Dhan.
 - **Moving to its own repo is blocked.** Creating a GitHub repo from the session failed with a 403. Waiting for

@@ -17,6 +17,8 @@ paper-trade it.
   python3 optbt.py backtest NIFTY              # the default strategy over the cached history, by year
   python3 optbt.py backtest SENSEX --mode with --entry 11:15 --stop 0.2 --target 0.4
   python3 optbt.py today NIFTY                 # today's plan, sized for the account in ict/config-india.json
+  python3 optbt.py archive                     # keep every 5m and 1m bar: Yahoo only serves the last 60 / 7 days
+  python3 mmxm.py backtest NIFTY --file ict/market/archive/nsei-5m.json   # test ICT setups on the archive
 
 Standard library only.
 """
@@ -88,6 +90,44 @@ def cmd_fetch(args):
         n = len(doc["chart"]["result"][0].get("timestamp") or [])
         print("%-10s %-4s %5d bars -> %s" % (sym, iv, n, cache_name(sym, iv)))
         time.sleep(3)
+
+
+ARCHIVE_RANGE = {"5m": "60d", "1m": "7d"}     # the most Yahoo serves for each interval
+
+
+def archive_name(symbol, interval):
+    return os.path.join(MARKET_DIR, "archive", "%s-%s.json" % (symbol.strip("^").lower(), interval))
+
+
+def merge_bars(old, new):
+    """Bars ([t, o, h, l, c, v]) keyed by time; a newer download replaces an older copy of the same bar,
+    so a day fetched mid-session is completed by the next run."""
+    by_t = {b[0]: b for b in old}
+    by_t.update({b[0]: b for b in new})
+    return [by_t[t] for t in sorted(by_t)]
+
+
+def cmd_archive(args):
+    """Grow a local intraday history past Yahoo's limits by merging each download into one file per symbol.
+    The files are {"bars": [[t, o, h, l, c, v], ...]}, which mmxm.py reads with --file."""
+    os.makedirs(os.path.join(MARKET_DIR, "archive"), exist_ok=True)
+    for sym in [INDICES[n]["yahoo"] for n in args.indices] + [VIX]:
+        for iv in args.intervals:
+            new = [list(b) for b in mmxm.parse_yahoo(fetch(sym, iv, ARCHIVE_RANGE[iv]))]
+            p = archive_name(sym, iv)
+            old = []
+            if os.path.exists(p):
+                with open(p) as f:
+                    old = json.load(f)["bars"]
+            bars = merge_bars(old, new)
+            with open(p + ".part", "w") as f:
+                json.dump({"symbol": sym, "interval": iv, "bars": bars}, f)
+            os.replace(p + ".part", p)
+            days = sorted({mmxm.to_local(b[0], "Asia/Kolkata").date() for b in bars})
+            print("%-10s %-3s %6d bars, %3d days (%s to %s), %+d new -> %s" % (
+                sym, iv, len(bars), len(days), days[0] if days else "-", days[-1] if days else "-",
+                len(bars) - len(old), p))
+            time.sleep(3)
 
 
 def ist_bars(doc):
@@ -380,6 +420,9 @@ def main(argv=None):
     sub = ap.add_subparsers(dest="cmd", required=True)
     f = sub.add_parser("fetch")
     f.add_argument("indices", nargs="*", default=["NIFTY", "SENSEX"])
+    ar = sub.add_parser("archive", help="merge the latest 5m/1m bars into ict/market/archive (run daily)")
+    ar.add_argument("indices", nargs="*", default=["NIFTY", "SENSEX", "BANKNIFTY"], type=str.upper)
+    ar.add_argument("--intervals", nargs="*", default=["5m", "1m"], choices=sorted(ARCHIVE_RANGE))
     for name in ("backtest", "today"):
         s = sub.add_parser(name)
         s.add_argument("index", choices=sorted(INDICES), type=str.upper)
@@ -400,6 +443,8 @@ def main(argv=None):
     a = ap.parse_args(argv)
     if a.cmd == "fetch":
         return cmd_fetch(a)
+    if a.cmd == "archive":
+        return cmd_archive(a)
     cfg = mmxm.load_config(mmxm.load_profile())
     return {"backtest": cmd_backtest, "today": cmd_today}[a.cmd](a, cfg)
 

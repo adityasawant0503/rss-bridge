@@ -40,6 +40,12 @@ class TestPieces(unittest.TestCase):
         self.assertAlmostEqual(c - p, S - K * math.exp(-r * tau), places=6)
         self.assertEqual(O.bs(S, K, 0, vol, "PE"), 100.0)
 
+    def test_archive_merge_keeps_history_and_prefers_newer_bars(self):
+        old = [[100, 1, 1, 1, 1, 0], [200, 2, 2, 2, 2, 0]]
+        new = [[200, 2, 3, 2, 3, 5], [300, 3, 3, 3, 3, 0]]          # bar 200 completed after the first download
+        self.assertEqual(O.merge_bars(old, new), [[100, 1, 1, 1, 1, 0], [200, 2, 3, 2, 3, 5], [300, 3, 3, 3, 3, 0]])
+        self.assertTrue(O.archive_name("^NSEI", "5m").endswith(os.path.join("archive", "nsei-5m.json")))
+
     def test_bias(self):
         days = trading_days(date(2026, 3, 2), 8)
         d = {day: (datetime.combine(day, datetime.min.time()), 0, 0, 0, 100.0 + k) for k, day in enumerate(days)}
