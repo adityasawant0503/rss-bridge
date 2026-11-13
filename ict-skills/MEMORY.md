@@ -19,11 +19,16 @@ Read this first when picking the work back up. Last updated 12 Nov 2026.
 - **Intraday archive:** `optbt.py archive` merges every 5m (Yahoo serves 60 days) and 1m (7 days) bar for
   Nifty, Sensex, Bank Nifty and India VIX into `ict/market/archive/`, in the format
   `mmxm.py backtest --file` reads. Started 12 Nov 2026 with 5m data from 17 Aug 2026.
-- **Research next:** (1) paper-test the Morning Fade and compare real premiums with the model;
-  (2) write looser, fully specified ICT setups (for example a sweep of the first hour's range, then a
-  close back inside) and test them on the archive, keeping the latest weeks for an out-of-sample check
-  (the strict 2022 model finds about one setup in 60 days with the 09:15-10:30 window); (3) check whether
-  fade days that also show an ICT sweep are the bigger days.
+- **Research:** (1) paper-test the Morning Fade and compare real premiums with the model.
+  (2) **Morning sweep-and-reclaim** (`ict-india/sweep.py`), written from Aditya's Nifty shorts of 11 and
+  13 Nov: sweep of the opening range (09:15-09:30) or the previous day's high/low, a 5m close back inside
+  within 30 minutes (entries 09:30-11:00), stop at the sweep extreme plus 0 / 0.05% / 0.10%, target 2R,
+  out at 15:10. Rules and the pass bar were fixed before testing (13 Nov). On Aug-Oct data only the
+  opening-range version without a buffer passed, on 2 of 3 indices, and its Nifty stops are often 10-20
+  points (maybe too tight for options). All six versions are forward-tested from 16 Nov: the 10:05 task
+  runs `sweep.py score` (log in `ict/research/`, git-ignored) and on Fridays `sweep.py summary`. Decide
+  after 2-3 months; don't tune the rules in between. (The strict 2022 model finds about one setup in 60
+  days.) (3) Later: check whether fade days that also show a sweep are the bigger days.
 - Results, P&L and anything derived from the statements stay out of this repo.
 
 ## Aditya's background
