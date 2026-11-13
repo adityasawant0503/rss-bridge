@@ -29,6 +29,12 @@ Read this first when picking the work back up. Last updated 12 Nov 2026.
   runs `sweep.py score` (log in `ict/research/`, git-ignored) and on Fridays `sweep.py summary`. Decide
   after 2-3 months; don't tune the rules in between. (The strict 2022 model finds about one setup in 60
   days.) (3) Later: check whether fade days that also show a sweep are the bigger days.
+- **PulsEdge link-up (13 Nov 2026):** Aditya keeps the PulsEdge terminal (their own repo
+  `adityasawant0503/pulsedge`, public; GitHub Pages) open next to this chat. A "PulsEdge check before the
+  plan" scheduled task (09:50 IST, weekdays) pushes its pre-market sentiment; `ict-india/pulse.py` reads
+  `pulsedge/data/premarket.json` from a read-only clone and the 10:05 task logs it next to the fade's
+  direction (`ict/research/premarket-log.jsonl`) to test later whether agreement days are better. It
+  never changes the plan. Aditya's terminal links carry an owner pass: never store or repeat them.
 - Results, P&L and anything derived from the statements stay out of this repo.
 
 ## Aditya's background
