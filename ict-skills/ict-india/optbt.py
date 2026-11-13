@@ -93,18 +93,20 @@ def cmd_fetch(args):
 
 
 ARCHIVE_RANGE = {"5m": "60d", "1m": "7d"}     # the most Yahoo serves for each interval
+ARCHIVE_STEP = {"5m": 300, "1m": 60}
 
 
 def archive_name(symbol, interval):
     return os.path.join(MARKET_DIR, "archive", "%s-%s.json" % (symbol.strip("^").lower(), interval))
 
 
-def merge_bars(old, new):
+def merge_bars(old, new, step=None):
     """Bars ([t, o, h, l, c, v]) keyed by time; a newer download replaces an older copy of the same bar,
-    so a day fetched mid-session is completed by the next run."""
+    so a day fetched mid-session is completed by the next run. With step (seconds), bars whose time is
+    off the grid are dropped: Yahoo appends the live, unfinished bar at the current second."""
     by_t = {b[0]: b for b in old}
     by_t.update({b[0]: b for b in new})
-    return [by_t[t] for t in sorted(by_t)]
+    return [by_t[t] for t in sorted(by_t) if not step or t % step == 0]
 
 
 def cmd_archive(args):
@@ -119,7 +121,7 @@ def cmd_archive(args):
             if os.path.exists(p):
                 with open(p) as f:
                     old = json.load(f)["bars"]
-            bars = merge_bars(old, new)
+            bars = merge_bars(old, new, ARCHIVE_STEP[iv])
             with open(p + ".part", "w") as f:
                 json.dump({"symbol": sym, "interval": iv, "bars": bars}, f)
             os.replace(p + ".part", p)

@@ -45,6 +45,8 @@ class TestPieces(unittest.TestCase):
         new = [[200, 2, 3, 2, 3, 5], [300, 3, 3, 3, 3, 0]]          # bar 200 completed after the first download
         self.assertEqual(O.merge_bars(old, new), [[100, 1, 1, 1, 1, 0], [200, 2, 3, 2, 3, 5], [300, 3, 3, 3, 3, 0]])
         self.assertTrue(O.archive_name("^NSEI", "5m").endswith(os.path.join("archive", "nsei-5m.json")))
+        live = [[1794544525, 9, 9, 9, 9, 0]]                         # Yahoo's unfinished bar, stamped mid-minute
+        self.assertEqual([b[0] for b in O.merge_bars([[1794544500, 1, 1, 1, 1, 0]], live, 60)], [1794544500])
 
     def test_bias(self):
         days = trading_days(date(2026, 3, 2), 8)
