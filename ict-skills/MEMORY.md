@@ -35,6 +35,10 @@ Read this first when picking the work back up. Last updated 12 Nov 2026.
   `pulsedge/data/premarket.json` from a read-only clone and the 10:05 task logs it next to the fade's
   direction (`ict/research/premarket-log.jsonl`) to test later whether agreement days are better. It
   never changes the plan. Aditya's terminal links carry an owner pass: never store or repeat them.
+- **Backup (14 Nov 2026):** `ict-india/backup.py push` mirrors `ict/journal.jsonl`, `config-india.json`,
+  `research/` and `market/archive/` into Aditya's private repo `adityasawant0503/ict-research` (clone at
+  `/home/user/ict-research`); the 10:05 task runs it daily. On a fresh machine run
+  `backup.py restore` before anything else. `ict/dhan-2025/` and `ict/pdf/` are never backed up.
 - Results, P&L and anything derived from the statements stay out of this repo.
 
 ## Aditya's background
