@@ -39,6 +39,11 @@ Read this first when picking the work back up. Last updated 12 Nov 2026.
   `research/` and `market/archive/` into Aditya's private repo `adityasawant0503/ict-research` (clone at
   `/home/user/ict-research`); the 10:05 task runs it daily. On a fresh machine run
   `backup.py restore` before anything else. `ict/dhan-2025/` and `ict/pdf/` are never backed up.
+- **Reminders on the phone (16 Nov 2026):** Aditya wants every Claude reminder on their iPhone, not just as
+  Claude app pushes. The phone's Reminders app can't be reached from here, so they get an .ics calendar
+  file (alerts in the iPhone Calendar app). Whenever a scheduled task is added, changed or paused, send
+  an updated `claude-reminders.ics` covering all active tasks. The Torrent options reminders were left
+  out pending Aditya's decision to keep or pause them (they conflict with the paper-only decision).
 - Results, P&L and anything derived from the statements stay out of this repo.
 
 ## Aditya's background
