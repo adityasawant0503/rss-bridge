@@ -44,6 +44,8 @@ INDICES = {
     "BANKNIFTY": {"yahoo": "^NSEBANK", "step": 100, "exchange": "NSE"},
 }
 VIX = "^INDIAVIX"
+CALENDAR = os.path.join(os.path.dirname(os.path.dirname(HERE)), "pulsedge", "data", "calendar.json")
+_HOLIDAYS = None
 # Exchange lot sizes over time (from, lot). Revised by the exchanges; check your broker for the current one.
 LOTS = {"NIFTY": [(date(2024, 11, 20), 75), (date(2026, 1, 1), 65)],
         "SENSEX": [(date(2024, 11, 20), 20)],
@@ -181,17 +183,39 @@ def tau_years(t, expiry):
     return max((end - t).total_seconds(), 600) / (365 * 24 * 3600)
 
 
-def weekly_expiry(name, day, min_dte):
+def holidays():
+    """Exchange trading holidays from PulsEdge's calendar (NSE's list; BSE closes on the same days).
+    Empty when the file is missing, and only as complete as that file: it is updated each December."""
+    global _HOLIDAYS
+    if _HOLIDAYS is None:
+        try:
+            with open(CALENDAR) as f:
+                _HOLIDAYS = {date.fromisoformat(x) for x in json.load(f).get("holidays", [])}
+        except (OSError, ValueError):
+            _HOLIDAYS = set()
+    return _HOLIDAYS
+
+
+def weekly_expiry(name, day, min_dte, hols=None):
     """Next weekly expiry at least min_dte calendar days out. NSE: Thursday until Aug 2025, Tuesday from Sep 2025.
-    BSE: Tuesday until Aug 2025, Thursday from Sep 2025. Holiday shifts are ignored. Bank Nifty has monthly
+    BSE: Tuesday until Aug 2025, Thursday from Sep 2025. When the expiry day is a holiday the contract expires on
+    the trading day before, and that earlier date must still be min_dte days out (on Fri 20 Nov 2026 Nifty's
+    24 Nov expiry moves to Mon 23 Nov, only 3 days away, so the plan takes 1 Dec). Bank Nifty has monthly
     expiries only since late 2024; the weekly date is used as an approximation."""
+    hols = holidays() if hols is None else hols
     new = day >= date(2025, 9, 1)
     nse = INDICES[name]["exchange"] == "NSE"
     wd = (1 if new else 3) if nse else (3 if new else 1)
-    d = day + timedelta(days=min_dte)
-    while d.weekday() != wd:
+    d = day
+    while True:
+        while d.weekday() != wd:
+            d += timedelta(days=1)
+        exp = d
+        while exp.weekday() >= 5 or exp in hols:
+            exp -= timedelta(days=1)
+        if (exp - day).days >= min_dte:
+            return exp
         d += timedelta(days=1)
-    return d
 
 
 def lot_size(name, day):

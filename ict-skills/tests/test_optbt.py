@@ -29,6 +29,16 @@ class TestPieces(unittest.TestCase):
         self.assertEqual(O.weekly_expiry("SENSEX", date(2025, 8, 4), 4), date(2025, 8, 12))   # Tuesday, old rule
         self.assertEqual(O.weekly_expiry("SENSEX", date(2025, 9, 8), 4), date(2025, 9, 18))   # Thursday from Sep 2025
 
+    def test_holiday_moves_expiry_earlier_and_still_needs_min_dte(self):
+        hols = {date(2026, 11, 24)}                                                            # Tuesday holiday
+        self.assertEqual(O.weekly_expiry("NIFTY", date(2026, 11, 17), 4, hols), date(2026, 11, 23))
+        self.assertEqual(O.weekly_expiry("NIFTY", date(2026, 11, 20), 4, hols), date(2026, 12, 1))  # 23 Nov is 3 days out
+        self.assertEqual(O.weekly_expiry("NIFTY", date(2026, 11, 20), 4, set()), date(2026, 11, 24))
+        self.assertEqual(O.weekly_expiry("SENSEX", date(2026, 11, 17), 4, hols), date(2026, 11, 26))
+
+    def test_holiday_calendar_is_found(self):
+        self.assertIn(date(2026, 11, 24), O.holidays())
+
     def test_lot_sizes(self):
         self.assertEqual(O.lot_size("NIFTY", date(2025, 6, 2)), 75)
         self.assertEqual(O.lot_size("NIFTY", date(2026, 2, 2)), 65)

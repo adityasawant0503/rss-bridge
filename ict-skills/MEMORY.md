@@ -97,6 +97,10 @@ structural reference only.
 - **Market data:** Yahoo works from the `rss-bridge` cloud environment (`mmxm.YAHOO_UA = "Mozilla/5.0"`;
   a full browser user agent gets HTTP 429). Yahoo only keeps about 60 days of 5m bars, so the archive
   above has to grow day by day to reach the 6 months the notes ask for.
+- **Expiry holidays (fixed 17 Nov 2026):** `optbt.weekly_expiry` moves an expiry that falls on a holiday to
+  the trading day before, using `pulsedge/data/calendar.json`. The plan printed NIFTY 24 NOV on 17 Nov, but
+  that day is a holiday and the real contract is 23 NOV. The calendar only lists 2026: add NSE's 2027 list
+  in December, or plans from January will ignore holidays again. Backtests before 2026 ignore holidays.
 - Lot sizes in `ict-india/profile.json` (NIFTY 65, BANKNIFTY 30, SENSEX 20) came from memory of the
   January 2026 revision and need checking against Dhan.
 - **Moving to its own repo is blocked.** Creating a GitHub repo from the session failed with a 403. Waiting for
