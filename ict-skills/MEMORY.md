@@ -29,6 +29,15 @@ Read this first when picking the work back up. Last updated 12 Nov 2026.
   runs `sweep.py score` (log in `ict/research/`, git-ignored) and on Fridays `sweep.py summary`. Decide
   after 2-3 months; don't tune the rules in between. (The strict 2022 model finds about one setup in 60
   days.) (3) Later: check whether fade days that also show a sweep are the bigger days.
+  (4) **Variants side by side** (`ict-india/variants.py`, 17 Nov 2026), from patterns in Aditya's own
+  trades. In 2025 (260 index-option round trips), trades with the opening gap made money (PF 2.65), while
+  trades against the gap or on flat opens lost on most days. The early-morning edge (before 10:00, +4.6L)
+  rests on 20 Oct 2025 alone; without the best 2 days it is negative. Three versions: `fade` (no
+  pyramid), `fade-gap` (fade only when the gap of at least 0.1% agrees), `gap` (follow the gap). Each is
+  scored per day with the model at 10:15 and with real bhavcopy prices bought at the open (the open is noisy:
+  the real column isn't the 10:15 trade). None met the bar set before the test. Out-by-11:15 versions were
+  worse and dropped. Forward from 18 Nov: the 10:05 task runs `variants.py today` and `score`, and
+  `summary` on Fridays. The paper trade stays the Morning Fade with the pyramid.
 - **PulsEdge link-up (13 Nov 2026):** Aditya keeps the PulsEdge terminal (their own repo
   `adityasawant0503/pulsedge`, public; GitHub Pages) open next to this chat. A "PulsEdge check before the
   plan" scheduled task (09:50 IST, weekdays) pushes its pre-market sentiment; `ict-india/pulse.py` reads
