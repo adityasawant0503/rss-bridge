@@ -38,6 +38,18 @@ Read this first when picking the work back up. Last updated 12 Nov 2026.
   the real column isn't the 10:15 trade). None met the bar set before the test. Out-by-11:15 versions were
   worse and dropped. Forward from 18 Nov: the 10:05 task runs `variants.py today` and `score`, and
   `summary` on Fridays. The paper trade stays the Morning Fade with the pyramid.
+  (5) **What the 17-20 Nov research found:** at the index level the 5-day fade is about +4 bp a day (not
+  significant) and smaller than option decay; negative-RR exits, liquidity raids (10 years, daily and hourly),
+  opening-flush reversals, OI walls and 149 combined morning rules showed no intraday edge that held in both
+  halves of the data. The consistent effect is multi-day trend: buying strength beats drift, and trend filters
+  halve drawdowns. Aditya wants high-accuracy, negative-RR trading; any such idea must beat the blind-direction /
+  same-distance baseline after costs before it counts.
+  (6) **Momentum paper portfolio** (`ict-india/momentum.py`, from 30 Nov 2026): each month-end, the 10 Nifty 50
+  stocks with the best 12-month return excluding the latest month, equal weight; cash (6%/yr) when Nifty is below
+  its 200-day average. Backtest Dec 2017 - Nov 2026 on today's members (survivorship-biased): +21.2%/yr, worst
+  fall -15%, vs Nifty +10.7%, -29%; +2.6%/yr over the same list's equal weight in both halves. Tax not modelled.
+  The 10:05 task runs `momentum.py rebalance`, which acts only on the first run after a month-end. Update
+  `MEMBERS` when NSE changes the Nifty 50 (March, September). Paper only, like everything else.
 - **PulsEdge link-up (13 Nov 2026):** Aditya keeps the PulsEdge terminal (their own repo
   `adityasawant0503/pulsedge`, public; GitHub Pages) open next to this chat. A "PulsEdge check before the
   plan" scheduled task (09:50 IST, weekdays) pushes its pre-market sentiment; `ict-india/pulse.py` reads
