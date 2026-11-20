@@ -1,8 +1,13 @@
-"""Shared helpers: price loading (real via yfinance, or synthetic fallback)."""
+"""Price data: yfinance download, local CSV loading, synthetic generators."""
 from __future__ import annotations
+
+import glob
+import os
 
 import numpy as np
 import pandas as pd
+
+
 
 TRADING_DAYS = 252
 
@@ -49,6 +54,18 @@ def synthetic_prices(tickers, n_days=2500, seed=42, start_price=100):
     return df
 
 
+def synthetic_pair(names, n=2500, seed=7, level=1000):
+    rng = np.random.default_rng(seed)
+    b = level * np.exp(np.cumsum(0.0003 + 0.012 * rng.standard_normal(n)))
+    spread = np.zeros(n)
+    for t in range(1, n):  # mean-reverting OU spread
+        spread[t] = 0.97 * spread[t - 1] + 0.012 * level * rng.standard_normal()
+    a = 0.1 * level + 1.2 * b + spread
+    idx = pd.bdate_range("2015-01-02", periods=n)
+    print("[data] generated synthetic cointegrated pair")
+    return pd.DataFrame({names[0]: a, names[1]: b}, index=idx)
+
+
 def load_csv(path):
     """Read a price CSV with Date/Close or timestamp/close columns -> Series."""
     df = pd.read_csv(path)
@@ -72,34 +89,3 @@ def load_csv_dir(folder, tickers=None):
     if (~full).any():
         print(f"[data] dropped short histories: {', '.join(df.columns[~full])}")
     return df.loc[:, full].dropna()
-
-
-def fmt_money(x, currency):
-    """Format money; rupees in lakh/crore, otherwise plain thousands."""
-    if currency == "Rs":
-        if abs(x) >= 1e7:
-            return f"Rs {x/1e7:,.2f} cr"
-        return f"Rs {x/1e5:,.2f} lakh"
-    return f"{currency}{x:,.0f}"
-
-
-def ols(y, X):
-    """OLS with intercept. Returns (coefs, residuals, std_errors)."""
-    X = np.column_stack([np.ones(len(X)), X])
-    coef, *_ = np.linalg.lstsq(X, y, rcond=None)
-    resid = y - X @ coef
-    sigma2 = resid @ resid / (len(y) - X.shape[1])
-    se = np.sqrt(np.diag(sigma2 * np.linalg.inv(X.T @ X)))
-    return coef, resid, se
-
-
-def adf_stat(series, lags=1):
-    """Augmented Dickey-Fuller t-statistic (constant, `lags` lagged diffs)."""
-    x = np.asarray(series, dtype=float)
-    dx = np.diff(x)
-    y = dx[lags:]
-    cols = [x[lags:-1]]
-    for i in range(1, lags + 1):
-        cols.append(dx[lags - i:-i])
-    coef, _, se = ols(y, np.column_stack(cols))
-    return coef[1] / se[1]

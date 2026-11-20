@@ -7,32 +7,17 @@
 4. Re-run with correlations forced to 0 and to 1 to see that correlation,
    not the individual stocks, drives portfolio risk.
 
-Usage: python 01_monte_carlo_var.py [--market in|us] [--tickers A B C] [--synthetic]
+Usage: python scripts/monte_carlo_var.py [--market in|us] [--tickers A B C] [--synthetic]
 """
 import argparse
 
 import numpy as np
 
-from common import fmt_money, load_csv_dir, load_prices
-from markets import MARKETS
-
-N_SIMS = 10_000
-HORIZON = 21  # trading days ~ one month
-CONFIDENCE = 0.95
-
-
-def simulate(mu, cov, weights, n_sims, horizon, rng):
-    """Return simulated portfolio returns over the horizon (n_sims,)."""
-    L = np.linalg.cholesky(cov)
-    shocks = rng.standard_normal((n_sims, horizon, len(mu)))
-    daily = mu + shocks @ L.T                     # correlated daily log returns
-    asset_cum = np.exp(daily.sum(axis=1)) - 1     # per-asset horizon return
-    return asset_cum @ weights
-
-
-def var_es(pnl, confidence):
-    cutoff = np.quantile(pnl, 1 - confidence)
-    return -cutoff, -pnl[pnl <= cutoff].mean()
+import _path  # noqa: F401  (lets scripts run without `pip install -e .`)
+from quantlab.costs import MARKETS
+from quantlab.data import load_csv_dir, load_prices
+from quantlab.risk import CONFIDENCE, HORIZON, N_SIMS, simulate, var_es
+from quantlab.stats import fmt_money
 
 
 def main():

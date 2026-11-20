@@ -4,44 +4,23 @@
    orderings, keep the stronger). Testing all ~1,000 cross-sector pairs
    would produce ~50 false positives at 5% by luck alone.
 2. Trading period: trade the selected pairs with the hedge ratio frozen
-   from formation (exactly as 02_pairs_trading.py), stock-futures costs.
+   from formation (exactly as pairs_trading.py), stock-futures costs.
 3. Re-test cointegration in the trading period - did it hold?
 
 Usage:
-  python 06_pairs_scan.py --dir prices/ --split 2023-10-01
+  python scripts/pairs_scan.py --dir prices/ --split 2023-10-01
 """
 import argparse
-import importlib.util
 import itertools
 
 import numpy as np
 import pandas as pd
 
-from common import adf_stat, load_csv_dir, ols
-from markets import MARKETS, cost_per_side
-
-spec = importlib.util.spec_from_file_location("pairs", __file__.replace("06_pairs_scan", "02_pairs_trading"))
-pairs = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(pairs)
-
-SECTORS = {
-    "Private banks": ["HDFCBANK", "ICICIBANK", "KOTAKBANK", "AXISBANK", "INDUSINDBK"],
-    "Banks (incl. PSU)": ["SBIN", "ICICIBANK", "HDFCBANK", "AXISBANK"],
-    "IT services": ["TCS", "INFY", "HCLTECH", "WIPRO", "TECHM"],
-    "Autos": ["MARUTI", "M&M", "TATAMOTORS", "BAJAJ-AUTO", "HEROMOTOCO", "EICHERMOT"],
-    "Metals": ["TATASTEEL", "JSWSTEEL", "HINDALCO"],
-    "Pharma": ["SUNPHARMA", "CIPLA", "DRREDDY"],
-    "FMCG": ["HINDUNILVR", "ITC", "NESTLEIND", "TATACONSUM"],
-    "NBFC / insurance": ["BAJFINANCE", "BAJAJFINSV", "SHRIRAMFIN", "HDFCLIFE", "SBILIFE"],
-    "Power / PSU energy": ["NTPC", "POWERGRID", "COALINDIA", "ONGC"],
-    "Cement / materials": ["ULTRACEMCO", "GRASIM", "ASIANPAINT"],
-}
-CRIT_5 = -3.34
-
-
-def eg(a, b):
-    coef, resid, _ = ols(np.log(a.values), np.log(b.values))   # log prices
-    return adf_stat(resid), coef
+import _path  # noqa: F401  (lets scripts run without `pip install -e .`)
+from quantlab.costs import MARKETS, cost_per_side
+from quantlab.data import load_csv_dir
+from quantlab.pairs import CRIT_5, SECTORS, backtest, eg
+from quantlab.stats import ols
 
 
 def main():
@@ -68,9 +47,9 @@ def main():
             (s1, _), (s2, _) = eg(form[x], form[y]), eg(form[y], form[x])
             a, b = (x, y) if s1 <= s2 else (y, x)
             stat = min(s1, s2)
-            # trade on price levels exactly like 02_pairs_trading.py
+            # trade on price levels exactly like pairs_trading.py
             coef, _, _ = ols(form[a].values, form[b].values)
-            r, pos, cost = pairs.backtest(pd.concat([form[[a, b]], trade[[a, b]]]),
+            r, pos, cost = backtest(pd.concat([form[[a, b]], trade[[a, b]]]),
                                           coef[1], coef[0], buy, sell)
             r_in, r_out = r[:args.split], r[args.split:]
             ann = lambda q: q.mean() * 252

@@ -11,25 +11,16 @@ India default: NIFTYBEES.NS (tradable Nifty 50 ETF; the ^NSEI index excludes
 dividends and can't be bought). Try a stock with --ticker RELIANCE.NS
 --instrument equity_delivery.
 
-Usage: python 03_ma_crossover.py [--market in|us] [--ticker X] [--synthetic]
+Usage: python scripts/ma_crossover.py [--market in|us] [--ticker X] [--synthetic]
 """
 import argparse
 
-import numpy as np
 import pandas as pd
 
-from common import load_prices
-from markets import INDIA_CHARGES, MARKETS, cost_per_side
-
-
-def metrics(r, rf):
-    eq = (1 + r).cumprod()
-    years = len(r) / 252
-    cagr = eq.iloc[-1] ** (1 / years) - 1
-    vol = r.std() * np.sqrt(252)
-    sharpe = (r.mean() * 252 - rf) / vol if vol else 0.0
-    mdd = (eq / eq.cummax() - 1).min()
-    return {"CAGR": cagr, "Vol": vol, "Sharpe": sharpe, "MaxDD": mdd, "Final x": eq.iloc[-1]}
+import _path  # noqa: F401  (lets scripts run without `pip install -e .`)
+from quantlab.costs import INDIA_CHARGES, MARKETS, cost_per_side
+from quantlab.data import load_prices
+from quantlab.stats import summary_metrics
 
 
 def main():
@@ -65,9 +56,9 @@ def main():
 
     start = slow.first_valid_index()
     rows = {
-        "Buy & hold": metrics(ret[start:], rf),
-        "MA cross (honest)": metrics(strat[start:], rf),
-        "MA cross (look-ahead bug)": metrics(cheat[start:], rf),
+        "Buy & hold": summary_metrics(ret[start:], rf),
+        "MA cross (honest)": summary_metrics(strat[start:], rf),
+        "MA cross (look-ahead bug)": summary_metrics(cheat[start:], rf),
     }
     df = pd.DataFrame(rows).T
     print(f"\n{ticker}: {args.fast}/{args.slow} SMA crossover, costs buy {buy*1e4:.1f} / "

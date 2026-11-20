@@ -1,227 +1,99 @@
-# Quant Finance Starter Projects (India & US)
+# quantlab: honest backtests on Indian equities
 
-Three small, self-contained projects that teach the core ideas of quantitative
-finance. Each is a single Python script you can read top to bottom.
+Three classic quant strategies, built from scratch in Python (NumPy and pandas only)
+and stress-tested on real NSE data: **Monte Carlo Value at Risk**, **pairs trading
+(statistical arbitrage)** and **moving-average trend following**.
 
-```bash
-pip install numpy pandas yfinance   # yfinance optional
+The point of the project is the testing, not the strategies:
+- every backtest trades one day after its signal, so it never uses future data;
+- every trade pays India's real statutory charges (STT, stamp duty, exchange and SEBI fees, GST);
+- every strategy is compared against buy and hold and a 6% risk-free rate;
+- every "best" parameter is re-checked on data it was not chosen on.
 
-# Indian markets (NSE) - the default
-python 01_monte_carlo_var.py                       # RELIANCE, HDFCBANK, TCS, INFY, ITC; Rs 1 crore
-python 02_pairs_trading.py                         # HDFCBANK vs ICICIBANK, costed as stock futures
-python 03_ma_crossover.py                          # NIFTYBEES (Nifty 50 ETF)
-python 03_ma_crossover.py --ticker RELIANCE.NS --instrument equity_delivery
-python 04_ma_sweep.py --csv nifty.csv               # SMA vs EMA sweep, columns Date,Close
-python 05_var_backtest.py --csv nifty.csv           # does the VaR hold up?
-python 06_pairs_scan.py --dir prices/               # scan same-sector pairs (<TICKER>_*.csv)
-python markets.py                                  # print the Indian cost model
+## Key findings
 
-# US markets
-python 02_pairs_trading.py --market us             # KO vs PEP
-python 03_ma_crossover.py --market us              # SPY
+| Question | Answer from the data |
+|---|---|
+| Does Monte Carlo VaR hold up? | **No, it underestimates crashes.** The 99% monthly VaR on the Nifty 50 was breached 3.1% of the time over 2002-2023, three times the promised 1%. March 2020 lost 26% against a forecast of 9%. Fat-tailed shocks didn't help; recent-weighted volatility (EWMA) made it worse. |
+| Does correlation matter? | **It's the main driver.** For a Rs 1 crore, five-stock portfolio, one-month 95% VaR is Rs 3.9 lakh at zero correlation, Rs 5.9 lakh at the estimated correlation and Rs 9.5 lakh at perfect correlation. Correlation was 0.24 in calm quarters and 0.34 in volatile ones. |
+| Do cointegrated pairs keep working? | **Mostly not.** 18 of 69 same-sector Nifty 50 pairs tested as cointegrated in 2020-2023. None still passed in 2023-2025, and their average return fell from 10.9% to 4.7% a year. Only 6 of 18 beat the risk-free rate. |
+| Which moving-average crossover is best? | **None reliably.** Over 70 SMA/EMA rules, the famous 50/200 cross ranked 67th (Sharpe 0.41 vs 0.54 for buy and hold). The five rules picked on 2002-2012 data all trailed buy and hold on return in 2013-2023 (11-13% vs 14.3% a year), but cut the worst loss from -38% to between -11% and -21%. SMA vs EMA barely matters. |
 
-# add --synthetic to any script to run offline on simulated data
+![VaR backtest](results/var_backtest.png)
+
+![Pairs out-of-sample](results/pairs_oos.png)
+
+![Moving-average sweep](results/ma_sweep_heatmap.png)
+
+![Equity and drawdown](results/ma_equity_drawdown.png)
+
+![Correlation and VaR](results/var_correlation.png)
+
+## Methods
+
+**Monte Carlo VaR** (`quantlab/risk.py`): estimates means and the covariance matrix
+from daily log returns, uses a Cholesky decomposition to make correlated shocks,
+and simulates 10,000 one-month paths. It reads VaR and Expected Shortfall off the
+simulated P&L. The backtest re-fits monthly on a trailing year and compares four
+shock models: normal, multivariate Student-t (df = 4), historical bootstrap and
+EWMA (lambda = 0.94).
+
+**Pairs trading** (`quantlab/pairs.py`): Engle-Granger test (OLS hedge ratio, then
+an ADF test on the residuals against MacKinnon critical values), implemented from
+scratch. It trades a 60-day rolling z-score of the spread: enter at ±2, exit at 0.
+The hedge ratio is frozen on the formation window. Both legs are costed as NSE
+stock futures, because Indian cash-market shorts can't be held overnight. The scan
+covers only same-sector pairs, to limit false discoveries from multiple testing.
+
+**Trend following** (`quantlab/trend.py`): long/flat SMA or EMA crossovers with a
+one-day execution lag, separate buy and sell costs, cash earning the risk-free
+rate, and dividends added back to the price index. The sweep covers 70 rules,
+with a walk-forward split (choose rules on 2002-2012, test on 2013-2023) and
+results by market period.
+
+**Transaction costs** (`quantlab/costs.py`): NSE charges after the Budget 2026
+STT revision. Round trips cost 32 bps for delivery equity, 12 bps for ETFs and
+16 bps for stock futures, including 5 bps of slippage per side.
+
+## Project structure
+
+```
+quantlab/          library: data, costs, stats, risk, pairs, trend
+scripts/           command-line analyses (one per study) + make_figures.py
+tests/             17 pytest tests: cost math, OLS/ADF, VaR calibration, no look-ahead
+results/           figures used above
+data/              fetch_data.sh (datasets are downloaded, not committed)
+docs/GUIDE.md      step-by-step learning guide to each method (also docs/guide.pdf)
 ```
 
-NSE tickers use Yahoo's `.NS` suffix (BSE: `.BO`). Other pairs to try:
-`TCS.NS`/`INFY.NS`, `SBIN.NS`/`BANKBARODA.NS`, `HINDUNILVR.NS`/`DABUR.NS`,
-`TATASTEEL.NS`/`JSWSTEEL.NS`, `ULTRACEMCO.NS`/`AMBUJACEM.NS`.
+## Run it
 
-If `yfinance` is missing or offline, the scripts fall back to synthetic data
-automatically.
+```bash
+pip install -e ".[dev,data]"
+make test            # unit tests
+make reproduce       # download data, regenerate figures, re-run every study
 
----
+# or individually, on any ticker via yfinance (NSE tickers end in .NS)
+python scripts/monte_carlo_var.py --tickers RELIANCE.NS TCS.NS HDFCBANK.NS
+python scripts/pairs_trading.py --a HDFCBANK.NS --b ICICIBANK.NS
+python scripts/ma_sweep.py --ticker NIFTYBEES.NS
+python -m quantlab.costs                      # print the NSE cost model
+```
 
-## 1. Monte Carlo portfolio risk (`01_monte_carlo_var.py`)
+Every script also runs offline with `--synthetic`.
 
-**Goal:** How much could this portfolio lose in a bad month, and how bad does it
-get beyond that?
+## Data and limitations
 
-**Steps**
-1. Download prices and compute daily log returns.
-2. Estimate each stock's mean return and volatility, plus the correlation matrix.
-3. Build the covariance matrix and take its **Cholesky decomposition** `L`, so
-   that `L @ z` turns independent normal shocks `z` into correlated ones.
-4. Simulate 10,000 paths of 21 trading days and compound each one into a
-   one-month portfolio return.
-5. **Value at Risk (95%)** = the 5th-percentile loss.
-   **Expected Shortfall** = the average loss in the worst 5% of outcomes.
-6. Re-run with correlation forced to 0 and to 1.
+- **Sources.** Nifty 50 index daily closes (2001-2023) and 50 Nifty 50 stocks
+  (Oct 2020-Sep 2025) come from public GitHub datasets (`data/fetch_data.sh`),
+  not from NSE directly.
+- **Price index.** The index is a price index, so a 1.3% a year dividend yield is
+  added back.
+- **Survivorship.** The stock universe is today's Nifty 50, which flatters
+  long-only results.
+- **Not modelled.** Futures lot sizes, rollover, basis, F&O ban periods, circuit
+  limits and taxes.
+- **Statistical power.** Two years is a short window for re-testing cointegration,
+  so "none still cointegrated" partly reflects low test power.
 
-**What you learn:** The volatilities stay the same in all three runs. Only
-correlation changes, and VaR moves a lot (in the sample run: $63k with zero
-correlation, $103k with the estimated correlation, $129k with perfect
-correlation). Diversification comes from correlation.
-
-### 1b. Does the VaR actually hold? (`05_var_backtest.py`)
-
-Every month the script re-estimates the model on the trailing year, forecasts
-next month's 95% and 99% VaR, and checks the forecast against what really
-happened. It compares normal, Student-t, historical bootstrap and EWMA
-(recent-weighted) shocks.
-
-Results on Nifty 50, 2002-2023 (260 monthly forecasts):
-- The 99% VaR was breached 3.1% of the time, about 3x the 1% it promises.
-  Breaches came in clusters (3 in 2008, 2 in 2020).
-- **March 2020: a -25.9% month against a 99% VaR forecast of -9.2%.**
-  Calm data going in gave the model no warning.
-- Fat tails (Student-t) and bootstrap changed almost nothing at a one-month
-  horizon, because summing 21 daily draws averages the fat tails away. The real
-  problem is that volatility comes in regimes.
-- EWMA, which weights recent days heavily, did *worse* (10.4% breaches at 95%).
-  Markets are often calm right before a crash, so overreacting to the recent
-  calm lowers the VaR at the wrong moment.
-- Five stocks (RELIANCE, HDFCBANK, TCS, INFY, ITC), Rs 1 crore, 2020-2025:
-  VaR of Rs 5.9 lakh at estimated correlation, Rs 3.9 lakh at zero, Rs 9.5 lakh at
-  perfect correlation. Average correlation was 0.24 in calm quarters and
-  0.34 in volatile ones.
-
-Use VaR as a minimum estimate of loss, not a ceiling. Stress-test with 2008
-and March 2020 directly.
-
-**Extensions:** GARCH volatility, regime-switching models, optimising weights
-to minimise ES.
-
----
-
-## 2. Pairs trading / statistical arbitrage (`02_pairs_trading.py`)
-
-**Goal:** Profit when two related stocks drift apart, then come back together.
-
-**Steps**
-1. Split the history into a **formation** period (60%) and a **trading** period (40%).
-2. On formation data, regress `A = alpha + beta * B`. `beta` is the **hedge ratio**.
-3. **Engle-Granger test:** run an ADF test on the regression residuals. A
-   statistic below about -3.34 means the pair is cointegrated at 5%. (These
-   critical values are stricter than ordinary ADF ones because beta was
-   estimated.)
-4. Spread = `A - beta*B - alpha`. Z-score = (spread - rolling mean) / rolling std.
-5. If z > +2, short the spread (short A, long B). If z < -2, go long the spread.
-   Exit when z crosses 0.
-6. Lag positions by one day and charge costs on both legs.
-7. Compare in-sample and out-of-sample results, and re-test cointegration on the new data.
-
-**What you learn:** Mean reversion and hedging. The biggest lesson is that
-**relationships break**. A pair that passes the test in-sample can stop being
-cointegrated later, so always validate out of sample and use a stop-loss
-(for example, exit at |z| > 4).
-
-### 2b. Scanning for pairs (`06_pairs_scan.py`)
-
-The scan Engle-Granger tests 69 same-sector Nifty 50 pairs on Oct 2020-Sep 2023,
-then trades them from Oct 2023 to Sep 2025 with the hedge ratio frozen and stock-futures costs.
-- 18 pairs tested as cointegrated, mostly private banks and PSU power.
-  About 3.5 would be expected by chance.
-- **None of the 18 were still cointegrated in the trading period.** Two years is
-  a short window for the test, so this partly reflects low statistical power,
-  but every relationship weakened.
-- Out-of-sample return averaged 4.7% a year, down from 10.9% in-sample. 13 of 18
-  were profitable, but only 6 of 18 beat the 6% risk-free rate.
-- Pairs without cointegration lost 3.4% a year on average. Without a stop-loss,
-  one bad pair can wipe out years of gains (HEROMOTOCO vs TATAMOTORS: -52% a year).
-- Best performers: POWERGRID/COALINDIA (14.9%, Sharpe 0.92),
-  KOTAKBANK/INDUSINDBK (14.4%) and HDFCBANK/ICICIBANK (11.9%). Expect them
-  to fade too.
-
-**Extensions:** rolling or Kalman-filter hedge ratio, half-life of mean reversion
-(fit an AR(1) to the spread), scanning a sector for candidate pairs (watch out for
-multiple-testing bias).
-
----
-
-## 3. Moving-average crossover backtest (`03_ma_crossover.py`)
-
-**Goal:** Test the simplest strategy there is, and test it properly.
-
-**Rules:** Hold the asset when the 50-day SMA is above the 200-day SMA. Otherwise
-hold cash.
-
-**Testing discipline**
-- **Delay signals by one day.** The signal is computed on today's close, so you can
-  only trade on it tomorrow (`position = signal.shift(1)`). The script also prints
-  a look-ahead version that skips this lag. The gap between the two is the
-  kind of performance a bug creates.
-- **Transaction costs** are charged on every position change (default 10 bps).
-- **Benchmark against buy and hold**, comparing CAGR, volatility, Sharpe ratio and max drawdown.
-
-**What you learn:** Most strategies fail at this stage. The crossover usually gives
-up return in exchange for a smaller drawdown. If a backtest looks too good, look
-for look-ahead bias, survivorship bias, missing costs, or parameters fitted to the
-same data you tested on.
-
-**Extensions:** a parameter sweep (and then ask why the best parameters won't
-hold up), walk-forward testing, applying it to many assets.
-
-### 3b. Which crossover is best? SMA vs EMA sweep (`04_ma_sweep.py`)
-
-The script tests 70 rules (SMA and EMA, fast 1-100, slow 20-250) with a one-day
-lag, ETF costs, cash earning 6% and a 1.3% dividend yield added back to the price index.
-Then it picks the winner using data before 2013 and checks how that winner did after 2013.
-
-Results on Nifty 50 daily data, 2002-2023:
-- Buy and hold: 16.4% CAGR, Sharpe 0.54, max drawdown -59%.
-- The best rules were short-term **price vs 50/100-day MA** and **EMA 20/50**,
-  at 17-18% CAGR, Sharpe 0.75-0.85, and drawdowns of -18% to -31%.
-- The famous **50/200 cross came last of the classics**: 12.1% CAGR, Sharpe 0.41.
-- EMA vs SMA: EMA was slightly better on average (Sharpe 0.57 vs 0.54).
-  The choice of lookback matters far more than the type of average.
-- Out of sample (2013-2023) **no rule beat buy and hold on return**: 14.3%
-  vs about 11-13% for the best rules. What they kept was a much smaller drawdown
-  (about -11% to -15% vs -38%).
-- On 49 Nifty 50 stocks from 2021 to 2025, with delivery costs (32 bps round trip),
-  every rule lost to buy and hold by about 7% a year on the median stock.
-
-The "best crossover" changes from one period to the next. What a trend filter
-reliably gives you is protection in a crash. It doesn't add return.
-
----
-
-## Indian-market specifics
-
-**Transaction costs** (`markets.py`, as of Nov 2026, after the Budget 2026 STT
-revision that took effect 1 April 2026; check them against your broker's charges page):
-
-| Instrument | STT | Stamp duty | NSE txn | Round trip* |
-|---|---|---|---|---|
-| Equity delivery | 0.1% buy + 0.1% sell | 0.015% buy | 0.00297% | ~32 bps |
-| Equity ETF | 0.001% sell | 0.015% buy | 0.00297% | ~12 bps |
-| Stock futures | 0.05% sell | 0.002% buy | 0.00183% | ~16 bps |
-
-\*Includes 18% GST on exchange and SEBI fees, plus 5 bps of slippage per side.
-Brokerage defaults to 0; set `BROKERAGE` if your broker charges for it. Delivery
-trades in India cost roughly 3x what they do in the US, so strategies that trade
-often get hit hard.
-
-**Things that differ from the US**
-- **No overnight shorting in the cash market.** Short-selling equity has to be
-  closed out the same day. To carry a pairs trade overnight you need **stock
-  futures** (only about 200 F&O stocks, fixed lot sizes, monthly expiry and
-  rollover, a basis against spot, and F&O ban periods when open interest hits
-  95% of the market-wide limit) or SLB. The pairs script costs both legs as
-  futures but doesn't model lot sizes, rollover or basis.
-- **High risk-free rate (~6%).** Sharpe ratios here subtract it, and cash in the
-  MA strategy earns it (turn this off with `--no-cash-yield`). A strategy making
-  8% a year is only barely beating T-bills.
-- **The ^NSEI index excludes dividends**, so it understates buy-and-hold by about
-  1-1.5% a year. Backtest on a tradable ETF (NIFTYBEES) or the Nifty 50 TRI.
-- **Circuit limits:** stocks outside F&O can lock at their price band, so you may
-  not be able to exit at the price your backtest assumes.
-- **Survivorship bias:** today's Nifty 50 constituents aren't the 2010 ones.
-  Backtesting only current constituents overstates returns.
-- **Taxes:** STCG of 20% and LTCG of 12.5% above Rs 1.25 lakh. Frequent
-  trading turns long-term gains into short-term ones. Taxes aren't modelled here.
-- **Liquidity:** stick to large caps. Mid and small caps have wider spreads than
-  the 5 bps slippage assumption.
-
----
-
-## Checklist for any backtest
-
-- [ ] No future data: all signals lagged
-- [ ] Costs and slippage included
-- [ ] Benchmark comparison
-- [ ] Out-of-sample or walk-forward period
-- [ ] Parameters chosen before seeing test data
-- [ ] Survivorship-bias-free universe
-
-*Educational code, not investment advice.*
+Educational research code, not investment advice.

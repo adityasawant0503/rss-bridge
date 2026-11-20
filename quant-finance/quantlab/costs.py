@@ -69,8 +69,13 @@ def cost_per_side(market: str, instrument: str | None, override_bps: float | Non
     return US_COST_BPS_PER_SIDE / 1e4, US_COST_BPS_PER_SIDE / 1e4
 
 
-if __name__ == "__main__":
+def main():
+    """Print the per-side and round-trip cost of each Indian instrument."""
     for inst in INDIA_CHARGES:
-        print(f"{inst:16s} buy {india_cost(inst,'buy')*1e4:5.1f} bps  "
-              f"sell {india_cost(inst,'sell')*1e4:5.1f} bps  "
+        print(f"{inst:16s} buy {india_cost(inst, 'buy')*1e4:5.1f} bps  "
+              f"sell {india_cost(inst, 'sell')*1e4:5.1f} bps  "
               f"round trip {round_trip_bps(inst):5.1f} bps")
+
+
+if __name__ == "__main__":
+    main()

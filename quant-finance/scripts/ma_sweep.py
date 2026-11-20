@@ -7,46 +7,19 @@ dividends). Then checks whether the in-sample winner still wins
 out of sample - which is the only question that matters.
 
 Usage:
-  python 04_ma_sweep.py --csv nifty.csv          # columns: Date, Close
-  python 04_ma_sweep.py --ticker NIFTYBEES.NS    # via yfinance
+  python scripts/ma_sweep.py --csv nifty.csv          # columns: Date, Close
+  python scripts/ma_sweep.py --ticker NIFTYBEES.NS    # via yfinance
 """
 import argparse
 import itertools
 
-import numpy as np
 import pandas as pd
 
-from common import load_prices
-from markets import MARKETS, cost_per_side
-
-FAST = [1, 5, 10, 20, 30, 50, 100]          # 1 = price itself
-SLOW = [20, 50, 100, 150, 200, 250]
-PERIODS = [("2001-2007 bull", "2001", "2007"), ("2008-2012 crash/chop", "2008", "2012"),
-           ("2013-2019 grind up", "2013", "2019"), ("2020-2023 covid/V", "2020", "2023")]
-
-
-def ma(px, n, kind):
-    if n == 1:
-        return px
-    return px.rolling(n).mean() if kind == "SMA" else px.ewm(span=n, adjust=False, min_periods=n).mean()
-
-
-def run(px, ret, fast, slow, kind, buy, sell, cash_d, warmup):
-    sig = (ma(px, fast, kind) > ma(px, slow, kind)).astype(float)
-    pos = sig.shift(1).fillna(0)
-    d = pos.diff().fillna(0)
-    cost = d.clip(lower=0) * buy + (-d).clip(lower=0) * sell
-    r = pos * ret + (1 - pos) * cash_d - cost
-    return r.iloc[warmup:], pos.iloc[warmup:]
-
-
-def stats(r, rf):
-    if len(r) < 60:
-        return dict(CAGR=np.nan, Sharpe=np.nan, MaxDD=np.nan)
-    eq = (1 + r).cumprod()
-    cagr = eq.iloc[-1] ** (252 / len(r)) - 1
-    vol = r.std() * np.sqrt(252)
-    return dict(CAGR=cagr, Sharpe=(r.mean() * 252 - rf) / vol, MaxDD=(eq / eq.cummax() - 1).min())
+import _path  # noqa: F401  (lets scripts run without `pip install -e .`)
+from quantlab.costs import MARKETS, cost_per_side
+from quantlab.data import load_prices
+from quantlab.stats import perf_stats
+from quantlab.trend import FAST, PERIODS, SLOW, run_rule
 
 
 def main():
@@ -79,15 +52,15 @@ def main():
     for kind, f, s in itertools.product(["SMA", "EMA"], FAST, SLOW):
         if f >= s:
             continue
-        r, pos = run(px, ret, f, s, kind, buy, sell, cash_d, warm)
+        r, pos = run_rule(px, ret, f, s, kind, buy, sell, cash_d, warm)
         name = f"{kind} {'price' if f == 1 else f}/{s}"
         series[name] = r
-        st = stats(r, rf)
+        st = perf_stats(r, rf)
         rows.append(dict(rule=name, kind=kind, fast=f, slow=s, **st,
                          trades_yr=(pos.diff().abs() > 0).sum() / (len(r) / 252) / 2,
                          in_mkt=pos.mean()))
     res = pd.DataFrame(rows).set_index("rule")
-    b = stats(bh, rf)
+    b = perf_stats(bh, rf)
 
     pct = lambda x: f"{x:.1%}"
     fmt = {"CAGR": pct, "MaxDD": pct, "in_mkt": "{:.0%}".format,
@@ -111,8 +84,8 @@ def main():
           f" on CAGR: {(res.CAGR > b['CAGR']).sum()}/{len(res)}")
 
     # ---- out-of-sample check: pick the winner on data before the split
-    ins = {k: stats(v[:args.split], rf)["Sharpe"] for k, v in series.items()}
-    oos = {k: stats(v[args.split:], rf) for k, v in series.items()}
+    ins = {k: perf_stats(v[:args.split], rf)["Sharpe"] for k, v in series.items()}
+    oos = {k: perf_stats(v[args.split:], rf) for k, v in series.items()}
     rank_in = pd.Series(ins).drop("Buy & hold").sort_values(ascending=False)
     oos_sh = pd.Series({k: v["Sharpe"] for k, v in oos.items()}).drop("Buy & hold")
     print(f"\nWalk-forward: choose on data < {args.split}, trade after it")
@@ -131,7 +104,7 @@ def main():
     print("\nCAGR by market regime:")
     pick = ["Buy & hold", "SMA 50/200", "EMA 50/200", "SMA price/200", "EMA 20/50", "SMA price/50", "EMA price/50"]
     pick += [rank_in.index[0]] if rank_in.index[0] not in pick else []
-    tab = pd.DataFrame({lab: {k: stats(series[k][a:b_], rf)["CAGR"] for k in pick}
+    tab = pd.DataFrame({lab: {k: perf_stats(series[k][a:b_], rf)["CAGR"] for k in pick}
                         for lab, a, b_ in PERIODS})
     print(tab.to_string(float_format=lambda x: f"{x:.1%}"))
 

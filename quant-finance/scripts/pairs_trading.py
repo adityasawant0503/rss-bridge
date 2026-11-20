@@ -13,71 +13,15 @@ India note: you cannot hold a short in the cash market overnight, so both legs
 are costed as stock futures (STT 0.05% on sell). Real trading also means lot
 sizes, monthly rollover, futures basis and F&O ban periods - not modelled here.
 
-Usage: python 02_pairs_trading.py [--market in|us] [--a X --b Y] [--synthetic]
+Usage: python scripts/pairs_trading.py [--market in|us] [--a X --b Y] [--synthetic]
 """
 import argparse
 
-import numpy as np
-import pandas as pd
-
-from common import adf_stat, ols, load_prices
-from markets import MARKETS, cost_per_side
-
-ENTRY_Z, EXIT_Z = 2.0, 0.0
-LOOKBACK = 60          # rolling window for z-score
-# Engle-Granger 2-variable critical values (MacKinnon, constant, no trend)
-EG_CRIT = {"1%": -3.90, "5%": -3.34, "10%": -3.04}
-
-
-def synthetic_pair(names, n=2500, seed=7, level=1000):
-    rng = np.random.default_rng(seed)
-    b = level * np.exp(np.cumsum(0.0003 + 0.012 * rng.standard_normal(n)))
-    spread = np.zeros(n)
-    for t in range(1, n):  # mean-reverting OU spread
-        spread[t] = 0.97 * spread[t - 1] + 0.012 * level * rng.standard_normal()
-    a = 0.1 * level + 1.2 * b + spread
-    idx = pd.bdate_range("2015-01-02", periods=n)
-    print("[data] generated synthetic cointegrated pair")
-    return pd.DataFrame({names[0]: a, names[1]: b}, index=idx)
-
-
-def leg_cost(exposure, buy, sell):
-    d = exposure.diff().fillna(exposure)
-    return d.clip(lower=0) * buy + (-d).clip(lower=0) * sell
-
-
-def backtest(px, beta, alpha, buy, sell):
-    a, b = px.iloc[:, 0], px.iloc[:, 1]
-    spread = a - beta * b - alpha
-    z = (spread - spread.rolling(LOOKBACK).mean()) / spread.rolling(LOOKBACK).std()
-
-    pos = np.zeros(len(z))  # +1 = long spread (long A, short B), -1 = short spread
-    for t in range(1, len(z)):
-        prev, zt = pos[t - 1], z.iloc[t]
-        if np.isnan(zt):
-            pos[t] = 0
-        elif prev == 0:
-            pos[t] = -1 if zt > ENTRY_Z else (1 if zt < -ENTRY_Z else 0)
-        elif (prev == 1 and zt >= EXIT_Z) or (prev == -1 and zt <= EXIT_Z):
-            pos[t] = 0
-        else:
-            pos[t] = prev
-    pos = pd.Series(pos, index=z.index).shift(1).fillna(0)  # trade next day
-
-    gross = a + beta * b                      # split capital in hedge-ratio proportion
-    wa, wb = (a / gross).shift(1), (beta * b / gross).shift(1)
-    exp_a, exp_b = (pos * wa).fillna(0), (-pos * wb).fillna(0)
-    pnl = exp_a * a.pct_change().fillna(0) + exp_b * b.pct_change().fillna(0)
-    costs = leg_cost(exp_a, buy, sell) + leg_cost(exp_b, buy, sell)
-    return (pnl - costs).fillna(0), pos, costs.sum()
-
-
-def stats(r, rf):
-    ann, vol = r.mean() * 252, r.std() * np.sqrt(252)
-    eq = (1 + r).cumprod()
-    dd = (eq / eq.cummax() - 1).min()
-    sharpe = (ann - rf) / vol if vol else 0
-    return f"return {ann:6.1%}  vol {vol:5.1%}  Sharpe {sharpe:5.2f}  maxDD {dd:6.1%}"
+import _path  # noqa: F401  (lets scripts run without `pip install -e .`)
+from quantlab.costs import MARKETS, cost_per_side
+from quantlab.data import load_prices, synthetic_pair
+from quantlab.pairs import EG_CRIT, backtest, summary_line
+from quantlab.stats import adf_stat, ols
 
 
 def main():
@@ -115,7 +59,7 @@ def main():
     for name, data in [("in-sample", train), ("out-of-sample", test)]:
         r, pos, total_cost = backtest(data, beta, alpha, buy, sell)
         trades = int((pos.diff().abs() > 0).sum())
-        print(f"  {name:14s} {stats(r, m['risk_free'])}  trades {trades}  "
+        print(f"  {name:14s} {summary_line(r, m['risk_free'])}  trades {trades}  "
               f"costs {total_cost:.1%}")
 
     _, resid_test, _ = ols(test.iloc[:, 0].values, test.iloc[:, 1].values)
