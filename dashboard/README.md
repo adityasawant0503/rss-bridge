@@ -41,5 +41,6 @@ node dashboard/test_lib.mjs
 
 ## Hosting
 
-The folder works as-is on GitHub Pages: point Pages at this folder, or copy it
-to a `gh-pages` branch.
+`data/` is not committed, because `nifty.json` repackages a third-party dataset
+with no stated licence. Run `build_data.py` to create it before serving or
+hosting. With the data in place, the folder works as-is on GitHub Pages.
