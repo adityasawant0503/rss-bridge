@@ -1,0 +1,727 @@
+<meta charset="utf-8">
+<title>Nifty Quant Lab</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap">
+<style>
+/* Layout: a trading-desk notebook. Header + tab rail, then one working panel per study:
+   controls on the left, live readouts and charts on the right; stacks on phones. */
+:root {
+  --bg: #f4f6f8; --surface: #ffffff; --surface-2: #eef1f4; --ink: #10151b; --ink-2: #4f5965;
+  --muted: #6f7884; --line: #dbe0e6; --accent: #2a78d6; --accent-ink: #ffffff;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --grey: #8b939c; --bar: #c5ccd3; --bar-2: #98a2ad;
+  --bad: #d63c3b; --good: #128a5c; --focus: #2a78d6;
+  --f-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Inter", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --r: 10px;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0e1115; --surface: #161a20; --surface-2: #1d222a; --ink: #e8ecf1; --ink-2: #b4bcc6;
+  --muted: #8d96a2; --line: #2b313a; --accent: #3987e5; --accent-ink: #ffffff;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --grey: #7b848f; --bar: #3a424d; --bar-2: #59636f;
+  --bad: #e66767; --good: #2bb37d; --focus: #6aa6f0; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #0e1115; --surface: #161a20; --surface-2: #1d222a; --ink: #e8ecf1; --ink-2: #b4bcc6;
+  --muted: #8d96a2; --line: #2b313a; --accent: #3987e5; --accent-ink: #ffffff;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --grey: #7b848f; --bar: #3a424d; --bar-2: #59636f;
+  --bad: #e66767; --good: #2bb37d; --focus: #6aa6f0; color-scheme: dark; }
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { background: var(--bg); color: var(--ink); font: 14px/1.5 var(--f-body); }
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 20px 40px; }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
+h1 { font-size: 26px; font-weight: 700; }
+h2 { font-size: 19px; font-weight: 600; }
+h3 { font-size: 14px; font-weight: 600; }
+p { margin: 0; max-width: 70ch; }
+.num, .mono { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--muted); }
+.small { font-size: 12px; }
+
+header.top { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px 24px; }
+header.top .sub { color: var(--ink-2); margin-top: 4px; }
+.badge { font: 500 11px/1 var(--f-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted);
+  border: 1px solid var(--line); border-radius: 99px; padding: 6px 10px; white-space: nowrap; }
+
+nav.tabs { display: flex; gap: 4px; margin: 18px 0 16px; overflow-x: auto; border-bottom: 1px solid var(--line); }
+nav.tabs a { font: 500 14px var(--f-body); color: var(--ink-2); text-decoration: none; padding: 10px 14px;
+  border-bottom: 2px solid transparent; white-space: nowrap; }
+nav.tabs a:hover { color: var(--ink); }
+nav.tabs a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--accent); }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, .cell:focus-visible {
+  outline: 2px solid var(--focus); outline-offset: 2px; }
+
+.findings { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; margin-top: 16px; }
+.finding { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 12px 14px;
+  text-decoration: none; color: inherit; display: grid; gap: 4px; }
+.finding:hover { border-color: var(--accent); }
+.finding .k { font: 600 20px var(--f-mono); font-variant-numeric: tabular-nums; }
+.finding .t { color: var(--ink-2); font-size: 13px; }
+.finding .l { font: 500 11px var(--f-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+
+section.view { display: grid; gap: 16px; }
+.intro { display: grid; gap: 6px; }
+.work { display: grid; grid-template-columns: 290px minmax(0, 1fr); gap: 16px; align-items: start; }
+@media (max-width: 860px) { .work { grid-template-columns: 1fr; } }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 16px; min-width: 0; }
+.controls { display: grid; gap: 14px; }
+.field { display: grid; gap: 5px; }
+.field label, .lbl { font-size: 12px; font-weight: 500; color: var(--ink-2); display: flex; justify-content: space-between; gap: 8px; }
+.field label output { font-family: var(--f-mono); color: var(--ink); }
+input[type="number"], select { font: 14px var(--f-mono); color: var(--ink); background: var(--surface-2);
+  border: 1px solid var(--line); border-radius: 7px; padding: 7px 9px; width: 100%; }
+input[type="range"] { width: 100%; accent-color: var(--accent); }
+.seg { display: flex; background: var(--surface-2); border: 1px solid var(--line); border-radius: 8px; padding: 3px; gap: 3px; }
+.seg button { flex: 1; font: 500 13px var(--f-body); color: var(--ink-2); background: none; border: 0; border-radius: 6px;
+  padding: 6px 8px; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 2px rgb(0 0 0 / 0.12); }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.check { display: flex; gap: 8px; align-items: center; font-size: 13px; color: var(--ink-2); }
+
+.stack { display: grid; gap: 16px; min-width: 0; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 1px; background: var(--line);
+  border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
+.stat { background: var(--surface); padding: 10px 12px; display: grid; gap: 2px; }
+.stat .v { font: 500 18px var(--f-mono); font-variant-numeric: tabular-nums; }
+.stat .n { font-size: 12px; color: var(--muted); }
+.v.neg { color: var(--bad); } .v.pos { color: var(--good); }
+
+.chart-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 16px; margin-bottom: 8px; }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12px; color: var(--ink-2); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 14px; height: 3px; border-radius: 2px; display: inline-block; }
+.legend i.dot { width: 9px; height: 9px; border-radius: 50%; }
+.chart { position: relative; width: 100%; }
+.chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+.chart text { font: 11px var(--f-body); fill: var(--muted); }
+.tip { position: absolute; pointer-events: none; background: var(--surface); border: 1px solid var(--line);
+  border-radius: 8px; padding: 7px 9px; font-size: 12px; box-shadow: 0 4px 14px rgb(0 0 0 / 0.14);
+  white-space: nowrap; z-index: 5; display: grid; gap: 2px; }
+.tip b { font-weight: 600; } .tip .mono { color: var(--ink); }
+
+table.t { width: 100%; border-collapse: collapse; font-size: 13px; }
+table.t th { text-align: left; font: 500 11px var(--f-mono); letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted);
+  padding: 6px 8px; border-bottom: 1px solid var(--line); }
+table.t td { padding: 6px 8px; border-bottom: 1px solid var(--line); }
+table.t td.r, table.t th.r { text-align: right; font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.scroll { overflow-x: auto; }
+.chip { font: 500 11px var(--f-mono); padding: 2px 7px; border-radius: 99px; border: 1px solid var(--line); color: var(--ink-2); white-space: nowrap; }
+.chip.yes { color: var(--s1); border-color: var(--s1); }
+.chip.no { color: var(--bad); border-color: var(--bad); }
+
+.heat { display: grid; gap: 2px; font-size: 11px; }
+.heat .cell { font: 500 11px var(--f-mono); text-align: center; padding: 7px 0; border-radius: 4px; cursor: pointer; border: 0; }
+.heat .cell.na { background: transparent; cursor: default; }
+.heat .cell.sel { outline: 2px solid var(--ink); outline-offset: -2px; }
+.heat .hd { text-align: center; color: var(--muted); font-family: var(--f-mono); padding: 4px 0; }
+.heat-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 640px) { .heat-wrap { grid-template-columns: 1fr; } }
+
+.note { font-size: 12px; color: var(--muted); max-width: 90ch; }
+.callout { border-left: 3px solid var(--accent); padding: 8px 12px; background: var(--surface-2); border-radius: 0 8px 8px 0; font-size: 13px; color: var(--ink-2); }
+footer { margin-top: 28px; font-size: 12px; color: var(--muted); display: grid; gap: 4px; }
+.loading { padding: 40px; text-align: center; color: var(--muted); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <h1>Nifty Quant Lab</h1>
+      <p class="sub">Option pricing, delta hedging, trend following, Value at Risk and pairs trading on Indian equities. Every number on this page is computed from real Nifty data with NSE trading costs.</p>
+    </div>
+    <span class="badge">NSE · 2001–2025 · costs incl. STT</span>
+  </header>
+
+  <div class="findings" id="findings">
+    <a class="finding" href="#hedging"><span class="l">Delta hedging</span><span class="k" id="f-hedge">–</span><span class="t">a month selling Nifty calls at recent volatility, after futures costs</span></a>
+    <a class="finding" href="#risk"><span class="l">Value at Risk</span><span class="k" id="f-var">–</span><span class="t">of months broke the 99% VaR, which promises 1%</span></a>
+    <a class="finding" href="#pairs"><span class="l">Pairs trading</span><span class="k" id="f-pairs">–</span><span class="t">cointegrated pairs still cointegrated out of sample</span></a>
+    <a class="finding" href="#trend"><span class="l">Trend following</span><span class="k" id="f-trend">–</span><span class="t">rank of the famous 50/200 cross among 70 rules</span></a>
+  </div>
+
+  <nav class="tabs" aria-label="Studies">
+    <a href="#pricer">Option pricer</a>
+    <a href="#hedging">Hedging lab</a>
+    <a href="#trend">Trend explorer</a>
+    <a href="#risk">Value at Risk</a>
+    <a href="#pairs">Pairs trading</a>
+  </nav>
+
+  <div id="loading" class="loading">Loading Nifty data…</div>
+
+  <!-- ============ PRICER ============ -->
+  <section class="view" id="v-pricer" hidden>
+    <div class="intro">
+      <h2>Option pricer</h2>
+      <p class="muted">Three independent methods on the same contract. If Black-Scholes, the binomial tree and Monte Carlo disagree, one of them has a bug. Nifty options are European; switch on American exercise to see the early-exercise premium on puts.</p>
+    </div>
+    <div class="work">
+      <div class="panel controls">
+        <div class="seg" role="group" aria-label="Option type">
+          <button type="button" id="p-call" aria-pressed="true">Call</button>
+          <button type="button" id="p-put" aria-pressed="false">Put</button>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="p-S">Spot</label><input type="number" id="p-S" value="24000" step="50"></div>
+          <div class="field"><label for="p-K">Strike</label><input type="number" id="p-K" value="24000" step="50"></div>
+        </div>
+        <div class="field"><label for="p-days">Days to expiry <output id="p-days-o"></output></label><input type="range" id="p-days" min="1" max="365" value="30"></div>
+        <div class="field"><label for="p-vol">Volatility <output id="p-vol-o"></output></label><input type="range" id="p-vol" min="5" max="60" step="0.5" value="14"></div>
+        <div class="row2">
+          <div class="field"><label for="p-r">Rate %</label><input type="number" id="p-r" value="6" step="0.25"></div>
+          <div class="field"><label for="p-q">Div. yield %</label><input type="number" id="p-q" value="1.3" step="0.1"></div>
+        </div>
+        <label class="check"><input type="checkbox" id="p-amer"> American exercise (tree only)</label>
+        <div class="field"><label for="p-mkt">Market price → implied vol</label><input type="number" id="p-mkt" step="1"></div>
+        <p class="small muted" id="p-iv"></p>
+      </div>
+      <div class="stack">
+        <div class="stats" id="p-prices"></div>
+        <div class="panel">
+          <div class="chart-head"><h3>Value today and at expiry</h3><div class="legend" id="p-leg1"></div></div>
+          <div class="chart" id="p-chart1"></div>
+        </div>
+        <div class="panel">
+          <div class="chart-head"><h3>Greeks</h3><span class="small muted">vega and rho per 1% · theta per calendar day</span></div>
+          <div class="scroll"><table class="t" id="p-greeks"></table></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HEDGING ============ -->
+  <section class="view" id="v-hedging" hidden>
+    <div class="intro">
+      <h2>Hedging lab</h2>
+      <p class="muted">Each month since 2001, sell a one-month at-the-money Nifty option and delta-hedge it with Nifty futures along the price path that really happened. There are no historical option prices here, so implied volatility is trailing 21-day realised volatility plus the markup you choose.</p>
+    </div>
+    <div class="work">
+      <div class="panel controls">
+        <div class="seg" role="group" aria-label="Option sold">
+          <button type="button" id="h-call" aria-pressed="true">Short call</button>
+          <button type="button" id="h-put" aria-pressed="false">Short put</button>
+        </div>
+        <div class="field"><label for="h-mk">Vol markup <output id="h-mk-o"></output></label><input type="range" id="h-mk" min="0" max="6" step="0.5" value="0"></div>
+        <div class="field"><label for="h-cost">Futures cost per side <output id="h-cost-o"></output></label><input type="range" id="h-cost" min="0" max="20" step="0.2" value="7.8"></div>
+        <div class="field"><label for="h-every">Re-hedge</label>
+          <select id="h-every"><option value="1">Every day</option><option value="5">Every week</option><option value="21">Never (initial delta only)</option></select></div>
+        <p class="small muted">7.8 bps is the average of NSE futures buy (5.4) and sell (10.2) costs after the Budget 2026 STT increase.</p>
+      </div>
+      <div class="stack">
+        <div class="stats" id="h-stats"></div>
+        <div class="panel">
+          <div class="chart-head"><h3>Cumulative P&amp;L, % of spot</h3><div class="legend" id="h-leg"></div></div>
+          <div class="chart" id="h-chart"></div>
+        </div>
+        <div class="panel">
+          <div class="chart-head"><h3>Simulated: hedging error vs rebalances</h3><span class="small muted">1,000 simulated months, priced and realised at the same volatility</span></div>
+          <div class="row2" style="margin-bottom:10px">
+            <div class="field"><label for="h-sim-n">Rebalances per month <output id="h-sim-n-o"></output></label><input type="range" id="h-sim-n" min="0" max="5" step="1" value="3"></div>
+            <div class="field"><label for="h-sim-real">Realised vol <output id="h-sim-real-o"></output></label><input type="range" id="h-sim-real" min="8" max="30" step="1" value="14"></div>
+          </div>
+          <div class="chart" id="h-sim"></div>
+          <p class="note" id="h-sim-note"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TREND ============ -->
+  <section class="view" id="v-trend" hidden>
+    <div class="intro">
+      <h2>Trend explorer</h2>
+      <p class="muted">Hold NIFTYBEES while the fast average is above the slow one, otherwise sit in cash earning 6%. Trades happen the day after the signal and pay ETF costs. Click any cell in the heatmaps to load that rule.</p>
+    </div>
+    <div class="work">
+      <div class="panel controls">
+        <div class="seg" role="group" aria-label="Average type">
+          <button type="button" id="t-sma" aria-pressed="true">SMA</button>
+          <button type="button" id="t-ema" aria-pressed="false">EMA</button>
+        </div>
+        <div class="row2">
+          <div class="field"><label for="t-fast">Fast</label><select id="t-fast"></select></div>
+          <div class="field"><label for="t-slow">Slow</label><select id="t-slow"></select></div>
+        </div>
+        <div class="field"><label for="t-cost">Cost per side <output id="t-cost-o"></output></label><input type="range" id="t-cost" min="0" max="40" step="0.5" value="6.2"></div>
+        <label class="check"><input type="checkbox" id="t-lag" checked> Trade the day after the signal</label>
+        <p class="small muted" id="t-lag-note">Untick to see look-ahead bias: trading on the same close that produced the signal.</p>
+      </div>
+      <div class="stack">
+        <div class="stats" id="t-stats"></div>
+        <div class="panel">
+          <div class="chart-head"><h3>Growth of ₹1 (log scale)</h3><div class="legend" id="t-leg"></div></div>
+          <div class="chart" id="t-chart"></div>
+          <div class="chart" id="t-dd" style="margin-top:6px"></div>
+        </div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="chart-head"><h3>Sharpe ratio of all 70 rules, 2002–2023</h3><span class="small muted" id="t-heat-note"></span></div>
+      <div class="heat-wrap"><div id="t-heat-SMA"></div><div id="t-heat-EMA"></div></div>
+    </div>
+  </section>
+
+  <!-- ============ RISK ============ -->
+  <section class="view" id="v-risk" hidden>
+    <div class="intro">
+      <h2>Value at Risk</h2>
+      <p class="muted">Every month from 2002 to 2023, a Monte Carlo model fitted on the previous year forecasts next month's worst-case Nifty loss. The bars show what actually happened. A 99% VaR should be broken about once every 100 months.</p>
+    </div>
+    <div class="panel">
+      <div class="chart-head">
+        <div class="seg" role="group" aria-label="Shock model" id="r-models"></div>
+        <div class="legend" id="r-leg"></div>
+      </div>
+      <div class="chart" id="r-chart"></div>
+    </div>
+    <div class="work" style="grid-template-columns: minmax(0,1fr) minmax(0,1fr)">
+      <div class="panel"><h3 style="margin-bottom:8px">Breaches by model</h3><div class="scroll"><table class="t" id="r-table"></table></div>
+        <p class="note" style="margin-top:8px">Fat tails (Student-t) barely help over a month, because 21 daily shocks average out. Weighting recent days (EWMA) makes it worse: markets are often calm just before they crash.</p></div>
+      <div class="panel"><h3 style="margin-bottom:8px">₹1 crore in five stocks: correlation drives risk</h3><div class="chart" id="r-corr"></div>
+        <p class="note" id="r-corr-note"></p></div>
+    </div>
+  </section>
+
+  <!-- ============ PAIRS ============ -->
+  <section class="view" id="v-pairs" hidden>
+    <div class="intro">
+      <h2>Pairs trading</h2>
+      <p class="muted">69 same-sector Nifty 50 pairs, tested for cointegration on Oct 2020 – Sep 2023 and then traded from Oct 2023 to Sep 2025 with the hedge ratio frozen. Both legs are costed as stock futures, because a cash-market short can't be held overnight in India.</p>
+    </div>
+    <div class="panel">
+      <div class="chart-head"><div class="field" style="min-width:220px"><label for="pa-sector">Sector</label><select id="pa-sector"></select></div><div class="legend" id="pa-leg"></div></div>
+      <div class="chart" id="pa-chart"></div>
+    </div>
+    <div class="panel"><div class="scroll"><table class="t" id="pa-table"></table></div></div>
+  </section>
+
+  <footer>
+    <span>Data: Nifty 50 index daily closes 2001–2023 and 50 Nifty 50 stocks Oct 2020 – Sep 2025, from public GitHub datasets. Rates r = 6%, dividend yield 1.3%. NSE charges after the Budget 2026 STT revision.</span>
+    <span>The pricer, hedging lab and trend explorer recompute in your browser with the same maths as the Python projects (checked to 6 decimal places). Educational research, not investment advice.</span>
+  </footer>
+</div>
+
+<script src="lib.js"></script>
+<script>
+"use strict";
+const $ = (id) => document.getElementById(id);
+const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const pct = (x, d = 1) => (x * 100).toFixed(d) + "%";
+const spct = (x, d = 2) => (x >= 0 ? "+" : "−") + Math.abs(x * 100).toFixed(d) + "%";
+const inr = (x) => "₹" + x.toLocaleString("en-IN", { maximumFractionDigits: 2, minimumFractionDigits: 2 });
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+let NIFTY, RES, DATES;
+
+/* ---------------- minimal SVG charting with hover ---------------- */
+function niceTicks(lo, hi, n = 5) {
+  const span = hi - lo || 1, step0 = span / n, mag = Math.pow(10, Math.floor(Math.log10(step0)));
+  const step = [1, 2, 2.5, 5, 10].map((m) => m * mag).find((s) => span / s <= n) || mag * 10;
+  const out = [];
+  for (let v = Math.ceil(lo / step) * step; v <= hi + 1e-9; v += step) out.push(+v.toFixed(10));
+  return out;
+}
+function el(tag, attrs = {}, parent) {
+  const e = document.createElementNS("http://www.w3.org/2000/svg", tag);
+  for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
+  if (parent) parent.appendChild(e);
+  return e;
+}
+function legend(host, items) {
+  host.innerHTML = items.map((it) => `<span><i class="${it.dot ? "dot" : ""}" style="background:${it.color}"></i>${esc(it.name)}</span>`).join("");
+}
+/* opts: {x:[numbers], series:[{name,values,color,width,dash}], bars:{values,colors}, yFmt, xFmt, tipX, log,
+          height, zero, points:[{x,y,color}], yMin, yMax} */
+function lineChart(host, o) {
+  host.innerHTML = "";
+  const W = Math.max(320, host.clientWidth || 640), H = o.height || 260, m = { l: 52, r: 14, t: 10, b: 26 };
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": o.label || "chart" }, host);
+  const xs = o.x, n = xs.length;
+  let all = [];
+  for (const s of o.series || []) all = all.concat(s.values.filter(Number.isFinite));
+  if (o.bars) all = all.concat(o.bars.values.filter(Number.isFinite));
+  if (o.points) all = all.concat(o.points.map((p) => p.y));
+  let lo = o.yMin ?? Math.min(...all), hi = o.yMax ?? Math.max(...all);
+  if (o.zero) { lo = Math.min(lo, 0); hi = Math.max(hi, 0); }
+  const tf = o.log ? Math.log10 : (v) => v;
+  const pad = (tf(hi) - tf(lo)) * 0.06 || 1;
+  const y0 = tf(lo) - pad, y1 = tf(hi) + pad;
+  const X = (v) => m.l + (v - xs[0]) / (xs[n - 1] - xs[0] || 1) * (W - m.l - m.r);
+  const Y = (v) => m.t + (1 - (tf(v) - y0) / (y1 - y0)) * (H - m.t - m.b);
+  const grid = css("--line"), ink2 = css("--muted");
+  const yt = o.log ? [0.5, 1, 2, 5, 10, 20, 50, 100, 200].filter((v) => tf(v) >= y0 && tf(v) <= y1) : niceTicks(y0, y1, 5);
+  for (const t of yt) {
+    el("line", { x1: m.l, x2: W - m.r, y1: Y(t), y2: Y(t), stroke: grid, "stroke-width": 1 }, svg);
+    el("text", { x: m.l - 6, y: Y(t) + 4, "text-anchor": "end" }, svg).textContent = (o.yFmt || String)(t);
+  }
+  const xt = o.xTicks || niceTicks(xs[0], xs[n - 1], Math.max(3, Math.floor(W / 110)));
+  for (const t of xt) {
+    if (t < xs[0] || t > xs[n - 1]) continue;
+    el("text", { x: X(t), y: H - 6, "text-anchor": "middle" }, svg).textContent = (o.xFmt || String)(t);
+  }
+  if (o.zero && !o.log) el("line", { x1: m.l, x2: W - m.r, y1: Y(0), y2: Y(0), stroke: ink2, "stroke-width": 1 }, svg);
+  if (o.bars) {
+    const bw = Math.max(1, (W - m.l - m.r) / n * 0.7);
+    o.bars.values.forEach((v, i) => {
+      if (!Number.isFinite(v)) return;
+      const y = Y(Math.max(v, 0)), h = Math.abs(Y(v) - Y(0));
+      el("rect", { x: X(xs[i]) - bw / 2, y, width: bw, height: Math.max(h, 0.5), fill: o.bars.colors ? o.bars.colors[i] : css("--bar") }, svg);
+    });
+  }
+  for (const s of o.series || []) {
+    let d = "", pen = false;
+    s.values.forEach((v, i) => {
+      if (!Number.isFinite(v)) { pen = false; return; }
+      d += (pen ? "L" : "M") + X(xs[i]).toFixed(1) + " " + Y(v).toFixed(1);
+      pen = true;
+    });
+    el("path", { d, fill: "none", stroke: s.color, "stroke-width": s.width || 2, "stroke-linejoin": "round",
+      "stroke-dasharray": s.dash || "none" }, svg);
+  }
+  for (const p of o.points || []) el("circle", { cx: X(p.x), cy: Y(p.y), r: 4.5, fill: p.color, stroke: css("--surface"), "stroke-width": 2 }, svg);
+  // hover: crosshair + tooltip
+  const cross = el("line", { y1: m.t, y2: H - m.b, stroke: ink2, "stroke-width": 1, "stroke-dasharray": "3 3", visibility: "hidden" }, svg);
+  const tip = document.createElement("div");
+  tip.className = "tip"; tip.hidden = true; host.appendChild(tip);
+  const hit = el("rect", { x: m.l, y: m.t, width: W - m.l - m.r, height: H - m.t - m.b, fill: "transparent" }, svg);
+  const move = (ev) => {
+    const r = svg.getBoundingClientRect(), px = (ev.clientX - r.left) * W / r.width;
+    const xv = xs[0] + (px - m.l) / (W - m.l - m.r) * (xs[n - 1] - xs[0]);
+    let a = 0, b = n - 1;
+    while (b - a > 1) { const c = (a + b) >> 1; if (xs[c] < xv) a = c; else b = c; }
+    const i = Math.abs(xs[a] - xv) < Math.abs(xs[b] - xv) ? a : b;
+    cross.setAttribute("x1", X(xs[i])); cross.setAttribute("x2", X(xs[i])); cross.setAttribute("visibility", "visible");
+    const rows = [];
+    if (o.bars) rows.push([o.bars.name || "Value", o.bars.values[i], css("--bar-2")]);
+    for (const s of o.series || []) rows.push([s.name, s.values[i], s.color]);
+    tip.innerHTML = `<b>${esc((o.tipX || o.xFmt || String)(xs[i], i))}</b>` + rows.filter((r) => Number.isFinite(r[1]))
+      .map((r) => `<span><i style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${r[2]};margin-right:6px"></i>${esc(r[0])} <span class="mono">${(o.tipFmt || o.yFmt || String)(r[1])}</span></span>`).join("");
+    tip.hidden = false;
+    const hw = host.clientWidth, left = X(xs[i]) / W * hw;
+    tip.style.left = Math.min(Math.max(left + 12, 0), hw - tip.offsetWidth - 4) + "px";
+    tip.style.top = "8px";
+  };
+  hit.addEventListener("pointermove", move);
+  hit.addEventListener("pointerleave", () => { tip.hidden = true; cross.setAttribute("visibility", "hidden"); });
+  return { X, Y, svg };
+}
+function scatter(host, o) {
+  host.innerHTML = "";
+  const W = Math.max(320, host.clientWidth || 640), H = o.height || 340, m = { l: 52, r: 14, t: 12, b: 40 };
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": o.label || "scatter" }, host);
+  const xv = o.points.map((p) => p.x), yv = o.points.map((p) => p.y);
+  const xl = Math.min(...xv, ...(o.xInclude || [])), xh = Math.max(...xv, ...(o.xInclude || []));
+  const yl = Math.min(...yv, ...(o.yInclude || [])), yh = Math.max(...yv, ...(o.yInclude || []));
+  const px = (xh - xl) * 0.06, py = (yh - yl) * 0.06;
+  const X = (v) => m.l + (v - xl + px) / (xh - xl + 2 * px) * (W - m.l - m.r);
+  const Y = (v) => m.t + (1 - (v - yl + py) / (yh - yl + 2 * py)) * (H - m.t - m.b);
+  const grid = css("--line"), ink2 = css("--muted");
+  for (const t of niceTicks(yl - py, yh + py, 6)) {
+    el("line", { x1: m.l, x2: W - m.r, y1: Y(t), y2: Y(t), stroke: grid }, svg);
+    el("text", { x: m.l - 6, y: Y(t) + 4, "text-anchor": "end" }, svg).textContent = o.fmt(t);
+  }
+  for (const t of niceTicks(xl - px, xh + px, Math.floor(W / 90))) {
+    el("line", { x1: X(t), x2: X(t), y1: m.t, y2: H - m.b, stroke: grid }, svg);
+    el("text", { x: X(t), y: H - m.b + 16, "text-anchor": "middle" }, svg).textContent = o.fmt(t);
+  }
+  el("text", { x: (m.l + W - m.r) / 2, y: H - 4, "text-anchor": "middle" }, svg).textContent = o.xLabel;
+  const yl2 = el("text", { x: 12, y: (m.t + H - m.b) / 2, "text-anchor": "middle", transform: `rotate(-90 12 ${(m.t + H - m.b) / 2})` }, svg);
+  yl2.textContent = o.yLabel;
+  for (const ln of o.lines || []) {
+    const e = el("line", { x1: X(ln.x1), x2: X(ln.x2), y1: Y(ln.y1), y2: Y(ln.y2), stroke: ink2, "stroke-dasharray": ln.dash || "4 4" }, svg);
+    if (ln.label) el("text", { x: X(ln.x2) - 4, y: Y(ln.y2) - 5, "text-anchor": "end" }, svg).textContent = ln.label;
+    e.setAttribute("stroke-width", 1);
+  }
+  const tip = document.createElement("div");
+  tip.className = "tip"; tip.hidden = true; host.appendChild(tip);
+  o.points.forEach((p) => {
+    const c = el("circle", { cx: X(p.x), cy: Y(p.y), r: p.r || 5, fill: p.color, stroke: css("--surface"), "stroke-width": 2, tabindex: 0 }, svg);
+    const hi = el("circle", { cx: X(p.x), cy: Y(p.y), r: 12, fill: "transparent" }, svg);
+    const show = () => {
+      tip.innerHTML = p.tip; tip.hidden = false;
+      const hw = host.clientWidth, left = X(p.x) / W * hw, top = Y(p.y) / H * host.clientHeight;
+      tip.style.left = Math.min(left + 12, hw - tip.offsetWidth - 4) + "px";
+      tip.style.top = Math.max(top - tip.offsetHeight - 8, 0) + "px";
+    };
+    for (const t of [c, hi]) { t.addEventListener("pointerenter", show); t.addEventListener("pointerleave", () => (tip.hidden = true)); }
+    c.addEventListener("focus", show); c.addEventListener("blur", () => (tip.hidden = true));
+  });
+}
+function setSeg(ids, active) { ids.forEach((id) => $(id).setAttribute("aria-pressed", String(id === active))); }
+const years = (i) => DATES[i].getFullYear() + (DATES[i].getMonth() / 12);
+const yearFmt = (v) => String(Math.round(v));
+const dateFmt = (d) => d.toLocaleDateString("en-IN", { year: "numeric", month: "short", day: "numeric" });
+
+/* ---------------- PRICER ---------------- */
+const P = { kind: "call" };
+function pricer() {
+  const S = +$("p-S").value, K = +$("p-K").value, days = +$("p-days").value, sig = +$("p-vol").value / 100;
+  const r = +$("p-r").value / 100, q = +$("p-q").value / 100, T = days / 365, amer = $("p-amer").checked;
+  $("p-days-o").textContent = days + " d";
+  $("p-vol-o").textContent = (+$("p-vol").value).toFixed(1) + "%";
+  if (!(S > 0 && K > 0 && sig > 0)) return;
+  const bs = QL.bsPrice(S, K, T, r, sig, P.kind, q);
+  const tree = QL.binomialPrice(S, K, T, r, sig, P.kind, q, 400, amer);
+  const mc = QL.mcPrice(S, K, T, r, sig, P.kind, q, 40000, 11);
+  const other = QL.bsPrice(S, K, T, r, sig, P.kind === "call" ? "put" : "call", q);
+  const parity = (P.kind === "call" ? bs - other : other - bs) - (S * Math.exp(-q * T) - K * Math.exp(-r * T));
+  $("p-prices").innerHTML = [
+    ["Black-Scholes", inr(bs), "closed form"],
+    [amer ? "Binomial, American" : "Binomial", inr(tree), amer ? `early exercise +${inr(tree - QL.binomialPrice(S, K, T, r, sig, P.kind, q, 400, false))}` : `400 steps, Δ ${inr(tree - bs)}`],
+    ["Monte Carlo", inr(mc.price), `± ${inr(1.96 * mc.se)} (95%)`],
+    ["Put-call parity", Math.abs(parity) < 1e-6 ? "holds" : parity.toExponential(1), "C − P = Se^−qT − Ke^−rT"],
+  ].map(([n, v, s]) => `<div class="stat"><span class="n">${n}</span><span class="v">${v}</span><span class="n">${s}</span></div>`).join("");
+  if (document.activeElement !== $("p-mkt")) $("p-mkt").value = bs.toFixed(2);
+  ivUpdate();
+  const g = QL.bsGreeks(S, K, T, r, sig, P.kind, q);
+  const lot = 75;
+  $("p-greeks").innerHTML = `<tr><th>Greek</th><th class="r">Value</th><th>Meaning for this ${P.kind}</th></tr>` + [
+    ["Delta", g.delta.toFixed(4), `Option moves ${inr(Math.abs(g.delta) * 50)} for a 50-point Nifty move`],
+    ["Gamma", g.gamma.toExponential(3), `Delta changes by ${(g.gamma * 100).toFixed(4)} per 100 points`],
+    ["Vega", (g.vega / 100).toFixed(2), `${inr(g.vega / 100)} per 1 vol point`],
+    ["Theta", (g.theta / 365).toFixed(2), `${inr(Math.abs(g.theta / 365))} lost per calendar day`],
+    ["Rho", (g.rho / 100).toFixed(2), `${inr(Math.abs(g.rho / 100))} per 1% rate move`],
+  ].map(([a, b, c]) => `<tr><td>${a}</td><td class="r">${b}</td><td class="muted">${esc(c)}</td></tr>`).join("") +
+    `<tr><td colspan="3" class="small muted">Per unit of index. Multiply by the lot size (for example ${lot}) for one contract.</td></tr>`;
+  // value vs spot
+  const xs = [], now = [], exp = [];
+  for (let i = 0; i <= 120; i++) {
+    const s = K * (0.85 + 0.3 * i / 120);
+    xs.push(s); now.push(QL.bsPrice(s, K, T, r, sig, P.kind, q));
+    exp.push(P.kind === "call" ? Math.max(s - K, 0) : Math.max(K - s, 0));
+  }
+  legend($("p-leg1"), [{ name: `Value with ${days} days left`, color: css("--s1") }, { name: "Payoff at expiry", color: css("--s2") }, { name: "Current spot", color: css("--ink"), dot: true }]);
+  lineChart($("p-chart1"), { x: xs, series: [{ name: "Today", values: now, color: css("--s1") }, { name: "Expiry", values: exp, color: css("--s2"), dash: "5 4" }],
+    yFmt: (v) => "₹" + Math.round(v).toLocaleString("en-IN"), xFmt: (v) => Math.round(v).toLocaleString("en-IN"),
+    tipX: (v) => "Spot " + Math.round(v).toLocaleString("en-IN"), tipFmt: (v) => inr(v),
+    points: S >= xs[0] && S <= xs[120] ? [{ x: S, y: bs, color: css("--ink") }] : [], height: 240, label: "Option value against spot" });
+}
+function ivUpdate() {
+  const S = +$("p-S").value, K = +$("p-K").value, T = +$("p-days").value / 365, r = +$("p-r").value / 100, q = +$("p-q").value / 100;
+  const iv = QL.impliedVol(+$("p-mkt").value, S, K, T, r, P.kind, q);
+  $("p-iv").textContent = Number.isFinite(iv) ? `Implied volatility: ${(iv * 100).toFixed(2)}%` : "That price is outside no-arbitrage bounds, so no volatility fits it.";
+}
+
+/* ---------------- HEDGING ---------------- */
+const H = { kind: "call" };
+function hedging() {
+  const mk = +$("h-mk").value / 100, cost = +$("h-cost").value / 1e4, every = +$("h-every").value;
+  $("h-mk-o").textContent = "+" + (mk * 100).toFixed(1) + " pts";
+  $("h-cost-o").textContent = (cost * 1e4).toFixed(1) + " bps";
+  const runs = [[mk, cost, css("--s1"), `Your settings`], [0, 0.00078, css("--grey"), "Baseline: no markup, 7.8 bps, daily"]];
+  const series = [];
+  let main;
+  for (const [m, c, col, name] of runs) {
+    const bt = QL.hedgeBacktest(NIFTY.close, { markup: m, cost: c, every: name === "Your settings" ? every : 1, kind: H.kind });
+    if (!main) main = bt;
+    let cum = 0;
+    series.push({ name, color: col, values: bt.map((d) => (cum += d.pnl) * 100), width: name === "Your settings" ? 2.2 : 1.5, dash: name === "Your settings" ? "none" : "4 3" });
+  }
+  const pnl = main.map((d) => d.pnl), n = pnl.length, mean = pnl.reduce((a, b) => a + b) / n;
+  const sd = Math.sqrt(pnl.reduce((a, b) => a + (b - mean) ** 2, 0) / (n - 1));
+  let wi = 0; pnl.forEach((v, i) => { if (v < pnl[wi]) wi = i; });
+  const prem = main.reduce((a, d) => a + d.premium, 0) / n;
+  $("h-stats").innerHTML = [
+    ["Average P&L / month", spct(mean, 3), mean >= 0 ? "pos" : "neg"],
+    ["Win rate", pct(pnl.filter((v) => v > 0).length / n, 0), ""],
+    ["Worst month", spct(pnl[wi]), "neg", dateFmt(DATES[main[wi].i])],
+    ["Sharpe (annualised)", (mean / sd * Math.sqrt(12)).toFixed(2), ""],
+    ["Premium received", pct(prem, 2), "", "of spot, average"],
+  ].map(([nm, v, c, s]) => `<div class="stat"><span class="n">${nm}</span><span class="v ${c}">${v}</span>${s ? `<span class="n">${s}</span>` : ""}</div>`).join("");
+  legend($("h-leg"), series.map((s) => ({ name: s.name, color: s.color })));
+  lineChart($("h-chart"), { x: main.map((d) => years(d.i)), series, zero: true, yFmt: (v) => Math.round(v) + "%", tipFmt: (v) => v.toFixed(1) + "%",
+    xFmt: yearFmt, tipX: (v, i) => DATES[main[i].i].toLocaleDateString("en-IN", { month: "short", year: "numeric" }), label: "Cumulative hedged P&L" });
+  simulate();
+}
+function simulate() {
+  const reb = [1, 2, 5, 21, 63, 168][+$("h-sim-n").value], real = +$("h-sim-real").value / 100, imp = 0.14;
+  $("h-sim-n-o").textContent = reb;
+  $("h-sim-real-o").textContent = (real * 100).toFixed(0) + "%";
+  const steps = 168, every = steps / reb, g = QL.rng(42), T = 21 / 252, out = [];
+  for (let k = 0; k < 1000; k++) out.push(QL.hedgePnl(QL.gbmPath(100, T, 0.08, real, steps, g, 0.013), 100, T, 0.06, imp, "call", 0.013, every, 0) * 100);
+  const lo = -3, hi = 3, nb = 40, w = (hi - lo) / nb, counts = new Array(nb).fill(0);
+  for (const v of out) counts[Math.min(nb - 1, Math.max(0, Math.floor((v - lo) / w)))]++;
+  const mean = out.reduce((a, b) => a + b) / out.length, sd = Math.sqrt(out.reduce((a, b) => a + (b - mean) ** 2, 0) / (out.length - 1));
+  lineChart($("h-sim"), { x: counts.map((_, i) => lo + (i + 0.5) * w), bars: { values: counts, name: "Months", colors: counts.map((_, i) => lo + (i + 0.5) * w < 0 ? css("--s2") : css("--s1")) },
+    yFmt: (v) => String(Math.round(v)), xFmt: (v) => v.toFixed(1) + "%", tipX: (v) => `P&L ${(v - w / 2).toFixed(2)}% to ${(v + w / 2).toFixed(2)}%`, height: 200, zero: true,
+    xTicks: [-3, -2, -1, 0, 1, 2, 3], label: "Distribution of hedged P&L" });
+  $("h-sim-note").textContent = `Sold at 14% implied vol. Mean ${mean >= 0 ? "+" : "−"}${Math.abs(mean).toFixed(2)}% of spot, standard deviation ${sd.toFixed(2)}%. ` +
+    (Math.abs(real - imp) < 0.005 ? "With implied equal to realised, the average is near zero; only the spread shrinks as you hedge more often." :
+      real > imp ? "Realised above implied: the short option loses on average however often you hedge." : "Realised below implied: the short option earns on average.");
+}
+
+/* ---------------- TREND ---------------- */
+const T = { kind: "SMA", fast: 50, slow: 200 };
+let RET, CASH;
+function trend() {
+  const cost = +$("t-cost").value / 1e4, lag = $("t-lag").checked;
+  $("t-cost-o").textContent = (cost * 1e4).toFixed(1) + " bps";
+  if (T.fast >= T.slow) { $("t-stats").innerHTML = `<div class="stat"><span class="n">Pick a fast average shorter than the slow one.</span></div>`; return; }
+  const px = NIFTY.close, warm = 250;
+  let { r, pos } = QL.runRule(px, RET, T.fast, T.slow, T.kind, cost, cost, CASH, warm);
+  if (!lag) { // look-ahead: trade on the same close that produced the signal
+    const f = QL.movingAvg(px, T.fast, T.kind), s = QL.movingAvg(px, T.slow, T.kind);
+    r = []; pos = [];
+    for (let i = warm; i < px.length; i++) { const p = f[i] > s[i] ? 1 : 0; pos.push(p); r.push(p * RET[i] + (1 - p) * CASH); }
+  }
+  const bh = RET.slice(warm), st = QL.perfStats(r, 0.06), sb = QL.perfStats(bh, 0.06);
+  const trades = pos.reduce((a, p, i) => a + (i && p !== pos[i - 1] ? 1 : 0), 0) / (r.length / 252);
+  const cmp = (a, b, hiGood = true) => (a > b) === hiGood ? "pos" : "neg";
+  $("t-stats").innerHTML = [
+    ["CAGR", pct(st.CAGR), cmp(st.CAGR, sb.CAGR), `buy & hold ${pct(sb.CAGR)}`],
+    ["Sharpe", st.Sharpe.toFixed(2), cmp(st.Sharpe, sb.Sharpe), `buy & hold ${sb.Sharpe.toFixed(2)}`],
+    ["Worst drawdown", pct(st.MaxDD), cmp(st.MaxDD, sb.MaxDD), `buy & hold ${pct(sb.MaxDD)}`],
+    ["Time in market", pct(pos.reduce((a, b) => a + b, 0) / pos.length, 0), "", `${trades.toFixed(1)} switches a year`],
+  ].map(([n, v, c, s]) => `<div class="stat"><span class="n">${n}</span><span class="v ${c}">${v}</span><span class="n">${s}</span></div>`).join("");
+  // weekly-sampled equity and drawdown
+  const idx = [], eqS = [], eqB = [], ddS = [], ddB = [];
+  let a = 1, b = 1, pa = 1, pb = 1;
+  for (let i = 0; i < r.length; i++) {
+    a *= 1 + r[i]; b *= 1 + bh[i]; pa = Math.max(pa, a); pb = Math.max(pb, b);
+    if (i % 5 === 0 || i === r.length - 1) { idx.push(years(i + warm)); eqS.push(a); eqB.push(b); ddS.push((a / pa - 1) * 100); ddB.push((b / pb - 1) * 100); }
+  }
+  const name = `${T.kind} ${T.fast === 1 ? "price" : T.fast}/${T.slow}${lag ? "" : " (look-ahead)"}`;
+  legend($("t-leg"), [{ name, color: css("--s1") }, { name: "Buy & hold", color: css("--grey") }]);
+  const tipX = (v) => { const y = Math.floor(v), mo = Math.round((v - y) * 12); return new Date(y, mo).toLocaleDateString("en-IN", { month: "short", year: "numeric" }); };
+  lineChart($("t-chart"), { x: idx, series: [{ name, values: eqS, color: css("--s1") }, { name: "Buy & hold", values: eqB, color: css("--grey"), width: 1.6 }],
+    log: true, yFmt: (v) => v + "x", tipFmt: (v) => v.toFixed(2) + "x", xFmt: yearFmt, tipX, height: 240, label: "Growth of one rupee" });
+  lineChart($("t-dd"), { x: idx, series: [{ name, values: ddS, color: css("--s1") }, { name: "Buy & hold", values: ddB, color: css("--grey"), width: 1.6 }],
+    yFmt: (v) => Math.round(v) + "%", tipFmt: (v) => v.toFixed(1) + "%", xFmt: yearFmt, tipX, height: 130, zero: true, label: "Drawdown" });
+  drawHeat();
+}
+function drawHeat() {
+  const G = RES.ma_grid, bh = G.buy_hold.Sharpe;
+  const all = [...G.grid.SMA, ...G.grid.EMA].map((d) => d.sharpe), lo = Math.min(...all), hi = Math.max(...all);
+  const s1 = css("--s1"), surf = css("--surface");
+  for (const kind of ["SMA", "EMA"]) {
+    const host = $("t-heat-" + kind), cols = G.slow.length + 1;
+    let h = `<h3 style="margin-bottom:6px">${kind} <span class="small muted" style="font-weight:400">rows fast, columns slow (days)</span></h3><div class="heat" style="grid-template-columns: 44px repeat(${cols - 1}, 1fr)"><div class="hd" title="rows: fast average, columns: slow average"></div>` + G.slow.map((s) => `<div class="hd">${s}</div>`).join("");
+    for (const f of G.fast) {
+      h += `<div class="hd">${f === 1 ? "price" : f}</div>`;
+      for (const s of G.slow) {
+        const d = G.grid[kind].find((x) => x.fast === f && x.slow === s);
+        if (!d) { h += `<div class="cell na"></div>`; continue; }
+        const t = (d.sharpe - lo) / (hi - lo), dark = t > 0.55;
+        const sel = kind === T.kind && f === T.fast && s === T.slow ? " sel" : "";
+        h += `<button type="button" class="cell${sel}" data-k="${kind}" data-f="${f}" data-s="${s}" title="${kind} ${f}/${s}: Sharpe ${d.sharpe.toFixed(2)}, CAGR ${pct(d.cagr)}, 2013-23 CAGR ${pct(d.oos_cagr)}"
+          style="background: color-mix(in srgb, ${s1} ${Math.round(12 + t * 88)}%, ${surf}); color:${dark ? "#fff" : "var(--ink)"}; font-weight:${d.sharpe > bh ? 700 : 400}">${d.sharpe.toFixed(2)}</button>`;
+      }
+    }
+    host.innerHTML = h + "</div>";
+  }
+  $("t-heat-note").textContent = `Bold beats buy & hold (${bh.toFixed(2)}). Darker is better.`;
+  document.querySelectorAll(".heat .cell[data-k]").forEach((c) => c.addEventListener("click", () => {
+    T.kind = c.dataset.k; T.fast = +c.dataset.f; T.slow = +c.dataset.s;
+    setSeg(["t-sma", "t-ema"], T.kind === "SMA" ? "t-sma" : "t-ema");
+    $("t-fast").value = T.fast; $("t-slow").value = T.slow; trend();
+  }));
+}
+
+/* ---------------- RISK ---------------- */
+let RISK_MODEL = "normal";
+function risk() {
+  const V = RES.var_backtest, xs = V.dates.map((d) => { const t = new Date(d); return t.getFullYear() + t.getMonth() / 12; });
+  const names = { normal: "Normal", "student-t": "Student-t", bootstrap: "Bootstrap", ewma: "EWMA" };
+  $("r-models").innerHTML = Object.entries(names).map(([k, n]) => `<button type="button" data-m="${k}" aria-pressed="${k === RISK_MODEL}">${n}</button>`).join("");
+  $("r-models").querySelectorAll("button").forEach((b) => b.addEventListener("click", () => { RISK_MODEL = b.dataset.m; risk(); }));
+  const v99 = V.var99[RISK_MODEL].map((x) => -x * 100), act = V.actual.map((x) => x * 100);
+  const br = act.map((a, i) => a < v99[i]);
+  legend($("r-leg"), [{ name: "Actual month", color: css("--bar-2") }, { name: "Forecast 99% VaR", color: css("--s1") }, { name: `Breach (${br.filter(Boolean).length})`, color: css("--bad"), dot: true }]);
+  lineChart($("r-chart"), { x: xs, bars: { values: act, name: "Actual", colors: act.map((a) => a >= 0 ? css("--bar") : css("--bar-2")) },
+    series: [{ name: "99% VaR", values: v99, color: css("--s1") }], points: xs.map((x, i) => br[i] ? { x, y: act[i], color: css("--bad") } : null).filter(Boolean),
+    zero: true, yFmt: (v) => Math.round(v) + "%", tipFmt: (v) => v.toFixed(1) + "%", xFmt: yearFmt,
+    tipX: (v, i) => new Date(V.dates[i]).toLocaleDateString("en-IN", { month: "short", year: "numeric" }), height: 280, label: "VaR backtest" });
+  $("r-table").innerHTML = `<tr><th>Model</th><th class="r">95% breaches</th><th class="r">99% breaches</th><th class="r">Mar 2020 forecast</th></tr>` +
+    Object.entries(names).map(([k, n]) => {
+      const b95 = V.actual.filter((a, i) => a < -V.var95[k][i]).length, b99 = V.actual.filter((a, i) => a < -V.var99[k][i]).length;
+      const mi = V.actual.indexOf(Math.min(...V.actual));
+      return `<tr><td>${n}</td><td class="r">${pct(b95 / V.actual.length)}</td><td class="r">${pct(b99 / V.actual.length)}</td><td class="r">${pct(-V.var99[k][mi], 0)}</td></tr>`;
+    }).join("") + `<tr><td class="muted">Promised</td><td class="r muted">5.0%</td><td class="r muted">1.0%</td><td class="r muted">actual ${pct(Math.min(...V.actual), 0)}</td></tr>`;
+  const C = RES.var_correlation, sc = [C.scenarios[1], C.scenarios[0], C.scenarios[2]];
+  const host = $("r-corr"), max = Math.max(...sc.map((s) => s.es_lakh));
+  host.innerHTML = `<div style="display:grid;gap:10px">` + sc.map((s) => `<div style="display:grid;grid-template-columns:90px 1fr;gap:8px;align-items:center">
+    <span class="small">${s.label}</span><div style="display:grid;gap:3px">
+    <div style="display:flex;align-items:center;gap:6px"><div style="height:12px;border-radius:0 4px 4px 0;background:var(--s1);width:${s.var_lakh / max * 80}%"></div><span class="small mono">VaR ₹${s.var_lakh.toFixed(1)} L</span></div>
+    <div style="display:flex;align-items:center;gap:6px"><div style="height:12px;border-radius:0 4px 4px 0;background:var(--s2);width:${s.es_lakh / max * 80}%"></div><span class="small mono">ES ₹${s.es_lakh.toFixed(1)} L</span></div></div></div>`).join("") + `</div>`;
+  const pairsAvg = C.corr.flatMap((r, i) => r.filter((_, j) => j > i)).reduce((a, b, _, arr) => a + b / arr.length, 0);
+  $("r-corr-note").textContent = `One-month 95% VaR and Expected Shortfall for ₹1 crore in ${C.tickers.join(", ")}. Average pairwise correlation is ${pairsAvg.toFixed(2)}; TCS and INFY alone are ${C.corr[2][3].toFixed(2)}.`;
+}
+
+/* ---------------- PAIRS ---------------- */
+function pairs() {
+  const sec = $("pa-sector").value, rows = RES.pairs.filter((p) => sec === "All" || p.sector === sec);
+  legend($("pa-leg"), [{ name: "Cointegrated in 2020–23", color: css("--s1"), dot: true }, { name: "Not cointegrated", color: css("--s2"), dot: true }]);
+  const all = RES.pairs.flatMap((p) => [p.ret_form * 100, p.ret_trade * 100]), lo = Math.min(...all), hi = Math.max(...all);
+  scatter($("pa-chart"), { points: rows.map((p) => ({ x: p.ret_form * 100, y: p.ret_trade * 100, color: p.coint ? css("--s1") : css("--s2"),
+    tip: `<b>${esc(p.pair)}</b><span class="muted">${esc(p.sector)}</span><span>2020–23: <span class="mono">${spct(p.ret_form, 1)}</span> a year</span><span>2023–25: <span class="mono">${spct(p.ret_trade, 1)}</span> a year</span><span>ADF ${p.adf_form.toFixed(2)} → ${p.adf_trade.toFixed(2)}</span>` })),
+    xInclude: [lo, hi], yInclude: [lo, hi], fmt: (v) => Math.round(v) + "%", xLabel: "Return while selecting, Oct 2020 – Sep 2023 (% a year)",
+    yLabel: "Return when traded (% a year)", lines: [{ x1: lo, y1: lo, x2: hi, y2: hi, label: "same as in-sample" }, { x1: lo, y1: 6, x2: hi, y2: 6, dash: "2 3", label: "6% risk-free" }], label: "Pairs in and out of sample" });
+  $("pa-table").innerHTML = `<tr><th>Pair</th><th>Sector</th><th class="r">ADF 2020–23</th><th class="r">ADF 2023–25</th><th class="r">Return 2020–23</th><th class="r">Return 2023–25</th><th>Status</th></tr>` +
+    rows.slice().sort((a, b) => a.adf_form - b.adf_form).map((p) => `<tr><td>${esc(p.pair)}</td><td class="muted">${esc(p.sector)}</td><td class="r">${p.adf_form.toFixed(2)}</td><td class="r">${p.adf_trade.toFixed(2)}</td>
+      <td class="r">${spct(p.ret_form, 1)}</td><td class="r">${spct(p.ret_trade, 1)}</td><td>${p.coint ? (p.adf_trade < -3.34 ? '<span class="chip yes">held</span>' : '<span class="chip no">broke</span>') : '<span class="chip">never</span>'}</td></tr>`).join("") +
+    `<tr><td colspan="7" class="small muted">ADF below −3.34 means cointegrated at 5% (Engle-Granger critical value). "Broke" means it passed while selecting and failed when traded.</td></tr>`;
+}
+
+/* ---------------- boot + routing ---------------- */
+const VIEWS = ["pricer", "hedging", "trend", "risk", "pairs"], DRAW = { pricer, hedging, trend, risk, pairs };
+function route() {
+  const v = VIEWS.includes(location.hash.slice(1)) ? location.hash.slice(1) : "pricer";
+  VIEWS.forEach((k) => { $("v-" + k).hidden = k !== v; });
+  document.querySelectorAll("nav.tabs a").forEach((a) => a.setAttribute("aria-current", a.getAttribute("href") === "#" + v ? "page" : "false"));
+  DRAW[v]();
+}
+async function boot() {
+  try {
+    [NIFTY, RES] = await Promise.all(["data/nifty.json", "data/results.json"].map((u) => fetch(u).then((r) => { if (!r.ok) throw new Error(u); return r.json(); })));
+  } catch (e) {
+    $("loading").textContent = "Couldn't load the data files. If you opened index.html from disk, serve the folder instead: python -m http.server";
+    return;
+  }
+  $("loading").hidden = true;
+  DATES = NIFTY.dates.map((d) => new Date(d));
+  RET = NIFTY.close.map((p, i) => (i === 0 ? 0 : p / NIFTY.close[i - 1] - 1) + 0.013 / 252);
+  CASH = Math.pow(1.06, 1 / 252) - 1;
+  // headline findings, computed live
+  const base = QL.hedgeBacktest(NIFTY.close, {}), m = base.reduce((a, d) => a + d.pnl, 0) / base.length;
+  $("f-hedge").textContent = spct(m, 2);
+  const V = RES.var_backtest, b99 = V.actual.filter((a, i) => a < -V.var99.normal[i]).length;
+  $("f-var").textContent = pct(b99 / V.actual.length);
+  const co = RES.pairs.filter((p) => p.coint);
+  $("f-pairs").textContent = `${co.filter((p) => p.adf_trade < -3.34).length} of ${co.length}`;
+  const sh = [...RES.ma_grid.grid.SMA.map((d) => ["SMA", d]), ...RES.ma_grid.grid.EMA.map((d) => ["EMA", d])].sort((a, b) => b[1].sharpe - a[1].sharpe);
+  $("f-trend").textContent = `${sh.findIndex(([k, d]) => k === "SMA" && d.fast === 50 && d.slow === 200) + 1} of 70`;
+  // controls
+  $("t-fast").innerHTML = RES.ma_grid.fast.map((f) => `<option value="${f}">${f === 1 ? "Price" : f + " days"}</option>`).join("");
+  $("t-slow").innerHTML = RES.ma_grid.slow.map((s) => `<option value="${s}">${s} days</option>`).join("");
+  $("t-fast").value = 50; $("t-slow").value = 200;
+  $("pa-sector").innerHTML = ["All", ...new Set(RES.pairs.map((p) => p.sector))].map((s) => `<option>${esc(s)}</option>`).join("");
+  const on = (ids, ev, fn) => ids.forEach((id) => $(id).addEventListener(ev, fn));
+  on(["p-S", "p-K", "p-days", "p-vol", "p-r", "p-q", "p-amer"], "input", pricer);
+  $("p-mkt").addEventListener("input", ivUpdate);
+  $("p-call").onclick = () => { P.kind = "call"; setSeg(["p-call", "p-put"], "p-call"); pricer(); };
+  $("p-put").onclick = () => { P.kind = "put"; setSeg(["p-call", "p-put"], "p-put"); pricer(); };
+  let ht;
+  const hDeb = () => { clearTimeout(ht); ht = setTimeout(hedging, 60); };
+  on(["h-mk", "h-cost", "h-every"], "input", hDeb);
+  on(["h-sim-n", "h-sim-real"], "input", () => { clearTimeout(ht); ht = setTimeout(simulate, 40); });
+  $("h-call").onclick = () => { H.kind = "call"; setSeg(["h-call", "h-put"], "h-call"); hedging(); };
+  $("h-put").onclick = () => { H.kind = "put"; setSeg(["h-call", "h-put"], "h-put"); hedging(); };
+  on(["t-cost", "t-lag"], "input", trend);
+  $("t-fast").onchange = () => { T.fast = +$("t-fast").value; trend(); };
+  $("t-slow").onchange = () => { T.slow = +$("t-slow").value; trend(); };
+  $("t-sma").onclick = () => { T.kind = "SMA"; setSeg(["t-sma", "t-ema"], "t-sma"); trend(); };
+  $("t-ema").onclick = () => { T.kind = "EMA"; setSeg(["t-sma", "t-ema"], "t-ema"); trend(); };
+  $("pa-sector").onchange = pairs;
+  addEventListener("hashchange", route);
+  let rt;
+  addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(route, 150); });
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", route);
+  new MutationObserver(route).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+  route();
+}
+boot();
+</script>

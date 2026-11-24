@@ -5,6 +5,8 @@ Black-Scholes, a binomial tree and Monte Carlo. Also the Greeks, implied
 volatility, and a 22-year **delta-hedging backtest on real Nifty 50 price paths**
 with NSE futures costs.
 
+**Interactive version:** the `dashboard/` folder next to this project has a live option pricer and hedging lab that re-run this backtest in the browser.
+
 ## Key findings
 
 | Question | Answer |

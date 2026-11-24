@@ -10,6 +10,8 @@ The point of the project is the testing, not the strategies:
 - every strategy is compared against buy and hold and a 6% risk-free rate;
 - every "best" parameter is re-checked on data it was not chosen on.
 
+**Interactive version:** the `dashboard/` folder next to this project has a live page with these studies (trend explorer, VaR backtest, pairs table).
+
 ## Key findings
 
 | Question | Answer from the data |
