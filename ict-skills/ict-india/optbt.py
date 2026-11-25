@@ -1,0 +1,479 @@
+#!/usr/bin/env python3
+"""Weekly index-option strategy: backtest it on years of index data, and get today's plan.
+
+The strategy is one rule from the ICT notes, made mechanical: the morning move against the recent trend is
+the trap ("the trend is not your friend when it's at the end"). Each day:
+
+  1. Bias from the last 5 days: if the index closed higher than 5 sessions ago, fade it (buy puts),
+     otherwise buy calls. --mode with does the opposite (trend-continuation), for comparison.
+  2. At the entry time (default 10:15 IST) buy the at-the-money weekly option, at least --min-dte days out.
+  3. Exit at --stop (default -30% of premium) or --target (+50%), else at the close.
+
+Option prices are modelled with Black-Scholes from the index and India VIX (volatility = VIX x --ivm), so
+they are estimates: no bid-ask, no skew, no volatility spikes. Treat results as a test of the idea, then
+paper-trade it.
+
+  python3 optbt.py fetch                       # download 2 years of Nifty, Sensex and VIX (hourly + daily) once
+  python3 optbt.py backtest NIFTY              # the default strategy over the cached history, by year
+  python3 optbt.py backtest SENSEX --mode with --entry 11:15 --stop 0.2 --target 0.4
+  python3 optbt.py today NIFTY                 # today's plan, sized for the account in ict/config-india.json
+  python3 optbt.py archive                     # keep every 5m and 1m bar: Yahoo only serves the last 60 / 7 days
+  python3 mmxm.py backtest NIFTY --file ict/market/archive/nsei-5m.json   # test ICT setups on the archive
+
+Standard library only.
+"""
+import argparse
+import collections
+import json
+import math
+import os
+import sys
+import time
+import urllib.error
+import urllib.request
+from datetime import date, datetime, timedelta
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
+import mmxm  # noqa: E402  (same folder)
+
+MARKET_DIR = os.path.join(mmxm.STATE_DIR, "market")
+INDICES = {
+    "NIFTY": {"yahoo": "^NSEI", "step": 50, "exchange": "NSE"},
+    "SENSEX": {"yahoo": "^BSESN", "step": 100, "exchange": "BSE"},
+    "BANKNIFTY": {"yahoo": "^NSEBANK", "step": 100, "exchange": "NSE"},
+}
+VIX = "^INDIAVIX"
+CALENDAR = os.path.join(os.path.dirname(os.path.dirname(HERE)), "pulsedge", "data", "calendar.json")
+_HOLIDAYS = None
+# Exchange lot sizes over time (from, lot). Revised by the exchanges; check your broker for the current one.
+LOTS = {"NIFTY": [(date(2024, 11, 20), 75), (date(2026, 1, 1), 65)],
+        "SENSEX": [(date(2024, 11, 20), 20)],
+        "BANKNIFTY": [(date(2024, 11, 20), 30), (date(2025, 4, 24), 35), (date(2026, 1, 1), 30)]}
+DEFAULTS = {"mode": "fade", "entry": "10:15", "stop": 0.30, "target": 0.50, "min_dte": 4, "ivm": 0.97,
+            "slippage": 1.0, "charges": 40.0, "rate": 0.065,
+            # adding lots: "none"; "down" = average down (add as the premium falls, one hard stop for all lots,
+            # target from the average price); "up" = pyramid (add as the premium rises, stop moves to the average)
+            "add_mode": "none", "add_step": 0.15, "max_lots": 1, "hard_stop": 0.45}
+
+
+# ---------------------------------------------------------------- data
+
+def fetch(symbol, interval, rng, tries=5):
+    """Yahoo chart JSON, with backoff on rate limits (HTTP 429)."""
+    last = None
+    for k in range(tries):
+        for host in ("https://query1.finance.yahoo.com", "https://query2.finance.yahoo.com"):
+            url = "%s/v8/finance/chart/%s?interval=%s&range=%s" % (host, urllib.request.quote(symbol), interval, rng)
+            try:
+                req = urllib.request.Request(url, headers={"User-Agent": mmxm.YAHOO_UA, "Accept": "application/json"})
+                with urllib.request.urlopen(req, timeout=30) as r:
+                    return json.load(r)
+            except (urllib.error.URLError, ValueError) as e:
+                last = e
+        time.sleep(10 * (k + 1))
+    raise SystemExit("could not fetch %s %s from Yahoo (%s)" % (symbol, interval, last))
+
+
+def cache_name(symbol, interval):
+    return os.path.join(MARKET_DIR, "%s-%s.json" % (symbol.strip("^").lower(), interval))
+
+
+def cmd_fetch(args):
+    os.makedirs(MARKET_DIR, exist_ok=True)
+    jobs = [(VIX, "1d", "2y")]
+    for name in args.indices:
+        y = INDICES[name]["yahoo"]
+        jobs += [(y, "60m", "2y"), (y, "1d", "2y"), (y, "5m", "60d")]
+    for sym, iv, rng in jobs:
+        doc = fetch(sym, iv, rng)
+        with open(cache_name(sym, iv), "w") as f:
+            json.dump(doc, f)
+        n = len(doc["chart"]["result"][0].get("timestamp") or [])
+        print("%-10s %-4s %5d bars -> %s" % (sym, iv, n, cache_name(sym, iv)))
+        time.sleep(3)
+
+
+ARCHIVE_RANGE = {"5m": "60d", "1m": "7d"}     # the most Yahoo serves for each interval
+ARCHIVE_STEP = {"5m": 300, "1m": 60}
+
+
+def archive_name(symbol, interval):
+    return os.path.join(MARKET_DIR, "archive", "%s-%s.json" % (symbol.strip("^").lower(), interval))
+
+
+def merge_bars(old, new, step=None):
+    """Bars ([t, o, h, l, c, v]) keyed by time; a newer download replaces an older copy of the same bar,
+    so a day fetched mid-session is completed by the next run. With step (seconds), bars whose time is
+    off the grid are dropped: Yahoo appends the live, unfinished bar at the current second."""
+    by_t = {b[0]: b for b in old}
+    by_t.update({b[0]: b for b in new})
+    return [by_t[t] for t in sorted(by_t) if not step or t % step == 0]
+
+
+def cmd_archive(args):
+    """Grow a local intraday history past Yahoo's limits by merging each download into one file per symbol.
+    The files are {"bars": [[t, o, h, l, c, v], ...]}, which mmxm.py reads with --file."""
+    os.makedirs(os.path.join(MARKET_DIR, "archive"), exist_ok=True)
+    for sym in [INDICES[n]["yahoo"] for n in args.indices] + [VIX]:
+        for iv in args.intervals:
+            new = [list(b) for b in mmxm.parse_yahoo(fetch(sym, iv, ARCHIVE_RANGE[iv]))]
+            p = archive_name(sym, iv)
+            old = []
+            if os.path.exists(p):
+                with open(p) as f:
+                    old = json.load(f)["bars"]
+            bars = merge_bars(old, new, ARCHIVE_STEP[iv])
+            with open(p + ".part", "w") as f:
+                json.dump({"symbol": sym, "interval": iv, "bars": bars}, f)
+            os.replace(p + ".part", p)
+            days = sorted({mmxm.to_local(b[0], "Asia/Kolkata").date() for b in bars})
+            print("%-10s %-3s %6d bars, %3d days (%s to %s), %+d new -> %s" % (
+                sym, iv, len(bars), len(days), days[0] if days else "-", days[-1] if days else "-",
+                len(bars) - len(old), p))
+            time.sleep(3)
+
+
+def ist_bars(doc):
+    """[(IST datetime, o, h, l, c)] from a Yahoo chart document."""
+    out = []
+    for b in mmxm.parse_yahoo(doc):
+        out.append((mmxm.to_local(b.t, "Asia/Kolkata"), b.o, b.h, b.l, b.c))
+    return out
+
+
+def load(symbol, interval, refresh=False, max_age=None):
+    """Bars from the local cache, downloading when asked, when missing, or when older than max_age seconds."""
+    p = cache_name(symbol, interval)
+    stale = max_age is not None and os.path.exists(p) and time.time() - os.path.getmtime(p) > max_age
+    if refresh or stale or not os.path.exists(p) or os.path.getsize(p) == 0:
+        os.makedirs(MARKET_DIR, exist_ok=True)
+        doc = fetch(symbol, interval, "2y" if interval != "5m" else "60d")    # download first: a failure keeps the old cache
+        tmp = p + ".part"
+        with open(tmp, "w") as f:
+            json.dump(doc, f)
+        os.replace(tmp, p)
+    with open(p) as f:
+        return ist_bars(json.load(f))
+
+
+def daily(bars):
+    return {b[0].date(): b for b in bars}
+
+
+# ---------------------------------------------------------------- options
+
+def ncdf(x):
+    return 0.5 * (1 + math.erf(x / math.sqrt(2)))
+
+
+def bs(S, K, tau, vol, kind, r=0.065):
+    """Black-Scholes price of a European call ("CE") or put ("PE")."""
+    if tau <= 0 or vol <= 0:
+        return max(0.0, S - K) if kind == "CE" else max(0.0, K - S)
+    d1 = (math.log(S / K) + (r + vol * vol / 2) * tau) / (vol * math.sqrt(tau))
+    d2 = d1 - vol * math.sqrt(tau)
+    if kind == "CE":
+        return S * ncdf(d1) - K * math.exp(-r * tau) * ncdf(d2)
+    return K * math.exp(-r * tau) * ncdf(-d2) - S * ncdf(-d1)
+
+
+def tau_years(t, expiry):
+    end = datetime.combine(expiry, datetime.min.time()).replace(hour=15, minute=30)
+    return max((end - t).total_seconds(), 600) / (365 * 24 * 3600)
+
+
+def holidays():
+    """Exchange trading holidays from PulsEdge's calendar (NSE's list; BSE closes on the same days).
+    Empty when the file is missing, and only as complete as that file: it is updated each December."""
+    global _HOLIDAYS
+    if _HOLIDAYS is None:
+        try:
+            with open(CALENDAR) as f:
+                _HOLIDAYS = {date.fromisoformat(x) for x in json.load(f).get("holidays", [])}
+        except (OSError, ValueError):
+            _HOLIDAYS = set()
+    return _HOLIDAYS
+
+
+def weekly_expiry(name, day, min_dte, hols=None):
+    """Next weekly expiry at least min_dte calendar days out. NSE: Thursday until Aug 2025, Tuesday from Sep 2025.
+    BSE: Tuesday until Aug 2025, Thursday from Sep 2025. When the expiry day is a holiday the contract expires on
+    the trading day before, and that earlier date must still be min_dte days out (on Fri 20 Nov 2026 Nifty's
+    24 Nov expiry moves to Mon 23 Nov, only 3 days away, so the plan takes 1 Dec). Bank Nifty has monthly
+    expiries only since late 2024; the weekly date is used as an approximation."""
+    hols = holidays() if hols is None else hols
+    new = day >= date(2025, 9, 1)
+    nse = INDICES[name]["exchange"] == "NSE"
+    wd = (1 if new else 3) if nse else (3 if new else 1)
+    d = day
+    while True:
+        while d.weekday() != wd:
+            d += timedelta(days=1)
+        exp = d
+        while exp.weekday() >= 5 or exp in hols:
+            exp -= timedelta(days=1)
+        if (exp - day).days >= min_dte:
+            return exp
+        d += timedelta(days=1)
+
+
+def lot_size(name, day):
+    lot = LOTS[name][0][1]
+    for since, n in LOTS[name]:
+        if day >= since:
+            lot = n
+    return lot
+
+
+def vix_on(vix, day):
+    if day in vix:
+        return vix[day][4]
+    earlier = [d for d in vix if d <= day]
+    return vix[max(earlier)][4] if earlier else 15.0
+
+
+# ---------------------------------------------------------------- the strategy
+
+def bias_for(days, d, i, mode):
+    """'CE' or 'PE' for trading day index i: fade (or follow) the close-to-close move of the last 5 sessions."""
+    prev, five = d[days[i - 1]], d[days[i - 5]]
+    up = prev[4] > five[4]
+    call = (not up) if mode == "fade" else up
+    return "CE" if call else "PE"
+
+
+def manage(p, P0, bars, price, kind):
+    """Walk the day's hourly bars after entry. Returns (exit price, reason, [entry price of each lot]).
+
+    Within a bar the worst price is taken first (stop before target). Lots added in a bar can't hit the
+    target in that same bar, so averaging is never credited with an intrabar round trip."""
+    mode, step, max_lots = p.get("add_mode", "none"), p.get("add_step", 0.15), max(1, int(p.get("max_lots", 1)))
+    fills = [P0]
+    stop_px = P0 * (1 - (p.get("hard_stop", p["stop"]) if mode == "down" else p["stop"]))
+    last = P0
+    for b, tau in bars:
+        worst = price(b[3] if kind == "CE" else b[2], tau)
+        best = price(b[2] if kind == "CE" else b[3], tau)
+        added = False
+        if mode == "down":
+            while len(fills) < max_lots:
+                level = P0 * (1 - len(fills) * step)
+                if worst <= level and level > stop_px:
+                    fills.append(level + p["slippage"])
+                    added = True
+                else:
+                    break
+        if worst <= stop_px:
+            return stop_px - p["slippage"], "stop", fills
+        if mode == "up":
+            while len(fills) < max_lots:
+                level = P0 * (1 + len(fills) * step)
+                if best >= level and level < P0 * (1 + p["target"]):
+                    fills.append(level + p["slippage"])
+                else:
+                    break
+        avg = sum(fills) / len(fills)
+        tgt_px = avg * (1 + p["target"]) if mode == "down" else P0 * (1 + p["target"])
+        if not added and best >= tgt_px:
+            return tgt_px - p["slippage"], "target", fills
+        if mode == "up" and len(fills) > 1:
+            stop_px = max(stop_px, avg)            # once you've added, the whole position is protected at break-even
+        last = price(b[4], tau)
+    return last - p["slippage"], "close", fills
+
+
+def simulate(name, hourly, d, vix, p, start=None, end=None):
+    """One trade a day. Returns trades with modelled option prices (per lot, after slippage and charges)."""
+    eh, em = map(int, p["entry"].split(":"))
+    days = sorted(d)
+    byday = collections.defaultdict(list)
+    for b in hourly:
+        byday[b[0].date()].append(b)
+    trades = []
+    for i, day in enumerate(days):
+        if i < 6 or day not in byday or (start and day < start) or (end and day > end):
+            continue
+        bars = byday[day]
+        entry_t = datetime.combine(day, datetime.min.time()).replace(hour=eh, minute=em)
+        before = [b for b in bars if b[0] < entry_t]
+        after = [b for b in bars if b[0] >= entry_t]
+        if not before or not after:
+            continue
+        kind = bias_for(days, d, i, p["mode"])
+        S0 = before[-1][4]
+        K = round(S0 / INDICES[name]["step"]) * INDICES[name]["step"]
+        exp = weekly_expiry(name, day, p["min_dte"])
+        vol = vix_on(vix, day) / 100.0 * p["ivm"]
+        P0 = bs(S0, K, tau_years(entry_t, exp), vol, kind, p["rate"]) + p["slippage"]
+        exit_px, why, fills = manage(p, P0, [(b, tau_years(b[0] + timedelta(minutes=59), exp)) for b in after],
+                                     lambda S, tau: bs(S, K, tau, vol, kind, p["rate"]), kind)
+        lot = lot_size(name, day)
+        pnl = sum(exit_px - f for f in fills) * lot - p["charges"] * len(fills)
+        trades.append({"day": day, "kind": kind, "strike": K, "expiry": exp, "entry": round(P0, 2), "exit": round(exit_px, 2),
+                       "why": why, "lot": lot, "lots": len(fills), "premium": round(P0 * lot, 2),
+                       "max_premium": round(sum(fills) * lot, 2), "pnl": round(pnl, 2)})
+    return trades
+
+
+def summarize(trades):
+    p = [t["pnl"] for t in trades]
+    if not p:
+        return None
+    w = [x for x in p if x > 0]
+    l = [x for x in p if x <= 0]
+    eq = peak = dd = 0.0
+    for x in p:
+        eq += x
+        peak = max(peak, eq)
+        dd = min(dd, eq - peak)
+    return {"trades": len(p), "pnl": round(sum(p), 2), "win_rate": round(100.0 * len(w) / len(p), 1),
+            "profit_factor": round(sum(w) / -sum(l), 2) if l and sum(l) else None, "avg": round(sum(p) / len(p), 2),
+            "max_drawdown": round(dd, 2), "avg_premium": round(sum(t["premium"] for t in trades) / len(p), 2),
+            "worst_trade": round(min(p), 2), "avg_lots": round(sum(t.get("lots", 1) for t in trades) / len(p), 2),
+            "max_outlay": round(max(t.get("max_premium", t["premium"]) for t in trades), 2)}
+
+
+def params(cfg, args):
+    p = dict(DEFAULTS)
+    p.update(cfg.get("strategy") or {})
+    for k in ("mode", "entry", "stop", "target", "min_dte", "ivm", "slippage", "add_mode", "add_step", "max_lots", "hard_stop"):
+        v = getattr(args, k, None)
+        if v is not None:
+            p[k] = v
+    return p
+
+
+def cmd_backtest(args, cfg):
+    name = args.index.upper()
+    p = params(cfg, args)
+    hourly = load(INDICES[name]["yahoo"], "60m", args.refresh)
+    d = daily(load(INDICES[name]["yahoo"], "1d", args.refresh))
+    vix = daily(load(VIX, "1d", args.refresh))
+    trades = simulate(name, hourly, d, vix, p)
+    if not trades:
+        sys.exit("no trades: not enough data")
+    print("%s weekly options, %s, entry %s, stop -%d%%, target +%d%%, >= %d days to expiry, IV = VIX x %.2f" % (
+        name, "fade the 5-day move" if p["mode"] == "fade" else "follow the 5-day move", p["entry"], p["stop"] * 100,
+        p["target"] * 100, p["min_dte"], p["ivm"]))
+    print("%s to %s, 1 lot per trade, modelled prices, after %.1f pts slippage each side and Rs %.0f charges per trade" % (
+        trades[0]["day"], trades[-1]["day"], p["slippage"], p["charges"]))
+    rows = [("all", trades)]
+    years = sorted({t["day"].year for t in trades})
+    rows += [(str(y), [t for t in trades if t["day"].year == y]) for y in years]
+    rows += [("calls", [t for t in trades if t["kind"] == "CE"]), ("puts", [t for t in trades if t["kind"] == "PE"])]
+    for label, tr in rows:
+        s = summarize(tr)
+        if s:
+            print("  %-6s %4d trades  P&L %+10.0f  win %4.1f%%  PF %-5s  avg %+7.0f  worst drawdown %+9.0f  worst trade %+8.0f  "
+                  "avg lots %.2f  max outlay %7.0f" % (label, s["trades"], s["pnl"], s["win_rate"], s["profit_factor"], s["avg"],
+                                                      s["max_drawdown"], s["worst_trade"], s["avg_lots"], s["max_outlay"]))
+    exits = collections.Counter(t["why"] for t in trades)
+    print("  exits: %s" % ", ".join("%s %d" % kv for kv in exits.most_common()))
+    if args.json:
+        with open(args.json, "w") as f:
+            json.dump({"params": p, "trades": trades}, f, indent=1, default=str)
+    return trades
+
+
+def cmd_today(args, cfg):
+    """Today's plan from the latest data: direction, strike, expiry, estimated premium, stop, target, lots."""
+    name = args.index.upper()
+    p = params(cfg, args)
+    age = None if args.now else 300          # live: data at most 5 minutes old
+    d = daily(load(INDICES[name]["yahoo"], "1d", args.refresh, age))
+    vix = daily(load(VIX, "1d", args.refresh, age))
+    intraday = load(INDICES[name]["yahoo"], "5m", args.refresh, age)
+    now = mmxm.to_local(time.time(), "Asia/Kolkata") if not args.now else datetime.fromisoformat(args.now)
+    today = now.date()
+    if today.weekday() >= 5:                 # weekend: plan Monday from the last five sessions
+        today += timedelta(days=7 - today.weekday())
+        now = datetime.combine(today, datetime.min.time()).replace(hour=9)
+    days = sorted(x for x in d if x < today) + [today]
+    i = len(days) - 1
+    if i < 6:
+        sys.exit("not enough daily history")
+    kind = bias_for(days, d, i, p["mode"])
+    prev, five = d[days[i - 1]], d[days[i - 5]]
+    eh, em = map(int, p["entry"].split(":"))
+    entry_t = datetime.combine(today, datetime.min.time()).replace(hour=eh, minute=em)
+    bars = [b for b in intraday if b[0].date() == today and b[0] <= now]
+    S0 = bars[-1][4] if bars else prev[4]
+    K = round(S0 / INDICES[name]["step"]) * INDICES[name]["step"]
+    exp = weekly_expiry(name, today, p["min_dte"])
+    vol = vix_on(vix, today) / 100.0 * p["ivm"]
+    est = bs(S0, K, tau_years(max(now, entry_t), exp), vol, kind, p["rate"])
+    lot = lot_size(name, today)
+    print("%s plan for %s (%s)" % (name, today, "fade" if p["mode"] == "fade" else "follow"))
+    print("  last 5 sessions: %.2f -> %.2f (%s), so buy %s" % (
+        five[4], prev[4], "up" if prev[4] > five[4] else "down", "PUTS" if kind == "PE" else "CALLS"))
+    print("  contract: %s %s %d %s  (at the money, expiry %s)" % (
+        name, exp.strftime("%d %b").upper(), K, kind, exp.strftime("%a %d %b")))
+    print("  entry at %s IST%s" % (p["entry"], "" if now >= entry_t else ": not yet, it is %s" % now.strftime("%H:%M")))
+    print("  index now %.2f; model premium about %.1f (check the real price, the model has no skew or spread)" % (S0, est))
+    print("  stop at -%d%% (about %.1f), target +%d%% (about %.1f), else exit by the close" % (
+        p["stop"] * 100, est * (1 - p["stop"]), p["target"] * 100, est * (1 + p["target"])))
+    lots = max(1, int(p.get("max_lots", 1)))
+    if p.get("add_mode") == "up" and lots > 1:
+        for k in range(1, lots):
+            lvl = est * (1 + k * p["add_step"])
+            avg = est * (1 + sum(range(k + 1)) * p["add_step"] / (k + 1))
+            print("  pyramid: if it reaches +%d%% (about %.1f), add 1 lot and move the stop for all lots to the average (about %.1f)" % (
+                k * p["add_step"] * 100, lvl, avg))
+        print("  never add when it is below your entry: averaging down is off")
+    elif p.get("add_mode") == "down" and lots > 1:
+        print("  averaging down to %d lots every -%d%%, one stop for all at -%d%% from the first price (backtests worse)" % (
+            lots, p["add_step"] * 100, p["hard_stop"] * 100))
+    try:
+        mkt = mmxm.Market(mmxm.load_profile(), cfg)
+        sz = mmxm.size(mkt, cfg, est, est * (1 - p["stop"]), est * (1 + p["target"]), name, premium=True)
+        one_risk = est * p["stop"] * lot
+        if sz["qty"] > 0:
+            print("  size: %d lot%s of %d (premium about Rs %.0f, loss at the stop about Rs %.0f)" % (
+                sz["qty"], "" if sz["qty"] == 1 else "s", lot, sz["premium_cost"], sz["max_loss"]))
+        else:
+            print("  size: 0 lots within your risk per trade (Rs %.0f). One lot (%d) costs about Rs %.0f and loses about Rs %.0f "
+                  "at the stop = %.1f%% of your capital: paper-trade it, or raise risk_pct knowingly." % (
+                      sz["rpt"], lot, est * lot, one_risk, 100.0 * one_risk / sz["account"]))
+    except SystemExit as e:
+        print("  size: %s" % e)
+    print("  then: python3 mmxm.py gate --contract \"%s %s %d %s\" --premium <real premium x lot>" % (
+        name, exp.strftime("%d %b").upper(), K, kind))
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
+    sub = ap.add_subparsers(dest="cmd", required=True)
+    f = sub.add_parser("fetch")
+    f.add_argument("indices", nargs="*", default=["NIFTY", "SENSEX"])
+    ar = sub.add_parser("archive", help="merge the latest 5m/1m bars into ict/market/archive (run daily)")
+    ar.add_argument("indices", nargs="*", default=["NIFTY", "SENSEX", "BANKNIFTY"], type=str.upper)
+    ar.add_argument("--intervals", nargs="*", default=["5m", "1m"], choices=sorted(ARCHIVE_RANGE))
+    for name in ("backtest", "today"):
+        s = sub.add_parser(name)
+        s.add_argument("index", choices=sorted(INDICES), type=str.upper)
+        s.add_argument("--mode", choices=["fade", "with"])
+        s.add_argument("--entry", help="HH:MM IST, on an hourly bar boundary (09:15, 10:15, ...)")
+        s.add_argument("--stop", type=float, help="fraction of premium, e.g. 0.3")
+        s.add_argument("--target", type=float, help="fraction of premium, e.g. 0.5")
+        s.add_argument("--min-dte", type=int)
+        s.add_argument("--ivm", type=float, help="volatility = India VIX x this")
+        s.add_argument("--slippage", type=float, help="premium points lost on each fill")
+        s.add_argument("--add-mode", choices=["none", "down", "up"], help="add lots: average down, or pyramid up")
+        s.add_argument("--add-step", type=float, help="premium move between adds, e.g. 0.15")
+        s.add_argument("--max-lots", type=int, help="most lots in one trade, the first included")
+        s.add_argument("--hard-stop", type=float, help="averaging down: one stop for all lots, from the first price")
+        s.add_argument("--refresh", action="store_true", help="download fresh data first")
+        s.add_argument("--json")
+        s.add_argument("--now", help=argparse.SUPPRESS)
+    a = ap.parse_args(argv)
+    if a.cmd == "fetch":
+        return cmd_fetch(a)
+    if a.cmd == "archive":
+        return cmd_archive(a)
+    cfg = mmxm.load_config(mmxm.load_profile())
+    return {"backtest": cmd_backtest, "today": cmd_today}[a.cmd](a, cfg)
+
+
+if __name__ == "__main__":
+    main()

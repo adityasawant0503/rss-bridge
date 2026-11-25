@@ -1,0 +1,5 @@
+{
+ "name": "ict-mmxm-skills",
+ "owner": {"name": "Aditya Sawant"},
+ "plugins": [{"name": "ict-mmxm-skills", "source": "./", "description": "ICT 2022 MMXM model for Indian indices and US index futures."}]
+}
