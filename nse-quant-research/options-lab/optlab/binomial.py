@@ -24,7 +24,7 @@ def price(S, K, T, r, sigma, kind="call", q=0.0, steps=500, american=False):
     spot = S * u ** (steps - j) * d ** j               # terminal prices, highest first
     payoff = (lambda s: np.maximum(s - K, 0.0)) if kind == "call" else (lambda s: np.maximum(K - s, 0.0))
     v = payoff(spot)
-    for n in range(steps - 1, -1, -1):
+    for _ in range(steps - 1, -1, -1):
         v = disc * (p * v[:-1] + (1 - p) * v[1:])
         if american:
             spot = spot[:-1] / u                       # prices at step n

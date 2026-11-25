@@ -119,7 +119,7 @@ def fig_greeks():
         g = bs.greeks(S, 100, T, R, 0.15, "call", Q)
         p = bs.price(S, 100, T, R, 0.15, "call", Q)
         for ax, y, name in zip(axes, [p, g["delta"], g["gamma"], g["theta"] / 365],
-                               ["Price", "Delta", "Gamma", "Theta per day"]):
+                               ["Price", "Delta", "Gamma", "Theta per day"], strict=True):
             ax.plot(S, y, color=c, label=lab)
             ax.set_title(name)
             ax.set_xlabel("Spot (strike 100)")

@@ -1,0 +1,26 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: pip install -r requirements.txt -e ./quant-finance -e ./options-lab
+      - run: ruff check .
+      - run: cd quant-finance && python -m pytest -q
+      - run: cd options-lab && python -m pytest -q
+      - name: Download data, rebuild dashboard data, check the JS port against Python
+        run: |
+          bash quant-finance/data/fetch_data.sh
+          bash options-lab/data/fetch_data.sh
+          python dashboard/build_data.py
+          node dashboard/test_lib.mjs

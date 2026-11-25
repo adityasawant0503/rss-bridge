@@ -1,9 +1,6 @@
 """Trend following: SMA/EMA crossover rules with lagged execution and costs."""
 from __future__ import annotations
 
-
-
-
 FAST = [1, 5, 10, 20, 30, 50, 100]
 
 

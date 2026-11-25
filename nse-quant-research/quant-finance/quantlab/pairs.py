@@ -6,8 +6,6 @@ import pandas as pd
 
 from .stats import adf_stat, ols
 
-
-
 ENTRY_Z, EXIT_Z = 2.0, 0.0
 
 

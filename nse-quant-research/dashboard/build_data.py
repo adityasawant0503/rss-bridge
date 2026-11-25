@@ -19,11 +19,12 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path[:0] = [os.path.join(ROOT, "quant-finance"), os.path.join(ROOT, "options-lab"),
                 os.path.join(ROOT, "options-lab", "scripts")]
 
-from optlab import binomial, bs  # noqa: E402
 from nifty_hedge_backtest import backtest as hedge_backtest  # noqa: E402
+from optlab import binomial, bs  # noqa: E402
 from quantlab.costs import INDIA_CHARGES, cost_per_side, india_cost  # noqa: E402
 from quantlab.data import load_csv, load_csv_dir  # noqa: E402
-from quantlab.pairs import CRIT_5, SECTORS, backtest as pairs_bt, eg  # noqa: E402
+from quantlab.pairs import CRIT_5, SECTORS, eg  # noqa: E402
+from quantlab.pairs import backtest as pairs_bt  # noqa: E402
 from quantlab.risk import simulate, var_backtest, var_es  # noqa: E402
 from quantlab.stats import ols, perf_stats  # noqa: E402
 from quantlab.trend import FAST, SLOW, run_rule  # noqa: E402
@@ -35,6 +36,7 @@ r4 = lambda x: None if x is None or (isinstance(x, float) and np.isnan(x)) else 
 
 
 def main():
+    os.makedirs(OUT, exist_ok=True)
     nifty = load_csv(os.path.join(QF, "nifty50_index.csv"))
     stocks = load_csv_dir(os.path.join(QF, "nifty50_stocks"))
     json.dump({"source": "Nifty 50 index daily close, public GitHub dataset (see README)",
@@ -98,7 +100,8 @@ def main():
             rr, pos, _ = pairs_bt(pd.concat([form[[a, b]], trade[[a, b]]]), coef[1], coef[0], fb, fs)
             rows.append({"pair": f"{a}/{b}", "sector": sector, "adf_form": r4(min(s1, s2)),
                          "coint": bool(min(s1, s2) < CRIT_5), "adf_trade": r4(eg(trade[a], trade[b])[0]),
-                         "ret_form": r4(rr[:"2023-10-01"].mean() * 252), "ret_trade": r4(rr["2023-10-01":].mean() * 252),
+                         "ret_form": r4(rr[:"2023-10-01"].mean() * 252),
+                         "ret_trade": r4(rr["2023-10-01":].mean() * 252),
                          "trades": int((pos["2023-10-01":].diff().abs() > 0).sum())})
     res["pairs"] = rows
 

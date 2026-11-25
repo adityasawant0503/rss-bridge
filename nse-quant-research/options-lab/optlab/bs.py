@@ -11,11 +11,17 @@ from math import erf, sqrt
 import numpy as np
 
 _SQRT2 = sqrt(2.0)
-_ERF = np.vectorize(erf, otypes=[float])
+try:  # SciPy's C implementation is ~50x faster; the pure-Python fallback keeps it optional
+    from scipy.special import ndtr as _ndtr
+except ImportError:  # pragma: no cover
+    _ERF = np.vectorize(erf, otypes=[float])
+
+    def _ndtr(x):
+        return 0.5 * (1.0 + _ERF(np.asarray(x, dtype=float) / _SQRT2))
 
 
 def norm_cdf(x):
-    return 0.5 * (1.0 + _ERF(np.asarray(x, dtype=float) / _SQRT2))
+    return _ndtr(np.asarray(x, dtype=float))
 
 
 def norm_pdf(x):

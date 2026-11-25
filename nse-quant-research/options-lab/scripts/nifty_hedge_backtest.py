@@ -20,7 +20,7 @@ import pandas as pd
 
 import _path  # noqa: F401
 from optlab import bs
-from optlab.hedging import hedge_pnl, realised_vol
+from optlab.hedging import hedge_pnl
 
 R, Q, DAYS = 0.06, 0.013, 21
 FUT_COST = 0.00078          # NSE futures, average of buy 5.4 and sell 10.2 bps per side
@@ -34,21 +34,22 @@ def load(path):
 
 
 def backtest(px, markup=0.0, cost=FUT_COST, hedge_every=1):
+    """All months at once: each row of `paths` is one month's 22 daily closes."""
     v = px.values
-    rows = []
-    for start in range(DAYS, len(v) - DAYS, DAYS):
-        path = v[start:start + DAYS + 1]
-        sigma_hist = realised_vol(v[start - DAYS:start + 1])
-        sigma_imp = sigma_hist + markup
-        sigma_real = realised_vol(path)
-        T = DAYS / 252
-        pnl = hedge_pnl(path[None, :], path[0], T, R, sigma_imp, "call", Q, hedge_every, cost)[0]
-        gamma = bs.greeks(path[0], path[0], T, R, sigma_imp, "call", Q)["gamma"]
-        approx = 0.5 * gamma * path[0] * (sigma_imp**2 - sigma_real**2) * T   # % of spot
-        rows.append(dict(date=px.index[start], sigma_imp=sigma_imp, sigma_real=sigma_real,
-                         premium=bs.price(path[0], path[0], T, R, sigma_imp, "call", Q) / path[0],
-                         pnl=pnl, approx=approx, move=path[-1] / path[0] - 1))
-    return pd.DataFrame(rows).set_index("date")
+    starts = np.arange(DAYS, len(v) - DAYS, DAYS)
+    paths = v[starts[:, None] + np.arange(DAYS + 1)]              # (months, DAYS + 1)
+    hist = v[starts[:, None] + np.arange(-DAYS, 1)]               # trailing window per month
+    vol = lambda w: np.diff(np.log(w), axis=1).std(axis=1, ddof=1) * np.sqrt(252)
+    sigma_imp, sigma_real = vol(hist) + markup, vol(paths)
+    S0, T = paths[:, 0], DAYS / 252
+    pnl = hedge_pnl(paths, S0, T, R, sigma_imp, "call", Q, hedge_every, cost)
+    gamma = bs.greeks(S0, S0, T, R, sigma_imp, "call", Q)["gamma"]
+    return pd.DataFrame({
+        "sigma_imp": sigma_imp, "sigma_real": sigma_real,
+        "premium": bs.price(S0, S0, T, R, sigma_imp, "call", Q) / S0,
+        "pnl": pnl, "approx": 0.5 * gamma * S0 * (sigma_imp**2 - sigma_real**2) * T,   # % of spot
+        "move": paths[:, -1] / S0 - 1,
+    }, index=pd.Index(px.index[starts], name="date"))
 
 
 def main():

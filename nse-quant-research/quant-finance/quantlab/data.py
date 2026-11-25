@@ -7,8 +7,6 @@ import os
 import numpy as np
 import pandas as pd
 
-
-
 TRADING_DAYS = 252
 
 
@@ -77,8 +75,6 @@ def load_csv(path):
 
 def load_csv_dir(folder, tickers=None):
     """Load every <TICKER>_*.csv (or <TICKER>.csv) in a folder into one DataFrame."""
-    import glob
-    import os
     out = {}
     for path in sorted(glob.glob(os.path.join(folder, "*.csv"))):
         name = os.path.basename(path).split("_")[0].removesuffix(".csv")

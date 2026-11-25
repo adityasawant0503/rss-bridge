@@ -1,0 +1,11 @@
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.venv/
+# re-include data/ folders (the parent rss-bridge repo ignores them) but not downloads
+!*/data/
+quant-finance/data/*.csv
+quant-finance/data/nifty50_stocks/
+options-lab/data/*.csv
+dashboard/data/*.json

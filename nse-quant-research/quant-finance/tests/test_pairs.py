@@ -1,10 +1,9 @@
 import numpy as np
+import pandas as pd
 
 from quantlab.data import synthetic_pair
 from quantlab.pairs import backtest, eg, leg_cost
 from quantlab.stats import ols
-
-import pandas as pd
 
 
 def test_synthetic_pair_is_cointegrated_and_profitable():

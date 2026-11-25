@@ -45,7 +45,7 @@ def main():
     corr = rets.corr().values
 
     print("\nAnnualised stats (equal weights)")
-    for t, mu_i, v in zip(tickers, mu, vol):
+    for t, mu_i, v in zip(tickers, mu, vol, strict=True):
         print(f"  {t:14s} return {mu_i*252:6.1%}   vol {v*np.sqrt(252):6.1%}")
     print("\nCorrelation matrix\n", rets.corr().round(2))
 

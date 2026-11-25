@@ -4,7 +4,6 @@ from __future__ import annotations
 import numpy as np
 
 
-
 def ols(y, X):
     """OLS with intercept. Returns (coefs, residuals, std_errors)."""
     X = np.column_stack([np.ones(len(X)), X])

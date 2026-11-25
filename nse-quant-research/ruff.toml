@@ -1,0 +1,9 @@
+line-length = 120
+target-version = "py310"
+
+[lint]
+select = ["E", "F", "W", "I", "B", "UP", "NPY"]
+ignore = ["E731"]   # small lambdas are used for readability in analysis scripts
+
+[lint.isort]
+known-first-party = ["quantlab", "optlab", "nifty_hedge_backtest", "_path"]

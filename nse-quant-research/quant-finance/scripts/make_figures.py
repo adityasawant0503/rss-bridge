@@ -86,7 +86,7 @@ def fig_var_correlation(stocks):
     y = np.arange(3)
     ax.barh(y + 0.19, [x[1] for x in rows], height=0.36, color=BLUE, label="95% VaR")
     ax.barh(y - 0.19, [x[2] for x in rows], height=0.36, color=ORANGE, label="Expected Shortfall")
-    for yy, (_, v, e) in zip(y, rows):
+    for yy, (_, v, e) in zip(y, rows, strict=True):
         ax.text(v + 0.15, yy + 0.19, f"Rs {v:.1f} L", va="center", fontsize=9, color=INK)
         ax.text(e + 0.15, yy - 0.19, f"Rs {e:.1f} L", va="center", fontsize=9, color=INK)
     ax.set_yticks(y, [x[0] for x in rows])
@@ -113,7 +113,7 @@ def fig_ma(nifty, div_yield=0.013):
     bh = perf_stats(ret.iloc[warm:], RF)["Sharpe"]
     vmin, vmax = min(g.min().min() for g in grids.values()), max(g.max().max() for g in grids.values())
     fig, axes = plt.subplots(1, 2, figsize=(11, 4.2), sharey=True)
-    for ax, (kind, g) in zip(axes, grids.items()):
+    for ax, (kind, g) in zip(axes, grids.items(), strict=True):
         im = ax.imshow(g.values, cmap="Blues", vmin=vmin, vmax=vmax, aspect="auto")
         for (i, j), v in np.ndenumerate(g.values):
             if not np.isnan(v):
@@ -184,7 +184,7 @@ def fig_pairs(stocks, split="2023-10-01"):
     ax.axhline(RF * 100, color=INK2, lw=0.8, ls=":")
     ax.text(lim[0] + 1, RF * 100 + 1, "6% risk-free", fontsize=8, color=INK2)
     offsets = [(-8, 10, "right"), (8, 8, "left"), (8, -12, "left")]
-    for (_, r), (dx, dy, ha) in zip(d[d.coint].nlargest(3, "oos").sort_values("ins").iterrows(), offsets):
+    for (_, r), (dx, dy, ha) in zip(d[d.coint].nlargest(3, "oos").sort_values("ins").iterrows(), offsets, strict=True):
         ax.annotate(r.pair, (r.ins, r.oos), xytext=(dx, dy), textcoords="offset points", fontsize=8,
                     color=INK, ha=ha, arrowprops=dict(arrowstyle="-", color=INK2, lw=0.6))
     ax.set_xlabel("Formation period return, Oct 2020-Sep 2023 (% a year)")

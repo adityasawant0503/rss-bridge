@@ -1,0 +1,8 @@
+# Tested with Python 3.13, numpy 2.5, pandas 3.0, scipy 1.18, matplotlib 3.11.
+numpy>=1.26
+pandas>=2.1
+scipy>=1.11          # optional: 50x faster normal CDF in optlab (falls back to pure Python)
+matplotlib>=3.8      # figures only
+pytest>=8
+ruff>=0.6
+yfinance>=0.2        # optional: download any ticker instead of the bundled datasets
