@@ -52,10 +52,10 @@ cointegration), backtesting, vectorisation, CI.
 
 ## Where the dashboard link goes
 
-The claude.ai link is private to you. For your resume, host the dashboard
-publicly: push this repo, run `make dashboard`, and serve `dashboard/` with
-GitHub Pages. Then put the Pages URL next to the project title, or as
-"Live demo: …" on the first bullet line.
+The claude.ai link is private to you. Once the repo is on GitHub, turn on
+Pages (Settings → Pages → Source: GitHub Actions). The included workflow then
+publishes the dashboard to `https://<username>.github.io/nse-quant-research/`.
+Put that URL next to the project title as "Live demo".
 
 ## Tips
 

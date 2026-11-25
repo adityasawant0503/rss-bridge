@@ -41,6 +41,11 @@ node dashboard/test_lib.mjs
 
 ## Hosting
 
+`.github/workflows/pages.yml` publishes the dashboard automatically on every
+push to `main`. It downloads the data, rebuilds the JSON, re-runs the JS check,
+and `build_site.sh` wraps the page into a standalone site. To switch it on once,
+go to the repo's Settings → Pages → Source and choose "GitHub Actions". The site
+then appears at `https://<username>.github.io/<repo>/`.
+
 `data/` is not committed, because `nifty.json` repackages a third-party dataset
-with no stated licence. Run `build_data.py` to create it before serving or
-hosting. With the data in place, the folder works as-is on GitHub Pages.
+with no stated licence. The workflow regenerates it on every build.
