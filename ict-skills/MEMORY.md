@@ -50,6 +50,14 @@ Read this first when picking the work back up. Last updated 12 Nov 2026.
   fall -15%, vs Nifty +10.7%, -29%; +2.6%/yr over the same list's equal weight in both halves. Tax not modelled.
   The 10:05 task runs `momentum.py rebalance`, which acts only on the first run after a month-end. Update
   `MEMBERS` when NSE changes the Nifty 50 (March, September). Paper only, like everything else.
+  (7) **All versions side by side** (`ict-india/versions.py`, rules fixed 25 Nov 2026): each finished day, for
+  Nifty and Sensex, the fade's option is priced along the 5m index bars with an IV fitted to the contract's real
+  bhavcopy open and close (kept inside the real high/low), and 12 versions are scored in rupees: V1 the current
+  pyramid (stop to average), V2 pyramid keeping -20%, V3 1 lot -20/+40, V4 +15% target, V5 pyramid with a +25%
+  trail after +40%, V6 1 lot with the trail, V7 1 lot to the close, V8 one strike ITM, E1 fade-gap, E2 gap,
+  E3 turn-short, E4 fade only when PulsEdge agrees. Backfill Aug 24 - Nov 23 is context; the forward record from
+  26 Nov counts. Review 18 Dec, then keep refining into Jan; real money only after a version shows a real edge.
+  The modelled path is smoother than real 1m option prices, so it undercounts quick touches (V4 and stops).
 - **PulsEdge link-up (13 Nov 2026):** Aditya keeps the PulsEdge terminal (their own repo
   `adityasawant0503/pulsedge`, public; GitHub Pages) open next to this chat. A "PulsEdge check before the
   plan" scheduled task (09:50 IST, weekdays) pushes its pre-market sentiment; `ict-india/pulse.py` reads
