@@ -58,6 +58,15 @@ Read this first when picking the work back up. Last updated 12 Nov 2026.
   E3 turn-short, E4 fade only when PulsEdge agrees. Backfill Aug 24 - Nov 23 is context; the forward record from
   26 Nov counts. Review 18 Dec, then keep refining into Jan; real money only after a version shows a real edge.
   The modelled path is smoother than real 1m option prices, so it undercounts quick touches (V4 and stops).
+  (8) **Liquidity models** (`ict-india/liquidity.py`, rules fixed 26 Nov 2026, forward from 27 Nov), from Aditya's
+  read of 26 Nov (Nifty swept the opening-range low, closed back through the drop's FVGs, held the pullback, ran)
+  and the Wyckoff spring. Intraday: sweep of the opening-range or previous-day level -> a close through a
+  bearish FVG within 12 bars (IFVG) -> first retest of the IFVG top fills, stop at the sweep extreme, 2R, out at
+  15:10; 5m/3m/1m x or/pd = 6 versions, both directions. Backtest (5m, Aug-Nov, 174 trades) about -0.02R net, no
+  edge on its own; on 26 Nov itself the 5m rule missed the morning long (the pullback stopped 5 points short of
+  the IFVG) and caught the 11:10 short instead. Multi-day: spring-20/60 (close back above a swept 20/60-session
+  low, hold 10 sessions) and upthrust-20 (range <= 6%); one hold at a time. 10 years: worked in 2022-26, not in
+  2017-21. The 10:05 task runs `liquidity.py score` daily and `summary` on Fridays. Don't tune the rules.
 - **PulsEdge link-up (13 Nov 2026):** Aditya keeps the PulsEdge terminal (their own repo
   `adityasawant0503/pulsedge`, public; GitHub Pages) open next to this chat. A "PulsEdge check before the
   plan" scheduled task (09:50 IST, weekdays) pushes its pre-market sentiment; `ict-india/pulse.py` reads
