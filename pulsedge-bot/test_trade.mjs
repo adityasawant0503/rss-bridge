@@ -4,6 +4,7 @@ const require = createRequire(import.meta.url);
 const { Engine } = require("../pulsedge/assets/trade/engine.js");
 const { DemoFeed, nextTuesdays } = require("../pulsedge/assets/trade/feed.js");
 const QL = require("../pulsedge/assets/trade/quant.js");
+const IDEAS = require("../pulsedge/assets/trade/ideas.js");
 
 let fails = 0, n = 0;
 const ok = (name, cond, detail = "") => { n++; if (!cond) fails++; console.log(`${cond ? "ok  " : "FAIL"} ${name}${cond ? "" : "  " + detail}`); };
@@ -133,6 +134,49 @@ function setup(capital = 1000000) {
   const c = f1.candles("NSE:TCS", 5, 10, t);
   ok("candles are consistent", c.length === 10 && c.every((b) => b.high >= Math.max(b.open, b.close) && b.low <= Math.min(b.open, b.close)));
   void T;
+}
+// ---- option analytics and ideas
+{
+  const flatIv = (iv) => () => iv;
+  const series = (n, start, drift, wob) => Array.from({ length: n }, (_, i) => start * Math.exp(drift * i + wob * Math.sin(i * 1.7)));
+  const base = { T: 7 / 365, expiry: "2026-12-01", vixHist: Array.from({ length: 252 }, (_, i) => 10 + 8 * (i % 50) / 50), vixAvg10: 14, lot: 65 };
+  // indicators
+  ok("RSI of a steady rise is high", IDEAS.rsi(series(60, 100, 0.01, 0)) > 90);
+  ok("realised vol of a flat series is ~0", IDEAS.realisedVol(Array(30).fill(100), 21) < 1e-9);
+  const rk = IDEAS.ivRank([10, 20, 30], 25, 3); ok("IV rank is position in range", near(rk.rank, 0.75) && near(rk.pctile, 2 / 3));
+  const k = IDEAS.strikeByDelta(26000, 30 / 365, flatIv(0.14), "CE", 0.2);
+  ok("20-delta call is above spot", k > 26000 && Math.abs(QL.bsGreeks(26000, k, 30 / 365, 0.06, 0.14, "call", 0.013).delta - 0.2) < 0.05);
+  // rich IV + sideways -> iron condor first
+  const sideways = Array.from({ length: 261 }, (_, i) => 26000 + (i % 2 ? 40 : -40) + (i % 7) * 3);   // choppy, no trend
+  const A1 = IDEAS.analyse({ ...base, S: sideways.at(-1), ivFn: flatIv(0.16), closes: sideways, vix: 16, vixAvg10: 16 });
+  const I1 = IDEAS.ideas(A1, flatIv(0.16));
+  ok("sideways market is classed as range", A1.trend === "range", A1.trend);
+  ok("IV above realised is classed rich", A1.ivRegime === "rich", A1.ivRegime);
+  ok("rich IV + range -> iron condor ranked first", I1.ideas[0].name === "Iron condor", I1.ideas[0].name);
+  const ic = I1.ideas[0];
+  ok("condor short strikes straddle spot", ic.legs.find((l) => l.side < 0 && l.opt === "CE").strike > A1.S && ic.legs.find((l) => l.side < 0 && l.opt === "PE").strike < A1.S);
+  ok("condor max loss is bounded", Number.isFinite(ic.stats.maxLoss) && ic.stats.maxLoss < 0);
+  ok("rich IV says avoid buying outright options", I1.avoid.some((a) => /Buying outright/.test(a)));
+  // cheap IV + uptrend -> debit spread, no premium selling
+  const rising = series(260, 22000, 0.0015, 0.003);
+  const A2 = IDEAS.analyse({ ...base, S: rising.at(-1), ivFn: flatIv(0.03), closes: rising, vix: 10, vixAvg10: 10 });
+  const I2 = IDEAS.ideas(A2, flatIv(0.03));
+  ok("steady rise is classed uptrend", A2.trend === "up", A2.trend);
+  ok("cheap IV + uptrend -> bull call spread first", I2.ideas[0].name === "Bull call spread", I2.ideas[0].name);
+  ok("cheap IV -> no credit spreads suggested", !I2.ideas.some((i) => /put spread|call spread/.test(i.name) && i.bias.includes("sell")));
+  // VIX spike -> defensive first, no naked short straddle
+  const A3 = IDEAS.analyse({ ...base, S: sideways.at(-1), ivFn: flatIv(0.22), closes: sideways, vix: 22, vixAvg10: 15 });
+  ok("choppy market stays 'range' whichever day it ends on", [260, 261, 262, 263].every((n) => IDEAS.analyse({ ...base, S: sideways.slice(0, n).at(-1), ivFn: flatIv(0.16), closes: sideways.slice(0, n), vix: 16, vixAvg10: 16 }).trend === "range"));
+  const I3 = IDEAS.ideas(A3, flatIv(0.22));
+  ok("VIX spike detected", A3.spike);
+  ok("spike -> protective put ranked first", /Protective put/.test(I3.ideas[0].name));
+  ok("spike -> no short straddle or condor", !I3.ideas.some((i) => /Short straddle|Iron condor/.test(i.name)));
+  // VIX at its 1-year low but still above realised: "cheap" for the right reason, with the caution shown
+  const A4 = IDEAS.analyse({ ...base, S: sideways.at(-1), ivFn: flatIv(0.20), closes: sideways, vix: Math.min(...base.vixHist), vixAvg10: Math.min(...base.vixHist) });
+  const I4 = IDEAS.ideas(A4, flatIv(0.20));
+  ok("low VIX rank above realised -> cheap because of rank", A4.ivRegime === "cheap" && A4.cheapWhy === "low rank", A4.ivRegime + "/" + A4.cheapWhy);
+  ok("avoid text names the 1-year low, not 'below realised'", I4.avoid.some((a) => /1-year low/.test(a)) && !I4.avoid.some((a) => /below realised/.test(a)));
+  ok("expected move = S x IV x sqrt(T)", near(A1.move, A1.S * 0.16 * Math.sqrt(7 / 365), 1e-6));
 }
 console.log(fails ? `\n${fails} of ${n} FAILED` : `\nall ${n} checks passed`);
 process.exit(fails ? 1 : 0);

@@ -71,12 +71,12 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .grid{flex:1;min-height:0;display:grid;gap:6px;padding:6px max(6px,env(safe-area-inset-right,0px)) 6px max(6px,env(safe-area-inset-left,0px));
   grid-template-columns:minmax(230px,1fr) minmax(0,2.6fr) minmax(270px,1.05fr);grid-template-rows:minmax(0,1.55fr) minmax(0,1fr);
   grid-template-areas:"watch chart ticket" "news positions edge"}
-.grid.options{grid-template-areas:"watch chain ticket" "news strategy edge";grid-template-rows:minmax(0,1.3fr) minmax(0,1fr)}
+.grid.options{grid-template-columns:minmax(300px,1.15fr) minmax(0,2.3fr) minmax(270px,1.05fr);grid-template-areas:"ideas chain ticket" "ideas strategy edge";grid-template-rows:minmax(0,1.3fr) minmax(0,1fr)}
 @media (max-width:1100px){html,body{height:auto}.grid{overflow:visible}.grid,.grid.options{grid-template-columns:1fr 1fr;grid-template-rows:none;grid-auto-rows:minmax(320px,auto);
   grid-template-areas:"chart chart" "ticket watch" "positions positions" "edge news";overflow:auto}
-  .grid.options{grid-template-areas:"chain chain" "ticket watch" "strategy strategy" "edge news"}}
+  .grid.options{grid-template-areas:"ideas ideas" "chain chain" "ticket edge" "strategy strategy"}}
 @media (max-width:700px){.grid,.grid.options{grid-template-columns:1fr;grid-template-areas:"chart" "ticket" "positions" "watch" "edge" "news"}
-  .grid.options{grid-template-areas:"chain" "ticket" "strategy" "watch" "edge" "news"}.funds{margin-left:0}}
+  .grid.options{grid-template-areas:"ideas" "chain" "ticket" "strategy" "edge"}.funds{margin-left:0}}
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:8px;display:flex;flex-direction:column;min-height:0;min-width:0;overflow:hidden}
 .ph{flex:none;display:flex;align-items:center;gap:8px;padding:6px 8px 6px 10px;border-bottom:1px solid var(--line);min-height:34px}
 .ph h2{margin:0;font:700 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
@@ -88,7 +88,9 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .grid > .panel[data-panel="ticket"]{grid-area:ticket}.grid > .panel[data-panel="positions"]{grid-area:positions}
 .grid > .panel[data-panel="news"]{grid-area:news}.grid > .panel[data-panel="edge"]{grid-area:edge}
 .grid > .panel[data-panel="chain"]{grid-area:chain}.grid > .panel[data-panel="strategy"]{grid-area:strategy}
-.grid:not(.options) > [data-panel="chain"],.grid:not(.options) > [data-panel="strategy"]{display:none}
+.grid > .panel[data-panel="ideas"]{grid-area:ideas}
+.grid:not(.options) > [data-panel="chain"],.grid:not(.options) > [data-panel="strategy"],.grid:not(.options) > [data-panel="ideas"]{display:none}
+.grid.options > [data-panel="watch"],.grid.options > [data-panel="news"]{display:none}
 .grid.options > [data-panel="chart"],.grid.options > [data-panel="positions"]{display:none}
 body.single .grid{grid-template-columns:1fr;grid-template-rows:1fr;grid-template-areas:"one"}
 body.single .grid > .panel{display:none}body.single .grid > .panel.solo{display:flex;grid-area:one}
@@ -176,6 +178,25 @@ details.risk[open] summary{margin-bottom:6px}
 @media (max-width:900px){.st{grid-template-columns:1fr}}
 .st .legs td{padding:3px 5px}
 
+/* option analytics */
+.an{padding:8px 10px;display:grid;gap:10px}
+.an h3{margin:0;font:700 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--dim);display:flex;align-items:center;gap:6px}
+.ind{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.ind div{background:var(--panel2);border-radius:6px;padding:5px 7px;display:grid;line-height:1.25}
+.ind span{font-size:10px;color:var(--mute)}.ind b{font:500 13px var(--mono)}.ind i{font-style:normal;font-size:10px;color:var(--dim)}
+.ind div.na{opacity:.55}
+.tag{font:600 10px var(--mono);padding:1px 6px;border-radius:4px;background:var(--panel2);color:var(--mute);letter-spacing:.04em}
+.tag.rich,.tag.down{background:var(--red-soft);color:var(--red-l)}.tag.cheap,.tag.up{background:var(--green-soft);color:var(--green-l)}
+.tag.fair,.tag.range{background:var(--pur-soft);color:var(--pur-l)}.tag.spiking{background:var(--amber-soft);color:var(--amber-l)}
+.avoid{margin:0;padding-left:16px;font-size:12px;color:var(--mute);display:grid;gap:2px}
+.idea{border:1px solid var(--line);border-radius:8px;padding:9px 10px;display:grid;gap:6px;background:var(--panel)}
+.idea.top{border-color:var(--pur-edge);background:var(--pur-box)}
+.idea .t{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}.idea .t b{font-size:14px}
+.idea .legs{font:12px var(--mono);color:var(--fg)}
+.idea .nums{display:grid;grid-template-columns:repeat(3,1fr);gap:3px 8px;font-size:11px;color:var(--mute)}
+.idea .nums b{display:block;font:500 12px var(--mono);color:var(--fg)}
+.idea ul{margin:0;padding-left:16px;font-size:12px;color:var(--mute);display:grid;gap:2px}
+.idea .acts{display:flex;gap:6px}
 .help{position:fixed;inset:0;background:#0009;display:grid;place-items:center;z-index:50;padding:16px}
 .help .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;max-width:720px;width:100%;max-height:90vh;overflow:auto;padding:18px 20px;display:grid;gap:10px}
 .help h3{margin:0;font:700 14px var(--mono);letter-spacing:.06em}
@@ -215,6 +236,11 @@ details.risk[open] summary{margin-bottom:6px}
       <div class="tabs" id="c-tf" role="group" aria-label="Timeframe"><button type="button" data-tf="1">1m</button><button type="button" data-tf="5" aria-pressed="true">5m</button><button type="button" data-tf="15">15m</button><button type="button" data-tf="D">1D</button></div>
       <button class="pop" data-pop="chart" title="Open in a new window" aria-label="Pop out chart">↗</button></div>
     <div class="chart-wrap"><div class="ohlc" id="c-ohlc"></div><div id="chart"></div></div>
+  </section>
+
+  <section class="panel" data-panel="ideas" aria-label="Option analytics and trade ideas">
+    <div class="ph"><h2>Option analytics</h2><span class="mute small" id="i-exp"></span><span class="sp"></span><button class="pop" data-pop="ideas" title="Open in a new window" aria-label="Pop out option analytics">↗</button></div>
+    <div class="pb"><div class="an" id="ideas"><div class="loading">Reading the market…</div></div></div>
   </section>
 
   <section class="panel" data-panel="chain" aria-label="Option chain">
@@ -276,7 +302,7 @@ details.risk[open] summary{margin-bottom:6px}
   <h3 id="help-t">PULSE TRADE: QUICK GUIDE</h3>
   <p class="mute" style="margin:0">A trading desk for Indian markets that sits beside the PulsEdge news terminal. In demo mode every price is simulated and every order is a paper trade, so you can learn the desk with no risk. Connecting your Dhan account (coming next) switches it to live prices and real orders.</p>
   <ul>
-    <li><b>Equity desk</b>: watchlist, chart, order ticket, positions and news. <b>Options desk</b>: Nifty option chain, strategy builder and the volatility edge.</li>
+    <li><b>Equity desk</b>: watchlist, chart, order ticket, positions and news. <b>Options desk</b>: option analytics with ranked trade ideas, the Nifty option chain, strategy builder and the volatility edge.</li>
     <li><b>Multiple monitors</b>: press ↗ on any panel to open it in its own window and drag it to another screen. All windows stay in sync: pick a stock in one and the others follow.</li>
     <li><b>Order ticket</b>: Market, Limit, SL (stop-limit) and SL-M (stop-market). Add a stop-loss and target to make a bracket: when one fills the other is cancelled. "Size by risk" works out the quantity so the stop costs your chosen % of capital, including charges.</li>
     <li><b>Volatility edge</b>: India VIX has been above the volatility Nifty went on to deliver on 81% of days since 2008. The panel shows whether today's conditions match the ones where selling options worked best in the backtest.</li>
@@ -291,6 +317,7 @@ details.risk[open] summary{margin-bottom:6px}
 <script src="assets/trade/quant.js"></script>
 <script src="assets/trade/engine.js"></script>
 <script src="assets/trade/feed.js"></script>
+<script src="assets/trade/ideas.js"></script>
 <script src="assets/theme.js"></script>
 <script>
 "use strict";
@@ -633,6 +660,63 @@ function placeStrategy() {
   toast(`Sent ${UI.strat.length} legs as market orders`, "ok");
 }
 
+/* ---------------- option analytics + trade ideas ---------------- */
+let NEWS_HIGH = 0, IDEAS_CACHE = [];
+function renderIdeas() {
+  const t = Date.now(), exp = $("o-exp").value || FEED.expiries(t)[0], T = FEED.yearsTo(exp, t), S = FEED.spotPrice("NIFTY", t);
+  const ivFn = (k) => FEED.iv(k, t, T), vixNow = FEED.spotPrice("INDIAVIX", t);
+  const A = PEIdeas.analyse({ S, T, expiry: exp, ivFn, closes: NIFTYH.c.concat([S]), vixHist: VIXH.c.slice(-252), vix: vixNow,
+    vixAvg10: VIXH.c.slice(-10).reduce((a, b) => a + b, 0) / 10, newsHigh: NEWS_HIGH, lot: FEED.lot });
+  const { ideas, avoid } = PEIdeas.ideas(A, ivFn);
+  IDEAS_CACHE = ideas.map((i) => ({ ...i, expiry: exp }));
+  $("i-exp").textContent = `expiry ${new Date(exp + "T12:00:00").toLocaleDateString("en-IN", { day: "numeric", month: "short" })} · ${(T * 365).toFixed(1)} days`;
+  const v = (x, d = 1) => Number.isFinite(x) ? (x * 100).toFixed(d) : "–";
+  const dist = (ma) => `${S >= ma ? "+" : "−"}${Math.abs((S / ma - 1) * 100).toFixed(1)}%`;
+  const cell = (label, val, note = "", cl = "") => `<div class="${cl}"><span>${label}</span><b>${val}</b>${note ? `<i>${note}</i>` : ""}</div>`;
+  const regimeTxt = { rich: "IV RICH", cheap: "IV CHEAP", fair: "IV FAIR", spiking: "VIX SPIKING" }[A.ivRegime];
+  // margin for each idea, from the engine's own risk-based margin model
+  prep("NSE:NIFTY");
+  const margin = (idea) => engine.optionGroupMargin(idea.legs.map((L) => ({ inst: FEED.option(L.strike, L.opt, exp), qty: L.side * FEED.lot, px: L.premium })));
+  const money = (x) => x === Infinity || x === -Infinity ? "Unlimited" : inr(x);
+  const card = (i, n) => {
+    const st = i.stats, m = margin(i);
+    const legs = i.legs.map((L) => `${L.side > 0 ? "Buy" : "Sell"} ${L.strike} ${L.opt} @ ${L.premium.toFixed(2)}`).join(" · ");
+    return `<div class="idea${n === 0 ? " top" : ""}"><div class="t"><b>${n + 1}. ${esc(i.name)}</b><span class="tag">${esc(i.bias)}</span>${i.advanced ? '<span class="tag spiking">ADVANCED</span>' : ""}</div>
+      <div class="legs">${legs}</div>
+      <div class="nums"><span>Net premium<b>${st.netPremium >= 0 ? "+" : ""}${inr(st.netPremium)}</b></span><span>Max profit<b>${money(st.maxProfit)}</b></span><span>Max loss<b class="down">${money(st.maxLoss)}</b></span>
+        <span>Breakeven<b>${st.breakevens.map((b) => Math.round(b)).join(" / ") || "–"}</b></span><span>Chance of profit<b>${(st.pop * 100).toFixed(0)}%</b></span><span>Margin (est.)<b>${inr(m)}</b></span>
+        <span>Reward : risk<b>${i.rewardRisk ? "1 : " + (1 / i.rewardRisk).toFixed(2) : "–"}</b></span><span>Θ per day<b>${inr(i.greeks.theta)}</b></span><span>Vega per pt<b>${inr(i.greeks.vega)}</b></span></div>
+      <ul>${i.why.map((w) => `<li>${esc(w)}</li>`).join("")}</ul>
+      <div class="small mute">Invalid if: ${i.invalid.map(esc).join("; ")}.${i.evidence === "vrp" ? " Backed by the India VIX study: selling Nifty options was profitable after charges on 2017–2025 data, with sharp losing months." : ""}</div>
+      <div class="acts"><button class="xbtn" type="button" data-idea-load="${n}">Load into builder</button><button class="xbtn" type="button" data-idea-trade="${n}">Paper trade 1 lot</button></div></div>`;
+  };
+  $("ideas").innerHTML = `
+    <h3>Volatility <span class="tag ${A.ivRegime}">${regimeTxt}</span></h3>
+    <div class="ind">${cell("ATM implied vol", v(A.ivAtm) + "%", "from the chain")}${cell("Realised 10 / 21 / 63d", `${v(A.rv10, 0)} / ${v(A.rv21, 0)} / ${v(A.rv63, 0)}`, "Nifty, %")}
+      ${cell("IV − realised (21d)", (A.gap >= 0 ? "+" : "") + v(A.gap) + " pts", A.gap > 0 ? "options priced above recent moves" : "options cheaper than recent moves")}
+      ${cell("India VIX", A.vix.toFixed(2), `10-day avg ${A.vixAvg10.toFixed(2)}${A.spike ? " · spiking" : ""}`)}
+      ${cell("VIX rank (1y)", (A.vixRank * 100).toFixed(0), `range ${A.vixLo.toFixed(1)}–${A.vixHi.toFixed(1)}`)}${cell("VIX percentile (1y)", (A.vixPctile * 100).toFixed(0) + "%", "days with lower VIX")}
+      ${cell("Skew (25Δ put − call)", (A.skew >= 0 ? "+" : "") + A.skew.toFixed(1) + " pts", `${A.k25p} PE vs ${A.k25c} CE`)}${cell("Backtested selling rule", A.vrpRule ? "✓ on" : "✗ off", "VIX > realised, not spiking")}</div>
+    <h3>Expected move</h3>
+    <div class="ind">${cell("1 standard deviation", "±" + Math.round(A.move) + " pts", `${Math.round(S - A.move)} – ${Math.round(S + A.move)}`)}${cell("ATM straddle", A.straddle.toFixed(1) + " pts", "what the market charges for the move")}
+      ${cell("2 standard deviations", "±" + Math.round(2 * A.move) + " pts", "about 95% of outcomes")}${cell("Spot / ATM strike", `${px(S)}`, `ATM ${A.atm}`)}</div>
+    <h3>Trend <span class="tag ${A.trend}">${A.trend.toUpperCase()}</span></h3>
+    <div class="ind">${cell("vs 20-day average", dist(A.ma20), Math.round(A.ma20))}${cell("vs 50-day average", dist(A.ma50), Math.round(A.ma50))}
+      ${cell("vs 200-day average", dist(A.ma200), Math.round(A.ma200))}${cell("20-session return", (A.ret20 >= 0 ? "+" : "") + v(A.ret20) + "%")}
+      ${cell("RSI (14)", A.rsi.toFixed(0), A.rsi > 70 ? "overbought" : A.rsi < 30 ? "oversold" : "neutral")}${cell("High-impact news", String(A.newsHigh), "PulsEdge feed, latest day")}</div>
+    <h3>Positioning <span class="tag">LIVE DATA</span></h3>
+    <div class="ind">${cell("Put-call ratio (OI)", "–", "needs live option chain", "na")}${cell("Max pain", "–", "needs open interest", "na")}
+      ${cell("OI build-up", "–", "long/short build-up by strike", "na")}${cell("Real volatility smile", "–", "demo uses a model skew", "na")}</div>
+    ${avoid.length ? `<h3>Avoid right now</h3><ul class="avoid">${avoid.map((a) => `<li>${esc(a)}</li>`).join("")}</ul>` : ""}
+    <h3>Trade ideas, ranked for these conditions</h3>
+    ${IDEAS_CACHE.slice(0, 4).map(card).join("") || '<p class="mute small">No idea fits the current conditions. Standing aside is a position too.</p>'}
+    <p class="small mute" style="margin:0">Ideas follow fixed rules from the indicators above, not predictions. They are educational, not investment advice. Check margin and charges with your broker before trading.</p>`;
+}
+function ideaLegs(n) {
+  const i = IDEAS_CACHE[n];
+  return i ? i.legs.map((L) => ({ key: FEED.option(L.strike, L.opt, i.expiry).key, side: L.side, lots: 1 })) : [];
+}
+
 /* ---------------- volatility edge ---------------- */
 function rvFromHistory(h, days = 21) {
   const c = h.c.slice(-days - 1), lr = c.slice(1).map((x, i) => Math.log(x / c[i])), m = lr.reduce((a, b) => a + b, 0) / lr.length;
@@ -669,6 +753,8 @@ async function renderNews() {
   try { feed = await getJson("data/feed.json"); } catch { try { feed = await getJson("data/feed.sample.json"); } catch { $("n-body").innerHTML = '<div class="loading">News feed unavailable.</div>'; return; } }
   const known = new Set(SYMS.map((s) => s.sym));
   const items = (feed.items || []).filter((i) => i.call !== "ignore").slice(0, 60);
+  const day = (feed.items || [])[0]?.time?.slice(0, 10);
+  NEWS_HIGH = (feed.items || []).filter((i) => i.time?.slice(0, 10) === day && (i.impact >= 70 || i.call === "buy" || i.call === "sell")).length;
   $("n-body").innerHTML = items.map((i) => {
     const ticks = (i.tickers || []).map((x) => typeof x === "string" ? x : x.symbol).filter(Boolean).slice(0, 4);
     return `<div class="nw"><div class="m"><span class="chip ${esc(i.call || "watch")}">${esc((i.call || "watch").toUpperCase())}</span><span class="mono">${new Date(i.time).toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit", hour12: false })}</span><span>${esc(i.source || "")}</span>
@@ -699,6 +785,7 @@ function tick() {
   if (!$("grid").classList.contains("options") || SOLO) { /* equity desk */ }
   if (isVisible("chain")) renderChain();
   if (isVisible("strategy")) renderStrategy();
+  if (isVisible("ideas") && (!UI.ideasAt || t - UI.ideasAt > 5000)) { UI.ideasAt = t; renderIdeas(); }
 }
 function isVisible(p) { const el = document.querySelector(`.panel[data-panel="${p}"]`); return el && el.offsetParent !== null; }
 
@@ -712,6 +799,10 @@ function wire() {
     if (lt) { select(lt.dataset.key); UI.side = e.shiftKey ? "SELL" : "BUY"; renderTicket(); return; }
     const add = t.closest("[data-add]");
     if (add) { UI.strat.push({ key: add.dataset.add, side: e.shiftKey ? 1 : -1, lots: 1 }); broadcast({ type: "strat", legs: UI.strat }); renderStrategy(); toast(`${e.shiftKey ? "Buy" : "Sell"} leg added (shift-click + to add a buy)`); return; }
+    const il = t.closest("[data-idea-load]");
+    if (il) { UI.strat = ideaLegs(+il.dataset.ideaLoad); broadcast({ type: "strat", legs: UI.strat }); renderStrategy(); toast("Loaded into the strategy builder", "ok"); return; }
+    const it = t.closest("[data-idea-trade]");
+    if (it) { UI.strat = ideaLegs(+it.dataset.ideaTrade); broadcast({ type: "strat", legs: UI.strat }); renderStrategy(); placeStrategy(); return; }
     const rm = t.closest("[data-rm]");
     if (rm) { UI.strat.splice(+rm.dataset.rm, 1); broadcast({ type: "strat", legs: UI.strat }); renderStrategy(); return; }
     const ex = t.closest("[data-exit]");
@@ -732,12 +823,12 @@ function wire() {
   $("tk").addEventListener("submit", submitTicket);
   $("p-tabs").addEventListener("click", (e) => { const b = e.target.closest("[data-v]"); if (!b) return; UI.posTab = b.dataset.v; $("p-tabs").querySelectorAll("button").forEach((x) => x.setAttribute("aria-pressed", String(x === b))); renderPositions(); });
   $("p-exit").onclick = () => { act("squareOffAll", Date.now()); toast("Exiting all positions"); };
-  $("o-exp").onchange = renderChain;
+  $("o-exp").onchange = () => { renderChain(); renderIdeas(); };
   $("s-tpl").innerHTML = `<option value="">Template…</option>` + TPLS.map((n) => `<option>${n}</option>`).join("");
   $("s-tpl").onchange = () => { if ($("s-tpl").value) stratFromTemplate($("s-tpl").value); $("s-tpl").value = ""; };
   $("s-clear").onclick = () => { UI.strat = []; broadcast({ type: "strat", legs: [] }); renderStrategy(); };
   $("s-place").onclick = placeStrategy;
-  const desk = (d) => { $("grid").classList.toggle("options", d === "op"); $("desk-eq").setAttribute("aria-pressed", String(d === "eq")); $("desk-op").setAttribute("aria-pressed", String(d === "op")); store("pe-trade-desk", d); if (d === "op") { renderChain(); renderStrategy(); } else loadChart(); };
+  const desk = (d) => { $("grid").classList.toggle("options", d === "op"); $("desk-eq").setAttribute("aria-pressed", String(d === "eq")); $("desk-op").setAttribute("aria-pressed", String(d === "op")); store("pe-trade-desk", d); if (d === "op") { renderChain(); renderStrategy(); renderIdeas(); } else loadChart(); };
   $("desk-eq").onclick = () => desk("eq"); $("desk-op").onclick = () => desk("op");
   desk(store("pe-trade-desk") || "eq");
   $("help-btn").onclick = () => { $("help").hidden = false; };
