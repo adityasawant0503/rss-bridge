@@ -62,8 +62,10 @@ Read this first when picking the work back up. Last updated 12 Nov 2026.
   read of 26 Nov (Nifty swept the opening-range low, closed back through the drop's FVGs, held the pullback, ran)
   and the Wyckoff spring. Intraday: sweep of the opening-range or previous-day level -> a close through a
   bearish FVG within 12 bars (IFVG) -> first retest of the IFVG top fills, stop at the sweep extreme, 2R, out at
-  15:10; 5m/3m/1m x or/pd = 6 versions, both directions. Backtest (5m, Aug-Nov, 174 trades) about -0.02R net, no
-  edge on its own; on 26 Nov itself the 5m rule missed the morning long (the pullback stopped 5 points short of
+  15:10; 5m/3m/1m x or/pd, both directions. Added 27 Nov from Aditya's own rules: "close" (enter on the inversion
+  candle's close) and "tap" (only if the next candle taps the IFVG top), both targeting the previous swing high with
+  the stop to break-even at +1R: 18 intraday versions in all. Backtests (fixed before running) hover around 0R net
+  for retest and close, and below 0 for tap except 1m; no edge on its own; on 26 Nov itself the 5m rule missed the morning long (the pullback stopped 5 points short of
   the IFVG) and caught the 11:10 short instead. Multi-day: spring-20/60 (close back above a swept 20/60-session
   low, hold 10 sessions) and upthrust-20 (range <= 6%); one hold at a time. 10 years: worked in 2022-26, not in
   2017-21. The 10:05 task runs `liquidity.py score` daily and `summary` on Fridays. Don't tune the rules.

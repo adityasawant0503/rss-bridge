@@ -3,8 +3,9 @@
 
 Both come from Aditya's read of 26 Nov 2026 (Nifty swept the opening-range low, a candle closed back through the
 fair value gaps of the drop, the pullback held above them and price ran) and the Wyckoff idea that the same
-"take the liquidity, reclaim, go" pattern works days apart. The rules were fixed on 26 Nov 2026, before the first
-backtest, and must not be tuned during the forward test (from 27 Nov 2026).
+"take the liquidity, reclaim, go" pattern works days apart. The rules were fixed on 26 Nov 2026 (the close and tap
+entries on 27 Nov, before 09:50 IST), each before its first backtest, and must not be tuned during the forward test
+(from 27 Nov 2026).
 
 Intraday (per index per day, bars of 5, 3 or 1 minutes; a long is described, a short is the mirror image):
   1. Level: the opening-range low (09:15-09:30; sweeps count from 09:30) or the previous day's low (from 09:15).
@@ -12,15 +13,25 @@ Intraday (per index per day, bars of 5, 3 or 1 minutes; a long is described, a s
   3. Bearish FVGs: three bars where bar 1's low is above bar 3's high, completed from 6 bars before the sweep on.
   4. Inversion: within 12 bars of the sweep, a bar closes above an FVG's top. That FVG (the highest one closed
      through) is the IFVG.
-  5. Entry: the first later bar that trades back to the IFVG's top fills there (at the open if it opens below),
-     bars up to 11:25. If the sweep low trades before the price returns, the setup is off.
-  6. Stop at the sweep low; target 2R; otherwise out at the close of the 15:10 bar. Inside a bar the stop comes
-     first, and the entry bar can only stop. One trade per index per day, the first fill of either side.
+  5. Entry, three ways (each its own version):
+     retest: the first later bar that trades back to the IFVG's top fills there (at the open if it opens below),
+       bars up to 11:25. If the sweep low trades before the price returns, the setup is off.
+     close: at the close of the inversion candle itself (Aditya, 27 Nov).
+     tap: only the candle right after the inversion, if it trades back to the IFVG's top (Aditya, 27 Nov).
+  6. Stop at the sweep low. retest: target 2R. close and tap: target the most recent swing high (a high not
+     exceeded by two bars either side) confirmed before the sweep and above the entry, else the session's high
+     before the sweep, else no trade; the stop moves to the entry once price reaches +1R. Otherwise out at the
+     close of the 15:10 bar. Inside a bar the stop comes first; a filled entry bar can only stop.
+     One trade per index per day and version, the first entry of either side.
 
-  Backtest before the forward test (5m, 17 Aug - 25 Nov 2026, 3 indices x 2 levels, 174 trades): 37% wins,
-  +0.05R gross, -0.02R after 0.01% costs, PF 0.97; the same bracket the other way +0.17R. Longs -0.16R net (69),
-  shorts +0.07R (105). No edge on its own yet; entries 09:40-09:59 did better (+0.35R, 37) but that slice was
-  found after looking, so it is only a hypothesis for the forward test.
+  Backtest before the forward test (rules fixed before running; 5m 17 Aug - 25 Nov 2026, 1m/3m Nov only;
+  Nifty, Sensex, Bank Nifty x opening range / previous day; R at index level, net of 0.01% costs):
+    retest  5m Aug-Oct +0.02R (130, PF 1.03), Nov -0.13R (44); 3m +0.06R (38); 1m -0.18R (58).
+    close   5m Aug-Oct +0.03R (125, PF 1.06), Nov -0.40R (34); 3m -0.07R (39); 1m -0.07R (57). Longs +0.06R (92),
+            shorts -0.14R (163). Average swing target about 2R.
+    tap     5m Aug-Oct -0.19R (79), Nov -0.42R (22); 3m -0.43R (27); 1m +0.19R (33). About 1 in 4 fills.
+  No entry style shows an edge on its own yet. The 1m tap and the long side of the close entry are the only
+  positives, on small samples. Options add decay and spread on top.
 
 Multi-day (daily closes, index level, no stop):
   spring-20 / spring-60: the day trades below the lowest low of the previous 20 / 60 sessions and closes back
@@ -54,7 +65,7 @@ import mmxm    # noqa: E402
 import optbt   # noqa: E402
 
 INDICES = {"NIFTY": "^NSEI", "SENSEX": "^BSESN", "BANKNIFTY": "^NSEBANK"}
-INTRADAY = [(tf, lvl) for tf in (5, 3, 1) for lvl in ("or", "pd")]
+INTRADAY = [(tf, lvl, mode) for mode in ("retest", "close", "tap") for tf in (5, 3, 1) for lvl in ("or", "pd")]
 DAILY = {"spring-20": (20, None, 1), "spring-60": (60, None, 1), "upthrust-20": (20, 0.06, -1)}
 HOLD = 10
 FORWARD_START = date(2026, 11, 27)
@@ -90,12 +101,12 @@ def flip(bars):
     return [(t, -o, -l, -h, -c) for t, o, h, l, c in bars]
 
 
-def long_setup(bars, level, start):
-    """(entry bar index, entry price, stop) of the first long fill, or None."""
+def structure(bars, level, start):
+    """(sweep bar, sweep low, (IFVG bottom, top), inversion bar) of the first long structure, or None."""
     s = next((i for i, b in enumerate(bars) if start <= b[0] <= LAST_ENTRY and b[3] < level), None)
     if s is None:
         return None
-    low, ifvg = bars[s][3], None
+    low = bars[s][3]
     for j in range(s, min(len(bars), s + INVERT_WITHIN + 1)):
         t, o, h, l, c = bars[j]
         if t > LAST_ENTRY:
@@ -104,17 +115,45 @@ def long_setup(bars, level, start):
         gaps = [(bars[i][2], bars[i - 2][3]) for i in range(max(2, s - FVG_BEFORE), j) if bars[i - 2][3] > bars[i][2]]
         through = [g for g in gaps if c > g[1]]
         if through:
-            ifvg, inv = max(through, key=lambda g: g[1]), j
-            break
-    if ifvg is None:
+            return s, low, max(through, key=lambda g: g[1]), j
+    return None
+
+
+def swing_target(bars, s, entry):
+    """The most recent swing high (a high not exceeded by the two bars either side) confirmed before the sweep bar
+    and above the entry; else the session's high before the sweep if it is above the entry; else None."""
+    pivots = [bars[i][2] for i in range(2, s - 2) if bars[i][2] == max(b[2] for b in bars[i - 2:i + 3])]
+    above = [h for h in pivots if h > entry]
+    if above:
+        return above[-1]
+    pre = max((b[2] for b in bars[:s]), default=None)
+    return pre if pre is not None and pre > entry else None
+
+
+def long_setup(bars, level, start, mode="retest"):
+    """(entry bar index, entry price, stop, target or None) of the first long, or None.
+    retest: the first later bar back to the IFVG top (2R target). close: the inversion candle's close.
+    tap: only the candle right after the inversion, if it trades back to the IFVG top. close and tap target
+    the previous swing high."""
+    st = structure(bars, level, start)
+    if st is None:
         return None
-    top = ifvg[1]
-    for k in range(inv + 1, len(bars)):
+    s, low, (bot, top), inv = st
+    if mode == "close":
+        entry = bars[inv][4]
+        tgt = swing_target(bars, s, entry)
+        return (inv, entry, low, tgt) if tgt else None
+    last = len(bars) if mode == "retest" else min(len(bars), inv + 2)
+    for k in range(inv + 1, last):
         t, o, h, l, c = bars[k]
         if t > LAST_ENTRY or o <= low:
             return None
         if l <= top:
-            return k, min(o, top), low
+            entry = min(o, top)
+            if mode == "retest":
+                return k, entry, low, None
+            tgt = swing_target(bars, s, entry)
+            return (k, entry, low, tgt) if tgt else None
     return None
 
 
@@ -138,6 +177,28 @@ def manage(bars, k, entry, stop):
     return (last - entry) / risk, "close"
 
 
+def manage_swing(bars, k, entry, stop, target, at_close):
+    """(R, how) for a long aimed at a swing high: stop first inside a bar, then the target; the stop moves to the
+    entry once a later bar reaches +1R. at_close: entered at bar k's close, so bar k itself can't stop it."""
+    risk = entry - stop
+    if risk <= 0 or target <= entry:
+        return None
+    if not at_close and bars[k][3] <= stop:
+        return -1.0, "stop"
+    cur, last = stop, bars[k][4]
+    for t, o, h, l, c in bars[k + 1:]:
+        if t > EXIT_BAR:
+            break
+        if l <= cur:
+            return (cur - entry) / risk, "stop" if cur < entry else "breakeven"
+        if h >= target:
+            return (target - entry) / risk, "target"
+        if h >= entry + risk:
+            cur = max(cur, entry)
+        last = c
+    return (last - entry) / risk, "close"
+
+
 def levels(days, d, lvl):
     bars = days[d]
     if lvl == "or":
@@ -151,30 +212,34 @@ def levels(days, d, lvl):
     return max(b[2] for b in prev), min(b[3] for b in prev), T(9, 15)
 
 
-def trade_day(bars, hi, lo, start):
-    """The day's first fill of either side as a dict, or None."""
+def trade_day(bars, hi, lo, start, mode="retest"):
+    """The day's first entry of either side as a dict, or None."""
     found = []
-    L = long_setup(bars, lo, start)
+    L = long_setup(bars, lo, start, mode)
     if L:
         found.append(("long", L, bars))
     fb = flip(bars)
-    S = long_setup(fb, -hi, start)
+    S = long_setup(fb, -hi, start, mode)
     if S:
         found.append(("short", S, fb))
     if not found:
         return None
-    side, (k, entry, stop), bb = min(found, key=lambda x: x[1][0])
-    m = manage(bb, k, entry, stop)
+    side, (k, entry, stop, tgt), bb = min(found, key=lambda x: x[1][0])
+    m = manage(bb, k, entry, stop) if mode == "retest" else manage_swing(bb, k, entry, stop, tgt, mode == "close")
     if m is None:
         return None
     sign = 1 if side == "long" else -1
-    return {"side": side, "entry_time": bb[k][0].strftime("%H:%M"), "entry": round(sign * entry, 2),
-            "stop": round(sign * stop, 2), "risk_pct": round(100 * (entry - stop) / abs(entry), 3),
-            "r": round(m[0], 3), "exit": m[1]}
+    row = {"side": side, "entry_time": bb[k][0].strftime("%H:%M"), "entry": round(sign * entry, 2),
+           "stop": round(sign * stop, 2), "risk_pct": round(100 * (entry - stop) / abs(entry), 3),
+           "r": round(m[0], 3), "exit": m[1]}
+    if tgt is not None:
+        row["target"] = round(sign * tgt, 2)
+        row["target_r"] = round((tgt - entry) / (entry - stop), 2)
+    return row
 
 
-def vname(tf, lvl):
-    return "ifvg-%dm-%s" % (tf, lvl)
+def vname(tf, lvl, mode="retest"):
+    return "ifvg-%dm-%s" % (tf, lvl) if mode == "retest" else "ifvg-%s-%dm-%s" % (mode, tf, lvl)
 
 
 # ---------------------------------------------------------------- multi-day
@@ -239,15 +304,16 @@ def dstats(rows):
 def cmd_backtest(args):
     split = date(2026, 11, 1)
     for name, sym in INDICES.items():
-        for tf, lvl in INTRADAY:
-            days = load_days(sym, tf)
+        cache = {}
+        for tf, lvl, mode in INTRADAY:
+            days = cache[tf] if tf in cache else cache.setdefault(tf, load_days(sym, tf))
             before, after = [], []
             for d in days:
                 lv = levels(days, d, lvl)
-                tr = lv and trade_day(days[d], lv[0], lv[1], lv[2])
+                tr = lv and trade_day(days[d], lv[0], lv[1], lv[2], mode)
                 if tr:
                     (before if d < split else after).append(tr)
-            print("%-9s %-12s before Nov: %s | Nov on: %s" % (name, vname(tf, lvl), stats(before), stats(after)))
+            print("%-9s %-18s before Nov: %s | Nov on: %s" % (name, vname(tf, lvl, mode), stats(before), stats(after)))
     if args.no_daily:
         return
     print("\nmulti-day, 10 years of daily bars, hold %d sessions (return in the trade's direction):" % HOLD)
@@ -276,17 +342,18 @@ def cmd_score(args):
     done = {(r["day"], r["index"], r["version"]) for r in read_log()}
     new = []
     for name, sym in INDICES.items():
-        for tf, lvl in INTRADAY:
-            days = load_days(sym, tf)
+        cache = {}
+        for tf, lvl, mode in INTRADAY:
+            days = cache[tf] if tf in cache else cache.setdefault(tf, load_days(sym, tf))
             for d in days:
-                key = (str(d), name, vname(tf, lvl))
+                key = (str(d), name, vname(tf, lvl, mode))
                 if d < since or d >= today or key in done:
                     continue
                 lv = levels(days, d, lvl)
                 if lv is None:
                     continue
-                row = {"day": str(d), "index": name, "version": vname(tf, lvl)}
-                row.update(trade_day(days[d], lv[0], lv[1], lv[2]) or {"side": None, "r": None, "exit": "no trade"})
+                row = {"day": str(d), "index": name, "version": vname(tf, lvl, mode)}
+                row.update(trade_day(days[d], lv[0], lv[1], lv[2], mode) or {"side": None, "r": None, "exit": "no trade"})
                 new.append(row)
         bars = [b for b in daily_bars(sym) if b[0] < today]
         for rule in DAILY:
@@ -329,14 +396,14 @@ def cmd_summary(args):
         return
     days = sorted({r["day"] for r in rows})
     print("liquidity forward test %s to %s, rules fixed 26 Nov 2026" % (days[0], days[-1]))
-    for tf, lvl in INTRADAY:
-        v = vname(tf, lvl)
+    for tf, lvl, mode in INTRADAY:
+        v = vname(tf, lvl, mode)
         allr = []
         for name in INDICES:
             rs = [r for r in rows if r["version"] == v and r["index"] == name and r.get("r") is not None]
             allr += rs
-            print("  %-12s %-9s %s" % (v, name, stats(rs)))
-        print("  %-12s %-9s %s" % (v, "all", stats(allr)))
+            print("  %-18s %-9s %s" % (v, name, stats(rs)))
+        print("  %-18s %-9s %s" % (v, "all", stats(allr)))
     for rule in DAILY:
         rs = [r for r in rows if r["version"] == rule]
         print("  %-12s %-9s %s" % (rule, "all", dstats(rs)))
