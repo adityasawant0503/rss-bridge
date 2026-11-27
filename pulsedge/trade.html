@@ -330,8 +330,8 @@ function act(op, ...args) {
   return null;
 }
 function setupSync() {
-  if ("BroadcastChannel" in window) {
-    chan = new BroadcastChannel("pe-trade");
+  try { if ("BroadcastChannel" in window) chan = new BroadcastChannel("pe-trade"); } catch { chan = null; }
+  if (chan) {
     chan.onmessage = (e) => {
       const m = e.data;
       if (m.type === "state" && !leader) { engine.load(store(KEY)); renderAll(); }
@@ -341,11 +341,16 @@ function setupSync() {
       if (m.type === "strat") { UI.strat = m.legs; renderStrategy(); }
     };
   }
-  if (navigator.locks) {
+  let locks = null;
+  try { locks = navigator.locks || null; } catch { locks = null; }
+  if (locks && chan) {
     // whichever window holds the lock runs the engine; if it closes, another window takes over
     leader = false;
-    navigator.locks.request("pe-trade-leader", () => { leader = true; engine.load(store(KEY)); renderAll(); return new Promise(() => {}); });
-  }
+    try {
+      locks.request("pe-trade-leader", () => { leader = true; engine.load(store(KEY)); renderAll(); return new Promise(() => {}); })
+        .catch(() => { leader = true; });                // locks blocked (sandboxed page): run the engine here
+    } catch { leader = true; }
+  } else leader = true;                                    // no cross-window sync available: this window runs everything
 }
 
 /* ---------------- data ---------------- */
