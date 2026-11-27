@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>try{var t=localStorage.getItem("th");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PulsEdge Trade</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Charts, option chain, strategy builder and paper trading for Indian markets. Works beside the PulsEdge news terminal.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+/* Layout: PULSE trading desk. Status bar, then a dense grid of panels (watchlist + news | chart +
+   positions | order ticket + volatility edge). The Options desk swaps the centre for the option
+   chain and strategy builder. Any panel pops out into its own window for another monitor.
+   Dark-first, same tokens as the PulsEdge news terminal. */
+:root{
+  --bg:#0b0b10;--panel:#121219;--panel2:#171720;--line:#262532;--fg:#ecebf3;--mute:#8e8a9e;--dim:#5f5c6d;
+  --pur:#8b5cf6;--pur-l:#a78bfa;--pur-soft:#8b5cf61f;--pur-box:#1a1630;--pur-edge:#4c3d8f;
+  --green:#22c55e;--green-l:#4ade80;--green-soft:#22c55e1f;--red:#ef4444;--red-l:#f87171;--red-soft:#ef44441f;
+  --amber:#f59e0b;--amber-l:#fbbf24;--amber-soft:#f59e0b1f;--itm:#8b5cf60f;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  color-scheme:dark;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)
+}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){
+  --bg:#f6f5fa;--panel:#ffffff;--panel2:#f3f2f8;--line:#e2e0ea;--fg:#17161c;--mute:#6b6878;--dim:#9b98a8;
+  --pur:#7c4dff;--pur-l:#6a3df0;--pur-soft:#7c4dff14;--pur-box:#f4efff;--pur-edge:#cbbcff;
+  --green:#16a34a;--green-l:#15803d;--green-soft:#16a34a14;--red:#dc2626;--red-l:#c02626;--red-soft:#dc262612;
+  --amber:#d97706;--amber-l:#b45309;--amber-soft:#d9770614;--itm:#7c4dff0a;color-scheme:light}}
+:root[data-theme="light"]{
+  --bg:#f6f5fa;--panel:#ffffff;--panel2:#f3f2f8;--line:#e2e0ea;--fg:#17161c;--mute:#6b6878;--dim:#9b98a8;
+  --pur:#7c4dff;--pur-l:#6a3df0;--pur-soft:#7c4dff14;--pur-box:#f4efff;--pur-edge:#cbbcff;
+  --green:#16a34a;--green-l:#15803d;--green-soft:#16a34a14;--red:#dc2626;--red-l:#c02626;--red-soft:#dc262612;
+  --amber:#d97706;--amber-l:#b45309;--amber-soft:#d9770614;--itm:#7c4dff0a;color-scheme:light}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:13px/1.4 var(--sans);-webkit-font-smoothing:antialiased;display:flex;flex-direction:column}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--pur-l);outline-offset:1px}
+.mono,.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.up{color:var(--green-l)}.down{color:var(--red-l)}.flat{color:var(--mute)}
+.mute{color:var(--mute)}.small{font-size:11px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+
+/* status bar */
+.top{flex:none;display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;padding:8px max(12px,env(safe-area-inset-right,0px)) 8px max(12px,env(safe-area-inset-left,0px));border-bottom:1px solid var(--line);background:var(--panel)}
+.brand{font:700 14px var(--mono);letter-spacing:.12em;text-decoration:none;color:var(--fg);display:flex;align-items:center;gap:7px}
+.brand i{width:9px;height:9px;border-radius:50%;background:var(--pur);box-shadow:0 0 10px var(--pur)}
+.brand b{color:var(--pur-l);font-weight:700}
+.pill{font:500 11px var(--mono);border:1px solid var(--line);border-radius:99px;padding:3px 9px;white-space:nowrap;color:var(--mute)}
+.pill.demo{color:var(--amber-l);border-color:var(--amber)}
+.funds{display:flex;gap:14px;margin-left:auto;flex-wrap:wrap}
+.funds div{display:grid;line-height:1.15}
+.funds span{font-size:10px;color:var(--mute);text-transform:uppercase;letter-spacing:.06em}
+.funds b{font:500 13px var(--mono)}
+.desk{display:flex;background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:2px}
+.desk button{border:0;background:none;padding:4px 10px;border-radius:6px;color:var(--mute);font-weight:500}
+.desk button[aria-pressed="true"]{background:var(--pur-soft);color:var(--fg)}
+.ibtn{border:1px solid var(--line);background:var(--panel2);border-radius:8px;padding:4px 9px;color:var(--mute);text-decoration:none;font-size:12px;white-space:nowrap}
+.ibtn:hover{color:var(--fg);border-color:var(--pur-edge)}
+.thm{width:30px;height:28px;display:grid;place-items:center;padding:0}
+.thm svg{width:15px;height:15px;fill:currentColor}
+
+/* grid */
+.grid{flex:1;min-height:0;display:grid;gap:6px;padding:6px max(6px,env(safe-area-inset-right,0px)) 6px max(6px,env(safe-area-inset-left,0px));
+  grid-template-columns:minmax(230px,1fr) minmax(0,2.6fr) minmax(270px,1.05fr);grid-template-rows:minmax(0,1.55fr) minmax(0,1fr);
+  grid-template-areas:"watch chart ticket" "news positions edge"}
+.grid.options{grid-template-areas:"watch chain ticket" "news strategy edge";grid-template-rows:minmax(0,1.3fr) minmax(0,1fr)}
+@media (max-width:1100px){html,body{height:auto}.grid{overflow:visible}.grid,.grid.options{grid-template-columns:1fr 1fr;grid-template-rows:none;grid-auto-rows:minmax(320px,auto);
+  grid-template-areas:"chart chart" "ticket watch" "positions positions" "edge news";overflow:auto}
+  .grid.options{grid-template-areas:"chain chain" "ticket watch" "strategy strategy" "edge news"}}
+@media (max-width:700px){.grid,.grid.options{grid-template-columns:1fr;grid-template-areas:"chart" "ticket" "positions" "watch" "edge" "news"}
+  .grid.options{grid-template-areas:"chain" "ticket" "strategy" "watch" "edge" "news"}.funds{margin-left:0}}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:8px;display:flex;flex-direction:column;min-height:0;min-width:0;overflow:hidden}
+.ph{flex:none;display:flex;align-items:center;gap:8px;padding:6px 8px 6px 10px;border-bottom:1px solid var(--line);min-height:34px}
+.ph h2{margin:0;font:700 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.ph .sp{flex:1}
+.pop{border:0;background:none;color:var(--dim);padding:2px 5px;border-radius:5px;font-size:13px;line-height:1}
+.pop:hover{color:var(--fg);background:var(--panel2)}
+.pb{flex:1;min-height:0;overflow:auto}
+.grid > .panel[data-panel="chart"]{grid-area:chart}.grid > .panel[data-panel="watch"]{grid-area:watch}
+.grid > .panel[data-panel="ticket"]{grid-area:ticket}.grid > .panel[data-panel="positions"]{grid-area:positions}
+.grid > .panel[data-panel="news"]{grid-area:news}.grid > .panel[data-panel="edge"]{grid-area:edge}
+.grid > .panel[data-panel="chain"]{grid-area:chain}.grid > .panel[data-panel="strategy"]{grid-area:strategy}
+.grid:not(.options) > [data-panel="chain"],.grid:not(.options) > [data-panel="strategy"]{display:none}
+.grid.options > [data-panel="chart"],.grid.options > [data-panel="positions"]{display:none}
+body.single .grid{grid-template-columns:1fr;grid-template-rows:1fr;grid-template-areas:"one"}
+body.single .grid > .panel{display:none}body.single .grid > .panel.solo{display:flex;grid-area:one}
+
+/* tables */
+table{width:100%;border-collapse:collapse}
+th{position:sticky;top:0;background:var(--panel);z-index:1;text-align:left;font:500 10px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--dim);padding:5px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:4px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+td.r,th.r{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+tr.sel td{background:var(--pur-soft)}
+tbody tr.click{cursor:pointer}tbody tr.click:hover td{background:var(--panel2)}
+.sym{font-weight:600}.sub{font-size:11px;color:var(--dim)}
+.xbtn{border:1px solid var(--line);background:var(--panel2);border-radius:6px;padding:1px 8px;font-size:11px;color:var(--mute)}
+.xbtn:hover{color:var(--fg);border-color:var(--pur-edge)}
+.tabs{display:flex;gap:2px}
+.tabs button{border:0;background:none;color:var(--mute);padding:3px 8px;border-radius:6px;font:500 11px var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.tabs button[aria-pressed="true"]{background:var(--pur-soft);color:var(--fg)}
+.search{flex:1;min-width:0;background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:4px 8px}
+
+/* chart */
+.chart-wrap{position:relative;flex:1;min-height:0}
+#chart{position:absolute;inset:0}
+.ohlc{position:absolute;left:10px;top:6px;z-index:2;font:11px var(--mono);color:var(--mute);pointer-events:none}
+.ohlc b{color:var(--fg);font-weight:600}
+
+/* ticket */
+.tk{padding:10px;display:grid;gap:9px}
+.bs{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.bs button{border:1px solid var(--line);background:var(--panel2);border-radius:7px;padding:7px;font-weight:700;color:var(--mute)}
+.bs button.buy[aria-pressed="true"]{background:var(--green-soft);border-color:var(--green);color:var(--green-l)}
+.bs button.sell[aria-pressed="true"]{background:var(--red-soft);border-color:var(--red);color:var(--red-l)}
+.f{display:grid;gap:3px}
+.f label{font-size:11px;color:var(--mute);display:flex;justify-content:space-between;gap:6px}
+.f input,.f select{width:100%;background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:6px 8px;font-family:var(--mono);font-size:13px}
+.f input:disabled{opacity:.45}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.r3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
+.seg{display:flex;background:var(--panel2);border:1px solid var(--line);border-radius:7px;padding:2px;gap:2px}
+.seg button{flex:1;border:0;background:none;border-radius:5px;padding:4px 4px;color:var(--mute);font-size:12px;font-weight:500}
+.seg button[aria-pressed="true"]{background:var(--panel);color:var(--fg);box-shadow:0 1px 2px #0004}
+.go{border:0;border-radius:8px;padding:9px;font-weight:700;letter-spacing:.04em;color:#fff}
+.go.buy{background:var(--green)}.go.sell{background:var(--red)}
+.go:disabled{opacity:.5;cursor:not-allowed}
+.est{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;font-size:12px;color:var(--mute)}
+.est b{font:500 12px var(--mono);color:var(--fg);text-align:right}
+.msg{font-size:12px;padding:6px 8px;border-radius:6px;background:var(--panel2);border-left:3px solid var(--pur)}
+.msg.err{border-left-color:var(--red)}.msg.ok{border-left-color:var(--green)}
+details.risk{border:1px solid var(--line);border-radius:7px;padding:6px 8px}
+details.risk summary{cursor:pointer;font-size:12px;color:var(--mute)}
+details.risk[open] summary{margin-bottom:6px}
+
+/* chips */
+.chip{font:600 10px var(--mono);padding:1px 6px;border-radius:4px;letter-spacing:.04em}
+.chip.buy{background:var(--green-soft);color:var(--green-l)}.chip.sell{background:var(--red-soft);color:var(--red-l)}
+.chip.watch{background:var(--amber-soft);color:var(--amber-l)}.chip.ignore{background:var(--panel2);color:var(--dim)}
+.chip.ok{background:var(--green-soft);color:var(--green-l)}.chip.no{background:var(--red-soft);color:var(--red-l)}
+
+/* news */
+.nw{padding:7px 10px;border-bottom:1px solid var(--line);display:grid;gap:3px}
+.nw .h{font-size:12px;line-height:1.35}
+.nw .m{display:flex;gap:6px;align-items:center;flex-wrap:wrap;font-size:11px;color:var(--dim)}
+.tick{border:1px solid var(--pur-edge);background:var(--pur-soft);color:var(--pur-l);border-radius:4px;padding:0 5px;font:500 11px var(--mono)}
+
+/* chain */
+.chain td{padding:3px 6px}
+.chain td.k{text-align:center;font:600 12px var(--mono);background:var(--panel2)}
+.chain tr.atm td.k{color:var(--pur-l)}
+.chain td.itm{background:var(--itm)}
+.chain .lt{cursor:pointer;border-radius:4px;padding:1px 5px}
+.chain .lt:hover{background:var(--pur-soft);outline:1px solid var(--pur-edge)}
+.chain .add{border:0;background:none;color:var(--dim);font:600 12px var(--mono);padding:0 3px}
+.chain .add:hover{color:var(--pur-l)}
+
+/* edge + strategy */
+.edge{padding:10px;display:grid;gap:10px}
+.big{font:600 22px var(--mono)}
+.kv{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.kv div{background:var(--panel2);border-radius:7px;padding:6px 8px;display:grid}
+.kv span{font-size:10px;color:var(--mute);text-transform:uppercase;letter-spacing:.05em}
+.kv b{font:500 14px var(--mono)}
+.verdict{border-radius:8px;padding:8px 10px;font-size:12px;line-height:1.45;border:1px solid var(--line)}
+.verdict.go{border-color:var(--green);background:var(--green-soft)}.verdict.wait{border-color:var(--amber);background:var(--amber-soft)}
+.svgc text{font:10px var(--mono);fill:var(--dim)}
+.st{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(220px,1fr);gap:8px;padding:8px;min-height:100%}
+@media (max-width:900px){.st{grid-template-columns:1fr}}
+.st .legs td{padding:3px 5px}
+
+.help{position:fixed;inset:0;background:#0009;display:grid;place-items:center;z-index:50;padding:16px}
+.help .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;max-width:720px;width:100%;max-height:90vh;overflow:auto;padding:18px 20px;display:grid;gap:10px}
+.help h3{margin:0;font:700 14px var(--mono);letter-spacing:.06em}
+.help ul{margin:0;padding-left:18px;display:grid;gap:4px;color:var(--mute)}
+.help kbd{font:500 11px var(--mono);border:1px solid var(--line);border-radius:4px;padding:0 5px;background:var(--panel2);color:var(--fg)}
+.toast{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:60;display:grid;gap:6px}
+.toast div{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--pur);border-radius:8px;padding:8px 12px;box-shadow:0 10px 30px #0006;font-size:12px;max-width:320px}
+.toast div.ok{border-left-color:var(--green)}.toast div.err{border-left-color:var(--red)}
+.foot{flex:none;font-size:10px;color:var(--dim);padding:0 12px 6px;display:flex;gap:10px;flex-wrap:wrap}
+.foot a{color:var(--dim)}
+.loading{padding:30px;text-align:center;color:var(--mute)}
+</style>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="index.html" aria-label="PulsEdge home"><i></i>PULSE <b>TRADE</b></a>
+  <span class="pill mono" id="clock">--:--:-- IST</span>
+  <span class="pill demo" id="mode" title="Prices are simulated and orders are paper trades. Connect Dhan for live prices and real orders.">DEMO · PAPER TRADING</span>
+  <div class="desk" role="group" aria-label="Desk">
+    <button type="button" id="desk-eq" aria-pressed="true">Equity desk</button>
+    <button type="button" id="desk-op" aria-pressed="false">Options desk</button>
+  </div>
+  <div class="funds" id="funds"></div>
+  <a class="ibtn" href="terminal.html" target="pe-news" title="Opens the news terminal in its own window, for a second monitor">News terminal ↗</a>
+  <button class="ibtn" type="button" id="help-btn" aria-label="Help and shortcuts">?</button>
+  <button class="ibtn thm" id="thm" type="button" aria-label="Switch theme"><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7Z"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true" hidden><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+</header>
+
+<main class="grid" id="grid">
+  <section class="panel" data-panel="watch" aria-label="Watchlist">
+    <div class="ph"><h2>Watchlist</h2><input class="search" id="w-q" type="search" placeholder="Search  /" aria-label="Search symbols"><button class="pop" data-pop="watch" title="Open in a new window" aria-label="Pop out watchlist">↗</button></div>
+    <div class="pb"><table><thead><tr><th>Symbol</th><th class="r">LTP</th><th class="r">Chg%</th></tr></thead><tbody id="w-body"></tbody></table></div>
+  </section>
+
+  <section class="panel" data-panel="chart" aria-label="Chart">
+    <div class="ph"><h2 id="c-title">Chart</h2><span class="mute small" id="c-name"></span><span class="sp"></span>
+      <div class="tabs" id="c-tf" role="group" aria-label="Timeframe"><button type="button" data-tf="1">1m</button><button type="button" data-tf="5" aria-pressed="true">5m</button><button type="button" data-tf="15">15m</button><button type="button" data-tf="D">1D</button></div>
+      <button class="pop" data-pop="chart" title="Open in a new window" aria-label="Pop out chart">↗</button></div>
+    <div class="chart-wrap"><div class="ohlc" id="c-ohlc"></div><div id="chart"></div></div>
+  </section>
+
+  <section class="panel" data-panel="chain" aria-label="Option chain">
+    <div class="ph"><h2>Nifty option chain</h2><select id="o-exp" class="search" style="flex:0 1 150px" aria-label="Expiry"></select><span class="mute small" id="o-meta"></span><span class="sp"></span><button class="pop" data-pop="chain" title="Open in a new window" aria-label="Pop out option chain">↗</button></div>
+    <div class="pb"><table class="chain"><thead><tr><th class="r">Δ</th><th class="r">IV</th><th class="r">Call LTP</th><th></th><th class="r" style="text-align:center">Strike</th><th></th><th class="r">Put LTP</th><th class="r">IV</th><th class="r">Δ</th></tr></thead><tbody id="o-body"></tbody></table></div>
+  </section>
+
+  <section class="panel" data-panel="ticket" aria-label="Order ticket">
+    <div class="ph"><h2>Order</h2><span class="sym mono" id="t-sym"></span><span class="sp"></span><button class="pop" data-pop="ticket" title="Open in a new window" aria-label="Pop out order ticket">↗</button></div>
+    <div class="pb"><form class="tk" id="tk" novalidate>
+      <div class="bs"><button type="button" class="buy" id="t-buy" aria-pressed="true">BUY <span class="mono" id="t-bpx"></span></button><button type="button" class="sell" id="t-sell" aria-pressed="false">SELL</button></div>
+      <div class="seg" id="t-prod" role="group" aria-label="Product"></div>
+      <div class="seg" id="t-type" role="group" aria-label="Order type"><button type="button" data-v="MARKET" aria-pressed="true">Market</button><button type="button" data-v="LIMIT">Limit</button><button type="button" data-v="SL">SL</button><button type="button" data-v="SL-M">SL-M</button></div>
+      <div class="r3">
+        <div class="f"><label for="t-qty" id="t-qlbl">Qty</label><input id="t-qty" type="number" min="1" step="1" value="1" inputmode="numeric"></div>
+        <div class="f"><label for="t-px">Price</label><input id="t-px" type="number" step="0.05" disabled></div>
+        <div class="f"><label for="t-trg">Trigger</label><input id="t-trg" type="number" step="0.05" disabled></div>
+      </div>
+      <div class="r2">
+        <div class="f"><label for="t-sl">Stop-loss <span>optional</span></label><input id="t-sl" type="number" step="0.05" placeholder="–"></div>
+        <div class="f"><label for="t-tg">Target <span>optional</span></label><input id="t-tg" type="number" step="0.05" placeholder="–"></div>
+      </div>
+      <details class="risk" id="t-risk"><summary>Size by risk (uses the stop-loss)</summary>
+        <div class="r2"><div class="f"><label for="t-rpct">Risk per trade %</label><input id="t-rpct" type="number" step="0.25" min="0.1" value="1"></div>
+        <div class="f"><label>&nbsp;</label><button type="button" class="xbtn" id="t-size" style="padding:6px">Set quantity</button></div></div>
+        <p class="small mute" id="t-rnote" style="margin:6px 0 0"></p>
+      </details>
+      <div class="est" id="t-est"></div>
+      <button type="submit" class="go buy" id="t-go">BUY</button>
+      <div id="t-msg" class="msg" hidden></div>
+    </form></div>
+  </section>
+
+  <section class="panel" data-panel="positions" aria-label="Positions and orders">
+    <div class="ph"><div class="tabs" id="p-tabs" role="group" aria-label="View"><button type="button" data-v="pos" aria-pressed="true">Positions</button><button type="button" data-v="ord">Orders</button><button type="button" data-v="trd">Trades</button></div><span class="sp"></span><span class="mono small" id="p-sum"></span><button class="xbtn" type="button" id="p-exit">Exit all</button><button class="pop" data-pop="positions" title="Open in a new window" aria-label="Pop out positions">↗</button></div>
+    <div class="pb"><table><thead id="p-head"></thead><tbody id="p-body"></tbody></table></div>
+  </section>
+
+  <section class="panel" data-panel="strategy" aria-label="Strategy builder">
+    <div class="ph"><h2>Strategy</h2><select class="search" id="s-tpl" style="flex:0 1 170px" aria-label="Template"></select><span class="sp"></span><button class="xbtn" type="button" id="s-clear">Clear</button><button class="xbtn" type="button" id="s-place">Place all legs</button><button class="pop" data-pop="strategy" title="Open in a new window" aria-label="Pop out strategy builder">↗</button></div>
+    <div class="pb"><div class="st"><div><div class="svgc" id="s-chart"></div><div class="kv" id="s-stats" style="margin-top:6px"></div></div>
+      <div><table class="legs"><thead><tr><th>Leg</th><th class="r">Lots</th><th class="r">Price</th><th></th></tr></thead><tbody id="s-legs"></tbody></table><p class="small mute" style="margin:8px 4px">Click any price in the option chain to trade it, or + to add it here. Greeks: <span class="mono" id="s-greeks"></span></p></div></div></div>
+  </section>
+
+  <section class="panel" data-panel="edge" aria-label="Volatility edge">
+    <div class="ph"><h2>Volatility edge</h2><span class="sp"></span><button class="pop" data-pop="edge" title="Open in a new window" aria-label="Pop out volatility edge">↗</button></div>
+    <div class="pb"><div class="edge" id="edge"></div></div>
+  </section>
+
+  <section class="panel" data-panel="news" aria-label="PulsEdge news">
+    <div class="ph"><h2>PulsEdge news</h2><span class="sp"></span><a class="xbtn" href="terminal.html" target="pe-news">Full terminal ↗</a><button class="pop" data-pop="news" title="Open in a new window" aria-label="Pop out news">↗</button></div>
+    <div class="pb" id="n-body"><div class="loading">Loading news…</div></div>
+  </section>
+</main>
+<div class="foot"><span>Demo prices are simulated from the last real close (Dec 2025) and India VIX. Paper trades only. Not investment advice.</span><span>Charges: NSE schedule after Budget 2026, brokerage ₹20/order.</span><a href="https://www.tradingview.com/" target="_blank" rel="noopener">Charts by TradingView Lightweight Charts™</a></div>
+<div class="toast" id="toast" aria-live="polite"></div>
+
+<div class="help" id="help" hidden><div class="card" role="dialog" aria-modal="true" aria-labelledby="help-t">
+  <h3 id="help-t">PULSE TRADE: QUICK GUIDE</h3>
+  <p class="mute" style="margin:0">A trading desk for Indian markets that sits beside the PulsEdge news terminal. In demo mode every price is simulated and every order is a paper trade, so you can learn the desk with no risk. Connecting your Dhan account (coming next) switches it to live prices and real orders.</p>
+  <ul>
+    <li><b>Equity desk</b>: watchlist, chart, order ticket, positions and news. <b>Options desk</b>: Nifty option chain, strategy builder and the volatility edge.</li>
+    <li><b>Multiple monitors</b>: press ↗ on any panel to open it in its own window and drag it to another screen. All windows stay in sync: pick a stock in one and the others follow.</li>
+    <li><b>Order ticket</b>: Market, Limit, SL (stop-limit) and SL-M (stop-market). Add a stop-loss and target to make a bracket: when one fills the other is cancelled. "Size by risk" works out the quantity so the stop costs your chosen % of capital, including charges.</li>
+    <li><b>Volatility edge</b>: India VIX has been above the volatility Nifty went on to deliver on 81% of days since 2008. The panel shows whether today's conditions match the ones where selling options worked best in the backtest.</li>
+    <li><b>Charges</b>: every fill pays STT, exchange fees, GST, stamp duty, SEBI fee and brokerage, exactly as the NSE schedule.</li>
+  </ul>
+  <h3>SHORTCUTS</h3>
+  <ul><li><kbd>/</kbd> search · <kbd>B</kbd> buy · <kbd>S</kbd> sell · <kbd>E</kbd> equity desk · <kbd>O</kbd> options desk · <kbd>?</kbd> this help · <kbd>Esc</kbd> close</li></ul>
+  <div style="display:flex;gap:8px;justify-content:flex-end"><button class="ibtn" type="button" id="reset-acct">Reset paper account</button><button class="ibtn" type="button" id="help-close">Close</button></div>
+</div></div>
+
+<script src="assets/vendor/lightweight-charts.standalone.production.js"></script>
+<script src="assets/trade/quant.js"></script>
+<script src="assets/trade/engine.js"></script>
+<script src="assets/trade/feed.js"></script>
+<script src="assets/theme.js"></script>
+<script>
+"use strict";
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+const inr = (x, d = 0) => (x < 0 ? "−₹" : "₹") + Math.abs(x).toLocaleString("en-IN", { maximumFractionDigits: d, minimumFractionDigits: d });
+const px = (x) => Number.isFinite(x) ? x.toLocaleString("en-IN", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : "–";
+const pct = (x, d = 2) => (x >= 0 ? "+" : "−") + Math.abs(x * 100).toFixed(d) + "%";
+const cls = (x) => x > 0 ? "up" : x < 0 ? "down" : "flat";
+const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const store = (k, v) => { try { if (v === undefined) return JSON.parse(localStorage.getItem(k)); localStorage.setItem(k, JSON.stringify(v)); } catch { return null; } };
+const params = new URLSearchParams(location.search);
+const SOLO = params.get("panel");
+const KEY = "pe-trade-v1";
+
+let FEED, SYMS, VRP, VIXH, NIFTYH, engine, chan, leader = !SOLO;
+const UI = { key: store("pe-trade-sel") || "NSE:NIFTY", side: "BUY", type: "MARKET", product: "MIS", tf: "5", posTab: "pos", strat: [] };
+
+/* ---------------- toast ---------------- */
+function toast(text, kind = "") { const d = document.createElement("div"); d.className = kind; d.textContent = text; $("toast").prepend(d); setTimeout(() => d.remove(), 4200); }
+
+/* ---------------- sync between windows ----------------
+   One window (the "leader") runs the engine; others send it commands and receive its state. */
+function save() { store(KEY, engine.toJSON()); }
+function broadcast(msg) { if (chan) chan.postMessage(msg); }
+// make sure the engine knows an instrument (and its underlying) and has a price before an order
+function prep(key) {
+  const inst = FEED.instrument(key), t = Date.now();
+  if (!inst) return;
+  engine.register(inst); engine.quote(key, FEED.price(key, t), t);
+  if (inst.underlyingKey) { engine.register(FEED.instrument(inst.underlyingKey)); engine.quote(inst.underlyingKey, FEED.price(inst.underlyingKey, t), t); }
+}
+function act(op, ...args) {
+  if (op === "place" && leader) prep(args[0].key);
+  if (leader) { const r = engine[op](...args); save(); broadcast({ type: "state" }); renderAll(); return r; }
+  broadcast({ type: "cmd", op, args });
+  return null;
+}
+function setupSync() {
+  if ("BroadcastChannel" in window) {
+    chan = new BroadcastChannel("pe-trade");
+    chan.onmessage = (e) => {
+      const m = e.data;
+      if (m.type === "state" && !leader) { engine.load(store(KEY)); renderAll(); }
+      if (m.type === "cmd" && leader) { if (m.op === "place") prep(m.args[0].key); const r = engine[m.op](...m.args); save(); broadcast({ type: "state" }); renderAll(); if (r && r.status === "REJECTED") broadcast({ type: "toast", text: r.reason, kind: "err" }); }
+      if (m.type === "toast") toast(m.text, m.kind);
+      if (m.type === "select" && m.key !== UI.key) select(m.key, false);
+      if (m.type === "strat") { UI.strat = m.legs; renderStrategy(); }
+    };
+  }
+  if (navigator.locks) {
+    // whichever window holds the lock runs the engine; if it closes, another window takes over
+    leader = false;
+    navigator.locks.request("pe-trade-leader", () => { leader = true; engine.load(store(KEY)); renderAll(); return new Promise(() => {}); });
+  }
+}
+
+/* ---------------- data ---------------- */
+async function getJson(u) { const r = await fetch(u); if (!r.ok) throw new Error(u); return r.json(); }
+const HIST = {};
+async function history(sym) {
+  if (HIST[sym]) return HIST[sym];
+  const f = sym === "NIFTY" ? "data/trade/NIFTY.json" : sym === "INDIAVIX" ? "data/trade/INDIAVIX.json" : `data/trade/stocks/${sym}.json`;
+  return (HIST[sym] = await getJson(f));
+}
+
+/* ---------------- watchlist ---------------- */
+function watchKeys() { return SYMS.map((s) => "NSE:" + s.sym).concat(["NFO:NIFTY FUT"]); }
+function renderWatch() {
+  const q = ($("w-q").value || "").trim().toUpperCase(), t = Date.now();
+  const rows = watchKeys().map((k) => FEED.instrument(k)).filter((i) => i && (!q || i.sym.includes(q) || (i.name || "").toUpperCase().includes(q)));
+  $("w-body").innerHTML = rows.map((i) => {
+    const p = FEED.price(i.key, t), pc = FEED.prevClose(i.key), ch = p / pc - 1;
+    return `<tr class="click${i.key === UI.key ? " sel" : ""}" data-key="${esc(i.key)}"><td><div class="sym">${esc(i.sym)}</div><div class="sub">${esc((i.name || "").slice(0, 26))}</div></td><td class="r">${px(p)}</td><td class="r ${cls(ch)}">${Number.isFinite(ch) ? pct(ch) : "–"}</td></tr>`;
+  }).join("");
+}
+
+/* ---------------- chart ---------------- */
+let chart, candles, volume, orderLines = [];
+const IST = 19800;
+function chartColors() {
+  return { layout: { background: { type: "solid", color: css("--panel") }, textColor: css("--mute"), fontFamily: "JetBrains Mono, monospace", fontSize: 11 },
+    grid: { vertLines: { color: css("--line") }, horzLines: { color: css("--line") } }, rightPriceScale: { borderColor: css("--line") },
+    timeScale: { borderColor: css("--line"), timeVisible: true, secondsVisible: false }, crosshair: { mode: 0 } };
+}
+function makeChart() {
+  if (!window.LightweightCharts) { $("chart").innerHTML = '<div class="loading">Chart library failed to load.</div>'; return; }
+  chart = LightweightCharts.createChart($("chart"), { autoSize: true, ...chartColors() });
+  candles = chart.addCandlestickSeries({ upColor: css("--green"), downColor: css("--red"), borderVisible: false, wickUpColor: css("--green"), wickDownColor: css("--red") });
+  volume = chart.addHistogramSeries({ priceFormat: { type: "volume" }, priceScaleId: "vol", color: css("--pur-soft") });
+  chart.priceScale("vol").applyOptions({ scaleMargins: { top: 0.82, bottom: 0 } });
+  chart.subscribeCrosshairMove((p) => {
+    const b = p && p.seriesData && p.seriesData.get(candles);
+    showOhlc(b);
+  });
+}
+function showOhlc(b) {
+  if (!b) { const d = candles && candles.data && candles.data(); b = d && d[d.length - 1]; }
+  if (!b) { $("c-ohlc").innerHTML = ""; return; }
+  const ch = b.close / b.open - 1;
+  $("c-ohlc").innerHTML = `O <b>${px(b.open)}</b> H <b>${px(b.high)}</b> L <b>${px(b.low)}</b> C <b class="${cls(ch)}">${px(b.close)}</b>`;
+}
+async function loadChart() {
+  if (!chart) return;
+  const inst = FEED.instrument(UI.key);
+  $("c-title").textContent = inst ? inst.sym : "Chart";
+  $("c-name").textContent = inst ? inst.name : "";
+  const daily = UI.tf === "D" && (inst.kind === "equity" || inst.kind === "index" || inst.kind === "vix");
+  if (UI.tf === "D" && !daily) { UI.tf = "5"; syncTfButtons(); }
+  let bars = [], vols = [];
+  if (daily) {
+    const h = await history(inst.sym), n = h.d.length;
+    for (let i = Math.max(0, n - 500); i < n; i++) {
+      const d = String(h.d[i]); const time = `${d.slice(0, 4)}-${d.slice(4, 6)}-${d.slice(6)}`;
+      bars.push({ time, open: h.o[i], high: h.h[i], low: h.l[i], close: h.c[i] });
+      if (h.v) vols.push({ time, value: h.v[i], color: h.c[i] >= h.o[i] ? css("--green-soft") : css("--red-soft") });
+    }
+    const today = FEED.candles(UI.key, 375, 1)[0], t = new Date();
+    bars.push({ time: `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, "0")}-${String(t.getDate()).padStart(2, "0")}`, open: today.open, high: today.high, low: today.low, close: today.close });
+  } else {
+    bars = FEED.candles(UI.key, +UI.tf, 180).map((b) => ({ ...b, time: b.time + IST }));
+  }
+  candles.setData(bars);
+  volume.setData(vols);
+  chart.timeScale().applyOptions({ timeVisible: !daily });
+  chart.timeScale().fitContent();
+  drawOrderLines();
+  showOhlc();
+}
+function tickChart() {
+  if (!chart || !candles) return;
+  const inst = FEED.instrument(UI.key);
+  if (UI.tf === "D") {
+    const d = candles.data(); if (!d.length) return;
+    const last = d[d.length - 1], p = FEED.price(UI.key);
+    candles.update({ ...last, high: Math.max(last.high, p), low: Math.min(last.low, p), close: p });
+  } else if (inst) {
+    const b = FEED.candles(UI.key, +UI.tf, 1)[0];
+    candles.update({ ...b, time: b.time + IST });
+  }
+  showOhlc();
+}
+function drawOrderLines() {
+  if (!candles) return;
+  for (const l of orderLines) candles.removePriceLine(l);
+  orderLines = [];
+  for (const o of engine.state.orders) {
+    if (o.key !== UI.key || (o.status !== "OPEN" && o.status !== "TRIGGER_PENDING")) continue;
+    const price = o.status === "TRIGGER_PENDING" ? o.trigger : o.price;
+    if (!price) continue;
+    orderLines.push(candles.createPriceLine({ price, color: o.side === "BUY" ? css("--green") : css("--red"), lineWidth: 1, lineStyle: 2, axisLabelVisible: true, title: `${o.side} ${o.qty} ${o.type}` }));
+  }
+  const pos = Object.values(engine.state.positions).find((p) => p.key === UI.key && p.qty);
+  if (pos) orderLines.push(candles.createPriceLine({ price: pos.avg, color: css("--pur-l"), lineWidth: 1, lineStyle: 0, axisLabelVisible: true, title: `POS ${pos.qty}` }));
+}
+function syncTfButtons() { $("c-tf").querySelectorAll("button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.tf === UI.tf))); }
+
+/* ---------------- selection ---------------- */
+function select(key, tell = true) {
+  if (!FEED.instrument(key)) return;
+  UI.key = key; store("pe-trade-sel", key);
+  const inst = FEED.instrument(key);
+  UI.product = inst.kind === "equity" ? (UI.product === "CNC" ? "CNC" : "MIS") : "NRML";
+  if (tell) broadcast({ type: "select", key });
+  $("t-qty").value = inst.lot > 1 ? inst.lot : $("t-qty").value || 1;
+  renderWatch(); loadChart(); renderTicket(true);
+}
+
+/* ---------------- order ticket ---------------- */
+function renderTicket(reset = false) {
+  const inst = FEED.instrument(UI.key);
+  if (!inst) return;
+  const ltp = FEED.price(UI.key), tradable = inst.kind !== "index" && inst.kind !== "vix";
+  $("t-sym").textContent = inst.sym;
+  $("t-bpx").textContent = px(ltp);
+  const prods = inst.kind === "equity" ? [["MIS", "Intraday"], ["CNC", "Delivery"]] : [["NRML", "Overnight"], ["MIS", "Intraday"]];
+  if (!prods.some(([v]) => v === UI.product)) UI.product = prods[0][0];
+  $("t-prod").innerHTML = prods.map(([v, l]) => `<button type="button" data-v="${v}" aria-pressed="${v === UI.product}">${l}</button>`).join("");
+  $("t-qlbl").textContent = inst.lot > 1 ? `Qty (lot ${inst.lot})` : "Qty";
+  $("t-qty").step = inst.lot; $("t-qty").min = inst.lot;
+  $("t-type").querySelectorAll("button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.v === UI.type)));
+  $("t-px").disabled = !(UI.type === "LIMIT" || UI.type === "SL");
+  $("t-trg").disabled = !(UI.type === "SL" || UI.type === "SL-M");
+  if (reset) {
+    $("t-px").value = ltp.toFixed(2); $("t-trg").value = ""; $("t-sl").value = ""; $("t-tg").value = "";
+  }
+  $("t-buy").setAttribute("aria-pressed", String(UI.side === "BUY")); $("t-sell").setAttribute("aria-pressed", String(UI.side === "SELL"));
+  $("t-go").className = "go " + (UI.side === "BUY" ? "buy" : "sell");
+  $("t-go").textContent = tradable ? `${UI.side} ${inst.sym}` : (inst.kind === "index" ? "Trade Nifty via futures or options" : "India VIX isn't tradable");
+  $("t-go").disabled = !tradable;
+  estimate();
+}
+function ticketOrder() {
+  const n = (id) => { const v = parseFloat($(id).value); return Number.isFinite(v) ? v : undefined; };
+  return { key: UI.key, side: UI.side, qty: Math.round(n("t-qty") || 0), type: UI.type, product: UI.product,
+    price: n("t-px"), trigger: n("t-trg"), sl: n("t-sl"), target: n("t-tg") };
+}
+function estimate() {
+  const inst = FEED.instrument(UI.key), o = ticketOrder(), ltp = FEED.price(UI.key);
+  if (!inst || !(o.qty > 0)) { $("t-est").innerHTML = ""; return; }
+  const p = (o.type === "LIMIT" || o.type === "SL") && o.price ? o.price : ltp;
+  const ch = QL.orderCharges(PETrade.chargeKind(inst, o.product), o.side === "BUY" ? "buy" : "sell", p * o.qty, engine.brokerage);
+  const margin = engine.marginFor(inst, o.product, o.side === "BUY" ? o.qty : -o.qty, p);
+  const f = engine.funds();
+  let rows = [["Value", inr(p * o.qty)], ["Margin needed", inr(margin)], ["Charges (this order)", inr(ch.total, 2)], ["Available", inr(f.available)]];
+  if (o.sl > 0) { const risk = Math.abs(p - o.sl) * o.qty; rows.push(["Loss at stop", "−" + inr(risk)]); }
+  if (o.target > 0) rows.push(["Profit at target", inr(Math.abs(o.target - p) * o.qty)]);
+  $("t-est").innerHTML = rows.map(([a, b]) => `<span>${a}</span><b>${b}</b>`).join("");
+}
+function sizeByRisk() {
+  const inst = FEED.instrument(UI.key), o = ticketOrder(), entry = (o.type === "LIMIT" || o.type === "SL") && o.price ? o.price : FEED.price(UI.key);
+  if (!(o.sl > 0)) { $("t-rnote").textContent = "Enter a stop-loss first."; return; }
+  const kind = PETrade.chargeKind(inst, o.product);
+  const r = QL.positionSize({ capital: engine.funds().equity, riskPct: (+$("t-rpct").value || 1) / 100, entry, stop: o.sl, side: o.side === "BUY" ? "long" : "short",
+    inst: kind === "options" ? "options" : kind, lotSize: inst.lot, brokerage: engine.brokerage });
+  if (r.error) { $("t-rnote").textContent = r.error; return; }
+  $("t-qty").value = r.qty;
+  $("t-rnote").textContent = `${r.qty} ${inst.lot > 1 ? `(${r.lots} lots)` : "shares"}: the stop costs ${inr(r.lossAtStop)} including ${inr(r.chargesAtStop.total, 2)} charges.`;
+  estimate();
+}
+function submitTicket(e) {
+  e.preventDefault();
+  const o = ticketOrder();
+  const r = act("place", o);
+  const msg = $("t-msg");
+  if (r) {
+    msg.hidden = false;
+    msg.className = "msg " + (r.status === "REJECTED" ? "err" : "ok");
+    msg.textContent = r.status === "REJECTED" ? r.reason : r.status === "COMPLETE" ? `Filled: ${o.side} ${o.qty} ${FEED.instrument(o.key).sym} at ${px(r.avg)}` : `Order placed: ${r.status === "OPEN" ? "waiting for the limit price" : "waiting for the trigger"}`;
+  } else { msg.hidden = false; msg.className = "msg"; msg.textContent = "Sent to the main window."; }
+}
+
+/* ---------------- positions / orders / trades ---------------- */
+function renderPositions() {
+  const s = engine.state, f = engine.funds(), tab = UI.posTab;
+  $("p-sum").innerHTML = `P&L <span class="${cls(f.realised + f.unrealised - f.charges)}">${inr(f.realised + f.unrealised - f.charges)}</span>`;
+  if (tab === "pos") {
+    $("p-head").innerHTML = `<tr><th>Instrument</th><th>Product</th><th class="r">Qty</th><th class="r">Avg</th><th class="r">LTP</th><th class="r">P&L</th><th></th></tr>`;
+    const rows = Object.entries(s.positions).filter(([, p]) => p.qty || p.realised);
+    $("p-body").innerHTML = rows.length ? rows.map(([k, p]) => {
+      const inst = FEED.instrument(p.key), l = engine.ltp(p.key) ?? FEED.price(p.key), pnl = p.realised + p.qty * (l - p.avg) - p.charges;
+      return `<tr class="click" data-key="${esc(p.key)}"><td class="sym">${esc(inst ? inst.sym : p.key)}</td><td class="mute">${p.product}</td><td class="r ${cls(p.qty)}">${p.qty}</td><td class="r">${p.qty ? px(p.avg) : "–"}</td><td class="r">${px(l)}</td><td class="r ${cls(pnl)}">${inr(pnl)}</td><td>${p.qty ? `<button class="xbtn" type="button" data-exit="${esc(k)}">Exit</button>` : '<span class="mute small">closed</span>'}</td></tr>`;
+    }).join("") : `<tr><td colspan="7" class="mute" style="padding:14px">No positions yet. Pick a symbol and place an order. Everything here is paper trading.</td></tr>`;
+  } else if (tab === "ord") {
+    $("p-head").innerHTML = `<tr><th>Time</th><th>Instrument</th><th>Side</th><th>Type</th><th class="r">Qty</th><th class="r">Price</th><th>Status</th><th></th></tr>`;
+    $("p-body").innerHTML = s.orders.slice(0, 200).map((o) => {
+      const inst = FEED.instrument(o.key), live = o.status === "OPEN" || o.status === "TRIGGER_PENDING";
+      const price = o.avg ? px(o.avg) : o.trigger ? `${px(o.trigger)} trg` : o.price ? px(o.price) : "MKT";
+      return `<tr><td class="mono mute">${new Date(o.time).toLocaleTimeString("en-IN", { hour12: false })}</td><td class="sym">${esc(inst ? inst.sym : o.key)}</td><td class="${o.side === "BUY" ? "up" : "down"}">${o.side}</td><td class="mute">${o.type}${o.oco ? " · bracket" : ""}</td><td class="r">${o.qty}</td><td class="r">${price}</td><td title="${esc(o.reason || "")}" class="${o.status === "REJECTED" ? "down" : o.status === "COMPLETE" ? "up" : "mute"}">${o.status.replace("_", " ")}</td><td>${live ? `<button class="xbtn" type="button" data-cancel="${o.id}">Cancel</button>` : ""}</td></tr>`;
+    }).join("") || `<tr><td colspan="8" class="mute" style="padding:14px">No orders yet.</td></tr>`;
+  } else {
+    $("p-head").innerHTML = `<tr><th>Time</th><th>Instrument</th><th>Side</th><th class="r">Qty</th><th class="r">Price</th><th class="r">Charges</th></tr>`;
+    $("p-body").innerHTML = s.trades.slice(0, 200).map((t) => `<tr><td class="mono mute">${new Date(t.time).toLocaleTimeString("en-IN", { hour12: false })}</td><td class="sym">${esc(FEED.instrument(t.key)?.sym || t.key)}</td><td class="${t.side === "BUY" ? "up" : "down"}">${t.side}</td><td class="r">${t.qty}</td><td class="r">${px(t.price)}</td><td class="r" title="STT ${t.breakdown.stt.toFixed(2)}, exchange ${t.breakdown.exchange.toFixed(2)}, GST ${t.breakdown.gst.toFixed(2)}, stamp ${t.breakdown.stamp.toFixed(2)}, brokerage ${t.breakdown.brokerage.toFixed(2)}">${inr(t.charges, 2)}</td></tr>`).join("")
+      || `<tr><td colspan="6" class="mute" style="padding:14px">No trades yet.</td></tr>`;
+  }
+}
+function renderFunds() {
+  const f = engine.funds(), day = f.realised + f.unrealised - f.charges;
+  $("funds").innerHTML = [["Available", inr(f.available)], ["Used margin", inr(f.used)], ["P&L", `<span class="${cls(day)}">${inr(day)}</span>`], ["Charges", inr(f.charges, 2)]]
+    .map(([a, b]) => `<div><span>${a}</span><b>${b}</b></div>`).join("");
+}
+
+/* ---------------- option chain ---------------- */
+function renderChain() {
+  const sel = $("o-exp"), t = Date.now();
+  const exps = FEED.expiries(t, 5);
+  if (sel.options.length !== exps.length || sel.options[0]?.value !== exps[0]) {
+    const keep = sel.value;
+    sel.innerHTML = exps.map((e, i) => `<option value="${e}">${new Date(e + "T12:00:00").toLocaleDateString("en-IN", { day: "numeric", month: "short" })}${i === 0 ? " (weekly)" : ""}</option>`).join("");
+    if (exps.includes(keep)) sel.value = keep;
+  }
+  const exp = sel.value || exps[0], S = FEED.spotPrice("NIFTY", t), T = FEED.yearsTo(exp, t), atm = Math.round(S / 50) * 50;
+  $("o-meta").textContent = `Spot ${px(S)} · VIX ${FEED.spotPrice("INDIAVIX", t).toFixed(2)} · ${Math.max(0, T * 365).toFixed(1)} days · lot ${FEED.lot}`;
+  const rows = [];
+  for (let k = atm - 600; k <= atm + 600; k += 50) {
+    const ce = FEED.option(k, "CE", exp), pe = FEED.option(k, "PE", exp), iv = FEED.iv(k, t, T);
+    const gc = QL.bsGreeks(S, k, T, 0.06, iv, "call", 0.013), gp = QL.bsGreeks(S, k, T, 0.06, iv, "put", 0.013);
+    rows.push(`<tr class="${k === atm ? "atm" : ""}"><td class="r ${k < S ? "itm" : ""}">${gc.delta.toFixed(2)}</td><td class="r mute ${k < S ? "itm" : ""}">${(iv * 100).toFixed(1)}</td>
+      <td class="r ${k < S ? "itm" : ""}"><span class="lt" data-key="${ce.key}" title="Click: buy · Shift-click: sell">${px(FEED.price(ce.key, t))}</span></td><td class="${k < S ? "itm" : ""}"><button class="add" type="button" data-add="${ce.key}" aria-label="Add ${k} call to strategy">+</button></td>
+      <td class="k">${k}</td>
+      <td class="${k > S ? "itm" : ""}"><button class="add" type="button" data-add="${pe.key}" aria-label="Add ${k} put to strategy">+</button></td><td class="r ${k > S ? "itm" : ""}"><span class="lt" data-key="${pe.key}" title="Click: buy · Shift-click: sell">${px(FEED.price(pe.key, t))}</span></td>
+      <td class="r mute ${k > S ? "itm" : ""}">${(iv * 100).toFixed(1)}</td><td class="r ${k > S ? "itm" : ""}">${gp.delta.toFixed(2)}</td></tr>`);
+  }
+  $("o-body").innerHTML = rows.join("");
+  if (UI.chainExp !== exp) {                       // centre the at-the-money strike when the chain first shows
+    UI.chainExp = exp;
+    const atmRow = $("o-body").querySelector("tr.atm"), box = $("o-body").closest(".pb");
+    if (atmRow && box) box.scrollTop = atmRow.offsetTop - box.clientHeight / 2;
+  }
+}
+
+/* ---------------- strategy builder ---------------- */
+const TPLS = ["Iron condor", "Short strangle", "Short straddle", "Long straddle", "Bull call spread", "Bear put spread", "Long call", "Long put"];
+function stratFromTemplate(name) {
+  const t = Date.now(), exp = $("o-exp").value || FEED.expiries(t)[0], S = FEED.spotPrice("NIFTY", t);
+  UI.strat = QL.strategyTemplate(name, S).map((L) => ({ key: FEED.option(L.strike, L.type === "call" ? "CE" : "PE", exp).key, side: L.side, lots: 1 }));
+  broadcast({ type: "strat", legs: UI.strat }); renderStrategy();
+}
+function stratLegs(t) {
+  return UI.strat.map((L) => { const i = FEED.instrument(L.key); return { ...L, inst: i, side: L.side, type: i.type === "CE" ? "call" : "put", strike: i.strike, premium: FEED.price(L.key, t) }; });
+}
+function renderStrategy() {
+  const t = Date.now(), legs = stratLegs(t), lot = FEED.lot;
+  $("s-legs").innerHTML = legs.map((L, i) => `<tr><td><span class="${L.side > 0 ? "up" : "down"}">${L.side > 0 ? "Buy" : "Sell"}</span> ${esc(L.inst.sym)}<div class="sub">${L.inst.expiry}</div></td><td class="r">${L.lots}</td><td class="r">${px(L.premium)}</td><td><button class="xbtn" type="button" data-rm="${i}" aria-label="Remove leg">✕</button></td></tr>`).join("")
+    || `<tr><td colspan="4" class="mute" style="padding:10px">Pick a template above, or press + next to prices in the option chain.</td></tr>`;
+  if (!legs.length) { $("s-chart").innerHTML = ""; $("s-stats").innerHTML = ""; $("s-greeks").textContent = "–"; return; }
+  const S = FEED.spotPrice("NIFTY", t), exp = legs.map((L) => L.inst.expiry).sort()[0], T = FEED.yearsTo(exp, t), iv = FEED.spotPrice("INDIAVIX", t) / 100;
+  const st = QL.strategyStats(legs, S, T, 0.06, iv, 0.013, lot), g = QL.strategyGreeks(legs, S, T, 0.06, iv, 0.013, lot);
+  const money = (x) => x === Infinity || x === -Infinity ? "Unlimited" : inr(x);
+  $("s-stats").innerHTML = [["Net premium", (st.netPremium >= 0 ? "+" : "") + inr(st.netPremium)], ["Max profit", money(st.maxProfit)], ["Max loss", money(st.maxLoss)],
+    ["Breakeven", st.breakevens.map((b) => Math.round(b)).join(" / ") || "–"], ["Chance of profit", (st.pop * 100).toFixed(0) + "%"], ["Charges to open", inr(QL.strategyCharges(legs, lot).total, 2)]]
+    .map(([a, b]) => `<div><span>${a}</span><b>${b}</b></div>`).join("");
+  $("s-greeks").textContent = `Δ ${g.delta.toFixed(1)} · Θ ${inr(g.theta)}/day · ν ${inr(g.vega)}/vol pt`;
+  // payoff chart (SVG)
+  const W = 520, H = 190, m = { l: 48, r: 8, t: 8, b: 20 }, xs = [], ys = [];
+  for (let i = 0; i <= 160; i++) { const x = S * (0.94 + 0.12 * i / 160); xs.push(x); ys.push(QL.strategyPayoff(legs, x, lot)); }
+  const lo = Math.min(...ys, 0), hi = Math.max(...ys, 0), X = (v) => m.l + (v - xs[0]) / (xs[160] - xs[0]) * (W - m.l - m.r), Y = (v) => m.t + (1 - (v - lo) / (hi - lo || 1)) * (H - m.t - m.b);
+  let path = "", pos = "", neg = "";
+  xs.forEach((x, i) => { path += (i ? "L" : "M") + X(x).toFixed(1) + " " + Y(ys[i]).toFixed(1); });
+  const zero = Y(0);
+  pos = `M${X(xs[0])} ${zero}` + xs.map((x, i) => `L${X(x).toFixed(1)} ${Math.min(Y(ys[i]), zero).toFixed(1)}`).join("") + `L${X(xs[160])} ${zero}Z`;
+  neg = `M${X(xs[0])} ${zero}` + xs.map((x, i) => `L${X(x).toFixed(1)} ${Math.max(Y(ys[i]), zero).toFixed(1)}`).join("") + `L${X(xs[160])} ${zero}Z`;
+  $("s-chart").innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Payoff at expiry">
+    <path d="${pos}" fill="${css("--green-soft")}"/><path d="${neg}" fill="${css("--red-soft")}"/>
+    <line x1="${m.l}" x2="${W - m.r}" y1="${zero}" y2="${zero}" stroke="${css("--line")}"/>
+    <path d="${path}" fill="none" stroke="${css("--pur-l")}" stroke-width="2"/>
+    <line x1="${X(S)}" x2="${X(S)}" y1="${m.t}" y2="${H - m.b}" stroke="${css("--mute")}" stroke-dasharray="3 3"/>
+    <text x="${X(S) + 4}" y="${m.t + 10}">spot ${Math.round(S)}</text>
+    <text x="${m.l - 4}" y="${Y(hi) + 4}" text-anchor="end">${(hi / 1000).toFixed(0)}k</text><text x="${m.l - 4}" y="${Y(lo)}" text-anchor="end">${(lo / 1000).toFixed(0)}k</text>
+    <text x="${m.l}" y="${H - 4}">${Math.round(xs[0])}</text><text x="${W - m.r}" y="${H - 4}" text-anchor="end">${Math.round(xs[160])}</text></svg>`;
+}
+function placeStrategy() {
+  if (!UI.strat.length) return;
+  for (const L of [...UI.strat].sort((a, b) => b.side - a.side)) act("place", { key: L.key, side: L.side > 0 ? "BUY" : "SELL", qty: L.lots * FEED.lot, type: "MARKET", product: "NRML" });
+  toast(`Sent ${UI.strat.length} legs as market orders`, "ok");
+}
+
+/* ---------------- volatility edge ---------------- */
+function rvFromHistory(h, days = 21) {
+  const c = h.c.slice(-days - 1), lr = c.slice(1).map((x, i) => Math.log(x / c[i])), m = lr.reduce((a, b) => a + b, 0) / lr.length;
+  return Math.sqrt(lr.reduce((a, b) => a + (b - m) ** 2, 0) / (lr.length - 1) * 252);
+}
+function renderEdge() {
+  if (!VRP) return;
+  const t = Date.now(), vix = FEED.spotPrice("INDIAVIX", t) / 100, rv = rvFromHistory(NIFTYH), vavg = VIXH.c.slice(-10).reduce((a, b) => a + b, 0) / 1000;
+  const c1 = vix > rv, c2 = vix / vavg <= 1.1, go = c1 && c2;
+  const pick = VRP.strategies.find((s) => s.strategy === "hedged_straddle" && s.filter === VRP.picks.hedged_straddle);
+  const condor = VRP.strategies.find((s) => s.strategy === "iron_condor" && s.filter === VRP.picks.iron_condor);
+  const gaps = VRP.premium;
+  $("edge").innerHTML = `
+    <div class="kv"><div><span>India VIX</span><b>${(vix * 100).toFixed(2)}</b></div><div><span>Nifty realised 21d</span><b>${(rv * 100).toFixed(2)}</b></div><div><span>Premium</span><b class="${cls(vix - rv)}">${((vix - rv) * 100).toFixed(1)} pts</b></div></div>
+    <div class="verdict ${go ? "go" : "wait"}"><b>${go ? "Conditions match the backtest's selling rule." : "Conditions don't match the selling rule today."}</b><br>
+      <span class="chip ${c1 ? "ok" : "no"}">${c1 ? "✓" : "✗"} VIX above recent realised</span> <span class="chip ${c2 ? "ok" : "no"}">${c2 ? "✓" : "✗"} VIX not spiking</span>
+      <div class="small mute" style="margin-top:5px">${go ? "Historically, monthly delta-hedged straddles entered on days like this averaged" : "When both hold, monthly delta-hedged straddles averaged"} ${pct(pick.oos_avg_pct, 2)} of notional a month in 2017–2025 (Sharpe ${pick.oos_sharpe.toFixed(2)}, worst month ${pct(pick.oos_worst_pct, 1)}). Iron condors, which cap the loss: ${pct(condor.oos_avg_pct, 2)} a month, worst ${pct(condor.oos_worst_pct, 1)}.</div></div>
+    <div class="svgc" id="e-chart"></div>
+    <p class="small mute" style="margin:0">Since 2008, India VIX was above the volatility Nifty actually delivered over the next month on ${(gaps.share_positive * 100).toFixed(0)}% of days (median ${(gaps.median_gap * 100).toFixed(1)} points). Option sellers earn that gap, but lose sharply in sudden crashes. Backtest priced from India VIX with NSE charges. Past results do not guarantee future returns.</p>`;
+  const h = VRP.vix_history, n = h.dates.length, k0 = Math.max(0, n - 260), W = 360, H = 110, m = { l: 26, r: 4, t: 6, b: 14 };
+  const vs = h.vix.slice(k0), rs = h.rv_past.slice(k0), all = vs.concat(rs.filter((x) => x != null)), hi = Math.max(...all), lo = Math.min(...all);
+  const X = (i) => m.l + i / (vs.length - 1) * (W - m.l - m.r), Y = (v) => m.t + (1 - (v - lo) / (hi - lo)) * (H - m.t - m.b);
+  const line = (arr) => arr.map((v, i) => v == null ? "" : `${i && arr[i - 1] != null ? "L" : "M"}${X(i).toFixed(1)} ${Y(v).toFixed(1)}`).join("");
+  $("e-chart").innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="India VIX versus realised volatility">
+    <path d="${line(vs)}" fill="none" stroke="${css("--pur-l")}" stroke-width="1.6"/><path d="${line(rs)}" fill="none" stroke="${css("--amber")}" stroke-width="1.3"/>
+    <text x="${m.l}" y="${H - 2}">${h.dates[k0].slice(0, 4)}</text><text x="${W - m.r}" y="${H - 2}" text-anchor="end">${h.dates[n - 1].slice(0, 4)}</text>
+    <text x="${m.l - 3}" y="${Y(hi) + 4}" text-anchor="end">${Math.round(hi * 100)}</text><text x="${m.l - 3}" y="${Y(lo)}" text-anchor="end">${Math.round(lo * 100)}</text>
+    <text x="${W - m.r}" y="${m.t + 8}" text-anchor="end" style="fill:${css("--pur-l")}">VIX</text><text x="${W - m.r}" y="${m.t + 19}" text-anchor="end" style="fill:${css("--amber")}">realised</text></svg>`;
+}
+
+/* ---------------- news (PulsEdge feed) ---------------- */
+async function renderNews() {
+  let feed;
+  try { feed = await getJson("data/feed.json"); } catch { try { feed = await getJson("data/feed.sample.json"); } catch { $("n-body").innerHTML = '<div class="loading">News feed unavailable.</div>'; return; } }
+  const known = new Set(SYMS.map((s) => s.sym));
+  const items = (feed.items || []).filter((i) => i.call !== "ignore").slice(0, 60);
+  $("n-body").innerHTML = items.map((i) => {
+    const ticks = (i.tickers || []).map((x) => typeof x === "string" ? x : x.symbol).filter(Boolean).slice(0, 4);
+    return `<div class="nw"><div class="m"><span class="chip ${esc(i.call || "watch")}">${esc((i.call || "watch").toUpperCase())}</span><span class="mono">${new Date(i.time).toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit", hour12: false })}</span><span>${esc(i.source || "")}</span>
+      ${ticks.map((s) => known.has(s) ? `<button type="button" class="tick" data-key="NSE:${esc(s)}">${esc(s)}</button>` : `<span class="tick" style="opacity:.6">${esc(s)}</span>`).join("")}</div>
+      <div class="h">${esc((i.headline || "").slice(0, 180))}</div></div>`;
+  }).join("") || '<div class="loading">No signals yet today.</div>';
+}
+
+/* ---------------- render loop ---------------- */
+function renderAll() { renderFunds(); renderPositions(); drawOrderLines(); estimate(); }
+function tick() {
+  const t = Date.now();
+  $("clock").textContent = new Date(t).toLocaleTimeString("en-IN", { hour12: false, timeZone: "Asia/Kolkata" }) + " IST";
+  if (leader) {
+    // the leader feeds quotes into the engine for everything that has an open order or position
+    const keys = new Set([UI.key]);
+    for (const o of engine.state.orders) if (o.status === "OPEN" || o.status === "TRIGGER_PENDING") keys.add(o.key);
+    for (const p of Object.values(engine.state.positions)) if (p.qty) keys.add(p.key);
+    const before = engine.state.trades.length;
+    for (const k of keys) { const inst = FEED.instrument(k); if (inst) { engine.register(inst); if (inst.underlyingKey) engine.register(FEED.instrument(inst.underlyingKey)); engine.quote(k, FEED.price(k, t), t); if (inst.underlyingKey) engine.quote(inst.underlyingKey, FEED.price(inst.underlyingKey, t), t); } }
+    if (engine.state.trades.length !== before) { save(); broadcast({ type: "state" }); for (const tr of engine.state.trades.slice(0, engine.state.trades.length - before)) toast(`Filled: ${tr.side} ${tr.qty} ${FEED.instrument(tr.key)?.sym} at ${px(tr.price)}`, "ok"); }
+  } else {
+    // pop-out windows only display: refresh prices for P&L without touching orders
+    for (const p of Object.values(engine.state.positions)) if (p.qty) { engine.state.last[p.key] = FEED.price(p.key, t); const i = FEED.instrument(p.key); if (i && i.underlyingKey) engine.state.last[i.underlyingKey] = FEED.price(i.underlyingKey, t); }
+  }
+  renderWatch(); renderFunds(); renderPositions(); tickChart();
+  $("t-bpx").textContent = px(FEED.price(UI.key, t));
+  if (!$("grid").classList.contains("options") || SOLO) { /* equity desk */ }
+  if (isVisible("chain")) renderChain();
+  if (isVisible("strategy")) renderStrategy();
+}
+function isVisible(p) { const el = document.querySelector(`.panel[data-panel="${p}"]`); return el && el.offsetParent !== null; }
+
+/* ---------------- events ---------------- */
+function wire() {
+  document.addEventListener("click", (e) => {
+    const t = e.target;
+    const pop = t.closest("[data-pop]");
+    if (pop) { window.open(`trade.html?panel=${pop.dataset.pop}`, "pe-" + pop.dataset.pop, "width=900,height=640"); return; }
+    const lt = t.closest(".lt[data-key]");
+    if (lt) { select(lt.dataset.key); UI.side = e.shiftKey ? "SELL" : "BUY"; renderTicket(); return; }
+    const add = t.closest("[data-add]");
+    if (add) { UI.strat.push({ key: add.dataset.add, side: e.shiftKey ? 1 : -1, lots: 1 }); broadcast({ type: "strat", legs: UI.strat }); renderStrategy(); toast(`${e.shiftKey ? "Buy" : "Sell"} leg added (shift-click + to add a buy)`); return; }
+    const rm = t.closest("[data-rm]");
+    if (rm) { UI.strat.splice(+rm.dataset.rm, 1); broadcast({ type: "strat", legs: UI.strat }); renderStrategy(); return; }
+    const ex = t.closest("[data-exit]");
+    if (ex) { act("squareOff", ex.dataset.exit, Date.now()); return; }
+    const cn = t.closest("[data-cancel]");
+    if (cn) { act("cancel", +cn.dataset.cancel); return; }
+    const row = t.closest("[data-key]");
+    if (row && !t.closest("button.xbtn")) { select(row.dataset.key); }
+  });
+  $("w-q").addEventListener("input", renderWatch);
+  $("c-tf").addEventListener("click", (e) => { const b = e.target.closest("[data-tf]"); if (!b) return; UI.tf = b.dataset.tf; syncTfButtons(); loadChart(); });
+  $("t-buy").onclick = () => { UI.side = "BUY"; renderTicket(); };
+  $("t-sell").onclick = () => { UI.side = "SELL"; renderTicket(); };
+  $("t-prod").addEventListener("click", (e) => { const b = e.target.closest("[data-v]"); if (b) { UI.product = b.dataset.v; renderTicket(); } });
+  $("t-type").addEventListener("click", (e) => { const b = e.target.closest("[data-v]"); if (b) { UI.type = b.dataset.v; renderTicket(); } });
+  ["t-qty", "t-px", "t-trg", "t-sl", "t-tg"].forEach((id) => $(id).addEventListener("input", estimate));
+  $("t-size").onclick = sizeByRisk;
+  $("tk").addEventListener("submit", submitTicket);
+  $("p-tabs").addEventListener("click", (e) => { const b = e.target.closest("[data-v]"); if (!b) return; UI.posTab = b.dataset.v; $("p-tabs").querySelectorAll("button").forEach((x) => x.setAttribute("aria-pressed", String(x === b))); renderPositions(); });
+  $("p-exit").onclick = () => { act("squareOffAll", Date.now()); toast("Exiting all positions"); };
+  $("o-exp").onchange = renderChain;
+  $("s-tpl").innerHTML = `<option value="">Template…</option>` + TPLS.map((n) => `<option>${n}</option>`).join("");
+  $("s-tpl").onchange = () => { if ($("s-tpl").value) stratFromTemplate($("s-tpl").value); $("s-tpl").value = ""; };
+  $("s-clear").onclick = () => { UI.strat = []; broadcast({ type: "strat", legs: [] }); renderStrategy(); };
+  $("s-place").onclick = placeStrategy;
+  const desk = (d) => { $("grid").classList.toggle("options", d === "op"); $("desk-eq").setAttribute("aria-pressed", String(d === "eq")); $("desk-op").setAttribute("aria-pressed", String(d === "op")); store("pe-trade-desk", d); if (d === "op") { renderChain(); renderStrategy(); } else loadChart(); };
+  $("desk-eq").onclick = () => desk("eq"); $("desk-op").onclick = () => desk("op");
+  desk(store("pe-trade-desk") || "eq");
+  $("help-btn").onclick = () => { $("help").hidden = false; };
+  $("help-close").onclick = () => { $("help").hidden = true; };
+  $("reset-acct").onclick = () => { if (leader) { engine.reset(1000000); save(); broadcast({ type: "state" }); renderAll(); toast("Paper account reset to ₹10,00,000", "ok"); } else toast("Reset from the main window"); $("help").hidden = true; };
+  document.addEventListener("keydown", (e) => {
+    if (e.target.closest("input,select,textarea")) { if (e.key === "Escape") e.target.blur(); return; }
+    const k = e.key.toLowerCase();
+    if (k === "/") { e.preventDefault(); $("w-q").focus(); }
+    else if (k === "b") { UI.side = "BUY"; renderTicket(); $("t-qty").focus(); }
+    else if (k === "s") { UI.side = "SELL"; renderTicket(); $("t-qty").focus(); }
+    else if (k === "e") $("desk-eq").click();
+    else if (k === "o") $("desk-op").click();
+    else if (e.key === "?") $("help").hidden = false;
+    else if (e.key === "Escape") $("help").hidden = true;
+  });
+  const reTheme = () => { if (chart) { chart.applyOptions(chartColors()); candles.applyOptions({ upColor: css("--green"), downColor: css("--red"), wickUpColor: css("--green"), wickDownColor: css("--red") }); } renderEdge(); renderStrategy(); };
+  new MutationObserver(reTheme).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", reTheme);
+}
+
+/* ---------------- boot ---------------- */
+async function boot() {
+  try {
+    const [sy, vrp, nh, vh] = await Promise.all(["data/trade/symbols.json", "data/trade/vrp.json", "data/trade/NIFTY.json", "data/trade/INDIAVIX.json"].map(getJson));
+    SYMS = sy.symbols; VRP = vrp; NIFTYH = nh; VIXH = vh; HIST.NIFTY = nh; HIST.INDIAVIX = vh;
+  } catch (e) { document.querySelector(".grid").innerHTML = `<div class="loading">Couldn't load market data (${esc(e.message)}).</div>`; return; }
+  const base = Object.fromEntries(SYMS.map((s) => [s.sym, { close: s.close, vol: s.vol }]));
+  base.NIFTY.vol = Math.max(base.NIFTY.vol, base.INDIAVIX.close / 100);     // Nifty moves with implied volatility
+  FEED = new PETrade.DemoFeed({ symbols: SYMS, base, lot: 65 });
+  engine = new PETrade.Engine({ capital: 1000000 });
+  for (const k of watchKeys()) { const i = FEED.instrument(k); if (i) engine.register(i); }
+  const saved = store(KEY);
+  if (saved) { engine.load(saved); for (const k of Object.keys(saved.insts || {})) { const i = FEED.instrument(k); if (i) engine.register(i); } }
+  if (SOLO) {
+    document.body.classList.add("single");
+    const el = document.querySelector(`.panel[data-panel="${CSS.escape(SOLO)}"]`);
+    if (el) { el.classList.add("solo"); el.querySelector("[data-pop]")?.remove(); document.title = `${el.getAttribute("aria-label")} · PulsEdge Trade`; }
+    if (SOLO === "chain" || SOLO === "strategy") $("grid").classList.add("options");
+  }
+  setupSync();
+  wire();
+  makeChart();
+  select(FEED.instrument(UI.key) ? UI.key : "NSE:NIFTY", false);
+  renderEdge(); renderNews(); renderAll();
+  if (!store("pe-trade-seen") && !SOLO) { $("help").hidden = false; store("pe-trade-seen", 1); }
+  tick(); setInterval(tick, 1000);
+  setInterval(renderNews, 120000);
+}
+boot();
+</script>
+</body>
+</html>
